@@ -6,19 +6,19 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const MyApp = () => {
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <App />
-    </React.Fragment>
-  )
-}
+	return (
+		<React.Fragment>
+			<CssBaseline />
+			<App />
+		</React.Fragment>
+	);
+};
 
 ReactDOM.render(
-  <React.StrictMode>
-    <MyApp />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<MyApp />
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

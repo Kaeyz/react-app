@@ -2,13 +2,13 @@ import React from 'react';
 import Theme from './Theme';
 
 function App() {
-  return (
-    <div className="App">
-      <Theme>
+	return (
+		<div className="App">
+			<Theme>
         Welcome to choose life
-      </Theme>
-    </div>
-  );
+			</Theme>
+		</div>
+	);
 }
 
 export default App;
