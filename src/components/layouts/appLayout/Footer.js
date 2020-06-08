@@ -1,7 +1,7 @@
 // modules
 import React from 'react';
 import styled from 'styled-components';
-
+//import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
 
@@ -19,5 +19,6 @@ export default function Footer() {
 }
 
 Footer.propTypes = {
+	//PropTypes
 	//TODO: footer prop types goes here
 };

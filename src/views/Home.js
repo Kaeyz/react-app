@@ -4,7 +4,7 @@ import VideoCarousel from '../components/home/VideoCarousel';
 import Card1 from '../components/home/Card1';
 import AppLayout from '../components/layouts/appLayout/AppLayout';
 import Subscribe from '../components/subscribe/Subscribe';
-import Blog from '../components/blog/Blog';
+import LatestBlog from '../components/blog/LatestBlog';
 import Drive from '../components/aboutUs/Drive';
 import Clients from '../components/aboutUs/Clients';
 
@@ -16,7 +16,7 @@ const Home = () => {
 			<Card1 />
 			<Clients />
 			<Drive />
-			<Blog />
+			<LatestBlog />
 			<Subscribe />
 		</AppLayout>
 	);

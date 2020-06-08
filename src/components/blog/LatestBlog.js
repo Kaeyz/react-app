@@ -10,7 +10,7 @@ const Wrapper = styled.div `
 
 `;
 
-export default function Blog() {
+export default function LatestBlog() {
 	return (
 		<Wrapper >
 
@@ -21,6 +21,6 @@ export default function Blog() {
 	);
 }
 
-Blog.propTypes = {
+LatestBlog.propTypes = {
 	//TODO: blog prop types goes here
 };
