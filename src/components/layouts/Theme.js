@@ -1,24 +1,23 @@
-import React from "react";
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
-import PropTypes from "prop-types";
-import bodyFont from "../../assets/OpenSans-SemiBold.ttf"
-import secondaryFont from "../../assets/URW Martin Gothic W01 Bold.ttf"
+import React from 'react';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import PropTypes from 'prop-types';
+import bodyFont from '../../assets/OpenSans-SemiBold.ttf';
+import secondaryFont from '../../assets/URW Martin Gothic W01 Bold.ttf';
 const theme = {
-  color: {
-    green: "#147119",
-    yellow: "#eab10a",
-    black: "#333",
-    blue: "#492DDA",
-    white: "#f2efe1",
-    grey: "grey",
-    background: "#ffffff",
+	color: {
+		green: '#147119',
+		yellow: '#eab10a',
+		black: '#333',
+		blue: '#492DDA',
+		white: '#f2efe1',
+		grey: 'grey',
+		background: '#ffffff',
 
-  },
-  
-  font: {
-  	// header_font: 'Tahoma',
-  	body_font: 'Roboto',
-  }
+	},
+	font: {
+		// header_font: 'Tahoma',
+		body_font: 'Roboto',
+	}
 };
 
 
@@ -33,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
   src: local('Captain'), local('Captain'),
   url(${bodyFont}) format('ttf'),
   url(${secondaryFont}) format('ttf')
- 
+
 }
 	html {
 		box-sizing: border-box;
@@ -44,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 	/* font */
 
-	
+
 	body {
 		padding: 0;
 		margin: 0;
@@ -128,21 +127,19 @@ img {
   width: 1200px;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-
+  }
 `;
 
 const Theme = (props) => (
-  <ThemeProvider theme={theme}>
-    <div>
-      <GlobalStyle />
-      <Wrapper>{props.children}</Wrapper>
-    </div>
-  </ThemeProvider>
+	<ThemeProvider theme={theme}>
+		<div>
+			<GlobalStyle />
+			<Wrapper>{props.children}</Wrapper>
+		</div>
+	</ThemeProvider>
 );
 Theme.propTypes = {
-  children: PropTypes.object.isRequired,
+	children: PropTypes.object.isRequired,
 };
 
 export default Theme;

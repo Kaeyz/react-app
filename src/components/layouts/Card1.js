@@ -1,44 +1,46 @@
-import React from "react";
+import React from 'react';
+import hiddenImg from '../../assets/Ellipse31.png';
+import circle from '../../assets/Ellipse17.png';
+import styled from 'styled-components';
+import Button from '../common/Button';
+
 // import { Link } from "react-router-dom";
 // import img from "../../assets/heroHome.png";
-import hiddenImg from "../../assets/Ellipse31.png"
-import circle from "../../assets/Ellipse17.png";
-import styled from "styled-components";
-import Button from "../common/Button";
-function Card1() {
-  return (
-    <Card className="flex">
-      <Card1Content>
-        <OppImportance>
-          <div classname="circular">
-            <img src={circle} alt="circular" />
-          </div>
-        </OppImportance>
 
-        <Importance>
-        
-          <ImportanceHead>We ask the meaningful questions</ImportanceHead>
-          <ImportanceText>
+function Card1() {
+	return (
+		<Card className="flex">
+			<Card1Content>
+				<OppImportance>
+					<div className="circular">
+						<img src={circle} alt="circular" />
+					</div>
+				</OppImportance>
+
+				<Importance>
+
+					<ImportanceHead>We ask the meaningful questions</ImportanceHead>
+					<ImportanceText>
             Are you stressed? Are you unhappy? How can we make your life or you
             more productive and satisfied? Are you living a life of balance and
             good adjustment? We ask the questions that help us make you happier,
             healthier, and simply, the best version of yourself.
-          </ImportanceText>
-          
-          <ImportanceBtns>
-            <Button value="Explore" theme="green" style={{marginTop:"19.6px"}}>
-              {" "}
+					</ImportanceText>
+
+					<ImportanceBtns>
+						<Button value="Explore" theme="green" style={{marginTop:'19.6px'}}>
+							{' '}
               Explore
-            </Button>
-          </ImportanceBtns>
-        </Importance>
-        
-      </Card1Content>
-      <div classname="hidden">
-            <img src={hiddenImg} alt="hiddenImg" />
-          </div>
-    </Card>
-  );
+						</Button>
+					</ImportanceBtns>
+				</Importance>
+
+			</Card1Content>
+			<div className="hidden">
+				<img src={hiddenImg} alt="hiddenImg" />
+			</div>
+		</Card>
+	);
 }
 
 const Card = styled.section`
@@ -57,7 +59,7 @@ z-index: 5;
   .hidden{
     position: absolute;
   }
- 
+
 `;
 const Importance = styled.div`
   width: 390px;
@@ -70,16 +72,17 @@ const ImportanceHead = styled.h3`
   color: 1d1d1d;
 `;
 const ImportanceBtns = styled.div`
-  margintop: 20px;
+  margin-top: 20px;
 `;
 
-const wholeVideo = {
-  background: "#EBF8F7",
-  // padding: "82px 183px",
-  height: 419.4,
-  marginTop: "-30px",
-  zIndex: 5,
-};
+/* const wholeVideo = {
+	background: '#EBF8F7',
+	// padding: "82px 183px",
+	height: 419.4,
+	marginTop: '-30px',
+	zIndex: 5,
+}; */
+
 const Card1Content = styled.div`
   width: 70%;
   align-items: center;
@@ -92,22 +95,23 @@ const Card1Content = styled.div`
 const OppImportance = styled.div`
   justify-content: center;
   display: flex;
-  
+
 `;
-const priLink = {
-  fontWeight: 600,
-  fontSize: 14,
-  lineHeight: "132%",
-  textDecorationLine: "underline",
-  marginBottom: 20,
-  color: "#3CBDB2",
-};
+
+/* const priLink = {
+	fontWeight: 600,
+	fontSize: 14,
+	lineHeight: '132%',
+	textDecorationLine: 'underline',
+	marginBottom: 20,
+	color: '#3CBDB2',
+}; */
 
 const ImportanceText = styled.p`
   color: #606161;
-  fontsize: 14px;
-  lineheight: 22px;
-  marginbottom: 6.6;
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 6.6;
 `;
 
 export default Card1;
