@@ -1,8 +1,10 @@
 import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
-import bodyFont from '../../assets/OpenSans-SemiBold.ttf';
-import secondaryFont from '../../assets/URW Martin Gothic W01 Bold.ttf';
+import bodyFont from './assets/OpenSans-SemiBold.ttf';
+import secondaryFont from './assets/URW Martin Gothic W01 Bold.ttf';
+
+
 const theme = {
 	color: {
 		green: '#147119',
