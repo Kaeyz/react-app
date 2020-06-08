@@ -1,7 +1,7 @@
 import React from 'react';
-import HomeHero from '../components/layouts/HomeHero';
-import VideoCarousel from '../components/layouts/VideoCarousel';
-import Card1 from '../components/layouts/Card1';
+import HomeHero from '../components/home/HomeHero';
+import VideoCarousel from '../components/home/VideoCarousel';
+import Card1 from '../components/home/Card1';
 import AppLayout from '../components/layouts/appLayout/AppLayout';
 
 const Home = () => {

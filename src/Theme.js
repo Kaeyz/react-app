@@ -14,7 +14,6 @@ const theme = {
 		white: '#f2efe1',
 		grey: 'grey',
 		background: '#ffffff',
-
 	},
 	font: {
 		// header_font: 'Tahoma',
@@ -25,7 +24,6 @@ const theme = {
 
 const Wrapper = styled.div`
   background-color: ${theme.color.background};
-
 `;
 
 const GlobalStyle = createGlobalStyle`
