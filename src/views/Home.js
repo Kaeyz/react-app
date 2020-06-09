@@ -5,8 +5,8 @@ import LongCard from '../components/home/LongCard';
 import AppLayout from '../components/layouts/appLayout/AppLayout';
 import Subscribe from '../components/subscribe/Subscribe';
 import LatestBlog from '../components/blog/LatestBlog';
-import Drive from '../components/aboutUs/Drive';
-import Clients from '../components/aboutUs/Clients';
+import OurDrive from '../components/home/OurDrive';
+import OurClients from '../components/home/OurClients';
 
 const Home = () => {
 	return (
@@ -14,8 +14,8 @@ const Home = () => {
 			<HomeHero />
 			<VideoCarousel />
 			<LongCard />
-			<Clients />
-			<Drive />
+			<OurClients />
+			<OurDrive />
 			<LatestBlog />
 			<Subscribe />
 		</AppLayout>

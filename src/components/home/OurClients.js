@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 
 `;
 
-export default function Clients() {
+export default function OurClients() {
 	return (
 		<Wrapper>
 			{/* clients component goes here */}
@@ -18,6 +18,6 @@ export default function Clients() {
 	);
 }
 
-Clients.propTypes = {
+OurClients.propTypes = {
 	//TODO: clients prop types goes here
 };
