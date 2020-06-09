@@ -13,7 +13,7 @@ export default function TopBanner() {
 	return (
 		<Wrapper>
 			{/* top banner info component goes here */}
-			WellnessInfo
+			TopBanner
 		</Wrapper>
 	);
 }

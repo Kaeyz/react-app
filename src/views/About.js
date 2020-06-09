@@ -21,4 +21,5 @@ const About = () => {
 		</AppLayout>
 	);
 };
+
 export default About;
