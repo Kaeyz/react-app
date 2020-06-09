@@ -7,7 +7,7 @@ function Button({style, theme, ...rest}) {
 	return (
 		<button
 			type="button" className={`primaryBtn ${themeClassName} ${theme}`}
-			style={{borderRadius: '5px', fontSize:'12px',fontWeight:'bold', width:'133px', cursor:'pointer',padding: '11px 4px',  ...style}}
+			style={{borderRadius: '5px', fontSize:'12px',fontWeight:'bold', width:'133px', fontFamily:'cursive', cursor:'pointer',padding: '11px 4px',  ...style}}
 			{...rest}
 		/>
 

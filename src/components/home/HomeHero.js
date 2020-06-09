@@ -98,7 +98,7 @@ const heroHeaderContainer = {
 };
 
 const heroHeaderText ={
-	fontFamily: 'Captain',
+	fontFamily: 'cursive',
 	color: '#1d1d1d',
 
 };
@@ -106,7 +106,7 @@ const heroHeaderText1 = {
 	fontSize: 72,
 	lineHeight: '86px',
 
-	fontWeight: 'bold',
+	fontWeight: 'normalbtn',
 	marginTop: '157px',
 	//   textTransform: "uppercase",
 };

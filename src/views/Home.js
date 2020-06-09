@@ -1,7 +1,7 @@
 import React from 'react';
 import HomeHero from '../components/home/HomeHero';
 import VideoCarousel from '../components/home/VideoCarousel';
-import Card1 from '../components/home/Card1';
+import LongCard from '../components/home/LongCard';
 import AppLayout from '../components/layouts/appLayout/AppLayout';
 import Subscribe from '../components/subscribe/Subscribe';
 import LatestBlog from '../components/blog/LatestBlog';
@@ -13,7 +13,7 @@ const Home = () => {
 		<AppLayout>
 			<HomeHero />
 			<VideoCarousel />
-			<Card1 />
+			<LongCard />
 			<Clients />
 			<Drive />
 			<LatestBlog />

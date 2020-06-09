@@ -10,7 +10,7 @@ function Card1() {
 			<Card1Content>
 				<OppImportance>
 					<div className ="circular">
-						<img src={circle} alt="circular" />
+						{/* <img src={circle} alt="circular" /> */}
 					</div>
 				</OppImportance>
 

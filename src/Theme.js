@@ -17,7 +17,7 @@ const theme = {
 	},
 	font: {
 		// header_font: 'Tahoma',
-		body_font: 'Roboto',
+		body_font: 'cursive',
 	}
 };
 
@@ -27,13 +27,7 @@ const Wrapper = styled.div`
 `;
 
 const GlobalStyle = createGlobalStyle`
-@font-face {
-  font-family: 'Captain';
-  src: local('Captain'), local('Captain'),
-  url(${bodyFont}) format('ttf'),
-  url(${secondaryFont}) format('ttf')
 
-}
 	html {
 		box-sizing: border-box;
 		font-size: 10px;
@@ -51,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
 		line-height: 2;
 		outline: none;
     height: 100%;
-    font-family: Captain;
+    font-family: cursive;
 
   }
 	div, span {

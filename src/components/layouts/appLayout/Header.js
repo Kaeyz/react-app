@@ -117,7 +117,7 @@ const BreadCrumb = styled.span`
 const NavLinks = styled(NavLink)`
 display: inline-block;
   padding: 13px 32px;
-  font-family: Captain;
+  font-family: cursive;
   text-decoration: none;
   /* text-transform: lowercase; */
   font-style: normal;
