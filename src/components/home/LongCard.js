@@ -23,33 +23,37 @@ function LongCard() {
         <Card1Content style={{ flexDirection: "row-reverse" }}>
           <OppImportance>
             <div className="circular">
-              <img src={circle} alt="circular"  />
+              <img src={circle} alt="circular" />
               <div className="Parentnode Parentnode0">
                 <div className="node">
-                  <h2 className="flex" style={{marginTop:"-40px"}}>HEALTH</h2>
+                  <h2 className="flex" style={{ marginTop: "-40px" }}>
+                    HEALTH
+                  </h2>
                 </div>
               </div>
               <div className="Parentnode Parentnode1">
                 <div className="node">
-                <h2 className="flex" style={{marginTop:"40px"}}>FITNESS</h2>
-
+                  <h2 className="flex" style={{ marginTop: "40px" }}>
+                    FITNESS
+                  </h2>
                 </div>
               </div>
               <div className="Parentnode Parentnode2">
                 <div className="node">
-                <h2 className="flex" style={{marginLeft:"-155px"}}>NUTRITION</h2>
-
+                  <h2 className="flex" style={{ marginLeft: "-155px" }}>
+                    NUTRITION
+                  </h2>
                 </div>
               </div>
               <div className="Parentnode Parentnode3">
                 <div className="node">
-                <h2 className="flex" style={{marginRight:"-155px",}}>LIFESTYLE</h2>
-
+                  <h2 className="flex" style={{ marginRight: "-155px" }}>
+                    LIFESTYLE
+                  </h2>
                 </div>
               </div>
               <div className="centered">
-              <img src={centerFrame} alt="center-frame" />
-
+                <img src={centerFrame} alt="center-frame" />
               </div>
             </div>
           </OppImportance>
@@ -127,19 +131,18 @@ function LongCard() {
         </div>
       </Card>
 
-
       {/* thirdcard */}
       <Card className="flex theCard">
-                <Card1Content style={{ flexDirection: "row-reverse" }}>
+        <Card1Content style={{ flexDirection: "row-reverse" }}>
           <OppImportance>
-            <div >
+            <div>
               <img src={watch} alt="watch" />
             </div>
           </OppImportance>
 
           <Importance>
             <ImportanceHead style={{ marginBottom: "20.4px" }}>
-             The Sooner, The Better 
+              The Sooner, The Better
             </ImportanceHead>
             <ImportanceText>
               Like with all problems, early detection is key in solving some of
@@ -167,10 +170,8 @@ function LongCard() {
 }
 
 const Card = styled.section`
-
   margin-top: 90px;
   z-index: 5;
- 
 
   .hover-link:hover {
     color: #1d1d1d !important;
@@ -186,14 +187,14 @@ const Card = styled.section`
     line-height: 58px;
     font-weight: normal;
   }
-  .node{
+  .node {
     width: 13.02px;
-height: 13.02px;
-background: #3CBDB2;
-border-radius: 50%;
-text-align: center
+    height: 13.02px;
+    background: #3cbdb2;
+    border-radius: 50%;
+    text-align: center;
   }
-  .Parentnode{
+  .Parentnode {
     width: 22.93px;
     height: 22.93px;
     background: rgba(46, 196, 182, 0.3);
@@ -202,29 +203,28 @@ text-align: center
     align-items: center;
     border-radius: 50%;
     position: absolute;
-    
-    }
-    .node>.flex{
-      font-size: 16px;
-line-height: 19px;
-color: #606161
-    }
-    .Parentnode0{
-      top: -11px;
-      left: 47%;
-    }
-    .Parentnode1{
-      bottom: 1px;
+  }
+  .node > .flex {
+    font-size: 16px;
+    line-height: 19px;
+    color: #606161;
+  }
+  .Parentnode0 {
+    top: -11px;
     left: 47%;
-    }
-    .Parentnode2{
-      top: 45%;
+  }
+  .Parentnode1 {
+    bottom: 1px;
+    left: 47%;
+  }
+  .Parentnode2 {
+    top: 45%;
     left: -9px;
-    }
-    .Parentnode3{
-      top: 45%;
-      left: 96%;
-    }
+  }
+  .Parentnode3 {
+    top: 45%;
+    left: 96%;
+  }
   .centered {
     position: absolute;
     top: 50%;
@@ -243,7 +243,8 @@ color: #606161
     background-repeat: no-repeat;
     background-position: center;
   }
-  .irregular,.circular {
+  .irregular,
+  .circular {
     position: relative;
   }
 `;

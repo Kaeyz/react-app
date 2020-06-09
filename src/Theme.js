@@ -1,8 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
-import bodyFont from './assets/OpenSans-SemiBold.ttf';
-import secondaryFont from './assets/URW Martin Gothic W01 Bold.ttf';
 
 
 const theme = {
@@ -109,19 +107,7 @@ img {
     height: calc(100vh - 50px);
     overflow-y: auto;
   }
-/* .heroes */
-.heroes {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.heroText {
-  position: absolute;
-  top: 40%;
-  width: 1200px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  }
+
 `;
 
 const Theme = (props) => (

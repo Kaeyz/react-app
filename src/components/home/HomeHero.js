@@ -22,7 +22,7 @@ class HomeHero extends Component {
 						<div style={heroHeaderTextContainer}>
 							<h3 style={Object.assign({}, heroHeaderText1, heroHeaderText)} >
               Wellness is the gift you give
-								<br /> yourself.
+							yourself.
 							</h3>
 							<h5 style={Object.assign({}, heroHeaderText2, heroHeaderText)}>
               Empower yourself with the knowledge and opportunity to live the
@@ -72,7 +72,8 @@ const Wrapper = styled.div `
     background-size: cover;
   }
   .hero-image{
-    width: 1250px;
+	width: 1250px;
+	max-width: 100%;
     height: 200px;
     position: absolute;
     top: 60%;
@@ -86,7 +87,8 @@ const Wrapper = styled.div `
   .heroText {
     position: absolute;
     top: 40%;
-    width: 1200px;
+	width: 1200px;
+	max-width: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
