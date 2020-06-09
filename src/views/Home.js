@@ -21,4 +21,5 @@ const Home = () => {
 		</AppLayout>
 	);
 };
+
 export default Home;
