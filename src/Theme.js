@@ -1,11 +1,8 @@
 import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
-<<<<<<< HEAD
-=======
 //import bodyFont from './assets/OpenSans-SemiBold.ttf';
 //import secondaryFont from './assets/URW Martin Gothic W01 Bold.ttf';
->>>>>>> bbb9fd91d27ca2c3c90d108fc5829aa2eeeeaf90
 
 
 const theme = {

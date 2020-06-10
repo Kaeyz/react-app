@@ -27,10 +27,12 @@ const Wrapper = styled.div`
   }
   .clientContent {
 	text-align: center;
-	flex-direction: column
+  flex-direction: column;
+  max-width: 100%;
   }
   .clientHead {
     width: 704px;
+    max-width:100%
   }
   .clientHead > h1 {
     font-size: 32px;
@@ -46,7 +48,7 @@ const Wrapper = styled.div`
   }
 
   /*
-  CSS for the main interaction
+  CSS for tabset
  */
  .tabset > input[type="radio"] {
    position: absolute;
@@ -57,13 +59,17 @@ const Wrapper = styled.div`
    display: none;
  }
  
- .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
  .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
  .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
  .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
  .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
  .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
-   display: block;
+   display: block
+ }
+ .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child{
+  justify-content: center;
+  display:flex;
+   align-items: center;
  }
  
  /*
@@ -73,48 +79,73 @@ const Wrapper = styled.div`
  .tabset > label {
    position: relative;
    display: inline-block;
-   padding: 15px 15px 25px;
-   border: 1px solid transparent;
+   padding: 10px 15px;
+   font-size: 14px;
+line-height: 24px;
    border-bottom: 0;
    cursor: pointer;
    font-weight: 600;
+   position:relative;
+   width:200px
  }
  
  .tabset > label::after {
    content: "";
    position: absolute;
-   left: 15px;
-   bottom: 10px;
-   width: 22px;
-   height: 4px;
+   right: 0px;
+   bottom: 0px;
+   width: 100%;
+   height: 2px;
    background: #8d8d8d;
  }
  
  .tabset > label:hover,
  .tabset > input:focus + label {
-   color: #06c;
- }
+  color: #2EC4B6; 
+  transition:.3s
+}
  
  .tabset > label:hover::after,
  .tabset > input:focus + label::after,
  .tabset > input:checked + label::after {
-   background: #06c;
+   background:  #2EC4B6;
+   transition:.3s
+
  }
  
  .tabset > input:checked + label {
-   border-color: #ccc;
-   border-bottom: 1px solid #fff;
+  color: #2EC4B6;
    margin-bottom: -1px;
  }
- 
+
+ .flexy-client{
+   width:100%;
+   justify-content: space-around;
+   flex-wrap: wrap;
+ }
  .tab-panel {
-   padding: 30px 0;
-   border-top: 1px solid #ccc;
+  //  padding: 30px 0;
+   background: rgba(46,196,182,.05);
+  width: 1058px;
+height: 480px;
+max-width:100%;
+display: flex;
+    flex-direction:column;
  }
  
  
  .tabset {
-   max-width: 65em;
+  width: 1058px;
+   max-width: 100%;
+   margin-top:47px
+ }
+
+ #rauchbier{
+   text-align:center;
+   padding: 20px;
+   p{
+     color:red
+   }
  }
 }
 `;
@@ -136,28 +167,57 @@ export default function OurClients() {
           </p>
         </div>
 
-  
-<div class="tabset">
-  {/* <!-- Tab 1 --> */}
-  <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked/>
-  <label for="tab1">Märzen</label>
-  {/* <!-- Tab 2 --> */}
-  <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier"/>
-  <label for="tab2">Rauchbier</label>
- 
-  <div class="tab-panels">
-    <section id="marzen" class="tab-panel">
-      <h2>6A. Märzen</h2>
-      <p><strong>Overall Impression:</strong> An elegant, malty German amber lager with a clean, rich, toasty and bready malt flavor, restrained bitterness, and a dry finish that encourages another drink. The overall malt impression is soft, elegant, and complex, with a rich aftertaste that is never cloying or heavy.</p>
-      </section>
-    <section id="rauchbier" class="tab-panel">
-      <h2>6B. Rauchbier</h2>
-      <p><strong>Overall Impression:</strong>  An elegant, malty German amber lager with a balanced, complementary beechwood smoke character. Toasty-rich malt in aroma and flavor, restrained bitterness, low to high smoke flavor, clean fermentation profile, and an attenuated finish are characteristic.</p>
-      
-    </section>
-  </div>
+        <div class="tabset">
+          {/* <!-- Tab 1 --> */}
+          <input
+            type="radio"
+            name="tabset"
+            id="tab1"
+            aria-controls="marzen"
+            checked
+          />
+          <label for="tab1" style={{ marginRight: "20px" }}>
+            OUR CLIENTS
+          </label>
+          {/* <!-- Tab 2 --> */}
+          <input
+            type="radio"
+            name="tabset"
+            id="tab2"
+            aria-controls="rauchbier"
+          />
+          <label for="tab2">RESULTS</label>
+
+          <div class="tab-panels">
+            <section id="marzen" class="tab-panel flex">
+              <div
+                className="flex flexy-client"
+                style={{ marginBottom: "100px" }}
+              >
+                <img src={firstBank} alt="firstbank" />
+                <img src={client2} alt="firstbank" />
+                <img src={firstBank} alt="firstbank" />
+                <img src={client2} alt="firstbank" />
+              </div>
+              <div className="flex flexy-client">
+                <img src={firstBank} alt="firstbank" />
+                <img src={client2} alt="firstbank" />
+                <img src={firstBank} alt="firstbank" />
+                <img src={client2} alt="firstbank" />
+              </div>
+            </section>
+            <section id="rauchbier" class="tab-panel">
+              <p>
+                <strong>Overall Impression:</strong> An elegant, malty German
+                amber lager with a balanced, complementary beechwood smoke
+                character. Toasty-rich malt in aroma and flavor, restrained
+                bitterness, low to high smoke flavor, clean fermentation
+                profile, and an attenuated finish are characteristic.
+              </p>
+            </section>
+          </div>
+        </div>
       </div>
-	  </div>
     </Wrapper>
   );
 }
