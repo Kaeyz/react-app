@@ -7,7 +7,6 @@ import firstBank from '../../assets/client2.png';
 import client2 from '../../assets/client1.png';
 
 const Wrapper = styled.div`
-	/* clients styling goes here */
 	background: #f8f9fb;
 	height: 848px;
 	position: relative;

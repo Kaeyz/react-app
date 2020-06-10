@@ -10,15 +10,15 @@ const Wrapper = styled.div`
   border: 1px solid rgba(46, 196, 182, 0.3);
   border-radius: 5px;
   .blog-content {
-    padding: 3rem 0rem;
+    padding: 3rem 0rem 10rem 0rem;
     display: grid;
     grid-gap: 3rem;
   }
   .blog-cards {
     width: 100%;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
   }
 `;
 
