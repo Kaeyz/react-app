@@ -2,6 +2,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Avatar } from '@material-ui/core';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
 //import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
@@ -41,8 +45,10 @@ const Wrapper = styled.div`
 		flex-wrap: wrap;
 	}
 	.social {
-		margin-right: 1rem;
+		margin-right: 2rem;
 		margin-bottom: 1rem;
+		background-color: ${props => props.theme.color.white};
+		color: ${props => props.theme.color.green};
 	}
 `;
 
@@ -79,9 +85,15 @@ export default function Footer() {
 			<div>
 				<h5 className="footer_nav_header">Follow Us</h5>
 				<div className="socials">
-					<div className="social">Facebook</div>
-					<div className="social">Twitter</div>
-					<div className="social">Instagram</div>
+					<Avatar className="social">
+						<FacebookIcon fontSize="large"/>
+					</Avatar>
+					<Avatar className="social">
+						<TwitterIcon fontSize="large" />
+					</Avatar>
+					<Avatar className="social">
+						<InstagramIcon fontSize="large"/>
+					</Avatar>
 				</div>
 			</div>
 
