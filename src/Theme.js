@@ -7,11 +7,11 @@ import PropTypes from 'prop-types';
 
 const theme = {
 	color: {
-		green: '#147119',
+		green: '#3CBDB2',
 		yellow: '#eab10a',
 		black: '#333',
 		blue: '#492DDA',
-		white: '#f2efe1',
+		white: '#FFFFFF',
 		grey: 'grey',
 		background: '#ffffff',
 	},
