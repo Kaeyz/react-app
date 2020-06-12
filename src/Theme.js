@@ -93,8 +93,19 @@ const GlobalStyle = createGlobalStyle`
 }
 .greenBtn:hover {
   color: #fff;
-  background: #2ec4b6 !important;
-  transition: 0.3s;
+  background-color: #2ec4b6;
+  transition: 0.4s;
+}
+.darkGreenBtn {
+  border: 1px solid #2ec4b6;
+  color: ${theme.color.ui_01};
+  background-color: ${theme.color.brand_02};
+}
+.darkGreenBtn:hover {
+  color: #fff;
+  color: #2ec4b6;
+  background-color: rgba(203, 243, 240, 0.1);
+  transition: 0.4s;
 }
 .yellowBtn {
   background: #fcb813;
@@ -105,7 +116,7 @@ const GlobalStyle = createGlobalStyle`
 .yellowBtn:hover {
   background-color: #fff;
   color: #fcb813;
-  transition: 0.3s;
+  transition: 0.4s;
 }
 .nav > .nav-links > a {
     display: block;

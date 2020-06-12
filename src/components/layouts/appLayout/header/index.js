@@ -31,7 +31,9 @@ const Wrapper = styled.nav`
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		width: 100%;
 		min-width: 35rem;
+		max-width: 50rem;
 	}
 	.nav-buttons {
 	 display: grid;
@@ -95,7 +97,7 @@ export default function Header() {
 							<Button value="Log In" theme="green" style={buttonStyles}>Log In</Button>
 						</Link>
 						<Link to="/signUp">
-							<Button value="Join Us" theme="yellow" style={buttonStyles}>Join Us</Button>
+							<Button value="Join Us" theme="darkGreen" style={buttonStyles}>Join Us</Button>
 						</Link>
 					</div>
 				</div>
