@@ -15,14 +15,14 @@ function Video() {
 							src="https://www.youtube.com/embed/E7wJTI-1dvQ"
 							frameBorder="0"
 							allow="autoplay; encrypted-media"
-							width="420" height="200"
+							width="420px" height="200px"
 							allowFullScreen
 							title="video"
 						/>
 					</div>
 				</div>
 
-				<div style={{width:'390px'}}>
+				<div style={{width:'39rem'}}>
 					<h3 style={videoText}>Choosing Wellness</h3>
 					<p style={videoTextP}>
             Wellness is a circle. A circle designed to help you achieve
@@ -34,9 +34,9 @@ function Video() {
             Read up more
 					</Link>
 					<br />
-					<div style={{ marginTop: 20 }}>
+					<div style={{ marginTop: "2rem" }}>
 						<React.Fragment>
-							<Button value="As a Company" theme="green" style={{ marginRight: '18px' }}>
+							<Button value="As a Company" theme="green" style={{ marginRight: '1.8rem' }}>
 								{' '}
               As a Company
 							</Button>
@@ -55,8 +55,8 @@ function Video() {
 const Wrapper2 = styled.div `
 background: #EBF8F7;
 
-  height: 419.4px;
-  margin-top: -30px;
+  height: 41.94rem;
+  margin-top: -3rem;
   z-index: 5;
 
 .hover-link:hover{
@@ -72,39 +72,39 @@ const wholeVideoContent = {
 	// margin:"auto",
 
 	alignItems:'center',
-	height: 256,
+	height: "25.6rem",
 	display: 'flex',
 	justifyContent: 'space-between',
 };
 
 const iframe ={
 	background: '#3CBDB2',
-	boxShadow: '0px 4px 25px rgba(60, 189, 178, 0.25)',
+	boxShadow: '0px .4rem 2.5rem rgba(60, 189, 178, 0.25)',
 	justifyContent: 'center',
 	display: 'flex',
-	padding: '20px',
+	padding: '2rem',
 };
 const priLink = {
 	fontWeight: 600,
-	fontSize: 14,
+	fontSize: "1.4rem",
 	lineHeight: '132%',
 	textDecorationLine: 'underline',
-	marginBottom: 20,
+	marginBottom: "20rem",
 	color: '#3CBDB2',
 };
 
 const videoText = {
 	fontWeight: 'bold',
-	fontSize: '24px',
-	lineHeight: '29px',
-	marginBottom: 20.4,
+	fontSize: '2.4rem',
+	lineHeight: '2.9rem',
+	marginBottom: '2.04rem',
 	color: '1d1d1d',
 };
 const videoTextP = {
 	color: '#606161',
-	fontSize: '14px',
-	lineHeight: '22px',
-	marginBottom: 6.6,
+	fontSize: '1.4rem',
+	lineHeight: '2.2rem',
+	marginBottom: '.66rem',
 };
 
 export default Video;

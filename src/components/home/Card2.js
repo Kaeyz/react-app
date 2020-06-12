@@ -53,17 +53,17 @@ margin:auto;
 
 `;
 const Importance = styled.div`
-  width: 390px;
+  width: 39.0rem;
 `;
 const ImportanceHead = styled.h3`
   font-weight: bold;
-  font-size: 24px;
-  line-height: 29px;
-  margin-bottom: 20.4;
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+  margin-bottom: 2.04rem;
   color: 1d1d1d;
 `;
 const ImportanceBtns = styled.div`
-  margin-top: 20px;
+  margin-top: 2rem;
 `;
 
 /* const wholeVideo = {
@@ -77,7 +77,7 @@ const ImportanceBtns = styled.div`
 const Card1Content = styled.div`
   width: 70%;
   align-items: center;
-  height: 256px;
+  height: 25.6rem;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -90,19 +90,19 @@ const OppImportance =  styled.div`
 ;
 const priLink = {
 	fontWeight: 600,
-	fontSize: 14,
+	fontSize: "1.4rem",
 	lineHeight: '132%',
 	textDecorationLine: 'underline',
-	marginBottom: 20,
+	marginBottom: "2rem",
 	color: '#3CBDB2',
 };
 
 
 const ImportanceText = styled.p`
   color: #606161;
-  font-size: 14px;
-  line-height: 22px;
-  margin-bottom: 6.6;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  margin-bottom: .66rem;
 `;
 
 

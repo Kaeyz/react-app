@@ -33,7 +33,7 @@ class HomeHero extends Component {
 							<Button
 								value="For you"
 								theme="green"
-								style={{ marginRight: '18px' }}
+								style={{ marginRight: '1.8rem' }}
 							>
 								{' '}
               For you
@@ -59,8 +59,8 @@ class HomeHero extends Component {
 const Wrapper = styled.div `
   .small-hero {
     background-image: url(${img});
-    height: 569.97px;
-  //   border: 2px solid black;
+    height: 56.997rem;
+  //   border: .2rem solid black;
     width: 75%;
     text-align: center;
     margin:auto;
@@ -72,9 +72,9 @@ const Wrapper = styled.div `
     background-size: cover;
   }
   .hero-image{
-	width: 1250px;
+	width: 125.0rem;
 	max-width: 100%;
-    height: 200px;
+    height: 20rem;
     position: absolute;
     top: 60%;
     background-image: url(${Hero});
@@ -87,7 +87,7 @@ const Wrapper = styled.div `
   .heroText {
     position: absolute;
     top: 40%;
-	width: 1200px;
+	width: 120rem;
 	max-width: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -105,22 +105,22 @@ const heroHeaderText ={
 
 };
 const heroHeaderText1 = {
-	fontSize: 72,
-	lineHeight: '86px',
+	fontSize: "7.2rem",
+	lineHeight: '8.6rem',
 
 	fontWeight: 'normalbtn',
-	marginTop: '157px',
+	marginTop: '15.7rem',
 	//   textTransform: "uppercase",
 };
 const heroHeaderText2 = {
-	fontSize: '16px',
-	lineHeight: '24px',
+	fontSize: '1.6rem',
+	lineHeight: '2.4rem',
 
-	margin: '39px 0',
+	margin: '3.9rem 0',
 	//   textTransform: "uppercase",
 };
 const heroHeaderTextContainer = {
-	marginBottom: 25,
+	marginBottom: "2.5rem",
 	// position: "absolute",
 	// top: "50%",
 	// left: "50%",
