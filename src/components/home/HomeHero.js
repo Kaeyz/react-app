@@ -35,7 +35,7 @@ const Wrapper = styled.div `
 		background-size: 15%;
   }
 	.hero {
-		padding: 5rem 0rem;
+		padding: 7rem 0rem;
 		display: flex;
 		justify-content: space-between;
 	}

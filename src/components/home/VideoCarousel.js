@@ -10,6 +10,7 @@ const Wrapper = styled.div `
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
+		align-items: center;
 		justify-content: space-between;
 	}
 	.videoDetails {
@@ -64,7 +65,7 @@ function Video() {
 						src="https://www.youtube.com/embed/E7wJTI-1dvQ"
 						frameBorder="0"
 						allow="autoplay; encrypted-media"
-						width="100%" height="300"
+						width="100%" height="256px"
 						allowFullScreen
 						title="video"
 					/>

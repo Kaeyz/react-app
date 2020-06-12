@@ -11,8 +11,12 @@ const Wrapper = styled.div`
   height: 51rem;
   flex-wrap: wrap;
   overflow: hidden;
+  max-width:1058px;
+  margin:auto;
   .content {
     flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
     h1 {
       font-size: 7.2rem;
       line-height: 8.6rem;
