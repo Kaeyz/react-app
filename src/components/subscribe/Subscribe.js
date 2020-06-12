@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 	/* OurDrive styling goes here */
 	height:47.5rem;
 	position: relative;
-
+overflow:hidden;
 	.bg-flower {
 	    position: absolute;
         left: 3rem;
@@ -61,10 +61,11 @@ const Wrapper = styled.div`
 		}
 		[type=text] {
 			width: 234px;
-			margin-right: 1.1rem;
+						margin-right: 1.1rem;
 		}
 		[type=email] {
 			width: 378px;
+			max-width:100%;
 		}
 }
 `;
