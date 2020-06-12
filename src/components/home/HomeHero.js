@@ -6,29 +6,32 @@ import flower1 from '../../assets/img/flower_1.png';
 import flower2 from '../../assets/img/flower_2.png';
 import umbrella from '../../assets/img/umbrella.png';
 import Container from '../common/Container';
+import VideoCarousel from './VideoCarousel';
 
 
 const Wrapper = styled.div `
     background-image: url(${img});
-		background-size: cover;
 		height: max-content;
 		width: 100%;
 		display: flex;
 		align-items: flex-end;
+		background-position: top;
+		background-repeat: no-repeat;
+
 	.flower1 {
    	 background-image: url(${flower1});
-			height: 100%;
+			height: 50%;
 			width: 100%;
 			background-repeat: no-repeat;
-			background-position: bottom left;
+			background-position: center left;
 			background-size: 10%;
 		}
   .flower2 {
 		height: 100%;
-			width: 100%;
+		width: 100%;
     background-image: url(${flower2});
 		background-repeat: no-repeat;
-		background-position: bottom right;
+		background-position: center right;
 		background-size: 15%;
   }
 	.hero {
@@ -91,6 +94,7 @@ class HomeHero extends Component {
 									<img src={umbrella} alt="heroBanner"/>
 								</div>
 							</div>
+							<VideoCarousel />
 						</Container>
 					</div>
 				</div>
