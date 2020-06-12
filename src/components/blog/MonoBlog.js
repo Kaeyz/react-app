@@ -26,6 +26,9 @@ const Wrapper = styled.div`
 	}
 	.card_content {
 		text-align: start;
+		background:#2EC4B6;
+		margin-top: -.9rem;
+		color:#fff
 	}
 	.card_description {
 		font-size: 1.1rem;
@@ -37,7 +40,8 @@ const Wrapper = styled.div`
 		margin-top: 2rem;
 	}
 	.test_link {
-		text-decoration: none;
+		text-decoration: underline;
+    color: #fff;
 	}
 `;
 

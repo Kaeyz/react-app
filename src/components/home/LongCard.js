@@ -6,6 +6,7 @@ import centerFrame from '../../assets/Frame.png';
 import irregularImg from '../../assets/Ellipse30.png';
 import watch from '../../assets/watch.png';
 import Bg1 from '../../assets/heroHome.png';
+// eslint-disable-next-line
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../common/Button';
@@ -101,15 +102,12 @@ function LongCard() {
 							communicable diseases like Hypertension, Diabetes, Obesity and
 							Cancer due to personal and workplace related reasons.
 						</ImportanceText>
-						<Link style={priLink} className="hover-link" to="../pages/About.js">
-							Read up more
-						</Link>
-						<br />
+						
+						
 						<ImportanceBtns>
-							<Button value="Get started" theme="green">
-								{' '}
-								Get started
-							</Button>
+						<Button value="Get started" theme="yellow">
+						Get started
+            </Button>
 						</ImportanceBtns>
 					</Importance>
 				</Card1Content>
@@ -126,7 +124,7 @@ function LongCard() {
 
 
 			{/* thirdcard */}
-			<Card className="flex theCard">
+			<Card className="flex theCard" style={{background:'#CBF3F0', padding: '5.9rem 0'}}>
 				<Card1Content style={{ flexDirection: 'row-reverse' }}>
 					<OppImportance>
 						<div >
@@ -147,14 +145,9 @@ function LongCard() {
 						</ImportanceText>
 
 						<ImportanceBtns>
-							<Button
-								value="Explore"
-								theme="green"
-								style={{ marginTop: '1.96rem' }}
-							>
-								{' '}
-								Explore
-							</Button>
+						<Button value="Explore" theme="darkGreen">
+              Explore
+            </Button>
 						</ImportanceBtns>
 					</Importance>
 				</Card1Content>
@@ -257,22 +250,9 @@ const ImportanceHead = styled.h3`
 const ImportanceBtns = styled.div`
 	margin-top: 2rem;
 `;
-const priLink = {
-	fontWeight: 600,
-	fontSize: "1.4rem",
-	lineHeight: '132%',
-	textDecorationLine: 'underline',
-	marginBottom: "2rem",
-	color: '#3CBDB2',
-};
 
-/* const wholeVideo = {
-	background: '#EBF8F7',
-	// padding: "82px 183px",
-	height: 419.4,
-	marginTop: '-30px',
-	zIndex: 5,
-}; */
+
+
 
 const Card1Content = styled.div`
 	width: 70%;

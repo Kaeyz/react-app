@@ -58,10 +58,9 @@ export default function OurDrive() {
 							parties.
 					</p>
 
-					<Button value="Get started" theme="green">
-						{' '}
-								Get started
-					</Button>
+					<Button value="Get started" theme="darkGreen">
+              Get started
+            </Button>
 				</div>
 			</div>
 
