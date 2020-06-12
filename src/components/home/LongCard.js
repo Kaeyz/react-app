@@ -6,6 +6,7 @@ import centerFrame from '../../assets/Frame.png';
 import irregularImg from '../../assets/Ellipse30.png';
 import watch from '../../assets/watch.png';
 import Bg1 from '../../assets/heroHome.png';
+// eslint-disable-next-line
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../common/Button';
@@ -23,24 +24,24 @@ function LongCard() {
 							<img src={circle} alt="circular"  />
 							<div className="Parentnode Parentnode0">
 								<div className="node">
-									<h2 className="flex" style={{marginTop:'-40px'}}>HEALTH</h2>
+									<h2 className="flex" style={{marginTop:'-4rem'}}>HEALTH</h2>
 								</div>
 							</div>
 							<div className="Parentnode Parentnode1">
 								<div className="node">
-									<h2 className="flex" style={{marginTop:'40px'}}>FITNESS</h2>
+									<h2 className="flex" style={{marginTop:'4rem'}}>FITNESS</h2>
 
 								</div>
 							</div>
 							<div className="Parentnode Parentnode2">
 								<div className="node">
-									<h2 className="flex" style={{marginLeft:'-155px'}}>NUTRITION</h2>
+									<h2 className="flex" style={{marginLeft:'-15.5rem'}}>NUTRITION</h2>
 
 								</div>
 							</div>
 							<div className="Parentnode Parentnode3">
 								<div className="node">
-									<h2 className="flex" style={{marginRight:'-155px',}}>LIFESTYLE</h2>
+									<h2 className="flex" style={{marginRight:'-15.5rem',}}>LIFESTYLE</h2>
 
 								</div>
 							</div>
@@ -52,7 +53,7 @@ function LongCard() {
 					</OppImportance>
 
 					<Importance>
-						<ImportanceHead style={{ marginBottom: '20.4px' }}>
+						<ImportanceHead style={{ marginBottom: '2.04rem' }}>
 							We ask the meaningful questions
 						</ImportanceHead>
 						<ImportanceText>
@@ -67,7 +68,7 @@ function LongCard() {
 							<Button
 								value="Explore"
 								theme="green"
-								style={{ marginTop: '19.6px' }}
+								style={{ marginTop: '1.96rem' }}
 							>
 								{' '}
 								Explore
@@ -93,7 +94,7 @@ function LongCard() {
 					</OppImportance>
 
 					<Importance>
-						<ImportanceHead style={{ marginBottom: '20.4px' }}>
+						<ImportanceHead style={{ marginBottom: '2.04rem' }}>
 							Why Choose Life is important
 						</ImportanceHead>
 						<ImportanceText>
@@ -101,15 +102,12 @@ function LongCard() {
 							communicable diseases like Hypertension, Diabetes, Obesity and
 							Cancer due to personal and workplace related reasons.
 						</ImportanceText>
-						<Link style={priLink} className="hover-link" to="../pages/About.js">
-							Read up more
-						</Link>
-						<br />
+						
+						
 						<ImportanceBtns>
-							<Button value="Get started" theme="green">
-								{' '}
-								Get started
-							</Button>
+						<Button value="Get started" theme="yellow">
+						Get started
+            </Button>
 						</ImportanceBtns>
 					</Importance>
 				</Card1Content>
@@ -118,7 +116,7 @@ function LongCard() {
 				</div>
 				<div
 					className="hidden"
-					style={{ zIndex: 1, width: '90%', marginTop: '50px' }}
+					style={{ zIndex: 1, width: '90%', marginTop: '5rem' }}
 				>
 					<img className="bg-flower" src={Bg1} alt="hiddenImg1" />
 				</div>
@@ -126,7 +124,7 @@ function LongCard() {
 
 
 			{/* thirdcard */}
-			<Card className="flex theCard">
+			<Card className="flex theCard" style={{background:'#CBF3F0', padding: '5.9rem 0'}}>
 				<Card1Content style={{ flexDirection: 'row-reverse' }}>
 					<OppImportance>
 						<div >
@@ -135,7 +133,7 @@ function LongCard() {
 					</OppImportance>
 
 					<Importance>
-						<ImportanceHead style={{ marginBottom: '20.4px' }}>
+						<ImportanceHead style={{ marginBottom: '2.04rem' }}>
 							The Sooner, The Better
 						</ImportanceHead>
 						<ImportanceText>
@@ -147,14 +145,9 @@ function LongCard() {
 						</ImportanceText>
 
 						<ImportanceBtns>
-							<Button
-								value="Explore"
-								theme="green"
-								style={{ marginTop: '19.6px' }}
-							>
-								{' '}
-								Explore
-							</Button>
+						<Button value="Explore" theme="darkGreen">
+              Explore
+            </Button>
 						</ImportanceBtns>
 					</Importance>
 				</Card1Content>
@@ -165,7 +158,7 @@ function LongCard() {
 
 const Card = styled.section`
 
-	margin-top: 90px;
+	margin-top: 9rem;
 	z-index: 5;
 
 
@@ -174,25 +167,25 @@ const Card = styled.section`
 		transition: 0.2s;
 	}
 	.belowCounter {
-		font-size: 14px;
-		line-height: 17px;
+		font-size: 1.4rem;
+		line-height: 1.7rem;
 	}
 	.counter {
-		margin-bottom: 5px;
-		font-size: 48px;
-		line-height: 58px;
+		margin-bottom: .5rem;
+		font-size: 4.8rem;
+		line-height: 5.8rem;
 		font-weight: normal;
 	}
 	.node{
-		width: 13.02px;
-height: 13.02px;
+		width: 1.302rem;
+height: 1.302rem;
 background: #3CBDB2;
 border-radius: 50%;
 text-align: center
 	}
 	.Parentnode{
-		width: 22.93px;
-		height: 22.93px;
+		width: 2.293rem;
+		height: 2.293rem;
 		background: rgba(46, 196, 182, 0.3);
 		display: flex;
 		justify-content: center;
@@ -202,21 +195,21 @@ text-align: center
 
 		}
 		.node>.flex{
-			font-size: 16px;
-			line-height: 19px;
+			font-size: 1.6rem;
+			line-height: 1.9rem;
 			color: #606161
 		}
 		.Parentnode0{
-			top: -11px;
+			top: -1.1rem;
 			left: 47%;
 		}
 		.Parentnode1{
-			bottom: 1px;
+			bottom: .1rem;
 		left: 47%;
 		}
 		.Parentnode2{
 			top: 45%;
-		left: -9px;
+		left: -.9rem;
 		}
 		.Parentnode3{
 			top: 45%;
@@ -245,39 +238,26 @@ text-align: center
 	}
 `;
 const Importance = styled.div`
-	width: 390px;
+	width: 39rem;
 `;
 const ImportanceHead = styled.h3`
 	font-weight: bold;
-	font-size: 24px;
-	line-height: 29px;
-	margin-bottom: 20.4;
+	font-size: 2.4rem;
+	line-height: 2.9rem;
+	margin-bottom: 2.04rem;
 	color: 1d1d1d;
 `;
 const ImportanceBtns = styled.div`
-	margin-top: 20px;
+	margin-top: 2rem;
 `;
-const priLink = {
-	fontWeight: 600,
-	fontSize: 14,
-	lineHeight: '132%',
-	textDecorationLine: 'underline',
-	marginBottom: 20,
-	color: '#3CBDB2',
-};
 
-/* const wholeVideo = {
-	background: '#EBF8F7',
-	// padding: "82px 183px",
-	height: 419.4,
-	marginTop: '-30px',
-	zIndex: 5,
-}; */
+
+
 
 const Card1Content = styled.div`
 	width: 70%;
 	align-items: center;
-	// height: 256px;
+	// height: 25.6rem;
 	display: flex;
 
 	justify-content: space-between;
@@ -288,20 +268,12 @@ const OppImportance = styled.div`
 	display: flex;
 `;
 
-/* const priLink = {
-	fontWeight: 600,
-	fontSize: 14,
-	lineHeight: '132%',
-	textDecorationLine: 'underline',
-	marginBottom: 20,
-	color: '#3CBDB2',
-}; */
 
 const ImportanceText = styled.p`
 	color: #606161;
-	font-size: 14px;
-	line-height: 22px;
-	margin-bottom: 6.6;
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+	margin-bottom: .66rem;
 `;
 
 export default LongCard;

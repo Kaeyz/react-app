@@ -7,8 +7,8 @@ import MonoBlog from './MonoBlog.js';
 const Wrapper = styled.div`
   text-align: center;
   background: rgba(46, 196, 182, 0.05);
-  border: 1px solid rgba(46, 196, 182, 0.3);
-  border-radius: 5px;
+  border: 0.1rem solid rgba(46, 196, 182, 0.3);
+  border-radius: .0.5rem;
   .blog-content {
     padding: 3rem 0rem 10rem 0rem;
     display: grid;

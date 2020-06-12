@@ -56,8 +56,8 @@ const NavLinks = styled(NavLink)`
 	text-decoration: none;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 14px;
-	line-height: 25px;
+	font-size: 1.4rem;
+	line-height: 2.5rem;
 	color: #1d1d1d;
 	max-width: 9rem;
 	text-align: center;

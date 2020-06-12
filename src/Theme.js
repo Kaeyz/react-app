@@ -58,7 +58,7 @@ const GlobalStyle = createGlobalStyle`
 		outline: none;
     height: 100%;
     font-family: cursive;
-
+background:#fff;
   }
 	div, span {
     margin: 0;
@@ -89,7 +89,7 @@ const GlobalStyle = createGlobalStyle`
 .greenBtn {
   border: 1px solid #2ec4b6;
   color: #2ec4b6;
-  background-color: rgba(203, 243, 240, 0.1);
+  background-color: #CBF3F0;
 }
 .greenBtn:hover {
   color: #fff;
@@ -108,7 +108,7 @@ const GlobalStyle = createGlobalStyle`
   transition: 0.4s;
 }
 .yellowBtn {
-  background: #fcb813;
+  background: #F47803;
   box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
   color: white;
   border: 1px solid #fcb813;

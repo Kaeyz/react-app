@@ -8,7 +8,7 @@ import client2 from '../../assets/client1.png';
 
 const Wrapper = styled.div`
 	background: #f8f9fb;
-	height: 848px;
+	height: 84.8rem;
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -16,12 +16,12 @@ const Wrapper = styled.div`
 
 	.leftImg {
 		position: absolute;
-		bottom: -102px;
-		left: -26.17px;
+		bottom: -10.2rem;
+		left: -2.617rem;
 	}
 	.rightImg {
 		position: absolute;
-		top: 67px;
+		top: 6.7rem;
 		right: 0;
 	}
 	.clientContent {
@@ -30,19 +30,19 @@ const Wrapper = styled.div`
 		max-width: 100%;
 	}
 	.clientHead {
-		width: 704px;
+		width: 70.4rem;
 		max-width:100%
 	}
 	.clientHead > h1 {
-		font-size: 32px;
-		line-height: 38px;
+		font-size: 3.2rem;
+		line-height: 3.8rem;
 		color: #1d1d1d;
-		margin-bottom: 20px;
+		margin-bottom: 2rem;
 	}
 	.clientHead > p {
 		font-weight: normal;
-		font-size: 14px;
-		line-height: 24px;
+		font-size: 1.4rem;
+		line-height: 2.4rem;
 		color: #606161;
 	}
 
@@ -78,14 +78,14 @@ const Wrapper = styled.div`
  .tabset > label {
 		position: relative;
 		display: inline-block;
-		padding: 10px 15px;
-		font-size: 14px;
-		line-height: 24px;
+		padding: 1rem 1.5rem;
+		font-size: 1.4rem;
+		line-height: 2.4rem;
 		border-bottom: 0;
 		cursor: pointer;
 		font-weight: 600;
 		position:relative;
-		width:200px
+		width:20rem
  }
 
  .tabset > label::after {
@@ -94,7 +94,7 @@ const Wrapper = styled.div`
 		right: 0px;
 		bottom: 0px;
 		width: 100%;
-		height: 2px;
+		height: .2rem;
 		background: #8d8d8d;
  }
 
@@ -113,7 +113,7 @@ const Wrapper = styled.div`
 
  .tabset > input:checked + label {
 		color: #2EC4B6;
-		margin-bottom: -1px;
+		margin-bottom: -.1rem;
  }
 
  .flexy-client{
@@ -122,24 +122,24 @@ const Wrapper = styled.div`
 	 flex-wrap: wrap;
  }
  .tab-panel {
-	//  padding: 30px 0;
+	//  padding: 3rem 0;
 		background: rgba(46,196,182,.05);
-		width: 1058px;
-		height: 480px;
+		width: 105.8rem;
+		height: 48rem;
 		max-width:100%;
 		display: flex;
 		flex-direction:column;
  }
 
  .tabset {
-	width: 1058px;
+	width: 105.8rem;
 	 max-width: 100%;
-	 margin-top:47px
+	 margin-top:4.7rem
  }
 
  #rauchbier{
 	 text-align:center;
-	 padding: 20px;
+	 padding: 2rem;
 	 p{
 		 color:red
 	 }
@@ -173,7 +173,7 @@ export default function OurClients() {
 						aria-controls="marzen"
 						checked
 					/>
-					<label htmlFor="tab1" style={{ marginRight: '20px' }}>
+					<label htmlFor="tab1" style={{ marginRight: '2rem' }}>
 						OUR CLIENTS
 					</label>
 					{/* <!-- Tab 2 --> */}
@@ -189,7 +189,7 @@ export default function OurClients() {
 						<section id="marzen" className="tab-panel flex">
 							<div
 								className="flex flexy-client"
-								style={{ marginBottom: '100px' }}
+								style={{ marginBottom: '10rem' }}
 							>
 								<img src={firstBank} alt="firstbank" />
 								<img src={client2} alt="firstbank" />

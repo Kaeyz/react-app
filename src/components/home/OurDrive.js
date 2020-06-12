@@ -7,25 +7,25 @@ import Button from '../common/Button';
 
 const Wrapper = styled.div`
 	/* OurDrive styling goes here */
-	height:475px;
+	height:47.5rem;
 	position: relative;
 
 	.bg-flower {
 	opacity: 0.5;
 	}
 .importance{
-	width: 390px;
+	width: 39rem;
 }
 .importanceHead{
 	font-weight: bold;
-	font-size: 24px;
-	line-height: 29px;
-	margin-bottom: 20.4;
+	font-size: 2.4rem;
+	line-height: 2.9rem;
+	margin-bottom: 2.04rem;
 	color: 1d1d1d;
 }
 .card1Content{
 	max-width: 100%;
-	width: 623px;
+	width: 62.3rem;
 
 	position: absolute;
 		top: 50%;
@@ -36,9 +36,9 @@ const Wrapper = styled.div`
 
 .importanceText {
 	color: #606161;
-	font-size: 14px;
-	line-height: 22px;
-	margin-bottom: 39px;
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+	margin-bottom: 3.9rem;
 }
 `;
 
@@ -47,7 +47,7 @@ export default function OurDrive() {
 		<Wrapper>
 			<div className="card1Content" style={{ zIndex: 2 }}>
 				<div className="impotance">
-					<h3 className="importanceHead" style={{ marginBottom: '20.4px' }}>
+					<h3 className="importanceHead" style={{ marginBottom: '2.04rem' }}>
 							Why we stand out{' '}
 					</h3>
 					<p className="importanceText">
@@ -58,10 +58,9 @@ export default function OurDrive() {
 							parties.
 					</p>
 
-					<Button value="Get started" theme="green">
-						{' '}
-								Get started
-					</Button>
+					<Button value="Get started" theme="darkGreen">
+              Get started
+            </Button>
 				</div>
 			</div>
 
