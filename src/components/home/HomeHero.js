@@ -2,129 +2,103 @@ import React, { Component } from 'react';
 import Button from '../common/Button';
 import styled from 'styled-components' ;
 import img from '../../assets/heroHome.png';
-import Hero from '../../assets/Hero.png';
+import flower1 from '../../assets/img/flower_1.png';
+import flower2 from '../../assets/img/flower_2.png';
+import umbrella from '../../assets/img/umbrella.png';
+import Container from '../common/Container';
 
-// import homeHeroImage from "../assets/Hero.png";
-// import "../App.css";
-// import "../css/header.css"
-// import Hero from "../assets/heroHome.png";
-// const smallHero = "../assets/heroHome.png";
-// const bigHero = "../assets/Hero.png";
+
+const Wrapper = styled.div `
+    background-image: url(${img});
+		background-size: cover;
+		height: max-content;
+		width: 100%;
+		display: flex;
+		align-items: flex-end;
+	.flower1 {
+   	 background-image: url(${flower1});
+			height: 100%;
+			width: 100%;
+			background-repeat: no-repeat;
+			background-position: bottom left;
+			background-size: 10%;
+		}
+  .flower2 {
+		height: 100%;
+			width: 100%;
+    background-image: url(${flower2});
+		background-repeat: no-repeat;
+		background-position: bottom right;
+		background-size: 15%;
+  }
+	.hero {
+		padding: 5rem 0rem;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.heroBanner {
+		display: grid;
+		align-items: center;
+		min-height: 80%;
+		width: 30%;
+		@media screen and (max-width: ${props => props.theme.breakpoint.md}) {
+			display: none;
+		}
+	}
+	.heroText {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.buttons {
+		display: grid;
+		grid-template-columns: max-content max-content;
+		grid-gap: 1rem;
+	}
+	.bigText {
+		font-size: 4.5vw;
+		line-height: 5vw;
+	}
+	.smallText {
+		font-size: 1.3vw;
+		line-height: 5vw;
+	}
+`;
 
 
 class HomeHero extends Component {
 	render() {
 		return (
-			<Wrapper style={{position:'relative'}}>
-				{/* <img accessibilityLabel="Hero Banner" src={homeHeroImage} alt="Hero" /> */}
-				<div style={heroHeaderContainer} className= "small-hero heroes">
-					<div className="heroText">
-						<div style={heroHeaderTextContainer}>
-							<h3 style={Object.assign({}, heroHeaderText1, heroHeaderText)} >
-              Wellness is the gift you give
-							yourself.
-							</h3>
-							<h5 style={Object.assign({}, heroHeaderText2, heroHeaderText)}>
-              Empower yourself with the knowledge and opportunity to live the
-              best life possible.
-							</h5>
-						</div>
-						<React.Fragment>
-							<Button
-								value="For you"
-								theme="green"
-								style={{ marginRight: '1.8rem' }}
-							>
-								{' '}
-              For you
-							</Button>
-							<Button
-								// className="greenBtn"
-								value="For Organizations"
-								theme="green"
-							>
-								{' '}
-              For Organizations
-							</Button>
-						</React.Fragment>
+			<Wrapper>
+				<div className='flower1'>
+					<div className='flower2'>
+						<Container>
+							<div className= "hero">
+								<div className="heroText">
+									<div>
+										<h1 className="bigText">Wellness is the gift</h1>
+										<h1 className="bigText">you give yourself.</h1>
+										<p className="smallText">Empower yourself with the knowledge and opportunity to live the best life possible. </p>
+									</div>
+									<div className="buttons">
+										<Button value="For you" theme="darkGreen">Individuals</Button>
+										<Button value="For Organizations" theme="yellow" >Companies</Button>
+									</div>
+									<p className="smallText">SUPPORTED BY</p>
+								</div>
+								<div className="heroBanner">
+									<img src={umbrella} alt="heroBanner"/>
+								</div>
+							</div>
+						</Container>
 					</div>
-				</div>
-				<div className="hero-image heroes">
 				</div>
 			</Wrapper>
 		);
 	}
 }
 
-const Wrapper = styled.div `
-  .small-hero {
-    background-image: url(${img});
-    height: 56.997rem;
-  //   border: .2rem solid black;
-    width: 75%;
-    text-align: center;
-    margin:auto;
-    position: relative;
-    text-align: center;
-    z-index: 4;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .hero-image{
-	width: 125.0rem;
-	max-width: 100%;
-    height: 20rem;
-    position: absolute;
-    top: 60%;
-    background-image: url(${Hero});
-  }
-  .heroes {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .heroText {
-    position: absolute;
-    top: 40%;
-	width: 120rem;
-	max-width: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
 
-`;
-
-const heroHeaderContainer = {
-
-};
-
-const heroHeaderText ={
-	fontFamily: 'cursive',
-	color: '#1d1d1d',
-
-};
-const heroHeaderText1 = {
-	fontSize: "7.2rem",
-	lineHeight: '8.6rem',
-
-	fontWeight: 'normalbtn',
-	marginTop: '15.7rem',
-	//   textTransform: "uppercase",
-};
-const heroHeaderText2 = {
-	fontSize: '1.6rem',
-	lineHeight: '2.4rem',
-
-	margin: '3.9rem 0',
-	//   textTransform: "uppercase",
-};
-const heroHeaderTextContainer = {
-	marginBottom: "2.5rem",
-	// position: "absolute",
-	// top: "50%",
-	// left: "50%",
-	// transform: "translate(-50%, -50%)"
-};
 
 export default HomeHero;
