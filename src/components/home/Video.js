@@ -8,7 +8,7 @@ function Video() {
 	return (
 		<Wrapper2 className="flex curvy">
 
-			<div style={wholeVideoContent}>
+			<div className="wholeVideoContent" >
 				<div style={iframe}>
 					<div >
 						<iframe
@@ -53,36 +53,28 @@ function Video() {
 }
 
 const Wrapper2 = styled.div `
-background: #EBF8F7;
+	background: #EBF8F7;
+  height: max-content;
+	flex-wrap: wrap;
+	padding: 10rem 2rem;
 
-  height: 419.4px;
-  margin-top: -30px;
-  z-index: 5;
-
-.hover-link:hover{
-  color: #1d1d1d !important;
-  transition: .2s;
-
- }
+	.wholeVideoContent {
+		height: max-content;
+		width: 100% ;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
 `;
 
-
-const wholeVideoContent = {
-	width: '70%',
-	// margin:"auto",
-
-	alignItems:'center',
-	height: 256,
-	display: 'flex',
-	justifyContent: 'space-between',
-};
 
 const iframe ={
 	background: '#3CBDB2',
 	boxShadow: '0px 4px 25px rgba(60, 189, 178, 0.25)',
 	justifyContent: 'center',
 	display: 'flex',
-	padding: '20px',
+	padding: '1rem',
+	margin: '2rem'
 };
 const priLink = {
 	fontWeight: 600,
@@ -100,6 +92,7 @@ const videoText = {
 	marginBottom: 20.4,
 	color: '1d1d1d',
 };
+
 const videoTextP = {
 	color: '#606161',
 	fontSize: '14px',
