@@ -58,7 +58,7 @@ const NavLinks = styled(NavLink)`
 	font-weight: 500;
 	font-size: 1.4rem;
 	line-height: 2.5rem;
-	color: #1d1d1d;
+	color: ${props => props.theme.color.text_01};
 	max-width: 9rem;
 	text-align: center;
 	&:hover {

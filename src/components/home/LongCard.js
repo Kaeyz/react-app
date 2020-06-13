@@ -1,8 +1,6 @@
 import React from 'react';
 import hiddenImg from '../../assets/Ellipse31.png';
 import hiddenImg1 from '../../assets/Ellipse29.png';
-import circle from '../../assets/Ellipse17.png';
-import centerFrame from '../../assets/Frame.png';
 import irregularImg from '../../assets/Ellipse30.png';
 import watch from '../../assets/watch.png';
 import Bg1 from '../../assets/heroHome.png';
@@ -10,6 +8,7 @@ import Bg1 from '../../assets/heroHome.png';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../common/Button';
+import CircleCard from '../common/CircleCard';
 
 function LongCard() {
 	return (
@@ -19,39 +18,7 @@ function LongCard() {
 					<img src={hiddenImg} alt="hiddenImg" />
 				</div>
 				<Card1Content style={{ flexDirection: 'row-reverse' }}>
-					<OppImportance>
-						<div className="circular">
-							<img src={circle} alt="circular"  />
-							<div className="Parentnode Parentnode0">
-								<div className="node">
-									<h2 className="flex" style={{marginTop:'-4rem'}}>HEALTH</h2>
-								</div>
-							</div>
-							<div className="Parentnode Parentnode1">
-								<div className="node">
-									<h2 className="flex" style={{marginTop:'4rem'}}>FITNESS</h2>
-
-								</div>
-							</div>
-							<div className="Parentnode Parentnode2">
-								<div className="node">
-									<h2 className="flex" style={{marginLeft:'-15.5rem'}}>NUTRITION</h2>
-
-								</div>
-							</div>
-							<div className="Parentnode Parentnode3">
-								<div className="node">
-									<h2 className="flex" style={{marginRight:'-15.5rem',}}>LIFESTYLE</h2>
-
-								</div>
-							</div>
-							<div className="centered">
-								<img src={centerFrame} alt="center-frame" />
-
-							</div>
-						</div>
-					</OppImportance>
-
+					<CircleCard />
 					<Importance>
 						<ImportanceHead style={{ marginBottom: '2.04rem' }}>
 							We ask the meaningful questions
@@ -102,12 +69,12 @@ function LongCard() {
 							communicable diseases like Hypertension, Diabetes, Obesity and
 							Cancer due to personal and workplace related reasons.
 						</ImportanceText>
-						
-						
+
+
 						<ImportanceBtns>
-						<Button value="Get started" theme="yellow">
+							<Button value="Get started" theme="yellow">
 						Get started
-            </Button>
+							</Button>
 						</ImportanceBtns>
 					</Importance>
 				</Card1Content>
@@ -145,9 +112,9 @@ function LongCard() {
 						</ImportanceText>
 
 						<ImportanceBtns>
-						<Button value="Explore" theme="darkGreen">
+							<Button value="Explore" theme="darkGreen">
               Explore
-            </Button>
+							</Button>
 						</ImportanceBtns>
 					</Importance>
 				</Card1Content>
