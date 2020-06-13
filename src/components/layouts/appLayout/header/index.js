@@ -86,7 +86,7 @@ export default function Header() {
 						<div className="nav-links">
 							<NavLinks exact activeClassName="navbar__link--active" to="/"> Home </NavLinks>
 							<NavLinks activeClassName="navbar__link--active" to="/about">About Us</NavLinks>
-							<NavLinks activeClassName="navbar__link--active" to="/wellness">Wellness</NavLinks>
+							<NavLinks activeClassName="navbar__link--active" to="/wellness/individual/health">Wellness</NavLinks>
 							<NavLinks activeClassName="navbar__link--active" to="/fitnessFair">Fitness Fair</NavLinks>
 							<NavLinks activeClassName="navbar__link--active" to="/contactUs">Contact Us</NavLinks>
 						</div>
