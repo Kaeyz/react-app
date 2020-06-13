@@ -1,9 +1,9 @@
 // modules
-import React from "react";
-import styled from "styled-components";
-import ashBg from "../../assets/topBannerImg1.png";
-import flower from "../../assets/img/flower_1.png";
-import img from "../../assets/affection-couple.png";
+import React from 'react';
+import styled from 'styled-components';
+import ashBg from '../../assets/topBannerImg1.png';
+import flower from '../../assets/img/flower_1.png';
+import img from '../../assets/affection-couple.png';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     width: 100%;
     justify-content: space-between;
     h1 {
-      font-size: 7.2rem;
+      font-size: 4vw;
       line-height: 8.6rem;
       color: #1d1d1d;
     }
@@ -58,23 +58,22 @@ const Wrapper = styled.div`
 `;
 
 export default function TopBanner() {
-  return (
-    <Wrapper>
-      {/* top banner info component goes here */}
-      <div className="content flex">
-        <div className="Lhs" >
-          <h1>Inspiring wholesome harmony </h1>
-          <img src={ashBg} alt="ash bg" className="ashBg" />
-        </div>
-        <div className="Rhs"></div>
-      </div>
+	return (
+		<Wrapper>
+			<div className="content flex">
+				<div className="Lhs" >
+					<h1>Inspiring wholesome harmony </h1>
+					<img src={ashBg} alt="ash bg" className="ashBg" />
+				</div>
+				<div className="Rhs"></div>
+			</div>
 
-      <img src={flower} alt="flower" className="flower" />
-      <div className="empty"></div>
-    </Wrapper>
-  );
+			<img src={flower} alt="flower" className="flower" />
+			<div className="empty"></div>
+		</Wrapper>
+	);
 }
 
 TopBanner.propTypes = {
-  //TODO: Top banner info prop types goes here
+	//TODO: Top banner info prop types goes here
 };
