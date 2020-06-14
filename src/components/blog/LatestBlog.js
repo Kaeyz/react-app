@@ -22,15 +22,20 @@ const Wrapper = styled.div`
   }
 `;
 
+const card = {
+	title: 'Healthy Living',
+	description: 'Using our algorithm, we carry out a preliminary assessment to understand the state of your health and determine how best to serve you!'
+};
+
 export default function LatestBlog() {
 	return (
 		<Wrapper>
 			<div className="blog-content">
 				<h2>Our Blog</h2>
 				<div className="blog-cards">
-					<MonoBlog />
-					<MonoBlog />
-					<MonoBlog />
+					<MonoBlog color="green" data={card} />
+					<MonoBlog color="green" data={card} />
+					<MonoBlog color="green" data={card} />
 				</div>
 			</div>
 		</Wrapper>

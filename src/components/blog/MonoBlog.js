@@ -11,7 +11,8 @@ const Wrapper = styled.div`
 	/* blog css styling goes here */
 	.blog_card {
 		background: rgba(0, 0, 0, 0.03);
-		max-width: 30rem;
+		min-width: 30rem;
+		max-width: 34rem;
 		margin-left: 3rem;
 		margin-top: 3rem;
 	}
@@ -53,7 +54,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-export default function MonoBlog({color, tryTest}) {
+export default function MonoBlog({color, tryTest, data}) {
 	return (
 		<Wrapper>
 			<Card className="blog_card">
@@ -61,11 +62,9 @@ export default function MonoBlog({color, tryTest}) {
 					<img src={blogBg} alt="blog bg" className="blog_img"/>
 				</div>
 				<CardContent className={`card_content ${color}_card`}>
-					<h2>Healthy Living</h2>
+					<h2>{data.title}</h2>
 					<p className="card_description">
-						Using our algorithm, we carry out a preliminary assessment to
-						understand the state of your health and determine how best to serve
-						you!
+						{data.description}
 					</p>
 					<div className="card_footer">
 						<Link className="test_link" to="/">
@@ -89,4 +88,5 @@ export default function MonoBlog({color, tryTest}) {
 MonoBlog.propTypes = {
 	tryTest: PropTypes.bool,
 	color: PropTypes.string,
+	data: PropTypes.object.isRequired,
 };
