@@ -55,6 +55,15 @@ const Wrapper = styled.div`
 `;
 
 export default function MonoBlog({color, tryTest, data}) {
+
+	const displayTest = () => {
+		return (
+			<Link className="test_link" to="/">
+				Try the test
+			</Link>
+		);
+	};
+
 	return (
 		<Wrapper>
 			<Card className="blog_card">
@@ -67,9 +76,7 @@ export default function MonoBlog({color, tryTest, data}) {
 						{data.description}
 					</p>
 					<div className="card_footer">
-						<Link className="test_link" to="/">
-							Try the test
-						</Link>
+						{tryTest && displayTest()}
 						<Button
 							value="Read More"
 							theme={color === 'default' ? 'green' : color}
@@ -84,6 +91,10 @@ export default function MonoBlog({color, tryTest, data}) {
 		</Wrapper>
 	);
 }
+
+MonoBlog.defaultProps = {
+	tryTest: true,
+};
 
 MonoBlog.propTypes = {
 	tryTest: PropTypes.bool,

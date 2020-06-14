@@ -63,7 +63,7 @@ function TeamCard({ page, details, tryTest, card }) {
 }
 
 TeamCard.propTypes = {
-	page: PropTypes.string.isRequired,
+	page: PropTypes.oneOf(['health', 'lifestyle', 'nutrition', 'fitness']),
 	details: PropTypes.object.isRequired,
 	card: PropTypes.object.isRequired,
 	tryTest: PropTypes.bool,

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
 
@@ -86,5 +87,10 @@ function Button({style, theme, ...rest}) {
 
 	);
 }
+
+Button.propTypes = {
+	style: PropTypes.object,
+	theme: PropTypes.oneOf(['pink', 'purple', 'yellow', 'green', 'darkGreen', 'deepYellow', ])
+};
 
 export default Button;
