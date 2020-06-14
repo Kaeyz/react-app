@@ -31,24 +31,29 @@ const Wrapper = styled.div`
 		display: grid;
 		grid-gap: 2rem;
 	}
-	.card {
-
-	}
 `;
 
 function TeamCard({ page, details, tryTest }) {
+
+	const fetchColor = (page) => {
+		if (page === 'health') return 'default';
+		if (page === 'fitness') return 'deepYellow';
+		if (page === 'lifestyle') return 'pink';
+		if (page === 'nutrition') return 'purple';
+	};
+
 	return (
 		<Wrapper>
 			<div className={page} >
 				<Container>
-					<div className={`${page} team_card`}>
+					<div className={'team_card'}>
 						<div className="details">
 							<h1>{details.title}</h1>
 							<p>{details.description}</p>
 							<Button theme={page === 'health' ? 'darkGreen' : 'yellow' }>Get Started</Button>
 						</div>
 						<div className="card">
-							<MonoBlog tryTest />
+							<MonoBlog color={fetchColor(page)} tryTest={tryTest} />
 						</div>
 					</div>
 				</Container>
@@ -60,6 +65,7 @@ function TeamCard({ page, details, tryTest }) {
 TeamCard.propTypes = {
 	page: PropTypes.string.isRequired,
 	details: PropTypes.object.isRequired,
+	tryTest: PropTypes.bool,
 };
 
 export default TeamCard;

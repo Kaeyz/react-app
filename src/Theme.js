@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
 
+
 const theme = {
 	color: {
 		brand_01: '#F47803',
@@ -84,40 +85,7 @@ background:#fff;
   	max-width: 100%;
   	height: auto;
 	}
-
-/* button */
-.greenBtn {
-  border: 1px solid #2ec4b6;
-  color: #2ec4b6;
-  background-color: #CBF3F0;
-}
-.greenBtn:hover {
-  color: #fff;
-  background-color: #2ec4b6;
-  transition: 0.4s;
-}
-.darkGreenBtn {
-  border: 1px solid #2ec4b6;
-  color: ${theme.color.ui_01};
-  background-color: ${theme.color.brand_02};
-}
-.darkGreenBtn:hover {
-  color: #fff;
-  color: #2ec4b6;
-  background-color: rgba(203, 243, 240, 0.1);
-  transition: 0.4s;
-}
-.yellowBtn {
-  background: #F47803;
-  box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
-  color: white;
-  border: 1px solid #fcb813;
-}
-.yellowBtn:hover {
-  background-color: #fff;
-  color: #fcb813;
-  transition: 0.4s;
-}
+	
 .nav > .nav-links > a {
     display: block;
     width: 100%;

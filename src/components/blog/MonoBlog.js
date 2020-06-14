@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import Button from '../common/Button';
 import blogBg from '../../assets/check-up-dentist-doc.png';
 import { Card, CardContent } from '@material-ui/core';
-
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
 	/* blog css styling goes here */
@@ -26,7 +25,7 @@ const Wrapper = styled.div`
 	}
 	.card_content {
 		text-align: start;
-		background:#2EC4B6;
+		background: ${props => props.theme.color.brand_02};
 		margin-top: -.9rem;
 		color:#fff
 	}
@@ -43,16 +42,25 @@ const Wrapper = styled.div`
 		text-decoration: underline;
     color: #fff;
 	}
+ 	.deepYellow_card {
+		background-color: ${props => props.theme.color.brand_03};
+	}
+	.purple_card {
+		background-color: ${props => props.theme.color.brand_04};
+	}
+	.pink_card {
+		background-color: ${props => props.theme.color.brand_01};
+	}
 `;
 
-export default function MonoBlog() {
+export default function MonoBlog({color, tryTest}) {
 	return (
 		<Wrapper>
 			<Card className="blog_card">
 				<div className="img_div">
 					<img src={blogBg} alt="blog bg" className="blog_img"/>
 				</div>
-				<CardContent className="card_content">
+				<CardContent className={`card_content ${color}_card`}>
 					<h2>Healthy Living</h2>
 					<p className="card_description">
 						Using our algorithm, we carry out a preliminary assessment to
@@ -65,7 +73,7 @@ export default function MonoBlog() {
 						</Link>
 						<Button
 							value="Read More"
-							theme="green"
+							theme={color === 'default' ? 'green' : color}
 							style={{ boxShadow: '0px 4px 4px rgba(46, 196, 182, 0.25)' }}
 						>
 							{' '}
@@ -79,5 +87,6 @@ export default function MonoBlog() {
 }
 
 MonoBlog.propTypes = {
-	//TODO: blog prop types goes here
+	tryTest: PropTypes.bool,
+	color: PropTypes.string,
 };
