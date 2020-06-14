@@ -1,27 +1,65 @@
 import React from 'react';
 import Container from '../../common/Container';
 import styled from 'styled-components';
-
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import Button from '../../common/Button';
+import MonoBlog from '../../blog/MonoBlog';
 
 const Wrapper = styled.div`
+	margin-top: 8rem;
+	.health {
+		background-color: ${props => props.theme.color.ui_text_01};
+	}
+	.fitness {
+		background-color: ${props => props.theme.color.ui_text_03};
+	}
+	.lifestyle {
+		background-color: ${props => props.theme.color.ui_text_02};
+	}
+	.nutrition {
+		background-color: ${props => props.theme.color.ui_text_04};
+	}
+	.team_card {
+		padding: 2rem 0rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.details {
+		width: 55%;
+		height: 100%;
+		display: grid;
+		grid-gap: 2rem;
+	}
+	.card {
 
-
+	}
 `;
 
-function TeamCard() {
+function TeamCard({ page, details, tryTest }) {
 	return (
 		<Wrapper>
-			<Container>
-				{/* 				Code goes here */}
-				TeamCard
-			</Container>
+			<div className={page} >
+				<Container>
+					<div className={`${page} team_card`}>
+						<div className="details">
+							<h1>{details.title}</h1>
+							<p>{details.description}</p>
+							<Button theme={page === 'health' ? 'darkGreen' : 'yellow' }>Get Started</Button>
+						</div>
+						<div className="card">
+							<MonoBlog tryTest />
+						</div>
+					</div>
+				</Container>
+			</div>
 		</Wrapper>
 	);
 }
 
 TeamCard.propTypes = {
-
+	page: PropTypes.string.isRequired,
+	details: PropTypes.object.isRequired,
 };
 
 export default TeamCard;

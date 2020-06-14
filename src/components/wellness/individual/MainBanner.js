@@ -67,7 +67,9 @@ const Wrapper = styled.div`
 		height: 4.5rem;
 		object-fit: contain;
 	}
-
+	.nav_text {
+		color: ${props => props.theme.color.text_02}
+	}
 `;
 
 function MainBanner({page}) {
