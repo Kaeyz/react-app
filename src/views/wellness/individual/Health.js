@@ -11,7 +11,7 @@ import HealthTrackCard from '../../../components/wellness/individual/HealthTrack
 const Health = () => {
 	return (
 		<AppLayout>
-			<MainBanner page="lifestyle"/>
+			<MainBanner page="health"/>
 			<TeamCard />
 			<Recommendations />
 			<HealthTrackCard />
