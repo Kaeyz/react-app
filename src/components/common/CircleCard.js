@@ -9,31 +9,32 @@ import centerFrame from '../../assets/Frame.png';
 const Wrapper = styled.div`
 	justify-content: center;
 	display: flex;
+	padding: 3.3rem 11.5rem;
 	.circular {
 		position: relative;
 	}
 	.Parentnode0{
 			top: -1.1rem;
 			left: 47%;
-		}
-		.Parentnode1{
-			bottom: .1rem;
+	}
+	.Parentnode1{
+		bottom: .1rem;
 		left: 47%;
-		}
-		.Parentnode2{
-			top: 45%;
+	}
+	.Parentnode2{
+		top: 45%;
 		left: -.9rem;
-		}
-		.Parentnode3{
-			top: 45%;
-			left: 96%;
-		}
-		.node{
+	}
+	.Parentnode3{
+		top: 45%;
+		left: 96%;
+	}
+	.node{
 		width: 1.302rem;
-height: 1.302rem;
-background: #3CBDB2;
-border-radius: 50%;
-text-align: center
+		height: 1.302rem;
+		background: #3CBDB2;
+		border-radius: 50%;
+		text-align: center
 	}
 	.Parentnode{
 		width: 2.293rem;
@@ -46,12 +47,12 @@ text-align: center
 		position: absolute;
 
 		}
-		.node>.flex{
-			font-size: 1.6rem;
-			line-height: 1.9rem;
-			color: #606161
-		}
-		.centered {
+	.node>.flex{
+		font-size: 1.6rem;
+		line-height: 1.9rem;
+		color: #606161
+	}
+	.centered {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -68,24 +69,24 @@ const CircleCard = () => {
 				<img src={circle} alt="circular"  />
 				<div className="Parentnode Parentnode0">
 					<div className="node">
-						<h2 className="flex" style={{marginTop:'-4rem'}}>HEALTH</h2>
+						<h2 className="flex" style={{marginTop:'-2.5rem'}}>HEALTH</h2>
 					</div>
 				</div>
 				<div className="Parentnode Parentnode1">
 					<div className="node">
-						<h2 className="flex" style={{marginTop:'4rem'}}>FITNESS</h2>
+						<h2 className="flex" style={{marginTop:'2rem'}}>FITNESS</h2>
 
 					</div>
 				</div>
 				<div className="Parentnode Parentnode2">
 					<div className="node">
-						<h2 className="flex" style={{marginLeft:'-15.5rem'}}>NUTRITION</h2>
+						<h2 className="flex" style={{marginLeft:'-13.3rem'}}>NUTRITION</h2>
 
 					</div>
 				</div>
 				<div className="Parentnode Parentnode3">
 					<div className="node">
-						<h2 className="flex" style={{marginRight:'-15.5rem',}}>LIFESTYLE</h2>
+						<h2 className="flex" style={{marginRight:'-12.3rem',}}>LIFESTYLE</h2>
 
 					</div>
 				</div>
