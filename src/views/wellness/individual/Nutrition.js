@@ -10,12 +10,12 @@ import HealthTrackCard from '../../../components/wellness/individual/HealthTrack
 
 const teamCard = {
 	details: {
-		title: 'We assess your team',
-		description: 'We conduct preliminary tests using your Body Mass Index as the starting point. We then build a wholistic profile of your health and identify any pre-existing conditions or hereditary conditions like Diabetes and others.'
+		title: 'Personalized Meal Plans',
+		description: 'Through personalized meal plans on food and diet, we give you a detailed look on the foods to eat as well as taking your health and location into consideration.'
 	},
 	card: {
-		title: 'Personalized Assessments',
-		description: 'Using our algorith, we carry out a preliminary assessments to understand the state of your health and determine how best to serve you!'
+		title: 'Meal Plans',
+		description: 'Through an analysis of your age, activity levels, and health, Choose Life recommends fitness routines to keep you in the best shape possible.'
 	}
 };
 
