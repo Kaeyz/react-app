@@ -9,6 +9,7 @@ import DoYouKnow from '../../../components/wellness/individual/DoYouKnow';
 import HealthTrackCard from '../../../components/wellness/individual/HealthTrackCard';
 import undraw_reading_time from '../../../assets/undraw_reading_time.png';
 import undraw_festivities from '../../../assets/undraw_festivities.png';
+import undraw_through_the_park from '../../../assets/undraw_through_the_park.png';
 
 
 const teamCard = {
@@ -33,6 +34,20 @@ const doYouKnow = {
 	img: undraw_reading_time
 };
 
+const recommendation= {
+	background: {
+		right: false,
+		left: 'green',
+		bottomRight: false,
+		bottomLeft: false,
+	},
+	title: 'Stress Test',
+	description: 'Having identified the pre-existing conditions and possible physical and mental health risks, we make recommendations and help you create health goals on what can be done to improve your health.',
+	img: undraw_through_the_park,
+	icon: false,
+	button: 'yellow'
+};
+
 const Lifestyle = () => {
 	return (
 		<AppLayout>
@@ -42,7 +57,7 @@ const Lifestyle = () => {
 				card={teamCard.card}
 				details={teamCard.details}
 			/>
-			<Recommendations />
+			<Recommendations data={recommendation}/>
 			<HealthTrackCard data={healthTrackCard} />
 			<DoYouKnow data={doYouKnow}/>
 			<LatestBlog />

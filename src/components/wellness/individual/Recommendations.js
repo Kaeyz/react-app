@@ -2,13 +2,13 @@ import React from 'react';
 import Container from '../../common/Container';
 import styled from 'styled-components';
 import Ellipse31 from '../../../assets/Ellipse31.png';
+import Ellipse30 from '../../../assets/Ellipse30.png';
 import Ellipse_31 from '../../../assets/Ellipse_31.png';
 import Ellipse32 from '../../../assets/Ellipse32.png';
-import RecImg from '../../../assets/care-check-checkup-905874.png';
 import Button from '../../common/Button';
 import smallImg from '../../../assets/Group.png';
-
-//import PropTypes from 'prop-types';
+import undraw_working_out from '../../../assets/undraw_working_out.png';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   .left-background {
@@ -16,8 +16,8 @@ const Wrapper = styled.div`
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
-    background-position: center left;
-    background-size: 5%;
+    background-position: 0% 18%;
+    background-size: 4%;
   }
   .right-background {
     height: 100%;
@@ -32,18 +32,32 @@ const Wrapper = styled.div`
   .green {
     background-image: url(${Ellipse_31});
   }
+  .bottom-right {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: auto;
+    background-image: url(${undraw_working_out});
+  }
+  .bottom-left {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: 110% 370%;
+    background-size: auto;
+    background-image: url(${Ellipse30});
+  }
   .detailImg {
-    transform: rotate(-45deg);
-    padding: 15px 70px;
 
     img {
       border-radius: 12px;
     }
   }
   .Rec {
-    flex-wrap: wrap;
-    padding: 7.7rem 0;
+    padding: 7rem 0;
     justify-content: space-between;
+    min-height: 45rem;
   }
   .details {
     width: 50%;
@@ -56,9 +70,7 @@ const Wrapper = styled.div`
   }
   .detailImg {
     min-width: 30rem;
-    max-width: 34rem;
-    margin-left: 3rem;
-    margin-top: 3rem;
+    max-width: 5vw;
   }
   h3 {
     font-size: 30px;
@@ -67,40 +79,41 @@ const Wrapper = styled.div`
   }
 `;
 
-function Recommendations() {
+function Recommendations({ data }) {
+	const { background: { right, left, bottomRight, bottomLeft }, icon, title, img, description, button } = data;
 	return (
 		<Wrapper>
-			<div className="left-background">
-				<div className="right-background pink">
-					<Container>
-						<div className="Rec flex">
-							<div className="detailImg">
-								<img src={RecImg} alt="RecImg" />
-							</div>
-							<div className="details">
-								<img src={smallImg} alt="smallImg" />
-								<h3>We make recommendations </h3>
-								<p className="RecInfo">
-                  Having identified the pre-existing conditions and possible
-                  physical and mental health risks, we make recommendations and
-                  help you create health goals on what can be done to improve
-                  your health.
-								</p>
-
-								<div>
-									<Button value="Get started" theme="darkGreen">
+			<div className={right && 'left-background'}>
+				<div className={`right-background ${left}`} >
+					<div className={bottomRight && 'bottom-right' }>
+						<div className={bottomLeft && 'bottom-left' }>
+							<Container>
+								<div className="Rec flex">
+									<div className="detailImg">
+										<img src={img} alt="RecImg" />
+									</div>
+									<div className="details">
+										{icon && <img src={smallImg} alt="smallImg" />}
+										<h3>{title}</h3>
+										<p className="RecInfo">{description}</p>
+										<div>
+											<Button value="Get started" theme={button === 'green' ? 'darkGreen': button}>
                     Get started
-									</Button>
+											</Button>
+										</div>
+									</div>
 								</div>
-							</div>
+							</Container>
 						</div>
-					</Container>
+					</div>
 				</div>
 			</div>
 		</Wrapper>
 	);
 }
 
-Recommendations.propTypes = {};
+Recommendations.propTypes = {
+	data: PropTypes.object.isRequired,
+};
 
 export default Recommendations;

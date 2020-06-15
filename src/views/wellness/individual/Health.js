@@ -9,6 +9,7 @@ import DoYouKnow from '../../../components/wellness/individual/DoYouKnow';
 import HealthTrackCard from '../../../components/wellness/individual/HealthTrackCard';
 import nutrition_rs from '../../../assets/nutrition-rs.png';
 import undraw_medicine from '../../../assets/undraw_medicine.svg';
+import Mask_group from '../../../assets/Mask_group.png';
 
 
 const teamCard = {
@@ -33,6 +34,19 @@ const doYouKnow = {
 	img: undraw_medicine
 };
 
+const recommendation= {
+	background: {
+		right: true,
+		left: 'none',
+		bottomRight: false,
+		bottomLeft: false,
+	},
+	title: 'We make recommendations',
+	description: 'Having identified the pre-existing conditions and possible physical and mental health risks, we make recommendations and help you create health goals on what can be done to improve your health.',
+	img: Mask_group,
+	icon: true,
+	button: 'green'
+};
 
 const Health = () => {
 	return (
@@ -43,7 +57,7 @@ const Health = () => {
 				card={teamCard.card}
 				details={teamCard.details}
 			/>
-			<Recommendations />
+			<Recommendations data={recommendation}/>
 			<HealthTrackCard data={healthTrackCard} />
 			<DoYouKnow data={doYouKnow}/>
 			<LatestBlog />

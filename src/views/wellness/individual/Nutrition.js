@@ -9,6 +9,7 @@ import DoYouKnow from '../../../components/wellness/individual/DoYouKnow';
 import HealthTrackCard from '../../../components/wellness/individual/HealthTrackCard';
 import undraw_breakfast from '../../../assets/undraw_breakfast.png';
 import group_129 from '../../../assets/group_129.png';
+import undraw_diet from '../../../assets/undraw_diet.png';
 
 
 const teamCard = {
@@ -33,6 +34,21 @@ const doYouKnow = {
 	img: undraw_breakfast
 };
 
+
+const recommendation= {
+	background: {
+		right: false,
+		left: 'pink',
+		bottomRight: false,
+		bottomLeft: false,
+	},
+	title: 'Recipes you know and love',
+	description: 'We have reimagned how we can use our existing local recipes and prepare them in a way that is healthier and not harmful to your body.',
+	img: undraw_diet,
+	icon: false,
+	button: 'yellow'
+};
+
 const Nutrition = () => {
 	return (
 		<AppLayout>
@@ -42,7 +58,7 @@ const Nutrition = () => {
 				card={teamCard.card}
 				details={teamCard.details}
 			/>
-			<Recommendations />
+			<Recommendations data={recommendation} />
 			<HealthTrackCard data={healthTrackCard} />
 			<DoYouKnow data={doYouKnow}/>
 			<LatestBlog />

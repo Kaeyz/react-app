@@ -10,6 +10,7 @@ import HealthTrackCard from '../../../components/wellness/individual/HealthTrack
 import checkup_up from '../../../assets/wellnessNav/check-up-dentist-doctors.png';
 import undraw_personal_trainer from '../../../assets/undraw_personal_trainer.png';
 import bicycle from '../../../assets/bicycle.png';
+import Group125 from '../../../assets/Group125.png';
 
 
 const teamCard = {
@@ -35,6 +36,20 @@ const doYouKnow = {
 	img: undraw_personal_trainer
 };
 
+const recommendation= {
+	background: {
+		right: true,
+		left: 'none',
+		bottomRight: true,
+		bottomLeft: true,
+	},
+	title: 'Recommended Fitness Plans',
+	description: 'Having identified the pre-existing conditions and possible physical and mental health risks, we make recommendations and help you create health goals on what can be done to improve your health.',
+	img: Group125,
+	icon: false,
+	button: 'yellow'
+};
+
 const Fitness = () => {
 	return (
 		<AppLayout>
@@ -45,7 +60,7 @@ const Fitness = () => {
 				details={teamCard.details}
 				tryTest={true}
 			/>
-			<Recommendations />
+			<Recommendations data={recommendation}/>
 			<HealthTrackCard data={healthTrackCard} />
 			<DoYouKnow data={doYouKnow}/>
 			<LatestBlog />
