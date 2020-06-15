@@ -1,85 +1,92 @@
 // modules
-import React from "react";
-import styled from "styled-components";
-import Container from "../../common/Container";
-import { Link } from "react-router-dom";
-import arrow from "../../../assets/Arrow1.png";
-import img from "../../../assets/undraw_medicine.svg";
+import React from 'react';
+import styled from 'styled-components';
+import Container from '../../common/Container';
+import { Link } from 'react-router-dom';
+import arrow from '../../../assets/Arrow1.png';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
-
+    height: max-content;
   .flexy {
-    flex-wrap: wrap;
+    display: flex;
     justify-content: space-between;
-	align-items: center;
-	padding: 142px 0;
-	
+    align-items: flex-end;
+	  padding: 6rem 0;
+    height: max-content;
+    }
     .leadInfo {
       flex-direction: column;
       align-items: end;
       flex-direction: column-reverse;
-      height: 32.7rem;
-      max-width: 100%;
-	  justify-content: space-between;
-	  
-      .linkSpan1 {
-        font-size: 4.1rem;
-        line-height: 6.4rem;
-        color: ${(props) => props.theme.color.text_01};
-        text-decoration-line: underline;
-        margin-right: 2.5rem;
-      }
+      max-width: 50%;
+	    justify-content: space-between;
     }
-  }
-  .leaderBg {
-    background-image: url(${img});
-    width: 38.9rem;
-    height: 27.6rem;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  h1 {
-    width: 52.7rem;
-    max-width: 100%;
-    font-size: 72px;
-    line-height: 86px;
-    color: ${(props) => props.theme.color.text_01};
-    margin-bottom: 2.9rem;
-  }
-  p {
-    font-size: 14px;
-line-height: 24px;
-    text-transform: uppercase;
-    color: ${(props) => props.theme.color.text_02};
-  }
+    .linkSpan1 {
+      font-size: 3.2vw;
+      line-height: 6.4rem;
+      color: ${(props) => props.theme.color.text_01};
+      text-decoration-line: underline;
+    }
+    .leaderBg {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .leaderBg_img {
+      width: 60%;
+      height: 60%;
+    }
+    h1 {
+      max-width: 100%;
+      font-size: 5vw;
+      line-height: 86px;
+      color: ${(props) => props.theme.color.text_01};
+      margin-bottom: 2.5vw;
+    }
+    p {
+      font-size: 1.4rem;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: ${(props) => props.theme.color.text_02};
+     }
+    .top_header {
+      margin-bottom: 5vw;
+    }
+    .arrow {
+      width: 5vw;
+    }
 `;
 
-export default function DoYouKnow() {
-  return (
-    <Wrapper>
-      <Container>
-        <div className="flexy flex">
-          <div className="flex leadInfo">
-            <div style={{ maxWidth: "100%" }}>
-              <h1>Did you know?</h1>
-              <p>A lack of exercise now causes as many deaths as smoking.</p>
-            </div>
-            <div>
-              <Link to="../pages/About.js">
-                <span className="linkSpan1">See Fitness</span>
-                <span>
-                  {" "}
-                  <img src={arrow} alt="arrow" className="arrow" />
-                </span>{" "}
-              </Link>
-            </div>
-          </div>
-          <div className="leaderBg"></div>
-        </div>
-      </Container>
-    </Wrapper>
-  );
+export default function DoYouKnow({data}) {
+	return (
+		<Wrapper>
+			<Container>
+				<div className="flexy">
+					<div className="flex leadInfo">
+						<div style={{ maxWidth: '100%' }}>
+							<h1>Did you know?</h1>
+							<p>{data.description}</p>
+						</div>
+						<div className="top_header">
+							<Link to="/about">
+								<span className="linkSpan1">See Fitness</span>
+								<span>
+									<img src={arrow} alt="arrow" className="arrow" />
+								</span>
+							</Link>
+						</div>
+					</div>
+					<div className="leaderBg">
+						<img src={data.img} className="leaderBg_img" alt="leaderBg_img"/>
+					</div>
+				</div>
+			</Container>
+		</Wrapper>
+	);
 }
 
-DoYouKnow.propTypes = {};
+DoYouKnow.propTypes = {
+	data: PropTypes.object.isRequired,
+};

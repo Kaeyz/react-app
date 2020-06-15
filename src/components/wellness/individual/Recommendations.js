@@ -31,14 +31,13 @@ const Wrapper = styled.div`
 		.green {
 			background-image: url(${Ellipse_31});
 		}
-
 `;
 
 function Recommendations() {
 	return (
 		<Wrapper>
 			<div className="left-background">
-				<div className="right-background pink">
+				<div className="right-background pink green">
 					<Container>
 						Recommendations
 					</Container>

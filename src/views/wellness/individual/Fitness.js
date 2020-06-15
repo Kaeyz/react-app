@@ -8,6 +8,9 @@ import Recommendations from '../../../components/wellness/individual/Recommendat
 import DoYouKnow from '../../../components/wellness/individual/DoYouKnow';
 import HealthTrackCard from '../../../components/wellness/individual/HealthTrackCard';
 import checkup_up from '../../../assets/wellnessNav/check-up-dentist-doctors.png';
+import undraw_personal_trainer from '../../../assets/undraw_personal_trainer.png';
+import bicycle from '../../../assets/bicycle.png';
+
 
 const teamCard = {
 	details: {
@@ -21,6 +24,17 @@ const teamCard = {
 	}
 };
 
+const healthTrackCard = {
+	title: 'Stay Fit',
+	description: 'Our technology allows us to accurately evaluate your Fitness Score, Metabolic Rate, Hydration Levels, Body Fat, Water Retention & Muscle Mass. This gives us clear insight into how your body is performing.',
+	img: bicycle,
+};
+
+const doYouKnow = {
+	description: 'Running is good for you. People who run 12-18 miles a week have a stronger immune system and can increase their bone mineral density.',
+	img: undraw_personal_trainer
+};
+
 const Fitness = () => {
 	return (
 		<AppLayout>
@@ -32,8 +46,8 @@ const Fitness = () => {
 				tryTest={true}
 			/>
 			<Recommendations />
-			<HealthTrackCard />
-			<DoYouKnow />
+			<HealthTrackCard data={healthTrackCard} />
+			<DoYouKnow data={doYouKnow}/>
 			<LatestBlog />
 			<Subscribe />
 		</AppLayout>

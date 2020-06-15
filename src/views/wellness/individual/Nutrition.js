@@ -7,6 +7,9 @@ import TeamCard from '../../../components/wellness/individual/TeamCard';
 import Recommendations from '../../../components/wellness/individual/Recommendations';
 import DoYouKnow from '../../../components/wellness/individual/DoYouKnow';
 import HealthTrackCard from '../../../components/wellness/individual/HealthTrackCard';
+import undraw_breakfast from '../../../assets/undraw_breakfast.png';
+import group_129 from '../../../assets/group_129.png';
+
 
 const teamCard = {
 	details: {
@@ -19,6 +22,17 @@ const teamCard = {
 	}
 };
 
+const healthTrackCard = {
+	title: 'Constant Updates',
+	description: 'At Choose Life, we understand that what goes into your body is the most important part of your health. This is why we offer support through personalized nutrition plans and recipes on how to make healthier versions of the foods you already love.',
+	img: group_129,
+};
+
+const doYouKnow = {
+	description: 'Running is good for you. People who run 12-18 miles a week have a stronger immune system and can increase their bone mineral density.',
+	img: undraw_breakfast
+};
+
 const Nutrition = () => {
 	return (
 		<AppLayout>
@@ -29,8 +43,8 @@ const Nutrition = () => {
 				details={teamCard.details}
 			/>
 			<Recommendations />
-			<HealthTrackCard />
-			<DoYouKnow />
+			<HealthTrackCard data={healthTrackCard} />
+			<DoYouKnow data={doYouKnow}/>
 			<LatestBlog />
 			<Subscribe />
 		</AppLayout>

@@ -7,6 +7,8 @@ import TeamCard from '../../../components/wellness/individual/TeamCard';
 import Recommendations from '../../../components/wellness/individual/Recommendations';
 import DoYouKnow from '../../../components/wellness/individual/DoYouKnow';
 import HealthTrackCard from '../../../components/wellness/individual/HealthTrackCard';
+import nutrition_rs from '../../../assets/nutrition-rs.png';
+import undraw_medicine from '../../../assets/undraw_medicine.svg';
 
 
 const teamCard = {
@@ -20,6 +22,17 @@ const teamCard = {
 	}
 };
 
+const healthTrackCard = {
+	title: 'We track your health',
+	description: 'Using InBody’s Body Composition History tracks a client’s progress throughout their program and ensures their BMR and nutrition program is being balanced to reflect their muscle growth. By monitoring weight, skeletal muscle mass, and percent body fat, client’s will be able to track and maintain their ideal body composition.',
+	img: nutrition_rs,
+};
+
+const doYouKnow = {
+	description: 'Running is good for you. People who run 12-18 miles a week have a stronger immune system and can increase their bone mineral density.',
+	img: undraw_medicine
+};
+
 
 const Health = () => {
 	return (
@@ -31,8 +44,8 @@ const Health = () => {
 				details={teamCard.details}
 			/>
 			<Recommendations />
-			<HealthTrackCard />
-			<DoYouKnow />
+			<HealthTrackCard data={healthTrackCard} />
+			<DoYouKnow data={doYouKnow}/>
 			<LatestBlog />
 			<Subscribe />
 		</AppLayout>

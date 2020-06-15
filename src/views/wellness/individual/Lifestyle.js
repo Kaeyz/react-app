@@ -7,6 +7,9 @@ import TeamCard from '../../../components/wellness/individual/TeamCard';
 import Recommendations from '../../../components/wellness/individual/Recommendations';
 import DoYouKnow from '../../../components/wellness/individual/DoYouKnow';
 import HealthTrackCard from '../../../components/wellness/individual/HealthTrackCard';
+import undraw_reading_time from '../../../assets/undraw_reading_time.png';
+import undraw_festivities from '../../../assets/undraw_festivities.png';
+
 
 const teamCard = {
 	details: {
@@ -19,6 +22,17 @@ const teamCard = {
 	}
 };
 
+const healthTrackCard = {
+	title: 'Relaxation & Sleep',
+	description: 'Using InBody’s Body Composition History tracks a client’s progress throughout their program and ensures their BMR and nutrition program is being balanced to reflect their muscle growth. By monitoring weight, skeletal muscle mass, and percent body fat, client’s will be able to track and maintain their ideal body composition.',
+	img: undraw_festivities,
+};
+
+const doYouKnow = {
+	description: 'Running is good for you. People who run 12-18 miles a week have a stronger immune system and can increase their bone mineral density.',
+	img: undraw_reading_time
+};
+
 const Lifestyle = () => {
 	return (
 		<AppLayout>
@@ -29,8 +43,8 @@ const Lifestyle = () => {
 				details={teamCard.details}
 			/>
 			<Recommendations />
-			<HealthTrackCard />
-			<DoYouKnow />
+			<HealthTrackCard data={healthTrackCard} />
+			<DoYouKnow data={doYouKnow}/>
 			<LatestBlog />
 			<Subscribe />
 		</AppLayout>

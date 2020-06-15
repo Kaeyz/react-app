@@ -1,9 +1,8 @@
-import React from "react";
-import Container from "../../common/Container";
-import styled from "styled-components";
-import Button from "../../common/Button";
-import trackImg from "../../../assets/nutrition-rs.png";
-//import PropTypes from 'prop-types';
+import React from 'react';
+import Container from '../../common/Container';
+import styled from 'styled-components';
+import Button from '../../common/Button';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   background: #cbf3f0;
@@ -36,36 +35,34 @@ const Wrapper = styled.div`
   }
 `;
 
-function HealthTrackCard() {
-  return (
-    <Wrapper>
-      <Container>
-        <div className="tracker" style={{ flexDirection: "row-reverse" }}>
-          <div className="detailImg">
-            <img src={trackImg} alt="trackImg" />
-          </div>
-          <div className="details">
-            <h3>We track your health </h3>
-            <p className="trackInfo">
-              Are you stressed? Are you unhappy? How can we make your life or
-              you more productive and satisfied? Are you living a life of
-              balance and good adjustment? We ask the questions that help us
-              make you happier, healthier, and simply, the best version of
-              yourself.
-            </p>
+function HealthTrackCard({data}) {
+	return (
+		<Wrapper>
+			<Container>
+				<div className="tracker" style={{ flexDirection: 'row-reverse' }}>
+					<div className="detailImg">
+						<img src={data.img} alt="trackImg" />
+					</div>
+					<div className="details">
+						<h3>{data.title} </h3>
+						<p className="trackInfo">
+							{data.description}
+						</p>
 
-            <div>
-              <Button value="Get started" theme="darkGreen">
+						<div>
+							<Button value="Get started" theme="darkGreen">
                 Get started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </Wrapper>
-  );
+							</Button>
+						</div>
+					</div>
+				</div>
+			</Container>
+		</Wrapper>
+	);
 }
 
-HealthTrackCard.propTypes = {};
+HealthTrackCard.propTypes = {
+	data: PropTypes.object.isRequired,
+};
 
 export default HealthTrackCard;
