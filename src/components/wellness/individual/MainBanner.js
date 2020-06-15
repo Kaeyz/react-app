@@ -80,7 +80,7 @@ function MainBanner({page}) {
 					<Container>
 						<div className="top_section">
 							<div className="title">
-								<h1 className="bigText">See how well a Wellness plan can works for you</h1>
+								<h1 className="bigText">See how well a Wellness plan can work for you</h1>
 							</div>
 							<CircleCard />
 						</div>
