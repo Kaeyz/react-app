@@ -8,7 +8,7 @@ import Ellipse32 from '../../../assets/Ellipse32.png';
 //import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
-			height: 60rem;
+			height: 30rem;
 			border: 2px solid black;
 		.left-background {
 			background-image: url(${Ellipse31});
