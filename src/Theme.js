@@ -59,7 +59,7 @@ const GlobalStyle = createGlobalStyle`
 		outline: none;
     height: 100%;
     font-family: cursive;
-background:#fff;
+		background:#fff;
   }
 	div, span {
     margin: 0;
@@ -85,7 +85,7 @@ background:#fff;
   	max-width: 100%;
   	height: auto;
 	}
-	
+
 .nav > .nav-links > a {
     display: block;
     width: 100%;

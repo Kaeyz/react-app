@@ -18,7 +18,6 @@ const Routes = () => (
 			<Route path="/wellness/individual/fitness" component={Fitness} />
 			<Route path="/wellness/individual/nutrition" component={Nutrition} />
 			<Route path="/wellness/individual/lifestyle" component={Lifestyle} />
-
 		</Switch>
 	</Router>
 );
