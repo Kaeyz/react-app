@@ -12,6 +12,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    min-height: 35rem;
   }
   .trackInfo {
     margin: 2rem 0;
