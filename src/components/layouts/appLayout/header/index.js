@@ -93,10 +93,10 @@ export default function Header() {
 					</div>
 
 					<div className="nav-buttons">
-						<Link to="/signUp">
+						<Link to="/login">
 							<Button value="Log In" theme="green" style={buttonStyles}>Log In</Button>
 						</Link>
-						<Link to="/signUp">
+						<Link to="/onboarding/individual">
 							<Button value="Join Us" theme="darkGreen" style={buttonStyles}>Join Us</Button>
 						</Link>
 					</div>
