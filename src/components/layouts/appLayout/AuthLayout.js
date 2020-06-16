@@ -9,18 +9,24 @@ import Button from '../../common/Button';
 
 
 const Wrapper = styled.div`
+	background-color: ${props => props.theme.color.ui_03};
   .main {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 2rem;
+    padding: 2rem 0rem;
+		justify-content: center;
   }
+	.logo_details {
+		display: grid;
+		grid-gap: 1.6rem;
+	}
   .logo_section {
     width: 40%;
     display: grid;
     align-items: center;
   }
   .item {
-    min-width: 60%;
+  	width: 60%;
   }
   .logo_div {
     width: 10rem;
@@ -32,12 +38,10 @@ const Wrapper = styled.div`
     margin-left: -1rem
   }
 
-
-
-
   @media screen and (max-width: ${props => props.theme.breakpoint.md}) {
     .logo_section {
       width: 100%;
+			display: flex;
     }
     .item {
       width: 100%;
@@ -53,7 +57,7 @@ export default function AuthLayout({ children, sidebar, data }) {
 			<div className="logo_div">
 				<img src={Frame} alt="frame" className="logo_img" />
 			</div>
-			<div>
+			<div className="logo_details">
 				<h3>{data.title}</h3>
 				<p>{data.description}</p>
 				<Link to={data.buttonLink}>

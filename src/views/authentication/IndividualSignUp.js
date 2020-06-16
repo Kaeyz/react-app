@@ -1,5 +1,6 @@
 import React from 'react';
 import AuthLayout from '../../components/layouts/appLayout/AuthLayout';
+import IndividualSignUpForm from '../../components/forms/authentications/IndividualSignUpForm';
 
 const layoutData = {
 	title: 'For Individuals',
@@ -12,7 +13,7 @@ const layoutData = {
 const IndividualSignUp = () => {
 	return (
 		<AuthLayout data={layoutData}>
-      Individual SignUp
+			<IndividualSignUpForm />
 		</AuthLayout>
 	);
 };

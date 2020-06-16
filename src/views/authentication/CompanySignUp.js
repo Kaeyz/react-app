@@ -1,5 +1,6 @@
 import React from 'react';
 import AuthLayout from '../../components/layouts/appLayout/AuthLayout';
+import CompanySignUpForm from '../../components/forms/authentications/CompanySignUpForm';
 
 const layoutData = {
 	title: 'For Companies',
@@ -12,7 +13,7 @@ const layoutData = {
 const CompanySignUp = () => {
 	return (
 		<AuthLayout data={layoutData} >
-      Company SignUp
+			<CompanySignUpForm />
 		</AuthLayout>
 	);
 };
