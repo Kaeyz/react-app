@@ -19,9 +19,9 @@ const Wrapper = styled.div`
 	.input {
 		margin: 0;
 		min-width: 100%;
-		padding-top: 1rem;
-		padding-left: 1rem;
-		border: 1px solid grey;
+		// padding-top: 1rem;
+		// padding-left: 1rem;
+		// border: 1px solid grey;
 		border-radius: 5px;
 	}
 `;

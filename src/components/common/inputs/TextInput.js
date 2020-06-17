@@ -15,6 +15,9 @@ const Wrapper = styled.div`
 		margin: 0;
 		min-width: 100%;
 	}
+	.label{
+		// color:red;
+	}
 `;
 
 
