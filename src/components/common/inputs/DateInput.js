@@ -1,43 +1,54 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import DateFnsUtils from '@date-io/date-fns';
 import {
 	MuiPickersUtilsProvider,
 	KeyboardDatePicker
 } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 
 const Wrapper = styled.div`
+	margin-top: 1.5rem;
 	width: 100%;
-	.label {
-		margin: 0;
-		font-weight: normal;
+	.input_label {
+		margin-bottom: 0.3rem;
 		font-size: 1.3rem;
+		margin-top: 0;
 	}
 	.input {
 		margin: 0;
 		min-width: 100%;
-		padding-top: 1rem;
-		padding-left: 1rem;
-		border: 1px solid grey;
+		border: 2px solid ${props => props.theme.color.ui_text_01};
+		outline: none;
+		color: ${props => props.theme.color.active_primary};
 		border-radius: 5px;
+		:hover {
+			border: 2px solid ${props => props.theme.color.active_primary};
+		}
 	}
 `;
+
+const inputStyle = {
+	paddingTop: '1.5rem',
+	paddingBottom: '1.5rem',
+	fontSize: '1.3rem',
+	borderColor: 'none',
+	outline: 'none'
+};
 
 const DateInput = ({label, value, onChange }) => {
 	return (
 		<Wrapper>
-			<MuiPickersUtilsProvider utils={DateFnsUtils}>
-				<Typography variant="subtitle1" component="h6" className="label">{label}</Typography>
+			<MuiPickersUtilsProvider utils={DateFnsUtils} >
+				<h6 className="input_label">{label}</h6>
 				<KeyboardDatePicker
 					fullWidth
-					margin="dense"
 					inputVariant="outlined"
 					className="input"
 					format="dd/MM/yyyy"
 					value={value}
+					inputProps={{ style: inputStyle }}
 					onChange={onChange}
 					KeyboardButtonProps={{
 						'aria-label': 'change date',

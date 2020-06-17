@@ -71,19 +71,18 @@ function CompanySignUpForm() {
 					<Grid container spacing={2} justify="space-between">
 						<Grid item xs={12} sm={6}>
 							<SelectInput
-								label="First Name of Representative"
+								label="Job Title of Representative"
 								value= {name}
 								onChange={setName}
-								placeholder="Type here..."
-								options={[]}
+								options={[{value:'', text: 'Select here'}]}
 							/>
 						</Grid>
 						<Grid item xs={12} sm={6}>
 							<SelectInput
-								label="Last Name of Representative"
+								label="Organization size"
 								value= {name}
 								onChange={setName}
-								placeholder="Type here..."
+								options={[{value:'', text: 'Select here'}]}
 							/>
 						</Grid>
 

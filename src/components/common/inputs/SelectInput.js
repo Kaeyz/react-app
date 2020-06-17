@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Select, MenuItem, } from '@material-ui/core';
+import { Select, MenuItem } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { theme as myTheme } from '../../../Theme';
 import InputBase from '@material-ui/core/InputBase';
 
+// eslint-disable-next-line no-unused-vars
 const Input = withStyles((theme) => ({
 	input: {
 		border: `2px solid ${myTheme.color.ui_text_01}`,
@@ -51,7 +52,7 @@ const SelectInput = ({label, onChange, value, options}) => {
 				variant="outlined"
 				value={value}
 				onChange={handleChange}
-				input={<Input />}
+				input={<Input value={value} />}
 				inputProps={{ style: inputStyle }}
 			>
 				{options && options.map((option, index) => (
@@ -66,7 +67,7 @@ SelectInput.propTypes = {
 	label: PropTypes.string,
 	options: PropTypes.array.isRequired,
 	value: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired
+	onChange: PropTypes.func.isRequired,
 };
 
 
