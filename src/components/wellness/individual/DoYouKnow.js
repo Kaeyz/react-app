@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from '../../common/Container';
 import { Link } from 'react-router-dom';
-import arrow from '../../../assets/Arrow1.png';
+import arrow from '../../../assets/Arrow1.svg';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`

@@ -7,10 +7,10 @@ import TeamCard from '../../../components/wellness/individual/TeamCard';
 import Recommendations from '../../../components/wellness/individual/Recommendations';
 import DoYouKnow from '../../../components/wellness/individual/DoYouKnow';
 import HealthTrackCard from '../../../components/wellness/individual/HealthTrackCard';
-import checkup_up from '../../../assets/wellnessNav/check-up-dentist-doctors.png';
-import undraw_personal_trainer from '../../../assets/undraw_personal_trainer.png';
-import bicycle from '../../../assets/bicycle.png';
-import Group125 from '../../../assets/Group125.png';
+import checkup_up from '../../../assets/wellnessNav/check-up-dentist-doctors.svg';
+import undraw_personal_trainer from '../../../assets/undraw_personal_trainer.svg';
+import bicycle from '../../../assets/bicycle.svg';
+import Group125 from '../../../assets/Group125.svg';
 
 
 const teamCard = {

@@ -1,10 +1,10 @@
 // modules
 import React from 'react';
 import styled from 'styled-components';
-import leftImg from '../../assets/leftFlower.png';
-import rightImg from '../../assets/rightFlower.png';
-import firstBank from '../../assets/client2.png';
-import client2 from '../../assets/client1.png';
+import leftImg from '../../assets/leftFlower.svg';
+import rightImg from '../../assets/rightFlower.svg';
+import firstBank from '../../assets/client2.svg';
+import client2 from '../../assets/client1.svg';
 
 const Wrapper = styled.div`
 	background: #f8f9fb;

@@ -1,8 +1,8 @@
 // modules
 import React from "react";
 import styled from "styled-components";
-import square from "../../assets/square.png";
-import triangle from "../../assets/triangle.png";
+import square from "../../assets/square.svg";
+import triangle from "../../assets/triangle.svg";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`

@@ -1,7 +1,7 @@
 // modules
 import React from 'react';
 import styled from 'styled-components';
-import Bg1 from '../../assets/heroHome.png';
+import Bg1 from '../../assets/heroHome.svg';
 import Button from '../common/Button';
 
 

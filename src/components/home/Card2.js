@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import img from '../../assets/heroHome.png';
-import circle from '../../assets/Ellipse17.png';
+import img from '../../assets/heroHome.svg';
+import circle from '../../assets/Ellipse17.svg';
 import styled from 'styled-components';
 import Button from '../common/Button';
 function Card1() {

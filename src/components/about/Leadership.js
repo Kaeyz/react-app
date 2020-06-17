@@ -3,8 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import Container from "../common/Container";
 import { Link } from "react-router-dom";
-import arrow from "../../assets/Arrow1.png";
-import img from "../../assets/charles-etoroma.png";
+import arrow from "../../assets/Arrow1.svg";
+import img from "../../assets/charles-etoroma.svg";
 
 const Wrapper = styled.div`
   /* leadership styling goes here */

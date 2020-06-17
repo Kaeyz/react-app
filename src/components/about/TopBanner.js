@@ -1,9 +1,9 @@
 // modules
 import React from 'react';
 import styled from 'styled-components';
-import ashBg from '../../assets/topBannerImg1.png';
-import flower from '../../assets/img/flower_1.png';
-import img from '../../assets/affection-couple.png';
+import ashBg from '../../assets/topBannerImg1.svg';
+import flower from '../../assets/img/flower_1.svg';
+import img from '../../assets/affection-couple.svg';
 
 const Wrapper = styled.div`
   display: flex;
