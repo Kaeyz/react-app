@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   .logo_section {
     width: 40%;
     display: grid;
-    align-items: center;
+    align-content: center;
   }
   .item {
   	width: 60%;
@@ -37,15 +37,24 @@ const Wrapper = styled.div`
     height: 100%;
     margin-left: -1rem
   }
+	.link {
+		text-decoration: none;
+		color: inherit;
+	}
 
   @media screen and (max-width: ${props => props.theme.breakpoint.md}) {
     .logo_section {
       width: 100%;
 			display: flex;
+			margin-bottom: 2rem;
     }
     .item {
       width: 100%;
     }
+		.logo_details {
+			display: flex;
+			align-items: center;
+		}
   }
 `;
 
@@ -58,18 +67,21 @@ export default function AuthLayout({ children, sidebar, data }) {
 				<img src={Frame} alt="frame" className="logo_img" />
 			</div>
 			<div className="logo_details">
-				<h3>{data.title}</h3>
-				<p>{data.description}</p>
-				<Link to={data.buttonLink}>
-					<Button
-						theme="darkGreen"
-						style={{ width: '20rem', padding: '1.4rem 0rem' }} >
+				<div className="details_text" >
+					<h3>{data.title}</h3>
+					<p>{data.description}</p>
+				</div>
+				<Button
+					theme="darkGreen"
+					style={{ width: '20rem', padding: '1.4rem 0rem' }} >
+					<Link to={data.buttonLink} className="link">
 						{data.buttonText}
-					</Button>
-				</Link>
+					</Link>
+				</Button>
 			</div>
 		</div>
 	);
+
 	return (
 		<Wrapper>
 			<Header />
