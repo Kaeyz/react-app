@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Button from '../common/Button';
-import blogBg from '../../assets/check-up-dentist-doc.png';
+import blogBg from '../../assets/wellnessNav/check-up-dentist-doctors.svg';
 import { Card, CardContent } from '@material-ui/core';
 import PropTypes from 'prop-types';
 

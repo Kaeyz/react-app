@@ -1,9 +1,9 @@
 import React from 'react';
-import hiddenImg from '../../assets/Ellipse31.png';
-import hiddenImg1 from '../../assets/Ellipse29.png';
-import irregularImg from '../../assets/Ellipse30.png';
-import watch from '../../assets/watch.png';
-import Bg1 from '../../assets/heroHome.png';
+import hiddenImg from '../../assets/Ellipse31.svg';
+import hiddenImg1 from '../../assets/Ellipse29.svg';
+import irregularImg from '../../assets/Ellipse30.svg';
+import watch from '../../assets/watch.svg';
+import Bg1 from '../../assets/heroHome.svg';
 // eslint-disable-next-line
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';

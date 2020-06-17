@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import brand from '../../../../assets/brand.png';
+import brand from '../../../../assets/brand.svg';
 import Drawer from './Drawer';
 
 const Wrapper = styled.div`

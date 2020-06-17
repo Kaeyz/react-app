@@ -2,18 +2,18 @@ import React from 'react';
 import Container from '../../common/Container';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import flower1 from '../../../assets/img/flower_1.png';
-import flower2 from '../../../assets/img/flower_2.png';
+import flower1 from '../../../assets/img/flower_1.svg';
+import flower2 from '../../../assets/img/flower_2.svg';
 import CircleCard from '../../common/CircleCard';
 import PropTypes from 'prop-types';
-import health from '../../../assets/wellnessNav/health.png';
-import healthIsActive from '../../../assets/wellnessNav/healthIsActive.png';
-import fitness from '../../../assets/wellnessNav/fitness.png';
-import fitnessIsActive from '../../../assets/wellnessNav/fitnessIsActive.png';
-import lifestyle from '../../../assets/wellnessNav/lifestyle.png';
-import lifestyleIsActive from '../../../assets/wellnessNav/lifestyleIsActive.png';
-import nutrition from '../../../assets/wellnessNav/nutrition.png';
-import nutritionIsActive from '../../../assets/wellnessNav/nutritionIsActive.png';
+import health from '../../../assets/wellnessNav/health.svg';
+import healthIsActive from '../../../assets/wellnessNav/healthIsActive.svg';
+import fitness from '../../../assets/wellnessNav/fitness.svg';
+import fitnessIsActive from '../../../assets/wellnessNav/fitnessIsActive.svg';
+import lifestyle from '../../../assets/wellnessNav/lifestyle.svg';
+import lifestyleIsActive from '../../../assets/wellnessNav/lifestyleIsActive.svg';
+import nutrition from '../../../assets/wellnessNav/nutrition.svg';
+import nutritionIsActive from '../../../assets/wellnessNav/nutritionIsActive.svg';
 
 const Wrapper = styled.div`
 		height: max-content;

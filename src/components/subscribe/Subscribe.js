@@ -1,7 +1,7 @@
 // modules
 import React from "react";
 import styled from "styled-components";
-import Bg1 from "../../assets/Hero.png";
+import Bg1 from "../../assets/Hero.svg";
 import Button from "../common/Button";
 
 const Wrapper = styled.div`

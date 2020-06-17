@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import circle from '../../assets/Ellipse17.png';
-import centerFrame from '../../assets/Frame.png';
+import circle from '../../assets/Ellipse17.svg';
+import centerFrame from '../../assets/Frame.svg';
 
 
 //import PropTypes from 'prop-types';

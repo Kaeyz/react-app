@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Button from '../common/Button';
 import styled from 'styled-components' ;
-import img from '../../assets/heroHome.png';
-import flower1 from '../../assets/img/flower_1.png';
-import flower2 from '../../assets/img/flower_2.png';
-import umbrella from '../../assets/img/umbrella.png';
+import img from '../../assets/img/heroHome.svg';
+import flower1 from '../../assets/img/flower_1.svg';
+import flower2 from '../../assets/img/flower_2.svg';
+import umbrella from '../../assets/img/umbrella.svg';
 import Container from '../common/Container';
 import VideoCarousel from './VideoCarousel';
 

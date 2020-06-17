@@ -100,4 +100,3 @@ function CompanySignUpForm() {
 //CompanySignUpForm.propTypes = {}
 
 export default CompanySignUpForm;
-

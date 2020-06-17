@@ -7,9 +7,9 @@ import TeamCard from '../../../components/wellness/individual/TeamCard';
 import Recommendations from '../../../components/wellness/individual/Recommendations';
 import DoYouKnow from '../../../components/wellness/individual/DoYouKnow';
 import HealthTrackCard from '../../../components/wellness/individual/HealthTrackCard';
-import nutrition_rs from '../../../assets/nutrition-rs.png';
+import nutrition_rs from '../../../assets/nutrition-rs.svg';
 import undraw_medicine from '../../../assets/undraw_medicine.svg';
-import Mask_group from '../../../assets/Mask_group.png';
+import Mask_group from '../../../assets/Mask_Group.svg';
 
 
 const teamCard = {

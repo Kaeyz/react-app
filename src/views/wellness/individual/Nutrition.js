@@ -7,9 +7,9 @@ import TeamCard from '../../../components/wellness/individual/TeamCard';
 import Recommendations from '../../../components/wellness/individual/Recommendations';
 import DoYouKnow from '../../../components/wellness/individual/DoYouKnow';
 import HealthTrackCard from '../../../components/wellness/individual/HealthTrackCard';
-import undraw_breakfast from '../../../assets/undraw_breakfast.png';
-import group_129 from '../../../assets/group_129.png';
-import undraw_diet from '../../../assets/undraw_diet.png';
+import undraw_breakfast from '../../../assets/undraw_breakfast.svg';
+import group_129 from '../../../assets/group _129.svg';
+import undraw_diet from '../../../assets/undraw_diet.svg';
 
 
 const teamCard = {

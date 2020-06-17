@@ -2,7 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../common/Button";
-import hug from "../../assets/shalom-mwenesi.png";
+import hug from "../../assets/shalom-mwenesi.svg";
 
 const Wrapper = styled.div`
   max-width: 1058px;
