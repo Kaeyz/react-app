@@ -3,6 +3,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
 
 
+
 const theme = {
 	color: {
 		brand_01: '#F47803',
@@ -116,4 +117,5 @@ Theme.propTypes = {
 	children: PropTypes.object.isRequired,
 };
 
+export { theme };
 export default Theme;

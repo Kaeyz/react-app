@@ -21,6 +21,7 @@ const Wrapper = styled.div`
 		border-bottom: 2px solid ${props => props.theme.color.ui_03}
 	}
 	.footerText {
+		margin-top: 1.2rem;
 		font-size: 1.2rem;
 		text-align: center;
 	}

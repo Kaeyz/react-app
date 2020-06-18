@@ -1,5 +1,9 @@
-import React from "react";
-import AuthFormLayout from "./AuthFormLayout";
+import React, { useState } from 'react';
+import AuthFormLayout from './AuthFormLayout';
+import { TextInput, SelectInput, DateInput, PasswordInput } from '../../common/inputs';
+import { Grid } from '@material-ui/core';
+import styled from 'styled-components';
+import Button from '../../common/Button';
 //import PropTypes from 'prop-types'
 import { makeStyles } from "@material-ui/core/styles";
 import { TextInput } from "../../common/inputs/TextInput";
@@ -26,6 +30,15 @@ const option = [
   { value: "Male", text: "Male" },
   { value: "Female", text: "Female" },
 ];
+
+const Wrapper = styled.div`
+	.submit {
+		margin-top: 1.6rem;
+		display: flex;
+		justify-content: center;
+	}
+`;
+
 
 function IndividualSignUpForm() {
   const classes = useStyles();

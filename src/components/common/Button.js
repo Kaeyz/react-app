@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
-
+width: 100%;
 .greenBtn {
   border: 1px solid #2ec4b6;
   color: #2ec4b6;

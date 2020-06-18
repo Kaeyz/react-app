@@ -1,45 +1,63 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Typography, TextField } from '@material-ui/core';
+
 
 const Wrapper = styled.div`
-
+	margin-top: 1.5rem;
 	width: 100%;
-	.label {
-		margin: 0;
-		font-weight: normal;
+	.input_label {
+		margin-bottom: 0.3rem;
 		font-size: 1.3rem;
+		margin-top: 0;
 	}
+  .input_div {
+    border: 2px solid ${props => props.theme.color.ui_text_01};
+    height: 4.8rem;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    border-radius: 5px;
+    :hover {
+      border: 2px solid ${props => props.theme.color.active_primary};
+    }
+  }
 	.input {
 		margin: 0;
-		min-width: 100%;
+    outline: none;
+    border: none;
+    height: 100%;
+    padding-left: 1rem;
+    :focus :hover {
+      outline: none;
+    }
+	}
+	.adornment {
+		width: max-content;
+    padding-right: 1rem;
 	}
 	.label{
 		// color:red;
 	}
 `;
 
-
-const TextInput = ({ label, onChange, value, placeholder }) => {
+const TextInput = ({ label, onChange, value, placeholder, inputAdornment }) => {
 
 	const handleChange = (event) => {
 		onChange(event.target.value);
 	};
 
-
 	return (
 		<Wrapper>
-			<Typography variant="subtitle1" component="h6" className="label">{label}</Typography>
-			<TextField
-				placeholder={placeholder}
-				fullWidth
-				margin="dense"
-				variant="outlined"
-				className="input"
-				value={value}
-				onChange={handleChange}
-			/>
+			<h6 className="input_label">{label}</h6>
+			<div className="input_div">
+				<input
+					placeholder={placeholder}
+					className="input"
+					value={value}
+					onChange={handleChange}
+				/>
+				<p className="adornment">{inputAdornment}</p>
+			</div>
 		</Wrapper>
 	);
 };
@@ -48,7 +66,8 @@ TextInput.propTypes = {
 	label: PropTypes.string,
 	placeholder: PropTypes.string,
 	value: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired
+	onChange: PropTypes.func.isRequired,
+	inputAdornment: PropTypes.any
 };
 
 export { TextInput };
