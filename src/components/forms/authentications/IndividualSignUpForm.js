@@ -95,7 +95,7 @@ function IndividualSignUpForm() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <PasswordInput label="Enter your password" />
-            <p style={{ fontSize: "12px", lineHeight: "16px", marginTop:"13px" }}>
+            <p style={{ fontSize: "1.2rem", lineHeight: "1.6rem", fontFamily:'Futura', marginTop:"13px" }}>
               Your password needs to be at least 8 characters long.
             </p>
           </Grid>

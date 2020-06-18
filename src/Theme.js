@@ -1,47 +1,55 @@
-import React from 'react';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import PropTypes from 'prop-types';
-
-
+import React from "react";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import PropTypes from "prop-types";
+import basicFont from "./assets/Myfont/Matteo.otf";
+import secFont from "./assets/Myfont/FuturaPTBook.otf";
 
 const theme = {
-	color: {
-		brand_01: '#F47803',
-		brand_02: '#2EC4B6',
-		brand_03: '#FFBA08',
-		brand_04: '#8DB838',
-		ui_01: '#ffffff',
-		ui_02: '#FBFCFA',
-		ui_03: '#F3F0F0',
-		ui_04: '#D6D8D3',
-		text_01: '#1D1D1D',
-		text_02: '#606161',
-		text_03: '#ffffff',
-		ui_text_01: '#CBF3F0',
-		ui_text_02: '#FFA393',
-		ui_text_03: '#FFBF69',
-		ui_text_04: '#CEEE8F',
-		hover_primary: '#CEEE8F',
-		hover_row: '#F3F0F0',
-		active_primary: '#2EC4B6',
-		support_info: '#000000',
-		support_success: '#000000',
-		support_error: '#000000',
-		support_warning: '#000000',
-	},
-	font: {
-		// header_font: 'Tahoma',
-		body_font: 'cursive',
-	},
-	breakpoint: {
-		lg: '1058px',
-		md: '768px',
-		sm: '480px'
-	}
+  color: {
+    brand_01: "#F47803",
+    brand_02: "#2EC4B6",
+    brand_03: "#FFBA08",
+    brand_04: "#8DB838",
+    ui_01: "#ffffff",
+    ui_02: "#FBFCFA",
+    ui_03: "#F3F0F0",
+    ui_04: "#D6D8D3",
+    text_01: "#1D1D1D",
+    text_02: "#606161",
+    text_03: "#ffffff",
+    ui_text_01: "#CBF3F0",
+    ui_text_02: "#FFA393",
+    ui_text_03: "#FFBF69",
+    ui_text_04: "#CEEE8F",
+    hover_primary: "#CEEE8F",
+    hover_row: "#F3F0F0",
+    active_primary: "#2EC4B6",
+    support_info: "#000000",
+    support_success: "#000000",
+    support_error: "#000000",
+    support_warning: "#000000",
+  },
+  font: {
+    // header_font: 'Tahoma',
+    body_font: "cursive",
+  },
+  breakpoint: {
+    lg: "1058px",
+    md: "768px",
+    sm: "480px",
+  },
 };
 
-
 const GlobalStyle = createGlobalStyle`
+@font-face {
+    font-family: Matteo;
+    src: url(${basicFont}) ;
+  }
+
+@font-face {
+    font-family: Futura;
+    src: url(${secFont}) ;
+  }
 
 	html {
 		box-sizing: border-box;
@@ -59,7 +67,7 @@ const GlobalStyle = createGlobalStyle`
 		line-height: 2;
 		outline: none;
     height: 100%;
-    font-family: cursive;
+    font-family: Matteo ;
 		background:#fff;
   }
 	div, span {
@@ -87,34 +95,19 @@ const GlobalStyle = createGlobalStyle`
   	height: auto;
 	}
 
-.nav > .nav-links > a {
-    display: block;
-    width: 100%;
-  }
-.nav #nav-check:checked ~ .nav-btn > .label {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  .nav > #nav-check:not(:checked) ~ .nav-links {
-    height: 0px;
-  }
-  .nav > #nav-check:checked ~ .nav-links {
-    height: calc(100vh - 50px);
-    overflow-y: auto;
-		border: 2pc solid black;
-  }
 
 `;
 
 const Theme = (props) => (
-	<ThemeProvider theme={theme}>
-		<div>
-			<GlobalStyle />
-			{props.children}
-		</div>
-	</ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <div>
+      <GlobalStyle />
+      {props.children}
+    </div>
+  </ThemeProvider>
 );
 Theme.propTypes = {
-	children: PropTypes.object.isRequired,
+  children: PropTypes.object.isRequired,
 };
 
 export { theme };

@@ -56,7 +56,7 @@ overflow:hidden;
 		&::placeholder {
 			color: rgba(96, 97, 97, 0.5)
 			font-size: 1.4rem;
-			font-family:cursive;
+			font-family:"Matteo";
 			line-height: 2.4rem;}
 		}
 		[type=text] {

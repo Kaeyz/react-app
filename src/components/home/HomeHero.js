@@ -63,7 +63,7 @@ const Wrapper = styled.div `
 		line-height: 5vw;
 	}
 	.smallText {
-		font-size: 1.3vw;
+		font-size: 1vw;
 		line-height: 5vw;
 	}
 `;
