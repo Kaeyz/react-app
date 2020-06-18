@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import AuthFormLayout from './AuthFormLayout';
-import { TextInput, SelectInput, DateInput, PasswordInput } from '../../common/inputs';
-import { Grid } from '@material-ui/core';
-import styled from 'styled-components';
-import Button from '../../common/Button';
+import React, { useState } from "react";
+import AuthFormLayout from "./AuthFormLayout";
+import {
+  TextInput,
+  SelectInput,
+  DateInput,
+  PasswordInput,
+} from "../../common/inputs";
+import { Grid } from "@material-ui/core";
+import styled from "styled-components";
+// import Button from "../../common/Button";
 //import PropTypes from 'prop-types'
 import { makeStyles } from "@material-ui/core/styles";
-import { TextInput } from "../../common/inputs/TextInput";
-import Grid from "@material-ui/core/Grid";
-import { SelectInput } from "../../common/inputs/SelectInput";
-import { DateInput } from "../../common/inputs/DateInput";
-// import TextField from '@material-ui/core/TextField';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const textInput = {
-  placeholder: "Tyoe here...",
+  placeholder: "Type here...",
 };
 
 const option = [
@@ -32,13 +33,12 @@ const option = [
 ];
 
 const Wrapper = styled.div`
-	.submit {
-		margin-top: 1.6rem;
-		display: flex;
-		justify-content: center;
-	}
+  .submit {
+    margin-top: 1.6rem;
+    display: flex;
+    justify-content: center;
+  }
 `;
-
 
 function IndividualSignUpForm() {
   const classes = useStyles();
