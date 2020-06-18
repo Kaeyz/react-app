@@ -9,6 +9,7 @@ import Button from '../../common/Button';
 import smallImg from '../../../assets/Group.svg';
 import undraw_working_out from '../../../assets/undraw_working_out.svg';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   .left-background {
@@ -97,9 +98,12 @@ function Recommendations({ data }) {
 										<h3>{title}</h3>
 										<p className="RecInfo">{description}</p>
 										<div>
-											<Button value="Get started" theme={button === 'green' ? 'darkGreen': button}>
+                    <Link to="/onboarding/individual">
+                    <Button value="Get started" theme={button === 'green' ? 'darkGreen': button}>
                     Get started
 											</Button>
+              </Link>
+											
 										</div>
 									</div>
 								</div>

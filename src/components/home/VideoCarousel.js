@@ -84,10 +84,17 @@ function Video() {
 					</Link>
 
 					<div className="buttons">
-						<Button value="As a Company" theme="darkGreen"> As a Company
-						</Button>
-						<Button value="As a person" theme="yellow">As a person</Button>
-					</div>
+					<Link to="/onboarding/company">
+              <Button value="As a Company" theme="darkGreen">
+			  As a Company
+              </Button>
+            </Link>
+            <Link to="/onboarding/individual">
+              <Button value="As a person" theme="yellow">
+			  As a person
+              </Button>
+            </Link>
+							</div>
 				</div>
 			</div>
 

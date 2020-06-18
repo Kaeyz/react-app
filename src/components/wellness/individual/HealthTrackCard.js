@@ -3,6 +3,7 @@ import Container from '../../common/Container';
 import styled from 'styled-components';
 import Button from '../../common/Button';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   background: #cbf3f0;
@@ -51,9 +52,12 @@ function HealthTrackCard({data}) {
 						</p>
 
 						<div>
-							<Button value="Get started" theme="darkGreen">
+            <Link to="/onboarding/individual">
+            <Button value="Get started" theme="darkGreen">
                 Get started
 							</Button>
+              </Link>
+							
 						</div>
 					</div>
 				</div>

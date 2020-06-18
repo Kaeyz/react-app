@@ -72,7 +72,7 @@ export default function WellnessInfo() {
           <div className="triangle-info info">
             <h2>In your Home</h2>
             <p>
-              We assess you periodically to understand your health, then we make
+              We access you periodically to understand your health, then we make
               recommendations on how to live, eat, and work to help you maximize
               your zenith.
             </p>

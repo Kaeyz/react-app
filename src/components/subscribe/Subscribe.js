@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import Bg1 from "../../assets/Hero.svg";
 import Button from "../common/Button";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
 	/* OurDrive styling goes here */
@@ -93,9 +94,12 @@ export default function OurDrive() {
               name="email"
             />
           </div>
-          <Button value="Get started" theme="yellow">
-            Get started
-          </Button>
+          <Link to="/onboarding/individual">
+            <Button value="Get started" theme="yellow">
+              {" "}
+              Get started
+            </Button>
+          </Link>
         </div>
       </div>
 

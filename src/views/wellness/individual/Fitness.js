@@ -15,7 +15,7 @@ import Group125 from '../../../assets/Group125.svg';
 
 const teamCard = {
 	details: {
-		title: 'We assess your team',
+		title: 'We access your team',
 		description: 'We use the calorie calculator in assessing you for weight goals. Based on your health assessment, we help you set healthy, sustainable weight gain or weight loss goals by measuring your calorie intake.'
 	},
 	card: {
