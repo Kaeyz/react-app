@@ -15,7 +15,10 @@ const Wrapper = styled.div`
 `;
 
 function LoginForm() {
-	const [name, setName] = useState('');
+	const [firstName, setFirstName] = useState('');
+	const [lastName, setLastName] = useState('');
+	const [activityLevel, setActivityLevel] = useState('');
+
 	return (
 		<Wrapper>
 			<AuthFormLayout
@@ -30,8 +33,8 @@ function LoginForm() {
 						<Grid item xs={12} sm={12}>
 							<TextInput
 								label="Enter your email address"
-								value= {name}
-								onChange={setName}
+								value= {firstName}
+								onChange={setFirstName}
 								placeholder="Type here..."
 							/>
 						</Grid>
@@ -41,8 +44,8 @@ function LoginForm() {
 						<Grid item xs={12} sm={12}>
 							<PasswordInput
 								label="Enter Password"
-								value= {name}
-								onChange={setName}
+								value= {lastName}
+								onChange={setLastName}
 								options={[{value:'', text: 'Select here'}]}
 							/>
 						</Grid>
@@ -52,8 +55,8 @@ function LoginForm() {
 						<Grid item xs={12} sm={12}>
 							<SelectInput
 								label="Activity Level"
-								value= {name}
-								onChange={setName}
+								value= {activityLevel}
+								onChange={setActivityLevel}
 								options={[{value:'', text: 'Select here'}]}
 							/>
 						</Grid>

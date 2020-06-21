@@ -1,22 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { CssBaseline } from '@material-ui/core';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import store from './store/store';
 
 const MyApp = () => {
 	return (
-		<React.Fragment>
+		<Provider store={store}>
 			<CssBaseline />
 			<App />
-		</React.Fragment>
+		</Provider>
 	);
 };
 
 ReactDOM.render(
-	<React.StrictMode>
+	<React.Fragment>
 		<MyApp />
-	</React.StrictMode>,
+	</React.Fragment>,
 	document.getElementById('root')
 );
 
