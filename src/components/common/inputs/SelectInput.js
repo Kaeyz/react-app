@@ -16,7 +16,7 @@ const Input = withStyles((theme) => ({
 			borderRadius: 4,
 			borderColor: myTheme.color.active_primary,
 			boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-		},
+		}
 	},
 }))(InputBase);
 
@@ -32,13 +32,16 @@ const Wrapper = styled.div`
     margin: 0;
     min-width: 100%;
   }
+	.error {
+		color: red;
+	}
 `;
 
 const inputStyle = {
 	fontSize: '1.5rem',
 };
 
-const SelectInput = ({ label, onChange, value, options }) => {
+const SelectInput = ({ label, onChange, value, options, error }) => {
 	const handleChange = (event) => {
 
 		onChange(event.target.value);
@@ -61,14 +64,16 @@ const SelectInput = ({ label, onChange, value, options }) => {
 					</MenuItem>
 				))}
 			</Select>
+			<p className="error">{error && error}</p>
 		</Wrapper>
 	);
 };
 
 SelectInput.propTypes = {
 	label: PropTypes.string,
+	error: PropTypes.string,
 	options: PropTypes.array.isRequired,
-	value: PropTypes.string.isRequired,
+	value: PropTypes.any.isRequired,
 	onChange: PropTypes.func.isRequired,
 };
 

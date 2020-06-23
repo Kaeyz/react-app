@@ -1,5 +1,6 @@
 import React from 'react';
 import AuthLayout from '../../components/layouts/appLayout/AuthLayout';
+import PropTypes from 'prop-types';
 import IndividualSignUpForm from '../../components/forms/authentications/IndividualSignUpForm';
 
 const layoutData = {
@@ -10,12 +11,16 @@ const layoutData = {
 };
 
 
-const IndividualSignUp = () => {
+const IndividualSignUp = ({history}) => {
 	return (
 		<AuthLayout data={layoutData}>
-			<IndividualSignUpForm />
+			<IndividualSignUpForm history={history} />
 		</AuthLayout>
 	);
+};
+
+IndividualSignUp.propTypes = {
+	history: PropTypes.object.isRequired
 };
 
 export default IndividualSignUp;

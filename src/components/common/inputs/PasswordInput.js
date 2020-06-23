@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { IconButton } from "@material-ui/core";
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import PropTypes from "prop-types";
+import React from 'react';
+import styled from 'styled-components';
+import { IconButton } from '@material-ui/core';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   margin-top: 1.5rem;
@@ -37,55 +37,60 @@ const Wrapper = styled.div`
     width: max-content;
     padding-right: 1rem;
   }
+  .error {
+    color: red;
+  }
 `;
 
-const PasswordInput = ({ label, onChange, value, placeholder }) => {
-  const [values, setValues] = React.useState({
-    showPassword: false,
-  });
+const PasswordInput = ({ label, onChange, value, placeholder, error }) => {
+	const [values, setValues] = React.useState({
+		showPassword: false,
+	});
 
-  const handleChange = (event) => {
-    onChange(event.target.value);
-  };
+	const handleChange = (event) => {
+		onChange(event.target.value);
+	};
 
-  const handleClickShowPassword = () => {
-    setValues({ showPassword: !values.showPassword });
-  };
+	const handleClickShowPassword = () => {
+		setValues({ showPassword: !values.showPassword });
+	};
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+	const handleMouseDownPassword = (event) => {
+		event.preventDefault();
+	};
 
-  return (
-    <Wrapper>
-      <h6 className="input_label">{label}</h6>
-      <div className="input_div">
-        <input
-          placeholder={placeholder}
-          className="input"
-          type={values.showPassword ? "text" : "password"}
-          value={value}
-          onChange={handleChange}
-        />
-        <div className="adornment">
-          <IconButton
-            onClick={handleClickShowPassword}
-            onMouseDown={handleMouseDownPassword}
-            edge="end"
-          >
-            {values.showPassword ? <Visibility /> : <VisibilityOff />}
-          </IconButton>
-        </div>
-      </div>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<h6 className="input_label">{label}</h6>
+			<div className="input_div">
+				<input
+					placeholder={placeholder}
+					className="input"
+					type={values.showPassword ? 'text' : 'password'}
+					value={value}
+					onChange={handleChange}
+				/>
+				<div className="adornment">
+					<IconButton
+						onClick={handleClickShowPassword}
+						onMouseDown={handleMouseDownPassword}
+						edge="end"
+					>
+						{values.showPassword ? <Visibility /> : <VisibilityOff />}
+					</IconButton>
+				</div>
+				<p className="error">{error && error}</p>
+			</div>
+		</Wrapper>
+	);
 };
 
 PasswordInput.propTypes = {
-  label: PropTypes.string,
-  placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+	label: PropTypes.string,
+	error: PropTypes.string,
+	placeholder: PropTypes.string,
+	value: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
 };
 
 export { PasswordInput };

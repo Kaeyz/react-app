@@ -104,5 +104,5 @@ AuthLayout.defaultProps = {
 AuthLayout.propTypes = {
 	children: PropTypes.any.isRequired,
 	sidebar: PropTypes.bool.isRequired,
-	data: PropTypes.object.isRequired
+	data: PropTypes.object
 };

@@ -27,6 +27,9 @@ const Wrapper = styled.div`
 			border: 2px solid ${props => props.theme.color.active_primary};
 		}
 	}
+	.error {
+		color: red;
+	}
 `;
 
 const inputStyle = {
@@ -37,7 +40,7 @@ const inputStyle = {
 	outline: 'none'
 };
 
-const DateInput = ({label, value, onChange }) => {
+const DateInput = ({label, value, onChange, error }) => {
 	return (
 		<Wrapper>
 			<MuiPickersUtilsProvider utils={DateFnsUtils} >
@@ -55,12 +58,14 @@ const DateInput = ({label, value, onChange }) => {
 					}}
 				/>
 			</MuiPickersUtilsProvider>
+			<p className="error">{error && error}</p>
 		</Wrapper>
 	);
 };
 
 DateInput.propTypes = {
 	label: PropTypes.string,
+	error: PropTypes.string,
 	placeholder: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
 	value: PropTypes.any.isRequired,

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
+
+import PrivateRoute from './PrivateRoute';
 import Home from '../views/Home';
 import About from '../views/About';
 import Health from '../views/wellness/individual/Health';
@@ -17,13 +19,17 @@ const Routes = () => (
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route path="/about" component={About} />
-			<Route path="/login" component={Login} />
 			<Route path="/wellness/individual/health" component={Health} />
 			<Route path="/wellness/individual/fitness" component={Fitness} />
 			<Route path="/wellness/individual/nutrition" component={Nutrition} />
 			<Route path="/wellness/individual/lifestyle" component={Lifestyle} />
-			<Route path="/onboarding/individual" component={IndividualSignUp} />
-			<Route path="/onboarding/company" component={CompanySignUp} />
+
+
+			{/* Auth routes */}
+			<PrivateRoute isAuth={false} path="/login" component={Login} />
+			<PrivateRoute isAuth={false} path="/onboarding/individual" component=	{IndividualSignUp} />
+			<PrivateRoute isAuth={false} path="/onboarding/company" component={CompanySignUp} />
+
 
 		</Switch>
 	</Router>

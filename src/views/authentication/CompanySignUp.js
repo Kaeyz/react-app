@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AuthLayout from '../../components/layouts/appLayout/AuthLayout';
 import CompanySignUpForm from '../../components/forms/authentications/CompanySignUpForm';
 
@@ -10,12 +11,16 @@ const layoutData = {
 };
 
 
-const CompanySignUp = () => {
+const CompanySignUp = ({history}) => {
 	return (
 		<AuthLayout data={layoutData} >
-			<CompanySignUpForm />
+			<CompanySignUpForm history={history} />
 		</AuthLayout>
 	);
+};
+
+CompanySignUp.propTypes = {
+	history: PropTypes.object.isRequired
 };
 
 export default CompanySignUp;

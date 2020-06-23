@@ -35,12 +35,12 @@ const Wrapper = styled.div`
 		width: max-content;
     padding-right: 1rem;
 	}
-	.label{
-		// color:red;
+	.error {
+		color: red;
 	}
 `;
 
-const TextInput = ({ label, onChange, value, placeholder, inputAdornment }) => {
+const TextInput = ({ label, onChange, value, placeholder, inputAdornment, error }) => {
 
 	const handleChange = (event) => {
 		onChange(event.target.value);
@@ -58,12 +58,14 @@ const TextInput = ({ label, onChange, value, placeholder, inputAdornment }) => {
 				/>
 				<p className="adornment">{inputAdornment}</p>
 			</div>
+			<p className="error">{error && error}</p>
 		</Wrapper>
 	);
 };
 
 TextInput.propTypes = {
 	label: PropTypes.string,
+	error: PropTypes.string,
 	placeholder: PropTypes.string,
 	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,

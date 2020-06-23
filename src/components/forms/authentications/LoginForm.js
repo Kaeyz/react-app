@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import AuthFormLayout from './AuthFormLayout';
 import { TextInput, SelectInput, PasswordInput } from '../../common/inputs';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
 import Button from '../../common/Button';
-//import PropTypes from 'prop-types'
+import { loginUser } from '../../../store/actions/userActions';
+import { loginValidator } from '../validation';
 
 const Wrapper = styled.div`
 	.submit {
@@ -14,10 +17,24 @@ const Wrapper = styled.div`
 	}
 `;
 
-function LoginForm() {
-	const [firstName, setFirstName] = useState('');
-	const [lastName, setLastName] = useState('');
-	const [activityLevel, setActivityLevel] = useState('');
+function LoginForm({history, loginUser}) {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [accountType, setAccountType] = useState('');
+	const [errors, setErrors] = useState({});
+
+	const onFormSubmit = (event) => {
+		event.preventDefault();
+		setErrors({});
+		const user = { email, password, accountType };
+		const { isValid, errors } = loginValidator(user);
+
+		if (!isValid) {
+			return setErrors(errors);
+		}
+
+		loginUser(user, history);
+	};
 
 	return (
 		<Wrapper>
@@ -33,9 +50,10 @@ function LoginForm() {
 						<Grid item xs={12} sm={12}>
 							<TextInput
 								label="Enter your email address"
-								value= {firstName}
-								onChange={setFirstName}
+								value= {email}
+								onChange={setEmail}
 								placeholder="Type here..."
+								error={errors.email}
 							/>
 						</Grid>
 					</Grid>
@@ -44,9 +62,10 @@ function LoginForm() {
 						<Grid item xs={12} sm={12}>
 							<PasswordInput
 								label="Enter Password"
-								value= {lastName}
-								onChange={setLastName}
-								options={[{value:'', text: 'Select here'}]}
+								value= {password}
+								onChange={setPassword}
+								options={[{ value: '', text: 'Select here' }]}
+								error={errors.password}
 							/>
 						</Grid>
 					</Grid>
@@ -54,16 +73,16 @@ function LoginForm() {
 					<Grid container>
 						<Grid item xs={12} sm={12}>
 							<SelectInput
-								label="Activity Level"
-								value= {activityLevel}
-								onChange={setActivityLevel}
+								label="Account Type"
+								value= {accountType}
+								onChange={setAccountType}
 								options={[{value:'', text: 'Select here'}]}
 							/>
 						</Grid>
 					</Grid>
 
 					<div className="submit">
-						<Button theme="yellow" style={{width: '100%'}}>Login</Button>
+						<Button theme="yellow" onClick={onFormSubmit} style={{width: '100%'}}>Login</Button>
 					</div>
 				</div>
 			</AuthFormLayout>
@@ -71,7 +90,10 @@ function LoginForm() {
 	);
 }
 
-//LoginForm.propTypes = {}
+LoginForm.propTypes = {
+	history: PropTypes.object.isRequired,
+	loginUser: PropTypes.func.isRequired
+};
 
-export default LoginForm;
+export default connect(null, {loginUser})(LoginForm);
 

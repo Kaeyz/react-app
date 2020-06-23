@@ -23,10 +23,13 @@ const Wrapper = styled.div`
       outline-color: blue;
     }
 	}
+	.error {
+		color: red;
+	}
 `;
 
 
-const NumberInput = ({ label, onChange, value, placeholder }) => {
+const NumberInput = ({ label, onChange, value, placeholder, error }) => {
 
 	return (
 		<Wrapper>
@@ -38,12 +41,14 @@ const NumberInput = ({ label, onChange, value, placeholder }) => {
 				onValueChange={(values) => onChange(values.value)}
 				isNumericString
 			/>
+			<p className="error">{error && error}</p>
 		</Wrapper>
 	);
 };
 
 NumberInput.propTypes = {
 	label: PropTypes.string,
+	error: PropTypes.string,
 	placeholder: PropTypes.string,
 	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired
