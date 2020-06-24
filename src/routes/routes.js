@@ -12,8 +12,8 @@ import Lifestyle from '../views/wellness/individual/Lifestyle';
 import IndividualSignUp from '../views/authentication/IndividualSignUp';
 import CompanySignUp from '../views/authentication/CompanySignUp';
 import Login from '../views/authentication/Login';
-import BlogPost from '../views/BlogPost'
-
+import BlogPost from '../views/blogParent/BlogPost'
+import BlogPostDetail from '../views/blogParent/BlogPostDetail'
 const Routes = () => (
 	<Router>
 		<Switch>
@@ -33,6 +33,7 @@ const Routes = () => (
 
 			{/* BLog route */}
 			<Route path="/blogPost" component={BlogPost} />
+			<Route path="/blogPostDetails" component={BlogPostDetail} />
 
 
 		</Switch>

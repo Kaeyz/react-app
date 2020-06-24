@@ -90,7 +90,7 @@ export default function MonoBlog({ color, tryTest, data }) {
           <p className="card_description">{data.description}</p>
           <div className="card_footer">
             {tryTest && displayTest()}
-            <Link to="/blogPost/blogGrid">
+            <Link to="/blogPost">
               <Button
                 value="Read More"
                 theme={color === "default" ? "green" : color}
