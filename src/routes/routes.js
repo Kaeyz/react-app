@@ -12,7 +12,7 @@ import Lifestyle from '../views/wellness/individual/Lifestyle';
 import IndividualSignUp from '../views/authentication/IndividualSignUp';
 import CompanySignUp from '../views/authentication/CompanySignUp';
 import Login from '../views/authentication/Login';
-
+import BlogPost from '../views/BlogPost'
 
 const Routes = () => (
 	<Router>
@@ -29,6 +29,10 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} path="/login" component={Login} />
 			<PrivateRoute isAuth={false} path="/onboarding/individual" component=	{IndividualSignUp} />
 			<PrivateRoute isAuth={false} path="/onboarding/company" component={CompanySignUp} />
+
+
+			{/* BLog route */}
+			<Route path="/blogPost" component={BlogPost} />
 
 
 		</Switch>

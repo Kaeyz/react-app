@@ -81,12 +81,12 @@ export default function OurDrive() {
           </h3>
           <p className="importanceText">Subscribe to our newsletter!</p>
           <div className="subscribeInputs">
-            <input
+            {/* <input
               type="text"
               id="firstName"
               placeholder="First Name"
               name="firstName"
-            />
+            /> */}
             <input
               type="email"
               id="email"

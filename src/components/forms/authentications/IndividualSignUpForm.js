@@ -26,7 +26,7 @@ const optionHeight = [
 	{ value: '33', text: '33' },
 ];
 const optionActivity = [
-	{ value: 'HIGH', text: 'Hight' },
+	{ value: 'HIGH', text: 'High' },
 	{ value: 'MEDIUM', text: 'Medium' },
 	{ value: 'VERYACTIVE', text: 'Very Active' },
 	{ value: 'SOMEWHATACTIVE', text: 'Some What Active' },

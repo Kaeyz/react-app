@@ -52,6 +52,10 @@ const Wrapper = styled.div`
 	.pink_card {
 		background-color: ${props => props.theme.color.brand_01};
 	}
+	.white_card{
+		background-color: ${props => props.theme.color.ui_01};
+
+	}
 `;
 
 export default function MonoBlog({color, tryTest, data}) {
@@ -77,6 +81,7 @@ export default function MonoBlog({color, tryTest, data}) {
 					</p>
 					<div className="card_footer">
 						{tryTest && displayTest()}
+						<Link to="/blogPost/blogGrid">
 						<Button
 							value="Read More"
 							theme={color === 'default' ? 'green' : color}
@@ -85,6 +90,8 @@ export default function MonoBlog({color, tryTest, data}) {
 							{' '}
 							Read More
 						</Button>
+						</Link>
+
 					</div>
 				</CardContent>
 			</Card>
