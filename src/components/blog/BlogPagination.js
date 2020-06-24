@@ -51,7 +51,6 @@ export default function BLogPagination() {
             <MonoBlog color="green" data={card} />
           </Grid>
         </Grid>
-    
     </Wrapper>
     </div>  
   );
