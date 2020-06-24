@@ -47,13 +47,13 @@ export default function LatestBlog() {
             <h2>Our Blog</h2>
             <Grid container spacing={3}>
               <Grid item xs={4}>
-                <MonoBlog color="green" data={card} />
+                <MonoBlog color="green" fontColor="black" data={card} />
               </Grid>
               <Grid item xs={4}>
-                <MonoBlog color="green" data={card} />
+                <MonoBlog color="green" fontColor="black" data={card} />
               </Grid>
               <Grid item xs={4}>
-                <MonoBlog color="green" data={card} />
+                <MonoBlog color="green" fontColor="black" data={card} />
               </Grid>
             </Grid>
           </div>

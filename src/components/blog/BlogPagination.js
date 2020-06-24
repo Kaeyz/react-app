@@ -32,23 +32,23 @@ export default function BLogPagination() {
          <Wrapper>
         <Grid container spacing={3}>
           <Grid item xs={4}>
-            <MonoBlog color="green" data={card} />
+            <MonoBlog  color="white" data={card} />
           </Grid>
           <Grid item xs={4}>
-            <MonoBlog color="green" data={card} />
+            <MonoBlog color="white" data={card} />
           </Grid>
           <Grid item xs={4}>
-            <MonoBlog color="green" data={card} />
+            <MonoBlog color="white" data={card} />
           </Grid>
 
           <Grid item xs={4}>
-            <MonoBlog color="green" data={card} />
+            <MonoBlog color="white" data={card} />
           </Grid>
           <Grid item xs={4}>
-            <MonoBlog color="green" data={card} />
+            <MonoBlog color="white" data={card} />
           </Grid>
           <Grid item xs={4}>
-            <MonoBlog color="green" data={card} />
+            <MonoBlog color="white" data={card} />
           </Grid>
         </Grid>
     </Wrapper>
