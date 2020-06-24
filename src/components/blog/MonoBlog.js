@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 		background: rgba(0, 0, 0, 0.03);
 		min-width: 30rem;
 		max-width: 34rem;
-		margin-left: 3rem;
+		// margin-left: 3rem;
 		margin-top: 3rem;
 	}
 	.img_div {

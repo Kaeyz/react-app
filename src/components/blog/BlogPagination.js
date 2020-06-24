@@ -13,7 +13,9 @@ const useStyles = makeStyles((theme) => ({
  
 }));
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+
+`;
 
 const card = {
   title: "Healthy Living",
@@ -24,10 +26,11 @@ const card = {
 export default function BLogPagination() {
   const classes = useStyles();
   return (
-    <Wrapper>
+   
 
       <div className={classes.root}>
-        <Grid container spacing={1}>
+         <Wrapper>
+        <Grid container spacing={3}>
           <Grid item xs={4}>
             <MonoBlog color="green" data={card} />
           </Grid>
@@ -48,11 +51,13 @@ export default function BLogPagination() {
             <MonoBlog color="green" data={card} />
           </Grid>
         </Grid>
-      </div>
+    
     </Wrapper>
+    </div>  
   );
 }
 
 BLogPagination.propTypes = {
   //TODO: blog prop types goes here
 };
+
