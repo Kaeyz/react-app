@@ -24,6 +24,7 @@ userQueries.signUp = (userData) => {
 };
 
 userQueries.registerCompany = (input) => {
+
 	const query = `
 	mutation REGISTER_COMPANY_MUTATION($input: signUpCompanyInput!){
 		registerCompany(input: $input){

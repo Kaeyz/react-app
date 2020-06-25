@@ -5,7 +5,7 @@ import { SET_USER } from '../types';
 import userQueries from '../../client/queries/userQueries';
 
 export const setAuthToken = token => {
-	return localStorage.setItem('auth', token);
+	localStorage.setItem('auth', token);
 };
 
 export const setCurrentUser = (decode) => {
@@ -30,6 +30,7 @@ export const registerIndividual = (userData, history) => dispatch => {
 };
 
 export const registerCompany = (userData, history) => dispatch => {
+
 	userQueries.registerCompany(userData)
 		.then(res => {
 			if(res.data) {
@@ -53,7 +54,7 @@ export const loginUser = (userData, history) => dispatch => {
 		.then(res => {
 			if (res.data) {
 				const { token } = res.data.login;
-				dispatch(setAuthToken(token));
+				localStorage.setItem('auth', token);
 				dispatch(appNotLoading());
 				history.push('/dashboard');
 			}

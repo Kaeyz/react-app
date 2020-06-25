@@ -1,11 +1,11 @@
 // modules
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import Button from "../common/Button";
-import blogBg from "../../assets/wellnessNav/check-up-dentist-doctors.svg";
-import { Card, CardContent } from "@material-ui/core";
-import PropTypes from "prop-types";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import Button from '../common/Button';
+import blogBg from '../../assets/wellnessNav/check-up-dentist-doctors.svg';
+import { Card, CardContent } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   /* blog css styling goes here */
@@ -71,48 +71,48 @@ const Wrapper = styled.div`
 `;
 
 export default function MonoBlog({ color, tryTest, data }) {
-  const displayTest = () => {
-    return (
-      <Link className="test_link" to="/">
+	const displayTest = () => {
+		return (
+			<Link className="test_link" to="/">
         Try the test
-      </Link>
-    );
-  };
+			</Link>
+		);
+	};
 
-  return (
-    <Wrapper>
-      <Card className="blog_card">
-        <div className="img_div">
-          <img src={blogBg} alt="blog bg" className="blog_img" />
-        </div>
-        <CardContent className={`card_content  ${color}_card`}>
-          <h2>{data.title}</h2>
-          <p className="card_description">{data.description}</p>
-          <div className="card_footer">
-            {tryTest && displayTest()}
-            <Link to="/blogPost">
-              <Button
-                value="Read More"
-                theme={color === "default" ? "green" : color}
-                style={{ boxShadow: "0px 4px 4px rgba(46, 196, 182, 0.25)" }}
-              >
-                {" "}
+	return (
+		<Wrapper>
+			<Card className="blog_card">
+				<div className="img_div">
+					<img src={blogBg} alt="blog bg" className="blog_img" />
+				</div>
+				<CardContent className={`card_content  ${color}_card`}>
+					<h2>{data.title}</h2>
+					<p className="card_description">{data.description}</p>
+					<div className="card_footer">
+						{tryTest && displayTest()}
+						<Link to="/blogPost">
+							<Button
+								value="Read More"
+								theme={color === 'default' ? 'green' : color}
+								style={{ boxShadow: '0px 4px 4px rgba(46, 196, 182, 0.25)' }}
+							>
+								{' '}
                 Read More
-              </Button>
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
-    </Wrapper>
-  );
+							</Button>
+						</Link>
+					</div>
+				</CardContent>
+			</Card>
+		</Wrapper>
+	);
 }
 
 MonoBlog.defaultProps = {
-  tryTest: true,
+	tryTest: true,
 };
 
 MonoBlog.propTypes = {
-  tryTest: PropTypes.bool,
-  color: PropTypes.string,
-  data: PropTypes.object.isRequired,
+	tryTest: PropTypes.bool,
+	color: PropTypes.string,
+	data: PropTypes.object.isRequired,
 };
