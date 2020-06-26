@@ -46,17 +46,18 @@ export const registerCompany = (userData, history) => dispatch => {
 };
 
 
+// eslint-disable-next-line no-unused-vars
 export const loginUser = (userData, history) => dispatch => {
 	dispatch(appIsLoading());
 	dispatch(clearAlert());
 	userQueries.login(userData)
 		.then(res => {
-			if(res.errors[0].message) {
+			if(res.errors) {
 				dispatch(errorAlert({ msg: res.errors[0].message }));
 				dispatch(setIsAuthenticated(false));
 				dispatch(appNotLoading());
 			}
-			if (res.data.login.token) {
+			if (res.data) {
 				const { token } = res.data.login;
 				localStorage.setItem('auth', token);
 				dispatch(setIsAuthenticated(true));
@@ -69,8 +70,10 @@ export const loginUser = (userData, history) => dispatch => {
 		});
 };
 
-export const logoutUser = () => {
+export const logoutUser = (history) => dispatch =>  {
 	// Remove token from localStorage
 	localStorage.removeItem('auth');
-	setIsAuthenticated(false);
+	console.log("i got here");
+	dispatch(setIsAuthenticated(false));
+	console.log("i also got here");
 };
