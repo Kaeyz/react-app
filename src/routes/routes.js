@@ -12,8 +12,12 @@ import Lifestyle from '../views/wellness/individual/Lifestyle';
 import IndividualSignUp from '../views/authentication/IndividualSignUp';
 import CompanySignUp from '../views/authentication/CompanySignUp';
 import Login from '../views/authentication/Login';
-import BlogPost from '../views/blogParent/BlogPost'
-import BlogPostDetail from '../views/blogParent/BlogPostDetail'
+import BlogPost from '../views/blogParent/BlogPost';
+import BlogPostDetail from '../views/blogParent/BlogPostDetail';
+import Dashboard from '../views/Dashboard';
+
+
+
 const Routes = () => (
 	<Router>
 		<Switch>
@@ -29,6 +33,7 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} path="/login" component={Login} />
 			<PrivateRoute isAuth={false} path="/onboarding/individual" component=	{IndividualSignUp} />
 			<PrivateRoute isAuth={false} path="/onboarding/company" component={CompanySignUp} />
+			<PrivateRoute path="/dashboard" component={Dashboard} />
 
 
 			{/* BLog route */}

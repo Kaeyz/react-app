@@ -4,14 +4,13 @@ import { errorAlert, successAlert, clearAlert } from './alertActions';
 import { SET_USER } from '../types';
 import userQueries from '../../client/queries/userQueries';
 
-export const setAuthToken = token => {
+/* export const setAuthToken = token => {
 	localStorage.setItem('auth', token);
-};
+}; */
 
-export const setCurrentUser = (decode) => {
-	return { type: SET_USER, payload: decode};
+export const setIsAuthenticated = (payload) => {
+	return { type: SET_USER, payload: payload};
 };
-
 
 export const registerIndividual = (userData, history) => dispatch => {
 	userQueries.signUp(userData)
@@ -52,18 +51,20 @@ export const loginUser = (userData, history) => dispatch => {
 	dispatch(clearAlert());
 	userQueries.login(userData)
 		.then(res => {
-			if (res.data) {
+			if(res.errors[0].message) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+				dispatch(setIsAuthenticated(false));
+				dispatch(appNotLoading());
+			}
+			if (res.data.login.token) {
 				const { token } = res.data.login;
 				localStorage.setItem('auth', token);
-				dispatch(appNotLoading());
-				history.push('/dashboard');
-			}
-			if(res.errors) {
-				dispatch(errorAlert({ msg: res.errors[0].message }));
+				dispatch(setIsAuthenticated(true));
 				dispatch(appNotLoading());
 			}
 		})
 		.catch(() => {
+			dispatch(setIsAuthenticated(false));
 			dispatch(errorAlert({ msg: 'Connection Error: Try again!!' }));
 		});
 };
@@ -71,4 +72,5 @@ export const loginUser = (userData, history) => dispatch => {
 export const logoutUser = () => {
 	// Remove token from localStorage
 	localStorage.removeItem('auth');
+	setIsAuthenticated(false);
 };

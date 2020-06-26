@@ -34,9 +34,9 @@ margin: 8rem;
 			line-height: 2.4rem;
       }
 		}
-
 		[type=email] {
-            width: 30.4rem;			max-width:100%;
+					width: 30.4rem;
+					max-width:100%;
         }
         .info{
             font-size: 16px;
