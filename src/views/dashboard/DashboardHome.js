@@ -1,14 +1,8 @@
-import React from 'react';
-import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
+import React from "react";
+import DashboardLayout from "../../components/layouts/dashboardLayout/DashboardLayout";
 
 const Dashboard = () => {
-
-	return (
-		<DashboardLayout>
-			Welcome to choose life
-		</DashboardLayout>
-	);
+  return <DashboardLayout>Home </DashboardLayout>;
 };
 
 export default Dashboard;
-
