@@ -52,30 +52,9 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import { Switch, Route, Redirect } from "react-router-dom";
-import routes from "../../../routes/routes";
-
 import HeaderDashboard from "../../layouts/dashboardLayout/HeaderDashboard";
 const drawerWidth = 240;
 
-const switchRoutes = (
-	<Switch>
-	  {routes.map((prop, key) => {
-		if (prop.layout === "/dashboardLayout") {
-		  return (
-			<Route
-			  path={prop.layout + prop.path}
-			  component={prop.component}
-			  key={key}
-			/>
-		  );
-		}
-		return null;
-	  })}
-	  <Redirect from="/dashboardLayout" to="/dashboard_home" />
-	</Switch>
-  );
-  
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -214,7 +193,7 @@ function DashboardLayout({ children }) {
               state: { isAdmin: true },
             }}
             activeStyle={{ color: "#2EC4B6", display:"flex" }}
-            isActive={(match) => {
+            isActive={(match, location) => {
               if (!match) {
                 return false;
               }
