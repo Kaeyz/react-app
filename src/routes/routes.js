@@ -15,6 +15,7 @@ import Login from '../views/authentication/Login';
 import BlogPost from '../views/blogParent/BlogPost';
 import BlogPostDetail from '../views/blogParent/BlogPostDetail';
 import Dashboard from '../views/Dashboard';
+import DashboardHome from '../views/dashboard/DashboardHome';
 
 
 
@@ -34,6 +35,9 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} path="/onboarding/individual" component=	{IndividualSignUp} />
 			<PrivateRoute isAuth={false} path="/onboarding/company" component={CompanySignUp} />
 			<PrivateRoute path="/dashboard" component={Dashboard} />
+
+
+			<Route path="/dashboard_home" component={DashboardHome} />
 
 
 			{/* BLog route */}
