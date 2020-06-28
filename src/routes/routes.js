@@ -16,7 +16,6 @@ import BlogPost from '../views/blogParent/BlogPost';
 import BlogPostDetail from '../views/blogParent/BlogPostDetail';
 import Dashboard from '../views/Dashboard';
 import DashboardHome from '../views/dashboard/DashboardHome';
-import DashboardAssessment from '../views/dashboard/DashboardAssessment';
 
 
 
@@ -39,7 +38,6 @@ const Routes = () => (
 
 
 			<Route path="/dashboard_home" component={DashboardHome} />
-			<Route path="/dashboard_assessment" component={DashboardAssessment} />
 
 
 			{/* BLog route */}
@@ -51,4 +49,4 @@ const Routes = () => (
 	</Router>
 );
 
-export default Routes;
+export default Routes;		

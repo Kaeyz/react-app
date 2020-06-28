@@ -1,47 +1,11 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import styled from 'styled-components';
-// import Container from '../../common/Container';
-
-// import SideBar from './SideBar';
-// import HeaderDashboard from './HeaderDashboard';
-
-// const Wrapper = styled.div`
-// 	min-height: 100vh;
-// 	display: flex;
-// `;
-
-// function DashboardLayout({children}) {
-// 	return (
-// 		<Wrapper>
-// 			<SideBar />
-// 			<Container>
-// 				<HeaderDashboard />
-// 				{children}
-// 			</Container>
-// 		</Wrapper>
-// 	);
-// }
-
-// DashboardLayout.propTypes = {
-// 	children: PropTypes.any.isRequired,
-// };
-
-// export default DashboardLayout;
-
 import React from "react";
 import clsx from "clsx";
-// import Container from '../../common/Container';
-import PropTypes from "prop-types";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import { NavLink } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
 import CssBaseline from "@material-ui/core/CssBaseline";
-// import Typography from '@material-ui/core/Typography';
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -52,7 +16,9 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import HeaderDashboard from "../../layouts/dashboardLayout/HeaderDashboard";
+// import DashboardHome from '../../../views/dashboard/DashboardHome'
+import HeaderDashboard from "./HeaderDashboard";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -116,11 +82,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
   },
 }));
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
 
-function DashboardLayout({ children }) {
+export default function DashboardLayout({ children }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -134,10 +97,10 @@ function DashboardLayout({ children }) {
   };
 
   return (
-    // <Container>
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
+	  color='#E5E5E5'
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -155,7 +118,7 @@ function DashboardLayout({ children }) {
           >
             <MenuIcon />
           </IconButton>
-          <HeaderDashboard />
+          <HeaderDashboard display="flex"/>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -182,127 +145,29 @@ function DashboardLayout({ children }) {
         </div>
         <Divider />
         <List>
-          
-
-          <p className="list-subheader">EMPLOYEE</p>
-
-          <ListItem button>
-		  <NavLink
-            to={{
-              pathname: "/dashboard_home",
-              state: { isAdmin: true },
-            }}
-            activeStyle={{ color: "#2EC4B6", display:"flex" }}
-            isActive={(match, location) => {
-              if (!match) {
-                return false;
-              }
-              return match.isExact;
-            }}
-          >
-            {" "}
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemLink href="/dashboard_home">
-              <ListItemText primary="Dashboard" sty />
-            </ListItemLink>
-          </NavLink>
-            
-          </ListItem>
-
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemLink href="/dashboard_assessment">
-              <ListItemText primary="Assessments" />
-            </ListItemLink>
-          </ListItem>
-
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemLink href="/dashboard_home">
-              <ListItemText primary="Exercise" />
-            </ListItemLink>
-          </ListItem>
-
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemLink href="/dashboard_home">
-              <ListItemText primary="Meals" />
-            </ListItemLink>
-          </ListItem>
-
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemLink href="/dashboard_home">
-              <ListItemText primary="Appointments" />
-            </ListItemLink>
-          </ListItem>
-          {/* {['Inbox', 'Assessment', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))} */}
-        </List>
-        <Divider />
-        <List>
-          {/* {["All mail", "Trash", "Spam"].map((text, index) => (
+          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          ))} */}
-          <p className="list-subheader">OTHER</p>
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemLink href="/dashboard_home">
-              <ListItemText primary="Download Reports" />
-            </ListItemLink>
-          </ListItem>
-
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemLink href="/dashboard_home">
-              <ListItemText primary="Rewards" />
-            </ListItemLink>
-          </ListItem>
-
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemLink href="/dashboard_home">
-              <ListItemText primary="Account" />
-            </ListItemLink>
-          </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {["All mail", "Trash", "Spam"].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
         </List>
       </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        {children}
-      </main>
+
+      {children}
     </div>
-    //   <Container >
   );
 }
-
-DashboardLayout.propTypes = {
-  children: PropTypes.any.isRequired,
-};
-
-export default DashboardLayout;
