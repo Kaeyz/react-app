@@ -3,12 +3,10 @@ import React from "react";
 import styled from "styled-components";
 import inboxIcon from "../../../assets/inboxIcon.svg";
 import notificationIcon from "../../../assets/Notifications.svg";
-import dp from "../../../assets/dp.svg";
 import noteIcon from "../../../assets/noteIcon.svg";
-import arrowDown from "../../../assets/arrow-down.svg";
-import MenuItem from "@material-ui/core/MenuItem";
+import DpDropdown from './DpDropdown'
+import dp from "../../../assets/dp.svg";
 
-import Menu from "@material-ui/core/Menu";
 
 
 const Wrapper = styled.div`
@@ -26,7 +24,12 @@ const Wrapper = styled.div`
 
     justify-content: space-between;
   }
+  .flex {
+    display: flex;
+    align-items: center;
+  }
   .dp {
+	  margin-right:2.1rem;
     p {
       font-size: 16px;
       line-height: 24px;
@@ -38,18 +41,11 @@ const Wrapper = styled.div`
       height: 40px;
     }
   }
+  
 `;
 
 function HeaderDashboard() {
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
 
   return (
     <Wrapper>
@@ -58,38 +54,10 @@ function HeaderDashboard() {
         <img src={inboxIcon} alt="inboxIcon" />
         <img src={notificationIcon} alt="notificationIcon" />
         <div className="dp flex">
-          {" "}
-          <p style={{}}>Mona Kane</p> <img src={dp} alt="dp" />
-        </div>
-        <div>
-          <img
-            src={arrowDown}
-            alt="arrow-down"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-			onClick={handleMenu}
-			style={{cursor:"pointer"}}
-          />
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            open={open}
-            onClose={handleClose}
-          >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-          </Menu>
-        </div>
+		{" "}
+		<p style={{}}>Mona Kane</p> <img src={dp} alt="dp" />
+	  </div>
+     <DpDropdown />
       </div>
     </Wrapper>
   );
