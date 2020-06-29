@@ -1,11 +1,12 @@
-import React from "react";
+/* eslint-disable no-mixed-spaces-and-tabs */
+import React from 'react';
 //import PropTypes from 'prop-types'
-import styled from "styled-components";
-import inboxIcon from "../../../assets/inboxIcon.svg";
-import notificationIcon from "../../../assets/Notifications.svg";
-import noteIcon from "../../../assets/noteIcon.svg";
-import DpDropdown from './DpDropdown'
-import dp from "../../../assets/dp.svg";
+import styled from 'styled-components';
+import inboxIcon from '../../../assets/inboxIcon.svg';
+import notificationIcon from '../../../assets/Notifications.svg';
+import noteIcon from '../../../assets/noteIcon.svg';
+import DpDropdown from './DpDropdown';
+import dp from '../../../assets/dp.svg';
 
 
 
@@ -41,26 +42,26 @@ const Wrapper = styled.div`
       height: 40px;
     }
   }
-  
+
 `;
 
 function HeaderDashboard() {
 
 
-  return (
-    <Wrapper>
-      <div className="left-header-content flex">
-        <img src={noteIcon} alt="noteIcon" />
-        <img src={inboxIcon} alt="inboxIcon" />
-        <img src={notificationIcon} alt="notificationIcon" />
-        <div className="dp flex">
-		{" "}
-		<p style={{}}>Mona Kane</p> <img src={dp} alt="dp" />
+	return (
+		<Wrapper>
+			<div className="left-header-content flex">
+				<img src={noteIcon} alt="noteIcon" />
+				<img src={inboxIcon} alt="inboxIcon" />
+				<img src={notificationIcon} alt="notificationIcon" />
+				<div className="dp flex">
+					{' '}
+					<p style={{}}>Mona Kane</p> <img src={dp} alt="dp" />
 	  </div>
-     <DpDropdown />
-      </div>
-    </Wrapper>
-  );
+				<DpDropdown />
+			</div>
+		</Wrapper>
+	);
 }
 
 //HeaderDashboard.propTypes = {}
