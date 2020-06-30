@@ -5,7 +5,6 @@ import basicFont from './assets/Myfont/Matteo.otf';
 import secFont from './assets/Myfont/FuturaPTBook.otf';
 import Notify from './components/notification/Notify';
 
-
 const theme = {
 	color: {
 		brand_01: '#F47803',
