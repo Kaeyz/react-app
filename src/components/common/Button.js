@@ -50,14 +50,14 @@ width: 100%;
 }
 .purpleBtn {
   background: ${props => props.theme.color.ui_text_04};
-  box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
-  color: white;
-  border: 1px solid #fcb813;
+  box-shadow: 0px 4px 4px rgba(206, 238, 143m=, 0.25);
+  color: #8DB838;
+  border: 1px solid #8DB838;
 }
 .purpleBtn:hover {
   background-color: #fff;
-  color: #fcb813;
-  transition: 0.4s;
+  color: #8DB838;
+    transition: 0.4s;
 }
 .pinkBtn {
   background: ${props => props.theme.color.ui_text_02};
@@ -70,6 +70,7 @@ width: 100%;
   color: #fcb813;
   transition: 0.4s;
 }
+
 `;
 
 

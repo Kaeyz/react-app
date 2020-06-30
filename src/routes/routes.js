@@ -16,6 +16,7 @@ import BlogPost from '../views/blogParent/BlogPost';
 import BlogPostDetail from '../views/blogParent/BlogPostDetail';
 import Dashboard from '../views/Dashboard';
 import DashboardHome from '../views/dashboard/DashboardHome';
+import DashboardHome2 from '../views/dashboard/DashboardHome2';
 import DashboardAssessment from '../views/dashboard/DashboardAssessment';
 
 
@@ -39,6 +40,7 @@ const Routes = () => (
 
 
 			<Route path="/dashboard_home" component={DashboardHome} />
+			<Route path="/dashboard_home2" component={DashboardHome2} />
 			<Route path="/dashboard_assessment" component={DashboardAssessment} />
 
 

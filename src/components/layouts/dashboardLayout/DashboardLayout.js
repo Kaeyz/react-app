@@ -4,26 +4,32 @@ import styled from 'styled-components';
 
 import SideBar from './sidebar/SideBar';
 import HeaderDashboard from './HeaderDashboard';
+import Container from '../../common/Container';
 
 const Wrapper = styled.div`
 	display: grid;
 	grid-template-columns: max-content 1fr;
-	grid-gap: 1rem;
+	// grid-gap: 1rem;
 	min-height: 100vh;
 	.layout {
-		padding: 2rem;
-		margin-right: 3rem;
+	
+    background: rgba(229,229,229,.1);
+
 	}
 `;
 
 
-function DashboardLayout() {
+function DashboardLayout({children}) {
 	return (
 		<Wrapper>
 			<SideBar />
 			<div className="layout">
+      <Container>
 				<HeaderDashboard />
-				<p>Body </p>
+
+				{children}
+        </Container>
+
 			</div>
 		</Wrapper>
 	);

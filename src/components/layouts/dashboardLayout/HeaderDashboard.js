@@ -14,6 +14,8 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  padding:2rem;
+  marginRight:3rem;
   .flex {
     display: flex;
     height: max-content;
@@ -49,7 +51,8 @@ function HeaderDashboard() {
 
 	return (
 		<Wrapper>
-			<div className="left-header-content flex">
+		
+      <div className="left-header-content flex">
 				<img src={noteIcon} alt="noteIcon" />
 				<img src={inboxIcon} alt="inboxIcon" />
 				<Badge badgeContent={4} color="secondary">
