@@ -44,13 +44,12 @@ function LoginForm({history, loginUser}) {
 				showFormAgreement={false}
 			>
 				<div>
-
-
 					<Grid container>
 						<Grid item xs={12} sm={12}>
 							<TextInput
 								label="Enter your email address"
-								value= {email}
+								value={email}
+								type="email"
 								onChange={setEmail}
 								placeholder="Type here..."
 								error={errors.email}
@@ -96,4 +95,3 @@ LoginForm.propTypes = {
 };
 
 export default connect(null, {loginUser})(LoginForm);
-

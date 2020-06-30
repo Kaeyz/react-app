@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const TextInput = ({ label, onChange, value, placeholder, inputAdornment, error }) => {
+const TextInput = ({ label, onChange, value, placeholder, inputAdornment, error,  type }) => {
 
 	const handleChange = (event) => {
 		onChange(event.target.value);
@@ -55,6 +55,7 @@ const TextInput = ({ label, onChange, value, placeholder, inputAdornment, error 
 					className="input"
 					value={value}
 					onChange={handleChange}
+					type={type ? type : 'text'}
 				/>
 				<p className="adornment">{inputAdornment}</p>
 			</div>
@@ -69,7 +70,8 @@ TextInput.propTypes = {
 	placeholder: PropTypes.string,
 	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
-	inputAdornment: PropTypes.any
+	inputAdornment: PropTypes.any,
+	type: PropTypes.string
 };
 
 export { TextInput };

@@ -98,7 +98,8 @@ function CompanySignUpForm({history, registerCompany}) {
 						<Grid item xs={12} sm={12}>
 							<TextInput
 								label="Your company designated email"
-								value= {organizationEmail}
+								value={organizationEmail}
+								type="email"
 								onChange={setOrganizationEmail}
 								placeholder="Type here..."
 								error={errors.organizationEmail}
