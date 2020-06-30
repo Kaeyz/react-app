@@ -10,9 +10,12 @@ import assessmentsIsActive from '../../assets/assessmentsIsActive.svg';
 import downloadIcon from '../../assets/downloadIcon.svg';
 import accountIcon from '../../assets/accountIcon.svg';
 import appointmentsIcon from '../../assets/appointmentsIcon.svg';
+import appointmentsIconIsActive from '../../assets/appointmentsIconIsActive.svg';
 import exerciseIcon from '../../assets/exerciseIcon.svg';
+import exerciseIconIsActive from '../../assets/exerciseIconIsActive.svg';
 import logoutIcon from '../../assets/logoutIcon.svg';
 import mealsIcon from '../../assets/mealsIcon.svg';
+import mealsIconIsActive from '../../assets/mealsIconIsActive.svg';
 import rewardsIcon from '../../assets/rewardsIcon.svg';
 
 
@@ -35,7 +38,7 @@ display: grid;
 	.meals {
   	background-image: url(${mealsIcon});
 	:active {
-  	background-image: url(${mealsIcon});
+  	background-image: url(${mealsIconIsActive});
 		}
 	}
 	.logout {
@@ -47,13 +50,13 @@ display: grid;
 	.exercise {
   	background-image: url(${exerciseIcon});
 	:active {
-  	background-image: url(${exerciseIcon});
+  	background-image: url(${exerciseIconIsActive});
 		}
 	}
 	.appointments {
   	background-image: url(${appointmentsIcon});
 	:active {
-  	background-image: url(${appointmentsIcon});
+  	background-image: url(${appointmentsIconIsActive});
 		}
 	}
 	.account {
