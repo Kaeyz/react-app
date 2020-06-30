@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import SideBar from './sidebar/SideBar';
 import HeaderDashboard from './HeaderDashboard';
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 	// grid-gap: 1rem;
 	min-height: 100vh;
 	.layout {
-	
+
     background: rgba(229,229,229,.1);
 
 	}
@@ -24,18 +24,19 @@ function DashboardLayout({children}) {
 		<Wrapper>
 			<SideBar />
 			<div className="layout">
-      <Container>
-				<HeaderDashboard />
-
-				{children}
-        </Container>
+				<Container>
+					<HeaderDashboard />
+					{children}
+				</Container>
 
 			</div>
 		</Wrapper>
 	);
 }
 
-//DashboardLayout.propTypes = {}
+DashboardLayout.propTypes = {
+	children: PropTypes.any.isRequired
+};
 
 export default DashboardLayout;
 

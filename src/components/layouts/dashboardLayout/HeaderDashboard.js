@@ -11,38 +11,38 @@ import dp from '../../../assets/dp.svg';
 
 
 const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding:2rem;
-  marginRight:3rem;
-  .flex {
-    display: flex;
-    height: max-content;
-    align-items: center;
-  }
-  .left-header-content {
-    width: 300px;
-    height: max-content;
-    justify-content: space-between;
-  }
-  .flex {
-    display: flex;
-    align-items: center;
-  }
-  .dp {
-	  margin-right:0.5rem;
-    p {
-      font-size: 16px;
-      line-height: 24px;
-      margin-right: 5px;
-      color: #201f1e;
-    }
-    img {
-      width: 35px;
-      height: 35px;
-    }
-  }
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	padding:2rem;
+	marginRight:3rem;
+	.flex {
+		display: flex;
+		height: max-content;
+		align-items: center;
+	}
+	.left-header-content {
+		width: 300px;
+		height: max-content;
+		justify-content: space-between;
+	}
+	.flex {
+		display: flex;
+		align-items: center;
+	}
+	.dp {
+		margin-right:0.5rem;
+		p {
+			font-size: 16px;
+			line-height: 24px;
+			margin-right: 5px;
+			color: #201f1e;
+		}
+		img {
+			width: 35px;
+			height: 35px;
+		}
+	}
 
 `;
 
@@ -51,18 +51,18 @@ function HeaderDashboard() {
 
 	return (
 		<Wrapper>
-		
-      <div className="left-header-content flex">
+
+			<div className="left-header-content flex">
 				<img src={noteIcon} alt="noteIcon" />
 				<img src={inboxIcon} alt="inboxIcon" />
 				<Badge badgeContent={4} color="secondary">
-  				<img src={notificationIcon} alt="notificationIcon" />
+					<img src={notificationIcon} alt="notificationIcon" />
 				</Badge>
 				<div className="flex">
 					<div className="dp flex">
 						<p>Mona Kane</p>
 						<img src={dp} alt="dp" />
-	        </div>
+					</div>
 					<DpDropdown />
 				</div>
 			</div>

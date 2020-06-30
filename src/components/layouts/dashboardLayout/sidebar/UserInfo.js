@@ -15,21 +15,21 @@ const Wrapper = styled.div`
 		align-items: center;
 	}
 	.avatar {
-		height: 3rem;
-		width: 3rem;
+		height: 4rem;
+		width: 4rem;
 	}
 	.details {
-		margin-left: 0.5rem;
+		margin-left: 0.6rem;
 	}
 	.details_text {
 		padding: 0rem;
 		line-height: 1.5rem;
 	}
 	.main {
-		font-size: 1.5rem;
+		font-size: 1.6rem;
 	}
 	.sub {
-		font-size: 1rem;
+		font-size: 1.1rem;
 	}
 `;
 
