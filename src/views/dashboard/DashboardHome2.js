@@ -7,6 +7,7 @@ import PreliminaryAssessment from "../../components/dashboard/PreliminaryAssessm
 import Grid from "@material-ui/core/Grid";
 import GetStartedCard from "../../components/dashboard/GetStartedCard";
 import LeaderboardCard from "../../components/dashboard/LeaderboardCard";
+import ProgressSection from '../../components/dashboard/ProgressSection'
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -34,6 +35,7 @@ const DashboardHome2 = () => {
         <Grid container spacing={3}>
           <Grid item xs={6}>
             <PreliminaryAssessment />
+            <ProgressSection />
             <GetStartedCard />
           </Grid>
           <Grid item xs={6}>

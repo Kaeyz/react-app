@@ -4,17 +4,8 @@ import Button from "../common/Button";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
-import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    textAlign: "left",
-    padding: "3.7rem 2rem" ,
-  },
-}));
+
 const Wrapper = styled.div`
   h5 {
     font-size: 30px;
@@ -26,23 +17,31 @@ const Wrapper = styled.div`
     color: ${(props) => props.theme.color.text_02};
     margin: 1.4rem 0 2.3rem 0;
   }
+  .red {
+    background: red;
+  }
+  .paper{
+    padding: 3.7rem 2rem;
+    text-align: left;
+  }
 `;
 
-const PreliminaryCard = (props) => {
-  const classes = useStyles();
+const PreliminaryCard = ({ theme, ...props }) => {
 
   return (
     <Wrapper>
-      <Paper className={classes.paper}>
-        <img src={props.Image} alt="bodyMass" />
-        <h5>{props.cardValue}</h5>
-        <p>{props.cardInfo}</p>
-        <Link to="">
-          <Button value="View" theme={props.theme}>
-            View
-          </Button>
-        </Link>
-      </Paper>
+      <div className={`${theme}`}>
+        <Paper className="paper">
+          <img src={props.Image} alt="bodyMass" />
+          <h5>{props.cardValue}</h5>
+          <p>{props.cardInfo}</p>
+          <Link to="">
+            <Button value="View" theme={props.btnTheme}>
+              View
+            </Button>
+          </Link>
+        </Paper>
+      </div>
     </Wrapper>
   );
 };

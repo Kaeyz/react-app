@@ -1,21 +1,20 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import bodyMass from "../../assets/bodyMass.svg";
 import calorieIntake from "../../assets/calorieIntake.svg";
 import styled from "styled-components";
 import PreliminaryCard from "./PreliminaryCard";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "left",
-    color: theme.palette.text.secondary,
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     flexGrow: 1,
+//   },
+//   paper: {
+//     padding: theme.spacing(2),
+//     textAlign: "left",
+//     color: theme.palette.text.secondary,
+//   },
+// }));
 
 const Wrapper = styled.div`
 margin-bottom: 5.9rem;
@@ -39,7 +38,7 @@ margin-bottom:3.8rem;
 `;
 
 export default function PreliminaryAssessment() {
-  const classes = useStyles();
+
 
   return (
     <Wrapper>
@@ -47,13 +46,13 @@ export default function PreliminaryAssessment() {
         <h1>Getting started</h1>
         <div className="null"></div>
       </div>
-      <div className={classes.root}>
+      <div>
         <Grid container spacing={3}>
           <Grid item xs={6} >
-            <PreliminaryCard cardValue={"29.5"} cardInfo={"Body Mass Index"} Image={bodyMass} theme="green" />
+            <PreliminaryCard theme='red'  cardValue={"29.5"} cardInfo={"Body Mass Index"} Image={bodyMass} btnTheme="green" />
           </Grid>
           <Grid item xs={6}>
-          <PreliminaryCard cardValue={"1,300"} cardInfo={"Recommended Calorie Intake"} Image={calorieIntake}theme="purple" />
+          <PreliminaryCard cardValue={"1,300"} cardInfo={"Recommended Calorie Intake"} Image={calorieIntake} btnTheme="purple" />
           </Grid>
         </Grid>
       </div>
