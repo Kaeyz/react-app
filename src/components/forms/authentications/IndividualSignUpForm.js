@@ -97,6 +97,7 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 							placeholder={textInput.placeholder}
 							label="Enter your email"
 							value={email}
+							type="email"
 							onChange={setEmail}
 							error={errors.email}
 						/>

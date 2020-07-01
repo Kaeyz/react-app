@@ -10,16 +10,23 @@ import NavSection from './NavSection';
 
 
 const Wrapper = styled(Paper)`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding: 1.5rem;
+		max-height: 100vh;
+		position: sticky;
+		top: 0;
+	.sidebar {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 1.5rem;
+		height: 100%;
+	}
 	.top {
 	}
 	.logo {
 		width: 5rem;
 		height: 5rem;
 		margin-left: -0.5rem;
+		margin-bottom: 2rem
 	}
 	.nav{
 		display: grid;
@@ -52,19 +59,21 @@ const otherItems = [
 function SideBar() {
 	return (
 		<Wrapper elevation={2}>
-			<div className="top">
-				<div>
-					<img src={toggleLogo} alt="toggle" className="logo" />
+			<div className="sidebar">
+				<div className="top">
+					<div>
+						<img src={toggleLogo} alt="toggle" className="logo" />
+					</div>
+					<div className="nav">
+						<UserInfo />
+						<NavSection title="EMPLOYEE" items={employeeItems} />
+						<NavSection title="OTHER" items={otherItems} />
+					</div>
 				</div>
-				<div className="nav">
-					<UserInfo />
-					<NavSection title="EMPLOYEE" items={employeeItems} />
-					<NavSection title="OTHER" items={otherItems} />
+				<div className="nav_item footer">
+					<Icon name="logout" />
+					<p>LOGOUT</p>
 				</div>
-			</div>
-			<div className="nav_item footer">
-				<Icon name="logout" />
-				<p>LOGOUT</p>
 			</div>
 		</Wrapper>
 	);

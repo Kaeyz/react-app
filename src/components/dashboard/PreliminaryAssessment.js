@@ -5,35 +5,25 @@ import calorieIntake from "../../assets/calorieIntake.svg";
 import styled from "styled-components";
 import PreliminaryCard from "./PreliminaryCard";
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     flexGrow: 1,
-//   },
-//   paper: {
-//     padding: theme.spacing(2),
-//     textAlign: "left",
-//     color: theme.palette.text.secondary,
-//   },
-// }));
 
 const Wrapper = styled.div`
 margin-bottom: 5.9rem;
 .heading {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 margin-bottom:3.8rem;
-  padding: 0 2px;
-  h1 {
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 600;
-    color: ${(props) => props.theme.color.text_01};
-  }
-  .null {
-    border-bottom: 1px solid #d6d8d3;
-    width: 321px;
-    margin-bottom: 5px;
-  }
+	padding: 0 2px;
+	h1 {
+		font-size: 18px;
+		line-height: 24px;
+		font-weight: 600;
+		color: ${(props) => props.theme.color.text_01};
+	}
+	.null {
+		border-bottom: 1px solid #d6d8d3;
+		width: 321px;
+		margin-bottom: 5px;
+	}
 }
 `;
 
