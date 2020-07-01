@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	padding:2rem;
-	marginRight:3rem;
+	margin-right:3rem;
 	.flex {
 		display: flex;
 		height: max-content;

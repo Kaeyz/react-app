@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import Icon from '../../../common/Icon';
 
 const Wrapper = styled.div`
+	display: grid;
+	grid-gap: 0.5rem;
 	.nav_item {
 		display: grid;
 		grid-template-columns: max-content 1fr;

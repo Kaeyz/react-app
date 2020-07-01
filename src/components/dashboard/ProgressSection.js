@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import Button from "../common/Button";
-import { Link } from "react-router-dom";
-import LinearProgress from '@material-ui/core/LinearProgress';
-import CircularProgress from './CircularProgressWithLabel'
+import React from 'react';
+import styled from 'styled-components';
+import Button from '../common/Button';
+import { Link } from 'react-router-dom';
+import LinearProgress from './LinearProgress';
+import CircularProgress from './CircularProgressWithLabel';
 
 const Wrapper = styled.div`
   margin-bottom: 5.9rem;
@@ -50,50 +50,32 @@ const Wrapper = styled.div`
 }
 `;
 function ProgressSection() {
-    // eslint-disable-next-line 
-    const [progress, setProgress] = React.useState(0);
 
-    React.useEffect(() => {
-        const timer = setInterval(() => {
-          setProgress((oldProgress) => {
-            if (oldProgress === 100) {
-              return 0;
-            }
-            const diff = Math.random() * 10;
-            return Math.min(oldProgress + diff, 100);
-          });
-        }, 500);
-    
-        return () => {
-          clearInterval(timer);
-        };
-      }, []);
-
-  return (
-    <Wrapper>
-      <div className="heading">
-        <h1>Current Progress</h1>
-        <div className="null"></div>
-      </div>
-      <div className="progress-section">
-        <h4>Assessment Progress</h4>
-        <div className="progress-indicator">
-        <div style={{width:"88%"}}>
-      <LinearProgress variant="determinate" id="Lp" color="primary" value={"27"} />
-    </div>
-   <div className="progress-indicator">
-       <CircularProgress />
-   </div>
-        </div>
-        <h3>Part I: Health</h3>
-      </div>
-      <Link to="/dashboard_home2">
-        <Button value="Continue" theme="green">
+	return (
+		<Wrapper>
+			<div className="heading">
+				<h1>Current Progress</h1>
+				<div className="null"></div>
+			</div>
+			<div className="progress-section">
+				<h4>Assessment Progress</h4>
+				<div className="progress-indicator">
+					<div style={{width:'88%'}}>
+						<LinearProgress value='27' />
+					</div>
+					<div className="progress-indicator">
+						<CircularProgress />
+					</div>
+				</div>
+				<h3>Part I: Health</h3>
+			</div>
+			<Link to="/dashboard_home2">
+				<Button value="Continue" theme="green">
           Continue
-        </Button>
-      </Link>
-    </Wrapper>
-  );
+				</Button>
+			</Link>
+		</Wrapper>
+	);
 }
 
 // ProgressSection.propTypes = {
