@@ -2,7 +2,6 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Button from '../common/Button';
 import { Link } from 'react-router-dom';
-
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
