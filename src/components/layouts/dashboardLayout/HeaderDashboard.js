@@ -43,12 +43,9 @@ const Wrapper = styled.div`
 			height: 35px;
 		}
 	}
-
 `;
 
 function HeaderDashboard() {
-
-
 	return (
 		<Wrapper>
 

@@ -1,9 +1,10 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React from 'react';
 // import PropTypes from 'prop-types'
-import Paper from "@material-ui/core/Paper";
-import styled from "styled-components";
-import Container from "../../common/Container";
-import Button from "../../common/Button";
+import Paper from '@material-ui/core/Paper';
+import styled from 'styled-components';
+import Container from '../../common/Container';
+import Button from '../../common/Button';
 
 const Wrapper = styled.div`
   display: flex;
@@ -49,25 +50,25 @@ const Wrapper = styled.div`
   }
 `;
 function CommonAuthPaperPage({ children, ...props }) {
-  return (
-    <Wrapper>
-      <Container>
-        <Paper className="paper" elevation={3}>
-          <img src={props.img} alt={props.alt} />
-          <h1>{props.title}</h1>
-<hr/>
-          <p>{props.detail}</p>
+	return (
+		<Wrapper>
+			<Container>
+				<Paper className="paper" elevation={3}>
+					<img src={props.img} alt={props.alt} />
+					<h1>{props.title}</h1>
+					<hr/>
+					<p>{props.detail}</p>
 
-          {children}
-          <div className="submit">
-            <Button theme="darkGreen" style={{ width: "100%" }}>
-              {props.buttonText}
-            </Button>
-          </div>
-        </Paper>
-      </Container>
-    </Wrapper>
-  );
+					{children}
+					<div className="submit">
+						<Button theme="darkGreen" style={{ width: '100%' }}>
+							{props.buttonText}
+						</Button>
+					</div>
+				</Paper>
+			</Container>
+		</Wrapper>
+	);
 }
 
 // CommonAuthPaperPage.propTypes = {
