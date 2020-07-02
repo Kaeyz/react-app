@@ -61,4 +61,21 @@ userQueries.login = (inputs) => {
 	});
 };
 
+
+userQueries.forgotPassword = (email) => {
+	const query = `
+	mutation REQUEST_RESET_PASSWORD($email: String!){
+		requestResetPassword(email: $email){
+			message
+		}
+	}
+	`;
+	const variables = { email };
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
 export default Object.freeze(userQueries);

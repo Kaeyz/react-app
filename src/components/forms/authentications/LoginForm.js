@@ -8,12 +8,27 @@ import styled from 'styled-components';
 import Button from '../../common/Button';
 import { loginUser } from '../../../store/actions/userActions';
 import { loginValidator } from '../validation';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
 	.submit {
 		margin-top: 1.6rem;
 		display: flex;
 		justify-content: center;
+	}
+	.forgot {
+		margin-top: 1rem;
+		display: grid;
+		justify-content: center;
+	}
+	.forgot_link {
+		text-decoration: none;
+		color: inherit;
+	}
+	.link_text {
+		font-size: 1.2rem;
+		color: ${props => props.theme.color.brand_02};
+		font-weight: bold;
 	}
 `;
 
@@ -83,6 +98,11 @@ function LoginForm({history, loginUser}) {
 					<div className="submit">
 						<Button theme="yellow" onClick={onFormSubmit} style={{width: '100%'}}>Login</Button>
 					</div>
+				</div>
+				<div className="forgot">
+					<Link className="forgot_link" to="/forgot_password">
+						<p className="link_text">Forgot password?</p>
+					</Link>
 				</div>
 			</AuthFormLayout>
 		</Wrapper>

@@ -4,9 +4,6 @@ import { errorAlert, successAlert, clearAlert } from './alertActions';
 import { SET_USER } from '../types';
 import userQueries from '../../client/queries/userQueries';
 
-/* export const setAuthToken = token => {
-	localStorage.setItem('auth', token);
-}; */
 
 export const setIsAuthenticated = (payload) => {
 	return { type: SET_USER, payload: payload};
@@ -70,10 +67,31 @@ export const loginUser = (userData, history) => dispatch => {
 		});
 };
 
-export const logoutUser = (history) => dispatch =>  {
+export const logoutUser = () => dispatch =>  {
 	// Remove token from localStorage
 	localStorage.removeItem('auth');
-	console.log("i got here");
 	dispatch(setIsAuthenticated(false));
-	console.log("i also got here");
+};
+
+export const forgotPassword = (data, history) => dispatch => {
+	dispatch(appIsLoading());
+	dispatch(clearAlert());
+	userQueries.forgotPassword(data)
+		.then(res => {
+			if(res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+				dispatch(appNotLoading());
+			}
+			if (res.data) {
+				history.push('/reset_link_sent', { email: data });
+				dispatch(appNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Connection Error: Try again!!' }));
+		});
+};
+
+export const resetPassword = (data, history) => dispatch => {
+	console.log(data, history);
 };

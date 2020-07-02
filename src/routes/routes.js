@@ -39,18 +39,20 @@ const Routes = () => (
 
 			{/* Auth routes */}
 			<PrivateRoute isAuth={false} path="/login" component={Login} />
-			<PrivateRoute isAuth={false} path="/onboarding/individual" component=	{IndividualSignUp} />
+			<PrivateRoute isAuth={false} path="/admin_login" component={AdminLogin} />
+
+			<PrivateRoute isAuth={false} path="/onboarding/individual" component={IndividualSignUp} />
 			<PrivateRoute isAuth={false} path="/onboarding/company" component={CompanySignUp} />
+			<PrivateRoute isAuth={false} path="/onboarding/success" component={CompanyRegistrationSuccess} />
+
+
+			<PrivateRoute isAuth={false} path="/forgot_password" component={ForgotPassword} />
+			<PrivateRoute isAuth={false} path="/reset_link_sent" component={PasswordResetLink} />
+			<PrivateRoute isAuth={false} path="/reset_password" component={ResetPassword} />
+			<PrivateRoute isAuth={false} path="/confirm_reset_password" component={PasswordResetSuccessful} />
+
+
 			<PrivateRoute path="/dashboard" component={Dashboard} />
-
-
-			<Route path="/password_reset_success" component={PasswordResetSuccessful} />
-			<Route path="/admin_login" component={AdminLogin} />
-			<Route path="/company_registration_successful" component={CompanyRegistrationSuccess} />
-			<Route path="/password_reset_link" component={PasswordResetLink} />
-			<Route path="/forgot_password" component={ForgotPassword} />
-			<Route path="/reset_password" component={ResetPassword} />
-
 			<Route path="/dashboard_home" component={DashboardHome} />
 			<Route path="/dashboard_home2" component={DashboardHome2} />
 			<Route path="/dashboard_assessment" component={DashboardAssessment} />

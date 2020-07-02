@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from '../../common/Button';
 import Container from '../../common/Container';
@@ -14,8 +13,8 @@ const Wrapper = styled.div`
     height: -webkit-fill-available;
     flex-direction: column;
     p{
-        width: 605px;
-        text-align:center;
+			width: 605px;
+			text-align:center;
     }
   }
   .submit {
@@ -32,8 +31,13 @@ function CommonAuthFlowPage(props) {
 					<h1>{props.title}</h1>
 					<p>{props.detail} </p>
 					<div className="submit">
-						<Link to={props.link}>
-							<Button theme="darkGreen" style={{ width: '100%' }}>
+						<Link
+							to={props.link}
+						>
+							<Button
+								theme="darkGreen"
+								style={{ width: '100%' }}
+							>
 								{props.buttonText}
 							</Button>
 						</Link>
@@ -44,8 +48,12 @@ function CommonAuthFlowPage(props) {
 	);
 }
 
-// CommonAuthFlowPage.propTypes = {
-
-// }
+CommonAuthFlowPage.propTypes = {
+	img: PropTypes.any,
+	title: PropTypes.string,
+	detail: PropTypes.string,
+	link: PropTypes.string,
+	buttonText: PropTypes.string
+};
 
 export default CommonAuthFlowPage;

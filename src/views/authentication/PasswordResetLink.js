@@ -1,24 +1,24 @@
 import React from 'react';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import Frame from '../../assets/Frame.svg';
 import CommonAuthFlowPage from '../../components/forms/authentications/CommonAuthFlowPages';
 
 
-function PasswordResetLink() {
+function PasswordResetLink({location}) {
 	return (
 		<CommonAuthFlowPage
 			img={Frame}
 			title={'Reset Link Sent!'}
-			detail={'A reset link has been sent to tyu***@mail.com'}
+			detail={`A reset link has been sent to ${location.state.email}`}
 			buttonText={'SEND AGAIN'}
-			link={''}
+			link={'/forgot_password'}
 		/>
 
 	);
 }
 
-// PasswordResetLink.propTypes = {
-
-// }
+PasswordResetLink.propTypes = {
+	location: PropTypes.object.isRequired
+};
 
 export default PasswordResetLink;

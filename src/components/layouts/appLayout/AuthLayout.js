@@ -10,6 +10,7 @@ import Button from '../../common/Button';
 
 const Wrapper = styled.div`
 	background-color: ${props => props.theme.color.ui_03};
+	min-height: 100vh;
   .main {
     display: flex;
     flex-wrap: wrap;
