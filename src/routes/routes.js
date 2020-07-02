@@ -44,14 +44,13 @@ const Routes = () => (
 			<PrivateRoute path="/dashboard" component={Dashboard} />
 
 
-			<Route path="/404" component={Page404} />
 			<Route path="/password_reset_success" component={PasswordResetSuccessful} />
 			<Route path="/admin_login" component={AdminLogin} />
 			<Route path="/company_registration_successful" component={CompanyRegistrationSuccess} />
 			<Route path="/password_reset_link" component={PasswordResetLink} />
 			<Route path="/forgot_password" component={ForgotPassword} />
 			<Route path="/reset_password" component={ResetPassword} />
-			
+
 			<Route path="/dashboard_home" component={DashboardHome} />
 			<Route path="/dashboard_home2" component={DashboardHome2} />
 			<Route path="/dashboard_assessment" component={DashboardAssessment} />
@@ -62,6 +61,7 @@ const Routes = () => (
 			<Route path="/blogPostDetails" component={BlogPostDetail} />
 
 
+			<Route path="*" component={Page404} />
 		</Switch>
 	</Router>
 );
