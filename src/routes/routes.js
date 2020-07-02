@@ -24,7 +24,7 @@ import ResetPassword from '../views/authentication/ResetPassword'
 import PasswordResetLink from '../views/authentication/PasswordResetLink'
 import CompanyRegistrationSuccess from '../views/authentication/CompanyRegistrationSuccess'
 import PasswordResetSuccessful from '../views/authentication/PasswordResetSuccessful'
-import Page404 from '../views/authentication/Page404'
+import Page404 from '../views/Page404'
 
 const Routes = () => (
 	<Router>

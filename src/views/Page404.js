@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
-import errorImg from '../../assets/404.svg';
-import CommonAuthFlowPage from '../../components/forms/authentications/CommonAuthFlowPages';
+import errorImg from '../assets/404.svg';
+import CommonAuthFlowPage from '../components/forms/authentications/CommonAuthFlowPages';
 
 
 function Page404() {
