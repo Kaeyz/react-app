@@ -1,8 +1,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
-import img from '../../assets/affection-couple.svg';
-import Button from '../common/Button';
+import img from '../../../assets/affection-couple.svg';
+import Button from '../../common/Button';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`

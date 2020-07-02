@@ -15,6 +15,16 @@ width: 100%;
   background-color: #2ec4b6;
   transition: 0.4s;
 }
+.whiteBtn {
+  border: 1px solid #2ec4b6;
+  color: #2ec4b6;
+  background-color: #fff;
+}
+.whiteBtn:hover {
+  color: #fff;
+  background-color: #2ec4b6;
+  transition: 0.4s;
+}
 .darkGreenBtn {
   border: 1px solid #2ec4b6;
   color: ${props => props.theme.color.ui_01};

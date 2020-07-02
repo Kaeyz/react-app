@@ -17,14 +17,15 @@ import BlogPostDetail from '../views/blogParent/BlogPostDetail';
 import Dashboard from '../views/Dashboard';
 import DashboardHome from '../views/dashboard/DashboardHome';
 import DashboardHome2 from '../views/dashboard/DashboardHome2';
-import DashboardAssessment from '../views/dashboard/DashboardAssessment';
-import AdminLogin from '../views/authentication/AdminLogin'
-import ForgotPassword from '../views/authentication/ForgotPassword'
-import ResetPassword from '../views/authentication/ResetPassword'
-import PasswordResetLink from '../views/authentication/PasswordResetLink'
-import CompanyRegistrationSuccess from '../views/authentication/CompanyRegistrationSuccess'
-import PasswordResetSuccessful from '../views/authentication/PasswordResetSuccessful'
-import Page404 from '../views/Page404'
+import DashboardAssessment from '../views/dashboard/assessment';
+import AdminLogin from '../views/authentication/AdminLogin';
+import ForgotPassword from '../views/authentication/ForgotPassword';
+import ResetPassword from '../views/authentication/ResetPassword';
+import PasswordResetLink from '../views/authentication/PasswordResetLink';
+import CompanyRegistrationSuccess from '../views/authentication/CompanyRegistrationSuccess';
+import PasswordResetSuccessful from '../views/authentication/PasswordResetSuccessful';
+import Page404 from '../views/Page404';
+import HealthRiskAssessment from '../views/dashboard/assessment/HealthRiskAssessment';
 
 const Routes = () => (
 	<Router>
@@ -53,7 +54,8 @@ const Routes = () => (
 
 			<Route path="/dashboard_home" component={DashboardHome} />
 			<Route path="/dashboard_home2" component={DashboardHome2} />
-			<Route path="/dashboard_assessment" component={DashboardAssessment} />
+			<Route path="/assessments" component={DashboardAssessment} />
+			<Route path="/Assessment/health_risk_assessment" component={HealthRiskAssessment} />
 
 
 			{/* BLog route */}

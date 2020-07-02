@@ -1,51 +1,44 @@
-import React from "react";
-import DashboardLayout from "../../components/layouts/dashboardLayout/DashboardLayout";
-import { makeStyles } from "@material-ui/core/styles";
-import WelcomeBanner from "../../components/dashboard/WelcomeBanner";
-import PreliminaryAssessment from "../../components/dashboard/PreliminaryAssessment";
+import React from 'react';
+import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
+import WelcomeBanner from '../../components/dashboard/dashboardHome/WelcomeBanner';
+import PreliminaryAssessment from '../../components/dashboard/dashboardHome/PreliminaryAssessment';
 // import Container from '../../components/common/Container';
-import Grid from "@material-ui/core/Grid";
-import GetStartedCard from "../../components/dashboard/GetStartedCard";
-import LeaderboardCard from "../../components/dashboard/LeaderboardCard";
-import ProgressSection from '../../components/dashboard/ProgressSection'
+import Grid from '@material-ui/core/Grid';
+import GetStartedCard from '../../components/dashboard/dashboardHome/GetStartedCard';
+import LeaderboardCard from '../../components/dashboard/dashboardHome/LeaderboardCard';
+import ProgressSection from '../../components/dashboard/commonDashboard/ProgressSection';
+import styled from 'styled-components';
 
-const useStyles = makeStyles((theme) => ({
-	toolbar: {
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'flex-end',
-		padding: theme.spacing(0, 1),
-		// necessary for content to be below app bar
-		// thats why i didn't use AppBar for the header. I don't think we need it.
-		...theme.mixins.toolbar,
-	},
-	content: {
-		flexGrow: 1,
-		// padding: theme.spacing(3),
-		padding: '2rem',
-	},
-}));
+const Wrapper = styled.div`
+.content{
+  flex-frow:1;
+  padding:2rem;
+}
+`;
+
 
 const DashboardHome2 = () => {
-	const classes = useStyles();
 
-  return (
-    <DashboardLayout>
-      <main className={classes.content}>
-        <WelcomeBanner />
-        <Grid container spacing={3}>
-          <Grid item xs={6}>
-            <PreliminaryAssessment />
-            <ProgressSection />
-            <GetStartedCard />
-          </Grid>
-          <Grid item xs={6}>
-            <LeaderboardCard />
-          </Grid>
-        </Grid>
-      </main>
-    </DashboardLayout>
-  );
+
+	return (
+		<DashboardLayout>
+			<Wrapper>
+				<main className="content">
+					<WelcomeBanner />
+					<Grid container spacing={3}>
+						<Grid item xs={6}>
+							<PreliminaryAssessment />
+							<ProgressSection />
+							<GetStartedCard />
+						</Grid>
+						<Grid item xs={6}>
+							<LeaderboardCard />
+						</Grid>
+					</Grid>
+				</main>
+			</Wrapper>
+		</DashboardLayout>
+	);
 };
 
 export default DashboardHome2;
