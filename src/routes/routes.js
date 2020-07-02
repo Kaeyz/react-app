@@ -18,13 +18,13 @@ import Dashboard from '../views/Dashboard';
 import DashboardHome from '../views/dashboard/DashboardHome';
 import DashboardHome2 from '../views/dashboard/DashboardHome2';
 import DashboardAssessment from '../views/dashboard/DashboardAssessment';
-import AdminLogin from '../views/authentication/AdminLogin'
-import ForgotPassword from '../views/authentication/ForgotPassword'
-import ResetPassword from '../views/authentication/ResetPassword'
-import PasswordResetLink from '../views/authentication/PasswordResetLink'
-import CompanyRegistrationSuccess from '../views/authentication/CompanyRegistrationSuccess'
-import PasswordResetSuccessful from '../views/authentication/PasswordResetSuccessful'
-import Page404 from '../views/Page404'
+import AdminLogin from '../views/authentication/AdminLogin';
+import ForgotPassword from '../views/authentication/ForgotPassword';
+import ResetPassword from '../views/authentication/ResetPassword';
+import PasswordResetLink from '../views/authentication/PasswordResetLink';
+import CompanyRegistrationSuccess from '../views/authentication/CompanyRegistrationSuccess';
+import PasswordResetSuccessful from '../views/authentication/PasswordResetSuccessful';
+import Page404 from '../views/Page404';
 
 const Routes = () => (
 	<Router>

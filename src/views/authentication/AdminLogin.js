@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types'
 
 import CommonAuthPaperPage from '../../components/forms/authentications/CommonAuthPaperPage';
-import AdminLoginFrom from '../../components/forms/authentications/AdminLoginFrom'
+import AdminLoginFrom from '../../components/forms/authentications/AdminLoginFrom';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -23,7 +23,7 @@ function AdminLogin() {
 			>
 				{/* <hr /> */}
 				<AdminLoginFrom />
-			
+
 			</CommonAuthPaperPage>
 		</Wrapper>
 	);

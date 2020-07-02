@@ -55,8 +55,6 @@ const GlobalStyle = createGlobalStyle`
 	*, *:before, *:after {
 		box-sizing: inherit;
 	}
-
-
 	body {
 		padding: 0;
 		margin: 0;
@@ -75,8 +73,6 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 	}
-
-
 	.navbar__link--active {
 		color: #2ec4b6 !important;
 	  }

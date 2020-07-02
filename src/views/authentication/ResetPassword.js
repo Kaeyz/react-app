@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
-import ResetPasswordForm from '../../components/forms/authentications/ResetPasswordForm'
+import ResetPasswordForm from '../../components/forms/authentications/ResetPasswordForm';
 import CommonAuthPaperPage from '../../components/forms/authentications/CommonAuthPaperPage';
 import Frame from '../../assets/Frame.svg';
 
@@ -20,7 +20,7 @@ function ResetPassword() {
 				title={'Enter new password'}
 				buttonText={' CHANGE PASSWORD'}
 			>
-<ResetPasswordForm />
+				<ResetPasswordForm />
 			</CommonAuthPaperPage>
 		</Wrapper>
 	);

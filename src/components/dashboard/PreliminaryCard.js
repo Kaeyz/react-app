@@ -28,28 +28,25 @@ const Wrapper = styled.div`
 	}
 `;
 
-const PreliminaryCard = ({ theme, backgroundColor, ...props  }) => {
-
+const PreliminaryCard = ({ backgroundColor, ...props  }) => {
 	return (
 		<Wrapper>
-			
-				<Paper className={`paper ${backgroundColor}`}>
-					<img src={props.Image} alt="bodyMass" />
-					<h5>{props.cardValue}</h5>
-					<p>{props.cardInfo}</p>
-					<Link to="">
-						<Button value="View" theme={props.btnTheme}>
+			<Paper className={`paper ${backgroundColor}`}>
+				<img src={props.Image} alt="bodyMass" />
+				<h5>{props.cardValue}</h5>
+				<p>{props.cardInfo}</p>
+				<Link to="">
+					<Button value="View" theme={props.btnTheme}>
 							View
-						</Button>
-					</Link>
-				</Paper>
-		
+					</Button>
+				</Link>
+			</Paper>
+
 		</Wrapper>
 	);
 };
 
 PreliminaryCard.propTypes = {
-	theme: PropTypes.any,
 	Image: PropTypes.any,
 	cardValue: PropTypes.any,
 	cardInfo: PropTypes.any,
