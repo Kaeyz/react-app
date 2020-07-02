@@ -1,6 +1,6 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
-import Button from '../common/Button';
+import Button from '../../common/Button';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -22,22 +22,32 @@ const Wrapper = styled.div`
 	.green {
 		background-color: ${props => props.theme.color.ui_text_04};
 	}
+	.white {
+		background-color: ${props => props.theme.color.text_03};
+	}
 	.paper{
 		padding: 3.7rem 2rem;
 		text-align: left;
+		width: 23.6rem;
+height: 28.2rem;
+	}
+	.bigFont{
+		font-size: 1.4rem;
 	}
 `;
 
-const PreliminaryCard = ({ backgroundColor, ...props  }) => {
+const PreliminaryCard = ({ fontSize, backgroundColor, ...props  }) => {
+
 	return (
 		<Wrapper>
+
 			<Paper className={`paper ${backgroundColor}`}>
 				<img src={props.Image} alt="bodyMass" />
 				<h5>{props.cardValue}</h5>
-				<p>{props.cardInfo}</p>
-				<Link to="">
-					<Button value="View" theme={props.btnTheme}>
-							View
+				<p className={`${fontSize}`}>{props.cardInfo}</p>
+				<Link to={props.where}>
+					<Button theme={props.btnTheme}>
+						{props.btnValue}
 					</Button>
 				</Link>
 			</Paper>
@@ -50,7 +60,10 @@ PreliminaryCard.propTypes = {
 	Image: PropTypes.any,
 	cardValue: PropTypes.any,
 	cardInfo: PropTypes.any,
+	fontSize: PropTypes.any,
+	where: PropTypes.string,
 	btnTheme: PropTypes.any,
+	btnValue: PropTypes.string,
 	backgroundColor: PropTypes.string.isRequired
 };
 

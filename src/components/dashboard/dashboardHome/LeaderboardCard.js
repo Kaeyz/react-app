@@ -1,10 +1,10 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
-import ladder from '../../assets/leaderLadder.svg';
+import ladder from '../../../assets/leaderLadder.svg';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '../common/Button';
+import Button from '../../common/Button';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`

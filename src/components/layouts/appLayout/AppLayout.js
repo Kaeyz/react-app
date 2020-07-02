@@ -1,56 +1,56 @@
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-import Header from "./header";
-import Footer from "./Footer";
-import Fab from "@material-ui/core/Fab";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import Zoom from "@material-ui/core/Zoom";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import { makeStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
+import Header from './header';
+import Footer from './Footer';
+import Fab from '@material-ui/core/Fab';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import Zoom from '@material-ui/core/Zoom';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import { makeStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
 
 
 const Wrapper = styled.div``;
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    position: "fixed",
-    bottom: theme.spacing(2),
-    right: theme.spacing(2),
-  },
+	root: {
+		position: 'fixed',
+		bottom: theme.spacing(2),
+		right: theme.spacing(2),
+	},
 }));
 
 function ScrollTop(props) {
-  const { children, window } = props;
-  const classes = useStyles();
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({
-    target: window ? window() : undefined,
-    disableHysteresis: true,
-    threshold: 100,
-  });
+	const { children, window } = props;
+	const classes = useStyles();
+	// Note that you normally won't need to set the window ref as useScrollTrigger
+	// will default to window.
+	// This is only being set here because the demo is in an iframe.
+	const trigger = useScrollTrigger({
+		target: window ? window() : undefined,
+		disableHysteresis: true,
+		threshold: 100,
+	});
 
-  const handleClick = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector(
-      "#back-to-top-anchor"
-    );
+	const handleClick = (event) => {
+		const anchor = (event.target.ownerDocument || document).querySelector(
+			'#back-to-top-anchor'
+		);
 
-    if (anchor) {
-      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  };
+		if (anchor) {
+			anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+		}
+	};
 
-  return (
-    <Zoom in={trigger}>
-      <div onClick={handleClick} role="presentation" className={classes.root}>
-        {children}
-      </div>
-    </Zoom>
-  );
+	return (
+		<Zoom in={trigger}>
+			<div onClick={handleClick} role="presentation" className={classes.root}>
+				{children}
+			</div>
+		</Zoom>
+	);
 }
 
 // ScrollTop.propTypes = {
@@ -62,31 +62,31 @@ function ScrollTop(props) {
 //   window: PropTypes.func,
 // };
 export default function AppLayout({ children }) {
-  return (
-    <>
-      <Wrapper>
-        <Toolbar
-          id="back-to-top-anchor"
-          style={{ position: "absolute", visibility: "hidden" }}
-        />
-        <Header />
-        {children}
-        <Footer />
-      </Wrapper>
-      <ScrollTop>
-        <Fab
-          color="secondary"
-          size="small"
-          style={{ backgroundColor: "#8db838" }}
-          aria-label="scroll back to top"
-        >
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </ScrollTop>
-    </>
-  );
+	return (
+		<>
+			<Wrapper>
+				<Toolbar
+					id="back-to-top-anchor"
+					style={{ position: 'absolute', visibility: 'hidden' }}
+				/>
+				<Header />
+				{children}
+				<Footer />
+			</Wrapper>
+			<ScrollTop>
+				<Fab
+					color="secondary"
+					size="small"
+					style={{ backgroundColor: '#8db838' }}
+					aria-label="scroll back to top"
+				>
+					<KeyboardArrowUpIcon />
+				</Fab>
+			</ScrollTop>
+		</>
+	);
 }
 
 AppLayout.propTypes = {
-  children: PropTypes.array.isRequired,
+	children: PropTypes.array.isRequired,
 };
