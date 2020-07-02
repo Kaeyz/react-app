@@ -1,10 +1,10 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
-import { PasswordInput } from '../../components/common/inputs';
-import { Grid } from '@material-ui/core';
+import ResetPasswordForm from '../../components/forms/authentications/ResetPasswordForm'
 import CommonAuthPaperPage from '../../components/forms/authentications/CommonAuthPaperPage';
 import Frame from '../../assets/Frame.svg';
+
 
 const Wrapper = styled.div`
 	hr {
@@ -20,29 +20,7 @@ function ResetPassword() {
 				title={'Enter new password'}
 				buttonText={' CHANGE PASSWORD'}
 			>
-
-				<Grid container>
-					<Grid item xs={12} sm={12}>
-						<PasswordInput
-							label="Enter your password"
-							// value= {password}
-							// onChange={setPassword}
-							options={[{ value: '', text: 'Select here' }]}
-							// error={errors.password}
-						/>
-					</Grid>
-				</Grid>
-				<Grid container>
-					<Grid item xs={12} sm={12}>
-						<PasswordInput
-							label="Confirm your password"
-							// value= {password}
-							// onChange={setPassword}
-							options={[{ value: '', text: 'Select here' }]}
-							// error={errors.password}
-						/>
-					</Grid>
-				</Grid>
+<ResetPasswordForm />
 			</CommonAuthPaperPage>
 		</Wrapper>
 	);

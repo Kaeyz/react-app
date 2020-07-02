@@ -32,7 +32,7 @@ const PreliminaryCard = ({ theme, backgroundColor, ...props  }) => {
 
 	return (
 		<Wrapper>
-			<div className={`${theme}`}>
+			
 				<Paper className={`paper ${backgroundColor}`}>
 					<img src={props.Image} alt="bodyMass" />
 					<h5>{props.cardValue}</h5>
@@ -43,7 +43,7 @@ const PreliminaryCard = ({ theme, backgroundColor, ...props  }) => {
 						</Button>
 					</Link>
 				</Paper>
-			</div>
+		
 		</Wrapper>
 	);
 };

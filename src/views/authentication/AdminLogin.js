@@ -1,9 +1,9 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
-import styled from 'styled-components';
-import { TextInput, PasswordInput } from '../../components/common/inputs';
-import { Grid } from '@material-ui/core';
+
 import CommonAuthPaperPage from '../../components/forms/authentications/CommonAuthPaperPage';
+import AdminLoginFrom from '../../components/forms/authentications/AdminLoginFrom'
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
 	hr {
@@ -22,29 +22,8 @@ function AdminLogin() {
 				buttonText={'SIGN UP'}
 			>
 				{/* <hr /> */}
-				<Grid container>
-					<Grid item xs={12} sm={12}>
-						<TextInput
-							label="Enter your username"
-							// value={username}
-							type="username"
-							// onChange={setUsername}
-							placeholder="Type here..."
-							// error={errors.username}
-						/>
-					</Grid>
-				</Grid>
-				<Grid container>
-					<Grid item xs={12} sm={12}>
-						<PasswordInput
-							label="Enter your Password"
-							// value={password}
-							// onChange={setPassword}
-							// options={[{ value: "", text: "Select here" }]}
-							// error={errors.password}
-						/>
-					</Grid>
-				</Grid>
+				<AdminLoginFrom />
+			
 			</CommonAuthPaperPage>
 		</Wrapper>
 	);
