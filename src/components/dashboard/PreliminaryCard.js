@@ -16,8 +16,11 @@ const Wrapper = styled.div`
 		color: ${(props) => props.theme.color.text_02};
 		margin: 1.4rem 0 2.3rem 0;
 	}
-	.red {
-		background: red;
+	.blue {
+		background-color: ${props => props.theme.color.ui_text_01};
+	}
+	.green {
+		background-color: ${props => props.theme.color.ui_text_04};
 	}
 	.paper{
 		padding: 3.7rem 2rem;
@@ -25,12 +28,12 @@ const Wrapper = styled.div`
 	}
 `;
 
-const PreliminaryCard = ({ theme, ...props }) => {
+const PreliminaryCard = ({ theme, backgroundColor, ...props  }) => {
 
 	return (
 		<Wrapper>
 			<div className={`${theme}`}>
-				<Paper className="paper">
+				<Paper className={`paper ${backgroundColor}`}>
 					<img src={props.Image} alt="bodyMass" />
 					<h5>{props.cardValue}</h5>
 					<p>{props.cardInfo}</p>
@@ -50,7 +53,8 @@ PreliminaryCard.propTypes = {
 	Image: PropTypes.any,
 	cardValue: PropTypes.any,
 	cardInfo: PropTypes.any,
-	btnTheme: PropTypes.any
+	btnTheme: PropTypes.any,
+	backgroundColor: PropTypes.string.isRequired
 };
 
 export default PreliminaryCard;
