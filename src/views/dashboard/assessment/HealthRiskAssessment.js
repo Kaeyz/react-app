@@ -2,14 +2,14 @@ import React from 'react';
 import DashboardLayout from '../../../components/layouts/dashboardLayout/DashboardLayout';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import PreliminaryCard from '../../../components/dashboard/common/PreliminaryCard';
+import DashedProgressCard from '../../../components/dashboard/assessment/DashedProgessCard';
 import HraImg from '../../../assets/hraImg.svg';
 import inbodyImg from '../../../assets/inbodyImg.svg';
 import mealImg from '../../../assets/mealImg.svg';
 // import ProgressSection from '../../../components/dashboard/commonDashboard/ProgressSection';
 import Button from '../../../components/common/Button';
 import { Link } from 'react-router-dom';
-import DashedLoader from '../../../components/dashboard/assessment/DashedLoader';
+import BreadCrumb from '../../../components/dashboard/assessment/BreadCrumb';
 
 const Wrapper = styled.div`
   .content {
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   .heading {
     color: ${(props) => props.theme.color.text_01};
     font-weight: 600;
-
+margin-top:2.9rem;
     p {
       font-size: 3rem;
       line-height: 3.2rem;
@@ -67,6 +67,7 @@ const Wrapper = styled.div`
 	line-height: 2.4rem;
 	color: ${(props) => props.theme.color.text_02};
   }
+ 
 `;
 
 
@@ -75,8 +76,7 @@ const HealthRiskAssessment = () => {
 		<DashboardLayout>
 			<Wrapper>
 				<main className="content">
-
-					<DashedLoader />
+					<BreadCrumb />
 					<div className="heading">
 						<p>Health Risk Assessments</p>
 					</div>
@@ -112,7 +112,7 @@ const HealthRiskAssessment = () => {
 					<div className="lower">
 						<Grid container spacing={3}>
 							<Grid item xs={3}>
-								<PreliminaryCard
+								<DashedProgressCard
 									btnValue={'Start'}
 									cardInfo={'Health Risk Assessment'}
 									Image={HraImg}
@@ -121,7 +121,7 @@ const HealthRiskAssessment = () => {
 								/>
 							</Grid>
 							<Grid item xs={3}>
-								<PreliminaryCard
+								<DashedProgressCard
 									btnValue={'Start'}
 									cardInfo={'Lifestyle Assessment'}
 									Image={inbodyImg}
@@ -131,7 +131,7 @@ const HealthRiskAssessment = () => {
 							</Grid>
 
 							<Grid item xs={3}>
-								<PreliminaryCard
+								<DashedProgressCard
 									btnValue={'Start'}
 									cardInfo={'Fitness Assessment'}
 									Image={mealImg}
@@ -141,7 +141,7 @@ const HealthRiskAssessment = () => {
 							</Grid>
 
 							<Grid item xs={3}>
-								<PreliminaryCard
+								<DashedProgressCard
 									btnValue={'Start'}
 									cardInfo={'Nutrition Assessment'}
 									Image={mealImg}
