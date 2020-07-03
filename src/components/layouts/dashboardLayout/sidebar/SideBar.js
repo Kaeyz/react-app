@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../../../store/actions/userActions';
 import { Paper } from '@material-ui/core';
-//import PropTypes from 'prop-types';
 
 import toggleLogo from '../../../../assets/Frame.svg';
 import Icon from '../../../common/Icon';
@@ -56,7 +58,7 @@ const otherItems = [
 	{ icon: 'account', text: 'Accounts', link: '/account' },
 ];
 
-function SideBar() {
+function SideBar({logoutUser}) {
 	return (
 		<Wrapper elevation={2}>
 			<div className="sidebar">
@@ -70,7 +72,7 @@ function SideBar() {
 						<NavSection title="OTHER" items={otherItems} />
 					</div>
 				</div>
-				<div className="nav_item footer">
+				<div className="nav_item footer" onClick={logoutUser}>
 					<Icon name="logout" />
 					<p>LOGOUT</p>
 				</div>
@@ -79,7 +81,9 @@ function SideBar() {
 	);
 }
 
-//SideBar.propTypes = {};
+SideBar.propTypes = {
+	logoutUser: PropTypes.func.isRequired
+};
 
-export default SideBar;
+export default connect(null, {logoutUser})(SideBar);
 

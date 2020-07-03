@@ -3,11 +3,11 @@ import DashboardLayout from '../../../components/layouts/dashboardLayout/Dashboa
 // import Container from '../../components/common/Container';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import PreliminaryCard from '../../../components/dashboard/commonDashboard/PreliminaryCard';
+import PreliminaryCard from '../../../components/dashboard/common/PreliminaryCard';
 import HraImg from '../../../assets/hraImg.svg';
 import inbodyImg from '../../../assets/inbodyImg.svg';
 import mealImg from '../../../assets/mealImg.svg';
-import ProgressSection from '../../../components/dashboard/commonDashboard/ProgressSection';
+import ProgressSection from '../../../components/dashboard/common/ProgressSection';
 import Button from '../../../components/common/Button';
 import { Link } from 'react-router-dom';
 

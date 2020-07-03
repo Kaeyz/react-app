@@ -1,8 +1,8 @@
 import React from 'react';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
-import WelcomeBanner from '../../components/dashboard/dashboardHome/WelcomeBanner';
-import GetStartedCard from '../../components/dashboard/dashboardHome/GetStartedCard';
-import LeaderboardCard from '../../components/dashboard/dashboardHome/LeaderboardCard';
+import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
+import GetStartedCard from '../../components/dashboard/dashboard_home/GetStartedCard';
+import LeaderboardCard from '../../components/dashboard/dashboard_home/LeaderboardCard';
 // import Container from '../../components/common/Container';
 import Grid from '@material-ui/core/Grid';
 

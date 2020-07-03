@@ -1,12 +1,12 @@
 import React from 'react';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
-import WelcomeBanner from '../../components/dashboard/dashboardHome/WelcomeBanner';
-import PreliminaryAssessment from '../../components/dashboard/dashboardHome/PreliminaryAssessment';
+import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
+import PreliminaryAssessment from '../../components/dashboard/dashboard_home/PreliminaryAssessment';
 // import Container from '../../components/common/Container';
 import Grid from '@material-ui/core/Grid';
-import GetStartedCard from '../../components/dashboard/dashboardHome/GetStartedCard';
-import LeaderboardCard from '../../components/dashboard/dashboardHome/LeaderboardCard';
-import ProgressSection from '../../components/dashboard/commonDashboard/ProgressSection';
+import GetStartedCard from '../../components/dashboard/dashboard_home/GetStartedCard';
+import LeaderboardCard from '../../components/dashboard/dashboard_home/LeaderboardCard';
+import ProgressSection from '../../components/dashboard/common/ProgressSection';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
