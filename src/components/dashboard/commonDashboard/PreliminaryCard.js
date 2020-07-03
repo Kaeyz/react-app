@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 		padding: 3.7rem 2rem;
 		text-align: left;
 		width: 23.6rem;
-height: 28.2rem;
+		height: 28.2rem;
 	}
 	.bigFont{
 		font-size: 1.4rem;

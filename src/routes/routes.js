@@ -14,7 +14,6 @@ import CompanySignUp from '../views/authentication/CompanySignUp';
 import Login from '../views/authentication/Login';
 import BlogPost from '../views/blogParent/BlogPost';
 import BlogPostDetail from '../views/blogParent/BlogPostDetail';
-import Dashboard from '../views/Dashboard';
 import DashboardHome from '../views/dashboard/DashboardHome';
 import DashboardHome2 from '../views/dashboard/DashboardHome2';
 import DashboardAssessment from '../views/dashboard/assessment';
@@ -49,18 +48,17 @@ const Routes = () => (
 
 			<PrivateRoute isAuth={false} path="/forgot_password" component={ForgotPassword} />
 			<PrivateRoute isAuth={false} path="/reset_link_sent" component={PasswordResetLink} />
-			<PrivateRoute isAuth={false} path="/reset_password" component={ResetPassword} />
-			<PrivateRoute isAuth={false} path="/confirm_reset_password" component={PasswordResetSuccessful} />
+			<PrivateRoute isAuth={false} path="/reset" component={ResetPassword} />
+			<PrivateRoute isAuth={false} path="/reset_success" component={PasswordResetSuccessful} />
 
 
-			<PrivateRoute path="/dashboard" component={Dashboard} />
-			<Route path="/dashboard_home" component={DashboardHome} />
+			<PrivateRoute path="/dashboard" component={DashboardHome} />
 			<Route path="/dashboard_home2" component={DashboardHome2} />
-			<Route path="/assessments" component={DashboardAssessment} />
-			<Route path="/Assessment/health_risk_assessment" component={HealthRiskAssessment} />
+			<Route path="/assessment" component={DashboardAssessment} />
+			<Route path="/assessment/health" component={HealthRiskAssessment} />
 
 
-			{/* BLog route */}
+			{/* Blog route */}
 			<Route path="/blogPost" component={BlogPost} />
 			<Route path="/blogPostDetails" component={BlogPostDetail} />
 

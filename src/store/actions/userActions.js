@@ -30,8 +30,7 @@ export const registerCompany = (userData, history) => dispatch => {
 	userQueries.registerCompany(userData)
 		.then(res => {
 			if(res.data) {
-				dispatch(successAlert('Successful. Please Login'));
-				history.push('/login');
+				history.push('/onboarding/success');
 			}
 			if (res.errors) {
 				dispatch(errorAlert({ msg: res.errors[0].message }));
@@ -93,5 +92,20 @@ export const forgotPassword = (data, history) => dispatch => {
 };
 
 export const resetPassword = (data, history) => dispatch => {
-	console.log(data, history);
+	dispatch(appIsLoading());
+	dispatch(clearAlert());
+	userQueries.resetPassword(data)
+		.then(res => {
+			if (res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+				dispatch(appNotLoading());
+			}
+			if (res.data) {
+				history.push('/reset_success');
+				dispatch(appNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Connection Error: Try again!!' }));
+		});
 };

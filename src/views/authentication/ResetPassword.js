@@ -1,5 +1,6 @@
 import React from 'react';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import queryString from 'query-string';
 import styled from 'styled-components';
 import ResetPasswordForm from '../../components/forms/authentications/ResetPasswordForm';
 import CommonAuthPaperPage from '../../components/forms/authentications/CommonAuthPaperPage';
@@ -11,7 +12,8 @@ const Wrapper = styled.div`
 		border: 1px solid #f0f1f3;
 	}
 `;
-function ResetPassword() {
+function ResetPassword({location, history}) {
+	const {resetToken} = queryString.parse(location.search);
 	return (
 		<Wrapper>
 			<CommonAuthPaperPage
@@ -20,14 +22,15 @@ function ResetPassword() {
 				title={'Enter new password'}
 				buttonText={' CHANGE PASSWORD'}
 			>
-				<ResetPasswordForm />
+				<ResetPasswordForm resetToken={resetToken} history={history} />
 			</CommonAuthPaperPage>
 		</Wrapper>
 	);
 }
 
-// ResetPassword.propTypes = {
-
-// }
+ResetPassword.propTypes = {
+	location: PropTypes.object.isRequired,
+	history: PropTypes.object.isRequired
+};
 
 export default ResetPassword;

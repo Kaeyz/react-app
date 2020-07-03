@@ -78,4 +78,21 @@ userQueries.forgotPassword = (email) => {
 	});
 };
 
+userQueries.resetPassword = (data) => {
+	const query = `
+	mutation RESET_PASSWORD ($resetToken: String!, $password: String, $confirmPassword: String){
+		resetPassword(resetToken: $resetToken, password: $password, confirmPassword: $confirmPassword){
+			email
+			token
+		}
+	}
+	`;
+	const variables = { ...data };
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
 export default Object.freeze(userQueries);
