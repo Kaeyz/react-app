@@ -2,7 +2,6 @@ import React from 'react';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
 import PreliminaryAssessment from '../../components/dashboard/dashboard_home/PreliminaryAssessment';
-// import Container from '../../components/common/Container';
 import Grid from '@material-ui/core/Grid';
 import GetStartedCard from '../../components/dashboard/dashboard_home/GetStartedCard';
 import LeaderboardCard from '../../components/dashboard/dashboard_home/LeaderboardCard';
@@ -11,8 +10,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
 .content{
-  flex-frow:1;
-  padding:2rem;
+  padding: 2rem;
 }
 `;
 

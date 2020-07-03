@@ -1,12 +1,32 @@
 //import jwtDecode from 'jwt-decode';
 import { appIsLoading, appNotLoading } from './appActions';
 import { errorAlert, successAlert, clearAlert } from './alertActions';
-import { SET_USER } from '../types';
+import { SET_USER, SET_AUTH } from '../types';
 import userQueries from '../../client/queries/userQueries';
 
 
 export const setIsAuthenticated = (payload) => {
-	return { type: SET_USER, payload: payload};
+	return { type: SET_AUTH, payload: payload};
+};
+
+export const setCurrentUser = () => dispatch => {
+	userQueries.getCurrentUser()
+		.then(res => {
+			if (res.errors) {
+				localStorage.removeItem('auth');
+				dispatch(setIsAuthenticated(false));
+				dispatch({ type: SET_USER, payload: {} });
+			}
+			if (res.data) {
+				dispatch({type: SET_USER, payload: res.data.me});
+				dispatch(setIsAuthenticated(true));
+			}
+		})
+		.catch(() => {
+			localStorage.removeItem('auth');
+			dispatch(setIsAuthenticated(false));
+			dispatch({ type: SET_USER, payload: {} });
+		});
 };
 
 export const registerIndividual = (userData, history) => dispatch => {
@@ -109,3 +129,6 @@ export const resetPassword = (data, history) => dispatch => {
 			dispatch(errorAlert({ msg: 'Connection Error: Try again!!' }));
 		});
 };
+
+
+setCurrentUser();

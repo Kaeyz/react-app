@@ -13,6 +13,6 @@ module.exports = Object.freeze({
 
 	// User Action Types
 	SET_USER: 'set_user',
-	REMOVE_USER: 'remove_user'
+	SET_AUTH: 'set_auth',
 
 });

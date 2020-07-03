@@ -1,4 +1,4 @@
-import { SET_USER, REMOVE_USER } from '../types';
+import { SET_USER, SET_AUTH } from '../types';
 
 const initialState = {
 	isAuthenticated: false,
@@ -10,10 +10,14 @@ export default function (state = initialState, action) {
 	case SET_USER:
 		return {
 			...state,
+			user: action.payload
+		};
+	case SET_AUTH:
+		return {
+			...state,
 			isAuthenticated: action.payload
 		};
-	case REMOVE_USER:
-		return initialState;
+
 	default:
 		return state;
 	}

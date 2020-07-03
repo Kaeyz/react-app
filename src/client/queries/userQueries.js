@@ -95,4 +95,32 @@ userQueries.resetPassword = (data) => {
 	});
 };
 
+userQueries.getCurrentUser = () => {
+	const query = `
+	query ME {
+		me{
+			name
+			email
+			mobile
+			type
+			image
+			gender
+			nationality
+			dob
+			address
+			adminVerified
+			source
+			suspended
+			company
+			companyUrl
+		}
+	}
+	`;
+	return new Promise((resolve, reject) => {
+		client(query)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
 export default Object.freeze(userQueries);

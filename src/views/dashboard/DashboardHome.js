@@ -10,8 +10,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
 .content{
-  flex-frow:1;
-  padding:2rem;
+  padding: 2rem;
 }
 `;
 
@@ -19,8 +18,7 @@ const DashboardHome = () => {
 
 	return (
 		<DashboardLayout>
-      			<Wrapper>
-
+			<Wrapper>
 				<main className="content">
 					<WelcomeBanner />
 					<Grid container spacing={4}>

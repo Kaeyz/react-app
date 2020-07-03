@@ -1,6 +1,5 @@
 import React from 'react';
 import DashboardLayout from '../../../components/layouts/dashboardLayout/DashboardLayout';
-// import Container from '../../components/common/Container';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import PreliminaryCard from '../../../components/dashboard/common/PreliminaryCard';
@@ -13,7 +12,6 @@ import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   .content {
-    flex-frow: 1;
     padding: 2rem;
   }
   .heading {
@@ -88,7 +86,7 @@ const DashboardAssessment = () => {
           View Leaderboard
 							</Button>
 						</Link>
-						<Grid container spacing={3}  style={{marginTop:"5.4rem"}}>
+						<Grid container spacing={3}  style={{marginTop:'5.4rem'}}>
 
 							<Grid item xs={6}>
 								<ProgressSection />

@@ -1,6 +1,5 @@
 import React from 'react';
 import DashboardLayout from '../../../components/layouts/dashboardLayout/DashboardLayout';
-// import Container from '../../components/common/Container';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import PreliminaryCard from '../../../components/dashboard/common/PreliminaryCard';
@@ -10,11 +9,10 @@ import mealImg from '../../../assets/mealImg.svg';
 // import ProgressSection from '../../../components/dashboard/commonDashboard/ProgressSection';
 import Button from '../../../components/common/Button';
 import { Link } from 'react-router-dom';
-import DashedLoader from '../../../components/dashboard/assessment/DashedLoader'
+import DashedLoader from '../../../components/dashboard/assessment/DashedLoader';
 
 const Wrapper = styled.div`
   .content {
-    flex-frow: 1;
     padding: 2rem;
   }
   .heading {
@@ -28,8 +26,8 @@ const Wrapper = styled.div`
   }
   .lower {
     .info-2 {
-      font-size: 1.6rem
-      line-height: 2.4rem
+      font-size: 1.6rem;
+      line-height: 2.4rem;
       color: ${(props) => props.theme.color.text_02};
       margin: 4.8rem 0 1.5rem 0;
     }
@@ -78,7 +76,7 @@ const HealthRiskAssessment = () => {
 			<Wrapper>
 				<main className="content">
 
-<DashedLoader />
+					<DashedLoader />
 					<div className="heading">
 						<p>Health Risk Assessments</p>
 					</div>
