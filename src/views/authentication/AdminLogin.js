@@ -1,6 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types'
-
+import PropTypes from 'prop-types'
 import CommonAuthPaperPage from '../../components/forms/authentications/CommonAuthPaperPage';
 import AdminLoginFrom from '../../components/forms/authentications/AdminLoginFrom';
 import styled from 'styled-components';
@@ -10,7 +9,7 @@ const Wrapper = styled.div`
 		border: 1px solid #f0f1f3;
 	}
 `;
-function AdminLogin() {
+function AdminLogin({history}) {
 	return (
 		<Wrapper>
 			{' '}
@@ -22,15 +21,15 @@ function AdminLogin() {
 				buttonText={'SIGN UP'}
 			>
 				{/* <hr /> */}
-				<AdminLoginFrom />
+				<AdminLoginFrom history={history}/>
 
 			</CommonAuthPaperPage>
 		</Wrapper>
 	);
 }
 
-// AdminLogin.propTypes = {
-
-// }
+AdminLogin.propTypes = {
+	history: PropTypes.object.isRequired
+};
 
 export default AdminLogin;

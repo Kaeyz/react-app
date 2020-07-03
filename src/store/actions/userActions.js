@@ -17,7 +17,7 @@ export const setCurrentUser = () => dispatch => {
 				dispatch(setIsAuthenticated(false));
 				dispatch({ type: SET_USER, payload: {} });
 			}
-			if (res.data) {
+			if (res.data.me) {
 				dispatch({type: SET_USER, payload: res.data.me});
 				dispatch(setIsAuthenticated(true));
 			}
