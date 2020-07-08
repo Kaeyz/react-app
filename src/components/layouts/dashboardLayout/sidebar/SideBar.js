@@ -46,7 +46,7 @@ const Wrapper = styled(Paper)`
 `;
 
 const employeeItems = [
-	{ icon: 'dashboard_home', text: 'Dashboard', link: '/dashboard_home' },
+	{ icon: 'dashboard_home', text: 'Dashboard', link: '/dashboard' },
 	{ icon: 'assessments', text: 'Assessments', link: '/assessments' },
 	{ icon: 'exercise', text: 'Exercise', link: '/exercise' },
 	{ icon: 'meals', text: 'Meals', link: '/meals' },

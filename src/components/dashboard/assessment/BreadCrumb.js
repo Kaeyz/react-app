@@ -31,6 +31,7 @@ const Wrapper = styled.div`
 
 function handleClick(event) {
 	event.preventDefault();
+	// eslint-disable-next-line no-console
 	console.info('You clicked a breadcrumb.');
 }
 
@@ -39,7 +40,6 @@ export default function BreadCrumb() {
 		<Wrapper>
 			<Breadcrumbs
 				separator={<NavigateNextIcon fontSize="small" />}
-				aria-label="breadcrumb"
 			>
 				<Link href="/" onClick={handleClick} className="home-flex">
 					<img src={back} alt="go_back" />
@@ -52,7 +52,6 @@ export default function BreadCrumb() {
 					color="textPrimary"
 					href="/components/breadcrumbs/"
 					onClick={handleClick}
-					aria-current="page"
 				>
           Health Risk Assessments
 				</Link>

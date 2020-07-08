@@ -57,7 +57,7 @@ const DashboardAssessment = () => {
 									Image={HraImg}
 									btnTheme="whiteBtn"
 									backgroundColor="white"
-									where="/Assessment/health_risk_assessment"
+									where="/assessment/health"
 								/>
 							</Grid>
 							<Grid item xs={3}>

@@ -1,7 +1,5 @@
 module.exports = Object.freeze({
 	// App Actions types
-	SERVER_IS_CONNECTED: 'server_is_connected',
-	SERVER_NOT_CONNECTED: 'server_not_connected',
 	APP_IS_LOADING: 'app_is_loading',
 	APP_NOT_LOADING: 'app_not_loading',
 
@@ -14,5 +12,9 @@ module.exports = Object.freeze({
 	// User Action Types
 	SET_USER: 'set_user',
 	SET_AUTH: 'set_auth',
+
+	// HRA ACTIONS
+	ADD_QUESTIONS: 'add_questions',
+	REMOVE_QUESTIONS: 'remove_questions'
 
 });

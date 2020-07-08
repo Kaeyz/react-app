@@ -67,7 +67,7 @@ margin-top:2.9rem;
 	line-height: 2.4rem;
 	color: ${(props) => props.theme.color.text_02};
   }
- 
+
 `;
 
 
@@ -118,6 +118,7 @@ const HealthRiskAssessment = () => {
 									Image={HraImg}
 									btnTheme="whiteBtn"
 									backgroundColor="white"
+									where="/assessment/health/general"
 								/>
 							</Grid>
 							<Grid item xs={3}>

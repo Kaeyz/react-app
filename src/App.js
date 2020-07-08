@@ -5,7 +5,7 @@ import { setCurrentUser } from './store/actions/userActions';
 import Theme from './Theme';
 import PropTypes from 'prop-types';
 
-function App({ setCurrentUser }) {
+function App({ setCurrentUser, app }) {
 
 	React.useEffect(() => {
 		setCurrentUser();
@@ -13,13 +13,18 @@ function App({ setCurrentUser }) {
 
 	return (
 		<Theme>
-			<Routes />
+			{!app.appIsLoading && <Routes />}
 		</Theme>
 	);
 }
 
 App.propTypes = {
-	setCurrentUser: PropTypes.func.isRequired
+	setCurrentUser: PropTypes.func.isRequired,
+	app: PropTypes.object.isRequired
 };
 
-export default connect(null, {setCurrentUser})(App);
+const mapStateToProps = (state) => ({
+	app: state.app
+});
+
+export default connect(mapStateToProps, {setCurrentUser})(App);

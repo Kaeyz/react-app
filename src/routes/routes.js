@@ -23,8 +23,10 @@ import ResetPassword from '../views/authentication/ResetPassword';
 import PasswordResetLink from '../views/authentication/PasswordResetLink';
 import CompanyRegistrationSuccess from '../views/authentication/CompanyRegistrationSuccess';
 import PasswordResetSuccessful from '../views/authentication/PasswordResetSuccessful';
-import Page404 from '../views/Page404';
 import HealthRiskAssessment from '../views/dashboard/assessment/HealthRiskAssessment';
+import General from '../views/dashboard/assessment/hra_questionnaire/General';
+
+import Page404 from '../views/Page404';
 
 const Routes = () => (
 	<Router>
@@ -53,9 +55,10 @@ const Routes = () => (
 
 
 			<PrivateRoute path="/dashboard" component={DashboardHome} />
-			<Route path="/dashboard_home2" component={DashboardHome2} />
-			<Route path="/assessment" component={DashboardAssessment} />
-			<Route path="/assessment/health" component={HealthRiskAssessment} />
+			<PrivateRoute path="/dashboard_home2" component={DashboardHome2} />
+			<PrivateRoute path="/assessments" component={DashboardAssessment} />
+			<PrivateRoute path="/assessment/health/general" component={General}/>
+			<PrivateRoute path="/assessment/health" component={HealthRiskAssessment} />
 
 
 			{/* Blog route */}

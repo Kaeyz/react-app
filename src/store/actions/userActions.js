@@ -16,16 +16,19 @@ export const setCurrentUser = () => dispatch => {
 				localStorage.removeItem('auth');
 				dispatch(setIsAuthenticated(false));
 				dispatch({ type: SET_USER, payload: {} });
+				dispatch(appNotLoading());
 			}
 			if (res.data.me) {
 				dispatch({type: SET_USER, payload: res.data.me});
 				dispatch(setIsAuthenticated(true));
+				dispatch(appNotLoading());
 			}
 		})
 		.catch(() => {
 			localStorage.removeItem('auth');
 			dispatch(setIsAuthenticated(false));
 			dispatch({ type: SET_USER, payload: {} });
+			dispatch(appNotLoading());
 		});
 };
 
