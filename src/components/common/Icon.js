@@ -31,57 +31,57 @@ display: grid;
 	}
 	.rewards {
   	background-image: url(${rewardsIcon});
-	:active {
+	}
+	.rewardsIsActive {
   	background-image: url(${rewardsIcon});
-		}
 	}
 	.meals {
   	background-image: url(${mealsIcon});
-	:active {
+	}
+	.mealsIsActive {
   	background-image: url(${mealsIconIsActive});
-		}
 	}
 	.logout {
   	background-image: url(${logoutIcon});
-	:active {
+	}
+	.logoutIsActive {
   	background-image: url(${logoutIcon});
-		}
 	}
 	.exercise {
   	background-image: url(${exerciseIcon});
-	:active {
+	}
+	.exerciseIsActive {
   	background-image: url(${exerciseIconIsActive});
-		}
 	}
 	.appointments {
   	background-image: url(${appointmentsIcon});
-	:active {
+	}
+	.appointmentsIsActive {
   	background-image: url(${appointmentsIconIsActive});
 		}
-	}
 	.account {
   	background-image: url(${accountIcon});
-	:active {
+	}
+	accountIsActive {
   	background-image: url(${accountIcon});
-		}
 	}
 	.download {
   	background-image: url(${downloadIcon});
-	:active {
+	}
+	.downloadIsActive {
   	background-image: url(${downloadIcon});
-		}
 	}
 	.dashboard_home {
   	background-image: url(${dashboardIcon});
-	:active {
+	}
+	.dashboard_homeIsActive {
   	background-image: url(${dashboardIsActiveIcon});
 		}
-	}
 	.assessments {
   	background-image: url(${assessments});
-	:active {
+	}
+	.assessmentsIsActive {
   	background-image: url(${assessmentsIsActive});
-		}
 	}
 `;
 

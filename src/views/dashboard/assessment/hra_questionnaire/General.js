@@ -13,11 +13,12 @@ const Wrapper = styled.div`
   }
 `;
 
-function General({ getQuestions }) {
+function General({ getQuestions, questions }) {
 	React.useEffect(() => {
 		getQuestions('BASIC_INFORMATION');
 	},[getQuestions]);
 
+	console.log(questions);
 	return (
 		<DashboardLayout>
 			<Wrapper>
@@ -31,8 +32,12 @@ function General({ getQuestions }) {
 }
 
 General.propTypes = {
-	getQuestions: PropTypes.func.isRequired
+	getQuestions: PropTypes.func.isRequired,
+	questions: PropTypes.object.isRequired
 };
 
-export default connect(null, {getQuestions})(General);
+const mapStateToProps = (state) => ({
+	questions: state.hra.questions
+});
 
+export default connect(mapStateToProps, {getQuestions})(General);

@@ -47,16 +47,15 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} path="/onboarding/company" component={CompanySignUp} />
 			<PrivateRoute isAuth={false} path="/onboarding/success" component={CompanyRegistrationSuccess} />
 
-
 			<PrivateRoute isAuth={false} path="/forgot_password" component={ForgotPassword} />
 			<PrivateRoute isAuth={false} path="/reset_link_sent" component={PasswordResetLink} />
 			<PrivateRoute isAuth={false} path="/reset" component={ResetPassword} />
 			<PrivateRoute isAuth={false} path="/reset_success" component={PasswordResetSuccessful} />
 
 
-			<PrivateRoute path="/dashboard" component={DashboardHome} />
+			<Route path="/dashboard" component={DashboardHome} />
 			<PrivateRoute path="/dashboard_home2" component={DashboardHome2} />
-			<PrivateRoute path="/assessments" component={DashboardAssessment} />
+			<Route path="/assessments" component={DashboardAssessment} />
 			<PrivateRoute path="/assessment/health/general" component={General}/>
 			<PrivateRoute path="/assessment/health" component={HealthRiskAssessment} />
 
@@ -64,7 +63,6 @@ const Routes = () => (
 			{/* Blog route */}
 			<Route path="/blogPost" component={BlogPost} />
 			<Route path="/blogPostDetails" component={BlogPostDetail} />
-
 
 			<Route path="*" component={Page404} />
 		</Switch>

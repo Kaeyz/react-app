@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import Icon from '../../../common/Icon';
 
@@ -16,11 +16,38 @@ const Wrapper = styled.div`
 		color: inherit;
 		text-decoration: none;
 		padding-right: 3rem;
-		:active {
+		:hover {
 			color: ${props => props.theme.color.brand_02};
 		}
 	}
+	.isActive {
+		color: ${props => props.theme.color.brand_02};
+	}
 `;
+
+
+function Link({item}) {
+	const [iconName, setIconName] = React.useState(item.icon);
+	const [isActive, setIsActive] = React.useState(false);
+
+	return (
+		<NavLink
+			className="nav_item"
+			to={item.link}
+			isActive={match => {
+				if (match) {
+					setIconName(`${item.icon}IsActive`);
+					setIsActive(true);
+					return;
+				}
+				return;
+			}}
+		>
+			<Icon name={iconName} />
+			<p className={isActive && 'isActive'}>{item.text}</p>
+		</NavLink>
+	);
+}
 
 
 function NavSection({title, items}) {
@@ -28,10 +55,7 @@ function NavSection({title, items}) {
 		<Wrapper>
 			<h5>{title}</h5>
 			{items.map(item => (
-				<Link className="nav_item" key={item.text} to={item.link}>
-					<Icon name={item.icon} />
-					<p>{item.text}</p>
-				</Link>
+				<Link item={item} key={item.text} />
 			))}
 
 		</Wrapper>
@@ -41,6 +65,10 @@ function NavSection({title, items}) {
 NavSection.propTypes = {
 	title: PropTypes.string.isRequired,
 	items: PropTypes.array.isRequired
+};
+
+Link.propTypes = {
+	item: PropTypes.object.isRequired
 };
 
 export default NavSection;
