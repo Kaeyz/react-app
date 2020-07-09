@@ -53,9 +53,9 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} path="/reset_success" component={PasswordResetSuccessful} />
 
 
-			<Route path="/dashboard" component={DashboardHome} />
+			<PrivateRoute path="/dashboard" component={DashboardHome} />
 			<PrivateRoute path="/dashboard_home2" component={DashboardHome2} />
-			<Route path="/assessments" component={DashboardAssessment} />
+			<PrivateRoute path="/assessments" component={DashboardAssessment} />
 			<PrivateRoute path="/assessment/health/general" component={General}/>
 			<PrivateRoute path="/assessment/health" component={HealthRiskAssessment} />
 

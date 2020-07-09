@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import BreadCrumb from '../../../../components/dashboard/assessment/BreadCrumb';
-
+import HraInput from '../../../../components/hra_input';
 
 const Wrapper = styled.div`
 	 .content {
@@ -18,13 +18,26 @@ function General({ getQuestions, questions }) {
 		getQuestions('BASIC_INFORMATION');
 	},[getQuestions]);
 
+	// eslint-disable-next-line no-console
 	console.log(questions);
+
 	return (
 		<DashboardLayout>
 			<Wrapper>
 				<main className="content">
 					<BreadCrumb />
 					General Questions
+					<HraInput />
+
+					<HraInput
+						type="number"
+					/>
+					<HraInput
+						type="dropdown"
+					/>
+					<HraInput
+						type="select"
+					/>
 				</main>
 			</Wrapper>
 		</DashboardLayout>
