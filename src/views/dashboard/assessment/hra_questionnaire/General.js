@@ -27,7 +27,7 @@ function General({ getQuestions, questions }) {
 				<main className="content">
 					<BreadCrumb />
 					General Questions
-					<HraInput />
+					<HraInput SerialNumber="1"/>
 
 					<HraInput
 						type="number"
