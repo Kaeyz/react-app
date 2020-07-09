@@ -6,7 +6,6 @@ function TextInput() {
 	return (
 		<div>
 			Text Input
-			<input type="text" />
 		</div>
 	);
 }
@@ -14,4 +13,3 @@ function TextInput() {
 //TextInput.propTypes = {}
 
 export default TextInput;
-
