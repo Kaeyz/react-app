@@ -9,6 +9,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import DropdownSelect from './DropdownSelect';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Input from '@material-ui/core/Input';
 
 const Wrapper = styled.div`
   .input_label {
@@ -39,17 +42,14 @@ const Wrapper = styled.div`
     line-height: 2.4rem;
   }
   .MuiInputBase-input::placeholder {
-    color: ${(props) => props.theme.color.ui_04};
     font-family: Matteo;
     font-size: 1.4rem;
     line-height: 2.4rem;
   }
-  .MuiInput-underline:before {
-    border-bottom: .1rem solid #2ec4b6;
-  }
-  .MuiInput-underline:after {
-    border-bottom: .1rem solid #2ec4b6;
-  }
+  .MuiInput-underline:before,.MuiInput-underline:after {
+		border-bottom: .1rem solid #2ec4b6;
+	  
+	  }
   .flex {
     display: flex;
     justify-content: start;
@@ -75,43 +75,15 @@ const Wrapper = styled.div`
       font-family: Matteo;
     }
   }
-  .withSideDropdown {
-    margin-top: -.9rem;
-    // margin-left: 1.0rem;
-    .MuiSelect-icon {
-		color: ${(props) => props.theme.color.brand_02};
-    }
-    .MuiSelect-select.MuiSelect-select {
-      font-size: .8rem;
-      line-height: 2.4rem;
-      color: ${(props) => props.theme.color.text_01};
-      width: 2.2rem;
-    }
-    .MuiFormControl-marginNormal {
-      margin-left: 2.7rem;
-      width: 7.0rem;
-    }
-    .MuiInputBase-input {
-      width: 11.0rem;
-      color: ${(props) => props.theme.color.text_01};
-    }
+  
   }
 `;
-const weights = [
-	{
-		value: 'Pound',
-		label: 'in LBS',
-	},
-	{
-		value: 'Kilogram',
-		label: 'in KG',
-	},
-];
+
 
 function TextInput({ label, placeholder, ...props }) {
 	const [value, setValue] = React.useState('');
 	const [weight, setWeight] = React.useState('Kilogram');
-
+	
 	const handleChange = (event) => {
 		setValue(event.target.value);
 	};
@@ -160,28 +132,7 @@ function TextInput({ label, placeholder, ...props }) {
 					</FormControl>
 				</div>
 
-				<div className=" withSideDropdown flex">
-					<TextField
-						style={{ margin: '8' }}
-						margin="normal"
-						InputLabelProps={{
-							shrink: true,
-						}}
-					/>
-					<TextField
-						id="standard-select-currency"
-						select
-						// label="Select"
-						value={weight}
-						onChange={handleWeight}
-					>
-						{weights.map((option) => (
-							<MenuItem key={option.value} value={option.value}>
-								{option.label}
-							</MenuItem>
-						))}
-					</TextField>
-				</div>
+		
 			</div>
 		</Wrapper>
 	);

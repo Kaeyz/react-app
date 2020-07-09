@@ -27,12 +27,15 @@ function General({ getQuestions, questions }) {
 				<main className="content">
 					<BreadCrumb />
 					General Questions
-					<HraInput 
-					label="1. Text Inputs"
+					<HraInput
+						label="1. Text Inputs"
 					/>
-<br/>
+					<br/>
+
 					<HraInput
 						type="number"
+						label="2. NUmber Inputs"
+
 					/>
 					<br/>
 

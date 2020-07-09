@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 	min-height: 100vh;
 	.layout {
 
-    background: rgba(229,229,229,.1);
+    background: #fff;
 
 	}
 `;
