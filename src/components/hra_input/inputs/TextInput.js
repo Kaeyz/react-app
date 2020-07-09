@@ -1,12 +1,26 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-mixed-spaces-and-tabs */
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import DropdownSelect from './DropdownSelect';
 
 const Wrapper = styled.div`
+  .input_label {
+    margin-bottom: 0.3rem;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    margin-top: 0;
+    font-weight: normal;
+  }
   .MuiFormLabel-root {
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
     font-family: Matteo;
     color: ${(props) => props.theme.color.text_01};
   }
@@ -14,43 +28,167 @@ const Wrapper = styled.div`
     display: block;
   }
   label + .MuiInput-formControl {
-	margin-left: 12px;
-	width: 150px;
-	
-    margin-top: 23px;
+    margin-left: 1.2rem;
+    width: 15.0rem;
 
+    margin-top: 2.3rem;
   }
-  .MuiInputBase-input{
-	  font-size:12px;
-	  
-	  }
-  .MuiInput-underline:before{
-	border-bottom: 1px solid #2EC4B6;
+  .MuiInputBase-input {
+    font-size: 1.2rem;
+    width: 20.3rem;
+    line-height: 2.4rem;
   }
-  .MuiInput-underline:after{
-	border-bottom: 1px solid #2EC4B6;
+  .MuiInputBase-input::placeholder {
+    color: ${(props) => props.theme.color.ui_04};
+    font-family: Matteo;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+  .MuiInput-underline:before {
+    border-bottom: .1rem solid #2ec4b6;
+  }
+  .MuiInput-underline:after {
+    border-bottom: .1rem solid #2ec4b6;
+  }
+  .flex {
+    display: flex;
+    justify-content: start;
+    h5 {
+      color: ${(props) => props.theme.color.brand_02};
+      font-weight: 100;
+      margin: 0 1.8rem;
+    }
+  }
 
+  .withPlaceholder > .MuiInput-root {
+    width: 11.3rem;
+  }
+  .dropdown {
+    margin-top: -.5rem;
+    .MuiSelect-icon {
+      color: #2ec4b6;
+    }
+    .MuiSelect-select.MuiSelect-select {
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+      color: ${(props) => props.theme.color.brand_02};
+      font-family: Matteo;
+    }
+  }
+  .withSideDropdown {
+    margin-top: -.9rem;
+    // margin-left: 1.0rem;
+    .MuiSelect-icon {
+		color: ${(props) => props.theme.color.brand_02};
+    }
+    .MuiSelect-select.MuiSelect-select {
+      font-size: .8rem;
+      line-height: 2.4rem;
+      color: ${(props) => props.theme.color.text_01};
+      width: 2.2rem;
+    }
+    .MuiFormControl-marginNormal {
+      margin-left: 2.7rem;
+      width: 7.0rem;
+    }
+    .MuiInputBase-input {
+      width: 11.0rem;
+      color: ${(props) => props.theme.color.text_01};
+    }
   }
 `;
+const weights = [
+	{
+		value: 'Pound',
+		label: 'in LBS',
+	},
+	{
+		value: 'Kilogram',
+		label: 'in KG',
+	},
+];
 
-function TextInput(props) {
+function TextInput({ label, placeholder, ...props }) {
+	const [value, setValue] = React.useState('');
+	const [weight, setWeight] = React.useState('Kilogram');
+
+	const handleChange = (event) => {
+		setValue(event.target.value);
+	};
+	const handleWeight = (event) => {
+		setWeight(event.target.value);
+	};
 	return (
 		<Wrapper>
-      Text Input
-			<TextField
-				label={`${props.SerialNumber }. Who is your primary care provider?`}
-				style={{ margin: 8 }}
-				margin="normal"
-				InputLabelProps={{
-					shrink: true,
-				}}
-			/>
+			<h6 className="input_label">{label}</h6>
+			<div className="flex">
+				<div className="plain">
+					<TextField
+						style={{ margin: 8 }}
+						margin="normal"
+						InputLabelProps={{
+							shrink: true,
+						}}
+					/>
+				</div>
+
+				<div className=" withSideLabel flex">
+					<TextField
+						className="withPlaceholder "
+						placeholder="Enter %"
+						style={{ margin: 8 }}
+						margin="normal"
+						InputLabelProps={{
+							shrink: true,
+						}}
+					/>
+					<h5>percent</h5>
+				</div>
+
+				<div className=" withSeparateDropdown flex">
+					<FormControl className="dropdown">
+						<Select
+							value={value}
+							onChange={handleChange}
+							displayEmpty
+							inputProps={{ 'aria-label': 'Without label' }}
+						>
+							<MenuItem value="">Cigarettes per day</MenuItem>
+							<MenuItem value={10}>Cigarettes per week</MenuItem>
+							<MenuItem value={20}>Cigarettes per month</MenuItem>
+						</Select>
+					</FormControl>
+				</div>
+
+				<div className=" withSideDropdown flex">
+					<TextField
+						style={{ margin: '8' }}
+						margin="normal"
+						InputLabelProps={{
+							shrink: true,
+						}}
+					/>
+					<TextField
+						id="standard-select-currency"
+						select
+						// label="Select"
+						value={weight}
+						onChange={handleWeight}
+					>
+						{weights.map((option) => (
+							<MenuItem key={option.value} value={option.value}>
+								{option.label}
+							</MenuItem>
+						))}
+					</TextField>
+				</div>
+			</div>
 		</Wrapper>
 	);
 }
 
 TextInput.propTypes = {
 	SerialNumber: PropTypes.number.isRequired,
-}
+};
 
 export default TextInput;

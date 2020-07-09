@@ -27,14 +27,24 @@ function General({ getQuestions, questions }) {
 				<main className="content">
 					<BreadCrumb />
 					General Questions
-					<HraInput SerialNumber="1"/>
-
+					<HraInput 
+					label="1. Text Inputs"
+					/>
+<br/>
 					<HraInput
 						type="number"
 					/>
+					<br/>
+
 					<HraInput
 						type="dropdown"
+						label="3. Dropdown Input"
+						placeholder='Click here'
+						item1='world'
+						item2='hello'
 					/>
+					<br/>
+
 					<HraInput
 						type="select"
 					/>
