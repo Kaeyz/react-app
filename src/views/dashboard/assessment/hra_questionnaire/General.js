@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import BreadCrumb from '../../../../components/dashboard/assessment/BreadCrumb';
-import HraInput from '../../../../components/hra_input';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import smallImg from '../../../../assets/Group.svg';
 import bloodGuage from '../../../../assets/blood-pressure-gauge.svg';
@@ -36,22 +35,7 @@ function General({ getQuestions, questions }) {
 						ImageRight={bloodGuage}
 					>
 						<div className='questions-container'>
-							<HraInput label="1. Text Inputs" />
-							<br />
 
-							<HraInput type="number" label="2. NUmber Inputs" />
-							<br />
-
-							<HraInput
-								type="dropdown"
-								label="3. Dropdown Input"
-								placeholder="Click here"
-								item1="world"
-								item2="hello"
-							/>
-							<br />
-
-							<HraInput type="select" />
 						</div>
 					</QuestionnaireLayout>
 				</main>

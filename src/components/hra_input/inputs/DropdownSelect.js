@@ -1,7 +1,5 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-mixed-spaces-and-tabs */
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -28,7 +26,7 @@ margin-top: -1.2rem;
     .MuiSelect-icon {
 		color: ${(props) => props.theme.color.brand_02};
     }
-    
+
   }
   .MuiInput-underline:before {
 	border-bottom: .1rem solid #2ec4b6;
@@ -38,7 +36,7 @@ margin-top: -1.2rem;
 
   }
 `;
-function DropdownSelect({placeholder,item1,item2,label}) {
+function DropdownSelect({placeholder,item1,label}) {
 	const [value, setValue] = React.useState('');
 
 	const handleChange = (event) => {
@@ -59,13 +57,17 @@ function DropdownSelect({placeholder,item1,item2,label}) {
 						{placeholder}
 					</MenuItem>
 					<MenuItem value={10}>{item1}</MenuItem>
-					<MenuItem value={20}>{item2}</MenuItem>
+					<MenuItem value={10}>{item1}</MenuItem>
 				</Select>
 			</FormControl>
 		</Wrapper>
 	);
 }
 
-DropdownSelect.propTypes = {};
+DropdownSelect.propTypes = {
+	placeholder: PropTypes.string,
+	item1: PropTypes.any,
+	label: PropTypes.string
+};
 
 export default DropdownSelect;

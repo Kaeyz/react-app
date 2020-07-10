@@ -1,7 +1,5 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-mixed-spaces-and-tabs */
 import React from 'react';
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import styled from 'styled-components';
@@ -99,7 +97,6 @@ function NumberInput({ label }) {
 								<TextField
 									id="standard-select-currency"we
 									select
-									// label="Select"
 									value={weight}
 									onChange={handleWeight}
 								>
@@ -110,10 +107,6 @@ function NumberInput({ label }) {
 									))}
 								</TextField>
 							}
-						// aria-describedby="standard-weight-helper-text"
-						// inputProps={{
-						// 	'aria-label': 'weight',
-						// }}
 						/>
 					</FormControl>
 				</div>
@@ -121,10 +114,7 @@ function NumberInput({ label }) {
 				<div className="plain">
 					<FormControl>
 						<Input
-							id="standard-adornment-weight"
-							// value={values.weight}
 							type="number"
-							// inputProps={{ min: '10', max: '80', step: '1' }}
 							onChange={handleChange('level')}
 							placeholder="High"
 						/>
@@ -135,6 +125,8 @@ function NumberInput({ label }) {
 	);
 }
 
-//NumberInput.propTypes = {}
+NumberInput.propTypes = {
+	label: PropTypes.string
+};
 
 export default NumberInput;

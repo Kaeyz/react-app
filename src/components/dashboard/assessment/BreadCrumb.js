@@ -10,13 +10,12 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     img {
-      margin-left: -3.4rem;
       margin-right: 1rem;
     }
   }
   .MuiTypography-root {
-    font-size: 2rem;
-    line-height: 3rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
     font-family: Matteo;
     color: #9c9b7c;
   }
