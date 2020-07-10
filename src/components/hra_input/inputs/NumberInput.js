@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 	justify-content: start;
 	.MuiInput-underline:before,.MuiInput-underline:after {
 		border-bottom: .1rem solid #2ec4b6;
-	  
+
 	  }
   }
   .withSideDropdown {
@@ -37,28 +37,26 @@ const Wrapper = styled.div`
       padding-right: 7px;
       background-color: #fff;
 	}
-	
-    .MuiFormControl-marginNormal {
-      margin-left: 2.7rem;
-      width: 7rem;
-	}
-	
+
+		.MuiFormControl-marginNormal {
+			margin-left: 2.7rem;
+			width: 7rem;
+		}
+
     .MuiInputBase-input {
       width: 11rem;
-	  color: ${(props) => props.theme.color.text_01};
-	  
+	  	color: ${(props) => props.theme.color.text_01};
     }
   }
   .plain{
-	margin: 0 0 1px .8rem;
+		margin: 0 0 1px .8rem;
     .MuiInputBase-input {
-		font-size: 1.4rem;
-  line-height: 1.4rem;
-  font-family: Matteo;
-font-weight:100;
-	}
+			font-size: 1.4rem;
+			line-height: 1.4rem;
+			font-family: Matteo;
+			font-weight:100;
+		}
   }
-  
 `;
 const weights = [
 	{
@@ -99,7 +97,7 @@ function NumberInput({ label }) {
 							onChange={handleChange('weight')}
 							endAdornment={
 								<TextField
-									id="standard-select-currency"
+									id="standard-select-currency"we
 									select
 									// label="Select"
 									value={weight}
@@ -119,7 +117,7 @@ function NumberInput({ label }) {
 						/>
 					</FormControl>
 				</div>
-				
+
 				<div className="plain">
 					<FormControl>
 						<Input
