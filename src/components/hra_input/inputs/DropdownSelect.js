@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 const Wrapper = styled.div`
-margin-top: -1.2rem;
+    margin-top: 1.5rem;
   .input_label {
     margin-bottom: 0.3rem;
     font-size: 1.4rem;
@@ -36,7 +36,7 @@ margin-top: -1.2rem;
 
   }
 `;
-function DropdownSelect({placeholder,item1,label}) {
+function DropdownSelect({label, values}) {
 	const [value, setValue] = React.useState('');
 
 	const handleChange = (event) => {
@@ -51,13 +51,21 @@ function DropdownSelect({placeholder,item1,label}) {
 					value={value}
 					onChange={handleChange}
 					displayEmpty
-					inputProps={{ 'aria-label': 'Without label' }}
 				>
 					<MenuItem value="" disabled>
-						{placeholder}
+						{values[0].label}
 					</MenuItem>
-					<MenuItem value={10}>{item1}</MenuItem>
-					<MenuItem value={10}>{item1}</MenuItem>
+					{
+						values.map((value) => (
+							<React.Fragment key={value.id}>
+								{
+
+									value.id !== 'not_answered' &&
+									<MenuItem value={value.id}>{value.label}</MenuItem>
+								}
+							</React.Fragment>
+						))
+					}
 				</Select>
 			</FormControl>
 		</Wrapper>
@@ -65,8 +73,7 @@ function DropdownSelect({placeholder,item1,label}) {
 }
 
 DropdownSelect.propTypes = {
-	placeholder: PropTypes.string,
-	item1: PropTypes.any,
+	values: PropTypes.array,
 	label: PropTypes.string
 };
 

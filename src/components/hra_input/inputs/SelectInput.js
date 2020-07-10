@@ -63,10 +63,10 @@ const Wrapper = styled.div`
 	}
 `;
 
-function SelectInput({label, values, otherInput, otherLabel}) {
+function SelectInput({prompt, values, otherInput, otherLabel}) {
 	return (
 		<Wrapper>
-			<p className="label" >{label}</p>
+			<p className="label" >{prompt}</p>
 			<div className="options">
 				<div className="option isSelected">
 					<p className="tag">A</p>
@@ -101,7 +101,7 @@ SelectInput.defaultProps = {
 };
 
 SelectInput.propTypes = {
-	label: PropTypes.string,
+	prompt: PropTypes.string,
 	otherInput: PropTypes.bool,
 	otherLabel: PropTypes.string,
 	values: PropTypes.array

@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
+//import TextField from '@material-ui/core/TextField';
+//import MenuItem from '@material-ui/core/MenuItem';
 import styled from 'styled-components';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 
 const Wrapper = styled.div`
+	margin-top: 1.5rem;
   .input_label {
-    margin-bottom: 0.3rem;
+    margin-bottom: 1rem;
     font-size: 1.4rem;
     line-height: 2.4rem;
     margin-top: 0;
@@ -18,7 +19,6 @@ const Wrapper = styled.div`
 	justify-content: start;
 	.MuiInput-underline:before,.MuiInput-underline:after {
 		border-bottom: .1rem solid #2ec4b6;
-
 	  }
   }
   .withSideDropdown {
@@ -56,27 +56,15 @@ const Wrapper = styled.div`
 		}
   }
 `;
-const weights = [
-	{
-		value: 'Pound',
-		label: 'in LBS',
-	},
-	{
-		value: 'Kilogram',
-		label: 'in KG',
-	},
-];
 
-function NumberInput({ label }) {
+
+function NumberInput({ label, limit, unit }) {
 	const [values, setValues] = React.useState({
 		weight: '',
 		level: '',
 	});
-	const [weight, setWeight] = React.useState('Kilogram');
 
-	const handleWeight = (event) => {
-		setWeight(event.target.value);
-	};
+
 	const handleChange = (prop) => (event) => {
 		setValues({ ...values, [prop]: event.target.value });
 	};
@@ -88,30 +76,25 @@ function NumberInput({ label }) {
 				<div className=" withSideDropdown flex">
 					<FormControl>
 						<Input
-							id="standard-adornment-weight"
 							value={values.weight}
 							type="number"
-							inputProps={{ min: '10', max: '80', step: '1' }}
+							inputProps={{ min: limit.min, max: limit.max , step: '1' }}
 							onChange={handleChange('weight')}
 							endAdornment={
-								<TextField
-									id="standard-select-currency"we
-									select
-									value={weight}
-									onChange={handleWeight}
-								>
-									{weights.map((option) => (
+								<div>
+									<p>{unit}</p>
+									{/* 	{weights.map((option) => (
 										<MenuItem key={option.value} value={option.value}>
 											{option.label}
 										</MenuItem>
-									))}
-								</TextField>
+									))} */}
+								</div>
 							}
 						/>
 					</FormControl>
 				</div>
 
-				<div className="plain">
+				{/* 	<div className="plain">
 					<FormControl>
 						<Input
 							type="number"
@@ -119,14 +102,16 @@ function NumberInput({ label }) {
 							placeholder="High"
 						/>
 					</FormControl>
-				</div>
+				</div> */}
 			</div>
 		</Wrapper>
 	);
 }
 
 NumberInput.propTypes = {
-	label: PropTypes.string
+	label: PropTypes.string,
+	limit: PropTypes.object,
+	unit: PropTypes.string
 };
 
 export default NumberInput;
