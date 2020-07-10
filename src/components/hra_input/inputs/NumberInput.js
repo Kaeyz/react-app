@@ -119,6 +119,7 @@ function NumberInput({ label }) {
 						/>
 					</FormControl>
 				</div>
+				
 				<div className="plain">
 					<FormControl>
 						<Input
