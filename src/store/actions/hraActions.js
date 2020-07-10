@@ -16,4 +16,3 @@ export const getQuestions = (category) => dispatch => {
 			dispatch(errorAlert('Network Error!!'));
 		});
 };
-

@@ -1,5 +1,5 @@
 import React from 'react';
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import check_all from '../../../assets/check-all.svg';
 
@@ -26,6 +26,7 @@ const Wrapper = styled.div`
 	.label {
 		font-size: 1.4rem;
 		font-weight: normal;
+		margin-top: 1.5rem;
 	}
 	.isSelected {
 		background-color: ${props => props.theme.color.ui_text_01};
@@ -46,6 +47,10 @@ const Wrapper = styled.div`
 		font-size: 1.4rem;
 		font-weight: normal;
 	}
+	.option_label {
+		font-size: 1.4rem;
+		font-weight: normal;
+	}
 	.other_input {
 		border: none;
 		border-bottom: 1px solid ${props => props.theme.color.brand_02};
@@ -58,28 +63,49 @@ const Wrapper = styled.div`
 	}
 `;
 
-function SelectInput() {
+function SelectInput({label, values, otherInput, otherLabel}) {
 	return (
 		<Wrapper>
-			<p className="label" >1. How many times have you washed your hands today?</p>
+			<p className="label" >{label}</p>
 			<div className="options">
 				<div className="option isSelected">
 					<p className="tag">A</p>
-					<p className="label">Never Smoke</p>
+					<p className="option_label">Selected</p>
 					<img src={check_all} alt="check-all"/>
 				</div>
-				<div className="option">
-					<p className="tag">B</p>
-					<p className="label" >Never Smoke</p>
-				</div>
+				{values && values.map((value) => (
+					<div key={value.id} >
+						{
+							value.label !== 'choose an answer' &&
+						<div className="option">
+							<p className="tag">B</p>
+							<p className="option_label" >{value.label}</p>
+						</div>
+						}
+					</div>
+				))}
 			</div>
-			<p className="other_option">Other? Please identify:</p>
-			<input type="text" className="other_input" />
+			{
+				otherInput &&
+				<React.Fragment>
+					<p className="other_option">{otherLabel}</p>
+					<input type="text" className="other_input" />
+				</React.Fragment>
+			}
 		</Wrapper>
 	);
 }
 
-//SelectInput.propTypes = {}
+SelectInput.defaultProps = {
+	otherInput: false
+};
+
+SelectInput.propTypes = {
+	label: PropTypes.string,
+	otherInput: PropTypes.bool,
+	otherLabel: PropTypes.string,
+	values: PropTypes.array
+};
 
 export default SelectInput;
 

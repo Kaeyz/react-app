@@ -6,6 +6,7 @@ import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import BreadCrumb from '../../../../components/dashboard/assessment/BreadCrumb';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
+import GeneralForm from '../../../../components/dashboard/assessment/hra_questionnaire/GeneralForm';
 import smallImg from '../../../../assets/Group.svg';
 import bloodGuage from '../../../../assets/blood-pressure-gauge.svg';
 
@@ -20,9 +21,6 @@ function General({ getQuestions, questions }) {
 		getQuestions('BASIC_INFORMATION');
 	}, [getQuestions]);
 
-	// eslint-disable-next-line no-console
-	console.log(questions);
-
 	return (
 		<DashboardLayout>
 			<Wrapper>
@@ -35,7 +33,7 @@ function General({ getQuestions, questions }) {
 						ImageRight={bloodGuage}
 					>
 						<div className='questions-container'>
-
+							<GeneralForm questions={questions} />
 						</div>
 					</QuestionnaireLayout>
 				</main>

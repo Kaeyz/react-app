@@ -8,17 +8,17 @@ import SelectInput from './inputs/SelectInput';
 
 function HraInput({ type, ...props }) {
 
-	const displaySelect = () => <SelectInput {...props } />;
+	const displayRadio = () => <SelectInput {...props } />;
 	const displayText = () => <TextInput {...props } />;
 	const displayNumber = () => <NumberInput {...props } />;
-	const displayDropDown = () => <DropDownSelect {...props } />;
+	const displaySelect = () => <DropDownSelect {...props } />;
 
 	return (
 		<div>
 			{type === 'text' && displayText()}
 			{type === 'number' && displayNumber()}
+			{type === 'radio' && displayRadio()}
 			{type === 'select' && displaySelect()}
-			{type === 'dropdown' && displayDropDown()}
 		</div>
 	);
 }
