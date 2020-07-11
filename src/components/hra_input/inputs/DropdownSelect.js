@@ -36,7 +36,7 @@ const Wrapper = styled.div`
 
   }
 `;
-function DropdownSelect({label, values}) {
+function DropdownSelect({label, values, prompt}) {
 	const [value, setValue] = React.useState('');
 
 	const handleChange = (event) => {
@@ -44,7 +44,7 @@ function DropdownSelect({label, values}) {
 	};
 	return (
 		<Wrapper>
-			<h6 className="input_label">{label}</h6>
+			<h6 className="input_label">{ prompt.includes(null) ? label : prompt }</h6>
 
 			<FormControl className="dropdown">
 				<Select
@@ -61,7 +61,7 @@ function DropdownSelect({label, values}) {
 								{
 
 									value.id !== 'not_answered' &&
-									<MenuItem value={value.id}>{value.label}</MenuItem>
+									<MenuItem value={value.id}>{value.label || value.id}</MenuItem>
 								}
 							</React.Fragment>
 						))
@@ -74,7 +74,8 @@ function DropdownSelect({label, values}) {
 
 DropdownSelect.propTypes = {
 	values: PropTypes.array,
-	label: PropTypes.string
+	label: PropTypes.string,
+	prompt: PropTypes.string
 };
 
 export default DropdownSelect;

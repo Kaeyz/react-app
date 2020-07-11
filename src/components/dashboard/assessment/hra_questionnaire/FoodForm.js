@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-function GeneralForm({ questions }) {
+function FoodForm({ questions }) {
 	return (
 		<Wrapper>
 			{questions.map((question, index) => (
@@ -31,7 +31,7 @@ function GeneralForm({ questions }) {
 			))}
 			<div className="submit">
 				<Button theme="greenBtn">Save</Button>
-				<Link to="/assessment/health/covid">
+				<Link to="/assessments">
 					<Button theme="darkGreenBtn">Continue</Button>
 				</Link>
 			</div>
@@ -39,8 +39,8 @@ function GeneralForm({ questions }) {
 	);
 }
 
-GeneralForm.propTypes = {
+FoodForm.propTypes = {
 	questions: PropTypes.array.isRequired
 };
 
-export default GeneralForm;
+export default FoodForm;

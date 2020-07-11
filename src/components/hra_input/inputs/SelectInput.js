@@ -22,6 +22,7 @@ const Wrapper = styled.div`
 		border-radius: 7px;
 		background-color: ${props => props.theme.color.ui_01};
 		margin-right: 1rem;
+		margin-bottom: 1rem;
 	}
 	.label {
 		font-size: 1.4rem;
@@ -63,10 +64,10 @@ const Wrapper = styled.div`
 	}
 `;
 
-function SelectInput({prompt, values, otherInput, otherLabel}) {
+function SelectInput({prompt, label, values, otherInput, otherLabel}) {
 	return (
 		<Wrapper>
-			<p className="label" >{prompt}</p>
+			<p className="label" >{prompt.includes(null) ? label : prompt }</p>
 			<div className="options">
 				<div className="option isSelected">
 					<p className="tag">A</p>
@@ -102,6 +103,7 @@ SelectInput.defaultProps = {
 
 SelectInput.propTypes = {
 	prompt: PropTypes.string,
+	label: PropTypes.string,
 	otherInput: PropTypes.bool,
 	otherLabel: PropTypes.string,
 	values: PropTypes.array

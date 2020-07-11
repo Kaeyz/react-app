@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-function GeneralForm({ questions }) {
+function CovidForm({ questions }) {
 	return (
 		<Wrapper>
 			{questions.map((question, index) => (
@@ -25,13 +25,11 @@ function GeneralForm({ questions }) {
 					label={`${index + 1}. ${question.label}`}
 					prompt={`${index + 1}. ${question.prompt}`}
 					values={question.input[0].values}
-					limit={{ min: question.input[0].min, max: question.input[0].max }}
-					unit={question.input[0].units}
 				/>
 			))}
 			<div className="submit">
 				<Button theme="greenBtn">Save</Button>
-				<Link to="/assessment/health/covid">
+				<Link to="/assessment/health/blood_pressure">
 					<Button theme="darkGreenBtn">Continue</Button>
 				</Link>
 			</div>
@@ -39,8 +37,8 @@ function GeneralForm({ questions }) {
 	);
 }
 
-GeneralForm.propTypes = {
+CovidForm.propTypes = {
 	questions: PropTypes.array.isRequired
 };
 
-export default GeneralForm;
+export default CovidForm;

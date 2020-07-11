@@ -9,7 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 const Wrapper = styled.div`
 	margin-top: 1.5rem;
   .input_label {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     font-size: 1.4rem;
     line-height: 2.4rem;
     margin-top: 0;
@@ -58,7 +58,7 @@ const Wrapper = styled.div`
 `;
 
 
-function NumberInput({ label, limit, unit }) {
+function NumberInput({ label, limit, unit, prompt }) {
 	const [values, setValues] = React.useState({
 		weight: '',
 		level: '',
@@ -71,14 +71,18 @@ function NumberInput({ label, limit, unit }) {
 
 	return (
 		<Wrapper>
-			<h6 className="input_label">{label}</h6>
+			<h6 className="input_label">{prompt.includes(null) ? label : prompt }</h6>
 			<div className='flex'>
 				<div className=" withSideDropdown flex">
 					<FormControl>
 						<Input
 							value={values.weight}
 							type="number"
-							inputProps={{ min: limit.min, max: limit.max , step: '1' }}
+							inputProps={{
+								min: limit.min,
+								max: limit.max,
+								step: '1'
+							}}
 							onChange={handleChange('weight')}
 							endAdornment={
 								<div>
@@ -108,10 +112,15 @@ function NumberInput({ label, limit, unit }) {
 	);
 }
 
+NumberInput.defaultProps = {
+	limit: { min: 0, max: 9999999999 }
+};
+
 NumberInput.propTypes = {
 	label: PropTypes.string,
 	limit: PropTypes.object,
-	unit: PropTypes.string
+	unit: PropTypes.string,
+	prompt: PropTypes.string
 };
 
 export default NumberInput;

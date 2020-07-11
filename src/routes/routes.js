@@ -25,6 +25,12 @@ import CompanyRegistrationSuccess from '../views/authentication/CompanyRegistrat
 import PasswordResetSuccessful from '../views/authentication/PasswordResetSuccessful';
 import HealthRiskAssessment from '../views/dashboard/assessment/HealthRiskAssessment';
 import General from '../views/dashboard/assessment/hra_questionnaire/General';
+import Covid from '../views/dashboard/assessment/hra_questionnaire/Covid';
+import BloodPressure from '../views/dashboard/assessment/hra_questionnaire/BloodPressure';
+import Smoking from '../views/dashboard/assessment/hra_questionnaire/Smoking';
+import Travel from '../views/dashboard/assessment/hra_questionnaire/Travel';
+import Sleep from '../views/dashboard/assessment/hra_questionnaire/Sleep';
+import Food from '../views/dashboard/assessment/hra_questionnaire/Food';
 
 import Page404 from '../views/Page404';
 
@@ -32,37 +38,43 @@ const Routes = () => (
 	<Router>
 		<Switch>
 			<Route exact path="/" component={Home} />
-			<Route path="/about" component={About} />
-			<Route path="/wellness/individual/health" component={Health} />
-			<Route path="/wellness/individual/fitness" component={Fitness} />
-			<Route path="/wellness/individual/nutrition" component={Nutrition} />
-			<Route path="/wellness/individual/lifestyle" component={Lifestyle} />
+			<Route exact path="/about" component={About} />
+			<Route exact path="/wellness/individual/health" component={Health} />
+			<Route exact path="/wellness/individual/fitness" component={Fitness} />
+			<Route exact path="/wellness/individual/nutrition" component={Nutrition} />
+			<Route exact path="/wellness/individual/lifestyle" component={Lifestyle} />
 
 
 			{/* Auth routes */}
-			<PrivateRoute isAuth={false} path="/login" component={Login} />
-			<PrivateRoute isAuth={false} path="/admin_login" component={AdminLogin} />
+			<PrivateRoute isAuth={false} exact path="/login" component={Login} />
+			<PrivateRoute isAuth={false} exact path="/admin_login" component={AdminLogin} />
 
-			<PrivateRoute isAuth={false} path="/onboarding/individual" component={IndividualSignUp} />
-			<PrivateRoute isAuth={false} path="/onboarding/company" component={CompanySignUp} />
-			<PrivateRoute isAuth={false} path="/onboarding/success" component={CompanyRegistrationSuccess} />
+			<PrivateRoute isAuth={false} exact path="/onboarding/individual" component={IndividualSignUp} />
+			<PrivateRoute isAuth={false} exact path="/onboarding/company" component={CompanySignUp} />
+			<PrivateRoute isAuth={false} exact path="/onboarding/success" component={CompanyRegistrationSuccess} />
 
-			<PrivateRoute isAuth={false} path="/forgot_password" component={ForgotPassword} />
-			<PrivateRoute isAuth={false} path="/reset_link_sent" component={PasswordResetLink} />
-			<PrivateRoute isAuth={false} path="/reset" component={ResetPassword} />
-			<PrivateRoute isAuth={false} path="/reset_success" component={PasswordResetSuccessful} />
+			<PrivateRoute isAuth={false} exact path="/forgot_password" component={ForgotPassword} />
+			<PrivateRoute isAuth={false} exact path="/reset_link_sent" component={PasswordResetLink} />
+			<PrivateRoute isAuth={false} exact path="/reset" component={ResetPassword} />
+			<PrivateRoute isAuth={false} exact path="/reset_success" component={PasswordResetSuccessful} />
 
 
-			<PrivateRoute path="/dashboard" component={DashboardHome} />
-			<PrivateRoute path="/dashboard_home2" component={DashboardHome2} />
-			<PrivateRoute path="/assessments" component={DashboardAssessment} />
-			<Route path="/assessment/health/general" component={General}/>
-			<PrivateRoute path="/assessment/health" component={HealthRiskAssessment} />
+			<PrivateRoute exact path="/dashboard" component={DashboardHome} />
+			<PrivateRoute exact path="/dashboard_home2" component={DashboardHome2} />
+			<PrivateRoute exact path="/assessments" component={DashboardAssessment} />
+			<Route exact path="/assessment/health/general" component={General}/>
+			<Route exact path="/assessment/health/covid" component={Covid}/>
+			<Route exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
+			<Route exact path="/assessment/health/smoking" component={Smoking}/>
+			<Route exact path="/assessment/health/travel" component={Travel}/>
+			<Route exact path="/assessment/health/sleep" component={Sleep}/>
+			<Route exact path="/assessment/health/food" component={Food}/>
+			<PrivateRoute exact path="/assessment/health" component={HealthRiskAssessment} />
 
 
 			{/* Blog route */}
-			<Route path="/blogPost" component={BlogPost} />
-			<Route path="/blogPostDetails" component={BlogPostDetail} />
+			<Route exact path="/blogPost" component={BlogPost} />
+			<Route exact path="/blogPostDetails" component={BlogPostDetail} />
 
 			<Route path="*" component={Page404} />
 		</Switch>
