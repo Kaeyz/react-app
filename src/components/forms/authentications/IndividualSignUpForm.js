@@ -8,7 +8,7 @@ import AuthFormLayout from './AuthFormLayout';
 import { TextInput, SelectInput, DateInput, PasswordInput} from '../../common/inputs';
 import PropTypes from 'prop-types';
 import { onBoardIndividualValidator } from '../validation';
-
+import NumberWithUnit from '../../common/inputs/NumberWithUnit';
 const textInput = {
 	placeholder: 'Type here...',
 };
@@ -21,10 +21,10 @@ const optionWeight = [
 	{ value: '50', text: '50' },
 	{ value: '70', text: '70' },
 ];
-const optionHeight = [
-	{ value: '102', text: '102' },
-	{ value: '33', text: '33' },
-];
+// const optionHeight = [
+// 	{ value: '102', text: '102' },
+// 	{ value: '33', text: '33' },
+// ];
 const optionActivity = [
 	{ value: 'HIGH', text: 'High' },
 	{ value: 'MEDIUM', text: 'Medium' },
@@ -121,21 +121,15 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
-						<SelectInput
+					<NumberWithUnit
 							label="Weight"
-							options={optionWeight}
-							value={weight}
-							onChange={setWeight}
-							error={errors.weight}
+
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
-						<SelectInput
+						<NumberWithUnit
 							label="Height"
-							options={optionHeight}
-							value={height}
-							onChange={setHeight}
-							error={errors.height}
+
 						/>
 					</Grid>
 					<Grid item xs={12}>
