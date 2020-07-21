@@ -1,6 +1,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 //import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import styled from 'styled-components';
@@ -32,16 +32,16 @@ const Wrapper = styled.div`
     min-width: 100%;
   }
   .MuiOutlinedInput-adornedEnd {
-    height: 47.81px;
+    height: 4.781rem;
   }
   #outlined-adornment-weight::placeholder {
     font-family: Matteo;
     font-size: 1.4rem;
     line-height: 2.4rem;
-    color: #1d1d1d;
+	color: ${(props) => props.theme.color.text_01};
   }
   .MuiInput-root {
-    width: 44px;
+    width: 4.4rem;
   }
   .MuiSelect-icon {
     color: #2ec4b6 !important;
@@ -49,75 +49,17 @@ const Wrapper = styled.div`
   .MuiFormControl-root {
     width: 5rem;
   }
-
-  .MuiSelect-selectMenu {
-    font-family: Matteo;
-    font-size: 1rem;
-    line-height: 24px;
-    color: #1d1d1d;
+  .MuiSelect-select:focus{
+	  background-color: ${(props) => props.theme.color.text_03};
   }
-  .flex {
-    justify-content: start;
-    .MuiInput-underline:before,
-    .MuiInput-underline:after {
-      border-bottom: 0.1rem solid #2ec4b6;
-    }
+  .MuiInput-underline:before,.MuiInput-underline:after{
+	  border-bottom: none;
   }
-  .withSideDropdown {
-    margin-top: -0.9rem;
-    margin-left: 1rem;
-    .MuiSelect-icon {
-      color: ${(props) => props.theme.color.brand_02};
-    }
-    .MuiSelect-select.MuiSelect-select {
-      font-size: 0.8rem;
-      line-height: 2.4rem;
-      color: ${(props) => props.theme.color.text_01};
-      width: 3.2rem;
-      padding-right: 7px;
-      background-color: #fff;
-    }
-
-    .MuiFormControl-marginNormal {
-      margin-left: 2.7rem;
-      width: 7rem;
-    }
-
-    .MuiInputBase-input {
-      width: 11rem;
-      color: ${(props) => props.theme.color.text_01};
-    }
   }
-  .plain {
-    margin: 0 0 1px 0.8rem;
-    .MuiInputBase-input {
-      font-size: 1.4rem;
-      line-height: 1.4rem;
-      font-family: Matteo;
-      font-weight: 100;
-    }
   }
 `;
-const weights = [
-	{
-		value: 'Kilogram',
-		label: 'in KG',
-	},
-	{
-		value: 'Pound',
-		label: 'in Lb',
-	},
-	{
-		value: 'Gram',
-		label: 'in g',
-	},
-	{
-		value: 'Ounces',
-		label: 'in Oz',
-	},
-];
 
-function NumberWithUnit({ label }) {
+function NumberWithUnit({ label, value, options }) {
 	const [values, setValues] = React.useState({
 		weight: '',
 	});
@@ -125,8 +67,6 @@ function NumberWithUnit({ label }) {
 	const handleChange = (prop) => (event) => {
 		setValues({ ...values, [prop]: event.target.value });
 	};
-
-	const [weight] = React.useState('Kilogram');
 
 	return (
 		<Wrapper>
@@ -143,11 +83,11 @@ function NumberWithUnit({ label }) {
 						<TextField
 							id="standard-select-weight"
 							select
-							value={weight}
+							value={value}
 							onChange={handleChange}
 						>
-							{weights.map((option) => (
-								<MenuItem key={option.value} value={option.value}>
+							{options.map((option, index) => (
+								<MenuItem key={index} value={option.value}>
 									{option.label}
 								</MenuItem>
 							))}
@@ -160,4 +100,9 @@ function NumberWithUnit({ label }) {
 	);
 }
 
+NumberWithUnit.propTypes = {
+	label: PropTypes.string,
+	options: PropTypes.array.isRequired,
+	value: PropTypes.any.isRequired,
+};
 export default NumberWithUnit;
