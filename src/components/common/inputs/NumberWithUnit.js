@@ -1,7 +1,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import React from 'react';
 import PropTypes from 'prop-types';
-//import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import styled from 'styled-components';
 import FormControl from '@material-ui/core/FormControl';
