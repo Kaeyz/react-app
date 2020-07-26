@@ -27,6 +27,7 @@ function FoodForm({ questions }) {
 					values={question.input[0].values}
 					limit={{ min: question.input[0].min, max: question.input[0].max }}
 					unit={question.input[0].units}
+					inputs={question.input}
 				/>
 			))}
 			<div className="submit">

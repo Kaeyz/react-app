@@ -25,6 +25,7 @@ function CovidForm({ questions }) {
 					label={`${index + 1}. ${question.label}`}
 					prompt={`${index + 1}. ${question.prompt}`}
 					values={question.input[0].values}
+					inputs={question.input}
 				/>
 			))}
 			<div className="submit">

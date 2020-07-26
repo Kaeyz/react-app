@@ -9,13 +9,7 @@ import Select from '@material-ui/core/Select';
 
 
 const Wrapper = styled.div`
-	.input_label {
-		margin-bottom: 0.3rem;
-		font-size: 1.4rem;
-		line-height: 2.4rem;
-		margin-top: 0;
-		font-weight: normal;
-	}
+    margin-bottom: 1rem;
 	.MuiFormLabel-root {
 		font-size: 1.4rem;
 		line-height: 2.4rem;
@@ -82,7 +76,6 @@ function TextInput({ label }) {
 	};
 	return (
 		<Wrapper>
-			<h6 className="input_label">{label}</h6>
 			<div className="flex">
 				<div className="plain">
 					<TextField

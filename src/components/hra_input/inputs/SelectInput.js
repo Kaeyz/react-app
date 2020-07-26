@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import check_all from '../../../assets/check-all.svg';
 
 const Wrapper = styled.div`
+    margin-bottom: 1rem;
 	.options {
 		display: flex;
 		flex-wrap: wrap;
@@ -64,10 +65,9 @@ const Wrapper = styled.div`
 	}
 `;
 
-function SelectInput({prompt, label, values, otherInput, otherLabel}) {
+function SelectInput({values, otherInput, otherLabel}) {
 	return (
 		<Wrapper>
-			<p className="label" >{prompt.includes(null) ? label : prompt }</p>
 			<div className="options">
 				<div className="option isSelected">
 					<p className="tag">A</p>

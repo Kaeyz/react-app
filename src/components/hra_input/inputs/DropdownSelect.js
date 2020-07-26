@@ -7,6 +7,7 @@ import Select from '@material-ui/core/Select';
 
 const Wrapper = styled.div`
     margin-top: 1.5rem;
+    margin-bottom: 1rem;
   .input_label {
     margin-bottom: 0.3rem;
     font-size: 1.4rem;
@@ -36,7 +37,7 @@ const Wrapper = styled.div`
 
   }
 `;
-function DropdownSelect({label, values, prompt}) {
+function DropdownSelect({values}) {
 	const [value, setValue] = React.useState('');
 
 	const handleChange = (event) => {
@@ -44,7 +45,6 @@ function DropdownSelect({label, values, prompt}) {
 	};
 	return (
 		<Wrapper>
-			<h6 className="input_label">{ prompt.includes(null) ? label : prompt }</h6>
 
 			<FormControl className="dropdown">
 				<Select
@@ -74,8 +74,6 @@ function DropdownSelect({label, values, prompt}) {
 
 DropdownSelect.propTypes = {
 	values: PropTypes.array,
-	label: PropTypes.string,
-	prompt: PropTypes.string
 };
 
 export default DropdownSelect;
