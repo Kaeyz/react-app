@@ -62,6 +62,7 @@ const Routes = () => (
 			<PrivateRoute exact path="/dashboard" component={DashboardHome} />
 			<PrivateRoute exact path="/dashboard_home2" component={DashboardHome2} />
 			<PrivateRoute exact path="/assessments" component={DashboardAssessment} />
+			<Route exact path="/assessment/health/start" component={General}/>
 			<Route exact path="/assessment/health/general" component={General}/>
 			<Route exact path="/assessment/health/covid" component={Covid}/>
 			<Route exact path="/assessment/health/blood_pressure" component={BloodPressure}/>

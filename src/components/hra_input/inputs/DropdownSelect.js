@@ -37,12 +37,12 @@ const Wrapper = styled.div`
 
   }
 `;
-function DropdownSelect({values}) {
-	const [value, setValue] = React.useState('');
+function DropdownSelect({options, name, onChange, value}) {
 
 	const handleChange = (event) => {
-		setValue(event.target.value);
+		onChange(event.target.value, name);
 	};
+
 	return (
 		<Wrapper>
 
@@ -51,21 +51,13 @@ function DropdownSelect({values}) {
 					value={value}
 					onChange={handleChange}
 					displayEmpty
+					name={name}
 				>
-					<MenuItem value="" disabled>
-						{values[0].label}
-					</MenuItem>
-					{
-						values.map((value) => (
-							<React.Fragment key={value.id}>
-								{
-
-									value.id !== 'not_answered' &&
-									<MenuItem value={value.id}>{value.label || value.id}</MenuItem>
-								}
-							</React.Fragment>
-						))
-					}
+					{options.map((option) => (
+						<MenuItem value={option.id} key={option.id}>
+							{option.label || option.id}
+						</MenuItem>
+					))}
 				</Select>
 			</FormControl>
 		</Wrapper>
@@ -73,7 +65,10 @@ function DropdownSelect({values}) {
 }
 
 DropdownSelect.propTypes = {
-	values: PropTypes.array,
+	options: PropTypes.array,
+	value: PropTypes.string,
+	onChange: PropTypes.func,
+	name: PropTypes.string.isRequired,
 };
 
 export default DropdownSelect;

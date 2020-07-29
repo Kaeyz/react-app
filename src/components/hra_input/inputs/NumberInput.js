@@ -59,15 +59,10 @@ const Wrapper = styled.div`
 `;
 
 
-function NumberInput({ limit, unit }) {
-	const [values, setValues] = React.useState({
-		weight: '',
-		level: '',
-	});
+function NumberInput({ limit, unit, name, value, onChange }) {
 
-
-	const handleChange = (prop) => (event) => {
-		setValues({ ...values, [prop]: event.target.value });
+	const handleChange = (event) => {
+		onChange(event.target.value, name);
 	};
 
 	return (
@@ -76,14 +71,14 @@ function NumberInput({ limit, unit }) {
 				<div className=" withSideDropdown flex">
 					<FormControl>
 						<Input
-							value={values.weight}
 							type="number"
 							inputProps={{
 								min: limit.min,
 								max: limit.max,
 								step: '1'
 							}}
-							onChange={handleChange('weight')}
+							value={value}
+							onChange={handleChange}
 							endAdornment={
 								<div>
 									<p>{unit}</p>
@@ -119,6 +114,9 @@ NumberInput.defaultProps = {
 NumberInput.propTypes = {
 	limit: PropTypes.object,
 	unit: PropTypes.string,
+	name: PropTypes.string,
+	value: PropTypes.string,
+	onChange: PropTypes.func,
 };
 
 export default NumberInput;

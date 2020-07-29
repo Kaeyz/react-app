@@ -1,5 +1,5 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { CircularProgress, Box, Typography } from '@material-ui/core';
 
 import styled from 'styled-components';
@@ -23,7 +23,7 @@ export default function CircularStatic(props) {
 				justifyContent="center"
 			>
 				<Typography variant="p" component="h4" >
-					{`${Math.round(value,)}%`}
+					{`${Math.round(value)}%`}
 				</Typography>
 			</Box>
 		</Wrapper>
@@ -31,7 +31,11 @@ export default function CircularStatic(props) {
 
 	return (
 		<React.Fragment>
-			{displayProgressWithLabel(27) }
+			{displayProgressWithLabel(props.value) }
 		</React.Fragment>
 	);
 }
+
+CircularStatic.propTypes = {
+	value: PropTypes.number.isRequired
+};

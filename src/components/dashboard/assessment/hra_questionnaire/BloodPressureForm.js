@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import HraInput from '../../../hra_input';
 import PropTypes from 'prop-types';
 import Button from '../../../common/Button';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { saveQuestions } from '../../../../store/actions/hraActions';
 
 const Wrapper = styled.div`
 	.submit {
@@ -15,33 +17,56 @@ const Wrapper = styled.div`
 	}
 `;
 
-function BloodPressureForm({ questions }) {
+function BloodPressureForm({questions, isLoading, inputs, history, saveQuestions}) {
+
+	const nextLink = '/assessment/health/smoking';
+	const onSaveClick = (event) => {
+		event.preventDefault();
+		inputs.stage = 'UPDATE_RESPONSE';
+		saveQuestions(inputs, nextLink, history);
+	};
+
+	const displayQuestions = () => {
+		return (
+			<div>
+				{questions.map((question, index) => (
+					<HraInput
+						key={question.id}
+						id={question.id}
+						label={`${index + 1}. ${question.label}`}
+						prompt={`${index + 1}. ${question.prompt}`}
+						inputs={question.input}
+					/>
+				))}
+				<div className="submit">
+					<Button theme="greenBtn">Save</Button>
+					<Button theme="darkGreenBtn" onClick={onSaveClick}>Continue</Button>
+				</div>
+
+			</div>
+		);
+	};
+
 	return (
 		<Wrapper>
-			{questions.map((question, index) => (
-				<HraInput
-					type={question.input[0].type}
-					key={question.id}
-					label={`${index + 1}. ${question.label}`}
-					prompt={`${index + 1}. ${question.prompt}`}
-					values={question.input[0].values}
-					limit={{ min: question.input[0].min, max: question.input[0].max }}
-					unit={question.input[0].units}
-					inputs={question.input}
-				/>
-			))}
-			<div className="submit">
-				<Button theme="greenBtn">Save</Button>
-				<Link to="/assessment/health/smoking">
-					<Button theme="darkGreenBtn">Continue</Button>
-				</Link>
-			</div>
+			{
+				isLoading ? 'Loading ...' : displayQuestions()
+			}
 		</Wrapper>
 	);
 }
 
 BloodPressureForm.propTypes = {
-	questions: PropTypes.array.isRequired
+	questions: PropTypes.array.isRequired,
+	inputs: PropTypes.array.isRequired,
+	history: PropTypes.object.isRequired,
+	isLoading: PropTypes.bool.isRequired,
+	saveQuestions: PropTypes.func.isRequired,
 };
 
-export default BloodPressureForm;
+const mapStateToProps = state => {
+	const { isLoading, inputs } = state.hra;
+	return { isLoading, inputs };
+};
+
+export default connect(mapStateToProps, {saveQuestions})(withRouter(BloodPressureForm));

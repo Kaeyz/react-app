@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
 import PreliminaryAssessment from '../../components/dashboard/dashboard_home/PreliminaryAssessment';
@@ -15,7 +17,7 @@ const Wrapper = styled.div`
 `;
 
 
-const DashboardHome2 = () => {
+const DashboardHome2 = ({percentageCompleted}) => {
 
 
 	return (
@@ -26,7 +28,10 @@ const DashboardHome2 = () => {
 					<Grid container spacing={3}>
 						<Grid item xs={6}>
 							<PreliminaryAssessment />
-							<ProgressSection />
+							<ProgressSection
+								percentageCompleted={percentageCompleted}
+								link="/assessment/health/general"
+							/>
 							<GetStartedCard />
 						</Grid>
 						<Grid item xs={6}>
@@ -39,4 +44,12 @@ const DashboardHome2 = () => {
 	);
 };
 
-export default DashboardHome2;
+DashboardHome2.propTypes = {
+	percentageCompleted: PropTypes.number.isRequired
+};
+
+const mapStateToProps = state => {
+	return { percentageCompleted: state.hra.percentageCompleted };
+};
+
+export default connect(mapStateToProps)(DashboardHome2);

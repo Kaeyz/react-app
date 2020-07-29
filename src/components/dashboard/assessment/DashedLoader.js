@@ -69,9 +69,16 @@ function CircularProgressWithLabel(props) {
 	);
 }
 
-export default function CircularStatic() {
+const CircularStatic = ({ value }) => {
 	CircularProgressWithLabel.propTypes = {
 		value: PropTypes.number.isRequired,
 	};
-	return <CircularProgressWithLabel value={'22'} />;
-}
+	return <CircularProgressWithLabel value={value || 0 } />;
+};
+
+CircularStatic.propTypes = {
+	value: PropTypes.number.isRequired
+};
+
+
+export default CircularStatic;

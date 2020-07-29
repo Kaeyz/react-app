@@ -17,10 +17,10 @@ const optionGender = [
 	{ value: 'MALE', text: 'Male' },
 	{ value: 'FEMALE', text: 'Female' },
 ];
-const optionWeight = [
+/* const optionWeight = [
 	{ value: '50', text: '50' },
 	{ value: '70', text: '70' },
-];
+]; */
 // const optionHeight = [
 // 	{ value: '102', text: '102' },
 // 	{ value: '33', text: '33' },
@@ -121,15 +121,19 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
-					<NumberWithUnit
+						<NumberWithUnit
 							label="Weight"
-
+							value={weight}
+							onChange={setWeight}
+							error={errors.weight}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
 						<NumberWithUnit
 							label="Height"
-
+							value={height}
+							onChange={setHeight}
+							error={errors.height}
 						/>
 					</Grid>
 					<Grid item xs={12}>

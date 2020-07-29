@@ -96,6 +96,9 @@ const Wrapper = styled.div`
 			font-weight: 100;
 		}
 	}
+	.error {
+		color: red;
+	}
 `;
 const weights = [
 	{
@@ -116,16 +119,16 @@ const weights = [
 	},
 ];
 
-function NumberWithUnit({ label }) {
-	const [values, setValues] = React.useState({
-		weight: '',
-	});
+function NumberWithUnit({ label , value, onChange, error }) {
+ 	const [unit, setUnit] = React.useState('Kilogram');
 
-	const handleChange = (prop) => (event) => {
-		setValues({ ...values, [prop]: event.target.value });
+	const handleUnitChange = (event) => {
+		setUnit(event.target.value);
 	};
 
-	const [weight] = React.useState('Kilogram');
+	const handleChange = (event) => {
+		onChange(event.target.value);
+	};
 
 	return (
 		<Wrapper>
@@ -134,16 +137,16 @@ function NumberWithUnit({ label }) {
 			<FormControl className="input" variant="outlined">
 				<OutlinedInput
 					id="outlined-adornment-weight"
-					value={values.weight}
+					value={value}
 					type="number"
 					placeholder="Type here..."
-					onChange={handleChange('weight')}
+					onChange={handleChange}
 					endAdornment={
 						<TextField
 							id="standard-select-weight"
 							select
-							value={weight}
-							onChange={handleChange}
+							value={unit}
+							onChange={handleUnitChange}
 						>
 							{weights.map((option) => (
 								<MenuItem key={option.value} value={option.value}>
@@ -155,12 +158,16 @@ function NumberWithUnit({ label }) {
 					labelWidth={0}
 				/>
 			</FormControl>
+			<p className="error">{error && error}</p>
 		</Wrapper>
 	);
 }
 
 NumberWithUnit.propTypes = {
 	label: PropTypes.string,
+	value: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	error: PropTypes.string,
 };
 
 export default NumberWithUnit;

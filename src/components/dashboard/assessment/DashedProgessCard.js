@@ -37,16 +37,16 @@ const Wrapper = styled.div`
 	}
 `;
 
-const DashedProgressCard = ({ fontSize, backgroundColor, ...props  }) => {
+const DashedProgressCard = ({ fontSize, backgroundColor, progress, ...props  }) => {
 
 	return (
 		<Wrapper>
 
 			<Paper className={`paper ${backgroundColor}`}>
-				<DashedLoader />
+				<DashedLoader value={progress} />
 				<h5>{props.cardValue}</h5>
 				<p className={`${fontSize}`}>{props.cardInfo}</p>
-				<Link to={props.where}>
+				<Link to={props.where || '/'}>
 					<Button theme={props.btnTheme}>
 						{props.btnValue}
 					</Button>
@@ -63,6 +63,7 @@ DashedProgressCard.propTypes = {
 	cardInfo: PropTypes.any,
 	fontSize: PropTypes.any,
 	where: PropTypes.string,
+	progress: PropTypes.number,
 	btnTheme: PropTypes.any,
 	btnValue: PropTypes.string,
 	backgroundColor: PropTypes.string.isRequired

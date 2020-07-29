@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { onHraInputChange } from '../../store/actions/hraActions';
 import PropTypes from 'prop-types';
 import DropDownSelect from './inputs/DropdownSelect';
 import NumberInput from './inputs/NumberInput';
@@ -17,35 +19,48 @@ const Wrapper = styled.div`
 	}
 `;
 
-function HraInput({ label, prompt, inputs }) {
+function HraInput({ label, prompt, inputs, id, onHraInputChange, hraInputs }) {
 
-	const displayRadio = (input) => <SelectInput
-		values={input.values}
+	const displayRadio = (input, name) => <SelectInput
+		options={input.values}
 		limit={{ min: input.min, max: input.max }}
 		unit={input.units}
-	/>;
-	const displayText = (input) => <TextInput
-		values={input.values}
-		limit={{ min: input.min, max: input.max }}
-		unit={input.units}
-	/>;
-	const displayNumber = (input) => <NumberInput
-		values={input.values}
-		limit={{ min: input.min, max: input.max }}
-		unit={input.units}
-	/>;
-	const displaySelect = (input) => <DropDownSelect
-		values={input.values}
-		limit={{ min: input.min, max: input.max }}
-		unit={input.units}
+		name={name}
+		onChange={onHraInputChange}
+		value={hraInputs[name]}
 	/>;
 
-	const displayInput = (input) => (
+	const displayText = (input, name) => <TextInput
+		options={input.values}
+		limit={{ min: input.min, max: input.max }}
+		unit={input.units}
+		name={name}
+		onChange={onHraInputChange}
+		value={hraInputs[name]}
+	/>;
+
+	const displayNumber = (input, name) => <NumberInput
+		limit={{ min: input.min, max: input.max }}
+		unit={input.units}
+		name={name}
+		onChange={onHraInputChange}
+		value={hraInputs[name]}
+	/>;
+
+	const displaySelect = (input, name) => <DropDownSelect
+		options={input.values}
+		unit={input.units}
+		name={name}
+		onChange={onHraInputChange}
+		value={hraInputs[name]}
+	/>;
+
+	const displayInput = ({ input, name }) => (
 		<div>
-			{input.type === 'text' && displayText(input)}
-			{input.type === 'number' && displayNumber(input)}
-			{input.type === 'radio' && displayRadio(input)}
-			{input.type === 'select' && displaySelect(input)}
+			{input.type === 'text' && displayText(input, name)}
+			{input.type === 'number' && displayNumber(input, name)}
+			{input.type === 'radio' && displayRadio(input, name)}
+			{input.type === 'select' && displaySelect(input, name)}
 		</div>
 	);
 
@@ -53,11 +68,24 @@ function HraInput({ label, prompt, inputs }) {
 	return (
 		<Wrapper>
 			<h6 className="input_label">{prompt.includes(null) ? label : prompt}</h6>
-			{inputs.map(input => (
-				<div key={input.id}>
-					{ displayInput(input) }
+
+			{inputs.length > 1 ?
+				inputs.map((input, index) => (
+					<div key={input.id || index }>
+						{displayInput({
+							input,
+							name: `${id}_${input.units.split(' ').join('_').split('/').join('_')}`
+						})}
+					</div>
+				)) :
+				<div>
+					{displayInput({
+						input: inputs[0],
+						name: id
+					})}
 				</div>
-			))}
+
+			}
 		</Wrapper>
 	);
 }
@@ -69,7 +97,18 @@ HraInput.defaultProps = {
 HraInput.propTypes = {
 	type: PropTypes.oneOf(['text', 'number', 'select', 'dropdown']),
 	label: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
 	prompt: PropTypes.string.isRequired,
+	inputs: PropTypes.array.isRequired,
+	hraInputs: PropTypes.array.isRequired,
+	input: PropTypes.object.isRequired,
+	onHraInputChange: PropTypes.func.isRequired,
 };
 
-export default HraInput;
+const mapStateToProps = state => {
+	const hraInputs = state.hra.inputs;
+	return { hraInputs };
+};
+
+export default connect(mapStateToProps, {onHraInputChange})(HraInput);

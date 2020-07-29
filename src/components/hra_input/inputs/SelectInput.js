@@ -24,6 +24,7 @@ const Wrapper = styled.div`
 		background-color: ${props => props.theme.color.ui_01};
 		margin-right: 1rem;
 		margin-bottom: 1rem;
+		cursor: pointer;
 	}
 	.label {
 		font-size: 1.4rem;
@@ -32,6 +33,7 @@ const Wrapper = styled.div`
 	}
 	.isSelected {
 		background-color: ${props => props.theme.color.ui_text_01};
+		transition: 2sec;
 	}
 	.tag {
 		border: 1px solid ${props => props.theme.color.brand_02};
@@ -65,23 +67,42 @@ const Wrapper = styled.div`
 	}
 `;
 
-function SelectInput({values, otherInput, otherLabel}) {
+const optionLabel = {
+	1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E',
+	6: 'F', 7: 'G', 8: 'H', 9: 'I', 10: 'J',
+	11: 'K', 12: 'L', 13: 'M', 14: 'N', 15: 'O',
+	16: 'P', 17: 'Q', 18: 'R', 19: 'S', 20: 'T'
+};
+
+
+function SelectInput({ options, otherInput, otherLabel, name, value, onChange }) {
+	const [isSelected, setIsSelected] = React.useState('');
+
+	React.useEffect(() => {
+		setIsSelected(value);
+	}, [value, setIsSelected]);
+
+	const handleChange = (value) => {
+		onChange(value, name);
+	};
+
+
 	return (
 		<Wrapper>
 			<div className="options">
-				<div className="option isSelected">
-					<p className="tag">A</p>
-					<p className="option_label">Selected</p>
-					<img src={check_all} alt="check-all"/>
-				</div>
-				{values && values.map((value) => (
-					<div key={value.id} >
+				{options && options.map((option, index) => (
+					<div key={option.id} >
 						{
-							value.label !== 'choose an answer' &&
-						<div className="option">
-							<p className="tag">B</p>
-							<p className="option_label" >{value.label}</p>
-						</div>
+							option.label !== 'choose an answer' &&
+							<div
+								className={`option ${isSelected === option.id && 'isSelected'}`}
+								onClick={() => handleChange(option.id)}>
+								<p className="tag">{optionLabel[index + 1]}</p>
+								<p className="option_label" >
+									{option.label}
+								</p>
+								{isSelected === option.id && <img src={check_all} alt="check-all" />}
+							</div>
 						}
 					</div>
 				))}
@@ -104,9 +125,12 @@ SelectInput.defaultProps = {
 SelectInput.propTypes = {
 	prompt: PropTypes.string,
 	label: PropTypes.string,
+	value: PropTypes.string,
+	onChange: PropTypes.func,
+	name: PropTypes.string,
 	otherInput: PropTypes.bool,
 	otherLabel: PropTypes.string,
-	values: PropTypes.array
+	options: PropTypes.array
 };
 
 export default SelectInput;
