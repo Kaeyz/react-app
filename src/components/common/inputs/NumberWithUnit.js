@@ -101,7 +101,6 @@ function NumberWithUnit({ label, value, options, onChange }) {
 					labelWidth={0}
 				/>
 			</FormControl>
-			<p className="error">{error && error}</p>
 		</Wrapper>
 	);
 }
