@@ -85,8 +85,8 @@ hraQueries.getCurrentResponse = () => {
 				blood_glucose_mml
 				blood_glucose
 				blood_pressure_estimated
-				blood_pressure_measured_high
-				blood_pressure_measured_low
+				blood_pressure_measured_high_number
+				blood_pressure_measured_low_number
 				blood_pressure_medication
 				body_frame_size
 				butter
