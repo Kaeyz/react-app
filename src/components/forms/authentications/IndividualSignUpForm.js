@@ -72,10 +72,8 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 	const [password, setPassword] = useState('');
 	const [password2, setPassword2] = useState('');
 	const [activity, setActivityLevel] = useState('');
-	const [weight] = React.useState('Kilogram');
-	const [setWeight] = useState('');
-	const [height] = React.useState('Feet');
-	const [setHeight] = useState('');
+	const [weight,setWeight] = React.useState('Kilogram');
+	const [height,setHeight] = React.useState('Feet');
 	const [dob, setDob] = useState(new Date());
 	const [errors, setErrors] = useState({});
 

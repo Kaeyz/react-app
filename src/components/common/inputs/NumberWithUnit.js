@@ -58,7 +58,7 @@ const Wrapper = styled.div`
   }
 `;
 
-function NumberWithUnit({ label, value, options }) {
+function NumberWithUnit({ label, value, options, onChange }) {
 	const [values, setValues] = React.useState({
 		weight: '',
 	});
@@ -67,6 +67,10 @@ function NumberWithUnit({ label, value, options }) {
 		setValues({ ...values, [prop]: event.target.value });
 	};
 
+	const handleChange2 = (event) => {
+
+		onChange(event.target.value);
+	};
 	return (
 		<Wrapper>
 			<h6 className="input_label">{label}</h6>
@@ -83,7 +87,7 @@ function NumberWithUnit({ label, value, options }) {
 							id="standard-select-weight"
 							select
 							value={value}
-							onChange={handleChange}
+							onChange={handleChange2}
 						>
 							{options.map((option, index) => (
 								<MenuItem key={index} value={option.value}>
@@ -103,5 +107,6 @@ NumberWithUnit.propTypes = {
 	label: PropTypes.string,
 	options: PropTypes.array.isRequired,
 	value: PropTypes.any.isRequired,
+	onChange: PropTypes.func.isRequired,
 };
 export default NumberWithUnit;
