@@ -1,14 +1,16 @@
 import React from 'react';
-import DashboardLayout from '../../../components/layouts/dashboardLayout/DashboardLayout';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
+import { Link } from 'react-router-dom';
+
+import DashboardLayout from '../../../components/layouts/dashboardLayout/DashboardLayout';
 import DashedProgressCard from '../../../components/dashboard/assessment/DashedProgessCard';
 import HraImg from '../../../assets/hraImg.svg';
 import inbodyImg from '../../../assets/inbodyImg.svg';
 import mealImg from '../../../assets/mealImg.svg';
-// import ProgressSection from '../../../components/dashboard/commonDashboard/ProgressSection';
 import Button from '../../../components/common/Button';
-import { Link } from 'react-router-dom';
 import BreadCrumb from '../../../components/dashboard/assessment/BreadCrumb';
 
 const Wrapper = styled.div`
@@ -71,7 +73,7 @@ margin-top:2.9rem;
 `;
 
 
-const HealthRiskAssessment = () => {
+const HealthRiskAssessment = ({percentageCompleted}) => {
 	return (
 		<DashboardLayout>
 			<Wrapper>
@@ -113,12 +115,13 @@ const HealthRiskAssessment = () => {
 						<Grid container spacing={3}>
 							<Grid item xs={3}>
 								<DashedProgressCard
-									btnValue={'Start'}
+									btnValue={percentageCompleted > 0 ? 'Continue' : 'Start'}
 									cardInfo={'Health Risk Assessment'}
 									Image={HraImg}
 									btnTheme="whiteBtn"
 									backgroundColor="white"
-									where="/assessment/health/general"
+									where={percentageCompleted > 0 ? '/assessment/health/general' : '/assessment/health/start'}
+									progress={percentageCompleted}
 								/>
 							</Grid>
 							<Grid item xs={3}>
@@ -169,4 +172,13 @@ const HealthRiskAssessment = () => {
 	);
 };
 
-export default HealthRiskAssessment;
+HealthRiskAssessment.propTypes = {
+	percentageCompleted: PropTypes.number.isRequired
+};
+
+const mapStateToProps = state => {
+	const percentageCompleted = state.hra.percentageCompleted;
+	return { percentageCompleted };
+};
+
+export default connect(mapStateToProps)(HealthRiskAssessment);

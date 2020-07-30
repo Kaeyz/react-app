@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 /* eslint-disable no-mixed-spaces-and-tabs */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -63,8 +65,8 @@ function NumberWithUnit({ label, value, options, onChange }) {
 		weight: '',
 	});
 
-	const handleChange = (prop) => (event) => {
-		setValues({ ...values, [prop]: event.target.value });
+	const handleChange = (event) => {
+		setUnit(event.target.value);
 	};
 
 	const handleChange2 = (event) => {
@@ -78,10 +80,10 @@ function NumberWithUnit({ label, value, options, onChange }) {
 			<FormControl className="input" variant="outlined">
 				<OutlinedInput
 					id="outlined-adornment-weight"
-					value={values.weight}
+					value={value}
 					type="number"
 					placeholder="Type here..."
-					onChange={handleChange('weight')}
+					onChange={handleChange}
 					endAdornment={
 						<TextField
 							id="standard-select-weight"
@@ -99,6 +101,7 @@ function NumberWithUnit({ label, value, options, onChange }) {
 					labelWidth={0}
 				/>
 			</FormControl>
+			<p className="error">{error && error}</p>
 		</Wrapper>
 	);
 }

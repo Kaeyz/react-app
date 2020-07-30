@@ -7,6 +7,7 @@ import Select from '@material-ui/core/Select';
 
 const Wrapper = styled.div`
     margin-top: 1.5rem;
+    margin-bottom: 1rem;
   .input_label {
     margin-bottom: 0.3rem;
     font-size: 1.4rem;
@@ -36,36 +37,27 @@ const Wrapper = styled.div`
 
   }
 `;
-function DropdownSelect({label, values, prompt}) {
-	const [value, setValue] = React.useState('');
+function DropdownSelect({options, name, onChange, value}) {
 
 	const handleChange = (event) => {
-		setValue(event.target.value);
+		onChange(event.target.value, name);
 	};
+
 	return (
 		<Wrapper>
-			<h6 className="input_label">{ prompt.includes(null) ? label : prompt }</h6>
 
 			<FormControl className="dropdown">
 				<Select
 					value={value}
 					onChange={handleChange}
 					displayEmpty
+					name={name}
 				>
-					<MenuItem value="" disabled>
-						{values[0].label}
-					</MenuItem>
-					{
-						values.map((value) => (
-							<React.Fragment key={value.id}>
-								{
-
-									value.id !== 'not_answered' &&
-									<MenuItem value={value.id}>{value.label || value.id}</MenuItem>
-								}
-							</React.Fragment>
-						))
-					}
+					{options.map((option) => (
+						<MenuItem value={option.id} key={option.id}>
+							{option.label || option.id}
+						</MenuItem>
+					))}
 				</Select>
 			</FormControl>
 		</Wrapper>
@@ -73,9 +65,10 @@ function DropdownSelect({label, values, prompt}) {
 }
 
 DropdownSelect.propTypes = {
-	values: PropTypes.array,
-	label: PropTypes.string,
-	prompt: PropTypes.string
+	options: PropTypes.array,
+	value: PropTypes.string,
+	onChange: PropTypes.func,
+	name: PropTypes.string.isRequired,
 };
 
 export default DropdownSelect;

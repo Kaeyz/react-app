@@ -3,6 +3,7 @@ import { appIsLoading, appNotLoading } from './appActions';
 import { errorAlert, successAlert, clearAlert } from './alertActions';
 import { SET_USER, SET_AUTH } from '../types';
 import userQueries from '../../client/queries/userQueries';
+import {fetchHraResponse } from './hraActions';
 
 
 export const setIsAuthenticated = (payload) => {
@@ -21,6 +22,7 @@ export const setCurrentUser = () => dispatch => {
 			if (res.data.me) {
 				dispatch({type: SET_USER, payload: res.data.me});
 				dispatch(setIsAuthenticated(true));
+				dispatch(fetchHraResponse());
 				dispatch(appNotLoading());
 			}
 		})
@@ -66,7 +68,7 @@ export const registerCompany = (userData, history) => dispatch => {
 
 
 // eslint-disable-next-line no-unused-vars
-export const loginUser = (userData, history) => dispatch => {
+export const loginUser = (userData) => dispatch => {
 	dispatch(appIsLoading());
 	dispatch(clearAlert());
 	userQueries.login(userData)

@@ -15,6 +15,11 @@ module.exports = Object.freeze({
 
 	// HRA ACTIONS
 	ADD_QUESTIONS: 'add_questions',
-	REMOVE_QUESTIONS: 'remove_questions'
-
+	REMOVE_QUESTIONS: 'remove_questions',
+	HRA_INPUT_CHANGE: 'hra_input_change',
+	CLEAR_HRA_INPUT: 'clear_hra_input',
+	CLEAR_HRA_INPUTS: 'clear_hra_inputs',
+	HRA_IS_LOADING: 'hra_is_loading',
+	HRA_NOT_LOADING: 'hra_not_loading',
+	SET_PERCENTAGE_COMPLETED: 'set_percentage_completed'
 });

@@ -44,11 +44,11 @@ function General({ getQuestions, questions }) {
 
 General.propTypes = {
 	getQuestions: PropTypes.func.isRequired,
-	questions: PropTypes.object.isRequired,
+	questions: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-	questions: state.hra.questions,
+	questions: state.hra.questions
 });
 
 export default connect(mapStateToProps, { getQuestions })(General);

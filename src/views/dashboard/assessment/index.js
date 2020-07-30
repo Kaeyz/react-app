@@ -1,14 +1,19 @@
 import React from 'react';
-import DashboardLayout from '../../../components/layouts/dashboardLayout/DashboardLayout';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { fetchHraResponse } from '../../../store/actions/hraActions';
+
+import DashboardLayout from '../../../components/layouts/dashboardLayout/DashboardLayout';
+import ProgressSection from '../../../components/dashboard/common/ProgressSection';
 import PreliminaryCard from '../../../components/dashboard/common/PreliminaryCard';
+import Button from '../../../components/common/Button';
 import HraImg from '../../../assets/hraImg.svg';
 import inbodyImg from '../../../assets/inbodyImg.svg';
 import mealImg from '../../../assets/mealImg.svg';
-import ProgressSection from '../../../components/dashboard/common/ProgressSection';
-import Button from '../../../components/common/Button';
-import { Link } from 'react-router-dom';
+
 
 const Wrapper = styled.div`
   .content {
@@ -38,7 +43,12 @@ const Wrapper = styled.div`
 }
 `;
 
-const DashboardAssessment = () => {
+const DashboardAssessment = ({ fetchHraResponse, percentageCompleted }) => {
+
+	React.useEffect(() => {
+		fetchHraResponse();
+	}, [fetchHraResponse]);
+
 	return (
 		<DashboardLayout>
 			<Wrapper>
@@ -52,18 +62,18 @@ const DashboardAssessment = () => {
 						<Grid container spacing={3}>
 							<Grid item xs={3}>
 								<PreliminaryCard
-									btnValue={'Continue'}
-									cardInfo={'Health Risk Assessment'}
+									btnValue={percentageCompleted > 0 ? 'Continue' : 'Start'}
+									cardInfo='Health Risk Assessment'
 									Image={HraImg}
 									btnTheme="whiteBtn"
 									backgroundColor="white"
-									where="/assessment/health"
+									where={'/assessment/health'}
 								/>
 							</Grid>
 							<Grid item xs={3}>
 								<PreliminaryCard
-									btnValue={'Start'}
-									cardInfo={'InBody Comprehensive Check'}
+									btnValue='Start'
+									cardInfo='InBody Comprehensive Check'
 									Image={inbodyImg}
 									btnTheme="whiteBtn"
 									backgroundColor="white"
@@ -72,7 +82,7 @@ const DashboardAssessment = () => {
 
 							<Grid item xs={3}>
 								<PreliminaryCard
-									btnValue={'Start'}
+									btnValue='Start'
 									cardInfo={'Meal & Fitness Guides'}
 									Image={mealImg}
 									btnTheme="whiteBtn"
@@ -86,12 +96,17 @@ const DashboardAssessment = () => {
           View Leaderboard
 							</Button>
 						</Link>
-						<Grid container spacing={3}  style={{marginTop:'5.4rem'}}>
 
-							<Grid item xs={6}>
-								<ProgressSection />
-+        </Grid>
-+        </Grid>
+						{
+							percentageCompleted > 0 &&
+							<Grid container spacing={3}  style={{marginTop:'5.4rem'}}>
+								<Grid item xs={6}>
+									<ProgressSection
+										percentageCompleted={percentageCompleted}
+									/>
++        				</Grid>
++        			</Grid>
+						}
 					</div>
 				</main>
 			</Wrapper>
@@ -99,4 +114,14 @@ const DashboardAssessment = () => {
 	);
 };
 
-export default DashboardAssessment;
+DashboardAssessment.propTypes = {
+	fetchHraResponse: PropTypes.func.isRequired,
+	percentageCompleted: PropTypes.number.isRequired,
+};
+
+const mapStateToProps = state => {
+	const percentageCompleted = state.hra.percentageCompleted;
+	return { percentageCompleted };
+};
+
+export default connect(mapStateToProps, { fetchHraResponse })(DashboardAssessment);
