@@ -45,7 +45,7 @@ const PreliminaryCard = ({ fontSize, backgroundColor, ...props  }) => {
 				<img src={props.Image} alt="bodyMass" />
 				<h5>{props.cardValue}</h5>
 				<p className={`${fontSize}`}>{props.cardInfo}</p>
-				<Link to={props.where}>
+				<Link to={props.where || '/'}>
 					<Button theme={props.btnTheme}>
 						{props.btnValue}
 					</Button>

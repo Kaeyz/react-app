@@ -81,7 +81,7 @@ function ProgressSection({percentageCompleted, link}) {
 
 ProgressSection.propTypes = {
 	percentageCompleted: PropTypes.number.isRequired,
-	link: PropTypes.string.isRequired
+	link: PropTypes.string
 };
 
 export default ProgressSection;

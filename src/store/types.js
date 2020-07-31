@@ -21,5 +21,6 @@ module.exports = Object.freeze({
 	CLEAR_HRA_INPUTS: 'clear_hra_inputs',
 	HRA_IS_LOADING: 'hra_is_loading',
 	HRA_NOT_LOADING: 'hra_not_loading',
-	SET_PERCENTAGE_COMPLETED: 'set_percentage_completed'
+	SET_PERCENTAGE_COMPLETED: 'set_percentage_completed',
+	SET_SHOW_INPUT: 'set_show_input',
 });

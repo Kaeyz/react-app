@@ -22,7 +22,7 @@ export default function CircularStatic(props) {
 				alignItems="center"
 				justifyContent="center"
 			>
-				<Typography variant="p" component="h4" >
+				<Typography variant="h6" component="h4" >
 					{`${Math.round(value)}%`}
 				</Typography>
 			</Box>

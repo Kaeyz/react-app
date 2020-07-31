@@ -19,6 +19,7 @@ const Wrapper = styled.div`
 function General({ getQuestions, questions }) {
 	React.useEffect(() => {
 		getQuestions('BASIC_INFORMATION');
+
 	}, [getQuestions]);
 
 	return (

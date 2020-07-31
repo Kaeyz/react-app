@@ -44,7 +44,7 @@ function Link({item}) {
 			}}
 		>
 			<Icon name={iconName} />
-			<p className={isActive && 'isActive'}>{item.text}</p>
+			<p className={isActive ? 'isActive' : ''}>{item.text}</p>
 		</NavLink>
 	);
 }

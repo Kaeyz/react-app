@@ -99,9 +99,9 @@ const QuestionnaireLayout = ({ children, ...props }) => {
 						</div>
 						<div className="flex points">
 							<p>Points</p>
-							<p className='pointBar'>
-								<LinearProgress variant="buffer" value="40" />
-							</p>
+							<div className='pointBar'>
+								<LinearProgress variant="buffer" value={40} valueBuffer={100} />
+							</div>
 							<h5>40/100 <span>points</span></h5>
 						</div>
 					</div>

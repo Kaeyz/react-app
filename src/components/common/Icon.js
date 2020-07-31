@@ -97,15 +97,23 @@ function Icon({name}) {
 
 Icon.propTypes = {
 	name: PropTypes.oneOf([
+		'dashboard_homeIsActive',
 		'dashboard_home',
 		'assessments',
+		'assessmentsIsActive',
 		'download',
+		'downloadIsActive',
 		'account',
+		'accountIsActive',
 		'appointments',
+		'appointmentsIsActive',
 		'rewards',
+		'rewardsIsActive',
 		'meals',
+		'mealsIsActive',
 		'logout',
 		'exercise',
+		'exerciseIsActive',
 	]).isRequired
 };
 

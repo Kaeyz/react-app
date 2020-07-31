@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { validateShowHide } from '../../../store/actions/hraActions';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -37,10 +39,11 @@ const Wrapper = styled.div`
 
   }
 `;
-function DropdownSelect({options, name, onChange, value}) {
+function DropdownSelect({options, name, onChange, value, showHide, validateShowHide}) {
 
 	const handleChange = (event) => {
 		onChange(event.target.value, name);
+		validateShowHide(name, showHide);
 	};
 
 	return (
@@ -68,7 +71,9 @@ DropdownSelect.propTypes = {
 	options: PropTypes.array,
 	value: PropTypes.string,
 	onChange: PropTypes.func,
+	validateShowHide: PropTypes.func,
+	showHide: PropTypes.any,
 	name: PropTypes.string.isRequired,
 };
 
-export default DropdownSelect;
+export default connect(null, {validateShowHide})(DropdownSelect);

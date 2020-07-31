@@ -65,7 +65,7 @@ const DashboardAssessment = ({ fetchHraResponse, percentageCompleted }) => {
 									btnValue={percentageCompleted > 0 ? 'Continue' : 'Start'}
 									cardInfo='Health Risk Assessment'
 									Image={HraImg}
-									btnTheme="whiteBtn"
+									btnTheme="white"
 									backgroundColor="white"
 									where={'/assessment/health'}
 								/>
@@ -75,7 +75,7 @@ const DashboardAssessment = ({ fetchHraResponse, percentageCompleted }) => {
 									btnValue='Start'
 									cardInfo='InBody Comprehensive Check'
 									Image={inbodyImg}
-									btnTheme="whiteBtn"
+									btnTheme="white"
 									backgroundColor="white"
 								/>
 							</Grid>
@@ -85,7 +85,7 @@ const DashboardAssessment = ({ fetchHraResponse, percentageCompleted }) => {
 									btnValue='Start'
 									cardInfo={'Meal & Fitness Guides'}
 									Image={mealImg}
-									btnTheme="whiteBtn"
+									btnTheme="white"
 									backgroundColor="white"
 								/>
 							</Grid>

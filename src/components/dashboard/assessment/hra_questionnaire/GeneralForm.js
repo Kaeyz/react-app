@@ -40,14 +40,13 @@ function GeneralForm({ questions, isLoading, inputs, history, saveQuestions}) {
 					/>
 				))}
 				<div className="submit">
-					<Button theme="greenBtn">Save</Button>
-					<Button theme="darkGreenBtn" onClick={onSaveClick}>Continue</Button>
+					<Button theme="green">Save</Button>
+					<Button theme="darkGreen" onClick={onSaveClick}>Continue</Button>
 				</div>
 
 			</div>
 		);
 	};
-
 	return (
 		<Wrapper>
 			{
@@ -59,7 +58,7 @@ function GeneralForm({ questions, isLoading, inputs, history, saveQuestions}) {
 
 GeneralForm.propTypes = {
 	questions: PropTypes.array.isRequired,
-	inputs: PropTypes.array.isRequired,
+	inputs: PropTypes.object.isRequired,
 	history: PropTypes.object.isRequired,
 	isLoading: PropTypes.bool.isRequired,
 	saveQuestions: PropTypes.func.isRequired,
@@ -67,7 +66,7 @@ GeneralForm.propTypes = {
 
 const mapStateToProps = state => {
 	const { isLoading, inputs } = state.hra;
-	return { isLoading, inputs };
+	return { isLoading: isLoading, inputs };
 };
 
 export default connect(mapStateToProps, {saveQuestions})(withRouter(GeneralForm));

@@ -7,7 +7,8 @@ import {
 	CLEAR_HRA_INPUTS,
 	HRA_IS_LOADING,
 	HRA_NOT_LOADING,
-	SET_PERCENTAGE_COMPLETED
+	SET_PERCENTAGE_COMPLETED,
+	SET_SHOW_INPUT,
 } from '../types';
 
 
@@ -21,6 +22,19 @@ const hraIsLoading = () => {
 
 const hraNotLoading = () => {
 	return { type: HRA_NOT_LOADING };
+};
+
+/**
+ * removes fields with '' or null
+ * @param {object} obj
+ */
+const clean = (obj) => {
+	for (const propName in obj) {
+		if (obj[propName] === '' || obj[propName] === null ) {
+			delete obj[propName];
+		}
+	}
+	return obj;
 };
 
 /**
@@ -39,7 +53,8 @@ export const getQuestions = (category) => dispatch => {
 	dispatch(hraIsLoading());
 	hraQueries.getQuestion(category)
 		.then(res => {
-			dispatch(addQuestions(res.data.fetchHraQuestion.q));
+			const questions = res.data.fetchHraQuestion.q;
+			dispatch(addQuestions(questions));
 			dispatch(hraNotLoading());
 		})
 		.catch(() => {
@@ -47,20 +62,6 @@ export const getQuestions = (category) => dispatch => {
 			dispatch(errorAlert('Network Error!!'));
 			dispatch(hraNotLoading());
 		});
-};
-
-
-/**
- * removes fields with '' or null
- * @param {object} obj
- */
-const clean = (obj) => {
-	for (const propName in obj) {
-		if (obj[propName] === '' || obj[propName] === null ) {
-			delete obj[propName];
-		}
-	}
-	return obj;
 };
 
 /**
@@ -114,4 +115,34 @@ export const clearHraInput = (field) => {
 
 export const clearHraInputs = () => {
 	return { type: CLEAR_HRA_INPUTS };
+};
+
+export const setShowInput = (state, input) => {
+	return {
+		type: SET_SHOW_INPUT,
+		payload: { state, input }
+	};
+};
+
+export const setShowInputs = (state, inputs) => dispatch => {
+	inputs && inputs.length > 0 && inputs.forEach(input => {
+		dispatch(setShowInput(state, input));
+	});
+};
+
+export const validateShowHide = (field, rules) => (dispatch, getState) => {
+	const value = getState().hra.inputs[field];
+	rules && rules.forEach(rule => {
+
+		if (rule.low !== null && value <= rule.low) {
+			dispatch(setShowInputs(true, rule.show));
+			dispatch(setShowInputs(false, rule.hide));
+		}
+
+		if (rule.high !== null && value >= rule.high) {
+			dispatch(setShowInputs(true, rule.show));
+			dispatch(setShowInputs(false, rule.hide));
+		}
+
+	});
 };

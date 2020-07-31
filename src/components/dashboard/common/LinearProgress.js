@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 export default function LinearProgressBar(props) {
 	return (
 		<Wrapper>
-			<LinearProgress variant="buffer" {...props} />
+			<LinearProgress variant="buffer" valueBuffer={100} {...props} />
 		</Wrapper>
 	);
 }

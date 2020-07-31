@@ -6,79 +6,79 @@ import PropTypes from 'prop-types';
 const Wrapper = styled.div`
 width: 100%;
 .greenBtn {
-  border: 1px solid #2ec4b6;
-  color: #2ec4b6;
-  background-color: #CBF3F0;
+	border: 1px solid #2ec4b6;
+	color: #2ec4b6;
+	background-color: #CBF3F0;
 }
 .greenBtn:hover {
-  color: #fff;
-  background-color: #2ec4b6;
-  transition: 0.4s;
+	color: #fff;
+	background-color: #2ec4b6;
+	transition: 0.4s;
 }
 .whiteBtn {
-  border: 1px solid #2ec4b6;
-  color: #2ec4b6;
-  background-color: #fff;
+	border: 1px solid #2ec4b6;
+	color: #2ec4b6;
+	background-color: #fff;
 }
 .whiteBtn:hover {
-  color: #fff;
-  background-color: #2ec4b6;
-  transition: 0.4s;
+	color: #fff;
+	background-color: #2ec4b6;
+	transition: 0.4s;
 }
 .darkGreenBtn {
-  border: 1px solid #2ec4b6;
-  color: ${props => props.theme.color.ui_01};
-  background-color: ${props => props.theme.color.brand_02};
+	border: 1px solid #2ec4b6;
+	color: ${props => props.theme.color.ui_01};
+	background-color: ${props => props.theme.color.brand_02};
 }
 .darkGreenBtn:hover {
-  color: #fff;
-  color: #2ec4b6;
-  background-color: rgba(203, 243, 240, 0.1);
-  transition: 0.4s;
+	color: #fff;
+	color: #2ec4b6;
+	background-color: rgba(203, 243, 240, 0.1);
+	transition: 0.4s;
 }
 .yellowBtn {
-  background: #F47803;
-  box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
-  color: white;
-  border: 1px solid #fcb813;
+	background: #F47803;
+	box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
+	color: white;
+	border: 1px solid #fcb813;
 }
 .yellowBtn:hover {
-  background-color: #fff;
-  color: #fcb813;
-  transition: 0.4s;
+	background-color: #fff;
+	color: #fcb813;
+	transition: 0.4s;
 }
 .deepYellowBtn {
-  background: ${props => props.theme.color.ui_text_03};
-  box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
-  color: white;
-  border: 1px solid #fcb813;
+	background: ${props => props.theme.color.ui_text_03};
+	box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
+	color: white;
+	border: 1px solid #fcb813;
 }
 .deepYellowBtn:hover {
-  background-color: #fff;
-  color: #fcb813;
-  transition: 0.4s;
+	background-color: #fff;
+	color: #fcb813;
+	transition: 0.4s;
 }
 .purpleBtn {
-  background: ${props => props.theme.color.ui_text_04};
-  box-shadow: 0px 4px 4px rgba(206, 238, 143, 0.25);
-  color: #8DB838;
-  border: 1px solid #8DB838;
+	background: ${props => props.theme.color.ui_text_04};
+	box-shadow: 0px 4px 4px rgba(206, 238, 143, 0.25);
+	color: #8DB838;
+	border: 1px solid #8DB838;
 }
 .purpleBtn:hover {
-  background-color: #fff;
-  color: #8DB838;
-    transition: 0.4s;
+	background-color: #fff;
+	color: #8DB838;
+		transition: 0.4s;
 }
 .pinkBtn {
-  background: ${props => props.theme.color.ui_text_02};
-  box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
-  color: white;
-  border: 1px solid #fcb813;
+	background: ${props => props.theme.color.ui_text_02};
+	box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
+	color: white;
+	border: 1px solid #fcb813;
 }
 .pinkBtn:hover {
-  background-color: #fff;
-  color: #fcb813;
-  transition: 0.4s;
+	background-color: #fff;
+	color: #fcb813;
+	transition: 0.4s;
 }
 
 `;
@@ -101,7 +101,14 @@ function Button({style, theme, ...rest}) {
 
 Button.propTypes = {
 	style: PropTypes.object,
-	theme: PropTypes.oneOf(['pink', 'purple', 'yellow', 'greenBtn', 'darkGreen', 'deepYellow', 'darkGreenBtn' ])
+	theme: PropTypes.oneOf([
+		'pink',
+		'purple',
+		'yellow',
+		'green',
+		'white',
+		'deepYellow',
+		'darkGreen'])
 };
 
 export default Button;

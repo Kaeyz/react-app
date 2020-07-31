@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//import TextField from '@material-ui/core/TextField';
-//import MenuItem from '@material-ui/core/MenuItem';
+import { connect } from 'react-redux';
+//import {TextField, MenuItem} from '@material-ui/core';
+import {Input, FormControl} from '@material-ui/core';
 import styled from 'styled-components';
-import Input from '@material-ui/core/Input';
-import FormControl from '@material-ui/core/FormControl';
+import { validateShowHide } from '../../../store/actions/hraActions';
 
 const Wrapper = styled.div`
 	margin-top: 1.5rem;
@@ -59,10 +59,11 @@ const Wrapper = styled.div`
 `;
 
 
-function NumberInput({ limit, unit, name, value, onChange }) {
+function NumberInput({ limit, unit, name, value, onChange, validateShowHide, showHide}) {
 
 	const handleChange = (event) => {
 		onChange(event.target.value, name);
+		validateShowHide(name, showHide);
 	};
 
 	return (
@@ -117,6 +118,8 @@ NumberInput.propTypes = {
 	name: PropTypes.string,
 	value: PropTypes.string,
 	onChange: PropTypes.func,
+	validateShowHide: PropTypes.func,
+	showHide: PropTypes.any,
 };
 
-export default NumberInput;
+export default connect(null, {validateShowHide})(NumberInput);

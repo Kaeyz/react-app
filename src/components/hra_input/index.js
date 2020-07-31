@@ -19,15 +19,15 @@ const Wrapper = styled.div`
 	}
 `;
 
-function HraInput({ label, prompt, inputs, id, onHraInputChange, hraInputs }) {
-
+function HraInput({ label, prompt, inputs, id, onHraInputChange, hraInputValues, showInput }) {
 	const displayRadio = (input, name) => <SelectInput
 		options={input.values}
 		limit={{ min: input.min, max: input.max }}
 		unit={input.units}
 		name={name}
 		onChange={onHraInputChange}
-		value={hraInputs[name]}
+		value={hraInputValues[name]}
+		showHide={input.showhide}
 	/>;
 
 	const displayText = (input, name) => <TextInput
@@ -36,7 +36,8 @@ function HraInput({ label, prompt, inputs, id, onHraInputChange, hraInputs }) {
 		unit={input.units}
 		name={name}
 		onChange={onHraInputChange}
-		value={hraInputs[name]}
+		value={hraInputValues[name]}
+		showHide={input.showhide}
 	/>;
 
 	const displayNumber = (input, name) => <NumberInput
@@ -44,7 +45,8 @@ function HraInput({ label, prompt, inputs, id, onHraInputChange, hraInputs }) {
 		unit={input.units}
 		name={name}
 		onChange={onHraInputChange}
-		value={hraInputs[name]}
+		value={hraInputValues[name]}
+		showHide={input.showhide}
 	/>;
 
 	const displaySelect = (input, name) => <DropDownSelect
@@ -52,40 +54,63 @@ function HraInput({ label, prompt, inputs, id, onHraInputChange, hraInputs }) {
 		unit={input.units}
 		name={name}
 		onChange={onHraInputChange}
-		value={hraInputs[name]}
+		value={hraInputValues[name]}
+		showHide={input.showhide}
 	/>;
 
-	const displayInput = ({ input, name }) => (
-		<div>
-			{input.type === 'text' && displayText(input, name)}
-			{input.type === 'number' && displayNumber(input, name)}
-			{input.type === 'radio' && displayRadio(input, name)}
-			{input.type === 'select' && displaySelect(input, name)}
-		</div>
-	);
+	const checkInputShowStatus = (name) => {
+		// eslint-disable-next-line no-prototype-builtins
+		if (showInput.hasOwnProperty(name)) {
+			if (showInput[name] === false) {
+				return false;
+			}
+			return true;
+		}
+		return true;
+	};
 
+	const displayInput = ({ input, name }) => (
+		<React.Fragment>
+			<div>
+				{input.type === 'text' && displayText(input, name)}
+				{input.type === 'number' && displayNumber(input, name)}
+				{input.type === 'radio' && displayRadio(input, name)}
+				{input.type === 'select' && displaySelect(input, name)}
+			</div>
+		</React.Fragment>
+	);
 
 	return (
 		<Wrapper>
-			<h6 className="input_label">{prompt.includes(null) ? label : prompt}</h6>
+			<React.Fragment>
 
-			{inputs.length > 1 ?
-				inputs.map((input, index) => (
-					<div key={input.id || index }>
-						{displayInput({
-							input,
-							name: `${id}_${input.units.split(' ').join('_').split('/').join('_')}`
-						})}
-					</div>
-				)) :
-				<div>
-					{displayInput({
-						input: inputs[0],
-						name: id
-					})}
-				</div>
 
-			}
+
+
+				{inputs.length > 1 ? (
+					<React.Fragment>
+						<h6 className="input_label">{prompt.includes(null) ? label : prompt}</h6>
+						{inputs.map((input, index) => (
+							<div key={input.id || index }>
+								{displayInput({
+									input,
+									name: `${id}_${input.units.split(' ').join('_').split('/').join('_')}`
+								})}
+							</div>
+						))
+						}
+					</React.Fragment>
+				)
+					:
+					<div>
+						{checkInputShowStatus(id) && (
+							<React.Fragment>
+								<h6 className="input_label">{prompt.includes(null) ? label : prompt}</h6>
+								{displayInput({ input: inputs[0], name: id })}
+							</React.Fragment>
+						)}
+					</div>}
+			</React.Fragment>
 		</Wrapper>
 	);
 }
@@ -97,18 +122,19 @@ HraInput.defaultProps = {
 HraInput.propTypes = {
 	type: PropTypes.oneOf(['text', 'number', 'select', 'dropdown']),
 	label: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
+	name: PropTypes.string,
 	id: PropTypes.string.isRequired,
 	prompt: PropTypes.string.isRequired,
 	inputs: PropTypes.array.isRequired,
-	hraInputs: PropTypes.array.isRequired,
-	input: PropTypes.object.isRequired,
+	showInput: PropTypes.object.isRequired,
+	hraInputValues: PropTypes.object.isRequired,
+	input: PropTypes.object,
 	onHraInputChange: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
-	const hraInputs = state.hra.inputs;
-	return { hraInputs };
+	const { inputs, showInput } = state.hra;
+	return { hraInputValues: inputs, showInput };
 };
 
 export default connect(mapStateToProps, {onHraInputChange})(HraInput);

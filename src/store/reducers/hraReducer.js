@@ -1,11 +1,12 @@
-import {ADD_QUESTIONS, REMOVE_QUESTIONS, CLEAR_HRA_INPUT, CLEAR_HRA_INPUTS, HRA_INPUT_CHANGE, HRA_IS_LOADING, SET_PERCENTAGE_COMPLETED, HRA_NOT_LOADING,
+import {ADD_QUESTIONS, REMOVE_QUESTIONS, CLEAR_HRA_INPUT, CLEAR_HRA_INPUTS, HRA_INPUT_CHANGE, HRA_IS_LOADING, SET_PERCENTAGE_COMPLETED, HRA_NOT_LOADING, SET_SHOW_INPUT,
 } from '../types';
 import hraInputs from '../../utils/hraInputs';
 
 const initialState = {
 	questions: [],
-	isLoading: 'false',
+	isLoading: false,
 	inputs: hraInputs,
+	showInput: {},
 	percentageCompleted: 0,
 };
 
@@ -56,6 +57,14 @@ export default function (state = initialState, action) {
 		return {
 			...state,
 			percentageCompleted: action.payload
+		};
+	case SET_SHOW_INPUT:
+		return {
+			...state,
+			showInput: {
+				...state.showInput,
+				[action.payload.input] : action.payload.state
+			}
 		};
 	default:
 		return state;

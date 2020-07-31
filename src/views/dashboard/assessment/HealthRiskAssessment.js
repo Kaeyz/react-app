@@ -118,7 +118,7 @@ const HealthRiskAssessment = ({percentageCompleted}) => {
 									btnValue={percentageCompleted > 0 ? 'Continue' : 'Start'}
 									cardInfo={'Health Risk Assessment'}
 									Image={HraImg}
-									btnTheme="whiteBtn"
+									btnTheme="white"
 									backgroundColor="white"
 									where={percentageCompleted > 0 ? '/assessment/health/general' : '/assessment/health/start'}
 									progress={percentageCompleted}
@@ -129,7 +129,7 @@ const HealthRiskAssessment = ({percentageCompleted}) => {
 									btnValue={'Start'}
 									cardInfo={'Lifestyle Assessment'}
 									Image={inbodyImg}
-									btnTheme="whiteBtn"
+									btnTheme="white"
 									backgroundColor="white"
 								/>
 							</Grid>
@@ -139,7 +139,7 @@ const HealthRiskAssessment = ({percentageCompleted}) => {
 									btnValue={'Start'}
 									cardInfo={'Fitness Assessment'}
 									Image={mealImg}
-									btnTheme="whiteBtn"
+									btnTheme="white"
 									backgroundColor="white"
 								/>
 							</Grid>
@@ -149,7 +149,7 @@ const HealthRiskAssessment = ({percentageCompleted}) => {
 									btnValue={'Start'}
 									cardInfo={'Nutrition Assessment'}
 									Image={mealImg}
-									btnTheme="whiteBtn"
+									btnTheme="white"
 									backgroundColor="white"
 								/>
 							</Grid>

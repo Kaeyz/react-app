@@ -99,7 +99,7 @@ const Theme = (props) => (
 	</ThemeProvider>
 );
 Theme.propTypes = {
-	children: PropTypes.object.isRequired,
+	children: PropTypes.any.isRequired,
 };
 
 export { theme };

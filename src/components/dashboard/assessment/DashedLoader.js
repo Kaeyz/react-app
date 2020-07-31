@@ -76,6 +76,10 @@ const CircularStatic = ({ value }) => {
 	return <CircularProgressWithLabel value={value || 0 } />;
 };
 
+CircularStatic.defaultProps = {
+	value: 0,
+};
+
 CircularStatic.propTypes = {
 	value: PropTypes.number.isRequired
 };
