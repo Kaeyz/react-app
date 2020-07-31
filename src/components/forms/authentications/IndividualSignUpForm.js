@@ -5,7 +5,12 @@ import { Grid } from '@material-ui/core';
 import Button from '../../common/Button';
 import { registerIndividual } from '../../../store/actions/userActions';
 import AuthFormLayout from './AuthFormLayout';
-import { TextInput, SelectInput, DateInput, PasswordInput} from '../../common/inputs';
+import {
+	TextInput,
+	SelectInput,
+	DateInput,
+	PasswordInput,
+} from '../../common/inputs';
 import PropTypes from 'prop-types';
 import { onBoardIndividualValidator } from '../validation';
 import NumberWithUnit from '../../common/inputs/NumberWithUnit';
@@ -17,14 +22,6 @@ const optionGender = [
 	{ value: 'MALE', text: 'Male' },
 	{ value: 'FEMALE', text: 'Female' },
 ];
-/* const optionWeight = [
-	{ value: '50', text: '50' },
-	{ value: '70', text: '70' },
-]; */
-// const optionHeight = [
-// 	{ value: '102', text: '102' },
-// 	{ value: '33', text: '33' },
-// ];
 const optionActivity = [
 	{ value: 'HIGH', text: 'High' },
 	{ value: 'MEDIUM', text: 'Medium' },
@@ -33,26 +30,66 @@ const optionActivity = [
 	{ value: 'LOWACTIVITY', text: 'Low Activity' },
 ];
 
+const optionWeight = [
+	{
+		value: 'Kilogram',
+		label: 'in KG',
+	},
+	{
+		value: 'Pound',
+		label: 'in Lb',
+	},
+	{
+		value: 'Gram',
+		label: 'in g',
+	},
+	{
+		value: 'Ounces',
+		label: 'in Oz',
+	},
+];
 
+const optionHeight = [
+	{
+		value: 'Feet',
+		label: 'in Ft',
+	},
+	{
+		value: 'Centimeter',
+		label: 'in Cm',
+	},
+	{
+		value: 'Inches',
+		label: 'in In',
+	},
+];
 const IndividualSignUpForm = ({ history, registerIndividual }) => {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [email, setEmail] = useState('');
 	const [gender, setGender] = useState('');
-	const [height, setHeight] = useState('');
 	const [password, setPassword] = useState('');
 	const [password2, setPassword2] = useState('');
 	const [activity, setActivityLevel] = useState('');
-	const [weight, setWeight] = useState('');
+	const [weight,setWeight] = React.useState('Kilogram');
+	const [height,setHeight] = React.useState('Feet');
 	const [dob, setDob] = useState(new Date());
 	const [errors, setErrors] = useState({});
-
 
 	const onFormSubmit = (event) => {
 		event.preventDefault();
 		setErrors({});
 		const data = {
-			firstName, lastName, email, gender, height, password, activity, weight, dob, password2
+			firstName,
+			lastName,
+			email,
+			gender,
+			height,
+			password,
+			activity,
+			weight,
+			dob,
+			password2,
 		};
 		const { errors, isValid } = onBoardIndividualValidator(data);
 		if (!isValid) {
@@ -60,9 +97,15 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 		}
 
 		const user = {
-			firstName, lastName, email,
-			password, activity, dob, gender,
-			height: Number(height), weight: Number(weight)
+			firstName,
+			lastName,
+			email,
+			password,
+			activity,
+			dob,
+			gender,
+			height: Number(height),
+			weight: Number(weight),
 		};
 		registerIndividual(user, history);
 	};
@@ -123,6 +166,7 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 					<Grid item xs={12} sm={6}>
 						<NumberWithUnit
 							label="Weight"
+							options={optionWeight}
 							value={weight}
 							onChange={setWeight}
 							error={errors.weight}
@@ -131,6 +175,7 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 					<Grid item xs={12} sm={6}>
 						<NumberWithUnit
 							label="Height"
+							options={optionHeight}
 							value={height}
 							onChange={setHeight}
 							error={errors.height}
@@ -152,8 +197,15 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 							onChange={setPassword}
 							error={errors.password}
 						/>
-						<p style={{ fontSize: '1.2rem', lineHeight: '1.6rem', fontFamily: 'Futura', marginTop: '13px' }}>
-							Your password needs to be at least 8 characters long.
+						<p
+							style={{
+								fontSize: '1.2rem',
+								lineHeight: '1.6rem',
+								fontFamily: 'Futura',
+								marginTop: '13px',
+							}}
+						>
+              Your password needs to be at least 8 characters long.
 						</p>
 					</Grid>
 					<Grid item xs={12} sm={6}>
@@ -174,7 +226,7 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 						onClick={onFormSubmit}
 						style={{ width: '100%' }}
 					>
-						SIGN UP
+            SIGN UP
 					</Button>
 				</div>
 			</form>
@@ -184,8 +236,7 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 
 IndividualSignUpForm.propTypes = {
 	history: PropTypes.object.isRequired,
-	registerIndividual: PropTypes.func.isRequired
+	registerIndividual: PropTypes.func.isRequired,
 };
 
-
-export default connect(null, {registerIndividual})(IndividualSignUpForm);
+export default connect(null, { registerIndividual })(IndividualSignUpForm);
