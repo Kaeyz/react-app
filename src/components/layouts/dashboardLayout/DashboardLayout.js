@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import SideBar from './sidebar/SideBar';
-import HeaderDashboard from './HeaderDashboard';
 import Container from '../../common/Container';
 
 const Wrapper = styled.div`
@@ -25,7 +24,6 @@ function DashboardLayout({children}) {
 			<SideBar />
 			<div className="layout">
 				<Container>
-					<HeaderDashboard />
 					{children}
 				</Container>
 
