@@ -84,9 +84,6 @@ function HraInput({ label, prompt, inputs, id, onHraInputChange, hraInputValues,
 		<Wrapper>
 			<React.Fragment>
 
-
-
-
 				{inputs.length > 1 ? (
 					<React.Fragment>
 						<h6 className="input_label">{prompt.includes(null) ? label : prompt}</h6>
