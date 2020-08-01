@@ -71,7 +71,7 @@ const Routes = () => (
 			<Route exact path="/assessment/health/travel" component={Travel}/>
 			<Route exact path="/assessment/health/sleep" component={Sleep}/>
 			<Route exact path="/assessment/health/food" component={Food}/>
-			<PrivateRoute exact path="/assessment/health/review" component={HealthReview} />
+			<Route exact path="/assessment/health/review" component={HealthReview} />
 			<PrivateRoute exact path="/assessment/health" component={HealthRiskAssessment} />
 
 

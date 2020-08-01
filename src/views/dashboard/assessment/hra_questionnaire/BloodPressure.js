@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
-import BreadCrumb from '../../../../components/dashboard/assessment/BreadCrumb';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import BloodPressureForm from '../../../../components/dashboard/assessment/hra_questionnaire/BloodPressureForm';
 import smallImg from '../../../../assets/Group.svg';
@@ -25,7 +24,6 @@ function BloodPressure({ getQuestions, questions }) {
 		<DashboardLayout>
 			<Wrapper>
 				<main className="content">
-					<BreadCrumb />
 					<QuestionnaireLayout
 						Image={smallImg}
 						whatQuestion="Blood Pressure & Cholesterol"

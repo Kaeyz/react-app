@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 	grid-template-columns: max-content 1fr;
 	min-height: 100vh;
 	.layout {
-    background: #fff;
+		background: #FBFBFB;
 		padding: 2rem;
 	}
 `;
