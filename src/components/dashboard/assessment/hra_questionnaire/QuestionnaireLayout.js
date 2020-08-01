@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Back from '../../../../assets/greenBackArrow.svg';
 import styled from 'styled-components';
+import Button from '../../../../components/common/Button';
+import downloadIcon from '../../../../assets/Vector.svg';
 
 const Wrapper = styled.div`
   .back {
@@ -31,14 +33,32 @@ const Wrapper = styled.div`
       letter-spacing: -0.2px;
       font-weight: normal;
       color: #000b0a;
+      width:400px;
     }
 
     .null {
       border: 1px solid rgba(214, 216, 211, 0.5);
-      width: 60%;
+      width: -webkit-fill-available;
       margin: 10px 0px;
     }
-  }
+    .showButton{
+      display: block;
+      button{
+        display: flex;
+    align-items: center;
+    justify-content: center;
+      }
+   img{
+    margin-right:0;
+    margin-left:1rem;
+    width: 1.8rem;
+    height: 2rem;
+   }
+    }
+    .hideButton{
+      display: none;
+    }
+     }
   .withGuage{
 	  justify-content: space-between;
   }
@@ -59,7 +79,12 @@ function QuestionnaireLayout({ children , ...props }) {
 					</div>
 				</div>
 
-				<div className="null"></div>
+				<div className={props.null}></div>
+        <div className={`${props.button} button`}>
+						<Button theme="darkGreenBtn" style={{width:'16.3rem'}}>Download Report
+            <img src={downloadIcon}alt={downloadIcon}/>
+</Button>
+					</div>
 			</div>
 			{children}
 		</Wrapper>
@@ -69,7 +94,9 @@ function QuestionnaireLayout({ children , ...props }) {
 QuestionnaireLayout.propTypes = {
 	Image: PropTypes.any,
 	heading: PropTypes.string.isRequired,
+	null: PropTypes.string.isRequired,
 	children: PropTypes.any.isRequired,
+	button: PropTypes.any.isRequired,
 };
 
 export default QuestionnaireLayout;

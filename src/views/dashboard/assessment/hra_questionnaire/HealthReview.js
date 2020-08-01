@@ -24,7 +24,9 @@ function HealthReview() {
 		<DashboardLayout>
 			<QuestionnaireLayout
 				heading='Review Health Assessment Submission'
-				Image={smallImg}>
+				Image={smallImg}
+				button='hideButton'
+				null='null'>
 				<Wrapper>
 					<ReviewCard
 						heading='General Questions' />
