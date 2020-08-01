@@ -6,6 +6,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import plus from '../../../../assets/plus.svg';
 import minus from '../../../../assets/minus.svg';
+import rectangle from '../../../../assets/Rectangle.svg';
 
 const Wrapper = styled.div`
   margin: 4rem 0;
@@ -31,6 +32,11 @@ const Wrapper = styled.div`
     .minimize {
 	  right: 22px;
 	  top: 2rem;
+      position: absolute;
+    }
+    .rectangle {
+		left: 0;
+		top: 4rem;
       position: absolute;
     }
   }
@@ -62,6 +68,7 @@ const Wrapper = styled.div`
 	padding: 4rem 3rem;
 	align-items: end;
 	border-radius: 1rem;
+	border: 1px solid #fff;
   }
   .MuiAccordionSummary-content.Mui-expanded,.MuiAccordionSummary-expandIcon.Mui-expanded {
     display: none;
@@ -70,7 +77,8 @@ const Wrapper = styled.div`
     height: .2rem;
     top: -1.0rem;
     position: absolute;
-    width: 100%;
+	width: 100%;
+	border: 0;
 	z-index: 300;
   }
   .MuiAccordionSummary-expandIcon.Mui-expanded {
@@ -173,7 +181,10 @@ function ReviewCard({ ...props }) {
               expedita nihil consequuntur doloremque dolorum et?
 						</div>
 						<div className='minimize'>
-						<img src={minus} alt="maximize" />
+						<img src={minus} alt="miniimize" />
+						</div>
+						<div className='rectangle'>
+						<img src={rectangle} alt="rectangle" />
 						</div>
 					</div>
 				</AccordionDetails>

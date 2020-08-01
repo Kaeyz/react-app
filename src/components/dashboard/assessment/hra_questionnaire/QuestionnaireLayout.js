@@ -35,7 +35,7 @@ const Wrapper = styled.div`
 
     .null {
       border: 1px solid rgba(214, 216, 211, 0.5);
-      width: 61%;
+      width: 60%;
       margin: 10px 0px;
     }
   }
