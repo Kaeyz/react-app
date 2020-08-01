@@ -5,7 +5,7 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import plus from '../../../../assets/plus.svg';
-// import minus from '../../../../assets/minus.svg';
+import minus from '../../../../assets/minus.svg';
 
 const Wrapper = styled.div`
   margin: 4rem 0;
@@ -28,9 +28,9 @@ const Wrapper = styled.div`
       width: 65%;
     }
 
-    .far-right {
-      right: 0;
-      top: -5.0rem;
+    .minimize {
+	  right: 22px;
+	  top: 2rem;
       position: absolute;
     }
   }
@@ -63,7 +63,7 @@ const Wrapper = styled.div`
 	align-items: end;
 	border-radius: 1rem;
   }
-  .MuiAccordionSummary-content.Mui-expanded {
+  .MuiAccordionSummary-content.Mui-expanded,.MuiAccordionSummary-expandIcon.Mui-expanded {
     display: none;
   }
   .MuiAccordionSummary-root.Mui-expanded {
@@ -171,6 +171,9 @@ function ReviewCard({ ...props }) {
               laboriosam voluptas adipisci corporis, natus deserunt, commodi
               delectus totam sapiente dicta omnis dolorem possimus nam in
               expedita nihil consequuntur doloremque dolorum et?
+						</div>
+						<div className='minimize'>
+						<img src={minus} alt="maximize" />
 						</div>
 					</div>
 				</AccordionDetails>
