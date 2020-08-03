@@ -19,9 +19,15 @@ const Wrapper = styled.div`
     justify-content: start;
     margin: 4.8rem 0;
   }
+  .withGuage{
+    flex-wrap:wrap;
+  }
   .flex {
     display: flex;
     justify-content: start;
+    .mb{
+      margin-bottom: 2rem;
+    }
     img {
       width: 3rem;
       height: 3rem;
@@ -72,7 +78,7 @@ function QuestionnaireLayout({ children , ...props }) {
 			</div>
 	  <div className="flex withGuage">
 				<div>
-					<div className="flex" style={{ alignItems: 'center' }}>
+					<div className="flex mb" style={{ alignItems: 'center' }}>
 						{' '}
 						<img src={props.Image} alt={props.alt} />
 						<h1>{props.heading}</h1>
@@ -80,11 +86,11 @@ function QuestionnaireLayout({ children , ...props }) {
 				</div>
 
 				<div className={props.null}></div>
-        <div className={`${props.button} button`}>
-						<Button theme="darkGreenBtn" style={{width:'16.3rem'}}>Download Report
-            <img src={downloadIcon}alt={downloadIcon}/>
-</Button>
-					</div>
+				<div className={`${props.button} button`}>
+					<Button theme="darkGreenBtn" style={{width:'16.3rem'}}>Download Report
+						<img src={downloadIcon}alt={downloadIcon}/>
+					</Button>
+				</div>
 			</div>
 			{children}
 		</Wrapper>

@@ -22,8 +22,9 @@ border: 1px solid #8DB838;
 		padding: 4rem 3rem;
 		text-align: left;
 		width: 332px;
+		
 height: 235px;
-height: 235px;
+margin-bottom: 2rem;
 h5{
     font-weight: bold;
 font-size: 16px;
@@ -55,14 +56,15 @@ const Analysis = ({ fontSize, cardTheme, ...props  }) => {
 
 	return (
 		<Wrapper>
+      
+ 
+			<Paper className={`paper ${cardTheme}`} >
 
-			<Paper className={`paper ${cardTheme}`}>
-				
 				<h5>{props.cardHeading}</h5>
 				<p className={`${fontSize}`}>{props.cardInfo}</p>
 				<h2>{props.cardValue}</h2>
 			</Paper>
-
+		
 		</Wrapper>
 	);
 };
@@ -75,7 +77,8 @@ Analysis.propTypes = {
 	where: PropTypes.string,
 	btnTheme: PropTypes.any,
 	btnValue: PropTypes.string,
-	cardTheme: PropTypes.string.isRequired
+	cardTheme: PropTypes.string.isRequired,
+	cardHeading: PropTypes.string.isRequired
 };
 
 export default Analysis;

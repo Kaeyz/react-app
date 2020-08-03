@@ -8,6 +8,7 @@ import absoluteImg from '../../../../assets/undraw_through_the_park.svg';
 import AnalysisCard from '../../../../components/dashboard/common/AnalysisCard';
 import TableReport from '../../../../components/dashboard/report/TableReport';
 import ReportPaper from '../../../../components/dashboard/report/ReportPaper';
+import GraphReport from '../../../../components/dashboard/report/GraphReport';
 import Paper from '@material-ui/core/Paper';
 
 
@@ -31,7 +32,8 @@ const Wrapper = styled.div`
     }
   }
   .analysis-card {
-    justify-content: space-between;
+	justify-content: space-between;
+	flex-wrap: wrap;
   }
 .paperWithPicture{
 	justify-content: flex-end;
@@ -47,6 +49,7 @@ position: absolute;
 	}
 	.details{
 		width: 600px;
+		max-width: 58%;
 		h1 {
 			font-size: 20px;
 			line-height: 180%;
@@ -78,7 +81,7 @@ function HealthReport() {
 				>
 					<div className="flex top-header">
 						<p>ANALYSIS</p>
-						<div className="null"></div>
+						{/* <div className="null"></div> */}
 					</div>
 					<div className="flex analysis-card">
 						<AnalysisCard
@@ -136,7 +139,8 @@ function HealthReport() {
 						</div>
 
 					</Paper>
-					{/* <GraphReport /> */}
+
+					<GraphReport />
 
 					<ReportPaper
 						cardHeading="How to Lower your risk of  :"

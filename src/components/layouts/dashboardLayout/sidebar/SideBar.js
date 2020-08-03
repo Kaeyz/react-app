@@ -6,9 +6,10 @@ import { logoutUser } from '../../../../store/actions/userActions';
 import { Paper } from '@material-ui/core';
 
 import toggleLogo from '../../../../assets/Frame.svg';
-import Icon from '../../../common/Icon';
+// import Icon from '../../../common/Icon';
 import UserInfo from './UserInfo';
 import NavSection from './NavSection';
+import Divider from '@material-ui/core/Divider';
 
 const Wrapper = styled(Paper)`
   border-radius: 1.3rem;
@@ -31,16 +32,32 @@ const Wrapper = styled(Paper)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1.5rem;
+    padding: 2rem 2.5rem;
     height: 100%;
   }
   .top {
+    .MuiDivider-middle{
+      background-color: #a6a6a6;
+      width: 19rem;
+      height: 0.5px;
+      margin: auto;
+      opacity: 0.2;
+    }
+    .flex{
+      margin-bottom: 2rem;
+      align-items: center;
+      h1{
+        font-size: 16px;
+line-height: 15px;
+color: #000000;
+margin-left: 1.6rem;
+      }
+    }
   }
   .logo {
     width: 5rem;
     height: 5rem;
     margin-left: -0.5rem;
-    margin-bottom: 2rem;
   }
   .nav {
     display: grid;
@@ -61,13 +78,14 @@ const employeeItems = [
 	{ icon: 'dashboard_home', text: 'Dashboard', link: '/dashboard' },
 	{ icon: 'assessments', text: 'Assessments', link: '/assessments' },
 	{ icon: 'exercise', text: 'Exercise', link: '/exercise' },
-	{ icon: 'meals', text: 'Meals', link: '/meals' },
-	{ icon: 'appointments', text: 'Appointments', link: '/appointments' },
+	{ icon: 'exercise', text: 'Meals', link: '/meals' },
+	{ icon: 'exercise', text: 'Appointments', link: '/appointments' },
 ];
 const otherItems = [
-	{ icon: 'download', text: 'Download Reports', link: '/reports' },
+	{ icon: 'download', text: 'Reports', link: '/reports' },
 	{ icon: 'rewards', text: 'Rewards', link: '/rewards' },
-	{ icon: 'account', text: 'Accounts', link: '/account' },
+	{ icon: 'settings', text: 'Settings', link: '/settings' },
+	{ icon: 'logout', text: 'Logout', link: '/logout' },
 ];
 
 function SideBar({ logoutUser }) {
@@ -75,19 +93,22 @@ function SideBar({ logoutUser }) {
 		<Wrapper elevation={2}>
 			<div className="sidebar">
 				<div className="top">
-					<div>
+					<div className='flex'>
 						<img src={toggleLogo} alt="toggle" className="logo" />
+            <h1>Employee Portal</h1>
 					</div>
+          <Divider variant="middle" />
 					<div className="nav">
 						<UserInfo />
 						<NavSection title="EMPLOYEE" items={employeeItems} />
+            <Divider variant="middle" />
 						<NavSection title="OTHER" items={otherItems} />
 					</div>
 				</div>
-				<div className="nav_item footer" onClick={logoutUser}>
+				{/* <div className="nav_item footer" onClick={logoutUser}>
 					<Icon name="logout" />
 					<p>LOGOUT</p>
-				</div>
+				</div> */}
 			</div>
 		</Wrapper>
 	);
