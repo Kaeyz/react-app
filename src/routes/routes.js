@@ -32,6 +32,7 @@ import Travel from '../views/dashboard/assessment/hra_questionnaire/Travel';
 import Sleep from '../views/dashboard/assessment/hra_questionnaire/Sleep';
 import Food from '../views/dashboard/assessment/hra_questionnaire/Food';
 import HealthReview from '../views/dashboard/assessment/hra_questionnaire/HealthReview';
+import HealthReport from '../views/dashboard/assessment/hra_questionnaire/HealthReport';
 
 import Page404 from '../views/Page404';
 
@@ -71,7 +72,8 @@ const Routes = () => (
 			<Route exact path="/assessment/health/travel" component={Travel}/>
 			<Route exact path="/assessment/health/sleep" component={Sleep}/>
 			<Route exact path="/assessment/health/food" component={Food}/>
-			<PrivateRoute exact path="/assessment/health/review" component={HealthReview} />
+			<Route exact path="/assessment/health/review" component={HealthReview} />
+			<Route exact path="/assessment/health/report" component={HealthReport} />
 			<PrivateRoute exact path="/assessment/health" component={HealthRiskAssessment} />
 
 

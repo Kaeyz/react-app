@@ -10,39 +10,51 @@ import Icon from '../../../common/Icon';
 import UserInfo from './UserInfo';
 import NavSection from './NavSection';
 
-
 const Wrapper = styled(Paper)`
-		max-height: 100vh;
-		position: sticky;
-		top: 0;
-	.sidebar {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		padding: 1.5rem;
-		height: 100%;
-	}
-	.top {
-	}
-	.logo {
-		width: 5rem;
-		height: 5rem;
-		margin-left: -0.5rem;
-		margin-bottom: 2rem
-	}
-	.nav{
-		display: grid;
-		grid-gap: 2rem;
-	}
-	.footer {
-		display: grid;
-		grid-template-columns: max-content 1fr;
-		align-items: center;
-		grid-gap: 1rem;
-		text-decoration: none;
-		padding-right: 3rem;
-		cursor: pointer;
-	}
+  border-radius: 1.3rem;
+  max-height: 94vh;
+  position: sticky;
+  top: 2.0rem;
+  left: 1.8rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0.5em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #2ec4b6;
+    outline: .1rem solid #fff;
+    border-radius: 0.5rem;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    height: 100%;
+  }
+  .top {
+  }
+  .logo {
+    width: 5rem;
+    height: 5rem;
+    margin-left: -0.5rem;
+    margin-bottom: 2rem;
+  }
+  .nav {
+    display: grid;
+    grid-gap: 2rem;
+  }
+  .footer {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    grid-gap: 1rem;
+    text-decoration: none;
+    padding-right: 3rem;
+    cursor: pointer;
+  }
 `;
 
 const employeeItems = [
@@ -58,7 +70,7 @@ const otherItems = [
 	{ icon: 'account', text: 'Accounts', link: '/account' },
 ];
 
-function SideBar({logoutUser}) {
+function SideBar({ logoutUser }) {
 	return (
 		<Wrapper elevation={2}>
 			<div className="sidebar">
@@ -82,8 +94,7 @@ function SideBar({logoutUser}) {
 }
 
 SideBar.propTypes = {
-	logoutUser: PropTypes.func.isRequired
+	logoutUser: PropTypes.func.isRequired,
 };
 
-export default connect(null, {logoutUser})(SideBar);
-
+export default connect(null, { logoutUser })(SideBar);

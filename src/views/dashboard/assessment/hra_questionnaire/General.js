@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
-import BreadCrumb from '../../../../components/dashboard/assessment/BreadCrumb';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import GeneralForm from '../../../../components/dashboard/assessment/hra_questionnaire/GeneralForm';
-import smallImg from '../../../../assets/Group.svg';
+import smallImg from '../../../../assets/Activity.svg';
 import bloodGuage from '../../../../assets/blood-pressure-gauge.svg';
 
 const Wrapper = styled.div`
@@ -26,10 +25,11 @@ function General({ getQuestions, questions }) {
 		<DashboardLayout>
 			<Wrapper>
 				<main className="content">
-					<BreadCrumb />
+					
 					<QuestionnaireLayout
 						Image={smallImg}
 						whatQuestion="General Questions"
+						heading="Health Risk Assessment"
 						howManyQuestion="7"
 						ImageRight={bloodGuage}
 					>

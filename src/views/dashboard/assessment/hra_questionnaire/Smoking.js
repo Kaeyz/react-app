@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
-import BreadCrumb from '../../../../components/dashboard/assessment/BreadCrumb';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import SmokingForm from '../../../../components/dashboard/assessment/hra_questionnaire/SmokingForm';
 import smallImg from '../../../../assets/Group.svg';
@@ -24,7 +23,6 @@ function Smoking({ getQuestions, questions }) {
 		<DashboardLayout>
 			<Wrapper>
 				<main className="content">
-					<BreadCrumb />
 					<QuestionnaireLayout
 						Image={smallImg}
 						whatQuestion="Smoking & Vaping"

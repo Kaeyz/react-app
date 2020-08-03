@@ -11,7 +11,6 @@ import HraImg from '../../../assets/hraImg.svg';
 import inbodyImg from '../../../assets/inbodyImg.svg';
 import mealImg from '../../../assets/mealImg.svg';
 import Button from '../../../components/common/Button';
-import BreadCrumb from '../../../components/dashboard/assessment/BreadCrumb';
 
 const Wrapper = styled.div`
   .content {
@@ -78,7 +77,6 @@ const HealthRiskAssessment = ({percentageCompleted}) => {
 		<DashboardLayout>
 			<Wrapper>
 				<main className="content">
-					<BreadCrumb />
 					<div className="heading">
 						<p>Health Risk Assessments</p>
 					</div>
