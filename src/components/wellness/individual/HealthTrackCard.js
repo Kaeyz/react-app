@@ -52,12 +52,12 @@ function HealthTrackCard({data}) {
 						</p>
 
 						<div>
-            <Link to="/onboarding/individual">
-            <Button value="Get started" theme="darkGreen">
+							<Link to="/onboarding/individual">
+								<Button value="Get started" theme="darkGreen">
                 Get started
-							</Button>
-              </Link>
-							
+								</Button>
+							</Link>
+
 						</div>
 					</div>
 				</div>

@@ -65,7 +65,7 @@ const Wrapper = styled.div`
     margin: 0;
   }
   .MuiAccordionSummary-root {
-	padding: 4rem 3rem;
+	padding: 3rem 3rem;
 	align-items: end;
 	border-radius: 1rem;
 	border: 1px solid #fff;
