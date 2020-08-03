@@ -43,7 +43,7 @@ const Wrapper = styled.div`
 
   .paper {
     margin: 1rem 0;
-    color: ${(props) => props.theme.color.text_01};
+    color: ${props => props.theme.color.text_01};
     padding: 1rem;
     justify-content: space-between;
     h2 {
@@ -77,9 +77,9 @@ const Wrapper = styled.div`
     height: .2rem;
     top: -1.0rem;
     position: absolute;
-	width: 100%;
-	border: 0;
-	z-index: 300;
+  	width: 100%;
+	  border: 0;
+	  z-index: 300;
   }
   .MuiAccordionSummary-expandIcon.Mui-expanded {
     position: absolute;
@@ -91,7 +91,6 @@ const Wrapper = styled.div`
   }
   .MuiAccordion-rounded,.MuiAccordionSummary-root{
 	  border-radius: 1rem !important;
-	  
   }
   #panel1bh-header {
   }
@@ -137,7 +136,7 @@ function ReviewCard({ ...props }) {
 						aria-controls="panel1bh-content"
 						id="panel1bh-header"
 					>
-						<p className="heading" style={{color: "#000B0A"}}>{props.heading}</p>
+						<p className="heading" style={{color: '#000B0A'}}>{props.heading}</p>
 
 						<p className="sub-heading">
               Our aim is to help you live your best lives, taking into
@@ -158,7 +157,7 @@ function ReviewCard({ ...props }) {
 						</div>
 
 						<div className="right-content questions">
-			 Questions
+              Questions
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
               atque quos maxime cupiditate mollitia modi? Placeat ullam
               excepturi laboriosam voluptas adipisci corporis, natus deserunt,
@@ -181,10 +180,10 @@ function ReviewCard({ ...props }) {
               expedita nihil consequuntur doloremque dolorum et?
 						</div>
 						<div className='minimize'>
-						<img src={minus} alt="miniimize" />
+							<img src={minus} alt="miniimize" />
 						</div>
 						<div className='rectangle'>
-						<img src={rectangle} alt="rectangle" />
+							<img src={rectangle} alt="rectangle" />
 						</div>
 					</div>
 				</AccordionDetails>
