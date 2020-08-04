@@ -106,10 +106,6 @@ function SideBar({ logoutUser }) {
 						<NavSection title="OTHER" items={otherItems} />
 					</div>
 				</div>
-				{/* <div className="nav_item footer" onClick={logoutUser}>
-					<Icon name="logout" />
-					<p>LOGOUT</p>
-				</div> */}
 			</div>
 		</Wrapper>
 	);
