@@ -25,10 +25,11 @@ const Wrapper = styled.div`
 
 function HealthReview({isLoading, saveQuestions, history}) {
 
-	const nextLink = '/assessments';
+	const nextLink = '/assessment/health/report';
 	const onSaveClick = (event) => {
 		event.preventDefault();
-		saveQuestions({ stage: 'SUBMIT' }, nextLink, history);
+		const input = { stage: 'SUBMIT' };
+		saveQuestions(input, nextLink, history);
 	};
 
 
