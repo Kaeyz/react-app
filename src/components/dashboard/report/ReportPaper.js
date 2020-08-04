@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 const Wrapper = styled.div`
 .blue{
@@ -39,19 +40,22 @@ margin-bottom: 1.2rem;
 function ReportPaper({...props}) {
 	return (
 		<Wrapper>
-			<Paper className={`paper ${props.color} `}>
-				<h5>{props.cardHeading}</h5>
-				<h4>{props.cardSubheading}</h4>
-				<p>{props.cardBody}</p>
-				<p>{props.cardBody2} <span className='strong'>{props.strong}</span> </p>
-                <h4>{props.cardSubheading2}</h4>
+			<Grid container>
+				<Grid item xs={12}>
+					<Paper className={`paper ${props.color} `}>
+						<h5>{props.cardHeading}</h5>
+						<h4>{props.cardSubheading}</h4>
+						<p>{props.cardBody}</p>
+						<p>{props.cardBody2} <span className='strong'>{props.strong}</span> </p>
+						<h4>{props.cardSubheading2}</h4>
 
-				<p>{props.cardBody3}</p>
-				{/* <div dangerouslySetInnerHTML={createMarkup()} /> */}
-				<p>{props.cardBody4}</p>
-				<p>{props.cardBody5}</p>
-			</Paper>
-
+						<p>{props.cardBody3}</p>
+						{/* <div dangerouslySetInnerHTML={createMarkup()} /> */}
+						<p>{props.cardBody4}</p>
+						<p>{props.cardBody5}</p>
+					</Paper>
+				</Grid>
+			</Grid>
 		</Wrapper>
 	);
 }
@@ -65,6 +69,7 @@ ReportPaper.propTypes = {
 	cardBody3: PropTypes.any,
 	cardBody4: PropTypes.any,
 	cardBody5: PropTypes.any,
+	color: PropTypes.any,
 };
 
 

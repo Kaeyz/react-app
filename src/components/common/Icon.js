@@ -8,7 +8,9 @@ import dashboardIsActiveIcon from '../../assets/dashboardIsActiveIcon.svg';
 import assessments from '../../assets/assessments.svg';
 import assessmentsIsActive from '../../assets/assessmentsIsActive.svg';
 import downloadIcon from '../../assets/downloadIcon.svg';
-import accountIcon from '../../assets/accountIcon.svg';
+import downloadIconIsActive from '../../assets/downloadIconIsActive.svg';
+import settingsIcon from '../../assets/settingsIcon.svg';
+import settingIconIsActive from '../../assets/settingIconIsActive.svg';
 import appointmentsIcon from '../../assets/appointmentsIcon.svg';
 import appointmentsIconIsActive from '../../assets/appointmentsIconIsActive.svg';
 import exerciseIcon from '../../assets/exerciseIcon.svg';
@@ -17,6 +19,7 @@ import logoutIcon from '../../assets/logoutIcon.svg';
 import mealsIcon from '../../assets/mealsIcon.svg';
 import mealsIconIsActive from '../../assets/mealsIconIsActive.svg';
 import rewardsIcon from '../../assets/rewardsIcon.svg';
+import rewardsIconIsActive from '../../assets/rewardsIconIsActive.svg';
 
 
 const Wrapper = styled.div`
@@ -33,7 +36,7 @@ display: grid;
   	background-image: url(${rewardsIcon});
 	}
 	.rewardsIsActive {
-  	background-image: url(${rewardsIcon});
+  	background-image: url(${rewardsIconIsActive});
 	}
 	.meals {
   	background-image: url(${mealsIcon});
@@ -59,17 +62,17 @@ display: grid;
 	.appointmentsIsActive {
   	background-image: url(${appointmentsIconIsActive});
 		}
-	.account {
-  	background-image: url(${accountIcon});
+	.settings {
+  	background-image: url(${settingsIcon});
 	}
-	accountIsActive {
-  	background-image: url(${accountIcon});
+	settingsIsActive {
+  	background-image: url(${settingIconIsActive});
 	}
 	.download {
   	background-image: url(${downloadIcon});
 	}
 	.downloadIsActive {
-  	background-image: url(${downloadIcon});
+  	background-image: url(${downloadIconIsActive});
 	}
 	.dashboard_home {
   	background-image: url(${dashboardIcon});
