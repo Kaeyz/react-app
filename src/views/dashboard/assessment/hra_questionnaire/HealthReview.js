@@ -28,18 +28,12 @@ function HealthReview() {
 				button='hideButton'
 				null='null'>
 				<Wrapper>
-					<ReviewCard
-						heading='General Questions' />
-					<ReviewCard
-						heading='Covid Risk'/>
-					<ReviewCard
-						heading='Blood pressure and Cholesterol' />
-					<ReviewCard
-						heading='Smoking and Vaping' />
-					<ReviewCard
-						heading='Travel and Alcohol' />
-					<ReviewCard
-						heading='Demographics' />
+					<ReviewCard heading='General Questions' />
+					<ReviewCard heading='Covid Risk'/>
+					<ReviewCard heading='Blood pressure and Cholesterol' />
+					<ReviewCard heading='Smoking and Vaping' />
+					<ReviewCard heading='Travel and Alcohol' />
+					<ReviewCard heading='Demographics' />
 					<div className="submit">
 						<Button theme="darkGreenBtn" style={{width:'16.3rem'}}>Submit all Assessment</Button>
 					</div>
