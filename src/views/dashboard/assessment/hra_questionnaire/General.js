@@ -18,14 +18,13 @@ const Wrapper = styled.div`
 function General({ getQuestions, questions }) {
 	React.useEffect(() => {
 		getQuestions('BASIC_INFORMATION');
-
 	}, [getQuestions]);
 
 	return (
 		<DashboardLayout>
 			<Wrapper>
 				<main className="content">
-					
+
 					<QuestionnaireLayout
 						Image={smallImg}
 						whatQuestion="General Questions"
@@ -48,8 +47,9 @@ General.propTypes = {
 	questions: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-	questions: state.hra.questions
-});
+const mapStateToProps = (state) => {
+	const questions = state.hra.questions.BASIC_INFORMATION;
+	return { questions: questions || [] };
+};
 
 export default connect(mapStateToProps, { getQuestions })(General);

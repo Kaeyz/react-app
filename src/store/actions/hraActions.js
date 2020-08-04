@@ -12,8 +12,8 @@ import {
 } from '../types';
 
 
-const addQuestions = (payload) => {
-	return { type: ADD_QUESTIONS, payload };
+const addQuestions = (questions, category) => {
+	return { type: ADD_QUESTIONS, payload: { questions, category } };
 };
 
 const hraIsLoading = () => {
@@ -49,19 +49,25 @@ const setPercentageCompleted = (payload) => {
  * Gets question based on question category
  * @param {string} category
  */
-export const getQuestions = (category) => dispatch => {
+export const getQuestions = (category) => (dispatch, getState) => {
 	dispatch(hraIsLoading());
-	hraQueries.getQuestion(category)
-		.then(res => {
-			const questions = res.data.fetchHraQuestion.q;
-			dispatch(addQuestions(questions));
-			dispatch(hraNotLoading());
-		})
-		.catch(() => {
-			dispatch(addQuestions([]));
-			dispatch(errorAlert('Network Error!!'));
-			dispatch(hraNotLoading());
-		});
+	const hraState = getState().hra.questions;
+	const questions = Object.prototype.hasOwnProperty.call(hraState, category);
+	if (questions) {
+		dispatch(hraNotLoading());
+	} else {
+		hraQueries.getQuestion(category)
+			.then(res => {
+				const questions = res.data.fetchHraQuestion.q;
+				dispatch(addQuestions(questions, category));
+				dispatch(hraNotLoading());
+			})
+			.catch(() => {
+				dispatch(addQuestions([], category));
+				dispatch(errorAlert('Network Error!!'));
+				dispatch(hraNotLoading());
+			});
+	}
 };
 
 /**
@@ -97,9 +103,11 @@ const setHraInputs = obj => dispatch => {
 export const fetchHraResponse = () => dispatch => {
 	hraQueries.getCurrentResponse()
 		.then(res => {
-			const { percentageProgress, questionAndResponse } = res.data.currentUserResponse;
-			dispatch(setPercentageCompleted(percentageProgress));
-			dispatch(setHraInputs(clean(questionAndResponse)));
+			if (res.data.currentUserResponse) {
+				const { percentageProgress, questionAndResponse } = res.data.currentUserResponse;
+				dispatch(setPercentageCompleted(percentageProgress));
+				dispatch(setHraInputs(clean(questionAndResponse)));
+			}
 		}).catch(() => {
 			dispatch(errorAlert('Network Error!!'));
 		});

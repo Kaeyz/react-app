@@ -43,8 +43,10 @@ Covid.propTypes = {
 	questions: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-	questions: state.hra.questions,
-});
+const mapStateToProps = (state) => {
+	const questions = state.hra.questions.COUGH_AND_HAND_HYGIENE;
+	return { questions: questions || [] };
+};
+
 
 export default connect(mapStateToProps, { getQuestions })(Covid);

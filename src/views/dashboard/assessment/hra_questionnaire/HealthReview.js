@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-//import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { saveQuestions } from '../../../../store/actions/hraActions';
+
+
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout';
 import ReviewCard from '../../../../components/dashboard/assessment/hra_questionnaire/ReviewCard';
@@ -18,29 +23,53 @@ const Wrapper = styled.div`
 }
 `;
 
-function HealthReview() {
+function HealthReview({isLoading, saveQuestions, history}) {
+
+	const nextLink = '/assessments';
+	const onSaveClick = (event) => {
+		event.preventDefault();
+		saveQuestions({ stage: 'SUBMIT' }, nextLink, history);
+	};
+
 
 	return (
 		<DashboardLayout>
 			<QuestionnaireLayout
 				heading='Review Health Assessment Submission'
 				Image={smallImg}
-				button='hideButton'
-				null='null'>
-				<Wrapper>
-					<ReviewCard heading='General Questions' />
-					<ReviewCard heading='Covid Risk'/>
-					<ReviewCard heading='Blood pressure and Cholesterol' />
-					<ReviewCard heading='Smoking and Vaping' />
-					<ReviewCard heading='Travel and Alcohol' />
-					<ReviewCard heading='Demographics' />
-					<div className="submit">
-						<Button theme="darkGreenBtn" style={{width:'16.3rem'}}>Submit all Assessment</Button>
-					</div>
-				</Wrapper>
+				previousLink="/assessment/health/food"
+			>
+				{
+					isLoading ?
+						<div>Loading ...</div>
+						:
+						<Wrapper>
+							<ReviewCard title='General Questions' category='BASIC_INFORMATION' />
+							<ReviewCard title='Covid Risk' category='COUGH_AND_HAND_HYGIENE'/>
+							<ReviewCard title='Blood pressure and Cholesterol' category='BLOOD_PRESSURE' />
+							<ReviewCard title='Smoking and Vaping' category='SMOKING' />
+							<ReviewCard title='Travel and Alcohol' category='DRIVING' />
+							<ReviewCard title='Food and Nutrition' category='NUTRITION' />
+							<ReviewCard title='Sleep' category='SLEEP' />
+							<div className="submit">
+								<Button theme="darkGreen" style={{width:'16.3rem'}}  onClick={onSaveClick} >Submit all Assessment</Button>
+							</div>
+						</Wrapper>
+				}
 			</QuestionnaireLayout>
 		</DashboardLayout>
 	);
 }
 
-export default HealthReview;
+HealthReview.propTypes = {
+	isLoading: PropTypes.bool.isRequired,
+	history: PropTypes.object.isRequired,
+	saveQuestions: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => {
+	const { isLoading } = state.hra;
+	return { isLoading };
+};
+
+export default connect(mapStateToProps, {saveQuestions})(withRouter(HealthReview));

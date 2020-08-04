@@ -25,7 +25,7 @@ function Smoking({ getQuestions, questions }) {
 				<main className="content">
 					<QuestionnaireLayout
 						Image={smallImg}
-						whatQuestion="Smoking & Vaping"
+						whatQuestion={'Smoking & Vaping'}
 						howManyQuestion="7"
 					>
 						<div className='questions-container'>
@@ -43,8 +43,9 @@ Smoking.propTypes = {
 	questions: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-	questions: state.hra.questions,
-});
+const mapStateToProps = (state) =>{
+	const questions = state.hra.questions.SMOKING;
+	return { questions: questions || [] };
+};
 
 export default connect(mapStateToProps, { getQuestions })(Smoking);

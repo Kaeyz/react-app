@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import HraInput from '../../../hra_input';
 import PropTypes from 'prop-types';
+import HraInput from '../../../hra_input';
 import Button from '../../../common/Button';
 import { withRouter } from 'react-router-dom';
 import { saveQuestions } from '../../../../store/actions/hraActions';
@@ -58,10 +58,10 @@ function BloodPressureForm({questions, isLoading, inputs, history, saveQuestions
 
 BloodPressureForm.propTypes = {
 	questions: PropTypes.array.isRequired,
-	inputs: PropTypes.array.isRequired,
+	inputs: PropTypes.object.isRequired,
 	history: PropTypes.object.isRequired,
-	isLoading: PropTypes.bool.isRequired,
 	saveQuestions: PropTypes.func.isRequired,
+	isLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => {

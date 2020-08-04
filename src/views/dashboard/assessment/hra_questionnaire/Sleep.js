@@ -23,7 +23,7 @@ function Sleep({ getQuestions, questions }) {
 		<DashboardLayout>
 			<Wrapper>
 				<main className="content">
-				
+
 					<QuestionnaireLayout
 						Image={smallImg}
 						whatQuestion="Sleep"
@@ -44,8 +44,10 @@ Sleep.propTypes = {
 	questions: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-	questions: state.hra.questions,
-});
+const mapStateToProps = (state) => {
+	const questions = state.hra.questions.SLEEP;
+	return { questions: questions || [] };
+};
+
 
 export default connect(mapStateToProps, { getQuestions })(Sleep);

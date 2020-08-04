@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 function Travel({ getQuestions, questions }) {
 	React.useEffect(() => {
 		getQuestions('DRIVING');
-	}, [getQuestions]);
+	}, [getQuestions ]);
 
 	return (
 		<DashboardLayout>
@@ -25,7 +25,7 @@ function Travel({ getQuestions, questions }) {
 				<main className="content">
 					<QuestionnaireLayout
 						Image={smallImg}
-						whatQuestion="Travel & Alcohol"
+						whatQuestion={'Travel & Alcohol'}
 						howManyQuestion="7"
 					>
 						<div className='questions-container'>
@@ -43,8 +43,9 @@ Travel.propTypes = {
 	questions: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-	questions: state.hra.questions,
-});
+const mapStateToProps = (state) => {
+	const questions = state.hra.questions.DRIVING;
+	return { questions: questions || [] };
+};
 
 export default connect(mapStateToProps, { getQuestions })(Travel);

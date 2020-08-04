@@ -3,7 +3,7 @@ import {ADD_QUESTIONS, REMOVE_QUESTIONS, CLEAR_HRA_INPUT, CLEAR_HRA_INPUTS, HRA_
 import hraInputs from '../../utils/hraInputs';
 
 const initialState = {
-	questions: [],
+	questions: {},
 	isLoading: false,
 	inputs: hraInputs,
 	showInput: {},
@@ -15,12 +15,15 @@ export default function (state = initialState, action) {
 	case ADD_QUESTIONS:
 		return {
 			...state,
-			questions: action.payload
+			questions: {
+				...state.questions,
+				[action.payload.category]: action.payload.questions
+			}
 		};
 	case REMOVE_QUESTIONS:
 		return {
 			...state,
-			questions: []
+			questions: {}
 		};
 	case HRA_INPUT_CHANGE:
 		return {

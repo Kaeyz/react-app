@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getQuestions } from '../../../../store/actions/hraActions';
+import { getQuestions  } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import BloodPressureForm from '../../../../components/dashboard/assessment/hra_questionnaire/BloodPressureForm';
@@ -26,7 +26,7 @@ function BloodPressure({ getQuestions, questions }) {
 				<main className="content">
 					<QuestionnaireLayout
 						Image={smallImg}
-						whatQuestion="Blood Pressure & Cholesterol"
+						whatQuestion={'Blood Pressure & Cholesterol'}
 						howManyQuestion="5"
 						ImageRight={bloodGuage}
 					>
@@ -42,11 +42,12 @@ function BloodPressure({ getQuestions, questions }) {
 
 BloodPressure.propTypes = {
 	getQuestions: PropTypes.func.isRequired,
-	questions: PropTypes.object.isRequired,
+	questions: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-	questions: state.hra.questions,
-});
+const mapStateToProps = (state) => {
+	const questions = state.hra.questions.BLOOD_PRESSURE;
+	return { questions: questions || [] };
+};
 
 export default connect(mapStateToProps, { getQuestions })(BloodPressure);
