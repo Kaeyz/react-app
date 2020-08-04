@@ -199,7 +199,7 @@ function HealthReport() {
 					/>
 
 					<div className="flex top-header">
-						<p style={{width: '90%'}}>Deaths per 100,000 men over the next 10 years</p>
+						<p style={{width: '92%'}}>Deaths per 100,000 men over the next 10 years</p>
 						<div className="null"></div>
 					</div>
 
