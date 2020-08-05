@@ -41,27 +41,14 @@ const Wrapper = styled.div`
 			color: #000b0a;
 			min-width: max-content;
 		}
-		.showButton{
-			display: block;
-			button{
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-			img {
-				margin-right:0;
-				margin-left:1rem;
-				width: 1.8rem;
-				height: 2rem;
-			}
-		}
-		.hideButton {
-				display: none;
-			}
-		}
+	}
+	.downloadButton {
+		width: max-content;
+	}
 	.withGuage{
 		display: grid;
-		grid-template-columns: max-content 1fr;
+		width: 100%;
+		grid-template-columns: max-content max-content;
 		justify-content: space-between;
 		align-items: flex-end;
 		grid-gap: 1rem;
@@ -84,8 +71,8 @@ function QuestionnaireLayout({ children, alt, heading, reportButton, Image, prev
 					<h1>{heading}</h1>
 				</div>
 				{reportButton ?
-					<div className={`${reportButton} button`}>
-						<Button theme="darkGreen">Download Report
+					<div >
+						<Button theme="darkGreen" text="Download Report">
 							<img src={downloadIcon} alt={downloadIcon}/>
 						</Button>
 					</div>

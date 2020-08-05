@@ -1,4 +1,4 @@
-import client from '../client';
+import { client, httpFetch } from '../client';
 
 const hraQueries = {};
 
@@ -214,6 +214,7 @@ hraQueries.getCurrentResponse = () => {
 			}
 			ghmReference
 			percentageProgress
+			reportId
 			createdAt
 			updatedAtAt
 		}
@@ -227,5 +228,26 @@ hraQueries.getCurrentResponse = () => {
 	});
 };
 
+
+hraQueries.getHraReportData = async () => {
+
+	const res = await hraQueries.getCurrentResponse();
+	const { reportId } = res.data.currentUserResponse;
+
+	return new Promise((resolve, reject) => {
+
+		if (!reportId) {
+			return reject('No Report found');
+		}
+
+		const path = 'https://hra-api.ghmcorp.com/api/v2/get_report_data';
+		const body = `{"get_report_data.client_id":"fitnessfair","get_report_data.report_id":"${reportId}"}`;
+
+		httpFetch
+			.post(path, body)
+			.then(res => resolve(JSON.parse(res)))
+			.catch(err => reject(err));
+	});
+};
 
 export default Object.freeze(hraQueries);

@@ -9,6 +9,7 @@ import {
 	HRA_NOT_LOADING,
 	SET_PERCENTAGE_COMPLETED,
 	SET_SHOW_INPUT,
+	SET_REPORT_DATA
 } from '../types';
 
 
@@ -64,7 +65,7 @@ export const getQuestions = (category) => (dispatch, getState) => {
 			})
 			.catch(() => {
 				dispatch(addQuestions([], category));
-				dispatch(errorAlert('Network Error!!'));
+				dispatch(errorAlert({msg: 'Network Error!!'}));
 				dispatch(hraNotLoading());
 			});
 	}
@@ -82,7 +83,7 @@ export const saveQuestions = (payload, nextLink, history) => dispatch => {
 			dispatch(successAlert(res.data.submitHRAResponse.message));
 			history.push(nextLink);
 		}).catch(() => {
-			dispatch(errorAlert('Network Error!!'));
+			dispatch(errorAlert({msg: 'Network Error!!'}));
 		});
 };
 
@@ -109,7 +110,7 @@ export const fetchHraResponse = () => dispatch => {
 				dispatch(setHraInputs(clean(questionAndResponse)));
 			}
 		}).catch(() => {
-			dispatch(errorAlert('Network Error!!'));
+			dispatch(errorAlert({msg: 'Network Error!!'}));
 		});
 };
 
@@ -153,4 +154,25 @@ export const validateShowHide = (field, rules) => (dispatch, getState) => {
 		}
 
 	});
+};
+
+const setReportData = (actualAge, riskAge, targetAge) => {
+	return {
+		type: SET_REPORT_DATA,
+		payload: { actualAge, riskAge, targetAge }
+	};
+};
+
+export const getHraReportData = () => (dispatch) => {
+	dispatch(hraIsLoading());
+	hraQueries.getHraReportData()
+		.then(res => {
+			const { target_age, risk_age } = res.data;
+			const actual_age = res.data.responses['hra.q.age_in_years.a.years'];
+			dispatch(setReportData(actual_age, risk_age, target_age));
+			dispatch(hraNotLoading());
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Network Error!!' }));
+		});
 };
