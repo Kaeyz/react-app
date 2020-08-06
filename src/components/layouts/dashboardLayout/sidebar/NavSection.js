@@ -15,7 +15,8 @@ const Wrapper = styled.div`
     grid-gap: 1rem;
     color: inherit;
     text-decoration: none;
-	padding: 1.8rem;
+		padding: 1rem;
+		cursor: pointer;
 
     &:hover p{
 		color: ${(props) => props.theme.color.text_05};
@@ -27,7 +28,7 @@ const Wrapper = styled.div`
       letter-spacing: -0.4px;
       color: ${(props) => props.theme.color.text_04};
 	  font-weight: normal;
-	  
+
     }
   }
   .isActive {
@@ -48,29 +49,39 @@ function Link({ item }) {
 	const [isActive, setIsActive] = React.useState(false);
 
 	return (
-		<NavLink
+		<React.Fragment>
 
-			className={`${isActive ? 'isActive' : ''} nav_item`}
-			to={item.link}
-			isActive={(match) => {
-				if (match) {
-					setIconName(`${item.icon}IsActive`);
-					setIsActive(true);
-					return;
-				}
-				return;
-			}}
-		>
-			<Icon name={iconName} />
-			<p >{item.text}</p>
-		</NavLink>
+			{
+				item.link ?
+					<NavLink
+						className={`${isActive ? 'isActive' : ''} nav_item`}
+						to={item.link}
+						isActive={(match) => {
+							if (match) {
+								setIconName(`${item.icon}IsActive`);
+								setIsActive(true);
+								return;
+							}
+							return;
+						}}
+					>
+						<Icon name={iconName} />
+						<p >{item.text}</p>
+					</NavLink>
+					:
+					<div className="nav_item" onClick={() => item.onClick()}>
+						<Icon name={iconName} />
+						<p >{item.text}</p>
+					</div>
+
+			}
+		</React.Fragment>
 	);
 }
 
-function NavSection({ title, items }) {
+function NavSection({ items }) {
 	return (
 		<Wrapper>
-			{/* <h5>{title}</h5> */}
 			{items.map((item) => (
 				<Link item={item} key={item.text} />
 			))}

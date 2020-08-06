@@ -1,13 +1,14 @@
-import {ADD_QUESTIONS, REMOVE_QUESTIONS, CLEAR_HRA_INPUT, CLEAR_HRA_INPUTS, HRA_INPUT_CHANGE, HRA_IS_LOADING, SET_PERCENTAGE_COMPLETED, HRA_NOT_LOADING, SET_SHOW_INPUT,
+import {ADD_QUESTIONS, REMOVE_QUESTIONS, CLEAR_HRA_INPUT, CLEAR_HRA_INPUTS, HRA_INPUT_CHANGE, HRA_IS_LOADING, SET_PERCENTAGE_COMPLETED, HRA_NOT_LOADING, SET_SHOW_INPUT,SET_REPORT_DATA
 } from '../types';
 import hraInputs from '../../utils/hraInputs';
 
 const initialState = {
-	questions: [],
+	questions: {},
 	isLoading: false,
 	inputs: hraInputs,
 	showInput: {},
 	percentageCompleted: 0,
+	reportData: {}
 };
 
 export default function (state = initialState, action) {
@@ -15,12 +16,15 @@ export default function (state = initialState, action) {
 	case ADD_QUESTIONS:
 		return {
 			...state,
-			questions: action.payload
+			questions: {
+				...state.questions,
+				[action.payload.category]: action.payload.questions
+			}
 		};
 	case REMOVE_QUESTIONS:
 		return {
 			...state,
-			questions: []
+			questions: {}
 		};
 	case HRA_INPUT_CHANGE:
 		return {
@@ -57,6 +61,11 @@ export default function (state = initialState, action) {
 		return {
 			...state,
 			percentageCompleted: action.payload
+		};
+	case SET_REPORT_DATA:
+		return {
+			...state,
+			reportData: action.payload
 		};
 	case SET_SHOW_INPUT:
 		return {

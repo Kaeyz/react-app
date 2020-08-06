@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Accordion from '@material-ui/core/Accordion';
@@ -7,64 +8,63 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import plus from '../../../../assets/plus.svg';
 import minus from '../../../../assets/minus.svg';
 import rectangle from '../../../../assets/Rectangle.svg';
+import { getQuestions } from '../../../../store/actions/hraActions';
+import HraInput from '../../../hra_input';
 
 const Wrapper = styled.div`
-  margin: 4rem 0;
-  .MuiCollapse-wrapperInner {
-    display: flex;
-    justify-content: space-between;
-  }
-  .expanded-content {
-    padding: 4rem 3rem;
-    position: relative;
-    align-items: start;
-    display: flex;
-    justify-content: space-between;
-    .left-content {
-      margin-right: 6.4rem;
-      width: 30rem;
-      top: 0;
-    }
-    .right-content {
-      width: 65%;
-    }
+	margin: 4rem 0;
+	.MuiCollapse-wrapperInner {
+		display: flex;
+		justify-content: space-between;
+	}
+	.expanded-content {
+		padding: 4rem 3rem;
+		align-items: start;
+		display: flex;
+		justify-content: space-between;
+		.left-content {
+			margin-right: 3rem;
+			width: 30rem;
+		}
+		.right-content {
+			width: 70%;
+		}
+		.minimize {
+			right: 22px;
+			top: 2rem;
+			position: absolute;
+		}
+		.rectangle {
+			left: 0;
+			top: 4rem;
+			position: absolute;
+		}
+	}
 
-    .minimize {
-	  right: 22px;
-	  top: 2rem;
-      position: absolute;
-    }
-    .rectangle {
-		left: 0;
-		top: 4rem;
-      position: absolute;
-    }
-  }
-
-  .paper {
-    margin: 1rem 0;
-    color: ${props => props.theme.color.text_01};
-    padding: 1rem;
-    justify-content: space-between;
-    h2 {
-      font-size: 1.5rem;
-      line-height: 2rem;
-      font-weight: normal;
-    }
-    h4 {
-      font-size: 1.5rem;
-      line-height: 2rem;
-      font-weight: normal;
-    }
-  }
-  .hidden {
-    display: none;
-  }
-  .MuiAccordionSummary-content {
-    display: block;
-    margin: 0;
-  }
-  .MuiAccordionSummary-root {
+	.paper {
+		margin: 1rem 0;
+		color: ${props => props.theme.color.text_01};
+		padding: 1rem;
+		justify-content: space-between;
+		h2 {
+			font-size: 1.5rem;
+			line-height: 2rem;
+			font-weight: normal;
+		}
+		h4 {
+			font-size: 1.5rem;
+			line-height: 2rem;
+			font-weight: normal;
+		}
+	}
+	.hidden {
+		display: none;
+	}
+	.MuiAccordionSummary-content {
+		display: block;
+		margin: 0;
+	}
+	.MuiAccordionSummary-root {
 	padding: 3rem 3rem;
 	align-items: end;
 	border-radius: 1rem;
@@ -115,18 +115,25 @@ const Wrapper = styled.div`
     border: .1rem solid ${(props) => props.theme.color.brand_02};
     transition: .1s;
 	border-radius: 1rem;
-  }
+	}
 `;
 
+<<<<<<< HEAD
 function ReviewCard({ heading }) {
+=======
+function ReviewCard({ title, category, getQuestions, questions }) {
+>>>>>>> 07055759a3f491d89b606a8af87922a1564a60e2
 	const [expanded, setExpanded] = React.useState(false);
 	// eslint-disable-next-line
-  const [show, toggleShow] = React.useState(true);
+	const [show, toggleShow] = React.useState(true);
 
 	const handleChange = (panel) => (event, isExpanded) => {
 		setExpanded(isExpanded ? panel : false);
-		//  toggleShow(!show)
 	};
+
+	React.useEffect(() => {
+		getQuestions(category);
+	}, [getQuestions, category]);
 
 	return (
 		<Wrapper>
@@ -140,11 +147,15 @@ function ReviewCard({ heading }) {
 						aria-controls="panel1bh-content"
 						id="panel1bh-header"
 					>
+<<<<<<< HEAD
 						<p id='colored' className="heading">{heading}</p>
+=======
+						<p className="heading" >{title}</p>
+>>>>>>> 07055759a3f491d89b606a8af87922a1564a60e2
 
 						<p className="sub-heading">
-              Our aim is to help you live your best lives, taking into
-              consideration.lorem ispum dior iono.
+							Our aim is to help you live your best lives, taking into
+							consideration.
 						</p>
 					</AccordionSummary>
 				)}
@@ -152,36 +163,28 @@ function ReviewCard({ heading }) {
 				<AccordionDetails>
 					<div className="expanded-content">
 						<div className="left-content">
+<<<<<<< HEAD
 							<p className="heading">{heading}</p>
+=======
+							<p className="heading">{title}</p>
+>>>>>>> 07055759a3f491d89b606a8af87922a1564a60e2
 
 							<p className="sub-heading">
-                Our aim is to help you live your best lives, taking into
-                consideration.lorem ispum dior iono.
+								Our aim is to help you live your best lives, taking into
+								consideration.
 							</p>
 						</div>
 
 						<div className="right-content questions">
-              Questions
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-              atque quos maxime cupiditate mollitia modi? Placeat ullam
-              excepturi laboriosam voluptas adipisci corporis, natus deserunt,
-              commodi delectus totam sapiente dicta omnis dolorem possimus nam
-              in expedita nihil consequuntur doloremque dolorum et? Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Iusto atque quos
-              maxime cupiditate mollitia modi? Placeat ullam excepturi
-              laboriosam voluptas adipisci corporis, natus deserunt, commodi
-              delectus totam sapiente dicta omnis dolorem possimus nam in
-              expedita nihil consequuntur doloremque dolorum et? Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Iusto atque quos
-              maxime cupiditate mollitia modi? Placeat ullam excepturi
-              laboriosam voluptas adipisci corporis, natus deserunt, commodi
-              delectus totam sapiente dicta omnis dolorem possimus nam in
-              expedita nihil consequuntur doloremque dolorum et? Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Iusto atque quos
-              maxime cupiditate mollitia modi? Placeat ullam excepturi
-              laboriosam voluptas adipisci corporis, natus deserunt, commodi
-              delectus totam sapiente dicta omnis dolorem possimus nam in
-              expedita nihil consequuntur doloremque dolorum et?
+							{questions.map((question, index) => (
+								<HraInput
+									key={question.id}
+									id={question.id}
+									label={`${index + 1}. ${question.label}`}
+									prompt={`${index + 1}. ${question.prompt}`}
+									inputs={question.input}
+								/>
+							))}
 						</div>
 						<div className='minimize'>
 							<img src={minus} alt="miniimize" />
@@ -197,7 +200,15 @@ function ReviewCard({ heading }) {
 }
 
 ReviewCard.propTypes = {
-	heading: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	category: PropTypes.string.isRequired,
+	getQuestions: PropTypes.func.isRequired,
+	questions: PropTypes.array.isRequired,
 };
 
-export default ReviewCard;
+const mapStateToProps = (state, props) => {
+	const questions = state.hra.questions[props.category];
+	return { questions: questions || [] };
+};
+
+export default connect(mapStateToProps, { getQuestions })(ReviewCard);

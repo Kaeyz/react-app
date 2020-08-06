@@ -25,7 +25,7 @@ function Food({ getQuestions, questions }) {
 				<main className="content">
 					<QuestionnaireLayout
 						Image={smallImg}
-						whatQuestion="Food & Nutrition"
+						whatQuestion={'Food & Nutrition'}
 						howManyQuestion="7"
 					>
 						<div className='questions-container'>
@@ -43,8 +43,9 @@ Food.propTypes = {
 	questions: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-	questions: state.hra.questions,
-});
+const mapStateToProps = (state) => {
+	const questions = state.hra.questions.NUTRITION;
+	return { questions: questions || [] };
+};
 
 export default connect(mapStateToProps, { getQuestions })(Food);

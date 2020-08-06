@@ -64,16 +64,16 @@ const Routes = () => (
 			<PrivateRoute exact path="/dashboard" component={DashboardHome} />
 			<PrivateRoute exact path="/dashboard_home2" component={DashboardHome2} />
 			<PrivateRoute exact path="/assessments" component={DashboardAssessment} />
-			<Route exact path="/assessment/health/start" component={General}/>
-			<Route exact path="/assessment/health/general" component={General}/>
-			<Route exact path="/assessment/health/covid" component={Covid}/>
-			<Route exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
-			<Route exact path="/assessment/health/smoking" component={Smoking}/>
-			<Route exact path="/assessment/health/travel" component={Travel}/>
-			<Route exact path="/assessment/health/sleep" component={Sleep}/>
-			<Route exact path="/assessment/health/food" component={Food}/>
-			<Route exact path="/assessment/health/review" component={HealthReview} />
-			<Route exact path="/assessment/health/report" component={HealthReport} />
+			<PrivateRoute exact path="/assessment/health/start" component={General}/>
+			<PrivateRoute exact path="/assessment/health/general" component={General}/>
+			<PrivateRoute exact path="/assessment/health/covid" component={Covid}/>
+			<PrivateRoute exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
+			<PrivateRoute exact path="/assessment/health/smoking" component={Smoking}/>
+			<PrivateRoute exact path="/assessment/health/travel" component={Travel}/>
+			<PrivateRoute exact path="/assessment/health/sleep" component={Sleep}/>
+			<PrivateRoute exact path="/assessment/health/food" component={Food}/>
+			<PrivateRoute exact path="/assessment/health/review" component={HealthReview} />
+			<PrivateRoute exact path="/assessment/health/report" component={HealthReport} />
 			<PrivateRoute exact path="/assessment/health" component={HealthRiskAssessment} />
 
 

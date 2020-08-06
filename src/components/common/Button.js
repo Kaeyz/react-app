@@ -80,20 +80,31 @@ width: 100%;
 	color: #fcb813;
 	transition: 0.4s;
 }
-
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	span {
+		padding-right: 0.5rem;
+	}
+}
 `;
 
 
-function Button({style, theme, ...rest}) {
+function Button({style, theme, children, text, ...rest}) {
 	const themeClassName = theme ? `${theme}Btn`: '';
 	return (
 		<Wrapper>
 
 			<button
-				type="button" className={`primaryBtn ${themeClassName} ${theme}`}
+				type="button" className={`${themeClassName} ${theme} button`}
 				style={{borderRadius: '0.5rem', fontSize:'1.2rem',fontWeight:'bold', width:'13.3rem', fontFamily:'Sofia', outline: 'none', cursor:'pointer',padding: '1.1rem 0.4rem',  ...style}}
 				{...rest}
-			/>
+			/>			
+				<span>{text}</span>
+				{children}
+			</button>
 		</Wrapper>
 
 	);

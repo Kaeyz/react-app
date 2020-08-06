@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 
 function FoodForm({ questions, isLoading, inputs, history, saveQuestions }) {
 
-	const nextLink = '/assessments';
+	const nextLink = '/assessment/health/review';
 	const onSaveClick = (event) => {
 		event.preventDefault();
 		inputs.stage = 'UPDATE_RESPONSE';

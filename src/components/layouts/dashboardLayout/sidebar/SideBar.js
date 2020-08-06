@@ -12,16 +12,16 @@ import NavSection from './NavSection';
 import Divider from '@material-ui/core/Divider';
 
 const Wrapper = styled(Paper)`
-  border-radius: 1.3rem;
-  max-height: 94vh;
-  position: sticky;
-  top: 2.0rem;
-  left: 1.8rem;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  &::-webkit-scrollbar {
-    width: 0.5em;
-  }
+	border-radius: 1.3rem;
+	max-height: 94vh;
+	position: sticky;
+	top: 2.0rem;
+	left: 1.8rem;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	&::-webkit-scrollbar {
+		width: 0.3em;
+	}
 
   &::-webkit-scrollbar-thumb {
     background-color: #2ec4b6;
@@ -74,21 +74,21 @@ color: #000000;
   }
 `;
 
-const employeeItems = [
-	{ icon: 'dashboard_home', text: 'Dashboard', link: '/dashboard' },
-	{ icon: 'assessments', text: 'Assessments', link: '/assessments' },
-	{ icon: 'exercise', text: 'Exercise', link: '/exercise' },
-	{ icon: 'exercise', text: 'Meals', link: '/meals' },
-	{ icon: 'exercise', text: 'Appointments', link: '/appointments' },
-];
-const otherItems = [
-	{ icon: 'download', text: 'Reports', link: '/reports' },
-	{ icon: 'rewards', text: 'Rewards', link: '/rewards' },
-	{ icon: 'settings', text: 'Settings', link: '/settings' },
-	{ icon: 'logout', text: 'Logout', link: '/logout' },
-];
 
 function SideBar({ logoutUser }) {
+	const employeeItems = [
+		{ icon: 'dashboard_home', text: 'Dashboard', link: '/dashboard' },
+		{ icon: 'assessments', text: 'Assessments', link: '/assessments' },
+		{ icon: 'exercise', text: 'Exercise', link: '/exercise' },
+		{ icon: 'exercise', text: 'Meals', link: '/meals' },
+		{ icon: 'exercise', text: 'Appointments', link: '/appointments' },
+	];
+	const otherItems = [
+		{ icon: 'download', text: 'Reports', link: '/reports' },
+		{ icon: 'rewards', text: 'Rewards', link: '/rewards' },
+		{ icon: 'settings', text: 'Settings', link: '/settings' },
+		{ icon: 'logout', text: 'Logout', onClick: logoutUser },
+	];
 	return (
 		<Wrapper elevation={2}>
 			<div className="sidebar">
@@ -105,10 +105,6 @@ function SideBar({ logoutUser }) {
 						<NavSection title="OTHER" items={otherItems} />
 					</div>
 				</div>
-				{/* <div className="nav_item footer" onClick={logoutUser}>
-					<Icon name="logout" />
-					<p>LOGOUT</p>
-				</div> */}
 			</div>
 		</Wrapper>
 	);

@@ -1,6 +1,10 @@
 import React from 'react';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { getHraReportData } from '../../../../store/actions/hraActions';
+import { connect } from 'react-redux';
+
+import Paper from '@material-ui/core/Paper';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout';
 import smallImg from '../../../../assets/Activity.svg';
@@ -9,10 +13,9 @@ import AnalysisCard from '../../../../components/dashboard/common/AnalysisCard';
 import TableReport from '../../../../components/dashboard/report/TableReport';
 import ReportPaper from '../../../../components/dashboard/report/ReportPaper';
 import GraphReport from '../../../../components/dashboard/report/GraphReport';
-import Paper from '@material-ui/core/Paper';
-
-
 // import Button from '../../../../components/common/Button';
+
+
 const Wrapper = styled.div`
   .null {
     border: 1px solid rgba(214, 216, 211, 0.5);
@@ -78,7 +81,11 @@ position: absolute;
 }
 `;
 
-function HealthReport() {
+function HealthReport({getHraReportData, reportData, isLoading}) {
+
+	React.useEffect(() => {
+		getHraReportData();
+	}, [getHraReportData]);
 
 	return (
 		<Wrapper>
@@ -86,32 +93,37 @@ function HealthReport() {
 				<QuestionnaireLayout
 					heading="Health Risk Report"
 					Image={smallImg}
-					button="showButton"
+					reportButton={true}
 				>
 					<div className="flex top-header">
 						<p>ANALYSIS</p>
-						<div className="null"></div>
 					</div>
-					<div className="flex analysis-card">
-						<AnalysisCard
-							cardTheme="blue"
-							cardHeading="Your Target Age"
-							cardInfo="Your target age is what you want  your risk age to be if  you made changes to your lifestyle."
-							cardValue="49.8"
-						/>
-						<AnalysisCard
-							cardTheme="pink"
-							cardHeading="Your Risk Age"
-							cardInfo="Your risk age compares  you to other people , your age and sex for all causes of death"
-							cardValue="61.8"
-						/>
-						<AnalysisCard
-							cardTheme="green"
-							cardHeading="Current Age"
-							cardInfo="Lorem Ipsum has been the industry's stan is the dard dummy text."
-							cardValue="51.8"
-						/>
-					</div>
+
+					{
+						isLoading ?
+							<div>Loading ...</div>
+							:
+							<div className="flex analysis-card">
+								<AnalysisCard
+									cardTheme="blue"
+									cardHeading="Your Target Age"
+									cardInfo="Your target age is what you want  your risk age to be if  you made changes to your lifestyle."
+									cardValue={Number(reportData.targetAge).toFixed(2)}
+								/>
+								<AnalysisCard
+									cardTheme="pink"
+									cardHeading="Your Risk Age"
+									cardInfo="Your risk age compares  you to other people , your age and sex for all causes of death"
+									cardValue={Number(reportData.riskAge).toFixed(2)}
+								/>
+								<AnalysisCard
+									cardTheme="green"
+									cardHeading="Current Age"
+									cardInfo="Lorem Ipsum has been the industry's stan is the dard dummy text."
+									cardValue={reportData.actualAge}
+								/>
+							</div>
+					}
 					<ReportPaper
 						cardHeading="Healthier living can reduce your risks by 13.3 years"
 						cardBody={`Your has been the industry's standard dummy text ever since the 1500s, when
@@ -231,8 +243,15 @@ function HealthReport() {
 	);
 }
 
-// HealthReport.propTypes = {
+HealthReport.propTypes = {
+	getHraReportData: PropTypes.func.isRequired,
+	reportData: PropTypes.object.isRequired,
+	isLoading: PropTypes.bool.isRequired
+};
 
-// }
+const mapStateToProps = state => {
+	const { reportData, isLoading } = state.hra;
+	return { reportData, isLoading };
+};
 
-export default HealthReport;
+export default connect(mapStateToProps, {getHraReportData})(HealthReport);
