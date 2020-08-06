@@ -2,23 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Select, MenuItem } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import { theme as myTheme } from '../../../Theme';
-import InputBase from '@material-ui/core/InputBase';
+
 
 // eslint-disable-next-line no-unused-vars
-const Input = withStyles((theme) => ({
-	input: {
-		border: `2px solid ${myTheme.color.ui_text_01}`,
-		fontSize: '1.5rem',
-		padding: '1.3rem 4px 1.3rem 4px',
-		'&:focus': {
-			borderRadius: 4,
-			borderColor: myTheme.color.active_primary,
-			boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-		}
-	},
-}))(InputBase);
+
 
 const Wrapper = styled.div`
   margin-top: 1.5rem;
@@ -30,16 +17,34 @@ const Wrapper = styled.div`
   }
   .input {
     margin: 0;
-    min-width: 100%;
+	min-width: 100%;
+	
   }
 	.error {
 		color: red;
 	}
+	.MuiSelect-select:focus{
+		background-color:${props => props.theme.color.text_03};
+		outline: none;
+		border-color: ${props => props.theme.color.brand_02};
+		box-shadow: 0 0 3px ${props => props.theme.color.brand_02};
+  
+	}
+	
+	.MuiOutlinedInput-root{
+		border: 1px solid ${props => props.theme.color.ui_text_06};
+		border-radius: 2px;
+		&:hover {
+			border: 1px solid ${props => props.theme.color.ui_text_05};
+			transition: .3s;
+		}
+	}
+	.MuiOutlinedInput-notchedOutline{
+		border: none;
+	}
 `;
 
-const inputStyle = {
-	fontSize: '1.5rem',
-};
+
 
 const SelectInput = ({ label, onChange, value, options, error }) => {
 	const handleChange = (event) => {
@@ -53,11 +58,13 @@ const SelectInput = ({ label, onChange, value, options, error }) => {
 			<Select
 				className="input"
 				variant="outlined"
-				input={<Input />}
+				placeholder='{placeholder}'
 				value={value}
 				onChange={handleChange}
-				inputProps={{ style: inputStyle }}
+				
+
 			>
+				
 				{options && options.map((option, index) => (
 					<MenuItem key={index} value={option.value}>
 						{option.text}

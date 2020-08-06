@@ -13,7 +13,7 @@ import {
 } from '../../common/inputs';
 import PropTypes from 'prop-types';
 import { onBoardIndividualValidator } from '../validation';
-import NumberWithUnit from '../../common/inputs/NumberWithUnit';
+import {NumberInput} from '../../common/inputs/NumberInput';
 const textInput = {
 	placeholder: 'Type here...',
 };
@@ -71,8 +71,8 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 	const [password, setPassword] = useState('');
 	const [password2, setPassword2] = useState('');
 	const [activity, setActivityLevel] = useState('');
-	const [weight,setWeight] = React.useState('Kilogram');
-	const [height,setHeight] = React.useState('Feet');
+	const [weight,setWeight] = React.useState('');
+	const [height,setHeight] = React.useState('');
 	const [dob, setDob] = useState(new Date());
 	const [errors, setErrors] = useState({});
 
@@ -164,19 +164,21 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
-						<NumberWithUnit
+						<NumberInput
 							label="Weight"
-							options={optionWeight}
+							// options={optionWeight}
 							value={weight}
+							placeholder='Enter Weight'
 							onChange={setWeight}
 							error={errors.weight}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
-						<NumberWithUnit
+						<NumberInput
 							label="Height"
-							options={optionHeight}
+							// options={optionHeight}
 							value={height}
+							placeholder='Enter height here.. '
 							onChange={setHeight}
 							error={errors.height}
 						/>

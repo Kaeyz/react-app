@@ -19,13 +19,10 @@ const Wrapper = styled.div`
 	.input {
 		margin: 0;
 		min-width: 100%;
-		border: 2px solid ${props => props.theme.color.ui_text_01};
 		outline: none;
 		color: ${props => props.theme.color.active_primary};
 		border-radius: 5px;
-		:hover {
-			border: 2px solid ${props => props.theme.color.active_primary};
-		}
+	
 	}
 	.error {
 		color: red;
