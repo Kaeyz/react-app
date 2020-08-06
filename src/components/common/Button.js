@@ -99,9 +99,9 @@ function Button({style, theme, children, text, ...rest}) {
 
 			<button
 				type="button" className={`${themeClassName} ${theme} button`}
-				style={{borderRadius: '0.5rem', fontSize:'1.2rem',fontWeight:'bold', width:'13.3rem', fontFamily:'Sofia', outline: 'none', cursor:'pointer',padding: '1.1rem 0.4rem',  ...style}}
-				{...rest}
-			/>			
+				style={{ borderRadius: '0.5rem', fontSize: '1.2rem', fontWeight: 'bold', width: '13.3rem', fontFamily: 'Sofia', outline: 'none', cursor: 'pointer', padding: '1.1rem 0.4rem', ...style }}
+				{...rest }
+			>
 				<span>{text}</span>
 				{children}
 			</button>

@@ -118,11 +118,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-<<<<<<< HEAD
-function ReviewCard({ heading }) {
-=======
 function ReviewCard({ title, category, getQuestions, questions }) {
->>>>>>> 07055759a3f491d89b606a8af87922a1564a60e2
 	const [expanded, setExpanded] = React.useState(false);
 	// eslint-disable-next-line
 	const [show, toggleShow] = React.useState(true);
@@ -147,11 +143,7 @@ function ReviewCard({ title, category, getQuestions, questions }) {
 						aria-controls="panel1bh-content"
 						id="panel1bh-header"
 					>
-<<<<<<< HEAD
-						<p id='colored' className="heading">{heading}</p>
-=======
 						<p className="heading" >{title}</p>
->>>>>>> 07055759a3f491d89b606a8af87922a1564a60e2
 
 						<p className="sub-heading">
 							Our aim is to help you live your best lives, taking into
@@ -163,11 +155,7 @@ function ReviewCard({ title, category, getQuestions, questions }) {
 				<AccordionDetails>
 					<div className="expanded-content">
 						<div className="left-content">
-<<<<<<< HEAD
-							<p className="heading">{heading}</p>
-=======
 							<p className="heading">{title}</p>
->>>>>>> 07055759a3f491d89b606a8af87922a1564a60e2
 
 							<p className="sub-heading">
 								Our aim is to help you live your best lives, taking into
