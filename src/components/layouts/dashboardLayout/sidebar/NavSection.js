@@ -17,14 +17,15 @@ const Wrapper = styled.div`
     text-decoration: none;
 	padding: 1.8rem;
 
-    :hover {
-      color: ${(props) => props.theme.color.brand_02};
+    &:hover p{
+		color: ${(props) => props.theme.color.text_05};
+		transition: .3s;
     }
     p {
       font-size: 15px;
       line-height: 14px;
       letter-spacing: -0.4px;
-      color: #828282;
+      color: ${(props) => props.theme.color.text_04};
 	  font-weight: normal;
 	  
     }
@@ -36,7 +37,7 @@ border: 1px solid #2EC4B6;
 border-radius: 4px;
 padding: 1.8rem;
 p{
-	color: #000000;
+	color: ${(props) => props.theme.color.text_05};
 
 }
   }

@@ -17,22 +17,36 @@ const Wrapper = styled.div`
     margin-top: 0;
     font-weight: normal;
   }
+
+	.MuiFormControl-root{
+		border: 1px solid ${props => props.theme.color.ui_03};
+border-radius: 2px;
+padding: 1.5rem;
+&:hover{
+	border: 1px solid ${props => props.theme.color.brand_02};
+	transition: .2s;
+}
+	}
+	.MuiInputBase-input{
+		padding:0;
+	}
+  
   .dropdown > .MuiInput-root {
-    width: 20.3rem;
-    margin-left: 1.6rem;
+    width: 33rem;
     .MuiSelect-select.MuiSelect-select {
-      font-size: 1.4rem;
-      line-height: 2.4rem;
-      color: ${(props) => props.theme.color.brand_02};
-      font-family: Matteo;
+      font-size: 1.6rem;
+	  line-height: 2rem;
+	  font-family:Sofia;
+	  letter-spacing: 0.2px;
+      color: ${(props) => props.theme.color.ui_07};
     }
     .MuiSelect-icon {
-		color: ${(props) => props.theme.color.brand_02};
+		color: ${(props) => props.theme.color.text_05};
     }
 
   }
-  .MuiInput-underline:before {
-	border-bottom: .1rem solid #2ec4b6;
+  .MuiInput-underline:before,.MuiInput-underline:hover:not(.Mui-disabled):before {
+	border-bottom: 0;
   }
   .MuiInput-underline:after{
 	border-bottom:  ${(props) => props.theme.color.text_01};

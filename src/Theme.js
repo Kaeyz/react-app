@@ -3,6 +3,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
 import basicFont from './assets/Myfont/Matteo.otf';
 import secFont from './assets/Myfont/FuturaPTBook.otf';
+import hraFont from './assets/Myfont/sofiapro-light.otf';
 import Notify from './components/notification/Notify';
 
 const theme = {
@@ -15,9 +16,14 @@ const theme = {
 		ui_02: '#FBFCFA',
 		ui_03: '#F3F0F0',
 		ui_04: '#D6D8D3',
+		ui_05: '#000b0a',
+		ui_06: '#0a2523',
+		ui_07: '#a6a6a6',
 		text_01: '#1D1D1D',
 		text_02: '#606161',
 		text_03: '#ffffff',
+		text_04: '#828282',
+		text_05: '#000000',
 		ui_text_01: '#CBF3F0',
 		ui_text_02: '#FFA393',
 		ui_text_03: '#FFBF69',
@@ -46,6 +52,10 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: Futura;
     src: url(${secFont}) ;
+  }
+@font-face {
+    font-family: Sofia;
+    src: url(${hraFont}) ;
   }
 
 	html {

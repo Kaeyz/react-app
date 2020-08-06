@@ -19,32 +19,36 @@ const Wrapper = styled.div`
   .flex{
 	justify-content: start;
 	.MuiInput-underline:before,.MuiInput-underline:after {
-		border-bottom: .1rem solid #2ec4b6;
+		border-bottom: 0;
 	  }
   }
   .withSideDropdown {
     margin-top: -0.9rem;
-    margin-left: 1rem;
     .MuiSelect-icon {
       color: ${(props) => props.theme.color.brand_02};
     }
-    .MuiSelect-select.MuiSelect-select {
-      font-size: 0.8rem;
-      line-height: 2.4rem;
-      color: ${(props) => props.theme.color.text_01};
-      width: 3.2rem;
-      padding-right: 7px;
-      background-color: #fff;
+    .MuiFormControl-root{
+        border: 1px solid #F0F0F0;
+    border-radius: 2px;
+	padding: 1.5rem;
+	&:hover{
+		border: 1px solid ${props => props.theme.color.brand_02};
+		transition: .2s;
 	}
-
+	}
 		.MuiFormControl-marginNormal {
 			margin-left: 2.7rem;
 			width: 7rem;
 		}
-
+		.MuiInput-root {
+			width: 33rem;
+		}
     .MuiInputBase-input {
-      width: 11rem;
-	  	color: ${(props) => props.theme.color.text_01};
+	  font-size: 1.6rem;
+	  line-height: 2rem;
+	  font-family:Sofia;
+	  letter-spacing: 0.2px;
+      color: ${(props) => props.theme.color.ui_07};
     }
   }
   .plain{
@@ -80,16 +84,16 @@ function NumberInput({ limit, unit, name, value, onChange, validateShowHide, sho
 							}}
 							value={value}
 							onChange={handleChange}
-							endAdornment={
-								<div>
-									<p>{unit}</p>
-									{/* 	{weights.map((option) => (
-										<MenuItem key={option.value} value={option.value}>
-											{option.label}
-										</MenuItem>
-									))} */}
-								</div>
-							}
+							// endAdornment={
+							// 	<div>
+							// 		<p>{unit}</p>
+							// 		{/* 	{weights.map((option) => (
+							// 			<MenuItem key={option.value} value={option.value}>
+							// 				{option.label}
+							// 			</MenuItem>
+							// 		))} */}
+							// 	</div>
+							// }
 						/>
 					</FormControl>
 				</div>

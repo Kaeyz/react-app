@@ -1,11 +1,16 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
+import styled from 'styled-components';
 
-function GraphReport(props) {
+const Wrapper = styled.div`
+margin-bottom: 6rem;
+`;
+
+function GraphReport() {
 	return (
-		<div>
+		<Wrapper>
 Graph
-		</div>
+		</Wrapper>
 	);
 }
 

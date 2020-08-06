@@ -10,12 +10,26 @@ import Paper from '@material-ui/core/Paper';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+margin-bottom: 6rem;
+.MuiPaper-rounded{
+  border-radius:0;
+}
 .table-section {
-	  
-	.MuiTableContainer-root{
-		border-radius: 10px 10px 0px 0px;
-		
-	}
+  max-width: 100%;
+   overflow-x: scroll;
+    overflow-y: hidden;
+    &::-webkit-scrollbar {
+      height: .1rem;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: #f37920;
+      border-radius: 0.5rem;
+    }
+  .MuiTable-root{
+    min-width: 930px;
+   
+  }
     h1 {
 		margin-bottom:3rem;
       font-size: 20px;
@@ -43,10 +57,7 @@ const Wrapper = styled.div`
       height: 8.5rem;
       background-color: rgba(243, 121, 32, 0.05);
       border: 1px solid #f37920;
-	  border-radius: 10px 10px 0px 0px;
-	//   border: 1px solid palegoldenrod;
-      border-radius: 10px;
-      .MuiTableCell-head {
+    .MuiTableCell-head {
         border-bottom: 1px solid #f37920;
       }
     }

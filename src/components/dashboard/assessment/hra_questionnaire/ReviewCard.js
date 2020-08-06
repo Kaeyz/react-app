@@ -94,8 +94,11 @@ const Wrapper = styled.div`
   }
   #panel1bh-header {
   }
+  .colored{
+    color: ${(props) => props.theme.color.ui_05};
+  }
   .heading {
-    color: #2ec4b6;
+    color: ${(props) => props.theme.color.brand_02};
     font-weight: bold;
     font-size: 2.1rem;
     line-height: 3.0rem;
@@ -106,15 +109,16 @@ const Wrapper = styled.div`
     font-size: 1.6rem;
     line-height: 2.5rem;
     letter-spacing: 0..2rem;
-    color: #000b0a;
+    color: ${(props) => props.theme.color.ui_05};
   }
   .MuiCollapse-entered{
-    border: .1rem solid #2ec4b6;
+    border: .1rem solid ${(props) => props.theme.color.brand_02};
+    transition: .1s;
 	border-radius: 1rem;
   }
 `;
 
-function ReviewCard({ ...props }) {
+function ReviewCard({ heading }) {
 	const [expanded, setExpanded] = React.useState(false);
 	// eslint-disable-next-line
   const [show, toggleShow] = React.useState(true);
@@ -136,7 +140,7 @@ function ReviewCard({ ...props }) {
 						aria-controls="panel1bh-content"
 						id="panel1bh-header"
 					>
-						<p className="heading" style={{color: '#000B0A'}}>{props.heading}</p>
+						<p id='colored' className="heading">{heading}</p>
 
 						<p className="sub-heading">
               Our aim is to help you live your best lives, taking into
@@ -148,7 +152,7 @@ function ReviewCard({ ...props }) {
 				<AccordionDetails>
 					<div className="expanded-content">
 						<div className="left-content">
-							<p className="heading">{props.heading}</p>
+							<p className="heading">{heading}</p>
 
 							<p className="sub-heading">
                 Our aim is to help you live your best lives, taking into

@@ -44,13 +44,13 @@ const Wrapper = styled(Paper)`
       opacity: 0.2;
     }
     .flex{
-      margin-bottom: 2rem;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr max-content;    
+    margin-bottom: 2rem;
       h1{
         font-size: 16px;
 line-height: 15px;
 color: #000000;
-margin-left: 1.6rem;
       }
     }
   }
@@ -95,13 +95,13 @@ function SideBar({ logoutUser }) {
 				<div className="top">
 					<div className='flex'>
 						<img src={toggleLogo} alt="toggle" className="logo" />
-            <h1>Employee Portal</h1>
+						<h1>Employee Portal</h1>
 					</div>
-          <Divider variant="middle" />
+					<Divider variant="middle" />
 					<div className="nav">
 						<UserInfo />
 						<NavSection title="EMPLOYEE" items={employeeItems} />
-            <Divider variant="middle" />
+						<Divider variant="middle" />
 						<NavSection title="OTHER" items={otherItems} />
 					</div>
 				</div>

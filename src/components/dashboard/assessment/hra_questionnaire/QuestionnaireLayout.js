@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Back from '../../../../assets/greenBackArrow.svg';
@@ -31,15 +32,14 @@ const Wrapper = styled.div`
     img {
       width: 3rem;
       height: 3rem;
-      margin-right: 2rem;
-    }
+      }
     h1 {
       font-size: 20px;
       line-height: 20px;
       letter-spacing: -0.2px;
       font-weight: normal;
       color: #000b0a;
-      width:400px;
+      // width:400px;
     }
 
     .null {
@@ -66,10 +66,16 @@ const Wrapper = styled.div`
     }
      }
   .withGuage{
-	  justify-content: space-between;
+    justify-content: space-between;
+    .centered{
+      alignItems: center;
+      display: grid;
+    grid-template-columns: 1fr max-content;
+    grid-gap: 2rem;
+    }
   }
 `;
-function QuestionnaireLayout({ children , ...props }) {
+function QuestionnaireLayout({ children ,Image, heading, button, alt }) {
 	return (
 		<Wrapper>
 			<div className="flex-back">
@@ -78,15 +84,15 @@ function QuestionnaireLayout({ children , ...props }) {
 			</div>
 	  <div className="flex withGuage">
 				<div>
-					<div className="flex mb" style={{ alignItems: 'center' }}>
+					<div className="flex mb centered">
 						{' '}
-						<img src={props.Image} alt={props.alt} />
-						<h1>{props.heading}</h1>
+						<img src={Image} alt={alt} />
+						<h1>{heading}</h1>
 					</div>
 				</div>
 
-				<div className={props.null}></div>
-				<div className={`${props.button} button`}>
+				<div className={null}></div>
+				<div className={`${button} button`}>
 					<Button theme="darkGreenBtn" style={{width:'16.3rem'}}>Download Report
 						<img src={downloadIcon}alt={downloadIcon}/>
 					</Button>
@@ -100,6 +106,7 @@ function QuestionnaireLayout({ children , ...props }) {
 QuestionnaireLayout.propTypes = {
 	Image: PropTypes.any,
 	heading: PropTypes.string.isRequired,
+	alt: PropTypes.string.isRequired,
 	null: PropTypes.string.isRequired,
 	children: PropTypes.any.isRequired,
 	button: PropTypes.any.isRequired,

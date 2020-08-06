@@ -21,25 +21,34 @@ const Wrapper = styled.div`
   }
   .top-header {
 	margin: 4rem 0;
+	#risk-level{
+	  width: 13%;
+	}
+	#death{
+		width: 92%;
+	
+	}
     p {
       font-weight: bold;
       font-size: 16px;
       line-height: 16px;
       letter-spacing: 1.8px;
-      color: #000b0a;
+      color: ${(props) => props.theme.color.ui_05};
 	  margin-right: 2rem;
 	  text-transform: uppercase;
     }
   }
   .analysis-card {
-	justify-content: space-between;
-	flex-wrap: wrap;
-  }
+	margin: 0 0 4rem 0;
+	display: grid;
+    grid-gap: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
 .paperWithPicture{
 	justify-content: flex-end;
 	position: relative;
 	height: 240px;
-	margin: 9rem 0 6rem 0;
+	margin: 6rem 0;
 	img{
 		width: 340px;
 height: 240px;
@@ -54,7 +63,7 @@ position: absolute;
 			font-size: 20px;
 			line-height: 180%;
 			letter-spacing: 0.2px;
-			color: #000b0a;
+			color: ${(props) => props.theme.color.ui_05};
 			font-weight: bold;
 			width: 100%;
 			margin-bottom: 1rem;
@@ -63,7 +72,7 @@ position: absolute;
 			font-size: 20px;
 			line-height: 40px;
 			letter-spacing: 0.2px;
-			color: #0A2523;
+			color: ${(props) => props.theme.color.ui_06};
 		  }
 	}
 }
@@ -81,7 +90,7 @@ function HealthReport() {
 				>
 					<div className="flex top-header">
 						<p>ANALYSIS</p>
-						{/* <div className="null"></div> */}
+						<div className="null"></div>
 					</div>
 					<div className="flex analysis-card">
 						<AnalysisCard
@@ -163,7 +172,7 @@ function HealthReport() {
 					/>
 
 					<div className="flex top-header">
-						<p style={{width: '13%'}}>RISK LEVELS</p>
+						<p id="risk-level">RISK LEVELS</p>
 						<div className="null"></div>
 					</div>
 					<ReportPaper
@@ -199,7 +208,7 @@ function HealthReport() {
 					/>
 
 					<div className="flex top-header">
-						<p style={{width: '92%'}}>Deaths per 100,000 men over the next 10 years</p>
+						<p id='death'>Deaths per 100,000 men over the next 10 years</p>
 						<div className="null"></div>
 					</div>
 

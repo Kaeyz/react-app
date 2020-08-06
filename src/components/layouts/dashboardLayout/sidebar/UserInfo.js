@@ -11,9 +11,11 @@ margin-top: 3.45rem;
 	justify-content: space-between;
 	min-width: 15rem;
 	.user_details {
-		display: flex;
 		width: max-content;
 		align-items: center;
+		display: grid;
+		grid-template-columns: 1fr max-content;
+		grid-gap: 1.7rem;
 	}
 	.avatar {
 		height: 4rem;

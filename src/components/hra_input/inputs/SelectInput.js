@@ -4,28 +4,41 @@ import styled from 'styled-components';
 import check_all from '../../../assets/check-all.svg';
 
 const Wrapper = styled.div`
-    margin-bottom: 1rem;
 	.options {
 		display: flex;
 		flex-wrap: wrap;
 		width: 100%;
 		margin-top: 1rem;
+		.options-div{
+			width: max-content;
+			margin-right:1.6rem;
+		}
 	}
+	
 	.option {
 		border: 1px solid ${props => props.theme.color.brand_02};
 		color: ${props => props.theme.color.brand_02};
 		width: max-content;
-		display: grid;
-		align-items: center;
-		grid-template-columns: max-content max-content max-content;
-		grid-gap: 1rem;
-		padding: 1.5rem 2rem;
+		width: 100%;
+		justify-content: space-between;
+		padding: 1.8rem 1.6rem;
 		border-radius: 7px;
 		background-color: ${props => props.theme.color.ui_01};
 		margin-right: 1rem;
 		margin-bottom: 1rem;
 		cursor: pointer;
+		transition: transform .2s;
+		&:hover{
+			transform: scale(0.9);
+		}
+		.gridy{
+			display: grid;
+			align-items: center;
+			grid-template-columns: max-content max-content max-content;
+			grid-gap: 1rem;
+		}
 	}
+	
 	.label {
 		font-size: 1.4rem;
 		font-weight: normal;
@@ -34,15 +47,17 @@ const Wrapper = styled.div`
 	.isSelected {
 		background-color: ${props => props.theme.color.ui_text_01};
 		transition: 2sec;
+		height: 5.8rem;
 	}
 	.tag {
 		border: 1px solid ${props => props.theme.color.brand_02};
 		padding: 0rem 0.5rem;
 		font-size: 1.4rem;
-		font-weight: normal;
+		font-weight: 600;
 		text-align: center;
 		line-height: normal;
 		border-radius: 5px;
+		font-family:Sofia;
 		background-color: ${props => props.theme.color.ui_01};
 	}
 	.other_option {
@@ -53,7 +68,8 @@ const Wrapper = styled.div`
 	}
 	.option_label {
 		font-size: 1.4rem;
-		font-weight: normal;
+		font-weight: 600;
+		font-family:Sofia;
 	}
 	.other_input {
 		border: none;
@@ -91,16 +107,18 @@ function SelectInput({ options, otherInput, otherLabel, name, value, onChange })
 		<Wrapper>
 			<div className="options">
 				{options && options.map((option, index) => (
-					<div key={option.id} >
+					<div key={option.id} className='options-div'>
 						{
 							option.label !== 'choose an answer' &&
 							<div
-								className={`option ${isSelected === option.id && 'isSelected'}`}
+								className={`option flex ${isSelected === option.id && 'isSelected'}`}
 								onClick={() => handleChange(option.id)}>
-								<p className="tag">{optionLabel[index + 1]}</p>
-								<p className="option_label" >
-									{option.label}
-								</p>
+								<div className="gridy">
+									<p className="tag">{optionLabel[index + 1]}</p>
+									<p className="option_label" >
+										{option.label}
+									</p>
+								</div>
 								{isSelected === option.id && <img src={check_all} alt="check-all" />}
 							</div>
 						}

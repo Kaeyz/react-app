@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
-
 .blue{
     background: rgba(46, 196, 182, 0.03);
     border: 1px solid #2EC4B6;    
@@ -19,10 +18,11 @@ border: 1px solid #8DB838;
 }
 	.paper{
         border-radius: 10px;
-		padding: 4rem 3rem;
+		padding: 3rem;
 		text-align: left;
-		width: 332px;
-		
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 height: 235px;
 margin-bottom: 2rem;
 h5{
@@ -30,7 +30,7 @@ h5{
 font-size: 16px;
 line-height: 16px;
 letter-spacing: 0.2px;
-color: #000B0A;
+color: ${(props) => props.theme.color.ui_05};
 }
 p{
     font-weight: 300;
@@ -46,37 +46,33 @@ font-size: 40px;
 line-height: 39px;
 letter-spacing: 0.2px;
 margin-top: 2.5rem;
-color: #000B0A;
+color: ${(props) => props.theme.color.ui_05};
 }
 	}
 	
 `;
 
-const Analysis = ({ fontSize, cardTheme, ...props  }) => {
+const Analysis = ({ fontSize, cardTheme,cardHeading,cardInfo,cardValue }) => {
 
 	return (
 		<Wrapper>
-      
- 
+
+
 			<Paper className={`paper ${cardTheme}`} >
 
-				<h5>{props.cardHeading}</h5>
-				<p className={`${fontSize}`}>{props.cardInfo}</p>
-				<h2>{props.cardValue}</h2>
+				<h5>{cardHeading}</h5>
+				<p className={`${fontSize}`}>{cardInfo}</p>
+				<h2>{cardValue}</h2>
 			</Paper>
-		
+
 		</Wrapper>
 	);
 };
 
 Analysis.propTypes = {
-	Image: PropTypes.any,
 	cardValue: PropTypes.any,
 	cardInfo: PropTypes.any,
 	fontSize: PropTypes.any,
-	where: PropTypes.string,
-	btnTheme: PropTypes.any,
-	btnValue: PropTypes.string,
 	cardTheme: PropTypes.string.isRequired,
 	cardHeading: PropTypes.string.isRequired
 };

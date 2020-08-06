@@ -10,12 +10,14 @@ import SelectInput from './inputs/SelectInput';
 
 
 const Wrapper = styled.div`
+		margin:4rem 0;
 		.input_label {
-		margin-bottom: 0.3rem;
-		font-size: 1.4rem;
-		line-height: 2.4rem;
+		margin-bottom: 3rem;
+		font-size: 1.6rem;
+		line-height: 1.5rem;
 		margin-top: 0;
 		font-weight: normal;
+		color: ${props => props.theme.color.ui_06};
 	}
 `;
 
