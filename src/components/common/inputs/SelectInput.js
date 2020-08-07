@@ -42,6 +42,13 @@ const Wrapper = styled.div`
 	.MuiOutlinedInput-notchedOutline{
 		border: none;
 	}
+	.MuiSelect-select.MuiSelect-select{
+		font-family: Sofia;
+font-size: 1.4rem;
+line-height: 2.0rem;
+letter-spacing: 0.2px;
+color: ${props => props.theme.color.text_06};
+	}
 `;
 
 
@@ -58,13 +65,10 @@ const SelectInput = ({ label, onChange, value, options, error }) => {
 			<Select
 				className="input"
 				variant="outlined"
-				placeholder='{placeholder}'
 				value={value}
 				onChange={handleChange}
-				
-
 			>
-				
+
 				{options && options.map((option, index) => (
 					<MenuItem key={index} value={option.value}>
 						{option.text}

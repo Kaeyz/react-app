@@ -19,10 +19,12 @@ const textInput = {
 };
 
 const optionGender = [
+	{ value: 'SELECT HERE', text: 'Select here' },
 	{ value: 'MALE', text: 'Male' },
 	{ value: 'FEMALE', text: 'Female' },
 ];
 const optionActivity = [
+	{ value: 'SELECT HERE', text: 'Select here' },
 	{ value: 'HIGH', text: 'High' },
 	{ value: 'MEDIUM', text: 'Medium' },
 	{ value: 'VERYACTIVE', text: 'Very Active' },
@@ -30,50 +32,50 @@ const optionActivity = [
 	{ value: 'LOWACTIVITY', text: 'Low Activity' },
 ];
 
-const optionWeight = [
-	{
-		value: 'Kilogram',
-		label: 'in KG',
-	},
-	{
-		value: 'Pound',
-		label: 'in Lb',
-	},
-	{
-		value: 'Gram',
-		label: 'in g',
-	},
-	{
-		value: 'Ounces',
-		label: 'in Oz',
-	},
-];
+// const optionWeight = [
+// 	{
+// 		value: 'Kilogram',
+// 		label: 'in KG',
+// 	},
+// 	{
+// 		value: 'Pound',
+// 		label: 'in Lb',
+// 	},
+// 	{
+// 		value: 'Gram',
+// 		label: 'in g',
+// 	},
+// 	{
+// 		value: 'Ounces',
+// 		label: 'in Oz',
+// 	},
+// ];
 
-const optionHeight = [
-	{
-		value: 'Feet',
-		label: 'in Ft',
-	},
-	{
-		value: 'Centimeter',
-		label: 'in Cm',
-	},
-	{
-		value: 'Inches',
-		label: 'in In',
-	},
-];
+// const optionHeight = [
+// 	{
+// 		value: 'Feet',
+// 		label: 'in Ft',
+// 	},
+// 	{
+// 		value: 'Centimeter',
+// 		label: 'in Cm',
+// 	},
+// 	{
+// 		value: 'Inches',
+// 		label: 'in In',
+// 	},
+// ];
 const IndividualSignUpForm = ({ history, registerIndividual }) => {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [email, setEmail] = useState('');
-	const [gender, setGender] = useState('');
+	const [gender, setGender] = useState('SELECT HERE');
 	const [password, setPassword] = useState('');
 	const [password2, setPassword2] = useState('');
-	const [activity, setActivityLevel] = useState('');
+	const [activity, setActivityLevel] = useState('SELECT HERE');
 	const [weight,setWeight] = React.useState('');
 	const [height,setHeight] = React.useState('');
-	const [dob, setDob] = useState(new Date());
+	const [dob, setDob] = useState(new Date('07/08/2020'));
 	const [errors, setErrors] = useState({});
 
 	const onFormSubmit = (event) => {
