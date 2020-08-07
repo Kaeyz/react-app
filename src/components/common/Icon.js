@@ -10,7 +10,7 @@ import assessmentsIsActive from '../../assets/assessmentsIsActive.svg';
 import downloadIcon from '../../assets/downloadIcon.svg';
 import downloadIconIsActive from '../../assets/downloadIconIsActive.svg';
 import settingsIcon from '../../assets/settingsIcon.svg';
-import settingIconIsActive from '../../assets/settingIconIsActive.svg';
+import settingsIconIsActive from '../../assets/settingIconIsActive.svg';
 import appointmentsIcon from '../../assets/appointmentsIcon.svg';
 import appointmentsIconIsActive from '../../assets/appointmentsIconIsActive.svg';
 import exerciseIcon from '../../assets/exerciseIcon.svg';
@@ -65,8 +65,8 @@ display: grid;
 	.settings {
   	background-image: url(${settingsIcon});
 	}
-	settingsIsActive {
-  	background-image: url(${settingIconIsActive});
+	.settingsIsActive {
+  	background-image: url(${settingsIconIsActive});
 	}
 	.download {
   	background-image: url(${downloadIcon});
@@ -106,8 +106,8 @@ Icon.propTypes = {
 		'assessmentsIsActive',
 		'download',
 		'downloadIsActive',
-		'account',
-		'accountIsActive',
+		'settings',
+		'settingsIsActive',
 		'appointments',
 		'appointmentsIsActive',
 		'rewards',

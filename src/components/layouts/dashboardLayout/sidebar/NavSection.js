@@ -36,9 +36,10 @@ const Wrapper = styled.div`
 	background: rgba(46, 196, 182, 0.04);
 border: 1px solid #2EC4B6;
 border-radius: 4px;
-padding: 1.8rem;
+padding: 1rem;
 p{
 	color: ${(props) => props.theme.color.text_05};
+    font-weight: bold;
 
 }
   }
