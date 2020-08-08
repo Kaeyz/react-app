@@ -21,6 +21,7 @@ color: ${props => props.theme.color.ui_text_05};
 		height: 100%;
 		margin: 0;
 		min-width: 100%;
+		max-width: 100%;
 		padding: 1.5rem;
 		border: 1px solid ${props => props.theme.color.ui_text_06};
 		border-radius: 2px;

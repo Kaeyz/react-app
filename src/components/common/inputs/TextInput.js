@@ -19,7 +19,7 @@ color: ${props => props.theme.color.ui_text_05};
   .input_div {
 	border: 1px solid ${props => props.theme.color.ui_text_06};
 	    height: 4.8rem;
-    display: grid;
+    // display: grid;
     grid-template-columns: 1fr max-content;
     border-radius: 2px;
     &:hover {
@@ -36,7 +36,9 @@ color: ${props => props.theme.color.ui_text_05};
 		margin: 0;
     outline: none;
     border: none;
-    height: 100%;
+	height: 100%;
+	// min-width: 100%;
+	max-width: 100%;
 	padding-left: 1rem;
 	&::placeholder{
 		font-family: Sofia;
@@ -75,7 +77,7 @@ const TextInput = ({ label, onChange, value, placeholder, inputAdornment, error,
 					onChange={handleChange}
 					type={type ? type : 'text'}
 				/>
-				<p className="adornment">{inputAdornment}</p>
+				{/* <p className="adornment">{inputAdornment}</p> */}
 			</div>
 			<p className="error">{error && error}</p>
 		</Wrapper>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import SideBar from './sidebar/SideBar';
+import { device } from '../../../Device';
 
 const Wrapper = styled.div`
   display: grid;
@@ -13,17 +14,20 @@ const Wrapper = styled.div`
     background: #fbfbfb;
     padding: 2rem;
     padding-left: 5rem;
+    ${device.tablet`
+    padding-left: 2rem;
+  `}
   }
   .shadow {
-    filter: blur(6.0rem);
+    filter: blur(6rem);
     height: 94vh;
-    width: 20.0rem;
+    width: 20rem;
     background-color: #000b0a;
     opacity: 0.1;
     left: 7.7rem;
     top: 1.9rem;
     position: fixed;
-    border-radius: 1.0rem;
+    border-radius: 1rem;
   }
 `;
 

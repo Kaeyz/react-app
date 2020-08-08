@@ -39,6 +39,8 @@ border-radius: 2px;
 outline: none;
 border: none;
 height: 100%;
+// min-width: 100%;
+width: 100%;
 padding-left: 1rem;
 &::placeholder{
 	font-family: Sofia;
