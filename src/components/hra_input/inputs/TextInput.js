@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Grid from '@material-ui/core/Grid';
 
 
 const Wrapper = styled.div`
@@ -76,47 +77,48 @@ function TextInput({ label }) {
 	};
 	return (
 		<Wrapper>
-			<div className="flex">
-				<div className="plain">
-					<TextField
-						style={{ margin: 8 }}
-						margin="normal"
-						InputLabelProps={{
-							shrink: true,
-						}}
-					/>
+			<Grid xs={12} sm={6}>
+				<div className="flex">
+					<div className="plain">
+						<TextField
+							style={{ margin: 8 }}
+							margin="normal"
+							InputLabelProps={{
+								shrink: true,
+							}}
+						/>
+					</div>
+
+					<div className="withSideLabel flex">
+						<TextField
+							className="withPlaceholder "
+							placeholder="Enter %"
+							style={{ margin: 8 }}
+							margin="normal"
+							InputLabelProps={{
+								shrink: true,
+							}}
+						/>
+						<h5>percent</h5>
+					</div>
+
+					<div className="withSeparateDropdown flex">
+						<FormControl className="dropdown">
+							<Select
+								value={value}
+								onChange={handleChange}
+								displayEmpty
+								inputProps={{ 'aria-label': 'Without label' }}
+							>
+								<MenuItem value="">Cigarettes per day</MenuItem>
+								<MenuItem value={10}>Cigarettes per week</MenuItem>
+								<MenuItem value={20}>Cigarettes per month</MenuItem>
+							</Select>
+						</FormControl>
+					</div>
+
 				</div>
-
-				<div className="withSideLabel flex">
-					<TextField
-						className="withPlaceholder "
-						placeholder="Enter %"
-						style={{ margin: 8 }}
-						margin="normal"
-						InputLabelProps={{
-							shrink: true,
-						}}
-					/>
-					<h5>percent</h5>
-				</div>
-
-				<div className="withSeparateDropdown flex">
-					<FormControl className="dropdown">
-						<Select
-							value={value}
-							onChange={handleChange}
-							displayEmpty
-							inputProps={{ 'aria-label': 'Without label' }}
-						>
-							<MenuItem value="">Cigarettes per day</MenuItem>
-							<MenuItem value={10}>Cigarettes per week</MenuItem>
-							<MenuItem value={20}>Cigarettes per month</MenuItem>
-						</Select>
-					</FormControl>
-				</div>
-
-
-			</div>
+			</Grid>
 		</Wrapper>
 	);
 }

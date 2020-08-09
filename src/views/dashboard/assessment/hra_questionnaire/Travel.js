@@ -6,7 +6,7 @@ import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import TravelForm from '../../../../components/dashboard/assessment/hra_questionnaire/TravelForm';
-import smallImg from '../../../../assets/Group.svg';
+import smallImg from '../../../../assets/Activity.svg';
 
 const Wrapper = styled.div`
   .content {
@@ -26,11 +26,12 @@ function Travel({ getQuestions, questions }) {
 					<QuestionnaireLayout
 						Image={smallImg}
 						whatQuestion={'Travel & Alcohol'}
-						howManyQuestion="7"
+						heading="Health Risk Assessment"
+						percent='98'
+						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
 					>
-						<div className='questions-container'>
-							<TravelForm questions={questions} />
-						</div>
+						<TravelForm questions={questions} />
+
 					</QuestionnaireLayout>
 				</main>
 			</Wrapper>

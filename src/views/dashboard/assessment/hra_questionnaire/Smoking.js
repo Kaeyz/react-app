@@ -6,7 +6,7 @@ import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import SmokingForm from '../../../../components/dashboard/assessment/hra_questionnaire/SmokingForm';
-import smallImg from '../../../../assets/Group.svg';
+import smallImg from '../../../../assets/Activity.svg';
 
 const Wrapper = styled.div`
   .content {
@@ -26,11 +26,12 @@ function Smoking({ getQuestions, questions }) {
 					<QuestionnaireLayout
 						Image={smallImg}
 						whatQuestion={'Smoking & Vaping'}
-						howManyQuestion="7"
+						heading="Health Risk Assessment"
+						percent='20'
+						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
 					>
-						<div className='questions-container'>
-							<SmokingForm questions={questions} />
-						</div>
+						<SmokingForm questions={questions} />
+
 					</QuestionnaireLayout>
 				</main>
 			</Wrapper>

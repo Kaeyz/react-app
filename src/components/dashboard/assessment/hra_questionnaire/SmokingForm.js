@@ -9,6 +9,10 @@ import Button from '../../../common/Button';
 
 
 const Wrapper = styled.div`
+margin-top: -1rem;
+> div {
+  margin-top: -4rem;
+}
 	.submit {
 		margin-top: 1rem;
 		display: grid;

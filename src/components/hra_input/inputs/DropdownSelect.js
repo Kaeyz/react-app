@@ -6,6 +6,7 @@ import { validateShowHide } from '../../../store/actions/hraActions';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Grid from '@material-ui/core/Grid';
 
 const Wrapper = styled.div`
     margin-top: 1.5rem;
@@ -22,6 +23,7 @@ const Wrapper = styled.div`
 		border: 1px solid ${props => props.theme.color.ui_03};
 border-radius: 2px;
 padding: 1.5rem;
+    width: 100%;
 &:hover{
 	border: 1px solid ${props => props.theme.color.brand_02};
 	transition: .2s;
@@ -32,7 +34,7 @@ padding: 1.5rem;
 	}
   
   .dropdown > .MuiInput-root {
-    width: 33rem;
+    // max-width: 33rem;
     .MuiSelect-select.MuiSelect-select {
       font-size: 1.6rem;
 	  line-height: 2rem;
@@ -62,21 +64,22 @@ function DropdownSelect({options, name, onChange, value, showHide, validateShowH
 
 	return (
 		<Wrapper>
-
-			<FormControl className="dropdown">
-				<Select
-					value={value}
-					onChange={handleChange}
-					displayEmpty
-					name={name}
-				>
-					{options.map((option) => (
-						<MenuItem value={option.id} key={option.id}>
-							{option.label || option.id}
-						</MenuItem>
-					))}
-				</Select>
-			</FormControl>
+			<Grid xs={12} sm={6}>
+				<FormControl className="dropdown">
+					<Select
+						value={value}
+						onChange={handleChange}
+						displayEmpty
+						name={name}
+					>
+						{options.map((option) => (
+							<MenuItem value={option.id} key={option.id}>
+								{option.label || option.id}
+							</MenuItem>
+						))}
+					</Select>
+				</FormControl>
+			</Grid>
 		</Wrapper>
 	);
 }

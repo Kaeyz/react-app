@@ -28,6 +28,9 @@ const Wrapper = styled.div`
     top: 1.9rem;
     position: fixed;
     border-radius: 1rem;
+    ${device.tablet`
+    display:none;
+  `}
   }
 `;
 
