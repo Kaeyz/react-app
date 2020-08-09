@@ -23,6 +23,11 @@ margin-top: -1rem;
 		${device.mobileL`
 		grid-template-columns: 1fr;
   `}
+  .button{
+	${device.mobileL`
+width:100% !important;
+`}
+  }
 	}
 `;
 

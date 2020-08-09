@@ -6,6 +6,7 @@ import { saveQuestions } from '../../../../store/actions/hraActions';
 import HraInput from '../../../hra_input';
 import PropTypes from 'prop-types';
 import Button from '../../../common/Button';
+import { device } from '../../../../Device';
 
 
 const Wrapper = styled.div`
@@ -19,6 +20,14 @@ margin-top: -1rem;
 		grid-template-columns: max-content max-content;
 		grid-gap: 2rem;
 		justify-content: end;
+		${device.mobileL`
+		grid-template-columns: 1fr;
+  `}
+  .button{
+	${device.mobileL`
+width:100% !important;
+`}
+  }
 	}
 `;
 

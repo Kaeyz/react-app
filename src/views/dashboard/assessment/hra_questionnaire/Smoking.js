@@ -6,11 +6,15 @@ import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import SmokingForm from '../../../../components/dashboard/assessment/hra_questionnaire/SmokingForm';
-import smallImg from '../../../../assets/Activity.svg';
+// import smallImg from '../../../../assets/Activity.svg';
+import { device } from '../../../../Device';
 
 const Wrapper = styled.div`
-  .content {
-    padding: 2rem;
+.content {
+	padding: 2rem;
+	${device.tablet`
+    padding:0;
+  `}
   }
 `;
 
@@ -24,7 +28,7 @@ function Smoking({ getQuestions, questions }) {
 			<Wrapper>
 				<main className="content">
 					<QuestionnaireLayout
-						Image={smallImg}
+						// Image={smallImg}
 						whatQuestion={'Smoking & Vaping'}
 						heading="Health Risk Assessment"
 						percent='20'

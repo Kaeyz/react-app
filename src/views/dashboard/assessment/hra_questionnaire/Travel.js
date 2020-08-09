@@ -6,11 +6,15 @@ import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import TravelForm from '../../../../components/dashboard/assessment/hra_questionnaire/TravelForm';
-import smallImg from '../../../../assets/Activity.svg';
+// import smallImg from '../../../../assets/Activity.svg';
+import { device } from '../../../../Device';
 
 const Wrapper = styled.div`
-  .content {
-    padding: 2rem;
+.content {
+	padding: 2rem;
+	${device.tablet`
+    padding:0;
+  `}
   }
 `;
 
@@ -24,7 +28,7 @@ function Travel({ getQuestions, questions }) {
 			<Wrapper>
 				<main className="content">
 					<QuestionnaireLayout
-						Image={smallImg}
+						// Image={smallImg}
 						whatQuestion={'Travel & Alcohol'}
 						heading="Health Risk Assessment"
 						percent='98'

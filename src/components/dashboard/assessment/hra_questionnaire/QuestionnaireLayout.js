@@ -31,6 +31,7 @@ const Wrapper = styled.div`
 	.title {
 		display: flex;
 		justify-content: start;
+		align-item:center;
 		img {
 			padding-right: 1rem;
 
