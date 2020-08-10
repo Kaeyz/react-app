@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { getHraReportData } from '../../../../store/actions/hraActions';
+import { getHraReportData, getHraPdf } from '../../../../store/actions/hraActions';
 import { connect } from 'react-redux';
 
 import Paper from '@material-ui/core/Paper';
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 	}
 	#death{
 		width: 92%;
-	
+
 	}
     p {
       font-weight: bold;
@@ -81,7 +81,7 @@ position: absolute;
 }
 `;
 
-function HealthReport({getHraReportData, reportData, isLoading}) {
+function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 
 	React.useEffect(() => {
 		getHraReportData();
@@ -94,6 +94,7 @@ function HealthReport({getHraReportData, reportData, isLoading}) {
 					heading="Health Risk Report"
 					Image={smallImg}
 					reportButton={true}
+					downloadAction={getHraPdf}
 				>
 					<div className="flex top-header">
 						<p>ANALYSIS</p>
@@ -245,6 +246,7 @@ function HealthReport({getHraReportData, reportData, isLoading}) {
 
 HealthReport.propTypes = {
 	getHraReportData: PropTypes.func.isRequired,
+	getHraPdf: PropTypes.func.isRequired,
 	reportData: PropTypes.object.isRequired,
 	isLoading: PropTypes.bool.isRequired
 };
@@ -254,4 +256,4 @@ const mapStateToProps = state => {
 	return { reportData, isLoading };
 };
 
-export default connect(mapStateToProps, {getHraReportData})(HealthReport);
+export default connect(mapStateToProps, {getHraReportData, getHraPdf})(HealthReport);

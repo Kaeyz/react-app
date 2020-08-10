@@ -176,3 +176,17 @@ export const getHraReportData = () => (dispatch) => {
 			dispatch(errorAlert({ msg: 'Network Error!!' }));
 		});
 };
+
+export const getHraPdf = () => (dispatch) => {
+	hraQueries.getReportPdf()
+		.then((res) => {
+			const a = document.createElement('a');
+			a.href = window.URL.createObjectURL(res);
+			a.download = 'HraReport.pdf';
+			document.body.appendChild(a);
+			a.click();
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Network Error!!' }));
+		});
+};

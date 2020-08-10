@@ -58,26 +58,33 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} exact path="/onboarding/company" component={CompanySignUp} />
 			<PrivateRoute isAuth={false} exact path="/onboarding/success" component={CompanyRegistrationSuccess} />
 
+
 			<PrivateRoute isAuth={false} exact path="/forgot_password" component={ForgotPassword} />
 			<PrivateRoute isAuth={false} exact path="/reset_link_sent" component={PasswordResetLink} />
 			<PrivateRoute isAuth={false} exact path="/reset" component={ResetPassword} />
 			<PrivateRoute isAuth={false} exact path="/reset_success" component={PasswordResetSuccessful} />
 
 
-			<PrivateRoute exact path="/dashboard" component={DashboardHome} />
-			<PrivateRoute exact path="/dashboard_home2" component={DashboardHome2} />
-			<PrivateRoute exact path="/assessments" component={DashboardAssessment} />
 			<Route exact path="/settings/account" component={AccountSettings} />
 			<Route exact path="/settings/password" component={PasswordSettings} />
 			<Route exact path="/settings/help" component={HelpSettings} />
+
+
+			<PrivateRoute exact path="/dashboard" component={DashboardHome} />
+			<PrivateRoute exact path="/dashboard_home2" component={DashboardHome2} />
+
+			<PrivateRoute exact path="/assessments" component={DashboardAssessment} />
 			<PrivateRoute exact path="/assessment/health/start" component={General}/>
-			<Route exact path="/assessment/health/general" component={General}/>
+			<Route exact path="/assessment/health/general" component={General} />
+
 			<PrivateRoute exact path="/assessment/health/covid" component={Covid}/>
 			<PrivateRoute exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
 			<PrivateRoute exact path="/assessment/health/smoking" component={Smoking}/>
 			<PrivateRoute exact path="/assessment/health/travel" component={Travel}/>
 			<PrivateRoute exact path="/assessment/health/sleep" component={Sleep}/>
-			<PrivateRoute exact path="/assessment/health/food" component={Food}/>
+			<PrivateRoute exact path="/assessment/health/food" component={Food} />
+
+			
 			<PrivateRoute exact path="/assessment/health/review" component={HealthReview} />
 			<PrivateRoute exact path="/assessment/health/report" component={HealthReport} />
 			<PrivateRoute exact path="/assessment/health" component={HealthRiskAssessment} />
