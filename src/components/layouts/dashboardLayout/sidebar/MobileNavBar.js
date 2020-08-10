@@ -31,7 +31,6 @@ nav{
 .MuiDrawer-paperAnchorDockedLeft{
     padding: 20px;
     background-color: rgba(0,0,0,0.4);
-    // left:auto;
 }
 
 `;
