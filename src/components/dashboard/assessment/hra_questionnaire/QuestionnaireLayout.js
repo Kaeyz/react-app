@@ -56,7 +56,7 @@ const Wrapper = styled.div`
 		margin-top: 1.5rem;
 	}
 `;
-function QuestionnaireLayout({ children, alt, heading, reportButton, Image, previousLink }) {
+function QuestionnaireLayout({ children, alt, heading, reportButton, Image, previousLink, downloadAction  }) {
 	return (
 		<Wrapper>
 			{
@@ -73,7 +73,7 @@ function QuestionnaireLayout({ children, alt, heading, reportButton, Image, prev
 				</div>
 				{reportButton ?
 					<div >
-						<Button theme="darkGreen" text="Download Report">
+						<Button theme="darkGreen" text="Download Report" onClick={downloadAction}>
 							<img src={downloadIcon} alt={downloadIcon}/>
 						</Button>
 					</div>
@@ -97,6 +97,7 @@ QuestionnaireLayout.propTypes = {
 	previousLink: PropTypes.string.isRequired,
 	children: PropTypes.any.isRequired,
 	reportButton: PropTypes.bool.isRequired,
+	downloadAction: PropTypes.func.isRequired
 };
 
 export default QuestionnaireLayout;

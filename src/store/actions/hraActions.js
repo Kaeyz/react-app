@@ -176,3 +176,19 @@ export const getHraReportData = () => (dispatch) => {
 			dispatch(errorAlert({ msg: 'Network Error!!' }));
 		});
 };
+
+export const getHraPdf = () => (dispatch) => {
+	hraQueries.getReportPdf()
+		.then(async (res) => {
+			// TODO: not working properly.
+			const blob = new Blob([res], { type: 'application/pdf' });
+			const a = document.createElement('a');
+			a.href = window.URL.createObjectURL(blob);
+			a.download = 'mypdf.pdf';
+			document.body.appendChild(a);
+			a.click();
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Network Error!!' }));
+		});
+};

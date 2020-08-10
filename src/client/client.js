@@ -34,15 +34,14 @@ export const httpFetch = {};
  */
 httpFetch.post = (path, body) => {
 	const myHeaders = new Headers();
-	const formdata = new FormData();
-	formdata.append('json', body);
 
 	const requestOptions = {
 		method: 'POST',
 		headers: myHeaders,
-		body: formdata,
+		body,
 		redirect: 'follow'
 	};
+
 
 	return new Promise((resolve, reject) => {
 		fetch(path, requestOptions)
@@ -51,4 +50,3 @@ httpFetch.post = (path, body) => {
 			.catch(error => reject('error', error));
 	});
 };
-
