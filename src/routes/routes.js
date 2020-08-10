@@ -17,6 +17,9 @@ import BlogPostDetail from '../views/blogParent/BlogPostDetail';
 import DashboardHome from '../views/dashboard/DashboardHome';
 import DashboardHome2 from '../views/dashboard/DashboardHome2';
 import DashboardAssessment from '../views/dashboard/assessment';
+import AccountSettings from '../views/dashboard/settings/AccountSettings';
+import PasswordSettings from '../views/dashboard/settings/PasswordSettings';
+import HelpSettings from '../views/dashboard/settings/HelpSettings';
 import AdminLogin from '../views/authentication/AdminLogin';
 import ForgotPassword from '../views/authentication/ForgotPassword';
 import ResetPassword from '../views/authentication/ResetPassword';
@@ -64,8 +67,11 @@ const Routes = () => (
 			<PrivateRoute exact path="/dashboard" component={DashboardHome} />
 			<PrivateRoute exact path="/dashboard_home2" component={DashboardHome2} />
 			<PrivateRoute exact path="/assessments" component={DashboardAssessment} />
+			<Route exact path="/settings/account" component={AccountSettings} />
+			<Route exact path="/settings/password" component={PasswordSettings} />
+			<Route exact path="/settings/help" component={HelpSettings} />
 			<PrivateRoute exact path="/assessment/health/start" component={General}/>
-			<PrivateRoute exact path="/assessment/health/general" component={General}/>
+			<Route exact path="/assessment/health/general" component={General}/>
 			<PrivateRoute exact path="/assessment/health/covid" component={Covid}/>
 			<PrivateRoute exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
 			<PrivateRoute exact path="/assessment/health/smoking" component={Smoking}/>

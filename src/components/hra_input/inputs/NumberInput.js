@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {Input, FormControl} from '@material-ui/core';
 import styled from 'styled-components';
 import { validateShowHide } from '../../../store/actions/hraActions';
+import Grid from '@material-ui/core/Grid';
 
 const Wrapper = styled.div`
 	margin-top: 1.5rem;
@@ -23,6 +24,7 @@ const Wrapper = styled.div`
 	  }
   }
   .withSideDropdown {
+	  width:100%;
     margin-top: -0.9rem;
     .MuiSelect-icon {
       color: ${(props) => props.theme.color.brand_02};
@@ -31,6 +33,7 @@ const Wrapper = styled.div`
         border: 1px solid #F0F0F0;
     border-radius: 2px;
 	padding: 1.5rem;
+	width:100%;
 	&:hover{
 		border: 1px solid ${props => props.theme.color.brand_02};
 		transition: .2s;
@@ -41,7 +44,7 @@ const Wrapper = styled.div`
 			width: 7rem;
 		}
 		.MuiInput-root {
-			width: 33rem;
+			// width: 33rem;
 		}
     .MuiInputBase-input {
 	  font-size: 1.6rem;
@@ -72,18 +75,19 @@ function NumberInput({ limit, unit, name, value, onChange, validateShowHide, sho
 
 	return (
 		<Wrapper>
-			<div className='flex'>
-				<div className=" withSideDropdown flex">
-					<FormControl>
-						<Input
-							type="number"
-							inputProps={{
-								min: limit.min,
-								max: limit.max,
-								step: '1'
-							}}
-							value={value}
-							onChange={handleChange}
+			<Grid xs={12} sm={6}>
+				<div className='flex'>
+					<div className=" withSideDropdown flex">
+						<FormControl>
+							<Input
+								type="number"
+								inputProps={{
+									min: limit.min,
+									max: limit.max,
+									step: '1'
+								}}
+								value={value}
+								onChange={handleChange}
 							// endAdornment={
 							// 	<div>
 							// 		<p>{unit}</p>
@@ -94,11 +98,11 @@ function NumberInput({ limit, unit, name, value, onChange, validateShowHide, sho
 							// 		))} */}
 							// 	</div>
 							// }
-						/>
-					</FormControl>
-				</div>
+							/>
+						</FormControl>
+					</div>
 
-				{/* 	<div className="plain">
+					{/* 	<div className="plain">
 					<FormControl>
 						<Input
 							type="number"
@@ -107,7 +111,8 @@ function NumberInput({ limit, unit, name, value, onChange, validateShowHide, sho
 						/>
 					</FormControl>
 				</div> */}
-			</div>
+				</div>
+			</Grid>
 		</Wrapper>
 	);
 }

@@ -6,15 +6,28 @@ import { withRouter } from 'react-router-dom';
 import { saveQuestions } from '../../../../store/actions/hraActions';
 import HraInput from '../../../hra_input';
 import Button from '../../../common/Button';
+import { device } from '../../../../Device';
 
 
 const Wrapper = styled.div`
+margin-top: -1rem;
+> div {
+  margin-top: -4rem;
+}
 	.submit {
 		margin-top: 1rem;
 		display: grid;
 		grid-template-columns: max-content max-content;
 		grid-gap: 2rem;
 		justify-content: end;
+		${device.mobileL`
+		grid-template-columns: 1fr;
+  `}
+  .button{
+	${device.mobileL`
+width:100% !important;
+`}
+  }
 	}
 `;
 

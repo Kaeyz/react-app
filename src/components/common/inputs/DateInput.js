@@ -6,7 +6,7 @@ import {
 	KeyboardDatePicker
 } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
-
+import datePickerIcon from '../../../assets/datePickerIcon.svg';
 
 const Wrapper = styled.div`
 	margin-top: 1.5rem;
@@ -18,27 +18,48 @@ const Wrapper = styled.div`
 	}
 	.input {
 		margin: 0;
-		min-width: 100%;
-		border: 2px solid ${props => props.theme.color.ui_text_01};
+		// min-width: 100%;
+		max-width: 100%;
 		outline: none;
 		color: ${props => props.theme.color.active_primary};
 		border-radius: 5px;
-		:hover {
-			border: 2px solid ${props => props.theme.color.active_primary};
+		
+	}
+
+	
+	.MuiOutlinedInput-root{
+		border: 1px solid ${props => props.theme.color.ui_text_06};
+		border-radius: 2px;
+		&:hover {
+			border: 1px solid ${props => props.theme.color.ui_text_05};
+			transition: .3s;
 		}
+		:focus-within{
+			background-color:${props => props.theme.color.text_03};
+			outline: none;
+			border-color: ${props => props.theme.color.brand_02};
+			box-shadow: 0 0 3px ${props => props.theme.color.brand_02};
+	  
+		}
+	
 	}
 	.error {
 		color: red;
 	}
-`;
+	.MuiOutlinedInput-notchedOutline{
+		border: none;
+	}
+	.MuiOutlinedInput-inputAdornedEnd{
+		font-family: Sofia;
+font-weight: 300;
+font-size: 1.4rem;
+line-height: 2.0rem;
+letter-spacing: 0.2px;
+color: ${props => props.theme.color.text_06};
+	}
+	`;
 
-const inputStyle = {
-	paddingTop: '1.5rem',
-	paddingBottom: '1.5rem',
-	fontSize: '1.3rem',
-	borderColor: 'none',
-	outline: 'none'
-};
+
 
 const DateInput = ({label, value, onChange, error }) => {
 	return (
@@ -51,11 +72,12 @@ const DateInput = ({label, value, onChange, error }) => {
 					className="input"
 					format="dd/MM/yyyy"
 					value={value}
-					inputProps={{ style: inputStyle }}
+					hintText="Choose Date"
 					onChange={onChange}
 					KeyboardButtonProps={{
 						'aria-label': 'change date',
 					}}
+					keyboardIcon={<img src={datePickerIcon} alt="datePickerIcon"/>}
 				/>
 			</MuiPickersUtilsProvider>
 			<p className="error">{error && error}</p>

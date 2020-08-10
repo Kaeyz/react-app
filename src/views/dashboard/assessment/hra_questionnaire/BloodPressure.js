@@ -6,12 +6,15 @@ import { getQuestions  } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import BloodPressureForm from '../../../../components/dashboard/assessment/hra_questionnaire/BloodPressureForm';
-import smallImg from '../../../../assets/Group.svg';
-import bloodGuage from '../../../../assets/blood-pressure-gauge.svg';
+// import smallImg from '../../../../assets/Activity.svg';
+import { device } from '../../../../Device';
 
 const Wrapper = styled.div`
-  .content {
-    padding: 2rem;
+.content {
+	padding: 2rem;
+	${device.tablet`
+    padding:0;
+  `}
   }
 `;
 
@@ -25,14 +28,14 @@ function BloodPressure({ getQuestions, questions }) {
 			<Wrapper>
 				<main className="content">
 					<QuestionnaireLayout
-						Image={smallImg}
+						// Image={smallImg}
+						percent='100'
+						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
+						heading="Health Risk Assessment"
 						whatQuestion={'Blood Pressure & Cholesterol'}
-						howManyQuestion="5"
-						ImageRight={bloodGuage}
 					>
-						<div className='questions-container'>
-							<BloodPressureForm questions={questions} />
-						</div>
+						<BloodPressureForm questions={questions} />
+
 					</QuestionnaireLayout>
 				</main>
 			</Wrapper>

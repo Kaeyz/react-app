@@ -10,6 +10,7 @@ import toggleLogo from '../../../../assets/Frame.svg';
 import UserInfo from './UserInfo';
 import NavSection from './NavSection';
 import Divider from '@material-ui/core/Divider';
+import { device } from '../../../../Device';
 
 const Wrapper = styled(Paper)`
 	border-radius: 1.3rem;
@@ -18,7 +19,10 @@ const Wrapper = styled(Paper)`
 	top: 2.0rem;
 	left: 1.8rem;
 	overflow-y: scroll;
-	overflow-x: hidden;
+	overflow-x: hidden; 
+  ${device.tablet`
+    display:none;
+  `}
 	&::-webkit-scrollbar {
 		width: 0.3em;
 	}
@@ -86,7 +90,7 @@ function SideBar({ logoutUser }) {
 	const otherItems = [
 		{ icon: 'download', text: 'Reports', link: '/reports' },
 		{ icon: 'rewards', text: 'Rewards', link: '/rewards' },
-		{ icon: 'settings', text: 'Settings', link: '/settings' },
+		{ icon: 'settings', text: 'Settings', link: '/settings/account' },
 		{ icon: 'logout', text: 'Logout', onClick: logoutUser },
 	];
 	return (

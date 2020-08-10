@@ -6,11 +6,15 @@ import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import SmokingForm from '../../../../components/dashboard/assessment/hra_questionnaire/SmokingForm';
-import smallImg from '../../../../assets/Group.svg';
+// import smallImg from '../../../../assets/Activity.svg';
+import { device } from '../../../../Device';
 
 const Wrapper = styled.div`
-  .content {
-    padding: 2rem;
+.content {
+	padding: 2rem;
+	${device.tablet`
+    padding:0;
+  `}
   }
 `;
 
@@ -24,13 +28,14 @@ function Smoking({ getQuestions, questions }) {
 			<Wrapper>
 				<main className="content">
 					<QuestionnaireLayout
-						Image={smallImg}
+						// Image={smallImg}
 						whatQuestion={'Smoking & Vaping'}
-						howManyQuestion="7"
+						heading="Health Risk Assessment"
+						percent='20'
+						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
 					>
-						<div className='questions-container'>
-							<SmokingForm questions={questions} />
-						</div>
+						<SmokingForm questions={questions} />
+
 					</QuestionnaireLayout>
 				</main>
 			</Wrapper>

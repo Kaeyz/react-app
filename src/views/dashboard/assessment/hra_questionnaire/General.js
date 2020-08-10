@@ -6,12 +6,16 @@ import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import GeneralForm from '../../../../components/dashboard/assessment/hra_questionnaire/GeneralForm';
-import smallImg from '../../../../assets/Activity.svg';
-import bloodGuage from '../../../../assets/blood-pressure-gauge.svg';
+// import smallImg from '../../../../assets/Activity.svg';
+import { device } from '../../../../Device';
+
 
 const Wrapper = styled.div`
   .content {
-    padding: 2rem;
+	padding: 2rem;
+	${device.tablet`
+    padding:0;
+  `}
   }
 `;
 
@@ -26,15 +30,14 @@ function General({ getQuestions, questions }) {
 				<main className="content">
 
 					<QuestionnaireLayout
-						Image={smallImg}
+						// Image={smallImg}
 						whatQuestion="General Questions"
 						heading="Health Risk Assessment"
-						howManyQuestion="7"
-						ImageRight={bloodGuage}
+						percent='70'
+						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
 					>
-						<div className='questions-container'>
-							<GeneralForm questions={questions} />
-						</div>
+						<GeneralForm questions={questions} />
+
 					</QuestionnaireLayout>
 				</main>
 			</Wrapper>

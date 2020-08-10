@@ -6,11 +6,15 @@ import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import SleepForm from '../../../../components/dashboard/assessment/hra_questionnaire/SleepForm';
-import smallImg from '../../../../assets/Group.svg';
+// import smallImg from '../../../../assets/Activity.svg';
+import { device } from '../../../../Device';
 
 const Wrapper = styled.div`
-  .content {
-    padding: 2rem;
+.content {
+	padding: 2rem;
+	${device.tablet`
+    padding:0;
+  `}
   }
 `;
 
@@ -25,13 +29,14 @@ function Sleep({ getQuestions, questions }) {
 				<main className="content">
 
 					<QuestionnaireLayout
-						Image={smallImg}
+						// Image={smallImg}
 						whatQuestion="Sleep"
-						howManyQuestion="7"
+						heading="Health Risk Assessment"
+						percent='90'
+						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
 					>
-						<div className='questions-container'>
-							<SleepForm questions={questions} />
-						</div>
+						<SleepForm questions={questions} />
+
 					</QuestionnaireLayout>
 				</main>
 			</Wrapper>

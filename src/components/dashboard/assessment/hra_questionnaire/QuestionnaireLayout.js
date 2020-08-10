@@ -31,10 +31,10 @@ const Wrapper = styled.div`
 	.title {
 		display: flex;
 		justify-content: start;
+		align-item:center;
 		img {
-			width: 3rem;
-			height: 3rem;
-			margin-right: 1rem;
+			padding-right: 1rem;
+
 		}
 		h1 {
 			font-size: 1.8rem;

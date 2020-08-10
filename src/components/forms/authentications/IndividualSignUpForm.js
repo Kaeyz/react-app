@@ -13,16 +13,18 @@ import {
 } from '../../common/inputs';
 import PropTypes from 'prop-types';
 import { onBoardIndividualValidator } from '../validation';
-import NumberWithUnit from '../../common/inputs/NumberWithUnit';
+import {NumberInput} from '../../common/inputs/NumberInput';
 const textInput = {
 	placeholder: 'Type here...',
 };
 
 const optionGender = [
+	{ value: 'SELECT HERE', text: 'Select here' },
 	{ value: 'MALE', text: 'Male' },
 	{ value: 'FEMALE', text: 'Female' },
 ];
 const optionActivity = [
+	{ value: 'SELECT HERE', text: 'Select here' },
 	{ value: 'HIGH', text: 'High' },
 	{ value: 'MEDIUM', text: 'Medium' },
 	{ value: 'VERYACTIVE', text: 'Very Active' },
@@ -30,50 +32,50 @@ const optionActivity = [
 	{ value: 'LOWACTIVITY', text: 'Low Activity' },
 ];
 
-const optionWeight = [
-	{
-		value: 'Kilogram',
-		label: 'in KG',
-	},
-	{
-		value: 'Pound',
-		label: 'in Lb',
-	},
-	{
-		value: 'Gram',
-		label: 'in g',
-	},
-	{
-		value: 'Ounces',
-		label: 'in Oz',
-	},
-];
+// const optionWeight = [
+// 	{
+// 		value: 'Kilogram',
+// 		label: 'in KG',
+// 	},
+// 	{
+// 		value: 'Pound',
+// 		label: 'in Lb',
+// 	},
+// 	{
+// 		value: 'Gram',
+// 		label: 'in g',
+// 	},
+// 	{
+// 		value: 'Ounces',
+// 		label: 'in Oz',
+// 	},
+// ];
 
-const optionHeight = [
-	{
-		value: 'Feet',
-		label: 'in Ft',
-	},
-	{
-		value: 'Centimeter',
-		label: 'in Cm',
-	},
-	{
-		value: 'Inches',
-		label: 'in In',
-	},
-];
+// const optionHeight = [
+// 	{
+// 		value: 'Feet',
+// 		label: 'in Ft',
+// 	},
+// 	{
+// 		value: 'Centimeter',
+// 		label: 'in Cm',
+// 	},
+// 	{
+// 		value: 'Inches',
+// 		label: 'in In',
+// 	},
+// ];
 const IndividualSignUpForm = ({ history, registerIndividual }) => {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [email, setEmail] = useState('');
-	const [gender, setGender] = useState('');
+	const [gender, setGender] = useState('SELECT HERE');
 	const [password, setPassword] = useState('');
 	const [password2, setPassword2] = useState('');
-	const [activity, setActivityLevel] = useState('');
-	const [weight,setWeight] = React.useState('Kilogram');
-	const [height,setHeight] = React.useState('Feet');
-	const [dob, setDob] = useState(new Date());
+	const [activity, setActivityLevel] = useState('SELECT HERE');
+	const [weight,setWeight] = React.useState('');
+	const [height,setHeight] = React.useState('');
+	const [dob, setDob] = useState(new Date('07/08/2020'));
 	const [errors, setErrors] = useState({});
 
 	const onFormSubmit = (event) => {
@@ -164,19 +166,21 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
-						<NumberWithUnit
+						<NumberInput
 							label="Weight"
-							options={optionWeight}
+							// options={optionWeight}
 							value={weight}
+							placeholder='Enter Weight'
 							onChange={setWeight}
 							error={errors.weight}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
-						<NumberWithUnit
+						<NumberInput
 							label="Height"
-							options={optionHeight}
+							// options={optionHeight}
 							value={height}
+							placeholder='Enter height here.. '
 							onChange={setHeight}
 							error={errors.height}
 						/>
