@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import SettingsNavSection from '../../../../components/dashboard/settings/SettingsNavSection';
 import Divider from '@material-ui/core/Divider';
-import { device } from '../../../../Device';
 
 const Wrapper = styled.div`
   .text {
@@ -16,6 +15,10 @@ const Wrapper = styled.div`
   }
   .heading {
     color: ${(props) => props.theme.color.ui_05};
+    @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+      display:none;
+    	}
+		  }
     h1 {
       font-weight: bold;
       font-size: 24px;
@@ -26,16 +29,27 @@ const Wrapper = styled.div`
   .settings-body {
     margin-top: 4rem;
     padding: 4.2rem;
-    .settings-body-content {
-      ${device.tablet`
-		display: block;
-	  `}
-      .gen-info {
-        ${device.tablet`
-		max-width: 100%;
-	  `}
-      }
+    @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+background-color:${(props) => props.theme.color.ui_09};
+box-shadow:0px 0px 0px;
+padding:0;
+margin-top: 2rem;
     }
+		  }
+    .settings-body-content {
+      @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+        display: block;	}
+        .tabs-items{
+          max-width: 100%;
+        }
+        }
+           .gen-info {
+            @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+              max-width: 100%;
+            }
+              
+          }
+                      }
     .submit > div {
       margin-top: 4rem;
     }
@@ -43,13 +57,13 @@ const Wrapper = styled.div`
       display: grid;
       grid-template-columns: 1fr 100%;
       grid-gap: 4rem;
-      ${device.tablet`
-	display: block;
-	`}
-      .divider {
-        ${device.tablet`
-    display: none;
-  `}
+      @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+        display: block;	}
+	  }
+         .divider {
+          @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+            display: none;	}
+        }
       }
     }
   }
@@ -62,7 +76,7 @@ const Sidebar = ({ children }) => {
 		{ icon: 'help', text: 'Help', link: '/settings/help' },
 	];
 	return (
-		<DashboardLayout>
+		<DashboardLayout whatPage='Settings'>
 			<Wrapper>
 				<div className="heading">
 					<h1>Settings</h1>
@@ -70,10 +84,10 @@ const Sidebar = ({ children }) => {
 				</div>
 				<Paper className="settings-body">
 					<Grid className="settings-body-content" container spacing={3}>
-						<Grid item sm={3}>
+						<Grid item sm={3} xs={12} className='tabs-items'>
 							<SettingsNavSection title="TABS" items={tabsItems} />
 						</Grid>
-						<Grid item className="gen-info" sm={8}>
+						<Grid item className="gen-info" sm={8} xs={12}>
 							<div className="gridy">
 								<Divider orientation="vertical" className="divider" flexItem />
 

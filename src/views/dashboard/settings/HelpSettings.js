@@ -4,9 +4,17 @@ import SideBar from '../../../components/layouts/dashboardLayout/settingsSidebar
 import styled from 'styled-components';
 const Wrapper = styled.div`
 .settings-body-main{
+	@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+		display:none;	
+	}
     p{
         padding-bottom: 1.3px
     }
+}
+.submit{
+	.button{
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			width:100% !important;	}
 }
 `;
 

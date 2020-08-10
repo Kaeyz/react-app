@@ -14,12 +14,16 @@ const Wrapper = styled.div`
 height: max-content;
 padding: 0px;
 display: grid;
+@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+	display:none;	}
+  }
 	.icon {
   	display: inline-block;
   	width: 2rem;
 		height: 2rem;
         background-repeat: no-repeat;
-        background-size: contain;
+		background-size: contain;
+		
 	}
 	.account {
   	background-image: url(${accountIcon});

@@ -6,7 +6,6 @@ import HraInput from '../../../hra_input';
 import Button from '../../../common/Button';
 import { withRouter } from 'react-router-dom';
 import { saveQuestions } from '../../../../store/actions/hraActions';
-import { device } from '../../../../Device';
 
 const Wrapper = styled.div`
 margin-top: -1rem;
@@ -19,16 +18,15 @@ margin-top: -1rem;
 		grid-template-columns: max-content max-content;
 		grid-gap: 2rem;
 		justify-content: end;
-		${device.mobileL`
-		grid-template-columns: 1fr;
-  `}
-  .button{
-	${device.mobileL`
-width:100% !important;
-`}
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			grid-template-columns: 1fr;	
+			}
+	  .button{
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+		width:100% !important;
   }
-	}`;
-
+	};
+`;
 function BloodPressureForm({questions, isLoading, inputs, history, saveQuestions}) {
 
 	const nextLink = '/assessment/health/smoking';

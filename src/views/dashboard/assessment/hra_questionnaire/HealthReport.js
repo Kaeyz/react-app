@@ -89,7 +89,7 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 
 	return (
 		<Wrapper>
-			<DashboardLayout>
+		<DashboardLayout whatPage="Report">
 				<QuestionnaireLayout
 					heading="Health Risk Report"
 					Image={smallImg}

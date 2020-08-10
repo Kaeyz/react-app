@@ -18,6 +18,7 @@ line-height: 1.4rem;
 color: ${props => props.theme.color.ui_text_05};
 	}
 	.input {
+		background-color: rgba(255, 255, 255, 0);
 		height: 100%;
 		margin: 0;
 		min-width: 100%;

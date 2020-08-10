@@ -11,10 +11,20 @@ import {
 } from '../../../components/common/inputs';
 import Button from '../../../components/common/Button';
 const Wrapper = styled.div`
+margin-top:1.5rem;
 .settings-body-main{
+	@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+	display:none;	
+}
+  }
     p{
         padding-bottom: 1.3px
     }
+}
+.submit{
+	.button{
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			width:100% !important;	}
 }
 `;
 const textInput = {

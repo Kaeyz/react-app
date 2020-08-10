@@ -10,7 +10,6 @@ import toggleLogo from '../../../../assets/Frame.svg';
 import UserInfo from './UserInfo';
 import NavSection from './NavSection';
 import Divider from '@material-ui/core/Divider';
-import { device } from '../../../../Device';
 
 const Wrapper = styled(Paper)`
 	border-radius: 1.3rem;
@@ -20,9 +19,6 @@ const Wrapper = styled(Paper)`
 	left: 1.8rem;
 	overflow-y: scroll;
 	overflow-x: hidden; 
-//   ${device.tablet`
-//     display:none;
-//   `}
 	&::-webkit-scrollbar {
 		width: 0.3em;
 	}

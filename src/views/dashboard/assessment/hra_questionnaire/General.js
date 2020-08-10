@@ -7,16 +7,14 @@ import DashboardLayout from '../../../../components/layouts/dashboardLayout/Dash
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import GeneralForm from '../../../../components/dashboard/assessment/hra_questionnaire/GeneralForm';
 // import smallImg from '../../../../assets/Activity.svg';
-import { device } from '../../../../Device';
 
 
 const Wrapper = styled.div`
   .content {
 	padding: 2rem;
-	${device.tablet`
-    padding:0;
-  `}
-  }
+	@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+		padding:0;	}
+	  }
 `;
 
 function General({ getQuestions, questions }) {
@@ -25,7 +23,7 @@ function General({ getQuestions, questions }) {
 	}, [getQuestions]);
 
 	return (
-		<DashboardLayout>
+		<DashboardLayout whatPage="Assessment">
 			<Wrapper>
 				<main className="content">
 

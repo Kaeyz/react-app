@@ -7,15 +7,13 @@ import DashboardLayout from '../../../../components/layouts/dashboardLayout/Dash
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
 import BloodPressureForm from '../../../../components/dashboard/assessment/hra_questionnaire/BloodPressureForm';
 // import smallImg from '../../../../assets/Activity.svg';
-import { device } from '../../../../Device';
 
 const Wrapper = styled.div`
 .content {
 	padding: 2rem;
-	${device.tablet`
-    padding:0;
-  `}
-  }
+	@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+		padding:0;	}
+	  }
 `;
 
 function BloodPressure({ getQuestions, questions }) {
@@ -24,7 +22,7 @@ function BloodPressure({ getQuestions, questions }) {
 	}, [getQuestions]);
 
 	return (
-		<DashboardLayout>
+		<DashboardLayout whatPage="Assessment">
 			<Wrapper>
 				<main className="content">
 					<QuestionnaireLayout

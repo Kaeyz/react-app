@@ -1,8 +1,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import React from 'react';
 import styled from 'styled-components';
-// import PropTypes from 'prop-types';
-import { device } from '../../../../Device';
+import PropTypes from 'prop-types';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import { useTheme } from '@material-ui/core/styles';
@@ -13,15 +12,17 @@ import DP from '../../../../assets/dp.svg';
 
 const Wrapper = styled.div`
 display:none;
-${device.tablet`
-display:block;
-`}
+@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+	display: block;	}
+  }
 nav{
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
-    background-color: red;
+	left: 0;
+	background: #FFFFFF;
+	padding: 1rem;
+box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.04);
     display: flex;
     justify-content: space-between;
     img{
@@ -35,7 +36,7 @@ nav{
 
 `;
 
-function DashboardLayout() {
+function DashboardLayout({whatPage}) {
 	const [open, setOpen] = React.useState(false);
 	const theme = useTheme();
 
@@ -58,8 +59,8 @@ function DashboardLayout() {
 				>
 					<img src={Menu} alt='show-sidebar'/>
 				</IconButton>
-				<h1>Assessment</h1>
-                <img src={DP} alt='profile'/>
+				<h1>{whatPage}</h1>
+				<img src={DP} alt='profile'/>
 			</nav>
             			<Drawer
 				variant="persistent"
@@ -78,8 +79,8 @@ function DashboardLayout() {
 	);
 }
 
-// DashboardLayout.propTypes = {
-// 	children: PropTypes.any.isRequired,
-// };
+DashboardLayout.propTypes = {
+	whatPage: PropTypes.string.isRequired,
+};
 
 export default DashboardLayout;

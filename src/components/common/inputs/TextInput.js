@@ -33,6 +33,7 @@ color: ${props => props.theme.color.ui_text_05};
     }
   }
 	.input {
+		background-color: rgba(255, 255, 255, 0);
 		margin: 0;
     outline: none;
     border: none;

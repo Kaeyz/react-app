@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IconButton } from '@material-ui/core';
-import Visibility from '@material-ui/icons/Visibility';
+import show from '../../../assets/show.svg';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import PropTypes from 'prop-types';
 
@@ -35,6 +35,7 @@ border-radius: 2px;
 }
 }
 .input {
+	background-color: rgba(255, 255, 255, 0);
 	margin: 0;
 outline: none;
 border: none;
@@ -96,7 +97,7 @@ const PasswordInput = ({ label, onChange, value, placeholder, error }) => {
 						onMouseDown={handleMouseDownPassword}
 						edge="end"
 					>
-						{values.showPassword ? <Visibility /> : <VisibilityOff />}
+						{values.showPassword ? 	<img src={show} alt="showPassword"/>: <VisibilityOff />}
 					</IconButton>
 				</div>
 				{/* <p className="error">{error && error}</p> */}

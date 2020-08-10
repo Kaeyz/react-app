@@ -6,7 +6,6 @@ import Back from '../../../assets/greenBackArrow.svg';
 import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { device } from '../../../Device';
 import smallImg from '../../../assets/Activity.svg';
 
 const Wrapper = styled.div`
@@ -16,9 +15,9 @@ const Wrapper = styled.div`
     justify-content: start;
     padding: 1rem 0;
     text-decoration: none;
-    ${device.tablet`
-    display:none;
-  `}
+    @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+      display:none;	}
+      }
     .back {
       font-weight: bold;
       font-size: 1.4rem;
@@ -31,10 +30,10 @@ const Wrapper = styled.div`
     width: 100%;
     padding: 3.8rem 0;
     align-items: center;
-    ${device.tablet`
-    justify-content:start;
-  `}
-    h1 {
+    @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+      justify-content:start;	}
+      }
+       h1 {
       font-weight: bold;
       font-size: 2.0rem;
       line-height: 2.0rem;
@@ -52,24 +51,24 @@ const Wrapper = styled.div`
         max-width: max-content;
       }
       .img {
-        ${device.tablet`
-				display:none;
-			  `}
-      }
+        @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+          display:none;	}
+          }
+             }
       .img2 {
         display: none;
-        ${device.tablet`
-				display:block;
-			  `}
-      }
+        @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+          display: block;	}
+          }
+              }
     }
     .null {
       border: 1px solid rgba(214, 216, 211, 0.5);
       margin: 10px 0px;
       width: 100%;
-      ${device.tablet`
-    display:none;
-  `}
+      @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+        display:none;	}
+        }
     }
   }
   .questions-container {
@@ -77,29 +76,30 @@ const Wrapper = styled.div`
     border-radius: 10px;
     padding: 3rem;
     display: grid;
-    ${device.tablet`
-	display: block;
+    @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+      display: block;
 	background-color:#fbfbfb;
 	box-shadow: 0px 0px 0px rgba(233, 233, 233, 0.25);
-	padding:0;
-  `}
-    .gridy {
-      ${device.tablet`
-    display: block;
-  `}
-      .gridy1 {
-        ${device.tablet`
-    max-width: 100%;
-  `}
-        .paper-question {
+	padding:0;	}
+      }
+        .gridy {
+          @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+            display: block;	}
+            }
+            .gridy1 {
+              @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+                max-width: 100%;	}
+                }
+             .paper-question {
           box-shadow: 0px 0px 0px;
-          ${device.tablet`
-  box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
-border-radius: 4px;
-	background-color:#fff;
-		padding: 2.4rem 1rem;
-  `}
-        }
+          @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+            box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
+            border-radius: 4px;
+              background-color:#fff;
+                padding: 2.4rem 1rem;
+              	}
+            }
+              }
       }
     }
     .what-question {
@@ -130,10 +130,11 @@ border-radius: 4px;
           justify-content: space-between;
           .show_mobile {
             display: none;
-            ${device.tablet`
-    display:block;
-  `}
-          }
+            @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+              display: block;
+            }
+              }
+                    }
         }
       }
       .MuiLinearProgress-barColorPrimary {
