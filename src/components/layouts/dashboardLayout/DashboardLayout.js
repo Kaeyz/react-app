@@ -19,6 +19,7 @@ const Wrapper = styled.div`
     padding-left: 5rem;
     ${device.tablet`
     padding-left: 2rem;
+    
   `}
   }
   .shadow {

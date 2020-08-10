@@ -5,20 +5,35 @@ import styled from 'styled-components';
 import { device } from '../../../../Device';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { useTheme } from '@material-ui/core/styles';
 import MobileSidebar from './MobileSidebar';
+import Menu from '../../../../assets/hamburger.svg';
+import Back from '../../../../assets/greenBackArrow.svg';
+import DP from '../../../../assets/dp.svg';
 
 const Wrapper = styled.div`
 display:none;
 ${device.tablet`
 display:block;
 `}
+nav{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    img{
+        padding-right: 12px;
+    }
+}
 .MuiDrawer-paperAnchorDockedLeft{
     padding: 20px;
+    background-color: rgba(0,0,0,0.4);
+    // left:auto;
 }
+
 `;
 
 function DashboardLayout() {
@@ -34,15 +49,19 @@ function DashboardLayout() {
 	};
 	return (
 		<Wrapper>
-			<IconButton
-				color="inherit"
-				aria-label="open drawer"
-				edge="end"
-				onClick={handleDrawerOpen}
+			<nav>
+				<IconButton
+					color="inherit"
+					aria-label="open drawer"
+					edge="end"
+					onClick={handleDrawerOpen}
 				// className={clsx(open && classes.hide)}
-			>
-				<MenuIcon />
-			</IconButton>
+				>
+					<img src={Menu} alt='show-sidebar'/>
+				</IconButton>
+				<h1>Assessment</h1>
+                <img src={DP} alt='profile'/>
+			</nav>
             			<Drawer
 				variant="persistent"
 				anchor="left"
@@ -50,8 +69,8 @@ function DashboardLayout() {
 
 			>
 				<div>
-					<IconButton onClick={handleDrawerClose}>
-						{theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+					<IconButton onClick={handleDrawerClose} >
+						{theme.direction === 'rtl' ? <img src={Back} alt='hide-sidebar' className='close'/> : <img src={Back} alt='close'/>}
 					</IconButton>
 				</div>
 				<MobileSidebar/>
