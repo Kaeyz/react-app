@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
+import MobileNavBar from './sidebar/MobileNavBar'
 import SideBar from './sidebar/SideBar';
 import { device } from '../../../Device';
 
@@ -10,6 +10,9 @@ const Wrapper = styled.div`
   grid-template-columns: max-content 1fr;
   min-height: 100vh;
   background-color: #fbfbfb;
+   ${device.tablet`
+  display: block;
+  `}
   .layout {
     background: #fbfbfb;
     padding: 2rem;
@@ -39,7 +42,9 @@ function DashboardLayout({ children }) {
 		<Wrapper>
 			<div className="shadow"></div>
 			<SideBar />
-			<div className="layout">{children}</div>
+			<div className="layout">
+				<MobileNavBar/>
+				{children}</div>
 		</Wrapper>
 	);
 }

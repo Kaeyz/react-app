@@ -94,7 +94,8 @@ const Wrapper = styled.div`
         .paper-question {
           box-shadow: 0px 0px 0px;
           ${device.tablet`
-	border-radius: 0px;
+  box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
+border-radius: 4px;
 	background-color:#fff;
 		padding: 2.4rem 1rem;
   `}
