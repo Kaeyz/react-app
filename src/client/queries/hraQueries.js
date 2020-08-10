@@ -248,6 +248,7 @@ hraQueries.getHraReportData = async () => {
 
 		httpFetch
 			.post(path, formdata)
+			.then(res => res.text())
 			.then(res => resolve(JSON.parse(res)))
 			.catch(err => reject(err));
 	});
@@ -276,8 +277,11 @@ hraQueries.getReportPdf = async () => {
 
 		httpFetch
 			.post(path, formdata)
-			.then(res => resolve(res))
+			.then(resp => resp.blob())
+			.then(response => resolve(response))
 			.catch(err => reject(err));
 	});
 };
+
+
 export default Object.freeze(hraQueries);

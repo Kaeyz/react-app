@@ -179,12 +179,10 @@ export const getHraReportData = () => (dispatch) => {
 
 export const getHraPdf = () => (dispatch) => {
 	hraQueries.getReportPdf()
-		.then(async (res) => {
-			// TODO: not working properly.
-			const blob = new Blob([res], { type: 'application/pdf' });
+		.then((res) => {
 			const a = document.createElement('a');
-			a.href = window.URL.createObjectURL(blob);
-			a.download = 'mypdf.pdf';
+			a.href = window.URL.createObjectURL(res);
+			a.download = 'HraReport.pdf';
 			document.body.appendChild(a);
 			a.click();
 		})

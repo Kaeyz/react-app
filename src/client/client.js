@@ -45,7 +45,6 @@ httpFetch.post = (path, body) => {
 
 	return new Promise((resolve, reject) => {
 		fetch(path, requestOptions)
-			.then(response => response.text())
 			.then(result => resolve(result))
 			.catch(error => reject('error', error));
 	});
