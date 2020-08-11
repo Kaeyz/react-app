@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import SideBar from '../../../components/layouts/dashboardLayout/settingsSidebar/Sidebar';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import {
-	TextInput,
-	SelectInput,
-	DateInput,
-	NumberInput,
-} from '../../../components/common/inputs';
+import { TextInput, SelectInput, DateInput, NumberInput } from '../../../components/common/inputs';
 import Button from '../../../components/common/Button';
+import { updateUser } from '../../../store/actions/userActions';
+
+
 const Wrapper = styled.div`
 margin-top:1.5rem;
 .settings-body-main{
 	@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-	display:none;	
+	display:none;
 }
   }
     p{
@@ -23,7 +23,7 @@ margin-top:1.5rem;
 }
 .submit{
 	.button{
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+		@media screen and ( max-width: ${props => props.theme.breakpoint.sm}) {
 			width:100% !important;	}
 }
 `;
@@ -45,16 +45,25 @@ const optionActivity = [
 	{ value: 'LOWACTIVITY', text: 'Low Activity' },
 ];
 
-const AccountSettings = () => {
+const AccountSettings = ({ user, updateUser }) => {
+	const names = user && user.name.split(' ');
+	const [firstName, setFirstName] = useState(names[0]);
+	const [lastName, setLastName] = useState(names[1]);
+	const [gender, setGender] = useState(user.gender);
+	const [activity, setActivityLevel] = useState(user.activity);
+	const [weight,setWeight] = React.useState(user.weight);
+	const [height,setHeight] = React.useState(user.height);
+	const [dob, setDob] = useState(user.dob);
+	const [errors] = React.useState({});
 
-	const [firstName, setFirstName] = useState('');
-	const [lastName, setLastName] = useState('');
-	const [gender, setGender] = useState('SELECT HERE');
-	const [activity, setActivityLevel] = useState('SELECT HERE');
-	const [weight,setWeight] = React.useState('');
-	const [height,setHeight] = React.useState('');
-	const [dob, setDob] = useState(new Date('07/08/2020'));
-	const [errors] = useState({});
+	const onFormSubmit = (event) => {
+		event.preventDefault();
+		const data = {
+			firstName, lastName, gender, activity, weight: Number(weight), height: Number(height), dob, company: user.company
+		};
+		updateUser(data);
+	};
+
 
 	return (
 		<SideBar>
@@ -83,8 +92,6 @@ const AccountSettings = () => {
 								error={errors.lastName}
 							/>
 						</Grid>
-
-
 
 						<Grid item xs={12} sm={6}>
 							<SelectInput
@@ -138,6 +145,7 @@ const AccountSettings = () => {
 							value="save changes"
 							type="submit"
 							theme="darkGreen"
+							onClick={onFormSubmit}
 						>
             Save Changes
 						</Button>
@@ -150,4 +158,14 @@ const AccountSettings = () => {
 	);
 };
 
-export default AccountSettings;
+AccountSettings.propTypes = {
+	user: PropTypes.object.isRequired,
+	updateUser: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => {
+	const user = state.user.user;
+	return { user };
+};
+
+export default connect(mapStateToProps, {updateUser})(AccountSettings);

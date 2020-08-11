@@ -13,9 +13,9 @@ const Wrapper = styled.div`
 		font-family:Sofia;
 		letter-spacing: 0.1px;
 		font-weight: 600;
-font-size: 1.4rem;
-line-height: 1.4rem;
-color: ${props => props.theme.color.ui_text_05};
+		font-size: 1.4rem;
+		line-height: 1.4rem;
+		color: ${props => props.theme.color.ui_text_05};
 	}
 	.input {
 		background-color: rgba(255, 255, 255, 0);
@@ -30,7 +30,7 @@ color: ${props => props.theme.color.ui_text_05};
 		outline: none;
 		border-color: ${props => props.theme.color.brand_02};
 		box-shadow: 0 0 3px ${props => props.theme.color.brand_02};
-  
+
 	}
 	&:hover {
 		border: 1px solid ${props => props.theme.color.ui_text_05};
@@ -38,14 +38,16 @@ color: ${props => props.theme.color.ui_text_05};
     }
 	&::placeholder{
 		font-family: Sofia;
-font-size: 1.4rem;
-line-height: 2.0rem;
-letter-spacing: 0.2px;
-color: ${props => props.theme.color.text_06};
-	}
+		font-size: 1.4rem;
+		line-height: 2.0rem;
+		letter-spacing: 0.2px;
+		color: ${props => props.theme.color.text_06};
+		}
 	}
 	.error {
 		color: red;
+		font-size: 1.3rem;
+		padding-top: 2px;
 	}
 `;
 

@@ -107,6 +107,9 @@ userQueries.getCurrentUser = () => {
 			gender
 			nationality
 			dob
+			weight
+			height
+			activity
 			address
 			adminVerified
 			source
@@ -122,5 +125,55 @@ userQueries.getCurrentUser = () => {
 			.catch(err => reject(err));
 	});
 };
+
+userQueries.updateUser = (input) => {
+	const query = `
+	mutation UPDATE_USER ($input: updateUserInput) {
+		updateUser(input: $input){
+			name
+			email
+			mobile
+			type
+			image
+			gender
+			nationality
+			dob
+			weight
+			height
+			activity
+			address
+			adminVerified
+			source
+			suspended
+			company
+			companyUrl
+		}
+	}
+	`;
+
+	const variables = { input };
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
+userQueries.updateUserPassword = (input) => {
+	const query = `
+	mutation UPDATE_USER_PASSWORD ($input: updateUserPasswordInput){
+		updateUserPassword(input: $input){
+			message
+		}
+	}
+	`;
+
+	const variables = { input };
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+}
 
 export default Object.freeze(userQueries);

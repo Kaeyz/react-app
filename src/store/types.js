@@ -24,5 +24,4 @@ module.exports = Object.freeze({
 	SET_PERCENTAGE_COMPLETED: 'set_percentage_completed',
 	SET_SHOW_INPUT: 'set_show_input',
 	SET_REPORT_DATA: 'set_report_data',
-
 });

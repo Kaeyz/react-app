@@ -83,6 +83,7 @@ export const loginUser = (userData) => dispatch => {
 				localStorage.setItem('auth', token);
 				dispatch(setIsAuthenticated(true));
 				dispatch(appNotLoading());
+				window.location.href = '/dashboard';
 			}
 		})
 		.catch(() => {
@@ -95,6 +96,8 @@ export const logoutUser = () => dispatch =>  {
 	// Remove token from localStorage
 	localStorage.removeItem('auth');
 	dispatch(setIsAuthenticated(false));
+	dispatch({ type: SET_USER, payload: {} });
+
 };
 
 export const forgotPassword = (data, history) => dispatch => {
@@ -135,5 +138,39 @@ export const resetPassword = (data, history) => dispatch => {
 		});
 };
 
+export const updateUser = (data) => dispatch => {
+	dispatch(appIsLoading());
+	dispatch(clearAlert());
+	userQueries.updateUser(data)
+	.then(res => {
+			if (res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+				dispatch(appNotLoading());
+			}
+			if (res.data) {
+				dispatch({ type: SET_USER, payload: res.data.updateUser });
+				dispatch(appNotLoading());
+				dispatch(successAlert('User Updated'));
+			}
+		})
+		.catch(() => {
+			dispatch(appNotLoading());
+			dispatch(errorAlert({ msg: 'Connection Error: Try again!!' }));
+		});
+};
 
-setCurrentUser();
+export const updateUserPassword = (data) => dispatch => {
+	dispatch(clearAlert());
+	userQueries.updateUserPassword(data)
+		.then(res => {
+			if (res.errors) {
+				dispatch(errorAlert({ msg: 'Invalid Input' }));
+			}
+			if (res.data) {
+				dispatch(successAlert(res.data.updateUserPassword.message));
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Connection Error: Try again!!' }));
+		});
+};
