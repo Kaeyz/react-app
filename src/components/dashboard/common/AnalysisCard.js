@@ -25,6 +25,9 @@ border: 1px solid #8DB838;
 		justify-content: space-between;
 height: 235px;
 margin-bottom: 2rem;
+@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
+	width: 300px;
+	}
 h5{
     font-weight: bold;
 font-size: 16px;

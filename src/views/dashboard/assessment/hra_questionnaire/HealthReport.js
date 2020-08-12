@@ -29,12 +29,11 @@ const Wrapper = styled.div`
 	}
 	#death{
 		width: 92%;
-
 	}
     p {
       font-weight: bold;
-      font-size: 16px;
-      line-height: 16px;
+      font-size: 1.6rem;
+      line-height: 1.6rem;
       letter-spacing: 1.8px;
       color: ${(props) => props.theme.color.ui_05};
 	  margin-right: 2rem;
@@ -44,38 +43,89 @@ const Wrapper = styled.div`
   .analysis-card {
 	margin: 0 0 4rem 0;
 	display: grid;
-    grid-gap: 4rem;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 4rem;
+	grid-template-columns: 1fr 1fr 1fr;
+	&::-webkit-scrollbar {
+		height: .3rem;
+	}
+	 
+	&::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	}
+	 
+	&::-webkit-scrollbar-thumb {
+	  background-color: darkgrey;
+	  outline: 1px solid slategrey;
+	}
+	@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
+		display: flex;
+		overflow: scroll;
+		overflow-y: hidden;
+		justify-content: end;
+	}
 }
 .paperWithPicture{
 	justify-content: flex-end;
 	position: relative;
 	height: 240px;
 	margin: 6rem 0;
+	@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
+		justify-content: start;
+		padding: 2.4rem 2rem;
+		height: 193px;
+		border: 1px solid #3CBDB2;
+		}
 	img{
 		width: 340px;
-height: 240px;
-position: absolute;
+		height: 240px;
+		position: absolute;
     left: 60px;
-    bottom: 30px;
+	bottom: 30px;
+	@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
+		right: -10px;
+		left: unset;
+		width: 240px;
+		height: 140px;
+		max-width:30%;
+		}
+	@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			max-width:50%;
+		}
 	}
 	.details{
 		width: 600px;
-		max-width: 58%;
+		max-width: 50%;
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
+			max-width: 70%;
+			}	
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			max-width:50%;
+		}	
 		h1 {
-			font-size: 20px;
+			font-size: 2rem;
 			line-height: 180%;
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.ui_05};
 			font-weight: bold;
 			width: 100%;
 			margin-bottom: 1rem;
+			@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
+				font-weight: 300;
+				margin-bottom: 1.8rem;
+			font-size: 1.4rem;
+			line-height: 2.5rem;
+			color: ${(props) => props.theme.color.ui_05};	}
 		  }
 		  p{
-			font-size: 20px;
-			line-height: 40px;
+			font-size: 2.0rem;
+			line-height: 4.0rem;
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.ui_06};
+			@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
+				font-size: 1.4rem;
+				line-height: 2.5rem;
+				letter-spacing: 0.2px;
+				color: ${(props) => props.theme.color.brand_02};	}
 		  }
 	}
 }
@@ -89,7 +139,7 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 
 	return (
 		<Wrapper>
-		<DashboardLayout whatPage="Report">
+		<DashboardLayout whatPage="Reports">
 				<QuestionnaireLayout
 					heading="Health Risk Report"
 					Image={smallImg}

@@ -20,6 +20,12 @@ const Wrapper = styled.div`
 	grid-template-columns: max-content max-content;
 	grid-gap: 2rem;
 	justify-content: end;
+	@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+display:block;		}
+  .button{
+	@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+	width:100% !important;
+}
 }
 `;
 
@@ -34,7 +40,7 @@ function HealthReview({isLoading, saveQuestions, history}) {
 
 
 	return (
-		<DashboardLayout>
+		<DashboardLayout whatPage="Assessment">
 			<QuestionnaireLayout
 				heading='Review Health Assessment Submission'
 				Image={smallImg}
