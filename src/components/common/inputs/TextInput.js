@@ -43,10 +43,10 @@ color: ${props => props.theme.color.ui_text_05};
 	padding-left: 1rem;
 	&::placeholder{
 		font-family: Sofia;
-font-size: 1.4rem;
-line-height: 2.0rem;
-letter-spacing: 0.2px;
-color: ${props => props.theme.color.text_06};
+		font-size: 1.4rem;
+		line-height: 2.0rem;
+		letter-spacing: 0.2px;
+		color: ${props => props.theme.color.text_06};
 	}
     :focus :hover {
       outline: none;
@@ -58,10 +58,12 @@ color: ${props => props.theme.color.text_06};
 	}
 	.error {
 		color: red;
+		font-size: 1.3rem;
+		padding-top: 2px;
 	}
 `;
 
-const TextInput = ({ label, onChange, value, placeholder, inputAdornment, error,  type }) => {
+const TextInput = ({ label, onChange, value, placeholder, error,  type }) => {
 
 	const handleChange = (event) => {
 		onChange(event.target.value);
@@ -91,7 +93,6 @@ TextInput.propTypes = {
 	placeholder: PropTypes.string,
 	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
-	inputAdornment: PropTypes.any,
 	type: PropTypes.string
 };
 

@@ -23,10 +23,10 @@ const Wrapper = styled.div`
 		outline: none;
 		color: ${props => props.theme.color.active_primary};
 		border-radius: 5px;
-		
+
 	}
 
-	
+
 	.MuiOutlinedInput-root{
 		border: 1px solid ${props => props.theme.color.ui_text_06};
 		border-radius: 2px;
@@ -39,23 +39,25 @@ const Wrapper = styled.div`
 			outline: none;
 			border-color: ${props => props.theme.color.brand_02};
 			box-shadow: 0 0 3px ${props => props.theme.color.brand_02};
-	  
+
 		}
-	
+
 	}
 	.error {
 		color: red;
+		font-size: 1.3rem;
+		padding-top: 2px;
 	}
 	.MuiOutlinedInput-notchedOutline{
 		border: none;
 	}
 	.MuiOutlinedInput-inputAdornedEnd{
 		font-family: Sofia;
-font-weight: 300;
-font-size: 1.4rem;
-line-height: 2.0rem;
-letter-spacing: 0.2px;
-color: ${props => props.theme.color.text_06};
+		font-weight: 300;
+		font-size: 1.4rem;
+		line-height: 2.0rem;
+		letter-spacing: 0.2px;
+		color: ${props => props.theme.color.text_06};
 	}
 	`;
 

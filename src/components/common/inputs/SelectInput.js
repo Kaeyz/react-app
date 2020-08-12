@@ -17,20 +17,22 @@ const Wrapper = styled.div`
   }
   .input {
     margin: 0;
-	min-width: 100%;
-	
+		min-width: 100%;
+
   }
 	.error {
 		color: red;
+		font-size: 1.3rem;
+		padding-top: 2px;
 	}
 	.MuiSelect-select:focus{
 		background-color:${props => props.theme.color.text_03};
 		outline: none;
 		border-color: ${props => props.theme.color.brand_02};
 		box-shadow: 0 0 3px ${props => props.theme.color.brand_02};
-  
+
 	}
-	
+
 	.MuiOutlinedInput-root{
 		border: 1px solid ${props => props.theme.color.ui_text_06};
 		border-radius: 2px;
@@ -44,10 +46,10 @@ const Wrapper = styled.div`
 	}
 	.MuiSelect-select.MuiSelect-select{
 		font-family: Sofia;
-font-size: 1.4rem;
-line-height: 2.0rem;
-letter-spacing: 0.2px;
-color: ${props => props.theme.color.text_06};
+		font-size: 1.4rem;
+		line-height: 2.0rem;
+		letter-spacing: 0.2px;
+		color: ${props => props.theme.color.text_06};
 	}
 `;
 

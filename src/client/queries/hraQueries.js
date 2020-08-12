@@ -216,7 +216,7 @@ hraQueries.getCurrentResponse = () => {
 			percentageProgress
 			reportId
 			createdAt
-			updatedAtAt
+			updatedAt
 		}
 	}
 	`;

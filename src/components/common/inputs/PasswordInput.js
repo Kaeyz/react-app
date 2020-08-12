@@ -60,6 +60,8 @@ color: ${props => props.theme.color.text_06};
   }
   .error {
     color: red;
+		font-size: 1.3rem;
+		padding-top: 2px;
   }
 `;
 
@@ -100,7 +102,7 @@ const PasswordInput = ({ label, onChange, value, placeholder, error }) => {
 						{values.showPassword ? 	<img src={show} alt="showPassword"/>: <VisibilityOff />}
 					</IconButton>
 				</div>
-				{/* <p className="error">{error && error}</p> */}
+				<p className="error">{error && error}</p>
 			</div>
 		</Wrapper>
 	);
