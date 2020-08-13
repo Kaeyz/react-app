@@ -72,7 +72,7 @@ const Wrapper = styled.div`
 	@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
 		justify-content: start;
 		padding: 2.4rem 2rem;
-		height: 193px;
+		min-height: 193px;
 		border: 1px solid #3CBDB2;
 		}
 	img{
@@ -139,17 +139,17 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 
 	return (
 		<Wrapper>
-		<DashboardLayout whatPage="Reports">
+			<DashboardLayout whatPage="Reports">
 				<QuestionnaireLayout
 					heading="Health Risk Report"
 					Image={smallImg}
 					reportButton={true}
 					downloadAction={getHraPdf}
-				>
+					previousLink="/assessment/health/review">
 					<div className="flex top-header">
 						<p>ANALYSIS</p>
+						<div className="null" />
 					</div>
-
 					{
 						isLoading ?
 							<div>Loading ...</div>
