@@ -38,7 +38,7 @@ const Wrapper = styled.div`
       color: ${(props) => props.theme.color.ui_05};
 	  margin-right: 2rem;
 	  text-transform: uppercase;
-    }
+	      }
   }
   .analysis-card {
 	margin: 0 0 4rem 0;

@@ -56,7 +56,7 @@ const Wrapper = styled.div`
 		}
 		h1 {
 			font-size: 1.8rem;
-			font-weight: normal;
+			font-weight: bold;
 			color: ${(props) => props.theme.color.ui_05};
 			min-width: max-content;
 			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
@@ -127,6 +127,7 @@ const Wrapper = styled.div`
 				}
 			}
 	  }
+	  
 `;
 function QuestionnaireLayout({
 	children,

@@ -21,6 +21,7 @@ const theme = {
 		ui_07: '#a6a6a6',
 		ui_08: '#f37920',
 		ui_09: '#fbfbfb',
+		ui_10: '#8DB838',
 		text_01: '#1D1D1D',
 		text_02: '#606161',
 		text_03: '#ffffff',
