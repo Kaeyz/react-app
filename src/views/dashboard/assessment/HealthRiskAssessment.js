@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import QuestionnaireLayout from '../../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout';
 import DashboardLayout from '../../../components/layouts/dashboardLayout/DashboardLayout';
 import CircularProgressCard from '../../../components/dashboard/assessment/CircularProgressCard';

@@ -6,88 +6,98 @@ import PropTypes from 'prop-types';
 const Wrapper = styled.div`
 width: 100%;
 .greenBtn {
-	border: 1px solid #2ec4b6;
-	color: #2ec4b6;
-	background-color: #CBF3F0;
+	border: 1px solid #${props => props.theme.color.brand_02};
+    color: ${props => props.theme.color.brand_02};
+	background-color: color: ${props => props.theme.color.ui_text_01};
+;
 }
 .greenBtn:hover {
-	color: #fff;
-	background-color: #2ec4b6;
+    color: ${props => props.theme.color.text_03};
+	background-color: ${props => props.theme.color.brand_02};
 	transition: 0.4s;
 }
 .whiteBtn {
-	border: 1px solid #2ec4b6;
-	color: #2ec4b6;
-	background-color: #fff;
+	border: 1px solid ${props => props.theme.color.brand_02};
+	color: ${props => props.theme.color.brand_02};
+	background-color: ${props => props.theme.color.text_03};
 }
 .whiteBtn:hover {
-	color: #fff;
-	background-color: #2ec4b6;
+	color: ${props => props.theme.color.text_03};
+	background-color: ${props => props.theme.color.brand_02};
 	transition: 0.4s;
 }
 .darkGreenBtn {
-	border: 1px solid #2ec4b6;
+	border: 1px solid ${props => props.theme.color.brand_02};
 	color: ${props => props.theme.color.ui_01};
 	background-color: ${props => props.theme.color.brand_02};
 }
 .darkGreenBtn:hover {
-	color: #fff;
-	color: #2ec4b6;
+	color: ${props => props.theme.color.brand_02};
 	background-color: rgba(203, 243, 240, 0.1);
 	transition: 0.4s;
 }
 .yellowBtn {
-	background: #F47803;
+	background: ${props => props.theme.color.brand_01};
 	box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
-	color: white;
-	border: 1px solid #fcb813;
+	color: ${props => props.theme.color.text_03};
+	border: 1px solid ${props => props.theme.color.text_08};
 }
 .yellowBtn:hover {
-	background-color: #fff;
-	color: #fcb813;
+	background-color: ${props => props.theme.color.text_03};
+	color: ${props => props.theme.color.text_08};
 	transition: 0.4s;
 }
 .deepYellowBtn {
 	background: ${props => props.theme.color.ui_08};
 	box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
-	color: white;
-	border: 1px solid #fcb813;
+	color: ${props => props.theme.color.text_03};
+	border: 1px solid ${props => props.theme.color.ui_11};
 }
 .deepYellowBtn:hover {
-	background-color: #fff;
-	color: #fcb813;
+	background-color: ${props => props.theme.color.text_03};
+	color: ${props => props.theme.color.text_08};
 	transition: 0.4s;
 }
 .yellowBtn {
 	background: ${props => props.theme.color.brand_03};
 	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);	color: white;
-	border: 1px solid #fcb813;
+	border: 1px solid ${props => props.theme.color.text_08};
 }
 .yellowBtn:hover {
-	background-color: #fff;
-	color: #fcb813;
+	background-color: ${props => props.theme.color.text_03};
+	color: ${props => props.theme.color.text_08};
+	transition: 0.4s;
+}
+.lightYellowBtn {
+	background: #FFC624;
+	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);	color: white;
+	border: 1px solid ${props => props.theme.color.ui_11};
+}
+.lightYellowBtn:hover {
+	background-color: ${props => props.theme.color.text_03};
+	color: ${props => props.theme.color.text_08};
 	transition: 0.4s;
 }
 .purpleBtn {
 	background: ${props => props.theme.color.ui_10};
 	box-shadow: 0px 4px 4px rgba(206, 238, 143, 0.25);
-	color: white;
-	border: 1px solid #8DB838;
+	color: ${props => props.theme.color.text_03};
+	border: 1px solid ${props => props.theme.color.brand_04};
 }
 .purpleBtn:hover {
-	background-color: #fff;
-	color: #8DB838;
+	background-color: ${props => props.theme.color.text_03};
+	color: ${props => props.theme.color.ui_10};
 		transition: 0.4s;
 }
 .pinkBtn {
 	background: ${props => props.theme.color.ui_text_02};
 	box-shadow: 0px 4px 4px rgba(252, 184, 19, 0.25);
-	color: white;
-	border: 1px solid #fcb813;
+	color: ${props => props.theme.color.text_03};
+	border: 1px solid ${props => props.theme.color.text_08};
 }
 .pinkBtn:hover {
 	background-color: #fff;
-	color: #fcb813;
+	color: ${props => props.theme.color.text_08};
 	transition: 0.4s;
 }
 .button {
