@@ -33,7 +33,7 @@ const Wrapper = styled.div`
       margin-right: -50px;
     }
     @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-      bottom: -3px;
+      bottom: -32px;
       right: 36px;
     }
   }
