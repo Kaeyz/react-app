@@ -27,7 +27,7 @@ padding-top: 3rem;
       line-height: 2.4rem;
       margin-bottom: 2rem;
       letter-spacing: -0.2px;
-      color: ${(props) => props.theme.color.ui_05};
+      color: ${props => props.theme.color.ui_05};
     }
     p {
       font-size: 1.6rem;
@@ -44,7 +44,7 @@ padding-top: 3rem;
       letter-spacing: -0.2px;
       font-weight: normal;
       margin-left: 2rem;
-	  color: ${(props) => props.theme.color.ui_06};
+	  color: ${props => props.theme.color.ui_06};
 	  @media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
 		font-size: 1.6rem;
 		line-height: 2.5rem;
@@ -57,7 +57,7 @@ padding-top: 3rem;
 	margin-top: 9rem;
 	margin-bottom: 6rem;
     height: 240px;
-    border: 1px solid ${(props) => props.theme.color.text_09};
+    border: 1px solid ${props => props.theme.color.text_09};
     box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
 	border-radius: 10px;
 	justify-content: flex-end;
@@ -101,7 +101,7 @@ padding-top: 3rem;
       font-size: 2rem;
       line-height: 3.5rem;
       letter-spacing: 0.2px;
-      color: ${(props) => props.theme.color.ui_05};
+      color: ${props => props.theme.color.ui_05};
 		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
 		font-size: 1.4rem;
 		line-height: 2.5rem;
@@ -109,7 +109,7 @@ padding-top: 3rem;
 		margin-bottom: 2.6rem;
 	 }
 	 	       span {
-        color: ${(props) => props.theme.color.brand_02};
+        color: ${props => props.theme.color.brand_02};
         font-weight: bold;
       }
     }

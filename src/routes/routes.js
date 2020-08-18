@@ -65,17 +65,17 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} exact path="/reset_success" component={PasswordResetSuccessful} />
 
 
-			<Route exact path="/settings/account" component={AccountSettings} />
-			<Route exact path="/settings/password" component={PasswordSettings} />
-			<Route exact path="/settings/help" component={HelpSettings} />
+			<PrivateRoute exact path="/settings/account" component={AccountSettings} />
+			<PrivateRoute exact path="/settings/password" component={PasswordSettings} />
+			<PrivateRoute exact path="/settings/help" component={HelpSettings} />
 
 
-			<PrivateRoute exact path="/dashboard" component={DashboardHome} />
+			<Route exact path="/dashboard" component={DashboardHome} />
 			{/* <PrivateRoute exact path="/dashboard_home2" component={DashboardHome2} /> */}
 
-			<Route exact path="/assessments" component={DashboardAssessment} />
-			<Route exact path="/assessment/health_risk_assessment" component={HealthRiskAssessment}/>
-			<Route exact path="/assessment/health/general" component={General} />
+			<PrivateRoute exact path="/assessments" component={DashboardAssessment} />
+			<PrivateRoute exact path="/assessment/health_risk_assessment" component={HealthRiskAssessment}/>
+			<PrivateRoute exact path="/assessment/health/general" component={General} />
 
 			<PrivateRoute exact path="/assessment/health/covid" component={Covid}/>
 			<PrivateRoute exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
