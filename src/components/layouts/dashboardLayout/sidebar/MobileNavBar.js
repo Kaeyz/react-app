@@ -18,7 +18,8 @@ display:none;
 nav{
     position: fixed;
     width: 100%;
-    top: 0;
+	top: 0;
+	z-index:1111;
 	left: 0;
 	background: #FFFFFF;
 	padding: 1rem;

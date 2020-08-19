@@ -22,9 +22,14 @@ const Wrapper = styled.div`
 		align-items: start;
 		display: flex;
 		justify-content: space-between;
+		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+			display: block;	}
 		.left-content {
 			margin-right: 3rem;
 			width: 30rem;
+			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+				width: 100%;
+					  }
 		}
 		.right-content {
 			width: 70%;

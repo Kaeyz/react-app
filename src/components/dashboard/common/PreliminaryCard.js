@@ -6,65 +6,88 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
-	h5 {
-		font-size: 30px;
-		line-height: 32px;
-	}
-	p {
-		font-size: 12px;
-		line-height: 16px;
-		color: ${(props) => props.theme.color.text_02};
-		margin: 1.4rem 0 2.3rem 0;
-	}
-	.blue {
-		background-color: ${props => props.theme.color.ui_text_01};
-	}
-	.green {
-		background-color: ${props => props.theme.color.ui_text_04};
-	}
-	.white {
-		background-color: ${props => props.theme.color.text_03};
-	}
-	.paper{
-		padding: 3.7rem 2rem;
-		text-align: left;
-		width: 23.6rem;
-		height: 28.2rem;
-	}
-	.bigFont{
-		font-size: 1.4rem;
-	}
+  .orange {
+    background: rgba(243, 121, 32, 0.03);
+    border: 1px solid ${(props) => props.theme.color.ui_08};
+  }
+  .yellow {
+    background: rgba(255, 198, 36, 0.06);
+    border: 1px solid ${props => props.theme.color.ui11};
+  }
+  .green {
+    background: rgba(141, 184, 56, 0.03);
+    border: 1px solid ${(props) => props.theme.color.brand_04};
+  }
+  .paper {
+    flex-direction: column;
+    padding: 3rem;
+    align-items: start;
+    height: 320px;
+    position: relative;
+    justify-content: flex-end;
+    overflow: hidden;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      height: auto;
+      display: block;
+    }
+    img {
+      right: 24px;
+      bottom: -11px;
+      position: absolute;
+    }
+  }
+  h1 {
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    letter-spacing: 0.2px;
+    color: ${props => props.theme.color.ui_05};
+  }
+  p {
+    font-weight: 300;
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.2px;
+    color: ${props => props.theme.color.ui_05};
+    margin: 1rem 0 2rem 0;
+  }
 `;
 
-const PreliminaryCard = ({ fontSize, backgroundColor, ...props  }) => {
-
+const PreliminaryCard = ({
+	fontSize,
+	backgroundColor,
+	cardInfo,
+	where,
+	btnTheme,
+	btnValue,
+	image,
+}) => {
 	return (
 		<Wrapper>
-
-			<Paper className={`paper ${backgroundColor}`}>
-				<img src={props.Image} alt="bodyMass" />
-				<h5>{props.cardValue}</h5>
-				<p className={`${fontSize}`}>{props.cardInfo}</p>
-				<Link to={props.where || '/'}>
-					<Button theme={props.btnTheme}>
-						{props.btnValue}
-					</Button>
+			<Paper className={`paper flex ${backgroundColor}`}>
+				<h1 className={`${fontSize}`}>{cardInfo}</h1>
+				<p>
+          Empowering you with the knowledge and opportunity to live the best
+          life possible.
+				</p>
+				<Link to={where || '/'}>
+					<Button theme={btnTheme}>{btnValue}</Button>
 				</Link>
+				<img src={image} alt="Flower" />
 			</Paper>
-
 		</Wrapper>
 	);
 };
 
 PreliminaryCard.propTypes = {
-	Image: PropTypes.any,
+	image: PropTypes.any,
 	cardValue: PropTypes.any,
 	cardInfo: PropTypes.any,
 	fontSize: PropTypes.any,
 	where: PropTypes.string,
 	btnTheme: PropTypes.any,
 	btnValue: PropTypes.string,
-	backgroundColor: PropTypes.string.isRequired
+	backgroundColor: PropTypes.string.isRequired,
 };
 
 export default PreliminaryCard;

@@ -87,7 +87,7 @@ function SideBar({ logoutUser }) {
 		{ icon: 'exercise', text: 'Appointments', link: '/appointments' },
 	];
 	const otherItems = [
-		{ icon: 'download', text: 'Reports', link: '/reports' },
+		{ icon: 'download', text: 'Reports', link: '/assessment/health/report' },
 		{ icon: 'rewards', text: 'Rewards', link: '/rewards' },
 		{ icon: 'settings', text: 'Settings', link: '/settings/account' },
 		{ icon: 'logout', text: 'Logout', onClick: logoutUser },

@@ -1,67 +1,100 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import undraw_through_the_park from '../../../assets/undraw_through_the_park.svg';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-margin-bottom:2.4rem;
+  margin-bottom: 6rem;
+  .paper {
+    display: flex;
+    align-items: center;
+    height: 200px;
+    position: relative;
+    padding: 5.5rem 6rem;
+    padding-left: 3rem;
+    background: ${(props) => props.theme.color.text_10};
+    border: 1px solid ${(props) => props.theme.color.ui_12};
+    box-sizing: border-box;
+    border-radius: 10px;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+      padding: 2rem;
+    }
+  }
   .parkImage {
-    width: 152px;
-    height: 107px;
+    width: 300px;
+    height: 210px;
+     bottom: 14px;
+    right: 54px;
+    position: absolute;
+    max-width: 40%;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      max-width: 40%;
+      margin-right: -50px;
+    }
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+      bottom: -32px;
+      right: 36px;
+    }
   }
   .info {
-    width: 40.1rem;
+    width: 100%;
+    max-width: 51%;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+      max-width: 70%;
+    }
     h1 {
-      font-size: 3rem;
-      line-height: 3.2rem;
-      color: ${(props) => props.theme.color.text_01};
-      margin-bottom: 1.4rem;
+      font-weight: bold;
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+      letter-spacing: -0.2px;
+      color: ${(props) => props.theme.color.brand_02};
+      @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+        font-size: 2rem;
+        line-height: 2rem;
+      }
+      @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+        font-size: 1.4rem;
+      }
     }
     p {
-      font-size: 1.4rem;
-      line-height: 2.4rem;
-      color: ${(props) => props.theme.color.text_02};
+      font-size: 1.6rem;
+      line-height: 2.5rem;
+      margin-top: 1.6rem;
+      letter-spacing: 0.2px;
+      color: ${(props) => props.theme.color.ui_05};
+      @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+        font-size: 1.4rem;
+      }
+      @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+        margin-top: 1rem;
+      }
     }
   }
 `;
-const useStyles = makeStyles((theme) => ({
-	root: {
-		flexGrow: 1,
-	},
-	paper: {
-		padding: theme.spacing(5),
-		backgroundColor: '#CBF3F0',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'space-between',
-	},
-}));
-
 export default function WelcomeBanner() {
-	const classes = useStyles();
-
 	return (
 		<Wrapper>
-			<div className={classes.root}>
+			<div>
 				<Grid item xs={12}>
-					<Paper className={classes.paper}>
+					<Paper className="paper">
 						<div className="info">
-							<h1>Welcome to ChooseLife!</h1>
+							<h1>
+								<span role="img" aria-label="wave">
+                  👋🏽
+								</span>{' '}
+                Hello, Durodola Imani
+							</h1>
 							<p>
                 Empowering you with the knowledge & opportunity to live the best
                 life possible.
 							</p>
 						</div>
-						<div>
-							{' '}
-							<img
-								src={undraw_through_the_park}
-								alt="undraw_through_the_park"
-								className="parkImage"
-							/>
-						</div>
+						<img
+							src={undraw_through_the_park}
+							alt="undraw_through_the_park"
+							className="parkImage"
+						/>
 					</Paper>
 				</Grid>{' '}
 			</div>

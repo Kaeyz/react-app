@@ -11,9 +11,9 @@ const Wrapper = styled.div`
 	padding: 1rem 0;
 	.back {
 		font-weight: bold;
-		font-size: 14px;
-		line-height: 14px;
-		color: #2ec4b6;
+		font-size: 1.4rem;
+		line-height: 1.4rem;
+		color: ${(props) => props.theme.color.brand_02};
 		margin-left: 0.8rem;
 	}
 	.flex-back {
@@ -22,6 +22,24 @@ const Wrapper = styled.div`
 		justify-content: start;
 		padding: 1rem 0;
 		text-decoration: none;
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+				display:none;		
+					}
+	}
+	.review-back{
+	display:none;
+	justify-content: start;
+	padding-bottom: 2rem;
+	@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+		display:flex;		
+		}
+		p{
+			font-weight: bold;
+			font-size: 2rem;
+			line-height: 2rem;
+			color: ${(props) => props.theme.color.ui_05};
+			padding-left: 2rem;
+		}
 	}
 	.null {
 			border: 1px solid rgba(214, 216, 211, 0.5);
@@ -31,54 +49,121 @@ const Wrapper = styled.div`
 	.title {
 		display: flex;
 		justify-content: start;
-		align-item:center;
+		align-items:center;
+		width:100%;
 		img {
 			padding-right: 1rem;
-
 		}
 		h1 {
 			font-size: 1.8rem;
-			font-weight: normal;
-			color: #000b0a;
+			font-weight: bold;
+			color: ${(props) => props.theme.color.ui_05};
 			min-width: max-content;
+			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+				min-width: auto;
+				line-height: 1.7rem;
+								}
 		}
 	}
-	.downloadButton {
-		width: max-content;
-	}
-	.withGuage{
+		.withGuage{
 		display: grid;
 		width: 100%;
-		grid-template-columns: max-content max-content;
+		grid-template-columns: max-content 1fr;
 		justify-content: space-between;
-		align-items: flex-end;
+		align-items: center;
 		grid-gap: 1rem;
 		margin-top: 1.5rem;
+				.none{
+					@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+						display:none;		
+							}
+				}
+		.download{
+			margin-left: auto;
+			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+				display:none;		
+					}
+		}
 	}
+	.top-header2 {
+		display:grid;  
+		grid-gap: 1rem;
+		align-items: center;
+		 grid-template-columns: max-content max-content 1fr;
+	  margin: 0 0 4rem 0;
+	  @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+		grid-template-columns: max-content 1fr;
+		display:none;
+	}
+	  .null {
+		border: 1px solid rgba(214, 216, 211, 0.5);
+		width: -webkit-fill-available;
+		margin: 10px 0px;
+	  }
+	  img{
+		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			  display:none;		
+				  }
+	  }
+		p {
+		  font-weight: bold;
+		  font-size: 1.6rem;
+		  line-height: 1.6rem;
+		  letter-spacing: 1.8px;
+		  color: ${(props) => props.theme.color.ui_05};
+		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			letter-spacing: -0.2px;
+		}
+		}
+	  }
+	  .review-mobile-only{
+		  display:none;
+		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			display:grid;		
+				}
+			p{
+				@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+					font-weight: normal;
+				}
+			}
+	  }
+	  
 `;
-function QuestionnaireLayout({ children, alt, heading, reportButton, Image, previousLink, downloadAction  }) {
+function QuestionnaireLayout({
+	children,
+	alt,
+	heading,
+	reportButton,
+	Image,
+	previousLink,
+	downloadAction,
+}) {
 	return (
 		<Wrapper>
-			{
-				previousLink &&
+			{previousLink && (
 				<Link className="flex-back" to={previousLink}>
 					<img src={Back} alt="go back" />
 					<p className="back">Back</p>
 				</Link>
-			}
+			)}
 			<div className="flex withGuage">
 				<div className="title">
 					<img src={Image} alt={alt} />
 					<h1>{heading}</h1>
 				</div>
-				{reportButton ?
-					<div >
-						<Button theme="darkGreen" text="Download Report" onClick={downloadAction}>
-							<img src={downloadIcon} alt={downloadIcon}/>
-						</Button>
-					</div>
-					:
-					<div className="null" />
+				{
+					reportButton ? (
+						<div className="download">
+							<Button
+								theme="darkGreen"
+								text="Download Report"
+								onClick={downloadAction}
+							>
+								<img src={downloadIcon} alt={downloadIcon} />
+							</Button>
+						</div>
+					) : null
+					// <div className="null" />
 				}
 			</div>
 			{children}
@@ -87,7 +172,7 @@ function QuestionnaireLayout({ children, alt, heading, reportButton, Image, prev
 }
 
 QuestionnaireLayout.defaultProps = {
-	reportButton: false
+	reportButton: false,
 };
 
 QuestionnaireLayout.propTypes = {
@@ -97,7 +182,7 @@ QuestionnaireLayout.propTypes = {
 	previousLink: PropTypes.string.isRequired,
 	children: PropTypes.any.isRequired,
 	reportButton: PropTypes.bool.isRequired,
-	downloadAction: PropTypes.func.isRequired
+	downloadAction: PropTypes.func.isRequired,
 };
 
 export default QuestionnaireLayout;
