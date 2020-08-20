@@ -18,10 +18,10 @@ const Wrapper = styled(Paper)`
 	top: 2.0rem;
 	left: 1.8rem;
 	overflow-y: scroll;
-  overflow-x: hidden; 
+  overflow-x: hidden;
   @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-		display:none;	}
-	  }
+		display:none;
+    }
   	&::-webkit-scrollbar {
 		width: 0.3em;
 	}
@@ -48,12 +48,12 @@ const Wrapper = styled(Paper)`
     }
     .flex{
       display: grid;
-      grid-template-columns: 1fr max-content;    
-    margin-bottom: 2rem;
+      grid-template-columns: 1fr max-content;
+      margin-bottom: 2rem;
       h1{
         font-size: 16px;
-line-height: 15px;
-color: #000000;
+        line-height: 15px;
+        color: #000000;
       }
     }
   }

@@ -13,26 +13,26 @@ import DP from '../../../../assets/dp.svg';
 const Wrapper = styled.div`
 display:none;
 @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-	display: block;	}
-  }
-nav{
-    position: fixed;
-    width: 100%;
+	display: block;
+}
+nav {
+  position: fixed;
+  width: 100%;
 	top: 0;
 	z-index:1111;
 	left: 0;
 	background: #FFFFFF;
-	padding: 1rem;
-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.04);
-    display: flex;
-    justify-content: space-between;
-    img{
-        padding-right: 12px;
+	padding: 0rem;
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.04);
+  display: flex;
+  justify-content: space-between;
+  img {
+      padding-right: 12px;
     }
 }
 .MuiDrawer-paperAnchorDockedLeft{
-    padding: 20px;
-    background-color: rgba(0,0,0,0.4);
+    padding: 0px;
+    background-color: #FFFFFF;
 }
 
 `;
@@ -63,11 +63,10 @@ function DashboardLayout({whatPage}) {
 				<h1>{whatPage}</h1>
 				<img src={DP} alt='profile'/>
 			</nav>
-            			<Drawer
+			<Drawer
 				variant="persistent"
 				anchor="left"
 				open={open}
-
 			>
 				<div>
 					<IconButton onClick={handleDrawerClose} >

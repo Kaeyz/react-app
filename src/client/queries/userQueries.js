@@ -174,6 +174,6 @@ userQueries.updateUserPassword = (input) => {
 			.then(res => resolve(res))
 			.catch(err => reject(err));
 	});
-}
+};
 
 export default Object.freeze(userQueries);

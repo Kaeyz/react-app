@@ -70,11 +70,11 @@ const Routes = () => (
 			<PrivateRoute exact path="/settings/help" component={HelpSettings} />
 
 
-			<Route exact path="/dashboard" component={DashboardHome} />
+			<PrivateRoute exact path="/dashboard" component={DashboardHome} />
 			{/* <PrivateRoute exact path="/dashboard_home2" component={DashboardHome2} /> */}
 
 			<PrivateRoute exact path="/assessments" component={DashboardAssessment} />
-			<PrivateRoute exact path="/assessment/health_risk_assessment" component={HealthRiskAssessment}/>
+			<PrivateRoute exact path="/assessment/health" component={HealthRiskAssessment}/>
 			<PrivateRoute exact path="/assessment/health/general" component={General} />
 
 			<PrivateRoute exact path="/assessment/health/covid" component={Covid}/>
