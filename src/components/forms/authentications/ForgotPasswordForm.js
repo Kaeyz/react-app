@@ -2,17 +2,35 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { TextInput, SelectInput } from '../../../components/common/inputs';
+import { TextInput } from '../../../components/common/inputs';
 import Button from '../../common/Button';
 import { Grid } from '@material-ui/core';
 import { forgotPassword } from '../../../store/actions/userActions';
 import { forgotPasswordValidator } from '../validation';
+import AuthFormLayout from './AuthFormLayout';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+.submit{
+	margin-top: 3rem;
+	.button{
+		width: 100% !important;
+		
+	}
+}
+	.info{
+		font-family: Sofia;
+font-size: 14px;
+line-height: 25px;
+color: ${props => props.theme.color.ui_13};
+padding-top: 3rem;
+span{
+	color: ${props => props.theme.color.brand_02};
+}
+	}
+`;
 
 function ForgotPasswordForm({forgotPassword, history}) {
 	const [email, setEmail] = React.useState('');
-	const [accountType, setAccountType] = React.useState('');
 	const [errors, setErrors] = React.useState({});
 
 	const onFormSubmit = (event) => {
@@ -27,37 +45,29 @@ function ForgotPasswordForm({forgotPassword, history}) {
 
 	return (
 		<Wrapper>
-			<Grid container>
-				<Grid item xs={12} sm={12}>
-					<TextInput
-						label="Enter your email address"
-						value={email}
-						type="email"
-						onChange={setEmail}
-						placeholder="Type here..."
-						error={errors.email}
-					/>
+			<AuthFormLayout show ='none'>
+				<Grid container>
+					<Grid item xs={12} sm={12}>
+						<TextInput
+							label="E-mail address"
+							value={email}
+							type="email"
+							onChange={setEmail}
+							placeholder="Type here..."
+							error={errors.email}
+						/>
+					</Grid>
 				</Grid>
-			</Grid>
-			<Grid container>
-				<Grid item xs={12} sm={12}>
-					<SelectInput
-						label="Account Type"
-						value= {accountType}
-						onChange={setAccountType}
-						options={[{ value: '', text: 'Select here' }]}
-					/>
-				</Grid>
-			</Grid>
-			<div className="submit">
-				<Button
-					onClick={onFormSubmit}
-					theme="darkGreen"
-					style={{ width: '100%' }}
-				>
-					SEND RESET LINK
-				</Button>
-			</div>
+
+				<div className="submit">
+					<Button
+						onClick={onFormSubmit}
+						theme="darkGreen"
+					>
+Send Reset Link				</Button>
+				</div>
+			</AuthFormLayout>
+			<p className="info">Remembered your password?<span> Sign In</span> </p>
 		</Wrapper>
 	);
 }

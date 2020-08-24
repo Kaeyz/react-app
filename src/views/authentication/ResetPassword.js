@@ -1,30 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
-import styled from 'styled-components';
 import ResetPasswordForm from '../../components/forms/authentications/ResetPasswordForm';
-import CommonAuthPaperPage from '../../components/forms/authentications/CommonAuthPaperPage';
-import Frame from '../../assets/Frame.svg';
+import AuthLayout from '../../components/layouts/appLayout/AuthLayout';
 
+const layoutData = {
+	title: 'Reset your password',
+	description: 'Create a new password',
+};
 
-const Wrapper = styled.div`
-	hr {
-		border: 1px solid #f0f1f3;
-	}
-`;
 function ResetPassword({location, history}) {
 	const {resetToken} = queryString.parse(location.search);
 	return (
-		<Wrapper>
-			<CommonAuthPaperPage
-				img={Frame}
-				alt={'frame'}
-				title={'Enter new password'}
-				buttonText={' CHANGE PASSWORD'}
-			>
-				<ResetPasswordForm resetToken={resetToken} history={history} />
-			</CommonAuthPaperPage>
-		</Wrapper>
+		<AuthLayout data={layoutData} centered='alignCenter'>
+			<ResetPasswordForm resetToken={resetToken} history={history} />
+		</AuthLayout>
 	);
 }
 

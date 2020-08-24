@@ -5,60 +5,78 @@ import { Paper } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-	.paper {
-		padding: 2vw;
-		max-width: 100%;
-		display: grid;
-		justify-content: center;
-
-	}
-	.form_header {
-		max-width: 100%;
-		display: grid;
-		justify-items: center;
-		text-align: center;
-		padding-bottom: 2rem;
-		border-bottom: 2px solid ${props => props.theme.color.ui_03}
-	}
-	.footerText {
-		margin-top: 1.2rem;
-		font-size: 1.2rem;
-		text-align: center;
-	}
-	.footer_link {
-		color: ${props => props.theme.color.active_primary};
-	}
-
+  .paper {
+    padding: 2vw;
+    max-width: 100%;
+    justify-content: center;
+    background: ${(props) => props.theme.color.ui_01};
+    box-shadow: 0px 4px 50px rgba(4, 8, 19, 0.1);
+    border-radius: 6px;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+      padding: 1.6rem;
+    }
+    .MuiGrid-spacing-xs-3 > .MuiGrid-item {
+      padding: 0 10px;
+    }
+  }
+  .form_header {
+    max-width: 100%;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid ${(props) => props.theme.color.ui_03};
+  }
+  .footerText {
+    font-family: Sofia;
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+    color: ${(props) => props.theme.color.text_05};
+	padding-top: 1.6rem;
+	text-align: center;
+  }
+  .footer_link {
+    color: ${(props) => props.theme.color.active_primary};
+    text-decoration: underline;
+  }
+  .none{
+    display:none;
+  }
 `;
 
-export default function AuthFormLayout({children, showFormAgreement, description, title }) {
-
+export default function AuthFormLayout({
+	children,
+  showFormAgreement,
+  show
+	// description,
+	// title,
+}) {
 	const displayAgreement = () => (
 		<p className="footerText">
 			<span>By clicking Sign Up, you agree to our </span>
-			<span><Link to="/terms" className="footer_link">Terms of Use</Link> </span>
+			<span>
+				<Link to="/terms" className="footer_link">
+          Terms of Use
+				</Link>{' '}
+			</span>
 			<span>and our </span>
-			<span><Link to="/privacy" className="footer_link">Privacy Policy.</Link></span>
+			<span>
+				<Link to="/privacy" className="footer_link">
+          Privacy Policy.
+				</Link>
+			</span>
 		</p>
 	);
 
 	return (
 		<Wrapper>
 			<Paper className="paper">
-				<div className="form_header">
-					<h3>{title}</h3>
-					<p>{description}</p>
-				</div>
 				{children}
-				<div className="footer">
-					{showFormAgreement && displayAgreement() }
-				</div>
+				<div className={`${show} footer`}>{showFormAgreement && displayAgreement()}</div>
 			</Paper>
 		</Wrapper>
 	);
 }
-
-
 
 AuthFormLayout.defaultProps = {
 	showFormAgreement: true,
@@ -69,4 +87,5 @@ AuthFormLayout.propTypes = {
 	showFormAgreement: PropTypes.bool,
 	title: PropTypes.string.isRequired,
 	description: PropTypes.string,
+	show: PropTypes.string,
 };
