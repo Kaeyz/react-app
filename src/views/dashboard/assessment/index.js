@@ -16,24 +16,24 @@ import yellowFlower from '../../../assets/yellowFlower.svg';
 import greenFlower from '../../../assets/greenFlower.svg';
 
 const Wrapper = styled.div`
-padding-top: 3rem;
+	padding-top: 3rem;
    .heading {
-    .paper {
-      padding: 3.3rem 3rem;
-    }
-    h1 {
-      font-weight: bold;
-      font-size: 2.4rem;
-      line-height: 2.4rem;
-      margin-bottom: 2rem;
-      letter-spacing: -0.2px;
-      color: ${props => props.theme.color.ui_05};
-    }
-    p {
-      font-size: 1.6rem;
-      line-height: 2.5rem;
-      letter-spacing: 0.2px;
-    }
+			.paper {
+				padding: 3.3rem 3rem;
+			}
+			h1 {
+				font-weight: bold;
+				font-size: 2.4rem;
+				line-height: 2.4rem;
+				margin-bottom: 2rem;
+				letter-spacing: -0.2px;
+				color: ${props => props.theme.color.ui_05};
+			}
+			p {
+				font-size: 1.6rem;
+				line-height: 2.5rem;
+				letter-spacing: 0.2px;
+			}
   }
   .sub-heading {
     margin: 7.7rem 0 3.9rem;
@@ -44,29 +44,30 @@ padding-top: 3rem;
       letter-spacing: -0.2px;
       font-weight: normal;
       margin-left: 2rem;
-	  color: ${props => props.theme.color.ui_06};
-	  @media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
-		font-size: 1.6rem;
-		line-height: 2.5rem;
-		}
+		  color: ${props => props.theme.color.ui_06};
+		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
+				font-size: 1.6rem;
+				line-height: 2.5rem;
+			}
     }
   }
   .withAbsImg {
     position: relative;
-	padding: 0 3rem;
-	margin-top: 9rem;
-	margin-bottom: 6rem;
+		padding: 0 3rem;
+		margin-top: 9rem;
+		margin-bottom: 6rem;
     height: 240px;
     border: 1px solid ${props => props.theme.color.text_09};
     box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
-	border-radius: 10px;
-	justify-content: flex-end;
-	@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
-		justify-content: start;
-		padding: 2rem;
-		margin-top: 4rem;
-	}
-		.withPicture{
+		border-radius: 10px;
+		justify-content: flex-end;
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
+			justify-content: start;
+			padding: 2rem;
+			margin-top: 4rem;
+		}
+
+		.withPicture {
 			width: 516px;
 			max-width: 60%;
 			justify-content: space-between;
@@ -84,35 +85,34 @@ padding-top: 3rem;
 		max-width: 35%;
 	  position: absolute;
 	  @media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
-				left: unset;
-		right: -13px;
-		width: 300px;
-		height: 200px;
-		max-width: 43%;
-		bottom: 23px;
-		 }
-	 @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-		right: -8px;
-		bottom: 0;
+			left: unset;
+			right: -13px;
+			width: 300px;
+			height: 200px;
+			max-width: 43%;
+			bottom: 23px;
+		}
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			right: -8px;
+			bottom: 0;
 		 }
     }
-  
+
      p {
       font-size: 2rem;
       line-height: 3.5rem;
       letter-spacing: 0.2px;
       color: ${props => props.theme.color.ui_05};
 		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
-		font-size: 1.4rem;
-		line-height: 2.5rem;
-		max-width: 100%;
-		margin-bottom: 2.6rem;
-	 }
-	 	       span {
+				font-size: 1.4rem;
+				line-height: 2.5rem;
+				max-width: 100%;
+				margin-bottom: 2.6rem;
+			}
+	 	  span {
         color: ${props => props.theme.color.brand_02};
         font-weight: bold;
       }
-    }
     }
   }
   .grid-card {

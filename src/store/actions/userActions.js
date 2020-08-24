@@ -142,7 +142,7 @@ export const updateUser = (data) => dispatch => {
 	dispatch(appIsLoading());
 	dispatch(clearAlert());
 	userQueries.updateUser(data)
-	.then(res => {
+		.then(res => {
 			if (res.errors) {
 				dispatch(errorAlert({ msg: res.errors[0].message }));
 				dispatch(appNotLoading());
