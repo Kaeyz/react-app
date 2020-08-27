@@ -1,30 +1,21 @@
 import React from 'react';
+import AuthLayout from '../../components/layouts/appLayout/AuthLayout';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import CommonAuthPaperPage from '../../components/forms/authentications/CommonAuthPaperPage';
-import Frame from '../../assets/Frame.svg';
 import ForgotPasswordForm from '../../components/forms/authentications/ForgotPasswordForm';
 
-const Wrapper = styled.div`
-  hr {
-    border: 1px solid #f0f1f3;
-  }
-`;
-function ForgotPassword({history}) {
+const layoutData = {
+	title: 'Forgot your password?',
+	description: 'Enter the email address you registered your account with and we’ll send you a reset link',
+};
+
+
+const ForgotPassword = ({history}) => {
 	return (
-		<Wrapper>
-			{' '}
-			<CommonAuthPaperPage
-				img={Frame}
-				alt={'frame'}
-				title={'Forgot your password?'}
-				detail={'Enter email address associated with your account.'}
-			>
-				<ForgotPasswordForm history={history} />
-			</CommonAuthPaperPage>
-		</Wrapper>
+		<AuthLayout data={layoutData} centered='alignCenter'>
+			<ForgotPasswordForm history={history} />
+		</AuthLayout>
 	);
-}
+};
 
 ForgotPassword.propTypes = {
 	history: PropTypes.object.isRequired

@@ -24,8 +24,9 @@ import AdminLogin from '../views/authentication/AdminLogin';
 import ForgotPassword from '../views/authentication/ForgotPassword';
 import ResetPassword from '../views/authentication/ResetPassword';
 import PasswordResetLink from '../views/authentication/PasswordResetLink';
-import CompanyRegistrationSuccess from '../views/authentication/CompanyRegistrationSuccess';
+import AccountSuccess from '../views/authentication/AccountSuccess';
 import PasswordResetSuccessful from '../views/authentication/PasswordResetSuccessful';
+import MailConfirmation from '../views/authentication/MailConfirmation';
 import HealthRiskAssessment from '../views/dashboard/assessment/HealthRiskAssessment';
 import General from '../views/dashboard/assessment/hra_questionnaire/General';
 import Covid from '../views/dashboard/assessment/hra_questionnaire/Covid';
@@ -56,12 +57,13 @@ const Routes = () => (
 
 			<PrivateRoute isAuth={false} exact path="/onboarding/individual" component={IndividualSignUp} />
 			<PrivateRoute isAuth={false} exact path="/onboarding/company" component={CompanySignUp} />
-			<PrivateRoute isAuth={false} exact path="/onboarding/success" component={CompanyRegistrationSuccess} />
+			<PrivateRoute isAuth={false} exact path="/onboarding/account_success" component={AccountSuccess} />
+			<PrivateRoute isAuth={false} exact path="/onboarding/mail_confirmed" component={MailConfirmation} />
 
 
 			<PrivateRoute isAuth={false} exact path="/forgot_password" component={ForgotPassword} />
 			<PrivateRoute isAuth={false} exact path="/reset_link_sent" component={PasswordResetLink} />
-			<PrivateRoute isAuth={false} exact path="/reset" component={ResetPassword} />
+			<PrivateRoute isAuth={false} exact path="/reset_password" component={ResetPassword} />
 			<PrivateRoute isAuth={false} exact path="/reset_success" component={PasswordResetSuccessful} />
 
 

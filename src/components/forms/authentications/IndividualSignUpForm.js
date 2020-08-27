@@ -1,5 +1,5 @@
-// eslint-disable-next-line
-import React, { useState } from "react";
+import styled from 'styled-components';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Grid } from '@material-ui/core';
 import Button from '../../common/Button';
@@ -14,6 +14,15 @@ import {
 import PropTypes from 'prop-types';
 import { onBoardIndividualValidator } from '../validation';
 import {NumberInput} from '../../common/inputs/NumberInput';
+
+const Wrapper = styled.div`
+	.submit{
+		padding-top: 4rem;
+		.button{
+			width: 100% !important;
+		}
+	}
+`;
 const textInput = {
 	placeholder: 'Type here...',
 };
@@ -112,129 +121,120 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 		registerIndividual(user, history);
 	};
 	return (
-		<AuthFormLayout
-			title="Create an Account"
-			description="Inspiring wholesome harmony for the mind, body and spirit, for everyone, everywhere."
-		>
-			<form noValidate autoComplete="off">
-				<Grid container spacing={3}>
-					<Grid item xs={12} sm={6}>
-						<TextInput
-							placeholder={textInput.placeholder}
-							label="Enter your first name"
-							value={firstName}
-							onChange={setFirstName}
-							error={errors.firstName}
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextInput
-							placeholder={textInput.placeholder}
-							label="Enter your last name"
-							value={lastName}
-							onChange={setLastName}
-							error={errors.lastName}
-						/>
-					</Grid>
+		<Wrapper>
+			<AuthFormLayout
+				title="Create an Account"
+				description="Inspiring wholesome harmony for the mind, body and spirit, for everyone, everywhere."
+			>
+				<form noValidate autoComplete="off">
+					<Grid container spacing={3}>
+						<Grid item xs={12} sm={6}>
+							<TextInput
+								placeholder={textInput.placeholder}
+								label="First name"
+								value={firstName}
+								onChange={setFirstName}
+								error={errors.firstName}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextInput
+								placeholder={textInput.placeholder}
+								label="Last name"
+								value={lastName}
+								onChange={setLastName}
+								error={errors.lastName}
+							/>
+						</Grid>
 
-					<Grid item xs={12}>
-						<TextInput
-							placeholder={textInput.placeholder}
-							label="Enter your email"
-							value={email}
-							type="email"
-							onChange={setEmail}
-							error={errors.email}
-						/>
-					</Grid>
+						<Grid item xs={12}>
+							<TextInput
+								placeholder={textInput.placeholder}
+								label="E-mail Address"
+								value={email}
+								type="email"
+								onChange={setEmail}
+								error={errors.email}
+							/>
+						</Grid>
 
-					<Grid item xs={12} sm={6}>
-						<SelectInput
-							label="Gender"
-							options={optionGender}
-							value={gender}
-							onChange={setGender}
-							error={errors.gender}
-						/>
+						<Grid item xs={12} sm={6}>
+							<SelectInput
+								label="Gender"
+								options={optionGender}
+								value={gender}
+								onChange={setGender}
+								error={errors.gender}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<DateInput
+								label="Date of Birth"
+								value={dob}
+								onChange={setDob}
+								error={errors.dob}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<NumberInput
+								label="Weight (KG)"
+								// options={optionWeight}
+								value={weight}
+								placeholder='Enter Weight'
+								onChange={setWeight}
+								error={errors.weight}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<NumberInput
+								label="Height (CM)"
+								// options={optionHeight}
+								value={height}
+								placeholder='Enter height here.. '
+								onChange={setHeight}
+								error={errors.height}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<SelectInput
+								label="Activity Level"
+								options={optionActivity}
+								value={activity}
+								onChange={setActivityLevel}
+								error={errors.activity}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<PasswordInput
+								label="Password"
+								value={password}
+								onChange={setPassword}
+								error={errors.password}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<PasswordInput
+								label="Re-enter Password"
+								value={password2}
+								onChange={setPassword2}
+								error={errors.password2}
+							/>
+						</Grid>
+						<Grid item xs={12}></Grid>
 					</Grid>
-					<Grid item xs={12} sm={6}>
-						<DateInput
-							label="Date of Birth"
-							value={dob}
-							onChange={setDob}
-							error={errors.dob}
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<NumberInput
-							label="Weight"
-							// options={optionWeight}
-							value={weight}
-							placeholder='Enter Weight'
-							onChange={setWeight}
-							error={errors.weight}
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<NumberInput
-							label="Height"
-							// options={optionHeight}
-							value={height}
-							placeholder='Enter height here.. '
-							onChange={setHeight}
-							error={errors.height}
-						/>
-					</Grid>
-					<Grid item xs={12}>
-						<SelectInput
-							label="Activity Level"
-							options={optionActivity}
-							value={activity}
-							onChange={setActivityLevel}
-							error={errors.activity}
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<PasswordInput
-							label="Enter your password"
-							value={password}
-							onChange={setPassword}
-							error={errors.password}
-						/>
-						<p
-							style={{
-								fontSize: '1.2rem',
-								lineHeight: '1.6rem',
-								fontFamily: 'Futura',
-								marginTop: '13px',
-							}}
+					<div className="submit">
+						<Button
+							value="Sign Up"
+							type="submit"
+							theme="darkGreenBtn"
+							onClick={onFormSubmit}
+							style={{ width: '100%' }}
 						>
-              Your password needs to be at least 8 characters long.
-						</p>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<PasswordInput
-							label="Re-enter your password"
-							value={password2}
-							onChange={setPassword2}
-							error={errors.password2}
-						/>
-					</Grid>
-					<Grid item xs={12}></Grid>
-				</Grid>
-				<div className="submit">
-					<Button
-						value="Sign Up"
-						type="submit"
-						theme="yellow"
-						onClick={onFormSubmit}
-						style={{ width: '100%' }}
-					>
-            SIGN UP
-					</Button>
-				</div>
-			</form>
-		</AuthFormLayout>
+Register					</Button>
+					</div>
+				</form>
+			</AuthFormLayout>
+		</Wrapper>
 	);
 };
 

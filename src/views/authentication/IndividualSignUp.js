@@ -13,7 +13,7 @@ const layoutData = {
 
 const IndividualSignUp = ({history}) => {
 	return (
-		<AuthLayout data={layoutData}>
+		<AuthLayout data={layoutData} centered='alignCenter'>
 			<IndividualSignUpForm history={history} />
 		</AuthLayout>
 	);

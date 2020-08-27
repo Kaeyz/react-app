@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AuthFormLayout from './AuthFormLayout';
-import { TextInput, SelectInput, PasswordInput } from '../../common/inputs';
+import { TextInput, PasswordInput } from '../../common/inputs';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
 import Button from '../../common/Button';
@@ -11,31 +11,67 @@ import { loginValidator } from '../validation';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-	.submit {
-		margin-top: 1.6rem;
-		display: flex;
-		justify-content: center;
-	}
-	.forgot {
-		margin-top: 1rem;
-		display: grid;
-		justify-content: center;
-	}
-	.forgot_link {
-		text-decoration: none;
-		color: inherit;
-	}
-	.link_text {
-		font-size: 1.2rem;
-		color: ${props => props.theme.color.brand_02};
-		font-weight: bold;
-	}
+  .submit {
+    margin-top: 1.6rem;
+    display: flex;
+    justify-content: center;
+    .button {
+      width: 100% !important;
+    }
+  }
+  .forgot {
+    margin-top: 1rem;
+    display: grid;
+  }
+  .forgot_link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .link_text {
+    font-size: 1.4rem;
+    font-family: Sofia;
+    color: ${(props) => props.theme.color.brand_02};
+    line-height: 1.4rem;
+    letter-spacing: 0.2px;
+    padding: 1rem 0 1.4rem 0;
+  }
+  .join-us {
+    justify-content: start;
+    display: flex;
+    padding-top: 2.4rem;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      justify-content: center;
+    }
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+      display: block;
+      text-align: center;
+    }
+    p {
+      font-family: Sofia;
+      font-size: 1.4rem;
+      line-height: 2.5rem;
+      color: ${(props) => props.theme.color.ui_13};
+    }
+    .link {
+      color: ${(props) => props.theme.color.brand_02};
+      font-weight: bold;
+      padding-left: 0.5rem;
+      text-decoration: underline;
+      @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+        padding-left: 0rem;
+      }
+    }
+  }
+  .link:hover {
+    color: ${(props) => props.theme.color.ui_13};
+    transition: 0.4s;
+  }
 `;
 
-function LoginForm({history, loginUser}) {
+function LoginForm({ history, loginUser }) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [accountType, setAccountType] = useState('');
+	const [accountType] = useState('');
 	const [errors, setErrors] = useState({});
 
 	const onFormSubmit = (event) => {
@@ -53,16 +89,12 @@ function LoginForm({history, loginUser}) {
 
 	return (
 		<Wrapper>
-			<AuthFormLayout
-				title="Log in to your Account"
-				description="Inspiring wholesome harmony for the mind, body and spirit, for everyone, everywhere."
-				showFormAgreement={false}
-			>
+			<AuthFormLayout showFormAgreement={false}>
 				<div>
 					<Grid container>
 						<Grid item xs={12} sm={12}>
 							<TextInput
-								label="Enter your email address"
+								label="E-mail Address"
 								value={email}
 								type="email"
 								onChange={setEmail}
@@ -75,43 +107,40 @@ function LoginForm({history, loginUser}) {
 					<Grid container>
 						<Grid item xs={12} sm={12}>
 							<PasswordInput
-								label="Enter Password"
-								value= {password}
+								label="Password"
+								value={password}
 								onChange={setPassword}
 								options={[{ value: '', text: 'Select here' }]}
 								error={errors.password}
 							/>
 						</Grid>
 					</Grid>
-
-					<Grid container>
-						<Grid item xs={12} sm={12}>
-							<SelectInput
-								label="Account Type"
-								value= {accountType}
-								onChange={setAccountType}
-								options={[{value:'', text: 'Select here'}]}
-							/>
-						</Grid>
-					</Grid>
+					<div className="forgot">
+						<Link className="forgot_link" to="/forgot_password">
+							<p className="link_text link">Forgot password?</p>
+						</Link>
+					</div>
 
 					<div className="submit">
-						<Button theme="yellow" onClick={onFormSubmit} style={{width: '100%'}}>Login</Button>
+						<Button theme="darkGreenBtn" onClick={onFormSubmit}>
+              Log in
+						</Button>
 					</div>
 				</div>
-				<div className="forgot">
-					<Link className="forgot_link" to="/forgot_password">
-						<p className="link_text">Forgot password?</p>
-					</Link>
-				</div>
 			</AuthFormLayout>
+			<div className="join-us">
+				<p>Don’t have a choose life account?</p>
+				<Link to="/onboarding/individual">
+					<p className="link"> Let’s create one now</p>{' '}
+				</Link>{' '}
+			</div>
 		</Wrapper>
 	);
 }
 
 LoginForm.propTypes = {
 	history: PropTypes.object.isRequired,
-	loginUser: PropTypes.func.isRequired
+	loginUser: PropTypes.func.isRequired,
 };
 
-export default connect(null, {loginUser})(LoginForm);
+export default connect(null, { loginUser })(LoginForm);
