@@ -20,14 +20,14 @@ const Wrapper = styled.div`
 	grid-gap: 2rem;
 	justify-content: end;
 	@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-	display:block;	
+		display:block;
 	}
-  .button{
-	@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-	width:100% !important;
 }
+  .button {
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+		width:100% !important;
+		}
 }
-
 `;
 
 function HealthReview({ isLoading, saveQuestions, history }) {

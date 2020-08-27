@@ -104,8 +104,8 @@ const setHraInputs = obj => dispatch => {
 export const fetchHraResponse = () => dispatch => {
 	hraQueries.getCurrentResponse()
 		.then(res => {
-			if (res.data.currentUserResponse !== null) {
-				const { percentageProgress, questionAndResponse } = res.data.currentUserResponse;
+			if (res.data.me.currentHra !== null) {
+				const { percentageProgress, questionAndResponse } = res.data.me.currentHra;
 				dispatch(setPercentageCompleted(percentageProgress));
 				dispatch(setHraInputs(clean(questionAndResponse)));
 			}

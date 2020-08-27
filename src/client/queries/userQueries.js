@@ -114,7 +114,6 @@ userQueries.getCurrentUser = () => {
 			adminVerified
 			source
 			suspended
-			company
 			companyUrl
 		}
 	}
