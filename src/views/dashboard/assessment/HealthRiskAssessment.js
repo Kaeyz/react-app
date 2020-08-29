@@ -137,7 +137,6 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 					<div className="top-header2 top-header3">
 						<img src={smallImg} alt="adornment" />
 						<p>Health Risk Assessment</p>
-						{/* <div className="null" /> */}
 					</div>
 					<div className="top-header2 top-header4 top-header5">
 						{/* <img src={smallImg} alt="adornment" /> */}
@@ -149,11 +148,7 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 						<p>Preliminary Assessment</p>
 						<div className="null" />
 					</div>
-					{/* <div className="flex top-header">
-						<p>Preliminary assessment</p>
-						<div className="null" />
-					</div> */}
-					<main className="content">
+							<main className="content">
 						<div className="middle">
 							<Grid container spacing={1}>
 								<Grid item xs={12}>

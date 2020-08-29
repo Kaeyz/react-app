@@ -36,7 +36,9 @@ import Travel from '../views/dashboard/assessment/hra_questionnaire/Travel';
 import Sleep from '../views/dashboard/assessment/hra_questionnaire/Sleep';
 import Food from '../views/dashboard/assessment/hra_questionnaire/Food';
 import HealthReview from '../views/dashboard/assessment/hra_questionnaire/HealthReview';
-import HealthReport from '../views/dashboard/assessment/hra_questionnaire/HealthReport';
+import Reports from '../views/report/Reports';
+import HealthReport from '../views/report/HealthReport';
+import HraCompleted from '../views/dashboard/assessment/hra_questionnaire/HraCompleted';
 
 import Page404 from '../views/Page404';
 
@@ -72,10 +74,9 @@ const Routes = () => (
 			<PrivateRoute exact path="/settings/help" component={HelpSettings} />
 
 
-			<PrivateRoute exact path="/dashboard" component={DashboardHome} />
-			{/* <PrivateRoute exact path="/dashboard_home2" component={DashboardHome2} /> */}
+			<Route exact path="/dashboard" component={DashboardHome} />
 
-			<PrivateRoute exact path="/assessments" component={DashboardAssessment} />
+			<Route exact path="/assessments" component={DashboardAssessment} />
 			<PrivateRoute exact path="/assessment/health" component={HealthRiskAssessment}/>
 			<PrivateRoute exact path="/assessment/health/general" component={General} />
 
@@ -85,11 +86,12 @@ const Routes = () => (
 			<PrivateRoute exact path="/assessment/health/travel" component={Travel}/>
 			<PrivateRoute exact path="/assessment/health/sleep" component={Sleep}/>
 			<PrivateRoute exact path="/assessment/health/food" component={Food} />
+			<Route exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
 
 
-			<PrivateRoute exact path="/assessment/health/review" component={HealthReview} />
-			<PrivateRoute exact path="/assessment/health/report" component={HealthReport} />
-			<PrivateRoute exact path="/assessment/health" component={HealthRiskAssessment} />
+			<Route exact path="/assessment/health/review" component={HealthReview} />
+			<Route exact path="/assessment/health/reports" component={Reports} />
+			<Route exact path="/assessment/health/health_report" component={HealthReport} />
 
 
 			{/* Blog route */}

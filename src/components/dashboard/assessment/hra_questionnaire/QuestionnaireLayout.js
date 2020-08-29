@@ -6,6 +6,7 @@ import Back from '../../../../assets/greenBackArrow.svg';
 import styled from 'styled-components';
 import Button from '../../../../components/common/Button';
 import downloadIcon from '../../../../assets/Vector.svg';
+import Paper from '@material-ui/core/Paper';
 
 const Wrapper = styled.div`
 	padding: 1rem 0;
@@ -15,6 +16,18 @@ const Wrapper = styled.div`
 		line-height: 1.4rem;
 		color: ${(props) => props.theme.color.brand_02};
 		margin-left: 0.8rem;
+	}
+	.top-paper{
+		background: ${(props) => props.theme.color.ui_01};;
+box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
+border-radius: 0px;
+display: flex;
+justify-content: space-between;
+padding: 1rem;
+@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+	display:none;		
+		}
+}
 	}
 	.flex-back {
 		display: flex;
@@ -62,6 +75,7 @@ const Wrapper = styled.div`
 			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
 				min-width: auto;
 				line-height: 1.7rem;
+				font-size: 1.3rem;
 								}
 		}
 	}
@@ -146,13 +160,13 @@ function QuestionnaireLayout({
 					<p className="back">Back</p>
 				</Link>
 			)}
-			<div className="flex withGuage">
-				<div className="title">
-					<img src={Image} alt={alt} />
-					<h1>{heading}</h1>
-				</div>
-				{
-					reportButton ? (
+			{
+				reportButton ? (
+					<Paper className='top-paper'>
+						<Link className="flex-back" to={Link}>
+							<img src={Back} alt="go back" />
+							<p className="back">Back</p>
+						</Link>
 						<div className="download">
 							<Button
 								theme="darkGreen"
@@ -162,9 +176,16 @@ function QuestionnaireLayout({
 								<img src={downloadIcon} alt={downloadIcon} />
 							</Button>
 						</div>
-					) : null
-					// <div className="null" />
-				}
+					</Paper>
+				) : null
+				// <div className="null" />
+			}
+			<div className="flex withGuage">
+				<div className="title">
+					<img src={Image} alt={alt} />
+					<h1>{heading}</h1>
+				</div>
+
 			</div>
 			{children}
 		</Wrapper>
