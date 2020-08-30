@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { saveQuestions } from '../../../../store/actions/hraActions';
-
-import Back from '../../../../assets/greenBackArrow.svg';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout';
 import ReviewCard from '../../../../components/dashboard/assessment/hra_questionnaire/ReviewCard';
@@ -41,25 +39,10 @@ function HealthReview({ isLoading, saveQuestions, history }) {
 	return (
 		<DashboardLayout whatPage="Assessment">
 			<QuestionnaireLayout
-				// heading='Review Health Assessment Submission'
-				// Image={smallImg}
+				heading='Review Health Assessment Submission'
+				Image={smallImg}
 				previousLink="/assessment/health/food"
-				// reportButton={false}
 			>
-				<Link className="review-back flex" to="/assessment/health/food">
-					<img src={Back} alt="go back" />
-					<p>Health Risk Assessment</p>
-				</Link>
-				<div className="top-header2">
-					<img src={smallImg} alt="adornment" />
-					<p>Review Health Assessment Submission</p>
-					<div className="null" />
-				</div>
-				<div className="top-header2 review-mobile-only">
-					<img src={smallImg} alt="adornment" />
-					<p>Review H. Assessmentsubmission</p>
-					<div className="null" />
-				</div>
 				{isLoading ? (
 					<div>Loading ...</div>
 				) : (

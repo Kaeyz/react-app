@@ -8,7 +8,7 @@ width: 100%;
 .greenBtn {
 	border: 1px solid #${props => props.theme.color.brand_02};
     color: ${props => props.theme.color.brand_02};
-	background-color: color: ${props => props.theme.color.ui_text_01};
+	background-color:  ${props => props.theme.color.ui_text_01};
 ;
 }
 .greenBtn:hover {

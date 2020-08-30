@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { getHraReportData, getHraPdf } from '../../../../store/actions/hraActions';
+import { getHraReportData, getHraPdf } from '../../store/actions/hraActions';
 import { connect } from 'react-redux';
-
 import Paper from '@material-ui/core/Paper';
-import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
-import QuestionnaireLayout from '../../../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout';
-import smallImg from '../../../../assets/Activity.svg';
-import absoluteImg from '../../../../assets/undraw_through_the_park.svg';
-import AnalysisCard from '../../../../components/dashboard/common/AnalysisCard';
-import TableReport from '../../../../components/dashboard/report/TableReport';
-import ReportPaper from '../../../../components/dashboard/report/ReportPaper';
-import GraphReport from '../../../../components/dashboard/report/GraphReport';
-// import Button from '../../../../components/common/Button';
+import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
+import QuestionnaireLayout from '../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout';
+import smallImg from '../../assets/Activity.svg';
+import absoluteImg from '../../assets/undraw_through_the_park.svg';
+import AnalysisCard from '../../components/dashboard/common/AnalysisCard';
+import Table from '../../components/dashboard/report/Table';
+import ReportPaper from '../../components/dashboard/report/ReportPaper';
+import GraphReport from '../../components/dashboard/report/GraphReport';
+import { data2 } from '../../components/dashboard/report/mockData2';
+import { tableConstants2 } from '../../components/dashboard/report/tableConstant2';
+import { data3 } from '../../components/dashboard/report/mockData3';
+import { tableConstants3 } from '../../components/dashboard/report/tableConstant3';
 
 
 const Wrapper = styled.div`
@@ -145,7 +147,7 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 					Image={smallImg}
 					reportButton={true}
 					downloadAction={getHraPdf}
-					previousLink="/assessment/health/review">
+					Link="/assessment/health/review">
 					<div className="flex top-header">
 						<p>ANALYSIS</p>
 						<div className="null" />
@@ -183,9 +185,8 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 						   book.It has survived not only five
 						   centuries.`}
 					/>
-					<TableReport
+											<Table cols={tableConstants2()} data={data2} />
 
-					/>
 					<ReportPaper
 						cardHeading="Guidelines for Good Health"
 						cardBody={'1. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.'}
@@ -281,7 +282,7 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 						cardBody={'Your has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries.'}
 					/>
 
-					<TableReport/>
+<Table cols={tableConstants3()} data={data3} whichTable='longTable' />
 
 					<ReportPaper
 						cardHeading="Disclaimer!!!"
