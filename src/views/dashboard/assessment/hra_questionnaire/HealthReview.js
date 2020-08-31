@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 `;
 
 function HealthReview({ isLoading, saveQuestions, history }) {
-	const nextLink = '/assessment/health/report';
+	const nextLink = '/assessment/health/questionnaire_completed';
 	const onSaveClick = (event) => {
 		event.preventDefault();
 		const input = { stage: 'SUBMIT' };

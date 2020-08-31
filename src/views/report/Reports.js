@@ -24,20 +24,17 @@ padding: 2rem;
 
 const Reports = () => {
 
-	
+
 	return (
 		<Wrapper>
-     			<DashboardLayout whatPage="Reports">
-     				<Paper className="paper">
-     					<h1 className="heading">Reports</h1>
-     				</Paper>
-				
-						<Table cols={tableConstants()} data={data} />
-					
+			<DashboardLayout whatPage="Reports">
+				<Paper className="paper">
+					<h1 className="heading">Reports</h1>
+				</Paper>
 
-     			</DashboardLayout>
-
-     		</Wrapper>
+				<Table cols={tableConstants()} data={data} />
+			</DashboardLayout>
+		</Wrapper>
 
 	);
 };
