@@ -8,26 +8,26 @@ export const tableConstants3 = () => {
 
 		{
 			title: 'Cause of Death',
-			render: rowData => {
+			render: function CauseOfDeath(rowData) {
 				return <span>{rowData[ 'Cause of Death' ]}</span>;
 			},
 		},
-		
+
 		{
 			title: 'Men on average',
-			render: rowData => {
+			render: function MenOnAverage(rowData) {
 				return <span>{rowData[ 'Men on average' ]}</span>;
 			},
 		},
 		{
 			title: 'Men like you',
-			render: rowData => {
+			render: function MenLikeYou (rowData) {
 				return <span>{rowData[ 'Men like you' ]}</span>;
 			},
 		},
 		{
 			title: 'Men like you who live healthy',
-			render: rowData => {
+			render:  function MenLivingHealthy (rowData) {
 				return <span>{rowData[ 'Men like you who live healthy' ]}</span>;
 			},
 		},

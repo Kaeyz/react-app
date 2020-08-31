@@ -82,7 +82,8 @@ const Routes = () => (
 
 			<Route exact path="/assessments" component={DashboardAssessment} />
 			<PrivateRoute exact path="/assessment/health" component={HealthRiskAssessment}/>
-			<Route exact path="/assessment/health/general" component={General} />
+			<PrivateRoute exact path="/assessment/health/start" component={General} />
+			<PrivateRoute exact path="/assessment/health/general" component={General} />
 
 			<PrivateRoute exact path="/assessment/health/covid" component={Covid}/>
 			<PrivateRoute exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
@@ -90,13 +91,16 @@ const Routes = () => (
 			<PrivateRoute exact path="/assessment/health/travel" component={Travel}/>
 			<PrivateRoute exact path="/assessment/health/sleep" component={Sleep}/>
 			<PrivateRoute exact path="/assessment/health/food" component={Food} />
-			<Route exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
+			<PrivateRoute exact path="/assessment/health/review" component={HealthReview} />
+
+			<PrivateRoute exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
+
+			{/* Report route */}
+			<PrivateRoute exact path="/reports" component={Reports} />
+			<PrivateRoute exact path="/reports/:reportId" component={HealthReport} />
 
 
-			<Route exact path="/assessment/health/review" component={HealthReview} />
-			<Route exact path="/assessment/health/reports" component={Reports} />
-			<Route exact path="/assessment/health/health_report" component={HealthReport} />
-
+			{/* Exercise route */}
 			<Route exact path="/exercise" component={Exercise} />
 			<Route exact path="/exercise/programme_details" component={ProgrammeDetails} />
 			<Route exact path="/meals" component={Meals} />

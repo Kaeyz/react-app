@@ -3,7 +3,6 @@ export const data = [
 		'Serial Number': '01',
 		'Employee Name': 'Adebisi Tolani',
 		'Date Taken': 'March 19, 2020 ',
-		'view': 'Sincere@april.biz',
 
 	},
 	{
@@ -28,6 +27,5 @@ export const data = [
 		'Serial Number': '05',
 		'Employee Name': 'Adebisi Tolani',
 		'Date Taken': 'March 19, 2020 ',
-
 	}
 ];

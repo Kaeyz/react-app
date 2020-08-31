@@ -9,23 +9,20 @@ import Button from '../../../common/Button';
 import { saveQuestions } from '../../../../store/actions/hraActions';
 
 const Wrapper = styled.div`
-margin-top: -1rem;
-> div {
-  margin-top: -4rem;
-}
 	.submit {
 		margin-top: 1rem;
 		display: grid;
 		grid-template-columns: max-content max-content;
 		grid-gap: 2rem;
 		justify-content: end;
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			grid-template-columns: 1fr;	
-			}
-	  .button{
+		@media screen and ( max-width: ${props => props.theme.breakpoint.sm}) {
+			grid-template-columns: 1fr;
+		}
+	}
+	  .button	{
 		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
 		width:100% !important;
-  }
+		}
 	}
 `;
 

@@ -9,27 +9,27 @@ export const tableConstants = () => {
 
 		{
 			title: 'Serial Number',
-			render: rowData => {
+			render: function SerialNumber (rowData) {
 				return <span>{rowData[ 'Serial Number' ]}</span>;
 			},
 		},
 		{
-			title: 'Employee Name',
-			render: rowData => {
-				return <span>{rowData[ 'Employee Name' ]}</span>;
+			title: 'Name',
+			render:  function EmployeeName (rowData) {
+				return <span>{rowData[ 'Name' ]}</span>;
 			},
 		},
 		{
 			title: 'Date Taken',
-			render: rowData => {
+			render: function DateTaken (rowData) {
 				return <span>{rowData[ 'Date Taken' ]}</span>;
 			},
 		},
 
 		{
-			title: '',
-			render: rowData => {
-				return <Link to='/assessment/health/health_report' className='flex btn-content'><img src={file} alt="file_icon"/> <p className='text'>View report</p></Link>;
+			title: 'reportId',
+			render: function ViewReport (rowData) {
+				return <Link to={`/reports/${rowData.reportId}`} className='flex btn-content'><img src={file} alt="file_icon"/> <p className='text'>View report</p></Link>;
 			},
 		},
 	];

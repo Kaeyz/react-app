@@ -114,7 +114,6 @@ userQueries.getCurrentUser = () => {
 			adminVerified
 			source
 			suspended
-			company
 			companyUrl
 		}
 	}
@@ -145,8 +144,6 @@ userQueries.updateUser = (input) => {
 			adminVerified
 			source
 			suspended
-			company
-			companyUrl
 		}
 	}
 	`;

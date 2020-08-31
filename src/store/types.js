@@ -23,5 +23,11 @@ module.exports = Object.freeze({
 	HRA_NOT_LOADING: 'hra_not_loading',
 	SET_PERCENTAGE_COMPLETED: 'set_percentage_completed',
 	SET_SHOW_INPUT: 'set_show_input',
-	SET_REPORT_DATA: 'set_report_data',
+
+	// REPORT ACTIONS
+	ADD_REPORTS: 'add_reports',
+	ADD_REPORT: 'add_report',
+	CLEAR_REPORT: 'remove_report',
+	REPORT_IS_LOADING: 'report_is_loading',
+	REPORT_NOT_LOADING: 'report_not_loading',
 });
