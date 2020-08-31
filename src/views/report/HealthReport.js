@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { getHraReportData, getHraPdf } from '../../store/actions/hraActions';
+import { withRouter } from 'react-router-dom';
+import { getReport, downloadReportPdf } from '../../store/actions/reportActions';
 import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
@@ -50,11 +51,11 @@ const Wrapper = styled.div`
 	&::-webkit-scrollbar {
 		height: .3rem;
 	}
-	 
+
 	&::-webkit-scrollbar-track {
 		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	}
-	 
+
 	&::-webkit-scrollbar-thumb {
 	  background-color: darkgrey;
 	  outline: 1px solid slategrey;
@@ -99,10 +100,10 @@ const Wrapper = styled.div`
 		max-width: 50%;
 		@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
 			max-width: 70%;
-			}	
+			}
 		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
 			max-width:50%;
-		}	
+		}
 		h1 {
 			font-size: 2rem;
 			line-height: 180%;
@@ -133,11 +134,14 @@ const Wrapper = styled.div`
 }
 `;
 
-function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
+function HealthReport({ getReport, reportData, downloadReportPdf, isLoading, match }) {
+
+	const { reportId } = match.params;
+	console.log(reportData);
 
 	React.useEffect(() => {
-		getHraReportData();
-	}, [getHraReportData]);
+		getReport(reportId);
+	}, [getReport, reportId]);
 
 	return (
 		<Wrapper>
@@ -147,7 +151,7 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 					Image={smallImg}
 					reportButton={true}
 					// exerciseButton={true}
-					downloadAction={getHraPdf}
+					downloadAction={() => downloadReportPdf(reportId)}
 					Link="/assessment/health/review">
 					<div className="flex top-header">
 						<p>ANALYSIS</p>
@@ -162,19 +166,19 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 									cardTheme="blue"
 									cardHeading="Your Target Age"
 									cardInfo="Your target age is what you want  your risk age to be if  you made changes to your lifestyle."
-									cardValue={Number(reportData.targetAge).toFixed(2)}
+									cardValue={Number(reportData.target_age).toFixed(2)}
 								/>
 								<AnalysisCard
 									cardTheme="pink"
 									cardHeading="Your Risk Age"
 									cardInfo="Your risk age compares  you to other people , your age and sex for all causes of death"
-									cardValue={Number(reportData.riskAge).toFixed(2)}
+									cardValue={Number(reportData.risk_age).toFixed(2)}
 								/>
 								<AnalysisCard
 									cardTheme="green"
 									cardHeading="Current Age"
 									cardInfo="Lorem Ipsum has been the industry's stan is the dard dummy text."
-									cardValue={reportData.actualAge}
+									cardValue={reportData.actual_age}
 								/>
 							</div>
 					}
@@ -186,7 +190,7 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 						   book.It has survived not only five
 						   centuries.`}
 					/>
-											<Table cols={tableConstants2()} data={data2} />
+					<Table cols={tableConstants2()} data={data2} />
 
 					<ReportPaper
 						cardHeading="Guidelines for Good Health"
@@ -283,7 +287,7 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 						cardBody={'Your has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries.'}
 					/>
 
-<Table cols={tableConstants3()} data={data3} whichTable='longTable' />
+					<Table cols={tableConstants3()} data={data3} whichTable='longTable' />
 
 					<ReportPaper
 						cardHeading="Disclaimer!!!"
@@ -297,15 +301,16 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 }
 
 HealthReport.propTypes = {
-	getHraReportData: PropTypes.func.isRequired,
-	getHraPdf: PropTypes.func.isRequired,
+	getReport: PropTypes.func.isRequired,
+	downloadReportPdf: PropTypes.func.isRequired,
 	reportData: PropTypes.object.isRequired,
+	match: PropTypes.object.isRequired,
 	isLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => {
-	const { reportData, isLoading } = state.hra;
-	return { reportData, isLoading };
+	const { report, isLoading } = state.report;
+	return { reportData: report, isLoading };
 };
 
-export default connect(mapStateToProps, {getHraReportData, getHraPdf})(HealthReport);
+export default connect(mapStateToProps, {getReport, downloadReportPdf})(withRouter(HealthReport));

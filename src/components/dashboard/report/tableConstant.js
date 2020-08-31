@@ -14,9 +14,9 @@ export const tableConstants = () => {
 			},
 		},
 		{
-			title: 'Employee Name',
+			title: 'Name',
 			render:  function EmployeeName (rowData) {
-				return <span>{rowData[ 'Employee Name' ]}</span>;
+				return <span>{rowData[ 'Name' ]}</span>;
 			},
 		},
 		{
@@ -27,7 +27,7 @@ export const tableConstants = () => {
 		},
 
 		{
-			title: '',
+			title: 'reportId',
 			render: function ViewReport (rowData) {
 				return <Link to={`/reports/${rowData.reportId}`} className='flex btn-content'><img src={file} alt="file_icon"/> <p className='text'>View report</p></Link>;
 			},

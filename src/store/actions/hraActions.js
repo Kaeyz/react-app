@@ -9,7 +9,6 @@ import {
 	HRA_NOT_LOADING,
 	SET_PERCENTAGE_COMPLETED,
 	SET_SHOW_INPUT,
-	SET_REPORT_DATA
 } from '../types';
 
 
@@ -154,40 +153,4 @@ export const validateShowHide = (field, rules) => (dispatch, getState) => {
 		}
 
 	});
-};
-
-const setReportData = (actualAge, riskAge, targetAge) => {
-	return {
-		type: SET_REPORT_DATA,
-		payload: { actualAge, riskAge, targetAge }
-	};
-};
-
-export const getHraReportData = () => (dispatch) => {
-	dispatch(hraIsLoading());
-	hraQueries.getHraReportData()
-		.then(res => {
-			const { target_age, risk_age } = res.data;
-			const actual_age = res.data.responses['hra.q.age_in_years.a.years'];
-			dispatch(setReportData(actual_age, risk_age, target_age));
-			dispatch(hraNotLoading());
-		})
-		.catch(() => {
-			dispatch(errorAlert({ msg: 'Network Error!!' }));
-			dispatch(hraNotLoading());
-		});
-};
-
-export const getHraPdf = () => (dispatch) => {
-	hraQueries.getReportPdf()
-		.then((res) => {
-			const a = document.createElement('a');
-			a.href = window.URL.createObjectURL(res);
-			a.download = 'HraReport.pdf';
-			document.body.appendChild(a);
-			a.click();
-		})
-		.catch(() => {
-			dispatch(errorAlert({ msg: 'Network Error!!' }));
-		});
 };
