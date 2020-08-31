@@ -40,6 +40,8 @@ import Reports from '../views/report/Reports';
 import HealthReport from '../views/report/HealthReport';
 import HraCompleted from '../views/dashboard/assessment/hra_questionnaire/HraCompleted';
 import Exercise from '../views/exercise';
+import Meals from '../views/meals';
+import MealPlans from '../views/meals/MealPlans';
 import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
 
 import Page404 from '../views/Page404';
@@ -80,7 +82,7 @@ const Routes = () => (
 
 			<Route exact path="/assessments" component={DashboardAssessment} />
 			<PrivateRoute exact path="/assessment/health" component={HealthRiskAssessment}/>
-			<PrivateRoute exact path="/assessment/health/general" component={General} />
+			<Route exact path="/assessment/health/general" component={General} />
 
 			<PrivateRoute exact path="/assessment/health/covid" component={Covid}/>
 			<PrivateRoute exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
@@ -97,6 +99,9 @@ const Routes = () => (
 
 			<Route exact path="/exercise" component={Exercise} />
 			<Route exact path="/exercise/programme_details" component={ProgrammeDetails} />
+			<Route exact path="/meals" component={Meals} />
+			<Route exact path="/meals/meal_plans" component={MealPlans} />
+
 
 
 			{/* Blog route */}

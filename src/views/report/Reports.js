@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Table from '../../components/dashboard/report/Table';
+import Table from '../../components/dashboard/common/Table';
 import { data } from '../../components/dashboard/report/mockData';
 import { tableConstants } from '../../components/dashboard/report/tableConstant';
 import styled from 'styled-components';
