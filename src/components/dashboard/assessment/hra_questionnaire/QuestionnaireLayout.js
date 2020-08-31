@@ -99,6 +99,15 @@ padding: 1rem;
 					}
 		}
 	}
+	.exercise{
+		min-width: 30%;
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
+			// min-width: 62%;
+			div{
+				width: auto;
+			}
+		}
+	}
 	.top-header2 {
 		display:grid;  
 		grid-gap: 1rem;
@@ -148,6 +157,7 @@ function QuestionnaireLayout({
 	alt,
 	heading,
 	reportButton,
+	exerciseButton,
 	Image,
 	previousLink,
 	downloadAction,
@@ -180,6 +190,29 @@ function QuestionnaireLayout({
 				) : null
 				// <div className="null" />
 			}
+			{
+				exerciseButton ? (
+					<Paper className='top-paper'>
+						<Link className="flex-back" to={Link}>
+							<img src={Back} alt="go back" />
+							<p className="back">Back</p>
+						</Link>
+						<div className="download exercise flex">
+						<Button
+								theme="whiteOrange"
+								text="Leave programme"
+							>
+							</Button>
+							<Button
+								theme="darkGreen"
+								text="Start Workout"
+							>
+							</Button>
+												</div>
+					</Paper>
+				) : null
+				// <div className="null" />
+			}
 			<div className="flex withGuage">
 				<div className="title">
 					<img src={Image} alt={alt} />
@@ -203,6 +236,7 @@ QuestionnaireLayout.propTypes = {
 	previousLink: PropTypes.string.isRequired,
 	children: PropTypes.any.isRequired,
 	reportButton: PropTypes.bool.isRequired,
+	exerciseButton: PropTypes.bool.isRequired,
 	downloadAction: PropTypes.func.isRequired,
 };
 
