@@ -137,7 +137,6 @@ const Wrapper = styled.div`
 function HealthReport({ getReport, reportData, downloadReportPdf, isLoading, match }) {
 
 	const { reportId } = match.params;
-	console.log(reportData);
 
 	React.useEffect(() => {
 		getReport(reportId);
