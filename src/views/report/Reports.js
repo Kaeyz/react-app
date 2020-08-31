@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 
-import Table from '../../components/dashboard/report/Table';
+import Table from '../../components/dashboard/common/Table';
 import { tableConstants } from '../../components/dashboard/report/tableConstant';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const Wrapper = styled.div`
 width: 100%;
 .greenBtn {
-	border: 1px solid #${props => props.theme.color.brand_02};
+	border: 1px solid ${props => props.theme.color.brand_02};
     color: ${props => props.theme.color.brand_02};
 	background-color:  ${props => props.theme.color.ui_text_01};
 ;

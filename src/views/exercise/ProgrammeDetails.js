@@ -74,7 +74,7 @@ function ProgrammeDetails() {
 
 	return (
 		<Wrapper>
-			<DashboardLayout whatPage="Reports">
+			<DashboardLayout whatPage="Exercise">
 				<QuestionnaireLayout
 					heading="Programme Details"
 					Image={smallImg}
@@ -103,7 +103,7 @@ function ProgrammeDetails() {
 					<div className="btn">
 						<Button
 							theme="darkGreen"
-							text="Add Programme"
+							text="Customise your meal plan"
 						>
 						</Button>
 					</div>

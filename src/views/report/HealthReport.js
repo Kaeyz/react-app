@@ -10,7 +10,7 @@ import QuestionnaireLayout from '../../components/dashboard/assessment/hra_quest
 import smallImg from '../../assets/Activity.svg';
 import absoluteImg from '../../assets/undraw_through_the_park.svg';
 import AnalysisCard from '../../components/dashboard/common/AnalysisCard';
-import Table from '../../components/dashboard/report/Table';
+import Table from '../../components/dashboard/common/Table';
 import ReportPaper from '../../components/dashboard/report/ReportPaper';
 import GraphReport from '../../components/dashboard/report/GraphReport';
 import { data2 } from '../../components/dashboard/report/mockData2';

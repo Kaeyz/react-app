@@ -71,11 +71,11 @@ color: ${(props) => props.theme.color.ui_05};
 const index = () => {
 
 	return (
-		<DashboardLayout whatPage="Assessment">
+		<DashboardLayout whatPage="Exercise">
 			<Wrapper>
 				<main className="content">
 
-					<WelcomeBanner/>
+					<WelcomeBanner detail='Discover fitness programs to keep you in shape and in the best of health'/>
 					<div className="row">
 						<div className="heading">
 							<h1>Joined programme</h1>
