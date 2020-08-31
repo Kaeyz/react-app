@@ -39,6 +39,8 @@ import HealthReview from '../views/dashboard/assessment/hra_questionnaire/Health
 import Reports from '../views/report/Reports';
 import HealthReport from '../views/report/HealthReport';
 import HraCompleted from '../views/dashboard/assessment/hra_questionnaire/HraCompleted';
+import Exercise from '../views/exercise';
+import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
 
 import Page404 from '../views/Page404';
 
@@ -92,6 +94,9 @@ const Routes = () => (
 			<Route exact path="/assessment/health/review" component={HealthReview} />
 			<Route exact path="/assessment/health/reports" component={Reports} />
 			<Route exact path="/assessment/health/health_report" component={HealthReport} />
+
+			<Route exact path="/exercise" component={Exercise} />
+			<Route exact path="/exercise/programme_details" component={ProgrammeDetails} />
 
 
 			{/* Blog route */}

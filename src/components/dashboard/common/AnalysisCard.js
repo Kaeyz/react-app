@@ -59,8 +59,6 @@ const Analysis = ({ fontSize, cardTheme,cardHeading,cardInfo,cardValue }) => {
 
 	return (
 		<Wrapper>
-
-
 			<Paper className={`paper ${cardTheme}`} >
 
 				<h5>{cardHeading}</h5>

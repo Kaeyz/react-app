@@ -60,7 +60,8 @@ width: 100%;
 }
 .yellowBtn {
 	background: ${props => props.theme.color.brand_03};
-	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);	color: white;
+	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);	
+	color: white;
 	border: 1px solid ${props => props.theme.color.text_08};
 }
 .yellowBtn:hover {
@@ -68,15 +69,16 @@ width: 100%;
 	color: ${props => props.theme.color.text_08};
 	transition: 0.4s;
 }
-.lightYellowBtn {
-	background: #FFC624;
-	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);	color: white;
-	border: 1px solid ${props => props.theme.color.ui_11};
+.whiteOrange {
+	background: ${props => props.theme.color.ui_01};
+	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);	
+	border: 1px solid ${props => props.theme.color.ui_08};
+	color:${props => props.theme.color.ui_08};
 }
-.lightYellowBtn:hover {
-	background-color: ${props => props.theme.color.text_03};
-	color: ${props => props.theme.color.text_08};
-	transition: 0.4s;
+.whiteOrange:hover {
+	background-color: ${props => props.theme.color.ui_08};
+	color: ${props => props.theme.color.ui_01};
+		transition: 0.4s;
 }
 .purpleBtn {
 	background: ${props => props.theme.color.ui_10};
