@@ -9,10 +9,6 @@ import Button from '../../../common/Button';
 import { saveQuestions } from '../../../../store/actions/hraActions';
 
 const Wrapper = styled.div`
-	margin-top: -1rem;
-	div {
-  	margin-top: -4rem;
-	}
 	.submit {
 		margin-top: 1rem;
 		display: grid;

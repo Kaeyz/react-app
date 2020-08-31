@@ -18,13 +18,11 @@ padding: 2rem;
     font-size: 1.6rem;
     line-height: 1.6rem;
        color: ${(props) => props.theme.color.text_05};
-}
+	}
 }
 `;
 
 const Reports = () => {
-
-
 	return (
 		<Wrapper>
 			<DashboardLayout whatPage="Reports">

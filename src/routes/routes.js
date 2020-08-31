@@ -89,13 +89,13 @@ const Routes = () => (
 			<PrivateRoute exact path="/assessment/health/travel" component={Travel}/>
 			<PrivateRoute exact path="/assessment/health/sleep" component={Sleep}/>
 			<PrivateRoute exact path="/assessment/health/food" component={Food} />
-			<Route exact path="/assessment/health/review" component={HealthReview} />
+			<PrivateRoute exact path="/assessment/health/review" component={HealthReview} />
 
-			<Route exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
+			<PrivateRoute exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
 
 			{/* Report route */}
-			<Route exact path="/reports" component={Reports} />
-			<Route exact path="/reports/:reportId" component={HealthReport} />
+			<PrivateRoute exact path="/reports" component={Reports} />
+			<PrivateRoute exact path="/reports/:reportId" component={HealthReport} />
 
 
 			{/* Exercise route */}
