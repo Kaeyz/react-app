@@ -146,6 +146,7 @@ function HealthReport({getHraReportData, reportData, getHraPdf, isLoading}) {
 					heading="Health Risk Report"
 					Image={smallImg}
 					reportButton={true}
+					// exerciseButton={true}
 					downloadAction={getHraPdf}
 					Link="/assessment/health/review">
 					<div className="flex top-header">

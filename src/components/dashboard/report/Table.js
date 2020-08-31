@@ -71,19 +71,22 @@ thead{
   background: rgba(243, 121, 32, 0.05);
 border: 1px solid ${(props) => props.theme.color.ui_08};
 }
+.width{
+  max-width: 45px;
+}
 tbody{
   text-align: center;
 }
 `;
 
-const Table = ({ cols, data, whichTable}) => {
+const Table = ({ cols, data, whichTable, maxW}) => {
 	return (
 		<Wrapper className="table-responsive">
 			<table  className={`${whichTable} table`} >
 				<thead>
 					<tr>
 						{cols.map((headerItem, index) => (
-							<th className='thead' key={index}>{headerItem.title}</th>
+							<th className= {`${maxW} thead`} key={index}>{headerItem.title}</th>
 						))}
 					</tr>
 				</thead>
@@ -105,6 +108,7 @@ Table.propTypes = {
 	cols: PropTypes.array.isRequired,
 	data: PropTypes.array.isRequired,
 	whichTable: PropTypes.string,
+	maxW: PropTypes.string,
 };
 
 

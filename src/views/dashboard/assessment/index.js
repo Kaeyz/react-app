@@ -234,3 +234,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, { fetchHraResponse })(
 	DashboardAssessment
 );
+
+
+
