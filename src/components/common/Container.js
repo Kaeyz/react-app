@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 .centered{
 	display: flex;
 	align-items: center;
-	min-height: 550px;
+	min-height: 650px;
 }
 	.container {
 		max-width: ${props => props.theme.breakpoint.lg};

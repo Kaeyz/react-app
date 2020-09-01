@@ -3,18 +3,34 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { registerCompany } from '../../../store/actions/userActions';
 import AuthFormLayout from './AuthFormLayout';
-import { TextInput, SelectInput } from '../../common/inputs';
+import { TextInput, PasswordInput } from '../../common/inputs';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
 import Button from '../../common/Button';
 import { onBoardCompanyValidator } from '../validation';
+import { Link } from 'react-router-dom';
 
 
 const Wrapper = styled.div`
 	.submit {
-		margin-top: 1.6rem;
+		padding-top: 4rem;
 		display: flex;
 		justify-content: center;
+	}
+	.info{
+		text-align: center;
+		font-family: Sofia;
+font-size: 1.4rem;
+line-height: 2.5rem;
+color: ${props => props.theme.color.ui_05};
+padding-top: 3rem;
+font-weight: bold;
+span{
+	a{
+		color: ${props => props.theme.color.brand_02};
+	text-decoration: underline;
+	}
+}
 	}
 `;
 
@@ -22,33 +38,27 @@ const Wrapper = styled.div`
 function CompanySignUpForm({history, registerCompany}) {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
+	const [password, setPassword] = useState('');
+	const [password2, setPassword2] = useState('');
 	const [organizationName, setOrganizationName] = useState('');
 	const [organizationEmail, setOrganizationEmail] = useState('');
+	const [companyWebsite, setcompanyWebsite] = useState('');
+	const [companyAddress, setcompanyAddress] = useState('');
+	const [representativeEmail, setRepresentativeEmail] = useState('');
 	const [jobTitle, setJobTitle] = useState('');
-	const [organizationSize, setOrganizationSize] = useState('');
 	const [errors, setErrors] = useState({});
 
-	const sizeOptions = [
-		{ value: '50', text: '50' },
-		{ value: '70', text: '70' },
-	];
 
-	const jobOptions = [
-		{ value: 'HIGH', text: 'Hight' },
-		{ value: 'MEDIUM', text: 'Medium' },
-		{ value: 'VERYACTIVE', text: 'Very Active' },
-		{ value: 'SOMEWHATACTIVE', text: 'Some What Active' },
-		{ value: 'LOWACTIVITY', text: 'Low Activity' },
-	];
+
 
 	const onFormSubmit = () => {
 		setErrors({});
-		const data = { firstName, lastName, organizationName, organizationEmail, organizationSize, jobTitle };
+		const data = { firstName, lastName, organizationName, password, password2, organizationEmail, representativeEmail, jobTitle };
 		const { isValid, errors } = onBoardCompanyValidator(data);
 		if (!isValid) {
 			return	setErrors(errors);
 		}
-		const company = { firstName, lastName, organizationName, organizationEmail, jobTitle, organizationSize: Number(organizationSize) };
+		const company = { firstName, lastName, organizationName, password, password2, organizationEmail, representativeEmail , jobTitle };
 		registerCompany(company, history);
 	};
 
@@ -56,6 +66,7 @@ function CompanySignUpForm({history, registerCompany}) {
 		<Wrapper>
 
 			<AuthFormLayout
+				showFormAgreement={false}
 				title="Company Registration"
 				description="Inspiring wholesome harmony for the mind, body and spirit, for everyone, everywhere."
 			>
@@ -64,32 +75,58 @@ function CompanySignUpForm({history, registerCompany}) {
 					<Grid container spacing={2} justify="space-between">
 						<Grid item xs={12} sm={6}>
 							<TextInput
-								label="First Name of Representative"
+								label="First Name "
 								value= {firstName}
 								onChange={setFirstName}
-								placeholder="Type here..."
 								error={errors.firstName}
 							/>
 						</Grid>
 						<Grid item xs={12} sm={6}>
 							<TextInput
-								label="Last Name of Representative"
+								label="Last Name "
 								value= {lastName}
 								onChange={setLastName}
-								placeholder="Type here..."
 								error={errors.lastName}
 							/>
 						</Grid>
 					</Grid>
+					<Grid container spacing={2} justify="space-between">
+						<Grid item xs={12} sm={6}>
+							<TextInput
+								label="Job Title (Desription)"
+								value= {jobTitle}
+								onChange={setJobTitle}
+								error={errors.jobTitle}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextInput
+								placeholder='example@address.com'
+								label="Representative Email"
+								value={representativeEmail}
+								type="email"
+								onChange={setRepresentativeEmail}
+								error={errors.representativeEmail}
+							/>
+						</Grid>
+					</Grid>
 
-					<Grid container>
-						<Grid item xs={12} sm={12}>
+					<Grid container  spacing={2}>
+						<Grid item xs={12} sm={6}>
 							<TextInput
 								label="Organization Name"
 								value= {organizationName}
 								onChange={setOrganizationName}
-								placeholder="Type here..."
 								error={errors.organizationName}
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextInput
+								label="Company Website (Optional)"
+								value= {companyWebsite }
+								onChange={setcompanyWebsite }
+								placeholder="Type here..."
+								error={errors.companyWebsite }
 							/>
 						</Grid>
 					</Grid>
@@ -97,7 +134,7 @@ function CompanySignUpForm({history, registerCompany}) {
 					<Grid container>
 						<Grid item xs={12} sm={12}>
 							<TextInput
-								label="Your company designated email"
+								label="Company’s Email"
 								value={organizationEmail}
 								type="email"
 								onChange={setOrganizationEmail}
@@ -106,34 +143,47 @@ function CompanySignUpForm({history, registerCompany}) {
 							/>
 						</Grid>
 					</Grid>
+					<Grid container>
+						<Grid item xs={12} sm={12}>
+							<TextInput
+								label="Company’s Address (Optional)"
+								value={companyAddress}
+								type="email"
+								onChange={setcompanyAddress}
+								placeholder="Type here..."
+								error={errors.companyAddress}
+							/>
+						</Grid>
+					</Grid>
 
 					<Grid container spacing={2} justify="space-between">
 						<Grid item xs={12} sm={6}>
-							<SelectInput
-								label="Job Title of Representative"
-								value= {jobTitle}
-								onChange={setJobTitle}
-								options={jobOptions}
-								error={errors.jobTitle}
+							<PasswordInput
+								label="Password"
+								value={password}
+								onChange={setPassword}
+								error={errors.password}
 							/>
 						</Grid>
 						<Grid item xs={12} sm={6}>
-							<SelectInput
-								label="Organization size"
-								value= {organizationSize}
-								onChange={setOrganizationSize}
-								options={sizeOptions}
-								error={errors.organizationSize}
+							<PasswordInput
+								label="Confirm Password"
+								value={password2}
+								onChange={setPassword2}
+								error={errors.password2}
 							/>
 						</Grid>
 
 					</Grid>
 					<div className="submit">
-						<Button theme="yellow" onClick={onFormSubmit} style={{width: '100%'}}>Register</Button>
+						<Button theme="darkGreen" onClick={onFormSubmit} style={{width: '100%'}}>Register</Button>
 					</div>
 
 				</div>
+				<p className="info">Already have an account? <span> <Link to ='/login'>Log In</Link></span> </p>
+
 			</AuthFormLayout>
+
 		</Wrapper>
 	);
 }

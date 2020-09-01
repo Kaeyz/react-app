@@ -7,8 +7,19 @@ import { TextInput, PasswordInput } from '../../common/inputs';
 import Button from '../../common/Button';
 import { loginValidator } from '../validation';
 import { loginUser } from '../../../store/actions/userActions';
+import { Link } from 'react-router-dom';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+.forgot{
+	font-family: Sofia;
+font-size: 1.4rem;
+line-height: 1.4rem;
+letter-spacing: 0.2px;
+padding: 2rem 0;
+text-align: right;
+color: ${props => props.theme.color.brand_02};
+}
+`;
 
 function AdminLoginFrom({history, loginUser}) {
 	const [email, setEmail] = useState('');
@@ -34,7 +45,7 @@ function AdminLoginFrom({history, loginUser}) {
 			<Grid container>
 				<Grid item xs={12} sm={12}>
 					<TextInput
-						label="Enter your email"
+						label="Username"
 						value={email}
 						type="email"
 						onChange={setEmail}
@@ -46,7 +57,7 @@ function AdminLoginFrom({history, loginUser}) {
 			<Grid container>
 				<Grid item xs={12} sm={12}>
 					<PasswordInput
-						label="Enter your Password"
+						label="Password"
 						value={password}
 						onChange={setPassword}
 						error={errors.password}
@@ -59,9 +70,11 @@ function AdminLoginFrom({history, loginUser}) {
 					theme="darkGreen"
 					style={{ width: '100%' }}
 				>
-					LOGIN
+					Log in
 				</Button>
 			</div>
+			<Link to='/forgot_password'>			<p className='forgot'>Forgot Password?</p>
+</Link>
 		</Wrapper>
 	);
 }

@@ -35,7 +35,7 @@ const Wrapper = styled.div`
 
 	.MuiOutlinedInput-root{
 		border: 1px solid ${props => props.theme.color.ui_text_06};
-		border-radius: 2px;
+		border-radius: 8px;
 		&:hover {
 			border: 1px solid ${props => props.theme.color.ui_text_05};
 			transition: .3s;

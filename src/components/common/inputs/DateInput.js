@@ -22,8 +22,7 @@ const Wrapper = styled.div`
 		max-width: 100%;
 		outline: none;
 		color: ${props => props.theme.color.active_primary};
-		border-radius: 5px;
-
+		border-radius: 8px;
 	}
 
 

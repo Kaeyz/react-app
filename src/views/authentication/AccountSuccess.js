@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Container from '../../components/common/Container';
 import Button from '../../components/common/Button';
-import Frame from '../../assets/Frame.svg';
 
 const Wrapper = styled.div`
   background-color: #f7fdfc;
@@ -21,25 +20,13 @@ const Wrapper = styled.div`
     @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
       width: 100%;
     }
-    .logo_Link {
-      padding-bottom: 5rem;
-    }
-    .logo_img {
-      width: 77.33px;
-      height: 80px;
-      margin-left: -1rem;
-      @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-        width: 38.67px;
-        height: 40px;
-        margin-left: 0rem;
       }
-    }
     h2 {
       font-weight: 300;
       font-size: 4rem;
       line-height: 5rem;
       letter-spacing: -0.8px;
-      color: #000b0a;
+      color: ${props => props.theme.color.ui_05};
       @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
         font-size: 2.4rem;
         line-height: 130%;
@@ -69,13 +56,9 @@ const Wrapper = styled.div`
 function AccountSuccess() {
 	return (
 		<Wrapper>
-			{/* <Header /> */}
 			<Container flexy="centered">
 				<div className="body">
-					<Link to="/" className="logo_Link">
-						<img src={Frame} alt="frame" className="logo_img" />
-					</Link>
-					<h2>
+										<h2>
 						{' '}
             Congratulations, you’ve created a <span>Choose Life</span> account!
 					</h2>
