@@ -14,6 +14,7 @@ import {
 import PropTypes from 'prop-types';
 import { onBoardIndividualValidator } from '../validation';
 import {NumberInput} from '../../common/inputs/NumberInput';
+import TextFieldDisabled from '../../common/inputs/TextFieldDIsabled';
 
 const Wrapper = styled.div`
 	.submit{
@@ -41,39 +42,6 @@ const optionActivity = [
 	{ value: 'LOWACTIVITY', text: 'Low Activity' },
 ];
 
-// const optionWeight = [
-// 	{
-// 		value: 'Kilogram',
-// 		label: 'in KG',
-// 	},
-// 	{
-// 		value: 'Pound',
-// 		label: 'in Lb',
-// 	},
-// 	{
-// 		value: 'Gram',
-// 		label: 'in g',
-// 	},
-// 	{
-// 		value: 'Ounces',
-// 		label: 'in Oz',
-// 	},
-// ];
-
-// const optionHeight = [
-// 	{
-// 		value: 'Feet',
-// 		label: 'in Ft',
-// 	},
-// 	{
-// 		value: 'Centimeter',
-// 		label: 'in Cm',
-// 	},
-// 	{
-// 		value: 'Inches',
-// 		label: 'in In',
-// 	},
-// ];
 const IndividualSignUpForm = ({ history, registerIndividual }) => {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
@@ -195,7 +163,7 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 								error={errors.height}
 							/>
 						</Grid>
-						<Grid item xs={12}>
+						<Grid item xs={12} sm={6}>
 							<SelectInput
 								label="Activity Level"
 								options={optionActivity}
@@ -203,6 +171,9 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 								onChange={setActivityLevel}
 								error={errors.activity}
 							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextFieldDisabled label="Company" value='Dualingo'/>
 						</Grid>
 						<Grid item xs={12} sm={6}>
 							<PasswordInput
@@ -220,7 +191,6 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 								error={errors.password2}
 							/>
 						</Grid>
-						<Grid item xs={12}></Grid>
 					</Grid>
 					<div className="submit">
 						<Button

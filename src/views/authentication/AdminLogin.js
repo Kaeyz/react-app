@@ -3,24 +3,22 @@ import PropTypes from 'prop-types';
 import CommonAuthPaperPage from '../../components/forms/authentications/CommonAuthPaperPage';
 import AdminLoginFrom from '../../components/forms/authentications/AdminLoginFrom';
 import styled from 'styled-components';
+import logo from '../../assets/Frame.svg'
 
 const Wrapper = styled.div`
-	hr {
-		border: 1px solid #f0f1f3;
-	}
+
 `;
 function AdminLogin({history}) {
 	return (
 		<Wrapper>
 			{' '}
 			<CommonAuthPaperPage
-				title={'Admin Portal'}
+				title={'Sign in to Choose Life'}
 				detail={
-					'Inspiring wholesome harmony for the mind, body and spirit, for everyone, everywhere.'
+					'Welcome to the Admin Portal'
 				}
-				buttonText={'SIGN UP'}
+				img={logo}
 			>
-				{/* <hr /> */}
 				<AdminLoginFrom history={history}/>
 
 			</CommonAuthPaperPage>

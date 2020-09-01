@@ -25,7 +25,7 @@ const Wrapper = styled.div`
 		max-width: 100%;
 		padding: 1.5rem;
 		border: 1px solid ${props => props.theme.color.ui_text_06};
-		border-radius: 2px;
+		border-radius: 8px;
     :focus {
 		outline: none;
 		border-color: ${props => props.theme.color.brand_02};

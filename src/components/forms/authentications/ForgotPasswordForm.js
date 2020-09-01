@@ -8,23 +8,27 @@ import { Grid } from '@material-ui/core';
 import { forgotPassword } from '../../../store/actions/userActions';
 import { forgotPasswordValidator } from '../validation';
 import AuthFormLayout from './AuthFormLayout';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
 .submit{
 	margin-top: 3rem;
 	.button{
 		width: 100% !important;
-		
-	}
+			}
 }
 	.info{
 		font-family: Sofia;
-font-size: 14px;
-line-height: 25px;
+font-size: 1.4rem;
+line-height: 2.5rem;
 color: ${props => props.theme.color.ui_13};
 padding-top: 3rem;
 span{
-	color: ${props => props.theme.color.brand_02};
+	a{
+		color: ${props => props.theme.color.brand_02};
+	text-decoration: underline;
+	font-weight: bold;
+	}
 }
 	}
 `;
@@ -67,7 +71,7 @@ function ForgotPasswordForm({forgotPassword, history}) {
 Send Reset Link				</Button>
 				</div>
 			</AuthFormLayout>
-			<p className="info">Remembered your password?<span> Sign In</span> </p>
+			<p className="info">Remembered your password?<span> <Link to ='/login'>Sign In</Link></span>  </p>
 		</Wrapper>
 	);
 }

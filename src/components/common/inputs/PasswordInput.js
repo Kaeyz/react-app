@@ -23,7 +23,7 @@ border: 1px solid ${props => props.theme.color.ui_text_06};
 	height: 4.8rem;
 display: grid;
 grid-template-columns: 1fr max-content;
-border-radius: 2px;
+border-radius: 8px;
 &:hover {
 	border: 1px solid ${props => props.theme.color.ui_text_05};
 	transition: .3s;

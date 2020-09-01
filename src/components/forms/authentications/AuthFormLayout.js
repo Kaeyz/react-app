@@ -48,8 +48,6 @@ export default function AuthFormLayout({
 	children,
   showFormAgreement,
   show
-	// description,
-	// title,
 }) {
 	const displayAgreement = () => (
 		<p className="footerText">

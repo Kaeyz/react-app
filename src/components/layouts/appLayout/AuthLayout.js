@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   .main {
     display: flex;
     flex-wrap: wrap;
-    padding: 2rem 0rem;
+    padding: 5rem 0rem;
     align-items: start;
     justify-content: space-between;
   }
