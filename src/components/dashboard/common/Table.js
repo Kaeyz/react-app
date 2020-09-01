@@ -47,7 +47,7 @@ font-weight: normal;
 
 }
 .content{
-  
+
   padding: 2rem 0;
   font-size: 1.4rme;
 line-height: 1.6rme;
@@ -56,12 +56,12 @@ color: ${(props) => props.theme.color.ui_05};;
 }
 .longTable{
   .thead{
-    &:nth-child(1) { 
+    &:nth-child(1) {
          color: ${(props) => props.theme.color.ui_08};
         }
   }
  .content,.thead{
-  &:nth-child(1) { 
+  &:nth-child(1) {
     padding-left: 5rem;
       text-align: left;
       }
@@ -86,7 +86,7 @@ const Table = ({ cols, data, whichTable, maxW}) => {
 				<thead>
 					<tr>
 						{cols.map((headerItem, index) => (
-							<th className= {`${maxW} thead`} key={index}>{headerItem.title}</th>
+							<th className= {`${maxW} thead`} key={index}>{headerItem.title === 'reportId' ? '' : headerItem.title}</th>
 						))}
 					</tr>
 				</thead>

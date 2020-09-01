@@ -21,14 +21,14 @@ margin-bottom: 6rem;
     &::-webkit-scrollbar {
       height: .1rem;
     }
-  
+
     &::-webkit-scrollbar-thumb {
       background-color: #f37920;
       border-radius: 0.5rem;
+     }
     }
   .MuiTable-root{
     min-width: 930px;
-   
   }
     h1 {
 		margin-bottom:3rem;
@@ -74,7 +74,7 @@ margin-bottom: 6rem;
       letter-spacing: 0.2px;
       color: #0a2523;
     }
-  
+
   `;
 
 function createData(name, calories, fat, carbs, protein) {
