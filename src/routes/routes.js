@@ -14,8 +14,7 @@ import CompanySignUp from '../views/authentication/CompanySignUp';
 import Login from '../views/authentication/Login';
 import BlogPost from '../views/blogParent/BlogPost';
 import BlogPostDetail from '../views/blogParent/BlogPostDetail';
-import DashboardHome from '../views/dashboard/DashboardHome';
-// import DashboardHome2 from '../views/dashboard/DashboardHome2';
+import Dashboard from '../views/dashboard/Dashboard';
 import DashboardAssessment from '../views/dashboard/assessment';
 import AccountSettings from '../views/dashboard/settings/AccountSettings';
 import PasswordSettings from '../views/dashboard/settings/PasswordSettings';
@@ -60,6 +59,7 @@ const Routes = () => (
 			{/* Auth routes */}
 			<PrivateRoute isAuth={false} exact path="/login" component={Login} />
 			<PrivateRoute isAuth={false} exact path="/admin_login" component={AdminLogin} />
+
 			<PrivateRoute isAuth={false} exact path="/onboarding/individual" component={IndividualSignUp} />
 			<PrivateRoute isAuth={false} exact path="/onboarding/company" component={CompanySignUp} />
 			<PrivateRoute isAuth={false} exact path="/onboarding/account_success" component={AccountSuccess} />
@@ -68,12 +68,13 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} exact path="/reset_link_sent" component={PasswordResetLink} />
 			<PrivateRoute isAuth={false} exact path="/reset_password" component={ResetPassword} />
 			<PrivateRoute isAuth={false} exact path="/reset_success" component={PasswordResetSuccessful} />
+
 			<PrivateRoute exact path="/settings/account" component={AccountSettings} />
 			<PrivateRoute exact path="/settings/password" component={PasswordSettings} />
 			<PrivateRoute exact path="/settings/help" component={HelpSettings} />
 
 			{/* dashboard route */}
-			<PrivateRoute exact path="/dashboard" component={DashboardHome} />
+			<PrivateRoute exact path="/dashboard" component={Dashboard} />
 
 			{/* assessment route */}
 			<PrivateRoute exact path="/assessments" component={DashboardAssessment} />

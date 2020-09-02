@@ -1,9 +1,8 @@
 import React from 'react';
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Avatar } from '@material-ui/core';
 import dp from '../../../../assets/dp.svg';
-// import DpDropdown from '../DpDropdown';
 
 const Wrapper = styled.div`
 margin-top: 3.45rem;
@@ -15,7 +14,7 @@ margin-top: 3.45rem;
 		align-items: center;
 		display: grid;
 		grid-template-columns: 1fr max-content;
-		grid-gap: 1.7rem;
+		grid-gap: 1rem;
 	}
 	.avatar {
 		height: 4rem;
@@ -43,22 +42,24 @@ margin-top: 3.45rem;
 `;
 
 
-function UserInfo() {
+function UserInfo({ name, type }) {
 	return (
 		<Wrapper>
 			<div className="user_details">
 				<Avatar alt="users name" src={dp} className="avatar"/>
 				<div className="details">
-					<p className="details_text main">Durodola Imani</p>
-					<p className="details_text sub">Employee</p>
+					<p className="details_text main">{name}</p>
+					<p className="details_text sub">{String(type).toLowerCase()}</p>
 				</div>
 			</div>
-			{/* <DpDropdown /> */}
 		</Wrapper>
 	);
 }
 
-//UserInfo.propTypes = {}
+UserInfo.propTypes = {
+	name: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired,
+};
 
 export default UserInfo;
 
