@@ -29,7 +29,7 @@ export const tableConstants = () => {
 		{
 			title: '',
 			render: rowData => {
-				return <Link to='/assessment/health/health_report' className='flex btn-content'><img src={file} alt="file_icon"/> <p className='text'>View report</p></Link>;
+				return <Link to='/reports/:reportId' className='flex btn-content'><img src={file} alt="file_icon"/> <p className='text'>View report</p></Link>;
 			},
 		},
 	];

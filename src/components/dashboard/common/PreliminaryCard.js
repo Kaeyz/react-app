@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   }
   .yellow {
     background: rgba(255, 198, 36, 0.06);
-    border: 1px solid ${props => props.theme.color.ui11};
+    border: 1px solid ${props => props.theme.color.ui_11};
   }
   .green {
     background: rgba(141, 184, 56, 0.03);

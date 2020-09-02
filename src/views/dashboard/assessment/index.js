@@ -167,7 +167,7 @@ const DashboardAssessment = ({ fetchHraResponse }) => {
 								cardInfo="Health Risk Assessment"
 								btnTheme="deepYellowBtn"
 								backgroundColor="orange"
-								where={'/assessment/health'}
+								where={'/assessments/health'}
 								image={pinkFlower}
 							/>
 
@@ -183,7 +183,8 @@ const DashboardAssessment = ({ fetchHraResponse }) => {
 								btnValue="Start Guide"
 								cardInfo={'Meal & Fitness Guide'}
 								image={yellowFlower}
-								btnTheme="lightYellowBtn"
+								where={'/meals'}
+								btnTheme="yellowBtn"
 								backgroundColor="yellow"
 							/>
 						</div>
