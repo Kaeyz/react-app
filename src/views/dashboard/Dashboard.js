@@ -1,9 +1,10 @@
 import React from 'react';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
-import dashboardType from './dashboardType';
 import IndividualHome from './IndividualHome';
 import AdminHome from './AdminHome';
 import CompanyHome from './CompanyHome';
+
+import dashboardType from './dashboardType';
 
 const Dashboard = () => {
 	return (
