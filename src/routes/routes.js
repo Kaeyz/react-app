@@ -35,13 +35,15 @@ import Travel from '../views/dashboard/assessment/hra_questionnaire/Travel';
 import Sleep from '../views/dashboard/assessment/hra_questionnaire/Sleep';
 import Food from '../views/dashboard/assessment/hra_questionnaire/Food';
 import HealthReview from '../views/dashboard/assessment/hra_questionnaire/HealthReview';
-import Reports from '../views/report/Reports';
-import HealthReport from '../views/report/HealthReport';
+import Reports from '../views/reports/Reports';
+import HealthReport from '../views/reports/HealthReport';
 import HraCompleted from '../views/dashboard/assessment/hra_questionnaire/HraCompleted';
 import Exercise from '../views/exercise';
 import Meals from '../views/meals';
 import MealPlans from '../views/meals/MealPlans';
 import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
+import Employees from '../views/employees';
+import PendingInvites from '../views/employees/PendingInvites';
 
 import Page404 from '../views/Page404';
 
@@ -74,7 +76,11 @@ const Routes = () => (
 			<PrivateRoute exact path="/settings/help" component={HelpSettings} />
 
 			{/* dashboard route */}
-			<PrivateRoute exact path="/dashboard" component={Dashboard} />
+			<Route exact path="/dashboard" component={Dashboard} />
+
+			{/* company route */}
+			<Route exact path="/employees" component={Employees} />
+			<Route exact path="/employees/pending_invites" component={PendingInvites} />
 
 			{/* assessment route */}
 			<PrivateRoute exact path="/assessments" component={DashboardAssessment} />

@@ -30,7 +30,7 @@ class MealModal extends React.Component {
      {/* <Modal show={this.state.show} handleClose={this.hideModal} textBtn='Complete' heading={<><img src={close} alt="adornment" id='adorn'/> <span> Questions on Protein</span></>} info='A balanced diet lorem ipsum blished fact that a reader will be distracted by the readable content.'> */}
      {/* THE COMMENTED CODE ABOVE IS IF THE HEADING TEXT IS GOING TO HAVE AN IMAGE BY ITS SIDE */}
      <Modal show={this.state.show} handleClose={this.hideModal} textBtn='Complete' heading={<span> Questions on Protein</span>} info='A balanced diet lorem ipsum blished fact that a reader will be distracted by the readable content.'>
-     <div className="select">
+     <div className="select pd">
           <h1 className="bold pd">Select the options you’ll like to include in your meal plan?</h1>
           <Grid container className='select-input'>
           <Grid item xs={12} sm={6}>

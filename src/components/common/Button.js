@@ -21,6 +21,9 @@ width: 100%;
 	color: ${props => props.theme.color.brand_02};
 	background-color: ${props => props.theme.color.text_03};
 }
+.blackText{
+	color: ${props => props.theme.color.text_05};
+}
 .whiteBtn:hover {
 	color: ${props => props.theme.color.text_03};
 	background-color: ${props => props.theme.color.brand_02};
