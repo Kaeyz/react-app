@@ -79,7 +79,6 @@ function ProgrammeDetails() {
 					heading="Programme Details"
 					Image={smallImg}
 					exerciseButton={true}
-
 					Link="/exercise"
 				>
 					<div className="flex top-header">

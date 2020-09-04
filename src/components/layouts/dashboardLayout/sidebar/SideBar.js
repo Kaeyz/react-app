@@ -92,7 +92,7 @@ function SideBar({ logoutUser, user }) {
 			],
 		},
 		COMPANY: {
-			navTitle: 'Admin Portal',
+			navTitle: 'Company Portal',
 			topSection: [
 				{ icon: 'dashboard_home', text: 'Overview', link: '/dashboard' },
 				{ icon: 'assessments', text: 'Employees', link: '/employees' },
