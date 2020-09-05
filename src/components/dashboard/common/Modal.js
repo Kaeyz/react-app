@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
 import close from '../../../assets/close.svg';
-import Grid from '@material-ui/core/Grid';
-import Button from '../../common/Button';
+
 
 const Wrapper = styled.div`
   .modal {
@@ -52,6 +50,9 @@ const Wrapper = styled.div`
     left: 0;
     float: right;
     }
+    .centered{
+      text-align: center;
+    }
   }
   .bold {
     font-weight: bold;
@@ -81,14 +82,7 @@ const Wrapper = styled.div`
     margin-top: -18px;
     padding: 0;
   }
-  .btn {
-    .button {
-      width: 100% !important;
-    }
-  }
-  .btn2{
-    @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-      padding-bottom: 1rem;    }  }
+ 
   .display-block {
     display: block;
   }
@@ -96,38 +90,33 @@ const Wrapper = styled.div`
   .display-none {
     display: none;
   }
+ 
 `;
 
 const Modal = ({
 	handleClose,
 	show,
 	children,
-	textBtn,
-	btn2,
 	heading,
 	info,
-	position
+	position, align, img, alt
 }) => {
 	const showHideClassName = show ? 'modal display-block' : 'modal display-none';
 
 	return (
 		<Wrapper>
 			<div className={showHideClassName}>
-				<section  className={` ${position} modal-main`}>
+				<section  className={` ${position} ${align} modal-main`}>
 					<div className="close flex" onClick={handleClose}>
 						<img src={close} alt="close-modal" id="close-icon" />
 					</div>
 					<div className="heading">
+						<img src={img} alt={alt}/>
 						<h1 className="bold  big">{heading}</h1>
 						<p className="light bold">{info}</p>
 					</div>
 					{children}
-					<Grid item xs={12} className="btn btn2">
-						<Button theme="darkGreen" text={textBtn} />
-					</Grid>
-					<Grid item xs={12} className="btn">
-						{btn2}
-					</Grid>
+
 				</section>
 			</div>
 		</Wrapper>
@@ -142,9 +131,13 @@ Modal.propTypes = {
 	handleClose: PropTypes.func.isRequired,
 	show: PropTypes.bool.isRequired,
 	children: PropTypes.any.isRequired,
+	img: PropTypes.any,
+	alt : PropTypes.string,
 	textBtn: PropTypes.string,
+	shortBtn: PropTypes.string,
 	heading: PropTypes.string.isRequired,
 	position: PropTypes.string,
+	align: PropTypes.string,
 	info: PropTypes.string.isRequired,
 	btn2: PropTypes.element,
 };

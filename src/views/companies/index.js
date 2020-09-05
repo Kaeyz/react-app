@@ -6,10 +6,9 @@ import FilterSearchLayout from '../../components/layouts/FilterSearchLayout';
 import Button from '../../components/common/Button';
 import PaginationTable from '../../components/common/PaginationTable';
 import Table from '../../components/dashboard/common/Table';
-import { tableConstants4 } from '../../components/dashboard/exercise/tableConstant4';
-import { data4 } from '../../components/dashboard/exercise/mockData4';
+import { tableConstants6 } from '../../components/dashboard/companies/tableConstant6';
+import { data6 } from '../../components/dashboard/companies/mockData6';
 import { Link } from 'react-router-dom';
-import NewEmployeeModal from '../../components/dashboard/exercise/NewEmployeeModal';
 
 const Wrapper = styled.div``;
 function index() {
@@ -17,18 +16,18 @@ function index() {
 		<Wrapper>
 			<DashboardLayout whatPage="Employees">
 				<FilterSearchLayout
-					text="Employees"
+					text="Companies"
 					buttons={
 						<>
-							<Link to="/employees/pending_invites">
+							<Link to="/companies/pending_activation">
 								{' '}
-								<Button theme="whiteBtn blackText" text="Pending Invites" />
+								<Button theme="darkGreen" text="Pending Activation" />
 							</Link>
-							<NewEmployeeModal/>
 						</>
 					}
+					oneGrid='oneButton'
 				>
-					<Table cols={tableConstants4()} data={data4} />
+					<Table cols={tableConstants6()} data={data6} />
 					<PaginationTable/>
 				</FilterSearchLayout>
 			</DashboardLayout>

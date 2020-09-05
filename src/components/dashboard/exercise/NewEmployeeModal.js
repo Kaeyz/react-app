@@ -3,34 +3,12 @@ import React from "react";
 import styled from "styled-components";
 import Modal from "../../dashboard/common/Modal";
 import Grid from "@material-ui/core/Grid";
-import {TextInput} from "../../common/inputs";
+import { TextInput } from "../../common/inputs";
+import Button from "../../common/Button";
 
 const Wrapper = styled.div`
   .pd {
-    padding-bottom: 4rem;
-  }
-  .trigger {
-    text-decoration-line: underline;
-    cursor: pointer;
-    position: relative;
-    &:hover .tooltiptext {
-      visibility: visible;
-    }
-    .tooltiptext {
-      visibility: hidden;
-      width: 112px;
-      font-size: 1.2rem;
-      background: rgba(243, 121, 32, 0.05);
-      border: 1px solid #f37920;
-      color: ${(props) => props.theme.color.text_05};
-      text-align: center;
-      border-radius: 6px;
-      padding: 0;
-      position: absolute;
-      z-index: 1;
-      left: -83px;
-      top: -43px;
-        }
+    padding-top: 4rem;
   }
   .select {
     padding-bottom: 2rem;
@@ -49,9 +27,8 @@ const Wrapper = styled.div`
 class NewEmployeeModal extends React.Component {
   state = {
     show: false,
-    showButton: false
+    showButton: false,
   };
-
 
   showModal = () => {
     this.setState({ show: true });
@@ -69,13 +46,12 @@ class NewEmployeeModal extends React.Component {
         <Modal
           show={this.state.show}
           handleClose={this.hideModal}
-          textBtn="Add Employee"
           position="modal-right"
           heading={<span> Add New Employee</span>}
         >
           <div className="select">
             <Grid container className="select-input">
-              <Grid item xs={12} >
+              <Grid item xs={12}>
                 <TextInput
                   placeholder="Type here..."
                   label="First name"
@@ -83,15 +59,15 @@ class NewEmployeeModal extends React.Component {
                   onChange={this.setFirstName}
                 />
               </Grid>
-              <Grid item xs={12} >
+              <Grid item xs={12}>
                 <TextInput
                   placeholder="Type here..."
                   label="Last Name"
                   value={this.state.lastName}
                   onChange={this.setlastName}
                 />
-              </Grid>             
-              <Grid item xs={12} >
+              </Grid>
+              <Grid item xs={12}>
                 <TextInput
                   placeholder="Type here..."
                   label="Department"
@@ -99,7 +75,7 @@ class NewEmployeeModal extends React.Component {
                   onChange={this.setDepartment}
                 />
               </Grid>
-              <Grid item xs={12} >
+              <Grid item xs={12}>
                 <TextInput
                   placeholder="Type here..."
                   label="Branch"
@@ -107,7 +83,7 @@ class NewEmployeeModal extends React.Component {
                   onChange={this.setBranch}
                 />
               </Grid>
-              <Grid item xs={12} >
+              <Grid item xs={12}>
                 <TextInput
                   placeholder="Type here..."
                   label="Email Address"
@@ -115,14 +91,18 @@ class NewEmployeeModal extends React.Component {
                   onChange={this.setEmailAddress}
                 />
               </Grid>
+              <Grid item xs={12} className="pd">
+                <Button theme="darkGreen" text="Add Employee" />
+              </Grid>
             </Grid>
           </div>
         </Modal>
 
-    <p className="trigger" onClick={this.showModal}>
-View <span class="tooltiptext">click to add new employee</span>
-</p>
-        
+        <Button
+          theme="darkGreen"
+          text="Add Employee"
+          onClick={this.showModal}
+        />
       </Wrapper>
     );
   }
