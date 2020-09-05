@@ -14,6 +14,9 @@ const theme = {
 		brand_04: '#8DB838',
 		brand_05: '#f7fdfc',
 		brand_06: '#E0E0E0',
+		brand_07: '#FF3D3D',
+		brand_08: '#f2f2f2',
+		brand_09: '#f8ab74',
 		ui_01: '#ffffff',
 		ui_02: '#FBFCFA',
 		ui_03: '#F3F0F0',
@@ -27,6 +30,8 @@ const theme = {
 		ui_11: '#ffc624',
 		ui_12: '#A2E4DE',
 		ui_13: '#5D6C76',
+		ui_14: '#BDBDBD',
+		ui_15: '#E2E2EA',
 		text_01: '#1D1D1D',
 		text_02: '#606161',
 		text_03: '#ffffff',
@@ -109,7 +114,7 @@ const GlobalStyle = createGlobalStyle`
   	align-items: center;
 	}
 	img {
-  	vertical-align: center;
+  	vertical-align: middle;
   	max-width: 100%;
   	height: auto;
 	}

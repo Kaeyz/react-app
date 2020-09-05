@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import undraw_through_the_park from '../../../assets/undraw_through_the_park.svg';
 import styled from 'styled-components';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   margin-bottom: 6rem;
@@ -82,12 +82,12 @@ export default function WelcomeBanner({heading,detail,emoji}) {
 						<div className="info">
 							<h1>
 								<span role="img" aria-label="wave">
-                  {emoji}
+									{emoji}
 								</span>{' '}
-                {heading}
+								{heading}
 							</h1>
 							<p>
-                {detail}
+								{detail}
 							</p>
 						</div>
 						<img
@@ -102,13 +102,13 @@ export default function WelcomeBanner({heading,detail,emoji}) {
 	);
 }
 WelcomeBanner.defaultProps = {
-  detail:'Empowering you with the knowledge & opportunity to live the best life possible.',
-  heading:'Hello, Durodola Imani',
-  emoji:'👋🏽 ',
-}
+	detail:'Empowering you with the knowledge & opportunity to live the best life possible.',
+	heading:'Hello, Durodola Imani',
+	emoji:'👋🏽 ',
+};
 
 WelcomeBanner.propTypes = {
-  detail: PropTypes.string.isRequired,
-  heading: PropTypes.string.isRequired,
-  emoji: PropTypes.any.isRequired,
-}
+	detail: PropTypes.string.isRequired,
+	heading: PropTypes.string.isRequired,
+	emoji: PropTypes.any.isRequired,
+};

@@ -100,14 +100,10 @@ padding: 1rem;
 		}
 	}
 	.exercise{
-		min-width: 30%;
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
-			// min-width: 62%;
-			div{
-				width: auto;
+		display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
 			}
-		}
-	}
 	.top-header2 {
 		display:grid;  
 		grid-gap: 1rem;

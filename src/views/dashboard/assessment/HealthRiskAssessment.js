@@ -181,8 +181,8 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 										backgroundColor="blue"
 										where={
 											percentageCompleted > 0
-												? '/assessment/health/general'
-												: '/assessment/health/start'
+												? '/assessments/health/general'
+												: '/assessments/health/start'
 										}
 										progress={percentageCompleted}
 									/>
