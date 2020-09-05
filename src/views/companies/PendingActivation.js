@@ -10,87 +10,87 @@ import SetEmployeeLimitModal from '../../components/dashboard/companies/SetEmplo
 import SuspendCompanyModal from '../../components/dashboard/companies/SuspendCompanyModal';
 
 const Wrapper = styled.div`
-  .top-paper {
-    box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
-    border-radius: 0px;
-    padding: 2rem;
-  }
-  #back {
-    font-weight: bold;
-    font-size: 1.4rem;
-    line-height: 1.4rem;
-    color: ${props => props.theme.color.brand_02};
-    align-items: center;
-    justify-content: start;
-    img {
-      padding-right: 0.8rem;
-    }
-  }
-  .grids {
-    padding: 4rem 0;
-    .headingy,
-    .info {
-      justify-content: space-between;
-      padding: 2rem;
-      @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-        padding: 1rem;
-      }
-    }
-    .detail{
-        .grid{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-    .grids-item {
-      border: 1px solid ${props => props.theme.color.brand_08};
-      box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.04);
-      border-radius: 8px;
-      .info{
-          p{
-            @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-                font-size: 1.3rem;
-            }
-          }
-        .flexy{
-            justify-content: end;
-        }
-      }
-      .boldy {
-        font-weight: bold;
-        font-size: 1.4rem;
-        line-height: 2.2rem;
-        color: ${props => props.theme.color.ui_05};
-        @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-            font-size: 1.2rem;
-        }
-               #modal{
-            padding-left: 3rem;
-            text-decoration: underline;
-            font-weight: normal;
-            color:${props => props.theme.color.brand_09};
-            cursor: pointer;
-            &:hover{
-                color: ${props => props.theme.color.ui_05};
-                text-decoration: none;
-    transition: .3s;
-            }
-        }
-      }
-      .web{
-        text-decoration: underline;
-        &:hover{
-          color:${props => props.theme.color.brand_09};
-          text-decoration: none;
-    transition: .3s;
-        }
-      }
-      .bigy {
-        line-height: 1.4rem;
-        letter-spacing: .1rem;
-      }
-    }
-  }
+	.top-paper {
+		box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
+		border-radius: 0px;
+		padding: 2rem;
+	}
+	#back {
+		font-weight: bold;
+		font-size: 1.4rem;
+		line-height: 1.4rem;
+		color: ${props => props.theme.color.brand_02};
+		align-items: center;
+		justify-content: start;
+		img {
+			padding-right: 0.8rem;
+		}
+	}
+	.grids {
+		padding: 4rem 0;
+		.headingy,
+		.info {
+			justify-content: space-between;
+			padding: 2rem;
+			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+				padding: 1rem;
+			}
+		}
+		.detail{
+				.grid{
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+				}
+		}
+		.grids-item {
+			border: 1px solid ${props => props.theme.color.brand_08};
+			box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.04);
+			border-radius: 8px;
+			.info{
+					p{
+						@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+								font-size: 1.3rem;
+						}
+					}
+				.flexy{
+						justify-content: end;
+				}
+			}
+			.boldy {
+				font-weight: bold;
+				font-size: 1.4rem;
+				line-height: 2.2rem;
+				color: ${props => props.theme.color.ui_05};
+				@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+					font-size: 1.2rem;
+				}
+					#modal{
+						padding-left: 3rem;
+						text-decoration: underline;
+						font-weight: normal;
+						color:${props => props.theme.color.brand_09};
+						cursor: pointer;
+						&:hover{
+							color: ${props => props.theme.color.ui_05};
+							text-decoration: none;
+							transition: .3s;
+						}
+				}
+			}
+			.web{
+				text-decoration: underline;
+				&:hover{
+					color:${props => props.theme.color.brand_09};
+					text-decoration: none;
+					transition: .3s;
+				}
+			}
+			.bigy {
+				line-height: 1.4rem;
+				letter-spacing: .1rem;
+			}
+		}
+	}
 `;
 
 function index() {
@@ -101,7 +101,7 @@ function index() {
 					<Link to="/companies">
 						<p id="back" className="flex ">
 							<img src={back} alt="go-back" />
-              Back
+							Back
 						</p>
 					</Link>{' '}
 				</Paper>
@@ -112,9 +112,7 @@ function index() {
 							<div className="headingy flex">
 								<h1 className="boldy bigy">COMPANY DETAILS</h1>
 								<div>
-									{' '}
-                                    <SuspendCompanyModal/>
-								
+									<SuspendCompanyModal />
 								</div>
 							</div>
 							<Divider />
@@ -144,7 +142,7 @@ function index() {
 								<div className="info grid">
 									<p>Employee Limit</p>
 									<h1 className="boldy flex flexy">
-                    200 <span id='modal'> <SetEmployeeLimitModal/></span>
+										200 <span id='modal'> <SetEmployeeLimitModal/></span>
 									</h1>
 								</div>
 							</div>
@@ -175,7 +173,7 @@ function index() {
 								<div className="info grid">
 									<p>Date Created</p>
 									<h1 className="boldy">
-                  February 26, 2020.
+									February 26, 2020.
 									</h1>
 								</div>
 							</div>
