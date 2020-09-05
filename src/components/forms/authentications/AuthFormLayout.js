@@ -46,8 +46,8 @@ const Wrapper = styled.div`
 
 export default function AuthFormLayout({
 	children,
-  showFormAgreement,
-  show
+	showFormAgreement,
+	show
 }) {
 	const displayAgreement = () => (
 		<p className="footerText">
@@ -83,7 +83,5 @@ AuthFormLayout.defaultProps = {
 AuthFormLayout.propTypes = {
 	children: PropTypes.any.isRequired,
 	showFormAgreement: PropTypes.bool,
-	title: PropTypes.string.isRequired,
-	description: PropTypes.string,
 	show: PropTypes.string,
 };

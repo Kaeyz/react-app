@@ -76,7 +76,6 @@ const Wrapper = styled(Paper)`
 `;
 
 
-
 function SideBar({ logoutUser, user }) {
 	const navItems = {
 		ADMIN: {

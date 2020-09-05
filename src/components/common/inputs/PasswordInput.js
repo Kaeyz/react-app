@@ -102,7 +102,7 @@ const PasswordInput = ({ label, onChange, value, placeholder, error }) => {
 						{values.showPassword ? 	<img src={show} alt="showPassword"/>: <VisibilityOff />}
 					</IconButton>
 				</div>
-				{/* <p className="error">{error && error}</p> */}
+				<p className="error">{error && error}</p>
 			</div>
 		</Wrapper>
 	);

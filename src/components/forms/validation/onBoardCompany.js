@@ -7,13 +7,15 @@ module.exports = function onBoardCompanyValidator(data) {
 	data.firstName = !isEmpty(data.firstName) ? data.firstName : '';
 	data.lastName = !isEmpty(data.lastName) ? data.lastName : '';
 	data.email = !isEmpty(data.email) ? data.email : '';
-	data.companyName = !isEmpty(data.companyName) ? data.companyName : '';
+	data.organizationName = !isEmpty(data.organizationName) ? data.organizationName : '';
 	data.jobTitle = !isEmpty(data.jobTitle) ? data.jobTitle : '';
 	data.size = !isEmpty(data.size) ? data.size : '';
+	data.password = !isEmpty(data.password) ? data.password : '';
+	data.password2 = !isEmpty(data.password2) ? data.password2 : '';
 
 	// first name validation
 	if (validator.isEmpty(data.firstName)) {
-		errors.firstName = 'FirstName field is required';
+		errors.firstName = 'First Name field is required';
 	}
 
 	//  last name validation
@@ -30,18 +32,38 @@ module.exports = function onBoardCompanyValidator(data) {
 		errors.organizationEmail = 'Email field is required';
 	}
 
+	// email validation
+	if (!validator.isEmail(data.representativeEmail)) {
+		errors.representativeEmail = 'Email is invalid';
+	}
+
+	if (validator.isEmpty(data.representativeEmail)) {
+		errors.representativeEmail = 'Email field is required';
+	}
+
 	if (validator.isEmpty(data.organizationName)) {
-		errors.organizationName = 'Company name is required';
+		errors.organizationName = 'Organization name is required';
 	}
 
 	if (validator.isEmpty(data.jobTitle)) {
 		errors.jobTitle = 'Job title is required';
 	}
 
-	if (validator.isEmpty(data.organizationSize)) {
-		errors.organizationSize = 'Size is required';
+	if (!validator.isLength(data.password, { min: 8 })) {
+		errors.password = 'Password must be at least 8';
 	}
 
+	if (validator.isEmpty(data.password)) {
+		errors.password = 'Password field is required';
+	}
+
+	if (data.password !== data.password2) {
+		errors.password2 = 'Password do not match';
+	}
+
+	if (validator.isEmpty(data.password2)) {
+		errors.password2 = 'Field cannot be blank';
+	}
 
 	return {
 		errors,
