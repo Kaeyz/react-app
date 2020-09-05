@@ -15,6 +15,8 @@ const theme = {
 		brand_05: '#f7fdfc',
 		brand_06: '#E0E0E0',
 		brand_07: '#FF3D3D',
+		brand_08: '#f2f2f2',
+		brand_09: '#f8ab74',
 		ui_01: '#ffffff',
 		ui_02: '#FBFCFA',
 		ui_03: '#F3F0F0',

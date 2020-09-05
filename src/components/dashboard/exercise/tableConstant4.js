@@ -1,6 +1,6 @@
 import React from 'react';
 // This is the table constant/settings which needed to render table elements
-import NewEmployeeModal from '../../../components/dashboard/exercise/NewEmployeeModal';
+import PendingInvites from './PendingInvitesModal';
 
 export const tableConstants4 = () => {
 	return [
@@ -32,9 +32,9 @@ export const tableConstants4 = () => {
 			title: '',
 			render: function ViewReport(rowData) {
 				return (
-					<div className="flex btn-content">
+					<div className="flex deco btn-content">
 						{' '}
-						<NewEmployeeModal />
+						<PendingInvites />
 					</div>
 				);
 			},

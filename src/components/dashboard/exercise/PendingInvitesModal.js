@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import Modal from "../common/Modal";
 import Button from "../../common/Button";
+import Grid from "@material-ui/core/Grid";
 
 const Wrapper = styled.div`
   .pd {
@@ -48,6 +49,11 @@ const Wrapper = styled.div`
       line-height: 2.2rem;
           color: ${(props) => props.theme.color.ui_05};
   }
+  .pd{
+    button{
+      width:100% !important;
+    }
+  }
 `;
 
 class PendingInvitesModal extends React.Component {
@@ -69,10 +75,7 @@ class PendingInvitesModal extends React.Component {
         <Modal
           show={this.state.show}
           handleClose={this.hideModal}
-          textBtn="Suspend Employee"
           position='modal-right'
-          btn2={            <Button theme="pinkBtn" text='Remove Employee' />
-        }
           heading={<span> View Employee</span>}
         >
           <div className="select">
@@ -93,6 +96,14 @@ class PendingInvitesModal extends React.Component {
               <p className='bold'>March 28,2020</p>
               </div>
           </div>
+          <Grid container>
+          <Grid item xs={12} className="pd">
+                <Button theme="darkGreen" text="Suspend Employee" />
+              </Grid>
+          <Grid item xs={12} className="pd">
+                <Button theme="pinkBtn" text="Remove Employee" />
+              </Grid>
+          </Grid>
         </Modal>
         <p className="trigger" onClick={this.showModal}>
           View <span class="tooltiptext">click to view employee</span>

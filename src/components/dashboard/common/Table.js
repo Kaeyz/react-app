@@ -20,13 +20,16 @@ max-width: 100%;
     color: ${(props) => props.theme.color.text_05};
     transition: .3s;
   }
-  .text{
+   .text{
     font-weight: normal;
 font-size: 1.4rem;
 line-height: 1.6rem;
 text-decoration-line: underline;
 padding-left: 1rem;
   }
+}
+.deco{
+  text-decoration: underline;
 }
 .table{
   width: 100%;
