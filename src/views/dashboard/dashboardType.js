@@ -5,6 +5,6 @@ COMPANY
 ADMIN
 */
 
-const type = 'COMPANY';
+const type = 'INDIVIDUAL';
 
 export default type;

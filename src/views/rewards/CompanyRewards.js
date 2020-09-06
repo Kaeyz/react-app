@@ -75,10 +75,10 @@ function CompanyRewards() {
 				<div className="rewards">
 					<p className="sub-heading">Running Rewards</p>
 					<div  className='grid-container'>
-							<CreateRewardModal/>
+						<CreateRewardModal/>
 						<RewardDetailsModal theme='pinkCard' icon={pinkIcon}/>
 
-							<RewardDetailsModal theme='blueCard' icon={blueIcon}/>
+						<RewardDetailsModal theme='blueCard' icon={blueIcon}/>
 
 					</div>
 				</div>
@@ -86,16 +86,16 @@ function CompanyRewards() {
 				<div className="rewards">
 					<p className="sub-heading">Closed Rewards</p>
 					<div className='grid-container'>
-							<RewardDetailsModal theme='orangeCard' icon={orangeIcon}/>
-							<RewardDetailsModal theme='greenCard' icon={greenIcon}/>
-							<RewardDetailsModal theme='purpleCard' icon={purpleIcon}/>
+						<RewardDetailsModal theme='orangeCard' icon={orangeIcon}/>
+						<RewardDetailsModal theme='greenCard' icon={greenIcon}/>
+						<RewardDetailsModal theme='purpleCard' icon={purpleIcon}/>
 
 					</div>
 				</div>
-				<Link to='/leaderboard' className='leaderboard'>
+				<Link to='/rewards/leaderboard' className='leaderboard'>
 					<p className="sub-heading">Leaderboard</p>
 					<div  className='grid-container'>
-							<LeaderboardCard />					
+						<LeaderboardCard />
 					</div>
 				</Link>
 			</DashboardLayout>

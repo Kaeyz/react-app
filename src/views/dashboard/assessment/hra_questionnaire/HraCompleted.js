@@ -74,7 +74,7 @@ function HraCompleted() {
 			</p>
 			<p className="detail">
         You’re currently 210 on the{' '}
-				<Link className="link" to="/leaderboard">
+				<Link className="link" to="/rewards/leaderboard">
           leaderboard
 				</Link>
         .
