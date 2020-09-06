@@ -6,6 +6,7 @@ import yellowFlower from '../../assets/yellowFlower.svg';
 import greenFlower from '../../assets/greenFlower.svg';
 import LeaderboardCard from '../../components/dashboard/dashboard_home/LeaderboardCard';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   padding-top: 3rem;
@@ -62,11 +63,12 @@ const DashboardHome = () => {
 					/>
 				</div>
 
-				<h1 className="heading">Leaderboard</h1>
-
+			<Link to='/leaderboard'>
+			<h1 className="heading">Leaderboard</h1>
 				<div className="grid-card">
 					<LeaderboardCard />
 				</div>
+			</Link>
 			</main>
 		</Wrapper>
 	);
