@@ -57,7 +57,7 @@ function CompanySignUpForm({history, registerCompany}) {
 			return	setErrors(errors);
 		}
 
-		const company = { firstName, lastName, organizationName, password, organizationEmail, representativeEmail, jobTitle, organizationSize: 4 };
+		const company = { firstName, lastName, organizationName, password, organizationEmail, representativeEmail, jobTitle };
 		if (companyAddress) company.companyAddress = companyAddress;
 		if (companyWebsite) company.companyWebsite = companyWebsite;
 

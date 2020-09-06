@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 export const tableConstants6 = () => {
 	return [
 		{
-			title: 'COMPANY  NAME',
-			render: function COMPANYName(rowData) {
-				return <span>{rowData['COMPANY  NAME']}</span>;
+			title: 'COMPANY NAME',
+			render: function CompanyName(rowData) {
+				return <span>{rowData['COMPANY NAME']}</span>;
 			},
 		},
 		{
@@ -29,11 +29,10 @@ export const tableConstants6 = () => {
 			},
 		},
 		{
-			title: '',
+			title: '_id',
 			render: function ViewReport(rowData) {
 				return (
-					<Link to='/companies/pending_activation' className="flex deco btn-content">
-						{' '}
+					<Link to={`/companies/${rowData['_id']}`} className="flex deco btn-content">
 						View
 					</Link>
 				);

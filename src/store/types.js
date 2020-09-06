@@ -30,4 +30,12 @@ module.exports = Object.freeze({
 	CLEAR_REPORT: 'remove_report',
 	REPORT_IS_LOADING: 'report_is_loading',
 	REPORT_NOT_LOADING: 'report_not_loading',
+
+	// COMPANIES ACTIONS
+	ADD_COMPANIES: 'add_companies',
+	CLEAR_COMPANIES: 'clear_companies',
+	ADD_COMPANY: 'add_company',
+	REMOVE_COMPANY: 'remove_companies',
+	COMPANY_IS_LOADING: 'companies_is_loading',
+	COMPANY_NOT_LOADING: 'companies_not_loading',
 });

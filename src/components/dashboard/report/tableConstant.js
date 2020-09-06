@@ -27,9 +27,9 @@ export const tableConstants = () => {
 		},
 
 		{
-			title: 'reportId',
+			title: '_id',
 			render: function ViewReport (rowData) {
-				return <Link to={`/reports/${rowData.reportId}`} className='flex btn-content'><img src={file} alt="file_icon"/> <p className='text'>View report</p></Link>;
+				return <Link to={`/reports/${rowData._id}`} className='flex btn-content'><img src={file} alt="file_icon"/> <p className='text'>View report</p></Link>;
 			},
 		},
 	];

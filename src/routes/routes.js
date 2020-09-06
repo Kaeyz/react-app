@@ -47,7 +47,7 @@ import PendingInvites from '../views/employees/PendingInvites';
 import CompanyRewards from '../views/rewards/CompanyRewards';
 import Page404 from '../views/Page404';
 import Companies from '../views/companies';
-import PendingActivation from '../views/companies/PendingActivation';
+import Company from '../views/companies/Company';
 
 const Routes = () => (
 	<Router>
@@ -86,8 +86,8 @@ const Routes = () => (
 			<Route exact path="/rewards" component={CompanyRewards} />
 
 			{/* admin route */}
-			<Route exact path="/companies" component={Companies} />
-			<Route exact path="/companies/pending_activation" component={PendingActivation} />
+			<PrivateRoute exact path="/companies" component={Companies} />
+			<PrivateRoute exact path="/companies/:companyId" component={Company} />
 
 
 			{/* assessment route */}
