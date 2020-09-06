@@ -44,7 +44,8 @@ import MealPlans from '../views/meals/MealPlans';
 import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
 import Employees from '../views/employees';
 import PendingInvites from '../views/employees/PendingInvites';
-import CompanyRewards from '../views/rewards/CompanyRewards';
+import CompanyRewards from '../views/rewards/CompanyRewards'
+import Leaderboard from '../views/rewards/Leaderboard'
 import Page404 from '../views/Page404';
 import Companies from '../views/companies';
 import PendingActivation from '../views/companies/PendingActivation';
@@ -84,7 +85,8 @@ const Routes = () => (
 			<Route exact path="/employees" component={Employees} />
 			<Route exact path="/employees/pending_invites" component={PendingInvites} />
 			<Route exact path="/rewards" component={CompanyRewards} />
-
+			<Route exact path="/rewards/leaderboard" component={Leaderboard} />
+			
 			{/* admin route */}
 			<Route exact path="/companies" component={Companies} />
 			<Route exact path="/companies/pending_activation" component={PendingActivation} />

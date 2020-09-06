@@ -58,12 +58,12 @@ const DashboardHome = () => {
 						btnValue="Start Guide"
 						cardInfo={'Meal & Fitness Guide'}
 						image={yellowFlower}
-						btnTheme="lightYellowBtn"
+						btnTheme="yellowBtn"
 						backgroundColor="yellow"
 					/>
 				</div>
 
-			<Link to='/leaderboard'>
+			<Link to='/rewards/leaderboard'>
 			<h1 className="heading">Leaderboard</h1>
 				<div className="grid-card">
 					<LeaderboardCard />
