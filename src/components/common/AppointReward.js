@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Paper, Divider } from '@material-ui/core';
 
@@ -83,24 +83,24 @@ border: 1px solid ${props => props.theme.color.text_12};
  }
 `;
 
-function AppointReward({cardTheme, icon}) {
+function AppointReward({cardTheme, icon, title, info, left, leftB, right, rightB}) {
 	return (
 		<Wrapper>
 			<Paper className={`paperCard ${cardTheme}`} >
 				<div>
 					<div className="subHeading flex">
 						<img src={icon} alt="icon"/>
-						<p>Reward Title</p>
+						<p>{title}</p>
 					</div>
 					<Divider/>
 					<div className="detail">
 						<p className="info">
-               Empowering you with the knowledge and loren opportunity to live the best life possible.
+							{info}
 						</p>
 						<div className="sub-info">
 							<div className="grid">
-								<div><p className='bold'>Start Date </p> <p className='date'>Feb 24, 2019</p></div>
-								<div><p className='bold'>End Date</p> <p className='date'>June 09, 2019</p></div>
+								<div><p className='bold'>{left} </p> <p className='date'>{leftB}</p></div>
+								<div><p className='bold'>{right}</p> <p className='date'>{rightB}</p></div>
 							</div>
 						</div>
 					</div>
@@ -110,9 +110,25 @@ function AppointReward({cardTheme, icon}) {
 	);
 }
 
+AppointReward.defaultProps={
+	title:'Reward Title',
+	info:'Empowering you with the knowledge and loren opportunity to live the best life possible.',
+	left:'Start Date',
+	leftB:'Feb 24, 2019',
+	right:'End Date',
+	rightB:'June 09, 2019'
+
+};
+
 AppointReward.propTypes = {
-  cardTheme: PropTypes.string,
-  icon: PropTypes.any,
-}
+	cardTheme: PropTypes.string,
+	icon: PropTypes.any,
+	title: PropTypes.string.isRequired,
+	info: PropTypes.string.isRequired,
+	left: PropTypes.string.isRequired,
+	leftB:PropTypes.string.isRequired,
+	right:PropTypes.string.isRequired,
+	rightB:PropTypes.string.isRequired,
+};
 
 export default AppointReward;

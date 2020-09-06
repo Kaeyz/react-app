@@ -77,7 +77,6 @@ function CompanyRewards() {
 					<div  className='grid-container'>
 						<CreateRewardModal/>
 						<RewardDetailsModal theme='pinkCard' icon={pinkIcon}/>
-
 						<RewardDetailsModal theme='blueCard' icon={blueIcon}/>
 
 					</div>
