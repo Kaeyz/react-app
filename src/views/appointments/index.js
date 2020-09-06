@@ -12,7 +12,6 @@ function index(props) {
 	return (
 		<Wrapper>
 			<AppointmentLayout>
-            
 			</AppointmentLayout>
 		</Wrapper>
 	);

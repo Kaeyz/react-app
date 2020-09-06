@@ -4,7 +4,6 @@ import DashboardLayout from '../../../components/layouts/dashboardLayout/Dashboa
 import WelcomeCard from '../../../components/dashboard/dashboard_home/WelcomeBanner';
 import AppointmentUglyCard from '../../../components/dashboard/appointments/AppointmentUglyCard';
 import styled from 'styled-components';
-import {  Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
@@ -44,8 +43,15 @@ const Wrapper = styled.div`
     line-height: 25px;
   }
   .ugly-cards{
-    padding: 4rem 0;
-}
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 4rem;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      justify-items: center;
+    }
+  }
 `;
 
 function AppointmentLayout({ children }) {
@@ -70,26 +76,24 @@ function AppointmentLayout({ children }) {
           use this information in recommending active lifestyle choices.
 				</p>
 
-				<Grid container spacing={3} className="ugly-cards">
-					<Grid item xs={12} sm={4}>
-						<Link to="/appointments/create_appointment">
-							<AppointmentUglyCard
-								cardTheme='pink'
-								title="Set an Inbody Appointment"
-								details="Understand your body with a scan"
-							/>
-						</Link>
-					</Grid>
-					<Grid item xs={12} sm={4}>
-						<Link to="/appointments/create_appointment">
-							<AppointmentUglyCard
-								cardTheme='green'
-								title="Create a Meal Planning  Appointment"
-								details="Discuss with a Nutritionist"
-							/>
-						</Link>
-					</Grid>
-				</Grid>
+				<div container spacing={3} className="ugly-cards">
+
+					<Link to="/appointments/create_appointment">
+						<AppointmentUglyCard
+							cardTheme='pink'
+							title="Set an Inbody Appointment"
+							details="Understand your body with a scan"
+						/>
+					</Link>
+
+					<Link to="/appointments/create_appointment">
+						<AppointmentUglyCard
+							cardTheme='green'
+							title="Create a Meal Planning  Appointment"
+							details="Discuss with a Nutritionist"
+						/>
+					</Link>
+				</div>
 				{children}
 			</DashboardLayout>
 		</Wrapper>
