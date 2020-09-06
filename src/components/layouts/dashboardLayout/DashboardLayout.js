@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 	  }
      .layout {
     background: #fbfbfb;
-    padding: 2rem;
+    padding: 3rem 2rem;
     padding-left: 5rem;
     @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
       padding-left: 2rem;
