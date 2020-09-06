@@ -6,3 +6,4 @@ export * from './SelectInput';
 export * from './SearchInput';
 export * from './CheckBox';
 export * from './Filter';
+export * from './TextArea';

@@ -200,7 +200,7 @@ const DashboardAssessment = ({ fetchHraResponse }) => {
 									<span>4,000</span> others have completed this assessment. Fill
                   and qualify for the Wellness reward!
 								</p>
-								<Link className="linked-btn" to="/dashboard">
+								<Link className="linked-btn" to="/leaderboard">
 									<Button value="View Leaderboard" theme="darkGreenBtn">
                     View Leaderboard
 									</Button>

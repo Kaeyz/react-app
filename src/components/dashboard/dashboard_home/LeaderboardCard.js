@@ -4,11 +4,17 @@ import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 
 const Wrapper = styled.div`
+width:100%;
   .paper {
     background: rgba(46, 196, 182, 0.06);
     border: 1px solid ${props => props.theme.color.ui_12};
     border-radius: 10px;
     padding: 3rem;
+    cursor: pointer;
+    &:hover{
+      transform: scale(.9);
+      transition: .3s;
+    }
   }
   .position {
     font-weight: 300;
