@@ -43,6 +43,7 @@ const theme = {
 		text_09: '#3cbdb2',
 		text_10: '#F0F9F9',
 		text_11: '#9ECD43',
+		text_12: '#494FB1',
 		ui_text_01: '#CBF3F0',
 		ui_text_02: '#FFA393',
 		ui_text_03: '#FFBF69',
