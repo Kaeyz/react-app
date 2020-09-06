@@ -10,7 +10,6 @@ const DashboardHome = () => {
 	return (
 		<Wrapper>
 						Overview
-
 		</Wrapper>
 	);
 };
