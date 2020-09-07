@@ -44,8 +44,9 @@ import MealPlans from '../views/meals/MealPlans';
 import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
 import Employees from '../views/employees';
 import PendingInvites from '../views/employees/PendingInvites';
-import CompanyRewards from '../views/rewards/CompanyRewards'
-import Leaderboard from '../views/rewards/Leaderboard'
+import CompanyRewards from '../views/rewards/CompanyRewards';
+import IndividualReward from '../views/rewards/IndividualReward';
+import Leaderboard from '../views/rewards/Leaderboard';
 import Page404 from '../views/Page404';
 import Companies from '../views/companies';
 import PendingActivation from '../views/companies/PendingActivation';
@@ -89,7 +90,7 @@ const Routes = () => (
 			<Route exact path="/employees/pending_invites" component={PendingInvites} />
 			<Route exact path="/rewards" component={CompanyRewards} />
 			<Route exact path="/rewards/leaderboard" component={Leaderboard} />
-			
+
 			{/* admin route */}
 			<PrivateRoute exact path="/companies" component={Companies} />
 			<PrivateRoute exact path="/companies/:companyId" component={Company} />
@@ -127,6 +128,9 @@ const Routes = () => (
 			{/* appointments */}
 			<Route exact path="/appointments" component={Appointments} />
 			<Route exact path="/appointments/create_appointment" component={CreateAppointment} />
+
+			{/* reward */}
+			<Route exact path="/rewards/individual_reward" component={IndividualReward} />
 
 
 			{/* Blog route */}
