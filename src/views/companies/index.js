@@ -29,7 +29,6 @@ function Companies({ getCompanies, companies, isLoading }) {
 					buttons={
 						<>
 							<Link to="/companies/pending_activation">
-								{' '}
 								<Button theme="darkGreen" text="Pending Activation" />
 							</Link>
 						</>

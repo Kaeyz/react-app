@@ -1,5 +1,5 @@
 import companyQueries from '../../client/queries/companyQueries';
-import { errorAlert } from '../actions/alertActions';
+import { errorAlert, successAlert } from '../actions/alertActions';
 import {
 	ADD_COMPANIES,
 	ADD_COMPANY,
@@ -58,3 +58,64 @@ export const getCompany = (id) => dispatch => {
 			dispatch(companyNotLoading());
 		});
 };
+
+export const activateCompany = (id, activationToken) => dispatch => {
+	dispatch(companyIsLoading());
+	companyQueries.activateCompany(activationToken)
+		.then(res => {
+			if (res.data) {
+				const message = res.data.activateCompany.message;
+				dispatch(getCompany(id));
+				dispatch(successAlert(message));
+			}
+			if (res.errors) {
+				dispatch(errorAlert({msg: 'Activation Failed'}));
+				dispatch(companyNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({msg: 'Network Error!!'}));
+			dispatch(companyNotLoading());
+		});
+};
+
+export const suspendCompany = (id) => dispatch => {
+	dispatch(companyIsLoading());
+	companyQueries.suspendCompany(id)
+		.then(res => {
+			if (res.data) {
+				const message = res.data.suspendCompany.message;
+				dispatch(getCompany(id));
+				dispatch(successAlert(message));
+			}
+			if (res.errors) {
+				dispatch(errorAlert({msg: 'Failed'}));
+				dispatch(companyNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({msg: 'Network Error!!'}));
+			dispatch(companyNotLoading());
+		});
+};
+
+export const setEmployeeLimit = (amount, id) => dispatch => {
+	dispatch(companyIsLoading());
+	companyQueries.setEmployeeLimit(amount, id)
+		.then(res => {
+			if (res.data) {
+				const message = res.data.setEmployeeLimit.message;
+				dispatch(getCompany(id));
+				dispatch(successAlert(message));
+			}
+			if (res.errors) {
+				dispatch(errorAlert({msg: 'Failed'}));
+				dispatch(companyNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({msg: 'Network Error!!'}));
+			dispatch(companyNotLoading());
+		});
+};
+

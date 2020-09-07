@@ -9,7 +9,8 @@ import back from '../../assets/greenBackArrow.svg';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import SetEmployeeLimitModal from '../../components/dashboard/companies/SetEmployeeLimitModal';
-import SuspendCompanyModal from '../../components/dashboard/companies/SuspendCompanyModal';
+import SuspendCompany from '../../components/dashboard/companies/SuspendCompany';
+import ActivateCompany from '../../components/dashboard/companies/ActivateCompany';
 import { getCompany } from '../../store/actions/companyActions';
 import { convertDate } from '../../utils/helper';
 
@@ -106,7 +107,7 @@ const Company = ({ match, getCompany, company, isLoading }) => {
 		getCompany(companyId);
 	}, [companyId, getCompany]);
 
-	const { companyName, email, companyUrl, companySize, employeeLimit, address, name, representativeEmail, department, createdAt } = company;
+	const {_id, adminVerified, activationToken, companyName, email, companyUrl, companySize, employeeLimit, address, name, representativeEmail, department, createdAt } = company;
 
 	return (
 		<Wrapper>
@@ -117,7 +118,7 @@ const Company = ({ match, getCompany, company, isLoading }) => {
 							<img src={back} alt="go-back" />
 							Back
 						</p>
-					</Link>{' '}
+					</Link>
 				</Paper>
 
 				{
@@ -131,7 +132,11 @@ const Company = ({ match, getCompany, company, isLoading }) => {
 									<div className="headingy flex">
 										<h1 className="boldy bigy">COMPANY DETAILS</h1>
 										<div>
-											<SuspendCompanyModal />
+											{
+												adminVerified ?
+													<SuspendCompany companyId={_id} /> :
+													<ActivateCompany token={activationToken} companyId={_id} />
+											}
 										</div>
 									</div>
 									<Divider />
@@ -162,9 +167,12 @@ const Company = ({ match, getCompany, company, isLoading }) => {
 											<p>Employee Limit</p>
 											<h1 className="boldy flex flexy">
 												{employeeLimit || ''}
-												<span id='modal'>
-													<SetEmployeeLimitModal />
-												</span>
+												{
+													adminVerified &&
+														<span id='modal'>
+															<SetEmployeeLimitModal />
+														</span>
+												}
 											</h1>
 										</div>
 									</div>
