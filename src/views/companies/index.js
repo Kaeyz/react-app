@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import FilterSearchLayout from '../../components/layouts/FilterSearchLayout';
@@ -7,11 +7,20 @@ import Button from '../../components/common/Button';
 import PaginationTable from '../../components/common/PaginationTable';
 import Table from '../../components/dashboard/common/Table';
 import { tableConstants6 } from '../../components/dashboard/companies/tableConstant6';
-import { data6 } from '../../components/dashboard/companies/mockData6';
 import { Link } from 'react-router-dom';
+import { sortTableData } from '../../utils/helper';
+
+import { connect } from 'react-redux';
+import { getCompanies } from '../../store/actions/companyActions';
+
 
 const Wrapper = styled.div``;
-function index() {
+function Companies({ getCompanies, companies, isLoading }) {
+
+	React.useEffect(() => {
+		getCompanies();
+	}, [getCompanies]);
+
 	return (
 		<Wrapper>
 			<DashboardLayout whatPage="Employees">
@@ -27,14 +36,37 @@ function index() {
 					}
 					oneGrid='oneButton'
 				>
-					<Table cols={tableConstants6()} data={data6} />
-					<PaginationTable/>
+					{
+						isLoading ?
+							<div>Loading ...</div> :
+							<React.Fragment>
+								<Table cols={tableConstants6()} data={companies} />
+								<PaginationTable/>
+							</React.Fragment>
+					}
 				</FilterSearchLayout>
 			</DashboardLayout>
 		</Wrapper>
 	);
 }
 
-index.propTypes = {};
+Companies.propTypes = {
+	getCompanies: PropTypes.func.isRequired,
+	companies: PropTypes.array.isRequired,
+	isLoading: PropTypes.bool.isRequired,
+};
 
-export default index;
+const key = {
+	createdAt: 'DATE JOINED',
+	name: 'REPRESENTATIVE',
+	companyName: 'COMPANY NAME',
+	email: 'EMAIL ADDRESS',
+};
+
+const mapStateToProps = state => {
+	const { companies, isLoading } = state.company;
+	const data = sortTableData(companies, key);
+	return { companies: data, isLoading };
+};
+
+export default connect(mapStateToProps, { getCompanies })(Companies);

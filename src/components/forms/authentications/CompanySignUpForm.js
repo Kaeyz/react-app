@@ -42,40 +42,39 @@ function CompanySignUpForm({history, registerCompany}) {
 	const [password2, setPassword2] = useState('');
 	const [organizationName, setOrganizationName] = useState('');
 	const [organizationEmail, setOrganizationEmail] = useState('');
-	const [companyWebsite, setcompanyWebsite] = useState('');
-	const [companyAddress, setcompanyAddress] = useState('');
+	const [companyWebsite, setCompanyWebsite] = useState('');
+	const [companyAddress, setCompanyAddress] = useState('');
 	const [representativeEmail, setRepresentativeEmail] = useState('');
 	const [jobTitle, setJobTitle] = useState('');
 	const [errors, setErrors] = useState({});
-
-
-
 
 	const onFormSubmit = () => {
 		setErrors({});
 		const data = { firstName, lastName, organizationName, password, password2, organizationEmail, representativeEmail, jobTitle };
 		const { isValid, errors } = onBoardCompanyValidator(data);
+
 		if (!isValid) {
 			return	setErrors(errors);
 		}
-		const company = { firstName, lastName, organizationName, password, password2, organizationEmail, representativeEmail , jobTitle };
+
+		const company = { firstName, lastName, organizationName, password, organizationEmail, representativeEmail, jobTitle };
+		if (companyAddress) company.companyAddress = companyAddress;
+		if (companyWebsite) company.companyWebsite = companyWebsite;
+
 		registerCompany(company, history);
 	};
 
 	return (
 		<Wrapper>
 
-			<AuthFormLayout
-				showFormAgreement={false}
-				title="Company Registration"
-				description="Inspiring wholesome harmony for the mind, body and spirit, for everyone, everywhere."
-			>
+			<AuthFormLayout showFormAgreement={false} >
 				<div>
 
 					<Grid container spacing={2} justify="space-between">
 						<Grid item xs={12} sm={6}>
 							<TextInput
-								label="First Name "
+								label="First Name"
+								placeholder="Type here..."
 								value= {firstName}
 								onChange={setFirstName}
 								error={errors.firstName}
@@ -85,6 +84,7 @@ function CompanySignUpForm({history, registerCompany}) {
 							<TextInput
 								label="Last Name "
 								value= {lastName}
+								placeholder="Type here..."
 								onChange={setLastName}
 								error={errors.lastName}
 							/>
@@ -93,8 +93,9 @@ function CompanySignUpForm({history, registerCompany}) {
 					<Grid container spacing={2} justify="space-between">
 						<Grid item xs={12} sm={6}>
 							<TextInput
-								label="Job Title (Desription)"
+								label="Job Title (Description)"
 								value= {jobTitle}
+								placeholder="Type here..."
 								onChange={setJobTitle}
 								error={errors.jobTitle}
 							/>
@@ -116,6 +117,7 @@ function CompanySignUpForm({history, registerCompany}) {
 							<TextInput
 								label="Organization Name"
 								value= {organizationName}
+								placeholder="Type here..."
 								onChange={setOrganizationName}
 								error={errors.organizationName}
 							/>
@@ -124,9 +126,9 @@ function CompanySignUpForm({history, registerCompany}) {
 							<TextInput
 								label="Company Website (Optional)"
 								value= {companyWebsite }
-								onChange={setcompanyWebsite }
+								onChange={setCompanyWebsite }
 								placeholder="Type here..."
-								error={errors.companyWebsite }
+								error={errors.companyWebsite}
 							/>
 						</Grid>
 					</Grid>
@@ -148,8 +150,7 @@ function CompanySignUpForm({history, registerCompany}) {
 							<TextInput
 								label="Company’s Address (Optional)"
 								value={companyAddress}
-								type="email"
-								onChange={setcompanyAddress}
+								onChange={setCompanyAddress}
 								placeholder="Type here..."
 								error={errors.companyAddress}
 							/>

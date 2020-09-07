@@ -51,6 +51,7 @@ import Companies from '../views/companies';
 import PendingActivation from '../views/companies/PendingActivation';
 import Appointments from '../views/appointments';
 import CreateAppointment from '../views/appointments/CreateAppointment';
+import Company from '../views/companies/Company'
 
 const Routes = () => (
 	<Router>
@@ -90,8 +91,8 @@ const Routes = () => (
 			<Route exact path="/rewards/leaderboard" component={Leaderboard} />
 			
 			{/* admin route */}
-			<Route exact path="/companies" component={Companies} />
-			<Route exact path="/companies/pending_activation" component={PendingActivation} />
+			<PrivateRoute exact path="/companies" component={Companies} />
+			<PrivateRoute exact path="/companies/:companyId" component={Company} />
 
 
 			{/* assessment route */}

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
-
+import { sortTableData } from '../../utils/helper';
 import Table from '../../components/dashboard/common/Table';
 import { tableConstants } from '../../components/dashboard/report/tableConstant';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
@@ -40,6 +40,7 @@ const Reports = ({reports, isLoading, getReports}) => {
 				{isLoading ?
 					<div>Loading ...</div> :
 					<Table cols={tableConstants()} data={reports} />
+
 				}
 			</DashboardLayout>
 		</Wrapper>
@@ -53,33 +54,19 @@ Reports.propTypes = {
 	getReports: PropTypes.func.isRequired
 };
 
-const month = new Array(12);
-month[0] = 'January';
-month[1] = 'February';
-month[2] = 'March';
-month[3] = 'April';
-month[4] = 'May';
-month[5] = 'June';
-month[6] = 'July';
-month[7] = 'August';
-month[8] = 'September';
-month[9] = 'October';
-month[10] = 'November';
-month[11] = 'December';
+const key = {
+	updatedAt: 'Date Taken',
+	reportId: '_id'
+};
 
 const mapStateToProps = state => {
 	let reports = state.report.reports;
 	const { name } = state.user.user;
-
-	reports.forEach((report, index) => {
-		const date = new Date(report.updatedAt);
-		report['Date Taken'] = `${month[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-		report.Name = name;
-		report['Serial Number'] = String(index + 1);
-		return report;
+	reports = sortTableData(reports, key, (report) => {
+		return report.Name = name;
 	});
 
-	reports = reports.filter(report => report.reportId !== null);
+	reports = reports.filter(report => report._id !== null);
 
 	return { reports };
 };

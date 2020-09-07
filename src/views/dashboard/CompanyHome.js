@@ -9,8 +9,7 @@ const Wrapper = styled.div`
 const DashboardHome = () => {
 	return (
 		<Wrapper>
-						Overview
-
+			Overview
 		</Wrapper>
 	);
 };

@@ -89,7 +89,7 @@ const Table = ({ cols, data, whichTable, maxW}) => {
 				<thead>
 					<tr>
 						{cols.map((headerItem, index) => (
-							<th className= {`${maxW} thead`} key={index}>{headerItem.title === 'reportId' ? '' : headerItem.title}</th>
+							<th className= {`${maxW} thead`} key={index}>{headerItem.title === '_id' ? '' : headerItem.title}</th>
 						))}
 					</tr>
 				</thead>
