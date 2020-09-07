@@ -48,7 +48,10 @@ import CompanyRewards from '../views/rewards/CompanyRewards'
 import Leaderboard from '../views/rewards/Leaderboard'
 import Page404 from '../views/Page404';
 import Companies from '../views/companies';
-import Company from '../views/companies/Company';
+import PendingActivation from '../views/companies/PendingActivation';
+import Appointments from '../views/appointments';
+import CreateAppointment from '../views/appointments/CreateAppointment';
+import Company from '../views/companies/Company'
 
 const Routes = () => (
 	<Router>
@@ -121,6 +124,9 @@ const Routes = () => (
 			<Route exact path="/meals" component={Meals} />
 			<Route exact path="/meals/meal_plans" component={MealPlans} />
 
+			{/* appointments */}
+			<Route exact path="/appointments" component={Appointments} />
+			<Route exact path="/appointments/create_appointment" component={CreateAppointment} />
 
 
 			{/* Blog route */}
