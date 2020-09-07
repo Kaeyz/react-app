@@ -45,9 +45,12 @@ import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
 import Employees from '../views/employees';
 import PendingInvites from '../views/employees/PendingInvites';
 import CompanyRewards from '../views/rewards/CompanyRewards';
+import IndividualReward from '../views/rewards/IndividualReward';
 import Leaderboard from '../views/rewards/Leaderboard';
 import Page404 from '../views/Page404';
 import Companies from '../views/companies';
+import Appointments from '../views/appointments';
+import CreateAppointment from '../views/appointments/CreateAppointment';
 import Company from '../views/companies/Company';
 
 const Routes = () => (
@@ -121,6 +124,12 @@ const Routes = () => (
 			<Route exact path="/meals" component={Meals} />
 			<Route exact path="/meals/meal_plans" component={MealPlans} />
 
+			{/* appointments */}
+			<Route exact path="/appointments" component={Appointments} />
+			<Route exact path="/appointments/create_appointment" component={CreateAppointment} />
+
+			{/* reward */}
+			<Route exact path="/rewards/individual_reward" component={IndividualReward} />
 
 
 			{/* Blog route */}
