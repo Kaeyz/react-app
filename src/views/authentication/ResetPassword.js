@@ -9,18 +9,22 @@ const layoutData = {
 	description: 'Create a new password',
 };
 
-function ResetPassword({location, history}) {
-	const {resetToken} = queryString.parse(location.search);
+function ResetPassword({ location, history, match }) {
+
+	const token = match.params.token;
+	const { resetToken } = queryString.parse(location.search);
+
 	return (
 		<AuthLayout data={layoutData} centered='alignCenter'>
-			<ResetPasswordForm resetToken={resetToken} history={history} />
+			<ResetPasswordForm resetToken={token || resetToken} history={history} />
 		</AuthLayout>
 	);
 }
 
 ResetPassword.propTypes = {
 	location: PropTypes.object.isRequired,
-	history: PropTypes.object.isRequired
+	history: PropTypes.object.isRequired,
+	match: PropTypes.object.isRequired,
 };
 
 export default ResetPassword;

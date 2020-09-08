@@ -1,5 +1,6 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import FilterSearchLayout from '../../components/layouts/FilterSearchLayout';
@@ -10,31 +11,55 @@ import { tableConstants4 } from '../../components/dashboard/employees/tableConst
 import { data4 } from '../../components/dashboard/employees/mockData4';
 import { Link } from 'react-router-dom';
 import NewEmployeeModal from '../../components/dashboard/employees/NewEmployeeModal';
+import { getActiveEmployees } from '../../store/actions/employeeActions';
 
 const Wrapper = styled.div``;
-function index() {
+
+const Employees = ({ getActiveEmployees, employees, isLoading }) => {
+
+	React.useEffect(() => {
+		getActiveEmployees();
+	}, [getActiveEmployees]);
+
 	return (
 		<Wrapper>
 			<DashboardLayout whatPage="Employees">
 				<FilterSearchLayout
 					text="Employees"
 					buttons={
-						<>
+						<React.Fragment>
 							<Link to="/employees/pending">
 								<Button theme="whiteBtn blackText" text="Pending Invites" />
 							</Link>
-							<NewEmployeeModal/>
-						</>
+							<NewEmployeeModal />
+						</React.Fragment>
 					}
 				>
-					<Table cols={tableConstants4()} data={data4} />
-					<PaginationTable/>
+					{
+						isLoading ?
+							<div>Loading ...</div> :
+							employees.length < 1 ?
+								<div>Add New Employee</div> :
+								<React.Fragment>
+									<Table cols={tableConstants4()} data={data4} />
+									<PaginationTable />
+								</React.Fragment>
+					}
 				</FilterSearchLayout>
 			</DashboardLayout>
 		</Wrapper>
 	);
-}
+};
 
-index.propTypes = {};
+Employees.propTypes = {
+	getActiveEmployees: PropTypes.func.isRequired,
+	employees: PropTypes.array.isRequired,
+	isLoading: PropTypes.bool.isRequired
+};
 
-export default index;
+const mapStateToProps = state => {
+	const { employees, isLoading } = state.employee;
+	return { employees, isLoading };
+};
+
+export default connect(mapStateToProps, { getActiveEmployees })(Employees);

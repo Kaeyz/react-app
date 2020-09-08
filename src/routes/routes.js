@@ -43,7 +43,7 @@ import Meals from '../views/meals';
 import MealPlans from '../views/meals/MealPlans';
 import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
 import Employees from '../views/employees';
-import PendingInvites from '../views/employees/Employee';
+import PendingInvites from '../views/employees/PendingInvites';
 import CompanyRewards from '../views/rewards/CompanyRewards';
 import IndividualReward from '../views/rewards/IndividualReward';
 import Leaderboard from '../views/rewards/Leaderboard';
@@ -71,6 +71,7 @@ const Routes = () => (
 
 			<PrivateRoute isAuth={false} exact path="/onboarding/individual" component={IndividualSignUp} />
 			<PrivateRoute isAuth={false} exact path="/onboarding/company" component={CompanySignUp} />
+			<PrivateRoute isAuth={false} exact path="/onboarding/employee/:token" component={ResetPassword} />
 			<PrivateRoute isAuth={false} exact path="/onboarding/account_success" component={AccountSuccess} />
 			<PrivateRoute isAuth={false} exact path="/onboarding/mail_confirmed" component={MailConfirmation} />
 			<PrivateRoute isAuth={false} exact path="/forgot_password" component={ForgotPassword} />

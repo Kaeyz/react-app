@@ -1,5 +1,7 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getPendingEmployees } from '../../store/actions/employeeActions';
 import styled from 'styled-components';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import FilterSearchLayout from '../../components/layouts/FilterSearchLayout';
@@ -21,32 +23,55 @@ const Wrapper = styled.div`
     }
   }
 `;
-function PendingInvites() {
+
+
+const PendingInvites = ({ isLoading, getPendingEmployees, employees }) => {
+
+	React.useEffect(() => {
+		getPendingEmployees();
+	}, [getPendingEmployees]);
+
 	return (
 		<Wrapper>
 			<DashboardLayout whatPage="Employees">
 				<FilterSearchLayout
 					text={
-						<>
+						<React.Fragment>
 							<Link to="/employees">
 								<p id="back">
-									{' '}
 									<img src={back} alt="go-back" />
                   Back
 								</p>
-							</Link>{' '}
+							</Link>
 							<span>Pending Invites</span>
-						</>
+						</React.Fragment>
 					}
 					display="none"
 				>
-					<Table cols={tableConstants5()} data={data4} />
+					{
+						isLoading ?
+							<div>Loading ...</div> :
+							employees.length < 1 ?
+								<div>No Pending Invites</div> :
+								<React.Fragment>
+									<Table cols={tableConstants5()} data={data4} />
+								</React.Fragment>
+					}
 				</FilterSearchLayout>
 			</DashboardLayout>
 		</Wrapper>
 	);
-}
+};
 
-PendingInvites.propTypes = {};
+PendingInvites.propTypes = {
+	getPendingEmployees: PropTypes.func.isRequired,
+	employees: PropTypes.array.isRequired,
+	isLoading: PropTypes.bool.isRequired
+};
 
-export default PendingInvites;
+const mapStateToProps = state => {
+	const { employees, isLoading } = state.employee;
+	return { employees, isLoading };
+};
+
+export default connect(mapStateToProps, {getPendingEmployees})(PendingInvites);
