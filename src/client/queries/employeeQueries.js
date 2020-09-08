@@ -74,6 +74,31 @@ employeeQueries.getPendingEmployees = () => {
 	});
 };
 
+employeeQueries.getSuspendedEmployees = () => {
+	const query = `
+	query FETCH_EMPLOYEES_OF_COMPANY ($by: FetchEmployeesOfACompanyEnum) {
+		fetchEmployeesOfACompanyByCategory (by: $by) {
+				_id
+				email
+				name
+				department
+				branch
+				createdAt
+				adminVerified
+				suspended
+		}
+	}
+	`;
+
+	const variables = { by: 'SUSPENDED' };
+
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
 employeeQueries.getEmployeeById = (id) => {
 	const query = `
 	query FETCH_EMPLOYEE_BY_ID($id: String) {
@@ -117,7 +142,7 @@ employeeQueries.suspendEmployee = (id) => {
 	});
 };
 
-employeeQueries.unsuspendEmployee = (id) => {
+employeeQueries.unSuspendEmployee = (id) => {
 	const query = `
 	mutation UNSUSPEND_EMPLOYEE_BY_ID($id: String!) {
 		unSuspendCompany(id: $id) {

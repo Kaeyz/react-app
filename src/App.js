@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { setCurrentUser } from './store/actions/userActions';
 import Theme from './Theme';
 import PropTypes from 'prop-types';
+import BigSpinner from './components/common/spinner/BigSpinner';
+
 
 function App({ setCurrentUser, app }) {
 
@@ -14,6 +16,7 @@ function App({ setCurrentUser, app }) {
 	return (
 		<Theme>
 			{!app.appIsLoading && <Routes />}
+			{app.appIsLoading && <BigSpinner />}
 		</Theme>
 	);
 }

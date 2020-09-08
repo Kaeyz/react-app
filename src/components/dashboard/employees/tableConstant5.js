@@ -1,8 +1,8 @@
 import React from 'react';
 // This is the table constant/settings which needed to render table elements
-import Employee from './Employee';
+import Employee from '../employees/Employee';
 
-export const tableConstants4 = () => {
+export const tableConstants5 = () => {
 	return [
 		{
 			title: 'EMPLOYEE NAME',
@@ -23,7 +23,7 @@ export const tableConstants4 = () => {
 			},
 		},
 		{
-			title: 'DATE CREATED',
+			title: 'DATE INVITED',
 			render: function SerialNumber(rowData) {
 				return <span>{rowData['DATE CREATED']}</span>;
 			},
@@ -32,7 +32,7 @@ export const tableConstants4 = () => {
 			title: '_id',
 			render: function ViewReport(rowData) {
 				return (
-					<div className="flex deco btn-content">
+					<div className="flex btn-content">
 						<Employee employee={rowData} />
 					</div>
 				);

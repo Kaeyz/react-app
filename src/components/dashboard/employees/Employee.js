@@ -60,7 +60,8 @@ const Wrapper = styled.div`
 
 const Employee = ({ employee, suspendEmployee, unSuspendEmployee }) => {
 
-	//const { _id } = employee;
+	const { _id, name, department, email, branch, suspended   } = employee;
+	const date = employee['DATE CREATED'];
 	const [show, setShow] = React.useState(false);
 
 	const showModal = () => {
@@ -82,24 +83,28 @@ const Employee = ({ employee, suspendEmployee, unSuspendEmployee }) => {
 				<div className="select">
 					<div className="flex">
 						<p>Employee Name</p>
-						<p className='bold'>Durodola Anuoluwapo</p>
+						<p className='bold'>{name && name}</p>
 					</div>
 					<div className="flex">
 						<p>Department</p>
-						<p className='bold'>Business Department</p>
+						<p className='bold'>{department && department}</p>
 					</div>
-					<div className="flex">   <p>Branch</p>
-						<p className='bold'>Lorem Ipsum</p></div>
+					<div className="flex">
+						<p>Branch</p>
+						<p className='bold'>{branch && branch}</p></div>
 					<div className="flex"><p>Email Address</p>
-						<p className='bold'>Durodola@total.com.ng</p></div>
+						<p className='bold'>{email && email }</p></div>
 					<div className="flex">
 						<p>Date Created</p>
-						<p className='bold'>March 28,2020</p>
+						<p className='bold'>{date && date }</p>
 					</div>
 				</div>
 				<Grid container>
 					<Grid item xs={12} className="pd">
-						<Button theme="darkGreen" text="Suspend Employee" onClick={() => suspendEmployee()} />
+						{	suspended ?
+							<Button theme="darkGreen" text="Unsuspend Employee" onClick={() => unSuspendEmployee(_id)} /> :
+							<Button theme="darkGreen" text="Suspend Employee" onClick={() => suspendEmployee(_id)} />
+						}
 					</Grid>
 					<Grid item xs={12} className="pd">
 						<Button theme="pinkBtn" text="Remove Employee" />

@@ -81,6 +81,23 @@ export const getPendingEmployees = () => dispatch => {
 };
 
 /**
+ * Gets suspended employees
+ */
+export const getSuspendedEmployees = () => dispatch => {
+	dispatch(employeeIsLoading());
+	employeeQueries.getSuspendedEmployees()
+		.then(res => {
+			const employees = res.data.fetchEmployeesOfACompanyByCategory;
+			dispatch(addEmployees(employees));
+			dispatch(employeeNotLoading());
+		})
+		.catch(() => {
+			dispatch(errorAlert({msg: 'Network Error!!'}));
+			dispatch(employeeNotLoading());
+		});
+};
+
+/**
  * Gets specific employee by id
  */
 export const getEmployee = (id) => dispatch => {
@@ -107,7 +124,7 @@ export const suspendEmployee = (id) => dispatch => {
 				dispatch(successAlert(message));
 			}
 			if (res.errors) {
-				dispatch(errorAlert({msg: 'Failed'}));
+				dispatch(errorAlert({msg: res.errors[0].message}));
 				dispatch(employeeNotLoading());
 			}
 		})
@@ -127,7 +144,7 @@ export const unSuspendEmployee = (id) => dispatch => {
 				dispatch(successAlert(message));
 			}
 			if (res.errors) {
-				dispatch(errorAlert({msg: 'Failed'}));
+				dispatch(errorAlert({msg: res.errors[0].message}));
 				dispatch(employeeNotLoading());
 			}
 		})

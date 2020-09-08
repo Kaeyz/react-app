@@ -38,7 +38,10 @@ export const registerIndividual = (userData, history) => dispatch => {
 	userQueries.signUp(userData)
 		.then(res => {
 			if(res.data) {
-				dispatch(successAlert('Successful. Please Login'));
+				const token = res.data.signup.token;
+				localStorage.setItem('auth', token);
+				dispatch(setIsAuthenticated(true));
+				dispatch(setCurrentUser());
 				history.push('/onboarding/account_success');
 			}
 			if (res.errors) {
@@ -55,6 +58,10 @@ export const registerCompany = (userData, history) => dispatch => {
 	userQueries.registerCompany(userData)
 		.then(res => {
 			if (res.data) {
+				const token = res.data.registerCompany.token;
+				localStorage.setItem('auth', token);
+				dispatch(setIsAuthenticated(true));
+				dispatch(setCurrentUser());
 				history.push('/onboarding/account_success');
 			}
 			if (res.errors) {
@@ -69,7 +76,6 @@ export const registerCompany = (userData, history) => dispatch => {
 
 // eslint-disable-next-line no-unused-vars
 export const loginUser = (userData) => dispatch => {
-	dispatch(appIsLoading());
 	dispatch(clearAlert());
 	userQueries.login(userData)
 		.then(res => {
@@ -79,11 +85,12 @@ export const loginUser = (userData) => dispatch => {
 				dispatch(appNotLoading());
 			}
 			if (res.data) {
+				dispatch(appIsLoading());
 				const { token } = res.data.login;
 				localStorage.setItem('auth', token);
 				dispatch(setIsAuthenticated(true));
+				dispatch(setCurrentUser());
 				dispatch(appNotLoading());
-				window.location.href = '/dashboard';
 			}
 		})
 		.catch(() => {

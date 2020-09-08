@@ -8,10 +8,10 @@ import Button from '../../components/common/Button';
 import PaginationTable from '../../components/common/PaginationTable';
 import Table from '../../components/dashboard/common/Table';
 import { tableConstants4 } from '../../components/dashboard/employees/tableConstant4';
-import { data4 } from '../../components/dashboard/employees/mockData4';
 import { Link } from 'react-router-dom';
 import NewEmployeeModal from '../../components/dashboard/employees/NewEmployeeModal';
 import { getActiveEmployees } from '../../store/actions/employeeActions';
+import { sortTableData } from '../../utils/helper';
 
 const Wrapper = styled.div``;
 
@@ -28,6 +28,9 @@ const Employees = ({ getActiveEmployees, employees, isLoading }) => {
 					text="Employees"
 					buttons={
 						<React.Fragment>
+							<Link to="/employees/suspended">
+								<Button theme="whiteBtn blackText" text="Suspended Employees" />
+							</Link>
 							<Link to="/employees/pending">
 								<Button theme="whiteBtn blackText" text="Pending Invites" />
 							</Link>
@@ -41,7 +44,7 @@ const Employees = ({ getActiveEmployees, employees, isLoading }) => {
 							employees.length < 1 ?
 								<div>Add New Employee</div> :
 								<React.Fragment>
-									<Table cols={tableConstants4()} data={data4} />
+									<Table cols={tableConstants4()} data={employees} />
 									<PaginationTable />
 								</React.Fragment>
 					}
@@ -57,9 +60,18 @@ Employees.propTypes = {
 	isLoading: PropTypes.bool.isRequired
 };
 
+const key = {
+	name: 'EMPLOYEE NAME',
+	department: 'DEPARTMENT',
+	branch: 'BRANCH',
+	createdAt: 'DATE CREATED'
+};
+
+
 const mapStateToProps = state => {
 	const { employees, isLoading } = state.employee;
-	return { employees, isLoading };
+	const data = sortTableData(employees, key);
+	return { employees: data, isLoading };
 };
 
 export default connect(mapStateToProps, { getActiveEmployees })(Employees);

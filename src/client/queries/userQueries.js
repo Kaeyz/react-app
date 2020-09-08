@@ -6,10 +6,7 @@ userQueries.signUp = (userData) => {
 	const query =`
 	mutation INDIVIDUAL_SIGNUP_MUTATION ($input: signUpEmployeeInput) {
 		signup(input: $input ){
-			name
-			email
-			type
-			gender
+			token
 		}
 	}
 	`;
@@ -29,6 +26,7 @@ userQueries.registerCompany = (input) => {
 	mutation REGISTER_COMPANY_MUTATION($input: signUpCompanyInput!){
 		registerCompany(input: $input){
 			message
+			token
 		}
 	}
 	`;

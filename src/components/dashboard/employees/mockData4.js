@@ -28,7 +28,7 @@ export const data4 = [
 
 	},
 	{
-		
+
 		'EMPLOYEE  NAME': 'Durodola Anuoluwapo',
 		'DEPARTMENT': 'Business Administration ',
 		'BRANCH': 'Business ',

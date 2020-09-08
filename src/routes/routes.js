@@ -44,6 +44,7 @@ import MealPlans from '../views/meals/MealPlans';
 import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
 import Employees from '../views/employees';
 import PendingInvites from '../views/employees/PendingInvites';
+import Suspended from '../views/employees/Suspended';
 import CompanyRewards from '../views/rewards/CompanyRewards';
 import IndividualReward from '../views/rewards/IndividualReward';
 import Leaderboard from '../views/rewards/Leaderboard';
@@ -89,6 +90,7 @@ const Routes = () => (
 			{/* company route */}
 			<PrivateRoute exact path="/employees" component={Employees} />
 			<PrivateRoute exact path="/employees/pending" component={PendingInvites} />
+			<PrivateRoute exact path="/employees/suspended" component={Suspended} />
 
 
 			<Route exact path="/rewards" component={CompanyRewards} />

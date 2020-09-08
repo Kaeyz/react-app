@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getPendingEmployees } from '../../store/actions/employeeActions';
+import { getSuspendedEmployees } from '../../store/actions/employeeActions';
 import styled from 'styled-components';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import FilterSearchLayout from '../../components/layouts/FilterSearchLayout';
@@ -25,11 +25,11 @@ const Wrapper = styled.div`
 `;
 
 
-const PendingInvites = ({ isLoading, getPendingEmployees, employees }) => {
+const Suspended = ({ isLoading, getSuspendedEmployees, employees }) => {
 
 	React.useEffect(() => {
-		getPendingEmployees();
-	}, [getPendingEmployees]);
+		getSuspendedEmployees();
+	}, [getSuspendedEmployees]);
 
 	return (
 		<Wrapper>
@@ -52,7 +52,7 @@ const PendingInvites = ({ isLoading, getPendingEmployees, employees }) => {
 						isLoading ?
 							<div>Loading ...</div> :
 							employees.length < 1 ?
-								<div>No Pending Invites</div> :
+								<div>No Suspended Employee</div> :
 								<React.Fragment>
 									<Table cols={tableConstants5()} data={employees} />
 								</React.Fragment>
@@ -63,8 +63,8 @@ const PendingInvites = ({ isLoading, getPendingEmployees, employees }) => {
 	);
 };
 
-PendingInvites.propTypes = {
-	getPendingEmployees: PropTypes.func.isRequired,
+Suspended.propTypes = {
+	getSuspendedEmployees: PropTypes.func.isRequired,
 	employees: PropTypes.array.isRequired,
 	isLoading: PropTypes.bool.isRequired
 };
@@ -83,4 +83,4 @@ const mapStateToProps = state => {
 	return { employees: data, isLoading };
 };
 
-export default connect(mapStateToProps, {getPendingEmployees})(PendingInvites);
+export default connect(mapStateToProps, {getSuspendedEmployees})(Suspended);
