@@ -8,10 +8,8 @@ import { Paper, Divider } from '@material-ui/core';
 import toggleLogo from '../../../../assets/Frame.svg';
 import UserInfo from './UserInfo';
 import NavSection from './NavSection';
+import sideBarData from './sideBarData';
 
-
-// temporary type source;
-import type from '../../../../views/dashboard/dashboardType';
 
 const Wrapper = styled(Paper)`
 	border-radius: 1.3rem;
@@ -75,82 +73,57 @@ const Wrapper = styled(Paper)`
 	}
 `;
 
+function SideBar({ logoutUser, user, type }) {
 
-function SideBar({ logoutUser, user }) {
-	const navItems = {
-		ADMIN: {
-			navTitle: 'Admin Portal',
-			topSection: [
-				{ icon: 'dashboard_home', text: 'Overview', link: '/dashboard' },
-				{ icon: 'assessments', text: 'Companies', link: '/companies' },
-				{ icon: 'download', text: 'Reports', link: '/reports' }
-			],
-			otherSection: [
-				{ icon: 'settings', text: 'Settings', link: '/settings/account' },
-				{ icon: 'logout', text: 'Logout', onClick: logoutUser },
-			],
-		},
-		COMPANY: {
-			navTitle: 'Company Portal',
-			topSection: [
-				{ icon: 'dashboard_home', text: 'Overview', link: '/dashboard' },
-				{ icon: 'assessments', text: 'Employees', link: '/employees' },
-				{ icon: 'download', text: 'Reports', link: '/reports' },
-			],
-			otherSection: [
-				{ icon: 'rewards', text: 'Rewards', link: '/rewards' },
-				{ icon: 'settings', text: 'Settings', link: '/settings/account' },
-				{ icon: 'logout', text: 'Logout', onClick: logoutUser },
-			],
-		},
-		INDIVIDUAL: {
-			navTitle: 'Employee Portal',
-			topSection: [
-				{ icon: 'dashboard_home', text: 'Dashboard', link: '/dashboard' },
-				{ icon: 'assessments', text: 'Assessments', link: '/assessments' },
-				{ icon: 'exercise', text: 'Exercise', link: '/exercise' },
-				{ icon: 'exercise', text: 'Meals', link: '/meals' },
-				{ icon: 'exercise', text: 'Appointments', link: '/appointments' },
-			],
-			otherSection: [
-				{ icon: 'download', text: 'Reports', link: '/reports' },
-				{ icon: 'rewards', text: 'Rewards', link: '/rewards' },
-				{ icon: 'settings', text: 'Settings', link: '/settings/account' },
-				{ icon: 'logout', text: 'Logout', onClick: logoutUser },
-			],
-		},
-	};
+	const [isLoading, setIsLoading] = React.useState(true);
+	const [navItems, setNavItem] = React.useState({});
+
+	const logoutItem = { icon: 'logout', text: 'Logout', onClick: logoutUser };
+
+	React.useEffect(() => {
+		if (type) {
+			setIsLoading(false);
+			setNavItem(sideBarData[type]);
+		} else {
+			setIsLoading(true);
+		}
+	}, [type, setIsLoading, setNavItem]);
 
 	return (
+		<React.Fragment>
+			{!isLoading &&
 		<Wrapper elevation={2}>
 			<div className="sidebar">
 				<div className="top">
 					<div className='top_section'>
 						<img src={toggleLogo} alt="toggle" className="logo" />
-						<h3>{navItems[type].navTitle}</h3>
+						<h3>{navItems.navTitle}</h3>
 					</div>
 					<Divider variant="middle" />
 					<div className="nav">
 						<UserInfo name={user.name} type={type} />
-						<NavSection title={type} items={navItems[type].topSection} />
+						<NavSection title={type} items={navItems.topSection} />
 						<Divider variant="middle" />
-						<NavSection title="OTHER" items={navItems[type].otherSection} />
+						<NavSection title="OTHER" items={[...navItems.otherSection, logoutItem]} />
 					</div>
 				</div>
 			</div>
 		</Wrapper>
+			}
+		</React.Fragment>
 	);
 }
 
 SideBar.propTypes = {
 	logoutUser: PropTypes.func.isRequired,
-	user: PropTypes.object.isRequired
+	user: PropTypes.object.isRequired,
+	type: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => {
 	const { name, type } = state.user.user;
 	const user = { name, type };
-	return { user };
+	return { user, type };
 };
 
 export default connect(mapStateToProps, { logoutUser })(SideBar);

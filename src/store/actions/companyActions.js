@@ -99,6 +99,26 @@ export const suspendCompany = (id) => dispatch => {
 		});
 };
 
+export const reactivateCompany = (id) => dispatch => {
+	dispatch(companyIsLoading());
+	companyQueries.reactivateCompany(id)
+		.then(res => {
+			if (res.data) {
+				const message = res.data.unSuspendCompany.message;
+				dispatch(getCompany(id));
+				dispatch(successAlert(message));
+			}
+			if (res.errors) {
+				dispatch(errorAlert({msg: 'Failed'}));
+				dispatch(companyNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({msg: 'Network Error!!'}));
+			dispatch(companyNotLoading());
+		});
+};
+
 export const setEmployeeLimit = (amount, id) => dispatch => {
 	dispatch(companyIsLoading());
 	companyQueries.setEmployeeLimit(amount, id)
@@ -118,4 +138,3 @@ export const setEmployeeLimit = (amount, id) => dispatch => {
 			dispatch(companyNotLoading());
 		});
 };
-

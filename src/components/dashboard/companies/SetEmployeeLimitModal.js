@@ -67,7 +67,7 @@ const SetEmployeeLimitModal = ({ setEmployeeLimit, companyId }) => {
 
 	const onSetLimitClick = (event) => {
 		event.preventDefault();
-		setEmployeeLimit(amount, companyId);
+		setEmployeeLimit(Number(amount), companyId);
 		hideModal();
 	};
 

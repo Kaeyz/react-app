@@ -32,7 +32,6 @@ function Filter({Icon, alt, placeholder, options, width}) {
 	return (
 		<Wrapper>
 			<Autocomplete
-				id="custom-input-demo"
 				options={options}
 				renderInput={(params) => (
 					<div ref={params.InputProps.ref}>
@@ -40,7 +39,6 @@ function Filter({Icon, alt, placeholder, options, width}) {
 							style={width}
 							type="text"
 							{...params.inputProps}
-							id="input-with-icon-adornment"
 							startAdornment={
 								<InputAdornment position="start">
 									<img src={Icon} alt={alt} />
@@ -60,12 +58,12 @@ function Filter({Icon, alt, placeholder, options, width}) {
 	);
 }
 
-Filter.propTypes ={
+Filter.propTypes = {
 	Icon: PropTypes.any,
 	placeholder: PropTypes.string,
 	alt: PropTypes.string,
 	options: PropTypes.array.isRequired,
 	width: PropTypes.any,
-}
+};
 
 export { Filter };

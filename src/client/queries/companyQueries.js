@@ -4,17 +4,17 @@ const companyQueries = {};
 
 companyQueries.getCompanies = () => {
 	const query =`
-  query FETCH_COMPANIES($type: UserEnum) {
-    usersByType(type: $type)
-      {
-        _id
-        name
-        email
-        createdAt
-        companyName
-    }
-  }
-  `;
+	query FETCH_COMPANIES($type: UserEnum) {
+		usersByType(type: $type)
+			{
+				_id
+				name
+				email
+				createdAt
+				companyName
+		}
+	}
+	`;
 
 	const variables = { type: 'COMPANY' };
 
@@ -27,24 +27,25 @@ companyQueries.getCompanies = () => {
 
 companyQueries.getCompanyById = (id) => {
 	const query =`
-  query FETCH_COMPANY_BY_ID($id: String) {
-    userById(id: $id) {
-        _id
-        companyName
-        email
-        companyUrl
-        companySize
-        employeeLimit
-        address
-        name
-        representativeEmail
-        department
-        createdAt
-        adminVerified
-        activationToken
-    }
-  }
-  `;
+	query FETCH_COMPANY_BY_ID($id: String) {
+		userById(id: $id) {
+				_id
+				companyName
+				email
+				companyUrl
+				companySize
+				employeeLimit
+				address
+				name
+				representativeEmail
+				department
+				createdAt
+				adminVerified
+				suspended
+				activationToken
+		}
+	}
+	`;
 
 	const variables = { id };
 
@@ -57,12 +58,12 @@ companyQueries.getCompanyById = (id) => {
 
 companyQueries.activateCompany = (activationToken) => {
 	const query =`
-  mutation ACTIVATE_COMPANY($activationToken: String!) {
-    activateCompany(activationToken: $activationToken) {
-        message
-    }
-  }
-  `;
+	mutation ACTIVATE_COMPANY($activationToken: String!) {
+		activateCompany(activationToken: $activationToken) {
+				message
+		}
+	}
+	`;
 
 	const variables = { activationToken };
 
@@ -75,13 +76,30 @@ companyQueries.activateCompany = (activationToken) => {
 
 companyQueries.suspendCompany = (id) => {
 	const query =`
-  mutation SUSPEND_COMPANY($id: String!) {
-    suspendCompany(id: $id) {
-        message
-    }
-  }
-  `;
+	mutation SUSPEND_COMPANY($id: String!) {
+		suspendCompany(id: $id) {
+				message
+		}
+	}
+	`;
 
+	const variables = { id };
+
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
+companyQueries.reactivateCompany = (id) => {
+	const query =`
+	mutation reactivate_COMPANY($id: String!) {
+		unSuspendCompany(id: $id) {
+				message
+		}
+	}
+	`;
 	const variables = { id };
 
 	return new Promise((resolve, reject) => {
@@ -93,12 +111,12 @@ companyQueries.suspendCompany = (id) => {
 
 companyQueries.setEmployeeLimit = (amount, id) => {
 	const query =`
-  mutation SET_EMPLOYEE_LIMIT($id: String, amount: Int) {
-    setEmployeeLimit(id: $id, amount: $amount) {
-        message
-    }
-  }
-  `;
+	mutation SET_EMPLOYEE_LIMIT($id: String!, $amount: Int!) {
+		setEmployeeLimit(id: $id, amount: $amount) {
+				message
+		}
+	}
+	`;
 
 	const variables = { id, amount };
 

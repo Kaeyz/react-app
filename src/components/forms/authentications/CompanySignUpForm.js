@@ -42,8 +42,8 @@ function CompanySignUpForm({history, registerCompany}) {
 	const [password2, setPassword2] = useState('');
 	const [organizationName, setOrganizationName] = useState('');
 	const [organizationEmail, setOrganizationEmail] = useState('');
-	const [companyWebsite, setCompanyWebsite] = useState('');
-	const [companyAddress, setCompanyAddress] = useState('');
+	const [organizationUrl, setOrganizationUrl] = useState('');
+	const [organizationAddress, setOrganizationAddress] = useState('');
 	const [representativeEmail, setRepresentativeEmail] = useState('');
 	const [jobTitle, setJobTitle] = useState('');
 	const [errors, setErrors] = useState({});
@@ -58,8 +58,8 @@ function CompanySignUpForm({history, registerCompany}) {
 		}
 
 		const company = { firstName, lastName, organizationName, password, organizationEmail, representativeEmail, jobTitle };
-		if (companyAddress) company.companyAddress = companyAddress;
-		if (companyWebsite) company.companyWebsite = companyWebsite;
+		if (organizationAddress) company.organizationAddress = organizationAddress;
+		if (organizationUrl) company.organizationUrl = organizationUrl;
 
 		registerCompany(company, history);
 	};
@@ -125,10 +125,10 @@ function CompanySignUpForm({history, registerCompany}) {
 						<Grid item xs={12} sm={6}>
 							<TextInput
 								label="Company Website (Optional)"
-								value= {companyWebsite }
-								onChange={setCompanyWebsite }
+								value= {organizationUrl }
+								onChange={setOrganizationUrl }
 								placeholder="Type here..."
-								error={errors.companyWebsite}
+								error={errors.organizationUrl}
 							/>
 						</Grid>
 					</Grid>
@@ -149,10 +149,10 @@ function CompanySignUpForm({history, registerCompany}) {
 						<Grid item xs={12} sm={12}>
 							<TextInput
 								label="Company’s Address (Optional)"
-								value={companyAddress}
-								onChange={setCompanyAddress}
+								value={organizationAddress}
+								onChange={setOrganizationAddress}
 								placeholder="Type here..."
-								error={errors.companyAddress}
+								error={errors.organizationAddress}
 							/>
 						</Grid>
 					</Grid>

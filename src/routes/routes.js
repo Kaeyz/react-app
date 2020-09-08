@@ -82,7 +82,7 @@ const Routes = () => (
 			<PrivateRoute exact path="/settings/help" component={HelpSettings} />
 
 			{/* dashboard route */}
-			<Route exact path="/dashboard" component={Dashboard} />
+			<PrivateRoute exact path="/dashboard" component={Dashboard} />
 
 			{/* company route */}
 			<Route exact path="/employees" component={Employees} />

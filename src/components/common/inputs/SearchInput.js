@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
-import Icon from '../../../assets/searchIcon.svg'
+import Icon from '../../../assets/searchIcon.svg';
 
 const Wrapper = styled.div`
 .MuiFormControl-root{
@@ -35,7 +35,6 @@ function SearchInput() {
 		<Wrapper>
 			<FormControl>
 				<Input
-					id="input-with-icon-adornment"
 					startAdornment={
 						<InputAdornment position="start">
 							<img src={Icon} alt="icon"/>

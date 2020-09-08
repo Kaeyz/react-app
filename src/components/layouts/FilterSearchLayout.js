@@ -2,9 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
-import { SearchInput } from '../common/inputs';
-import { Filter } from '../common/inputs';
-import Icon from '../../assets/searchIcon.svg'
+import { SearchInput, Filter } from '../common/inputs';
+import Icon from '../../assets/searchIcon.svg';
 import filtering from '../../assets/Filter.svg';
 
 const Wrapper = styled.div`
@@ -60,7 +59,7 @@ const Wrapper = styled.div`
 `;
 
 function FilterSearchLayout({ children, text, buttons, oneGrid, display }) {
-    const options = ['Employee Name', 'Department', 'Branch', 'Date Invited'];
+	const options = ['Employee Name', 'Department', 'Branch', 'Date Invited'];
 
 	return (
 		<Wrapper>
@@ -84,6 +83,7 @@ FilterSearchLayout.propTypes = {
 	buttons: PropTypes.any.isRequired,
 	oneGrid: PropTypes.string,
 	text: PropTypes.string.isRequired,
+	display: PropTypes.any,
 };
 
 export default FilterSearchLayout;

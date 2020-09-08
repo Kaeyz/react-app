@@ -1,19 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import IndividualHome from './IndividualHome';
 import AdminHome from './AdminHome';
 import CompanyHome from './CompanyHome';
 
-import dashboardType from './dashboardType';
-
-const Dashboard = () => {
+const Dashboard = ({userType}) => {
 	return (
 		<DashboardLayout whatPage="Dashboard">
-			{dashboardType === 'INDIVIDUAL' && <IndividualHome /> }
-			{dashboardType === 'COMPANY' && <CompanyHome /> }
-			{dashboardType === 'ADMIN' && <AdminHome /> }
+
+			{userType === 'INDIVIDUAL' || userType === 'EMPLOYEE' ? <IndividualHome /> : null }
+
+			{userType === 'COMPANY' && <CompanyHome />}
+
+			{userType === 'ADMIN' || userType === 'SUPERADMIN' ? <AdminHome /> : null}
+
 		</DashboardLayout>
 	);
 };
 
-export default Dashboard;
+Dashboard.propTypes = {
+	userType: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = state => {
+	const { type } = state.user.user;
+	return { userType: type };
+};
+
+export default connect(mapStateToProps)(Dashboard);

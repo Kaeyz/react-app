@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import SetEmployeeLimitModal from '../../components/dashboard/companies/SetEmployeeLimitModal';
 import SuspendCompany from '../../components/dashboard/companies/SuspendCompany';
 import ActivateCompany from '../../components/dashboard/companies/ActivateCompany';
+import ReActivateCompany from '../../components/dashboard/companies/ReActivateCompany';
 import { getCompany } from '../../store/actions/companyActions';
 import { convertDate } from '../../utils/helper';
 
@@ -107,7 +108,7 @@ const Company = ({ match, getCompany, company, isLoading }) => {
 		getCompany(companyId);
 	}, [companyId, getCompany]);
 
-	const {_id, adminVerified, activationToken, companyName, email, companyUrl, companySize, employeeLimit, address, name, representativeEmail, department, createdAt } = company;
+	const {_id, adminVerified, suspended, activationToken, companyName, email, companyUrl, companySize, employeeLimit, address, name, representativeEmail, department, createdAt } = company;
 
 	return (
 		<Wrapper>
@@ -132,11 +133,9 @@ const Company = ({ match, getCompany, company, isLoading }) => {
 									<div className="headingy flex">
 										<h1 className="boldy bigy">COMPANY DETAILS</h1>
 										<div>
-											{
-												adminVerified ?
-													<SuspendCompany companyId={_id} /> :
-													<ActivateCompany token={activationToken} companyId={_id} />
-											}
+											{!adminVerified && <ActivateCompany token={activationToken} companyId={_id} />}
+											{adminVerified && !suspended && <SuspendCompany companyId={_id} />}
+											{adminVerified && suspended && <ReActivateCompany companyId={_id} />}
 										</div>
 									</div>
 									<Divider />
@@ -170,7 +169,7 @@ const Company = ({ match, getCompany, company, isLoading }) => {
 												{
 													adminVerified &&
 														<span id='modal'>
-															<SetEmployeeLimitModal />
+															<SetEmployeeLimitModal companyId={_id} />
 														</span>
 												}
 											</h1>

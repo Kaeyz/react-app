@@ -1,9 +1,11 @@
-import { client } from '../client';
+import {
+	client
+} from '../client';
 
 const employeeQueries = {};
 
 employeeQueries.addNewEmployee = (input) => {
-	const query =`
+	const query = `
 	mutation ADD_NEW_EMPLOYEE($input: addEmployeeInput) {
 		addEmployeeToACompany(input: $input) {
 				message
@@ -11,7 +13,9 @@ employeeQueries.addNewEmployee = (input) => {
 	}
 	`;
 
-	const variables = { input };
+	const variables = {
+		input
+	};
 
 	return new Promise((resolve, reject) => {
 		client(query, variables)
@@ -21,7 +25,7 @@ employeeQueries.addNewEmployee = (input) => {
 };
 
 employeeQueries.getEmployees = () => {
-	const query =`
+	const query = `
 	query FETCH_EMPLOYEES_OF_COMPANY {
 		fetchEmployeeOfACompany {
 				_id
@@ -41,7 +45,7 @@ employeeQueries.getEmployees = () => {
 };
 
 employeeQueries.getEmployeeById = (id) => {
-	const query =`
+	const query = `
 	query FETCH_EMPLOYEE_BY_ID($id: String) {
 		userById(id: $id) {
 				_id
@@ -54,7 +58,9 @@ employeeQueries.getEmployeeById = (id) => {
 	}
 	`;
 
-	const variables = { id };
+	const variables = {
+		id
+	};
 	return new Promise((resolve, reject) => {
 		client(query, variables)
 			.then(res => resolve(res))
