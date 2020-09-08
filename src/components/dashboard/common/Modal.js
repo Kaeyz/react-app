@@ -17,7 +17,7 @@ const Wrapper = styled.div`
       background: ${(props) => props.theme.color.ui_01};
       width: 440px;
       padding: 0 2.4rem 2.4rem;
-      height: 100%;
+      height: auto;
       text-align: start;
       top: 50%;
       left: 50%;
@@ -46,6 +46,7 @@ const Wrapper = styled.div`
     }
     .modal-right{
           transform: translate(-0%,-0%);
+          height: 100%;
     top: 0;
     left: 0;
     float: right;
