@@ -43,7 +43,7 @@ import Meals from '../views/meals';
 import MealPlans from '../views/meals/MealPlans';
 import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
 import Employees from '../views/employees';
-import PendingInvites from '../views/employees/PendingInvites';
+import PendingInvites from '../views/employees/Employee';
 import CompanyRewards from '../views/rewards/CompanyRewards';
 import IndividualReward from '../views/rewards/IndividualReward';
 import Leaderboard from '../views/rewards/Leaderboard';
@@ -52,6 +52,7 @@ import Companies from '../views/companies';
 import Appointments from '../views/appointments';
 import CreateAppointment from '../views/appointments/CreateAppointment';
 import Company from '../views/companies/Company';
+import PendingCompanies from '../views/companies/Pending';
 
 const Routes = () => (
 	<Router>
@@ -85,13 +86,16 @@ const Routes = () => (
 			<PrivateRoute exact path="/dashboard" component={Dashboard} />
 
 			{/* company route */}
-			<Route exact path="/employees" component={Employees} />
-			<Route exact path="/employees/pending_invites" component={PendingInvites} />
+			<PrivateRoute exact path="/employees" component={Employees} />
+			<PrivateRoute exact path="/employees/pending" component={PendingInvites} />
+
+
 			<Route exact path="/rewards" component={CompanyRewards} />
 			<Route exact path="/rewards/leaderboard" component={Leaderboard} />
 
 			{/* admin route */}
 			<PrivateRoute exact path="/companies" component={Companies} />
+			<PrivateRoute exact path="/companies/pending" component={PendingCompanies} />
 			<PrivateRoute exact path="/companies/:companyId" component={Company} />
 
 

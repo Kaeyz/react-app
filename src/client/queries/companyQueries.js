@@ -25,6 +25,26 @@ companyQueries.getCompanies = () => {
 	});
 };
 
+companyQueries.getPendingCompanies = () => {
+	const query =`
+	query FETCH_COMPANIES {
+		fetchPendingCompany {
+				_id
+				name
+				email
+				createdAt
+				companyName
+		}
+	}
+	`;
+
+	return new Promise((resolve, reject) => {
+		client(query )
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
 companyQueries.getCompanyById = (id) => {
 	const query =`
 	query FETCH_COMPANY_BY_ID($id: String) {

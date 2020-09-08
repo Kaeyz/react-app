@@ -28,7 +28,7 @@ function Companies({ getCompanies, companies, isLoading }) {
 					text="Companies"
 					buttons={
 						<>
-							<Link to="/companies/pending_activation">
+							<Link to="/companies/pending">
 								<Button theme="darkGreen" text="Pending Activation" />
 							</Link>
 						</>
@@ -38,10 +38,12 @@ function Companies({ getCompanies, companies, isLoading }) {
 					{
 						isLoading ?
 							<div>Loading ...</div> :
-							<React.Fragment>
-								<Table cols={tableConstants6()} data={companies} />
-								<PaginationTable/>
-							</React.Fragment>
+							companies.length < 1 ?
+								<div>No Available Pending company</div> :
+								<React.Fragment>
+									<Table cols={tableConstants6()} data={companies} />
+									<PaginationTable />
+								</React.Fragment>
 					}
 				</FilterSearchLayout>
 			</DashboardLayout>

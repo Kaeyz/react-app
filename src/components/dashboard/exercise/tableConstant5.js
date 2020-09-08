@@ -1,6 +1,6 @@
 import React from 'react';
 // This is the table constant/settings which needed to render table elements
-import PendingInvites from './PendingInvitesModal';
+import PendingInvites from '../employees/Employee';
 
 export const tableConstants5 = () => {
 	return [

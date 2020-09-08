@@ -39,7 +39,7 @@ export const registerIndividual = (userData, history) => dispatch => {
 		.then(res => {
 			if(res.data) {
 				dispatch(successAlert('Successful. Please Login'));
-				history.push('/login');
+				history.push('/onboarding/account_success');
 			}
 			if (res.errors) {
 				dispatch(errorAlert({ msg: res.errors[0].message }));
@@ -54,8 +54,8 @@ export const registerCompany = (userData, history) => dispatch => {
 
 	userQueries.registerCompany(userData)
 		.then(res => {
-			if(res.data) {
-				history.push('/onboarding/success');
+			if (res.data) {
+				history.push('/onboarding/account_success');
 			}
 			if (res.errors) {
 				dispatch(errorAlert({ msg: res.errors[0].message }));

@@ -43,6 +43,23 @@ export const getCompanies = () => dispatch => {
 };
 
 /**
+ * Gets pending companies
+ */
+export const getPendingCompanies = () => dispatch => {
+	dispatch(companyIsLoading());
+	companyQueries.getPendingCompanies()
+		.then(res => {
+			const companies = res.data.fetchPendingCompany;
+			dispatch(addCompanies(companies));
+			dispatch(companyNotLoading());
+		})
+		.catch(() => {
+			dispatch(errorAlert({msg: 'Network Error!!'}));
+			dispatch(companyNotLoading());
+		});
+};
+
+/**
  * Gets specific company by id
  */
 export const getCompany = (id) => dispatch => {

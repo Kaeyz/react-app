@@ -38,4 +38,12 @@ module.exports = Object.freeze({
 	REMOVE_COMPANY: 'remove_companies',
 	COMPANY_IS_LOADING: 'companies_is_loading',
 	COMPANY_NOT_LOADING: 'companies_not_loading',
+
+	// COMPANIES ACTIONS
+	ADD_EMPLOYEES: 'add_employees',
+	CLEAR_EMPLOYEES: 'clear_employees',
+	ADD_EMPLOYEE: 'add_employee',
+	REMOVE_EMPLOYEE: 'remove_employee',
+	EMPLOYEE_IS_LOADING: 'employee_is_loading',
+	EMPLOYEE_NOT_LOADING: 'employee_not_loading',
 });
