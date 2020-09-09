@@ -145,7 +145,7 @@ employeeQueries.suspendEmployee = (id) => {
 employeeQueries.unSuspendEmployee = (id) => {
 	const query = `
 	mutation UNSUSPEND_EMPLOYEE_BY_ID($id: String!) {
-		unSuspendCompany(id: $id) {
+		unSuspendEmployee(id: $id) {
 				message
 		}
 	}
