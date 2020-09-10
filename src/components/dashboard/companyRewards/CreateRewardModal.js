@@ -1,81 +1,123 @@
-import React from "react";
-// import PropTypes from 'prop-types'
-import styled from "styled-components";
-import Modal from "../../dashboard/common/Modal";
-import Button from "../../../components/common/Button";
-import { TextInput, DateInput, TextArea } from "../../../components/common/inputs";
-import pinkIcon from "../../../assets/pinkIcon.svg";
-import add from "../../../assets/Add.svg";
-import { Paper, Grid } from "@material-ui/core";
+import React from 'react';
+import { connect } from 'react-redux';
+import { addNewReward } from '../../../store/actions/rewardActions';
+import PropTypes from 'prop-types';
+import { rewardInputValidator } from '../../forms/validation';
+import styled from 'styled-components';
+import Modal from '../../dashboard/common/Modal';
+import Button from '../../../components/common/Button';
+import { TextInput, DateInput, TextArea } from '../../../components/common/inputs';
+import pinkIcon from '../../../assets/pinkIcon.svg';
+import add from '../../../assets/Add.svg';
+import { Paper, Grid } from '@material-ui/core';
 
 const Wrapper = styled.div`
-  #mb {
-    .button {
-      width: 100% !important;
-    }
-  }
+	#mb {
+		.button {
+			width: 100% !important;
+		}
+	}
 `;
 
-class CreateRewardModal extends React.Component {
-  state = {
-    show: false,
-    showButton: false,
-  };
+const CreateRewardModal = ({addNewReward}) => {
+	const [show, setShow] = React.useState(false);
+	const [title, setTitle] = React.useState('');
+	const [description, setDescription] = React.useState('');
+	const [startDate, setStartDate] = React.useState(new Date());
+	const [endDate, setEndDate] = React.useState(new Date());
+	const [errors, setErrors] = React.useState({});
 
-  showModal = () => {
-    this.setState({ show: true });
-  };
 
-  hideModal = () => {
-    this.setState({ show: false });
-  };
+	const	showModal = () => {
+		setShow(true);
+	};
 
-  render() {
-    return (
-      <Wrapper>
-        {/* <Modal show={this.state.show} handleClose={this.hideModal} textBtn='Complete' heading={<><img src={close} alt="adornment" id='adorn'/> <span> Questions on Protein</span></>} info='A balanced diet lorem ipsum blished fact that a reader will be distracted by the readable content.'> */}
-        {/* THE COMMENTED CODE ABOVE IS IF THE HEADING TEXT IS GOING TO HAVE AN IMAGE BY ITS SIDE */}
-        <Modal
-          show={this.state.show}
-          handleClose={this.hideModal}
-          position="modal-right"
-          heading={
-            <span>
-              {" "}
-              <img src={pinkIcon} alt="icon" /> Create New Reward
-            </span>
-          }
-        >
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <TextInput label="Reward Title" />
-            </Grid>
-            <Grid item xs={12}>
-              <TextArea label="Description" placeholder='Type here ...'/>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <DateInput label="Start Date" />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <DateInput label="End Date" />
-            </Grid>
-            <Grid item xs={12} id="mb">
-              <Button theme="darkGreen" text="Create Reward" />
-            </Grid>
-          </Grid>
-        </Modal>
+	const hideModal = () => {
+		setShow(false);
+	};
 
-        <div onClick={this.showModal}>
-          <Paper className="add">
-            <img src={add} alt="add" />
-            <h1>CREATE NEW REWARD</h1>
-          </Paper>
-        </div>
-      </Wrapper>
-    );
-  }
-}
+	const onFormSubmit = (event) => {
+		event.preventDefault();
+		setErrors({});
+		const data = { title, description, startDate, endDate };
 
-CreateRewardModal.propTypes = {};
+		const { errors, isValid } = rewardInputValidator(data);
+		if (!isValid) {
+			return setErrors(errors);
+		}
 
-export default CreateRewardModal;
+		addNewReward(data);
+		hideModal();
+	};
+
+	return (
+		<Wrapper>
+			<Modal
+				show={show}
+				handleClose={hideModal}
+				position="modal-right"
+				heading={
+					<span>
+						<img src={pinkIcon} alt="icon" /> Create New Reward
+					</span>
+				}
+			>
+				<Grid container spacing={3}>
+					<Grid item xs={12}>
+						<TextInput
+							label="Reward Title"
+							value={title}
+							onChange={setTitle}
+							error={errors.title}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<TextArea
+							label="Description"
+							placeholder='Type here ...'
+							value={description}
+							onChange={setDescription}
+							error={errors.description}
+						/>
+					</Grid>
+					<Grid item xs={12} sm={6}>
+						<DateInput
+							label="Start Date"
+							value={startDate}
+							onChange={setStartDate}
+							errors={errors.startDate}
+						/>
+					</Grid>
+					<Grid item xs={12} sm={6}>
+						<DateInput
+							label="End Date"
+							value={endDate}
+							onChange={setEndDate}
+							errors={errors.endDate}
+						/>
+					</Grid>
+					<Grid item xs={12} id="mb">
+						<Button
+							theme="darkGreen"
+							text="Create Reward"
+							onClick={onFormSubmit}
+						/>
+					</Grid>
+				</Grid>
+			</Modal>
+
+			<div onClick={showModal}>
+				<Paper className="add">
+					<img src={add} alt="add" />
+					<h1>CREATE NEW REWARD</h1>
+				</Paper>
+			</div>
+		</Wrapper>
+	);
+};
+
+CreateRewardModal.propTypes = {
+	addNewReward: PropTypes.func.isRequired
+};
+
+export default connect(null, {addNewReward})(CreateRewardModal);

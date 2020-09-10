@@ -22,8 +22,8 @@ export const sortTableData = (tableData, dataKey, callback) => {
 
 	tableData.forEach((data, index) => {
 		if (dataKey) {
-			const keys = Object.keys(dataKey);
 			data['Serial Number'] = String(index + 1);
+			const keys = Object.keys(dataKey);
 
 			keys.forEach(key => {
 				if (key === 'createdAt' || key === 'updatedAt') {

@@ -1,17 +1,25 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getCompanyLeaderBoard } from '../../store/actions/rewardActions';
 import styled from 'styled-components';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner';
 import PaginationTable from '../../components/common/PaginationTable';
 import Table from '../../components/dashboard/common/Table';
 import { tableConstants7 } from '../../components/dashboard/companyRewards/tableConstant7';
-import { data7 } from '../../components/dashboard/companyRewards/mockdata7';
+import { sortTableData } from '../../utils/helper';
 
 const Wrapper = styled.div`
 
 `;
-function Leaderboard() {
+const Leaderboard = ({ isLoading, leaderboard, getCompanyLeaderBoard }) => {
+
+
+	React.useEffect(() => {
+		getCompanyLeaderBoard();
+	}, [getCompanyLeaderBoard]);
+
 	return (
 		<Wrapper>
 			<DashboardLayout whatPage="Rewards">
@@ -20,13 +28,40 @@ function Leaderboard() {
 					heading="Leaderboard "
 					detail="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 				/>
-				<Table cols={tableConstants7()} data={data7} whichTable='longTable'/>
-				<PaginationTable/>
+				{
+					isLoading ?
+						<div>Loading ...</div> :
+						leaderboard < 1 ?
+							<div>No current User in leaderboard</div> :
+							<React.Fragment>
+								<Table cols={tableConstants7()} data={leaderboard} whichTable='longTable' />
+								<PaginationTable />
+							</React.Fragment>
+				}
 			</DashboardLayout>
 		</Wrapper>
 	);
-}
+};
 
-Leaderboard.propTypes = {};
+Leaderboard.propTypes = {
+	isLoading: PropTypes.func.isRequired,
+	leaderboard: PropTypes.array.isRequired,
+	getCompanyLeaderBoard: PropTypes.func.isRequired,
+};
 
-export default Leaderboard;
+const key = {
+	name: 'EMPLOYEE NAME',
+	department: 'DEPARTMENT',
+	branch: 'BRANCH',
+	points: 'POINTS'
+};
+
+const mapStateToProps = state => {
+	const { leaderboard, isLoading } = state.reward;
+	const data = sortTableData(leaderboard, key, (data) => {
+		return data['Serial Number'] === '1' ? data['Serial Number'] = '🏆' : data;
+	});
+	return { leaderboard: data, isLoading };
+};
+
+export default connect(mapStateToProps, {getCompanyLeaderBoard})(Leaderboard);

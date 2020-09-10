@@ -1,5 +1,7 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getRewards, getClosedRewards } from '../../store/actions/rewardActions';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner';
@@ -63,7 +65,13 @@ color: ${props => props.theme.color.ui_06};
 }
 
 `;
-function CompanyRewards() {
+function CompanyRewards({isLoading, getClosedRewards, getRewards, openRewards, closedRewards }) {
+
+	React.useEffect(() => {
+		getRewards();
+		getClosedRewards();
+	}, [getClosedRewards, getRewards]);
+
 	return (
 		<Wrapper>
 			<DashboardLayout whatPage="Rewards">
@@ -75,9 +83,16 @@ function CompanyRewards() {
 				<div className="rewards">
 					<p className="sub-heading">Running Rewards</p>
 					<div  className='grid-container'>
-						<CreateRewardModal/>
-						<RewardDetailsModal theme='pinkCard' icon={pinkIcon}/>
-						<RewardDetailsModal theme='blueCard' icon={blueIcon}/>
+						<CreateRewardModal />
+						{isLoading ?
+							<div>Loading...</div> :
+							openRewards < 1 ?
+								<div>No Active Rewards Found</div> :
+								<React.Fragment>
+									<RewardDetailsModal theme='pinkCard' icon={pinkIcon}/>
+									<RewardDetailsModal theme='blueCard' icon={blueIcon}/>
+								</React.Fragment>
+						}
 
 					</div>
 				</div>
@@ -85,10 +100,16 @@ function CompanyRewards() {
 				<div className="rewards">
 					<p className="sub-heading">Closed Rewards</p>
 					<div className='grid-container'>
-						<RewardDetailsModal theme='orangeCard' icon={orangeIcon}/>
-						<RewardDetailsModal theme='greenCard' icon={greenIcon}/>
-						<RewardDetailsModal theme='purpleCard' icon={purpleIcon}/>
-
+						{isLoading ?
+							<div>Loading ...</div> :
+							closedRewards < 1 ?
+								<div>No Rewards Found</div> :
+								<React.Fragment>
+									<RewardDetailsModal theme='orangeCard' icon={orangeIcon}/>
+									<RewardDetailsModal theme='greenCard' icon={greenIcon}/>
+									<RewardDetailsModal theme='purpleCard' icon={purpleIcon}/>
+								</React.Fragment>
+						}
 					</div>
 				</div>
 				<Link to='/rewards/leaderboard' className='leaderboard'>
@@ -102,6 +123,18 @@ function CompanyRewards() {
 	);
 }
 
-CompanyRewards.propTypes = {};
+CompanyRewards.propTypes = {
+	isLoading: PropTypes.bool.isRequired,
+	openRewards: PropTypes.array.isRequired,
+	closedRewards: PropTypes.array.isRequired,
+	getRewards: PropTypes.func.isRequired,
+	getClosedRewards: PropTypes.func.isRequired
+};
 
-export default CompanyRewards;
+const mapStateToProps = state => {
+	const { isLoading, rewards } = state.reward;
+	const { openRewards, closedRewards } = rewards;
+	return { openRewards, closedRewards, isLoading };
+};
+
+export default connect(mapStateToProps, {getRewards, getClosedRewards})(CompanyRewards);

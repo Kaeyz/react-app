@@ -4,15 +4,15 @@ import React from 'react';
 export const tableConstants7 = () => {
 	return [
 		{
-			title: '',
+			title: 'SN',
 			render: function COMPANYName(rowData) {
-				return <span>{rowData['S/N']}</span>;
+				return <span>{rowData['Serial Number']}</span>;
 			},
 		},
 		{
-			title: 'EMPLOYEE  NAME',
+			title: 'EMPLOYEE NAME',
 			render: function EMPLOYEEName(rowData) {
-				return <span>{rowData['EMPLOYEE  NAME']}</span>;
+				return <span>{rowData['EMPLOYEE NAME']}</span>;
 			},
 		},
 		{
@@ -33,6 +33,6 @@ export const tableConstants7 = () => {
 				return <span>{rowData['POINTS']}</span>;
 			},
 		},
-		
+
 	];
 };

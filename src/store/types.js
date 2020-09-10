@@ -46,4 +46,12 @@ module.exports = Object.freeze({
 	REMOVE_EMPLOYEE: 'remove_employee',
 	EMPLOYEE_IS_LOADING: 'employee_is_loading',
 	EMPLOYEE_NOT_LOADING: 'employee_not_loading',
+
+	// REWARD ACTIONS
+	REWARD_IS_LOADING: 'reward_is_loading',
+	REWARD_NOT_LOADING: 'reward_not_loading',
+	ADD_REWARDS: 'add_rewards',
+	CLEAR_REWARDS: 'clear_rewards',
+	ADD_LEADERBOARD: 'add_leaderboard',
+	CLEAR_LEADERBOARD: 'clear_leaderboard'
 });

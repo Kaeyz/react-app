@@ -31,19 +31,31 @@ padding: 1.5rem;
     box-shadow: 0 0 3px ${props => props.theme.color.brand_02};
 }
 }
+.error {
+		color: red;
+		font-size: 1.3rem;
+		padding-top: 2px;
+	}
 `;
 
-const TextArea = ({ label, placeholder }) => {
+const TextArea = ({ label, placeholder, error, onChange, value  }) => {
 
-	
+	const handleChange = (event) => {
+		onChange(event.target.value);
+	};
 
 	return (
 		<Wrapper>
 			<h6 className="input_label">{label}</h6>
-			<textarea name="text-area" id="text-area" cols="30" rows="10" placeholder={placeholder}>
-
-            </textarea>
-			
+			<textarea
+				id="text-area"
+				cols="30" rows="10"
+				placeholder={placeholder}
+				onChange={handleChange}
+			>
+				{value}
+			</textarea>
+			<p className="error">{error && error}</p>
 		</Wrapper>
 	);
 };
@@ -51,6 +63,9 @@ const TextArea = ({ label, placeholder }) => {
 TextArea.propTypes = {
 	label: PropTypes.string,
 	placeholder: PropTypes.string,
-	};
+	error: PropTypes.string,
+	value: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+};
 
 export { TextArea };

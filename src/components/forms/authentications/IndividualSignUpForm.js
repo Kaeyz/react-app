@@ -52,7 +52,7 @@ const IndividualSignUpForm = ({ history, registerIndividual }) => {
 	const [activity, setActivityLevel] = useState('SELECT HERE');
 	const [weight,setWeight] = React.useState('');
 	const [height,setHeight] = React.useState('');
-	const [dob, setDob] = useState(new Date('07/08/2020'));
+	const [dob, setDob] = useState(new Date());
 	const [errors, setErrors] = useState({});
 
 	const onFormSubmit = (event) => {

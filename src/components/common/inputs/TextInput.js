@@ -82,7 +82,6 @@ const TextInput = ({ label, onChange, value, placeholder, error,  type }) => {
 					onChange={handleChange}
 					type={type ? type : 'text'}
 				/>
-				{/* <p className="adornment">{inputAdornment}</p> */}
 			</div>
 			<p className="error">{error && error}</p>
 		</Wrapper>
