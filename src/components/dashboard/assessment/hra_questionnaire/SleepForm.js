@@ -8,10 +8,10 @@ import PropTypes from 'prop-types';
 import Button from '../../../common/Button';
 
 const Wrapper = styled.div`
-margin-top: -1rem;
-> div {
-  margin-top: -4rem;
-}
+	margin-top: -1rem;
+	div {
+  	margin-top: -4rem;
+	}
 	.submit {
 		margin-top: 1rem;
 		display: grid;
@@ -19,12 +19,13 @@ margin-top: -1rem;
 		grid-gap: 2rem;
 		justify-content: end;
 		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			grid-template-columns: 1fr;	
-			}
+			grid-template-columns: 1fr;
+		}
 	  .button{
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-		width:100% !important;
-  }
+			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+				width:100% !important;
+  		}
+		}
 	}
 `;
 

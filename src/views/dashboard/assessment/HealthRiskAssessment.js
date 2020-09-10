@@ -34,18 +34,18 @@ const Wrapper = styled.div`
 		&::-webkit-scrollbar {
 			height: .3rem;
 		}
-		 
+
 		&::-webkit-scrollbar-track {
 			-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 		}
-		 
+
 		&::-webkit-scrollbar-thumb {
 		  background-color: darkgrey;
 		  outline: 1px solid slategrey;
 		}
 		@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
-			overflow: scroll;				
-			overflow-y: hidden;				
+			overflow: scroll;
+			overflow-y: hidden;
 		}
 	   }
     .info-2 {
@@ -139,7 +139,6 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 						<p>Health Risk Assessment</p>
 					</div>
 					<div className="top-header2 top-header4 top-header5">
-						{/* <img src={smallImg} alt="adornment" /> */}
 						<p>Preliminary Assessment</p>
 						<div className="null" />
 					</div>
@@ -148,7 +147,7 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 						<p>Preliminary Assessment</p>
 						<div className="null" />
 					</div>
-							<main className="content">
+					<main className="content">
 						<div className="middle">
 							<Grid container spacing={1}>
 								<Grid item xs={12}>
@@ -165,7 +164,7 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 									<p className="darkP">
                     Our aim is to help you live your best lives, taking into
                     consideration, your wellbeing and taking the right steps to
-                    help you Choose Life, one day at a time.{' '}
+                    help you Choose Life, one day at a time.
 									</p>
 								</Grid>
 							</Grid>
@@ -181,8 +180,8 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 										backgroundColor="blue"
 										where={
 											percentageCompleted > 0
-												? '/assessments/health/general'
-												: '/assessments/health/start'
+												? '/assessment/health/general'
+												: '/assessment/health/start'
 										}
 										progress={percentageCompleted}
 									/>

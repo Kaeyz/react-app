@@ -17,17 +17,16 @@ const Wrapper = styled.div`
 		color: ${(props) => props.theme.color.brand_02};
 		margin-left: 0.8rem;
 	}
-	.top-paper{
-		background: ${(props) => props.theme.color.ui_01};;
-box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
-border-radius: 0px;
-display: flex;
-justify-content: space-between;
-padding: 1rem;
-@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-	display:none;		
+	.top-paper	{
+		background: ${(props) => props.theme.color.ui_01};
+		box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
+		border-radius: 0px;
+		display: flex;
+		justify-content: space-between;
+		padding: 1rem;
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			display:none;
 		}
-}
 	}
 	.flex-back {
 		display: flex;
@@ -36,17 +35,17 @@ padding: 1rem;
 		padding: 1rem 0;
 		text-decoration: none;
 		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-				display:none;		
-					}
-	}
-	.review-back{
-	display:none;
-	justify-content: start;
-	padding-bottom: 2rem;
-	@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-		display:flex;		
+				display:none;
+			}
 		}
-		p{
+	.review-back{
+		display:none;
+		justify-content: start;
+		padding-bottom: 2rem;
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			display:flex;
+		}
+		p	{
 			font-weight: bold;
 			font-size: 2rem;
 			line-height: 2rem;
@@ -76,10 +75,10 @@ padding: 1rem;
 				min-width: auto;
 				line-height: 1.7rem;
 				font-size: 1.3rem;
-								}
+			}
 		}
 	}
-		.withGuage{
+	.withGuage{
 		display: grid;
 		width: 100%;
 		grid-template-columns: max-content 1fr;
@@ -87,42 +86,42 @@ padding: 1rem;
 		align-items: center;
 		grid-gap: 1rem;
 		margin-top: 1.5rem;
-				.none{
-					@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-						display:none;		
-							}
-				}
+		.none	{
+			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+				display:none;
+					}
+		}
 		.download{
 			margin-left: auto;
 			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-				display:none;		
-					}
+				display:none;
+			}
 		}
 	}
-	.exercise{
+	.exercise {
 		display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
-			}
+		}
 	.top-header2 {
-		display:grid;  
+		display:grid;
 		grid-gap: 1rem;
 		align-items: center;
-		 grid-template-columns: max-content max-content 1fr;
+		grid-template-columns: max-content max-content 1fr;
 	  margin: 0 0 4rem 0;
 	  @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-		grid-template-columns: max-content 1fr;
-		display:none;
-	}
+			grid-template-columns: max-content 1fr;
+			display:none;
+		}
 	  .null {
-		border: 1px solid rgba(214, 216, 211, 0.5);
-		width: -webkit-fill-available;
-		margin: 10px 0px;
+			border: 1px solid rgba(214, 216, 211, 0.5);
+			width: -webkit-fill-available;
+			margin: 10px 0px;
 	  }
-	  img{
+	  img	{
 		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			  display:none;		
-				  }
+			  display:none;
+			}
 	  }
 		p {
 		  font-weight: bold;
@@ -132,21 +131,20 @@ padding: 1rem;
 		  color: ${(props) => props.theme.color.ui_05};
 		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
 			letter-spacing: -0.2px;
-		}
-		}
-	  }
-	  .review-mobile-only{
-		  display:none;
-		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			display:grid;		
-				}
-			p{
-				@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-					font-weight: normal;
-				}
 			}
-	  }
-	  
+		}
+	}
+	.review-mobile-only{
+		display:none;
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			display:grid;
+		}
+		p	{
+			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+				font-weight: normal;
+			}
+		}
+	}
 `;
 function QuestionnaireLayout({
 	children,
@@ -166,55 +164,48 @@ function QuestionnaireLayout({
 					<p className="back">Back</p>
 				</Link>
 			)}
-			{
-				reportButton ? (
-					<Paper className='top-paper'>
-						<Link className="flex-back" to={Link}>
-							<img src={Back} alt="go back" />
-							<p className="back">Back</p>
-						</Link>
-						<div className="download">
-							<Button
-								theme="darkGreen"
-								text="Download Report"
-								onClick={downloadAction}
-							>
-								<img src={downloadIcon} alt={downloadIcon} />
-							</Button>
-						</div>
-					</Paper>
-				) : null
-				// <div className="null" />
-			}
-			{
-				exerciseButton ? (
-					<Paper className='top-paper'>
-						<Link className="flex-back" to={Link}>
-							<img src={Back} alt="go back" />
-							<p className="back">Back</p>
-						</Link>
-						<div className="download exercise flex">
+			{reportButton && (
+				<Paper className='top-paper'>
+					<Link className="flex-back" to={Link}>
+						<img src={Back} alt="go back" />
+						<p className="back">Back</p>
+					</Link>
+					<div className="download">
 						<Button
-								theme="whiteOrange"
-								text="Leave programme"
-							>
-							</Button>
-							<Button
-								theme="darkGreen"
-								text="Start Workout"
-							>
-							</Button>
-												</div>
-					</Paper>
-				) : null
-				// <div className="null" />
-			}
+							theme="darkGreen"
+							text="Download Report"
+							onClick={downloadAction}
+						>
+							<img src={downloadIcon} alt={downloadIcon} />
+						</Button>
+					</div>
+				</Paper>
+			)}
+			{exerciseButton && (
+				<Paper className='top-paper'>
+					<Link className="flex-back" to={Link}>
+						<img src={Back} alt="go back" />
+						<p className="back">Back</p>
+					</Link>
+					<div className="download exercise flex">
+						<Button
+							theme="whiteOrange"
+							text="Leave programme"
+						>
+						</Button>
+						<Button
+							theme="darkGreen"
+							text="Start Workout"
+						>
+						</Button>
+					</div>
+				</Paper>
+			)}
 			<div className="flex withGuage">
 				<div className="title">
 					<img src={Image} alt={alt} />
 					<h1>{heading}</h1>
 				</div>
-
 			</div>
 			{children}
 		</Wrapper>

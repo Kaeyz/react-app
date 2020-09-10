@@ -37,7 +37,7 @@ const navItems = {
 		navTitle: 'Employee Portal',
 		topSection: [
 			{ icon: 'dashboard_home', text: 'Dashboard', link: '/dashboard' },
-			{ icon: 'assessments', text: 'Assessments', link: '/assessments' },
+			{ icon: 'assessments', text: 'Assessments', link: '/assessment' },
 			{ icon: 'exercise', text: 'Exercise', link: '/exercise' },
 			{ icon: 'exercise', text: 'Meals', link: '/meals' },
 			{ icon: 'exercise', text: 'Appointments', link: '/appointments' },
@@ -52,7 +52,7 @@ const navItems = {
 		navTitle: 'Individual Portal',
 		topSection: [
 			{ icon: 'dashboard_home', text: 'Dashboard', link: '/dashboard' },
-			{ icon: 'assessments', text: 'Assessments', link: '/assessments' },
+			{ icon: 'assessments', text: 'Assessments', link: '/assessment' },
 			{ icon: 'exercise', text: 'Exercise', link: '/exercise' },
 			{ icon: 'exercise', text: 'Meals', link: '/meals' },
 			{ icon: 'exercise', text: 'Appointments', link: '/appointments' },

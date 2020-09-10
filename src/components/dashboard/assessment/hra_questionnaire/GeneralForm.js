@@ -19,9 +19,9 @@ const Wrapper = styled.div`
 			grid-template-columns: 1fr;
 		}
 	}
-	  .button	{
+	.button	{
 		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-		width:100% !important;
+			width:100% !important;
 		}
 	}
 `;

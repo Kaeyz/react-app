@@ -57,7 +57,7 @@ const Wrapper = styled(Paper)`
       }
        .linked-btn{
         padding-right: 1.5rem;
-        
+
     }
     .button{
         width: 100% !important;
@@ -81,7 +81,7 @@ function HraCompleted() {
 			</p>
 			<p className="detail">To move up complete the wellness challenge.</p>
 			<div className="button-links flex">
-				<Link className="linked-btn" to="/assessments">
+				<Link className="linked-btn" to="/assessment">
 					<Button value="Back to Assessment" theme="whiteBtn">
             Back to Assessment
 					</Button>

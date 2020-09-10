@@ -54,7 +54,6 @@ const CircularProgressCard = ({ fontSize, backgroundColor, progress, ...props  }
 
 			<Paper className={`paper ${backgroundColor}`}>
 				<CircularProgressWithLabel value={progress} />
-				{/* <h5>{props.cardValue}</h5> */}
 				<p className={`${fontSize}`}>{props.cardInfo}</p>
 				<Link to={props.where || '/'}>
 					<Button theme={props.btnTheme}>

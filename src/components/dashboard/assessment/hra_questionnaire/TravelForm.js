@@ -18,14 +18,15 @@ const Wrapper = styled.div`
     grid-template-columns: max-content max-content;
     grid-gap: 2rem;
     justify-content: end;
-	@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-		grid-template-columns: 1fr;	
+		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			grid-template-columns: 1fr;
 		}
-  .button{
-	@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-	width:100% !important;
-}
-}
+	  .button{
+			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+				width:100% !important;
+			}
+		}
+	}
 `;
 
 function TravelForm({ questions, isLoading, inputs, history, saveQuestions }) {

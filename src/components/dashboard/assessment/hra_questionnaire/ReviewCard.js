@@ -125,8 +125,7 @@ const Wrapper = styled.div`
 
 function ReviewCard({ title, category, getQuestions, questions }) {
 	const [expanded, setExpanded] = React.useState(false);
-	// eslint-disable-next-line
-	const [show, toggleShow] = React.useState(true);
+	const [show] = React.useState(true);
 
 	const handleChange = (panel) => (event, isExpanded) => {
 		setExpanded(isExpanded ? panel : false);

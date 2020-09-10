@@ -167,7 +167,7 @@ const DashboardAssessment = ({ fetchHraResponse }) => {
 								cardInfo="Health Risk Assessment"
 								btnTheme="deepYellowBtn"
 								backgroundColor="orange"
-								where={'/assessments/health'}
+								where={'/assessment/health'}
 								image={pinkFlower}
 							/>
 
