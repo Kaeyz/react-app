@@ -3,18 +3,18 @@
   "name": "ChooseLife",
   "icons": [
     {
-      "src": "/src/assets/Frame32.svg",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "logo32p.png",
+      "sizes": "32x32",
       "type": "image/x-icon"
     },
     {
-      "src": "/src/assets/Frame192.svg",
-      "type": "image/svg",
+      "src": "logo192p.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/src/assets/Frame512.svg",
-      "type": "image/svg",
+      "src": "logo512p.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
