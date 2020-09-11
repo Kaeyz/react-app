@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32pt" height="32pt" viewBox="0 0 32 32" version="1.1">
+<defs>
+<clipPath id="clip1">
+  <path d="M 3.476562 2.480469 L 28.484375 2.480469 L 28.484375 27.621094 L 3.476562 27.621094 Z M 3.476562 2.480469 "/>
+</clipPath>
+<image id="image31" width="32" height="32" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAEsUlEQVRYhe2XW0wcVRjH/+fMzO7CXgosdllY0BqwtmmMa5VWHyCUaImxvjQxMTHxkqqxjZZEax9a3kw0qZFIrEmrRqwRUjXxyUi9paECQVMsIFIxEApylQpbdmF3Z+YcH9hZzs7OXvDZL5nMnDPnO//ffPOdG0FuI4lLFp4h3A3jwp0D0ITnrJ3nem8IU6FOMsEYQrogyEwgWwYwxKkgJj0bdBU013r2u2xSgCqS78n6N6HHYgtsLTY1197ZP3v5clQA4QmQjBCZANLEh14MNAS2SS/ZJNLAAScA6ETSHmtslQW/VaapP6jzC2d/efpoTz4QVgAp4t8946u53+dolSlpNDe0AEga17Su1WsjzUMnW25kg6AmvxTxP1+pPLjPX9BtJZ7LiCw3uffe01P7eXsjNnPIyCdLgDTxMif9kgBFWxVPdkiI1+b1frXv4scHMkGYAQgA0v+cf0+ZU7oAEMvwbs24oni9n+55/8xdooYZwCCjAMjO7bY2AJ5cXVNfDaksdOZmICjxVFe3ITUK1BAWxzUmjlcdlgh5MJ9vox4fvDZHPk1BJam+tvOjpiTShmbK7EYAkGIHfT5jL4oD9oMnAdkOojgQ7W2HR1FwancQKtMR0TScn7gOlTFr95KSIwC6BAhIEEL/3qNFvvv89jMAMY8OAICt4Ri0kW+g/dwBbfRbcNnB1H1P0bdGB9GztACVMdTf5sdvoWVLAEJpFXFI50JXh6KJKl2cXsnDd7r3Z0s8UhwA+2too8A5JP8u0re0mHx/beUmdjjdmdwBwO6rq9sLIRGNHAAAFMioyOYNbprIZBs0nhrurCsPAOJ0lqd0IRaUaqJITvRyDsIsZkniileiBtNGmfqVol3KGI9JwyGjzsNLq4LSlal0ZXBCCA/bUdifCaCgRmEFbvJQRvxiO1x3y8kocW9Ur5LGJOIeSDbx2RsRdA+UW/oDWNXVDrGckmxrMTafUdzKCMHGFJ+/qRF9zgxgrFj8jxnt16zeehiw+TbLriBZiW5G22UrQ0wLWTgmjd34PTQoaKbNTLL+U/UVSnGvpbtSCuxoASIjgK0cPD7DuqLz9I7iOkTiSygtrEHfdBuiGSCYznuO1P7YhI1VkQGIy0jdNmmrEd6xzU2sAdQlYKwZcAQAdRmgdrZiq6ADs5/AIXswvHAR2cbBeljvSIjDaGj8Aj1BhKNtSx8yhvGMvYAD0emN30EdkKgNcX0Vt2IzWcU549dbTwx9ZgQjoZlMwmQedHwdWp//R3vVaJDNeGwGkfjfuZoBgHpzPnp84upyTNQyAxj/hVc8PnkpFGan8uk5H4uE1ROvH+rthsXOSByGIgSKHpl4N7zOW5BHJLKYuh5WX3u5vvtcopy2LTMvOgaEDgDuxvG3Z5e0w5xjZsvSnE8uzq0dOlbffTZRo5vFgcSabOWOxILxTufKeCyqf/DAbsctu0J3ErK5UeEAG5SLUj+C88n1iPbGF61TL5w/PTyO/7ArFt+lHUpGO28PBrbLB2SKACGk/IKjkjPGZ7U4n15ZjH9/+om+YUEo5+Ekn5ORuGOy3CdYmCEsHlAyCuRjIojoJx7NxHtO4a0CmNtn8jOD/G857V+ddcr+gl+GLAAAAABJRU5ErkJggg=="/>
+</defs>
+<g id="surface1">
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<use xlink:href="#image31"/>
+</g>
+</g>
+</svg>
