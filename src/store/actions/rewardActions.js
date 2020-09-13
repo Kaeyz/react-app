@@ -90,8 +90,8 @@ export const getRewards = () => dispatch => {
 	dispatch(rewardIsLoading());
 	rewardQueries.getCurrentReward()
 		.then(res => {
-			const rewards = res.data.fetchCurrentReward ;
-			dispatch(addRewards(rewards, 'openRewards'));
+			const reward = res.data.fetchCurrentReward ;
+			dispatch(addRewards(reward, 'openReward'));
 			dispatch(rewardNotLoading());
 		})
 		.catch(() => {

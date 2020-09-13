@@ -43,7 +43,7 @@ const Suspended = ({ isLoading, getSuspendedEmployees, employees }) => {
                   Back
 								</p>
 							</Link>
-							<span>Pending Invites</span>
+							<span>Suspended Employees</span>
 						</React.Fragment>
 					}
 					display="none"
