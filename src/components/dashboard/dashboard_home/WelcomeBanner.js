@@ -1,6 +1,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import { connect } from 'react-redux';
 import undraw_through_the_park from '../../../assets/undraw_through_the_park.svg';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -73,7 +74,7 @@ const Wrapper = styled.div`
     }
   }
 `;
-export default function WelcomeBanner({heading,detail,emoji}) {
+const WelcomeBanner = ({detail,emoji, name}) => {
 	return (
 		<Wrapper>
 			<div>
@@ -84,7 +85,7 @@ export default function WelcomeBanner({heading,detail,emoji}) {
 								<span role="img" aria-label="wave">
 									{emoji}
 								</span>{' '}
-								{heading}
+								{`Hello, ${name && name}`}
 							</h1>
 							<p>
 								{detail}
@@ -100,15 +101,22 @@ export default function WelcomeBanner({heading,detail,emoji}) {
 			</div>
 		</Wrapper>
 	);
-}
+};
 WelcomeBanner.defaultProps = {
 	detail:'Empowering you with the knowledge & opportunity to live the best life possible.',
-	heading:'Hello, Durodola Imani',
 	emoji:'👋🏽 ',
 };
 
 WelcomeBanner.propTypes = {
 	detail: PropTypes.string.isRequired,
-	heading: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
 	emoji: PropTypes.any.isRequired,
 };
+
+const mapStateToProps = state => {
+	const name = state.user.user.name;
+	return { name };
+};
+
+
+export default connect(mapStateToProps)(WelcomeBanner);
