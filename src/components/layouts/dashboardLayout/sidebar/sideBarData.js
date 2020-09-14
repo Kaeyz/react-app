@@ -44,7 +44,7 @@ const navItems = {
 		],
 		otherSection: [
 			{ icon: 'download', text: 'Reports', link: '/reports' },
-			{ icon: 'rewards', text: 'Rewards', link: '/rewards' },
+			{ icon: 'rewards', text: 'Rewards', link: '/rewards/individual_reward' },
 			{ icon: 'settings', text: 'Settings', link: '/settings/account' },
 		],
 	},
@@ -59,7 +59,7 @@ const navItems = {
 		],
 		otherSection: [
 			{ icon: 'download', text: 'Reports', link: '/reports' },
-			{ icon: 'rewards', text: 'Rewards', link: '/rewards' },
+			{ icon: 'rewards', text: 'Rewards', link: '/rewards/individual_reward' },
 			{ icon: 'settings', text: 'Settings', link: '/settings/account' },
 		],
 	},
