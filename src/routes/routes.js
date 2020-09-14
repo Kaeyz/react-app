@@ -51,7 +51,6 @@ import Leaderboard from '../views/rewards/Leaderboard';
 import Page404 from '../views/Page404';
 import Companies from '../views/companies';
 import Appointments from '../views/appointments';
-import CreateAppointment from '../views/appointments/CreateAppointment';
 import Company from '../views/companies/Company';
 import PendingCompanies from '../views/companies/Pending';
 
@@ -133,7 +132,6 @@ const Routes = () => (
 
 			{/* appointments */}
 			<Route exact path="/appointments" component={Appointments} />
-			<Route exact path="/appointments/create_appointment" component={CreateAppointment} />
 
 			{/* reward */}
 			<Route exact path="/rewards/individual_reward" component={IndividualReward} />

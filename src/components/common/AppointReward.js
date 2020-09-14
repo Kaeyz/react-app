@@ -10,10 +10,6 @@ const Wrapper = styled.div`
     box-shadow: none;
     padding: 2rem;
     cursor: pointer;
-    &:hover{
-      transform: scale(.95);
-      transition: .3s;
-    }
   }
   .MuiDivider-root{
     margin: 1rem 0;

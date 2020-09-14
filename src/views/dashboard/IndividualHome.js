@@ -58,6 +58,7 @@ const DashboardHome = () => {
 						btnValue="Start Guide"
 						cardInfo={'Meal & Fitness Guide'}
 						image={yellowFlower}
+						where={'/meals'}
 						btnTheme="yellowBtn"
 						backgroundColor="yellow"
 					/>
