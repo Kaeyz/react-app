@@ -80,7 +80,6 @@ userQueries.resetPassword = (data) => {
 	const query = `
 	mutation RESET_PASSWORD ($resetToken: String!, $password: String, $confirmPassword: String){
 		resetPassword(resetToken: $resetToken, password: $password, confirmPassword: $confirmPassword){
-			email
 			token
 		}
 	}

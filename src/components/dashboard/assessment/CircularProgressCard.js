@@ -47,7 +47,7 @@ margin-bottom: 1.6rem;
 	}
 `;
 
-const CircularProgressCard = ({ fontSize, backgroundColor, progress, ...props  }) => {
+const CircularProgressCard = ({ fontSize, backgroundColor, progress, ...props }) => {
 
 	return (
 		<Wrapper>

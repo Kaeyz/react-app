@@ -7,146 +7,145 @@ import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import smallImg from '../../../assets/Activity.svg';
+import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
-  .flex-back {
-    display: flex;
-    align-items: flex-end;
-    justify-content: start;
-    padding: 1rem 0;
-    text-decoration: none;
-    @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-      display:none;	}
-      }
-    .back {
-      font-weight: bold;
-      font-size: 1.4rem;
-      line-height: 1.4rem;
-      color: #2ec4b6;
-      padding-left: 0.8rem;
-    }
-  }
-  .titleWithNull {
-    width: 100%;
-    padding: 3.8rem 0;
-    align-items: center;
-    @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-      justify-content:start;	}
-      }
-       h1 {
-      font-weight: bold;
-      font-size: 2.0rem;
-      line-height: 2.0rem;
-      letter-spacing: -0.2px;
-      color: #000b0a;
-      width: 275px;
-      max-width: 100%;
-    }
-    .title {
-      display: grid;
-      grid-gap: 1rem;
-      grid-template-columns: 1fr max-content;
-      align-items: center;
-      img {
-        max-width: max-content;
-      }
-      .img {
-        @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-          display:none;	}
-          }
-             }
-      .img2 {
-        display: none;
-        @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-          display: block;	}
-          }
-              }
-    }
-    .null {
-      border: 1px solid rgba(214, 216, 211, 0.5);
-      margin: 10px 0px;
-      width: 100%;
-      @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-        display:none;	}
-        }
-    }
-  }
-  .questions-container {
-    box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
-    border-radius: 10px;
-    padding: 3rem;
-    display: grid;
-    @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-      display: block;
-	background-color:#fbfbfb;
-	box-shadow: 0px 0px 0px rgba(233, 233, 233, 0.25);
-	padding:0;	}
-      }
-        .gridy {
-          @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-            display: block;	}
-            }
-            .gridy1 {
-              @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-                max-width: 100%;	}
-                }
-             .paper-question {
-          box-shadow: 0px 0px 0px;
-          @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-            box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
-            border-radius: 4px;
-              background-color:#fff;
-                padding: 2.4rem 1rem;
-              	}
-            }
-              }
-      }
-    }
-    .what-question {
-      position: sticky;
-      top: 40px;
-      h5 {
-        font-weight: bold;
-        font-size: 2.1rem;
-        line-height: 3.0rem;
-        color: #171f46;
-        padding: 2.9rem 0 1rem 0;
-      }
-      p {
-        font-size: 1.6rem;
-        line-height: 2.5rem;
-        align-items: center;
-        letter-spacing: 0.2px;
-        color: #000b0a;
-      }
-      .pointBar {
-        h2 {
-          font-size: 1.2rem;
-          line-height: 1.1rem;
-          color: #737373;
-          padding-bottom: 1rem;
-        }
-        .flex {
-          justify-content: space-between;
-          .show_mobile {
-            display: none;
-            @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-              display: block;
-            }
-              }
-                    }
-        }
-      }
-      .MuiLinearProgress-barColorPrimary {
-        background-color: #f37920;
-        border-radius: 100px;
-      }
-      .MuiLinearProgress-colorPrimary {
-        background-color: rgba(243, 121, 32, 0.1);
-        border-radius: 100px;
-      }
-    }
-  }
+	.flex-back {
+		display: flex;
+		align-items: flex-end;
+		justify-content: start;
+		padding: 1rem 0;
+		text-decoration: none;
+		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+			display:none;
+			}
+		}
+		.back {
+			font-weight: bold;
+			font-size: 1.4rem;
+			line-height: 1.4rem;
+			color: #2ec4b6;
+			padding-left: 0.8rem;
+		}
+	.titleWithNull {
+		width: 100%;
+		padding: 3.8rem 0;
+		align-items: center;
+		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+			justify-content:start;
+			}
+		}
+		h1 {
+			font-weight: bold;
+			font-size: 2.0rem;
+			line-height: 2.0rem;
+			letter-spacing: -0.2px;
+			color: #000b0a;
+			width: 275px;
+			max-width: 100%;
+		}
+		.title {
+			display: grid;
+			grid-gap: 1rem;
+			grid-template-columns: 1fr max-content;
+			align-items: center;
+			img {
+				max-width: max-content;
+			}
+			.img {
+				@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+					display:none;
+				}
+			}
+		}
+		.img2 {
+			display: none;
+			@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+				display: block;
+				}
+			}
+		.null {
+			border: 1px solid rgba(214, 216, 211, 0.5);
+			margin: 10px 0px;
+			width: 100%;
+			@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+				display:none;
+			}
+		}
+	.questions-container {
+		box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
+		border-radius: 10px;
+		padding: 3rem;
+		display: grid;
+		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+			display: block;
+			background-color:#fbfbfb;
+			box-shadow: 0px 0px 0px rgba(233, 233, 233, 0.25);
+			padding:	0;
+			}
+		}
+	.gridy {
+		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+			display: block;
+			}
+		}
+	.gridy1 {
+		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+			max-width: 100%;
+			}
+		}
+	.paper-question {
+		box-shadow: 0px 0px 0px;
+		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+			box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
+			border-radius: 4px;
+			background-color:#fff;
+			padding: 2.4rem 1rem;
+			}
+		}
+	.what-question {
+		position: sticky;
+		top: 40px;
+		h5 {
+			font-weight: bold;
+			font-size: 2.1rem;
+			line-height: 3.0rem;
+			color: #171f46;
+			padding: 2.9rem 0 1rem 0;
+		}
+		p {
+			font-size: 1.6rem;
+			line-height: 2.5rem;
+			align-items: center;
+			letter-spacing: 0.2px;
+			color: #000b0a;
+		}
+		.pointBar {
+			h2 {
+				font-size: 1.2rem;
+				line-height: 1.1rem;
+				color: #737373;
+				padding-bottom: 1rem;
+			}
+			.flex {
+				justify-content: space-between;
+				.show_mobile {
+					display: none;
+					@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	.MuiLinearProgress-barColorPrimary {
+		background-color: #f37920;
+		border-radius: 100px;
+	}
+	.MuiLinearProgress-colorPrimary {
+		background-color: rgba(243, 121, 32, 0.1);
+		border-radius: 100px;
+	}
 `;
 
 const QuestionnaireLayout = ({
@@ -155,7 +154,7 @@ const QuestionnaireLayout = ({
 	previousLink,
 	whatQuestion,
 	detail,
-	percent,
+	percentageCompleted,
 }) => {
 	return (
 		<Wrapper>
@@ -181,12 +180,11 @@ const QuestionnaireLayout = ({
 						<div className="what-question">
 							<div className="pointBar">
 								<div className="flex">
-									<h2>{percent}% Completed</h2>
-									<h2 className="show_mobile">step 1 of 3</h2>
+									<h2>{percentageCompleted || 0}% Completed</h2>
 								</div>
 								<LinearProgress
 									variant="determinate"
-									value={percent}
+									value={percentageCompleted || 0}
 									valueBuffer={100}
 								/>
 							</div>
@@ -209,7 +207,7 @@ QuestionnaireLayout.propTypes = {
 	ImageRight: PropTypes.any,
 	Image: PropTypes.any,
 	heading: PropTypes.string.isRequired,
-	percent: PropTypes.number.isRequired,
+	percentageCompleted: PropTypes.number.isRequired,
 	whatQuestion: PropTypes.string.isRequired,
 	detail: PropTypes.string.isRequired,
 	previousLink: PropTypes.string.isRequired,
@@ -217,4 +215,8 @@ QuestionnaireLayout.propTypes = {
 	reportButton: PropTypes.bool.isRequired,
 };
 
-export default QuestionnaireLayout;
+const mapStateToProps = state => {
+	return { percentageCompleted: state.hra.percentageCompleted };
+};
+
+export default connect(mapStateToProps)(QuestionnaireLayout);

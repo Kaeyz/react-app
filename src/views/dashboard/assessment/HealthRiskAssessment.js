@@ -124,6 +124,7 @@ display:flex;
 `;
 
 const HealthRiskAssessment = ({ percentageCompleted }) => {
+
 	return (
 		<Wrapper>
 			<DashboardLayout whatPage="Assessment">

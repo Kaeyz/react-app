@@ -126,7 +126,7 @@ export const forgotPassword = (data, history) => dispatch => {
 		});
 };
 
-export const resetPassword = (data, history) => dispatch => {
+export const resetPassword = (data) => dispatch => {
 	dispatch(appIsLoading());
 	dispatch(clearAlert());
 	userQueries.resetPassword(data)
@@ -136,7 +136,11 @@ export const resetPassword = (data, history) => dispatch => {
 				dispatch(appNotLoading());
 			}
 			if (res.data) {
-				history.push('/reset_success');
+				dispatch(appIsLoading());
+				const { token } = res.data.resetPassword;
+				localStorage.setItem('auth', token);
+				dispatch(setIsAuthenticated(true));
+				dispatch(setCurrentUser());
 				dispatch(appNotLoading());
 			}
 		})
