@@ -3,6 +3,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
 import basicFont from './assets/Myfont/Matteo.otf';
 import secFont from './assets/Myfont/FuturaPTBook.otf';
+import brownFont from './assets/Myfont/BrownLightRegular.ttf';
 import hraFont from './assets/Myfont/sofiapro-light.otf';
 import Notify from './components/notification/Notify';
 
@@ -77,6 +78,10 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: Sofia;
     src: url(${hraFont}) ;
+  }
+@font-face {
+    font-family: Brown;
+    src: url(${brownFont}) ;
   }
 
 	html {
