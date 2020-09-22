@@ -71,12 +71,6 @@ class CreateAppointmentModal extends React.Component {
     this.setState({ show: false });
   };
 
-  setTime = (e) => {
-    this.setState({
-      Time: e.target.value,
-    });
-  };
-
   setNutritionist = (e) => {
     this.setState({
       Nutritionist: e.target.value,
