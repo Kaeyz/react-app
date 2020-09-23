@@ -5,35 +5,33 @@ import PropTypes from 'prop-types';
 import { getQuestions } from '../../../../store/actions/hraActions';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
-import GeneralForm from '../../../../components/dashboard/assessment/hra_questionnaire/GeneralForm';
+import GenderForm from '../../../../components/dashboard/assessment/hra_questionnaire/GenderForm';
 
 
 const Wrapper = styled.div`
-  .content {
+.content {
 	padding: 2rem;
 	@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
 		padding:0;	}
 	  }
 `;
 
-function General({ getQuestions, questions }) {
+function Gender({ getQuestions, questions }) {
 	React.useEffect(() => {
-		getQuestions('BASIC_INFORMATION');
+		getQuestions('GENDER_SPECIFIC');
 	}, [getQuestions]);
 
 	return (
 		<DashboardLayout whatPage="Assessment">
 			<Wrapper>
 				<main className="content">
-
 					<QuestionnaireLayout
-						whatQuestion="General Questions"
+						whatQuestion="Gender Specific Risk"
 						heading="Health Risk Assessment"
-						percent='70'
-						detail="Our aim is to help you live your best lives, taking into consideration."
-					>
-						<GeneralForm questions={questions} />
+						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
 
+					>
+						<GenderForm questions={questions} />
 					</QuestionnaireLayout>
 				</main>
 			</Wrapper>
@@ -41,14 +39,15 @@ function General({ getQuestions, questions }) {
 	);
 }
 
-General.propTypes = {
+Gender.propTypes = {
 	getQuestions: PropTypes.func.isRequired,
-	questions: PropTypes.array.isRequired,
+	questions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => {
-	const questions = state.hra.questions.BASIC_INFORMATION;
+	const questions = state.hra.questions.GENDER_SPECIFIC;
 	return { questions: questions || [] };
 };
 
-export default connect(mapStateToProps, { getQuestions })(General);
+
+export default connect(mapStateToProps, { getQuestions })(Gender);

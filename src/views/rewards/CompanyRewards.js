@@ -13,49 +13,49 @@ import CreateRewardModal from '../../components/dashboard/companyRewards/CreateR
 
 const Wrapper = styled.div`
 .rewards{
-    padding-bottom: 3rem;
+  padding-bottom: 3rem;
 }
 .sub-heading{
-    font-size: 1.6rem;
-    line-height: 2.5rem;
-       letter-spacing: 0.2px;
-    color: ${props => props.theme.color.ui_05};
-    padding-bottom: 3rem;
+	font-size: 1.6rem;
+	line-height: 2.5rem;
+	letter-spacing: 0.2px;
+	color: ${props => props.theme.color.ui_05};
+	padding-bottom: 3rem;
 	font-weight: bold;
 }
 .grid-container{
 	display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	grid-gap: 4rem;
 	@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 		grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
 		justify-items: center;
 	}
 }
-.add{
+.add {
 	height: 100%;
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	padding:2rem;
 	align-items:center;
 	box-shadow: none;
 	cursor: pointer;
-border-radius: 10px;
-min-width: 284px;
-    height: 200px;
-    max-width: 380px;
-	&:hover{
+	border-radius: 10px;
+	min-width: 284px;
+	height: 200px;
+	max-width: 380px;
+	&:hover {
 		transform: scale(.95);
 		transition: .3s;
 	  }
-h1{
-		font-weight: bold;
-font-size: 1.4rem;
-padding-top: 3rem;
-line-height: 1.4rem;
-letter-spacing: 0.2px;
-color: ${props => props.theme.color.ui_06};
+h1 {
+	font-weight: bold;
+	font-size: 1.4rem;
+	padding-top: 3rem;
+	line-height: 1.4rem;
+	letter-spacing: 0.2px;
+	color: ${props => props.theme.color.ui_06};
 	}
 }
 
