@@ -9,7 +9,7 @@ import Button from '../../../common/Button';
 
 const Wrapper = styled.div`
 	margin-top: -1rem;
-	div {
+	> div {
   	margin-top: -4rem;
 	}
 	.submit {
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
 function SleepForm({ questions, isLoading, inputs, history, saveQuestions }) {
 
 
-	const nextLink = '/assessment/health/food';
+	const nextLink = '/assessment/health/mental';
 	const onSaveClick = (event) => {
 		event.preventDefault();
 		inputs.stage = 'UPDATE_RESPONSE';

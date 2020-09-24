@@ -120,7 +120,7 @@ export const suspendEmployee = (id) => dispatch => {
 		.then(res => {
 			if (res.data) {
 				const message = res.data.suspendEmployee.message;
-				dispatch(getEmployee(id));
+				dispatch(getActiveEmployees());
 				dispatch(successAlert(message));
 			}
 			if (res.errors) {
@@ -140,8 +140,12 @@ export const unSuspendEmployee = (id) => dispatch => {
 		.then(res => {
 			if (res.data) {
 				const message = res.data.unSuspendEmployee.message;
-				dispatch(getEmployee(id));
+				dispatch(getSuspendedEmployees());
 				dispatch(successAlert(message));
+			}
+			if (res.errors) {
+				dispatch(errorAlert({msg: res.errors[0].message}));
+				dispatch(employeeNotLoading());
 			}
 			if (res.errors) {
 				dispatch(errorAlert({msg: res.errors[0].message}));

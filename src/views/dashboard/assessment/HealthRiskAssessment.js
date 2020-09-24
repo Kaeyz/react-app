@@ -37,6 +37,7 @@ const Wrapper = styled.div`
 
 		&::-webkit-scrollbar-track {
 			-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+			box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 		}
 
 		&::-webkit-scrollbar-thumb {
@@ -124,6 +125,7 @@ display:flex;
 `;
 
 const HealthRiskAssessment = ({ percentageCompleted }) => {
+
 	return (
 		<Wrapper>
 			<DashboardLayout whatPage="Assessment">
@@ -188,31 +190,52 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 								</Grid>
 								<Grid item xs={12}>
 									<CircularProgressCard
-										btnValue={'Start'}
+										btnValue={percentageCompleted > 0 ? 'Continue' : 'Start'}
+										showButton = {percentageCompleted > 0 ? true : false }
 										cardInfo={'Lifestyle Assessment'}
 										Image={inbodyImg}
 										btnTheme="deepYellowBtn"
 										backgroundColor="orange"
+										progress={percentageCompleted}
+										where={
+											percentageCompleted > 0
+												? '/assessment/health/smoking'
+												: '/assessment/health/start'
+										}
 									/>
 								</Grid>
 
 								<Grid item xs={12}>
 									<CircularProgressCard
-										btnValue={'Start'}
+										btnValue={percentageCompleted > 0 ? 'Continue' : 'Start'}
+										showButton = {percentageCompleted > 0 ? true : false }
 										cardInfo={'Fitness Assessment'}
 										Image={mealImg}
 										btnTheme="yellowBtn"
 										backgroundColor="yellow"
+										progress={percentageCompleted}
+										where={
+											percentageCompleted > 0
+												? '/assessment/health/activity'
+												: '/assessment/health/start'
+										}
 									/>
 								</Grid>
 
 								<Grid item xs={12}>
 									<CircularProgressCard
-										btnValue={'Start'}
+										btnValue={percentageCompleted > 0 ? 'Continue' : 'Start'}
+										showButton = {percentageCompleted > 0 ? true : false }
 										cardInfo={'Nutrition Assessment'}
 										Image={mealImg}
 										btnTheme="purpleBtn"
 										backgroundColor="green"
+										progress={percentageCompleted}
+										where={
+											percentageCompleted > 0
+												? '/assessment/health/food'
+												: '/assessment/health/start'
+										}
 									/>
 								</Grid>
 							</Grid>

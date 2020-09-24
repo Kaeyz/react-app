@@ -2,7 +2,7 @@ import {ADD_REWARDS, CLEAR_REWARDS, REWARD_IS_LOADING, REWARD_NOT_LOADING, ADD_L
 
 const initialState = {
 	rewards: {
-		openRewards: [],
+		openReward: {},
 		closedRewards: []
 	},
 	isLoading: false,

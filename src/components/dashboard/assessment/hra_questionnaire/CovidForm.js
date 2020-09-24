@@ -20,12 +20,13 @@ margin-top: -1rem;
 		grid-gap: 2rem;
 		justify-content: end;
 		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			grid-template-columns: 1fr;	
+			grid-template-columns: 1fr;
 			}
 	  .button{
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-		width:100% !important;
-  }
+			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			width:100% !important;
+			}
+		}
 	}
 `;
 

@@ -30,7 +30,7 @@ margin-top: -1rem;
 `;
 function BloodPressureForm({questions, isLoading, inputs, history, saveQuestions}) {
 
-	const nextLink = '/assessment/health/smoking';
+	const nextLink = '/assessment/health/gender';
 	const onSaveClick = (event) => {
 		event.preventDefault();
 		inputs.stage = 'UPDATE_RESPONSE';

@@ -47,7 +47,7 @@ margin-bottom: 1.6rem;
 	}
 `;
 
-const CircularProgressCard = ({ fontSize, backgroundColor, progress, ...props  }) => {
+const CircularProgressCard = ({ fontSize, showButton, backgroundColor, progress, ...props }) => {
 
 	return (
 		<Wrapper>
@@ -55,16 +55,25 @@ const CircularProgressCard = ({ fontSize, backgroundColor, progress, ...props  }
 			<Paper className={`paper ${backgroundColor}`}>
 				<CircularProgressWithLabel value={progress} />
 				<p className={`${fontSize}`}>{props.cardInfo}</p>
-				<Link to={props.where || '/'}>
-					<Button theme={props.btnTheme}>
-						{props.btnValue}
-					</Button>
-				</Link>
+				{
+					showButton &&
+					<Link to={props.where || '/'}>
+						<Button theme={props.btnTheme}>
+							{props.btnValue}
+						</Button>
+					</Link>
+				}
+
 			</Paper>
 
 		</Wrapper>
 	);
 };
+
+CircularProgressCard.defaultProps = {
+	showButton: true
+};
+
 
 CircularProgressCard.propTypes = {
 	Image: PropTypes.any,
@@ -72,10 +81,12 @@ CircularProgressCard.propTypes = {
 	cardInfo: PropTypes.any,
 	fontSize: PropTypes.any,
 	where: PropTypes.string,
+	showButton: PropTypes.bool.isRequired,
 	progress: PropTypes.number,
 	btnTheme: PropTypes.any,
 	btnValue: PropTypes.string,
 	backgroundColor: PropTypes.string.isRequired
 };
+
 
 export default CircularProgressCard;

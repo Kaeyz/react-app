@@ -52,14 +52,15 @@ function HealthReview({ isLoading, saveQuestions, history }) {
 							category="BASIC_INFORMATION"
 						/>
 						<ReviewCard title="Covid Risk" category="COUGH_AND_HAND_HYGIENE" />
-						<ReviewCard
-							title="Blood pressure and Cholesterol"
-							category="BLOOD_PRESSURE"
-						/>
+						<ReviewCard title="Blood pressure and Cholesterol" category="BLOOD_PRESSURE" />
+						<ReviewCard title="Gender Specific Risk" category="GENDER_SPECIFIC" />
+						<ReviewCard title="Food and Nutrition" category="NUTRITION" />
+						<ReviewCard title="Activity Risk" category="ACTIVITIES" />
 						<ReviewCard title="Smoking and Vaping" category="SMOKING" />
 						<ReviewCard title="Travel and Alcohol" category="DRIVING" />
-						<ReviewCard title="Food and Nutrition" category="NUTRITION" />
 						<ReviewCard title="Sleep" category="SLEEP" />
+						<ReviewCard title="Mental Risk" category="MENTAL_HEALTH" />
+						<ReviewCard title="Stress Risk" category="STRESS" />
 						<div className="submit">
 							<Button
 								theme="darkGreen"

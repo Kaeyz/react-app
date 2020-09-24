@@ -17,10 +17,10 @@ line-height: 1.4rem;
 color: ${props => props.theme.color.ui_text_05};
 	}
   .input_div {
-	border: 1px solid ${props => props.theme.color.ui_text_06};
-	    height: 4.8rem;
-	// display: grid;
-	border-radius: 8px;
+		border: 1px solid ${props => props.theme.color.ui_text_06};
+		height: 4.8rem;
+	//display: grid;
+		border-radius: 8px;
     grid-template-columns: 1fr max-content;
     &:hover {
 		border: 1px solid ${props => props.theme.color.ui_text_05};
@@ -36,10 +36,10 @@ color: ${props => props.theme.color.ui_text_05};
 		margin: 0;
     outline: none;
     border: none;
-	height: 100%;
-	// min-width: 100%;
-	max-width: 100%;
-	padding-left: 1rem;
+		height: 100%;
+		width: 100%;
+		max-width: 100%;
+		padding-left: 1rem;
 	&:-internal-autofill-selected {
 		background-color: rgba(255, 255, 255, 0) !important;
 	}

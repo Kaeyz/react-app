@@ -1,12 +1,20 @@
-import React from "react";
-// import PropTypes from 'prop-types'
-import styled from "styled-components";
-import Modal from "../../dashboard/common/Modal";
-import Grid from "@material-ui/core/Grid";
-import Button from "../../../components/common/Button";
-import pinkIcon from "../../../assets/pinkIcon.svg";
-import AppointReward from "../../../components/common/AppointReward";
-import { Link } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { closeReward } from '../../../store/actions/rewardActions';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import Modal from '../../dashboard/common/Modal';
+import Grid from '@material-ui/core/Grid';
+import Button from '../../../components/common/Button';
+import pinkIcon from '../../../assets/pinkIcon.svg';
+import AppointReward from '../../../components/common/AppointReward';
+import EditRewardModal from './EditRewardModal';
+import { convertDate } from '../../../utils/helper';
+import blueIcon from '../../../assets/blueIcon.svg';
+import orangeIcon from '../../../assets/orangeIcon.svg';
+import greenIcon from '../../../assets/greenIcon.svg';
+import purpleIcon from '../../../assets/purpleIcon.svg';
 
 const Wrapper = styled.div`
   .body {
@@ -43,76 +51,83 @@ const Wrapper = styled.div`
   }
 `;
 
-class RewardDetailsModal extends React.Component {
-  state = {
-    show: false,
-    showButton: false,
-  };
+const RewardDetailsModal = ({ theme, reward, closeReward }) => {
+	const [show, setShow] = React.useState(false);
 
-  showModal = () => {
-    this.setState({ show: true });
-  };
+	const showModal = () => {
+		setShow(true);
+	};
 
-  hideModal = () => {
-    this.setState({ show: false });
-  };
+	const hideModal = () => {
+		setShow(false);
+	};
 
-  render() {
-    return (
-      <Wrapper>
-        {/* <Modal show={this.state.show} handleClose={this.hideModal} textBtn='Complete' heading={<><img src={close} alt="adornment" id='adorn'/> <span> Questions on Protein</span></>} info='A balanced diet lorem ipsum blished fact that a reader will be distracted by the readable content.'> */}
-        {/* THE COMMENTED CODE ABOVE IS IF THE HEADING TEXT IS GOING TO HAVE AN IMAGE BY ITS SIDE */}
-        <Modal
-          show={this.state.show}
-          handleClose={this.hideModal}
-          position="modal-right"
-          heading={
-            <span>
-              {" "}
-              <img src={pinkIcon} alt="icon" /> Reward Title
-            </span>
-          }
-        >
-          <div className="body">
-            <div className="detail grid">
-              <p className="text">Date Created</p>
-              <h1 className="bolder text">March 28,2020</h1>
-            </div>
-            <div className="detail grid">
-              <p className="text">Start Date</p>
-              <h1 className="bolder text">February 12,2020</h1>
-            </div>
-            <div className="detail grid">
-              <p className="text">End Date</p>
-              <h1 className="bolder text">July 12,2020</h1>
-            </div>
-          </div>
+	const icon = {
+		pink: pinkIcon,
+		blue: blueIcon,
+		orange: orangeIcon,
+		green: greenIcon,
+		purple: purpleIcon,
+	};
 
-          <div className="bottom">
-            <p>See how your employee are performing.</p>
-            <Link to="/leaderboard" id="link">
-              View Leaderboard
-            </Link>
-          </div>
+	return (
+		<Wrapper>
+			<Modal
+				show={show}
+				handleClose={hideModal}
+				position="modal-right"
+				info={reward && reward.description}
+				heading={
+					<span>
+						<img src={icon[theme]} alt="icon" />
+						{reward && reward.title}
+					</span>
+				}
+			>
+				<div className="body">
+					<div className="detail grid">
+						<p className="text">Start Date</p>
+						<h1 className="bolder text">{reward && convertDate(reward.startDate) }</h1>
+					</div>
+					<div className="detail grid">
+						<p className="text">End Date</p>
+						<h1 className="bolder text">{reward && convertDate(reward.endDate) }</h1>
+					</div>
+				</div>
 
-          <div className="bottom">
-            <Grid item xs={12} id="mb">
-              <Button theme="darkGreen" text="Edit Reward" />
-            </Grid>
-            <Grid item xs={12} >
-              <Button theme="pinkBtn" text="Delete Reward" />
-            </Grid>
-          </div>
-        </Modal>
+				<div className="bottom">
+					<p>See how your employee are performing.</p>
+					<Link to="/leaderboard" id="link">
+						View Leaderboard
+					</Link>
+				</div>
 
-        <div onClick={this.showModal}>
-          <AppointReward cardTheme={this.props.theme} icon={this.props.icon} />
-        </div>
-      </Wrapper>
-    );
-  }
-}
+				<div className="bottom">
+					<EditRewardModal reward={reward} />
+					<Grid item xs={12} >
+						<Button theme="pinkBtn" text="Close Reward" onClick={() => closeReward(reward._id)} />
+					</Grid>
+				</div>
+			</Modal>
 
-RewardDetailsModal.propTypes = {};
+			<div onClick={showModal}>
+				<AppointReward
+					cardTheme={theme}
+					icon={icon[theme]}
+					info={reward && reward.description}
+					title={reward && reward.title}
+					leftB={reward && convertDate(reward.startDate)}
+					rightB={reward && convertDate(reward.endDate)}
+				/>
+			</div>
+		</Wrapper>
+	);
+};
 
-export default RewardDetailsModal;
+RewardDetailsModal.propTypes = {
+	theme: PropTypes.string.isRequired,
+	reward: PropTypes.object.isRequired,
+	closeReward: PropTypes.func.isRequired,
+};
+
+export default connect(null, {closeReward})(RewardDetailsModal);

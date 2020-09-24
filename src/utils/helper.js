@@ -1,17 +1,17 @@
 export const convertDate = (date) => {
 	const month = new Array(12);
-	month[0] = 'January';
-	month[1] = 'February';
+	month[0] = 'Jan';
+	month[1] = 'Feb';
 	month[2] = 'March';
 	month[3] = 'April';
 	month[4] = 'May';
 	month[5] = 'June';
 	month[6] = 'July';
-	month[7] = 'August';
-	month[8] = 'September';
-	month[9] = 'October';
-	month[10] = 'November';
-	month[11] = 'December';
+	month[7] = 'Aug';
+	month[8] = 'Sept';
+	month[9] = 'Oct';
+	month[10] = 'Nov';
+	month[11] = 'Dec';
 
 	date = new Date(date);
 
