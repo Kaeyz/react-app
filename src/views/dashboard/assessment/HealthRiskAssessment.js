@@ -130,9 +130,9 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 		<Wrapper>
 			<DashboardLayout whatPage="Assessment">
 				<QuestionnaireLayout
-					previousLink="/assessments"
+					previousLink="/assessment"
 				>
-					<Link className="review-back" to="/assessments">
+					<Link className="review-back" to="/assessment">
 						<img src={Back} alt="go back" />
 						<p>Health Risk Assessment</p>
 					</Link>

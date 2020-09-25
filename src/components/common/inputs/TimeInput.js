@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {
 	MuiPickersUtilsProvider,
 	KeyboardTimePicker,
 } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
 import timePickerIcon from '../../../assets/time.svg';
+import DateFnsUtils from '@date-io/date-fns';
+
 
 const Wrapper = styled.div`
   margin-top: 1.5rem;
@@ -47,19 +48,24 @@ font-size: 1.4rem;
 `;
 
 const TimeInput = ({ label, error }) => {
+	const [selectedDate, handleDateChange] = useState(new Date());
 	return (
 		<Wrapper>
-			<MuiPickersUtilsProvider utils={DateFnsUtils}>
+      			<MuiPickersUtilsProvider utils={DateFnsUtils}>
+
 				<h6 className="input_label">{label}</h6>
 				<KeyboardTimePicker
 					margin="normal"
 					id="time-picker"
+					value={selectedDate}
+					onChange={date => handleDateChange(date)}
 					KeyboardButtonProps={{
 						'aria-label': 'change time',
 					}}
 					keyboardIcon={<img src={timePickerIcon} alt="datePickerIcon" />}
 				/>
-			</MuiPickersUtilsProvider>
+      			</MuiPickersUtilsProvider>
+
 			<p className="error">{error && error}</p>
 		</Wrapper>
 	);
@@ -69,8 +75,6 @@ TimeInput.propTypes = {
 	label: PropTypes.string,
 	error: PropTypes.string,
 	placeholder: PropTypes.string,
-	onChange: PropTypes.func.isRequired,
-	value: PropTypes.any.isRequired,
 };
 
 export { TimeInput };

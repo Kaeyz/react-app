@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import Modal from "../../dashboard/common/Modal";
 import Button from "../../../components/common/Button";
-import add from "../../../assets/Add.svg";
 import { Paper, Grid } from "@material-ui/core";
 import {
   TextInput,
@@ -12,36 +11,13 @@ import {
   SelectInput,
   TimeInput
 } from "../../../components/common/inputs";
+import icon from '../../../assets/money.svg';
 
 const Wrapper = styled.div`
   .appoint-body {
     margin-top: -5.5rem;
   }
-  .add {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2rem;
-    align-items: center;
-    box-shadow: none;
-    cursor: pointer;
-    border-radius: 10px;
-    min-width: 284px;
-    height: 200px;
-    max-width: 380px;
-    &:hover {
-      transform: scale(0.95);
-      transition: 0.3s;
-    }
-    h1 {
-      font-weight: bold;
-      font-size: 1.4rem;
-      padding-top: 3rem;
-      line-height: 1.4rem;
-      letter-spacing: 0.2px;
-      color: ${(props) => props.theme.color.ui_06};
-    }
+}
   }
 
   .bottom {
@@ -52,13 +28,53 @@ const Wrapper = styled.div`
       padding: 3rem 0;
     }
   }
+  #trigger{
+    height: 100%;
+    &:hover{
+      transform: scale(.95);
+      transition: .3s;
+    }
+  }
+.uglyCard{
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: none;
+    min-height: 170px;
+    cursor: pointer;
+    height: 100%;
+}
+.pink{
+    background-color:#fff1ed;
+    border: 1px solid #F37920;
+}
+.green{
+    background-color:#f3f6eb;
+    border: 1px solid #9ECD43;
+}
+.text{
+    h1{
+        font-family: Sofia;
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+padding-bottom: 1rem;
+letter-spacing: -0.2px;
+color: #000B0A;
+    }
+    p{
+        font-weight: 300;
+font-size: 14px;
+line-height: 25px;
+letter-spacing: 0.2px;
+color: #0A2523;
+    }
+}
 `;
 
 class CreateAppointmentModal extends React.Component {
   state = {
     show: false,
     showButton: false,
-    Nutritionist: "Select a Nutritionist",
     Purpose: "Select Purpose",
     date: new Date('07/08/2020'),
   };
@@ -69,12 +85,6 @@ class CreateAppointmentModal extends React.Component {
 
   hideModal = () => {
     this.setState({ show: false });
-  };
-
-  setTime = (e) => {
-    this.setState({
-      Time: e.target.value,
-    });
   };
 
   setNutritionist = (e) => {
@@ -90,19 +100,9 @@ class CreateAppointmentModal extends React.Component {
   };
 
   render() {
-    const optionNutritionist = [
-      { value: "Select a Nutritionist", text: "Select a Nutritionist" },
-      { value: "JOHN", text: "John" },
-      { value: "ADE", text: "Ade" },
-      { value: "TOMI", text: "Tomi" },
-      { value: "FELIX", text: "Felix" },
-      { value: "IBRAHIM", text: "Ibrahim" },
-    ];
+    
    
-    const optionPurpose = [
-      { value: "Select Purpose", text: "Select Purpose" },
-      { value: "JOHN", text: "John" },
-    ];
+   
 
     return (
       <Wrapper>
@@ -121,7 +121,7 @@ class CreateAppointmentModal extends React.Component {
             <Grid item xs={12}>
               <SelectInput
                 label="Purpose"
-                options={optionPurpose}
+                options={this.props.optionPurpose}
                 value={this.state.Purpose}
                 onChange={this.state.setPurpose}
               />
@@ -134,12 +134,7 @@ class CreateAppointmentModal extends React.Component {
               />
             </Grid>
             <Grid item xs={12}>
-              <SelectInput
-                label="Nutritionist"
-                options={optionNutritionist}
-                value={this.state.Nutritionist}
-                onChange={this.state.setNutritionist}
-              />
+              {this.props.Nutritionist}
             </Grid>
             <Grid item xs={12}>
               <TimeInput
@@ -158,11 +153,16 @@ class CreateAppointmentModal extends React.Component {
           </div>
         </Modal>
 
-        <div onClick={this.showModal}>
-          <Paper className="add">
-            <img src={add} alt="add" />
-            <h1>CREATE NEW APPOINTMENT</h1>
-          </Paper>
+        <div onClick={this.showModal} id="trigger">
+        <Paper className={`uglyCard flex ${this.props.cardTheme}`} >
+				<div className="text">
+					<h1 className="title">{this.props.title}</h1>
+					<p className="details">{this.props.details}</p>
+				</div>
+
+				<img src={icon} alt="icon"/>
+
+			</Paper>
         </div>
       </Wrapper>
     );
