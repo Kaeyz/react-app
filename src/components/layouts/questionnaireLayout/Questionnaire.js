@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Back from '../../../assets/greenBackArrow.svg';
 import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
@@ -151,7 +151,7 @@ const Wrapper = styled.div`
 const QuestionnaireLayout = ({
 	children,
 	heading,
-	previousLink,
+	history,
 	whatQuestion,
 	detail,
 	percentageCompleted,
@@ -159,10 +159,10 @@ const QuestionnaireLayout = ({
 	return (
 		<Wrapper>
 			<section className="top">
-				<Link className="flex-back grid" to={previousLink}>
+				<div className="flex-back grid" onClick={history.goBack}>
 					<img src={Back} alt="go back" />
 					<p className="back">Back</p>
-				</Link>
+				</div>
 
 				<div className="flex titleWithNull">
 					<div className="title">
@@ -205,6 +205,7 @@ QuestionnaireLayout.propTypes = {
 	alt: PropTypes.string,
 	alt2: PropTypes.string,
 	ImageRight: PropTypes.any,
+	history: PropTypes.object.isRequired,
 	Image: PropTypes.any,
 	heading: PropTypes.string.isRequired,
 	percentageCompleted: PropTypes.number.isRequired,
@@ -219,4 +220,4 @@ const mapStateToProps = state => {
 	return { percentageCompleted: state.hra.percentageCompleted };
 };
 
-export default connect(mapStateToProps)(QuestionnaireLayout);
+export default connect(mapStateToProps)(withRouter(QuestionnaireLayout));

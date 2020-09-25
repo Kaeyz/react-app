@@ -10,15 +10,15 @@ const Wrapper = styled.div`
   min-height: 100vh;
   background-color: #fbfbfb;
   @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-		display: block;	}
-	  }
-     .layout {
+		display: block;
+    }
+  .layout {
     background: #fbfbfb;
     padding: 3rem 2rem;
     padding-left: 5rem;
     @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
       padding-left: 2rem;
-      margin-top:5rem;	}
+      margin-top:5rem;
       }
      }
   .shadow {
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
     position: fixed;
     border-radius: 1rem;
     @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-      display:none;	}
+      display:none;	
       }
      }
 `;
