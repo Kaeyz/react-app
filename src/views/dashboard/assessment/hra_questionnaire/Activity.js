@@ -27,9 +27,9 @@ function Activity({ getQuestions, questions }) {
 					<QuestionnaireLayout
 						whatQuestion="Activity Risk"
 						heading="Health Risk Assessment"
-						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
+						detail={questions.prompt || ''}
 					>
-						<ActivityForm questions={questions} />
+						<ActivityForm questions={questions.q || []} />
 					</QuestionnaireLayout>
 				</main>
 			</Wrapper>

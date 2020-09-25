@@ -30,9 +30,9 @@ function Smoking({ getQuestions, questions }) {
 						whatQuestion={'Smoking & Vaping'}
 						heading="Health Risk Assessment"
 						percent='20'
-						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
+						detail={questions.prompt || ''}
 					>
-						<SmokingForm questions={questions} />
+						<SmokingForm questions={questions.q || []} />
 
 					</QuestionnaireLayout>
 				</main>

@@ -30,10 +30,10 @@ function Covid({ getQuestions, questions }) {
 						whatQuestion="Covid Risk"
 						heading="Health Risk Assessment"
 						percent='70'
-						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
+						detail={questions.prompt || ''}
 
 					>
-						<CovidForm questions={questions} />
+						<CovidForm questions={questions.q || []} />
 					</QuestionnaireLayout>
 				</main>
 			</Wrapper>

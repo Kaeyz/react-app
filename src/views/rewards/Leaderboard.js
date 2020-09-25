@@ -59,7 +59,7 @@ const key = {
 const mapStateToProps = state => {
 	const { leaderboard, isLoading } = state.reward;
 	const data = sortTableData(leaderboard, key, (data) => {
-		return data['Serial Number'] === '1' ? data['Serial Number'] = '🏆' : data;
+		return data['Serial Number'] === '01' ? data['Serial Number'] = '🏆' : data;
 	});
 	return { leaderboard: data, isLoading };
 };

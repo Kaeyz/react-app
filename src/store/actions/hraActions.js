@@ -13,7 +13,10 @@ import {
 
 
 const addQuestions = (questions, category) => {
-	return { type: ADD_QUESTIONS, payload: { questions, category } };
+	return {
+		type: ADD_QUESTIONS,
+		payload: { questions, category }
+	};
 };
 
 const hraIsLoading = () => {
@@ -58,7 +61,9 @@ export const getQuestions = (category) => (dispatch, getState) => {
 	} else {
 		hraQueries.getQuestion(category)
 			.then(res => {
-				const questions = res.data.fetchHraQuestion.q;
+				const { q, prompt } = res.data.fetchHraQuestion;
+				const questions = { q, prompt };
+
 				dispatch(addQuestions(questions, category));
 				dispatch(hraNotLoading());
 			})

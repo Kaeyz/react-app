@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-max-width: 100%;
+    max-width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
     margin: 3rem 0 6rem 0;

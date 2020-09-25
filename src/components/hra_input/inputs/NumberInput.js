@@ -88,16 +88,16 @@ function NumberInput({ limit, unit, name, value, onChange, validateShowHide, sho
 								}}
 								value={value}
 								onChange={handleChange}
-							// endAdornment={
-							// 	<div>
-							// 		<p>{unit}</p>
-							// 		{/* 	{weights.map((option) => (
-							// 			<MenuItem key={option.value} value={option.value}>
-							// 				{option.label}
-							// 			</MenuItem>
-							// 		))} */}
-							// 	</div>
-							// }
+								endAdornment={
+									<div>
+										<p>{unit}</p>
+										{/* 	{weights.map((option) => (
+							 			<MenuItem key={option.value} value={option.value}>
+							 				{option.label}
+							 			</MenuItem>
+							 		))} */}
+									</div>
+								}
 							/>
 						</FormControl>
 					</div>

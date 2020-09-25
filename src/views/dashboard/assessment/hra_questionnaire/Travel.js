@@ -30,9 +30,9 @@ function Travel({ getQuestions, questions }) {
 						whatQuestion={'Travel & Alcohol'}
 						heading="Health Risk Assessment"
 						percent='98'
-						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
+						detail={questions.prompt || ''}
 					>
-						<TravelForm questions={questions} />
+						<TravelForm questions={questions.q || []} />
 
 					</QuestionnaireLayout>
 				</main>

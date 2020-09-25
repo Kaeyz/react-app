@@ -28,9 +28,9 @@ function Stress({ getQuestions, questions }) {
 					<QuestionnaireLayout
 						whatQuestion="Gender Specific Risk"
 						heading="Health Risk Assessment"
-						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
+						detail={questions.prompt || ''}
 					>
-						<StressForm questions={questions} />
+						<StressForm questions={questions.q || []} />
 					</QuestionnaireLayout>
 				</main>
 			</Wrapper>

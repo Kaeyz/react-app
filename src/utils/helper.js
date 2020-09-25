@@ -22,7 +22,7 @@ export const sortTableData = (tableData, dataKey, callback) => {
 
 	tableData.forEach((data, index) => {
 		if (dataKey) {
-			data['Serial Number'] = String(index + 1);
+			data['Serial Number'] = index < 9 ? `0${index + 1}` : `${index + 1}`;
 			const keys = Object.keys(dataKey);
 
 			keys.forEach(key => {

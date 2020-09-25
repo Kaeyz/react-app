@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-function HraInput({ label, prompt, inputs, id, onHraInputChange, hraInputValues, showInput }) {
+function HraInput({ label, prompt, number, inputs, id, onHraInputChange, hraInputValues, showInput }) {
 	const displayRadio = (input, name) => <SelectInput
 		options={input.values}
 		limit={{ min: input.min, max: input.max }}
@@ -82,13 +82,24 @@ function HraInput({ label, prompt, inputs, id, onHraInputChange, hraInputValues,
 		</React.Fragment>
 	);
 
+	const displayLabel = () => {
+
+		if (label === 'Weight' || label === 'Height') {
+			return `${label}, ${prompt}`;
+		}
+
+		return prompt === null ? label : prompt === '' ? label : prompt;
+	};
+
 	return (
 		<Wrapper>
 			<React.Fragment>
 
 				{inputs.length > 1 ? (
 					<React.Fragment>
-						<h6 className="input_label">{prompt.includes(null) ? label : prompt}</h6>
+						<h6 className="input_label">
+							{`${number}. ${displayLabel()}`}
+						</h6>
 						{inputs.map((input, index) => (
 							<div key={input.id || index }>
 								{displayInput({
@@ -104,7 +115,9 @@ function HraInput({ label, prompt, inputs, id, onHraInputChange, hraInputValues,
 					<div>
 						{checkInputShowStatus(id) && (
 							<React.Fragment>
-								<h6 className="input_label">{prompt.includes(null) ? label : prompt}</h6>
+								<h6 className="input_label">
+									{`${number}. ${displayLabel()}`}
+								</h6>
 								{displayInput({ input: inputs[0], name: id })}
 							</React.Fragment>
 						)}
@@ -122,6 +135,8 @@ HraInput.propTypes = {
 	type: PropTypes.oneOf(['text', 'number', 'select', 'dropdown']),
 	label: PropTypes.string.isRequired,
 	name: PropTypes.string,
+	unit: PropTypes.string,
+	number: PropTypes.number.isRequired,
 	id: PropTypes.string.isRequired,
 	prompt: PropTypes.string.isRequired,
 	inputs: PropTypes.array.isRequired,

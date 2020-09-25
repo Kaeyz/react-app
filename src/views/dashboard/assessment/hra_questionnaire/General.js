@@ -30,9 +30,9 @@ function General({ getQuestions, questions }) {
 						whatQuestion="General Questions"
 						heading="Health Risk Assessment"
 						percent='70'
-						detail="Our aim is to help you live your best lives, taking into consideration."
+						detail={questions.prompt || ''}
 					>
-						<GeneralForm questions={questions} />
+						<GeneralForm questions={questions.q || []} />
 
 					</QuestionnaireLayout>
 				</main>
@@ -43,12 +43,12 @@ function General({ getQuestions, questions }) {
 
 General.propTypes = {
 	getQuestions: PropTypes.func.isRequired,
-	questions: PropTypes.array.isRequired,
+	questions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => {
 	const questions = state.hra.questions.BASIC_INFORMATION;
-	return { questions: questions || [] };
+	return { questions: questions || {} };
 };
 
 export default connect(mapStateToProps, { getQuestions })(General);

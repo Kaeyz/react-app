@@ -26,13 +26,12 @@ function Food({ getQuestions, questions }) {
 			<Wrapper>
 				<main className="content">
 					<QuestionnaireLayout
-						// Image={smallImg}
 						whatQuestion={'Food & Nutrition'}
 						heading="Health Risk Assessment"
 						percent='70'
-						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
+						detail={questions.prompt || ''}
 					>
-						<FoodForm questions={questions} />
+						<FoodForm questions={questions.q || []} />
 
 					</QuestionnaireLayout>
 				</main>

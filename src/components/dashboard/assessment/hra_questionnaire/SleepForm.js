@@ -46,8 +46,9 @@ function SleepForm({ questions, isLoading, inputs, history, saveQuestions }) {
 					<HraInput
 						key={question.id}
 						id={question.id}
-						label={`${index + 1}. ${question.label}`}
-						prompt={`${index + 1}. ${question.prompt}`}
+						number = {index + 1}
+						label={question.label}
+						prompt={question.prompt}
 						inputs={question.input}
 					/>
 				))}

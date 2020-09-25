@@ -27,9 +27,9 @@ function Mental({ getQuestions, questions }) {
 					<QuestionnaireLayout
 						whatQuestion="Mental Risk"
 						heading="Health Risk Assessment"
-						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
+						detail={questions.prompt || ''}
 					>
-						<MentalForm questions={questions} />
+						<MentalForm questions={questions.q || []} />
 					</QuestionnaireLayout>
 				</main>
 			</Wrapper>

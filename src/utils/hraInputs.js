@@ -15,6 +15,8 @@ const hraInputs = {
 	hdl_cholesterol_estimated: 'not_answered',
 	junk_food: 'not answered',
 	protein: 'not answered',
+	out_of_house: 'not answered',
+	limit_crime: 'not answered',
 	sex: 'not_answered',
 	sleep1: 'not answered',
 	sleep2: 'not answered',

@@ -38,6 +38,8 @@ function GeneralForm({ questions, isLoading, inputs, history, saveQuestions }) {
 		saveQuestions(inputs, nextLink, history);
 	};
 
+
+
 	const displayQuestions = () => {
 		return (
 			<div>
@@ -45,8 +47,9 @@ function GeneralForm({ questions, isLoading, inputs, history, saveQuestions }) {
 					<HraInput
 						key={question.id}
 						id={question.id}
-						label={`${index + 1}. ${question.label}`}
-						prompt={`${index + 1}. ${question.prompt}`}
+						number = {index + 1}
+						label={question.label}
+						prompt={question.prompt}
 						inputs={question.input}
 					/>
 				))}
@@ -59,7 +62,8 @@ function GeneralForm({ questions, isLoading, inputs, history, saveQuestions }) {
 			</div>
 		);
 	};
-	return <Wrapper>{isLoading ? 'Loading ...' : displayQuestions()}</Wrapper>;
+
+	return <Wrapper>{isLoading ? 'Loading ...' : displayQuestions() }</Wrapper>;
 }
 
 GeneralForm.propTypes = {

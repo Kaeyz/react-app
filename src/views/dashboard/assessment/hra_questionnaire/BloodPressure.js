@@ -28,11 +28,11 @@ function BloodPressure({ getQuestions, questions }) {
 					<QuestionnaireLayout
 						// Image={smallImg}
 						percent='100'
-						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
+						detail={questions.prompt || ''}
 						heading="Health Risk Assessment"
 						whatQuestion={'Blood Pressure & Cholesterol'}
 					>
-						<BloodPressureForm questions={questions} />
+						<BloodPressureForm questions={questions.q || []} />
 
 					</QuestionnaireLayout>
 				</main>

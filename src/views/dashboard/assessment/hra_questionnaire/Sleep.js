@@ -31,9 +31,9 @@ function Sleep({ getQuestions, questions }) {
 						whatQuestion="Sleep"
 						heading="Health Risk Assessment"
 						percent='90'
-						detail="Our aim is to help you live your best lives, taking into consideration ispum dior iono."
+						detail={questions.prompt || ''}
 					>
-						<SleepForm questions={questions} />
+						<SleepForm questions={questions.q || []} />
 
 					</QuestionnaireLayout>
 				</main>
