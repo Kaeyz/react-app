@@ -96,6 +96,7 @@ userQueries.getCurrentUser = () => {
 	const query = `
 	query ME {
 		me{
+			_id
 			name
 			email
 			mobile

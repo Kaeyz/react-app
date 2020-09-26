@@ -199,7 +199,7 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 							{type === 'EMPLOYEE' &&
 								<div className="flex withPicture">
 									<p>
-										{/* <span>4,000</span> */} Others have completed this assessment. Fill
+										Others have completed this assessment. Fill
 										and qualify for the Wellness reward!
 									</p>
 									<Link className="linked-btn" to="/rewards/leaderboard">

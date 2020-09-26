@@ -114,7 +114,7 @@ export const getClosedRewards = () => dispatch => {
 		});
 };
 
-export const getCompanyLeaderBoard = () => dispatch => {
+export const getCompanyLeaderBoard = () => (dispatch) => {
 	dispatch(rewardIsLoading());
 	rewardQueries.getCompanyLeaderBoard()
 		.then(res => {
