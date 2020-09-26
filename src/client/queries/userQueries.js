@@ -111,6 +111,7 @@ userQueries.getCurrentUser = () => {
 			adminVerified
 			source
 			suspended
+			companySize
 			companyUrl
 		}
 	}

@@ -67,7 +67,6 @@ const key = {
 	createdAt: 'DATE CREATED'
 };
 
-
 const mapStateToProps = state => {
 	const { employees, isLoading } = state.employee;
 	const data = sortTableData(employees, key);

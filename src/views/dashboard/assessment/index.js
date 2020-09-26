@@ -125,7 +125,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const DashboardAssessment = ({ fetchHraResponse }) => {
+const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 	React.useEffect(() => {
 		fetchHraResponse();
 	}, [fetchHraResponse]);
@@ -195,26 +195,38 @@ const DashboardAssessment = ({ fetchHraResponse }) => {
 								alt="absoluteImg"
 								className="absolutePic"
 							/>
-							<div className="flex withPicture">
-								<p>
-									<span>4,000</span> others have completed this assessment. Fill
-                  and qualify for the Wellness reward!
-								</p>
-								<Link className="linked-btn" to="/rewards/leaderboard">
-									<Button value="View Leaderboard" theme="darkGreenBtn">
-                    View Leaderboard
-									</Button>
-								</Link>
-							</div>
+
+							{type === 'EMPLOYEE' &&
+								<div className="flex withPicture">
+									<p>
+										{/* <span>4,000</span> */} Others have completed this assessment. Fill
+										and qualify for the Wellness reward!
+									</p>
+									<Link className="linked-btn" to="/rewards/leaderboard">
+										<Button value="View Leaderboard" theme="darkGreenBtn">
+											View Leaderboard
+										</Button>
+									</Link>
+								</div>
+							}
+
+							{type === 'COMPANY' &&
+
+								<div className="flex withPicture">
+									<p>
+										<span>{companySize > 1 ? companySize : 2}</span> Others have completed this assessment. Fill
+										and qualify for the Wellness reward!
+									</p>
+
+									<Link className="linked-btn" to="/rewards/leaderboard">
+										<Button value="View Leaderboard" theme="darkGreenBtn">
+											View Leaderboard
+										</Button>
+									</Link>
+								</div>
+							}
+
 						</Paper>
-						{/* {percentageCompleted > 0 && (
-							<Grid container spacing={3} style={{ marginTop: '5.4rem' }}>
-								<Grid item xs={6}>
-									<ProgressSection percentageCompleted={percentageCompleted} />+{' '}
-								</Grid>
-                +{' '}
-							</Grid>
-						)} */}
 					</div>
 				</main>
 			</Wrapper>
@@ -224,12 +236,13 @@ const DashboardAssessment = ({ fetchHraResponse }) => {
 
 DashboardAssessment.propTypes = {
 	fetchHraResponse: PropTypes.func.isRequired,
-	percentageCompleted: PropTypes.number.isRequired,
+	companySize: PropTypes.number.isRequired,
+	type: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => {
-	const percentageCompleted = state.hra.percentageCompleted;
-	return { percentageCompleted };
+	const { companySize, type } = state.user.user;
+	return { companySize, type };
 };
 
 export default connect(mapStateToProps, { fetchHraResponse })(
