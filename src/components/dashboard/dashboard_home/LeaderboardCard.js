@@ -87,7 +87,6 @@ const mapStateToProps = state => {
 		userPosition: userPosition + 1,
 		leaderboardLength : leaderboard.length + 1
 	};
-
 };
 
 export default connect(mapStateToProps, {getCompanyLeaderBoard})(LeaderboardCard);
