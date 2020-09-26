@@ -18,7 +18,7 @@ const Wrapper = styled.div`
         font-family: Matteo;
         font-size: 1.4rem;
 line-height: 2.2rem;
-color: ${(props) => props.theme.color.ui_07};
+color: ${(props) => props.theme.color.ui_05};
 padding:0;
     }
     .MuiInput-underline:before{
