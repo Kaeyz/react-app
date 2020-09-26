@@ -14,6 +14,10 @@ const Wrapper = styled.div`
 			margin-right:1.6rem;
 		}
 	}
+	.grid{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
 	
 	.option {
 		border: 1px solid ${props => props.theme.color.brand_02};
@@ -91,7 +95,7 @@ const optionLabel = {
 };
 
 
-function SelectInput({ options, otherInput, otherLabel, name, value, onChange }) {
+function SelectInput({ options, otherInput, otherLabel, name, value, onChange, grid }) {
 	const [isSelected, setIsSelected] = React.useState('');
 
 	React.useEffect(() => {
@@ -105,7 +109,7 @@ function SelectInput({ options, otherInput, otherLabel, name, value, onChange })
 
 	return (
 		<Wrapper>
-			<div className="options">
+			<div className={`options ${ grid}`}>
 				{options && options.map((option, index) => (
 					<div key={option.id} className='options-div'>
 						{
@@ -142,6 +146,7 @@ SelectInput.defaultProps = {
 
 SelectInput.propTypes = {
 	prompt: PropTypes.string,
+	grid: PropTypes.string,
 	label: PropTypes.string,
 	value: PropTypes.string,
 	onChange: PropTypes.func,

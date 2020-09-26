@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 			letter-spacing: -0.4px;
 			display: flex;
 			align-items: center;
-			${(props) => props.theme.color.ui_05};
+			color:${(props) => props.theme.color.ui_05};
 			@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
 				font-size: 1.6rem;
 			}
