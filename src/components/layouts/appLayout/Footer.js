@@ -65,7 +65,7 @@ export default function Footer() {
 
 						<div className="footer_nav_section">
 							<h5 className="footer_nav_header">About Us</h5>
-							<Link className="footer_nav_link" to="/our_story">Our Story</Link>
+							<Link className="footer_nav_link" to="/about">Our Story</Link>
 							<Link className="footer_nav_link" to="press_kit">Press Kit</Link>
 							<Link className="footer_nav_link" to="/cookie_policy">Cookie Policy</Link>
 							<Link className="footer_nav_link" to="/terms_of_use">Terms of Use</Link>
@@ -73,16 +73,16 @@ export default function Footer() {
 
 						<div className="footer_nav_section">
 							<h5 className="footer_nav_header">Wellness</h5>
-							<Link className="footer_nav_link" to="/health">Health</Link>
-							<Link className="footer_nav_link" to="/fitness">Fitness</Link>
-							<Link className="footer_nav_link" to="/lifestyle">Lifestyle</Link>
-							<Link className="footer_nav_link" to="/nutrition">Nutrition</Link>
+							<Link className="footer_nav_link" to="/wellness/individual/health">Health</Link>
+							<Link className="footer_nav_link" to="/wellness/individual/fitness">Fitness</Link>
+							<Link className="footer_nav_link" to="/wellness/individual/lifestyle">Lifestyle</Link>
+							<Link className="footer_nav_link" to="/wellness/individual/nutrition">Nutrition</Link>
 						</div>
 
 						<div className="footer_nav_section">
 							<h5 className="footer_nav_header">Business</h5>
 							<Link className="footer_nav_link" to="/book_visit">Book a Visit</Link>
-							<Link className="footer_nav_link" to="/signup_corporate">Sign Up for a Corporate Package</Link>
+							<Link className="footer_nav_link" to="/onboarding/company">Sign Up for a Corporate Package</Link>
 							<Link className="footer_nav_link" to="/blog">Blog</Link>
 						</div>
 

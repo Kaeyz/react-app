@@ -20,7 +20,6 @@ color: ${props => props.theme.color.ui_text_05};
 		border: 1px solid ${props => props.theme.color.ui_text_06};
 		height: 4.8rem;
 	//display: grid;
-		border-radius: 8px;
     grid-template-columns: 1fr max-content;
     &:hover {
 		border: 1px solid ${props => props.theme.color.ui_text_05};

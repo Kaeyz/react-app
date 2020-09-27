@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   }
   .importance {
     width: 39rem;
-  }
+     }
   .importanceHead {
     font-weight: bold;
     font-size: 2.4rem;
@@ -41,6 +41,10 @@ const Wrapper = styled.div`
     line-height: 2.2rem;
     margin-bottom: 3.9rem;
   }
+  .centered>div{
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export default function OurDrive() {
@@ -58,7 +62,7 @@ export default function OurDrive() {
             maintaining a strict confidentiality arrangement between all
             parties.
           </p>
-          <Link to="/onboarding/individual">
+          <Link className='centered' to="/onboarding/individual">
             <Button value="Get started" theme="darkGreen">
               {" "}
               Get started
