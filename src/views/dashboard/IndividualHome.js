@@ -64,12 +64,12 @@ const DashboardHome = () => {
 					/>
 				</div>
 
-			<Link to='/rewards/leaderboard'>
-			<h1 className="heading">Leaderboard</h1>
-				<div className="grid-card">
-					<LeaderboardCard />
-				</div>
-			</Link>
+				<Link to='/rewards/leaderboard'>
+					<h1 className="heading">Leaderboard</h1>
+					<div className="grid-card">
+						<LeaderboardCard />
+					</div>
+				</Link>
 			</main>
 		</Wrapper>
 	);

@@ -8,15 +8,26 @@ import SelectInput from "../../../components/hra_input/inputs/SelectInput";
 
 const Wrapper = styled.div`
   .pd {
-    padding-bottom: 4rem;
-    button{
-      width:100% !important;
+    padding: 4rem 0;
+    button {
+      width: 100% !important;
     }
   }
 `;
+const optionMeals = [
+  { label: "Beef", id: "isSelected" },
+  { label: "Fish" },
+  { label: "Shrimp" },
+  { label: "Turkey" },
+  { label: "Pork" },
+  { label: "Chicken" },
+];
 
 class MealModal extends React.Component {
-  state = { show: false };
+  state = {
+    show: false,
+    meals: "",
+  };
 
   showModal = () => {
     this.setState({ show: true });
@@ -24,6 +35,9 @@ class MealModal extends React.Component {
 
   hideModal = () => {
     this.setState({ show: false });
+  };
+  setMeals = (e) => {
+    this.setState({ meals: e.target.value });
   };
 
   render() {
@@ -37,32 +51,20 @@ class MealModal extends React.Component {
           heading={<span> Questions on Protein</span>}
           info="A balanced diet lorem ipsum blished fact that a reader will be distracted by the readable content."
         >
-          <div className="select pd">
-            <h1 className="bold pd">
+          <div className="select">
+            <h1 className="bold">
               Select the options you’ll like to include in your meal plan?
             </h1>
+            <div className="select-input">
+              <SelectInput
+                value={this.state.meals}
+                options={optionMeals}
+                grid="grid"
+                onChange={this.state.setMeals}
+              />
+            </div>
+
             <Grid container className="select-input">
-              <Grid item xs={12} sm={6}>
-                option
-                <SelectInput label="jala" />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                option
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                option
-                <SelectInput label="jala" />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                option
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                option
-                <SelectInput label="jala" />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                option
-              </Grid>
               <Grid item xs={12} className="pd">
                 <Button theme="darkGreen" text="Complete" />
               </Grid>

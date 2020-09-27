@@ -13,7 +13,7 @@ import mealImg from '../../../assets/mealImg.svg';
 import smallImg from '../../../assets/Activity.svg';
 import Back from '../../../assets/greenBackArrow.svg';
 import GHM from '../../../assets/GHM.svg';
-import GHM2 from '../../../assets/GHM2.svg';
+
 
 const Wrapper = styled.div`
   .flex {
@@ -121,6 +121,9 @@ display:flex;
 	  }
 	  .mt{
 		margin-top:2rem;
+	  }
+	  .MuiCircularProgress-colorPrimary{
+		color: ${(props) => props.theme.color.brand_02};
 	  }
 `;
 
@@ -240,7 +243,7 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 								</Grid>
 							</Grid>
 							<p className="footer">
-                This assessment is powered by <span><img src={GHM} alt="GHM"/><img src={GHM2} alt="GHM"/></span>
+                This assessment is powered by <a href='https://healthylifehra.org/' target="_blank" rel="noopener noreferrer"><img src={GHM} alt="GHM"/></a>
 							</p>
 						</div>
 					</main>
