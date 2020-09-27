@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import SmallSpinner from './spinner/SmallSpinner';
 
 const Wrapper = styled.div`
 width: 100%;
@@ -53,7 +54,7 @@ width: 100%;
 }
 .yellowBtn {
 	background: ${props => props.theme.color.brand_03};
-	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);	
+	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
 	color: white;
 	border: 1px solid ${props => props.theme.color.text_08};
 }
@@ -64,7 +65,7 @@ width: 100%;
 }
 .whiteOrange {
 	background: ${props => props.theme.color.ui_01};
-	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);	
+	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
 	border: 1px solid ${props => props.theme.color.ui_08};
 	color:${props => props.theme.color.ui_08};
 }
@@ -106,23 +107,44 @@ width: 100%;
 `;
 
 
-function Button({style, theme, children, text, ...rest}) {
+function Button({style, theme, isLoading, children, text, ...rest}) {
 	const themeClassName = theme ? `${theme}Btn`: '';
 	return (
 		<Wrapper>
 
 			<button
-				type="button" className={`${themeClassName} ${theme} button`}
-				style={{ borderRadius: '0.5rem', fontSize: '1.2rem', fontWeight: 'bold', width: '13.3rem', fontFamily: 'Sofia', outline: 'none', cursor: 'pointer', padding: '1.1rem 0.4rem', ...style }}
+				disabled={isLoading}
+				type="button"
+				className={`${themeClassName} ${theme} button`}
+				style={{
+					borderRadius: '0.5rem',
+					fontSize: '1.2rem',
+					fontWeight: 'bold',
+					width: '13.3rem',
+					fontFamily: 'Sofia',
+					outline: 'none',
+					cursor: 'pointer',
+					padding: '1.1rem 0.4rem',
+					...style
+				}}
 				{...rest }
 			>
-				<span>{text}</span>
-				{children}
+				{isLoading ?
+					<SmallSpinner /> :
+					<React.Fragment>
+						<span>{text}</span>
+						{children}
+					</React.Fragment>
+				}
 			</button>
 		</Wrapper>
 
 	);
 }
+
+Button.defaultProps = {
+	isLoading: false,
+};
 
 Button.propTypes = {
 	style: PropTypes.object,
