@@ -1,9 +1,9 @@
 // modules
-import React from "react";
-import styled from "styled-components";
-import Bg1 from "../../assets/Hero.svg";
-import Button from "../common/Button";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import Bg1 from '../../assets/Hero.svg';
+import Button from '../common/Button';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
 	/* OurDrive styling goes here */
@@ -69,45 +69,43 @@ overflow:hidden;
 			max-width:100%;
 		}
 }
+.centered>div{
+	display: flex;
+    justify-content: center;
+}
 `;
 
 export default function OurDrive() {
-  return (
-    <Wrapper>
-      <div className="card1Content" style={{ zIndex: 2 }}>
-        <div className="impotance">
-          <h3 className="importanceHead" style={{ marginBottom: "2.04rem" }}>
-            Intersted in Keeping up with Choose Life?{" "}
-          </h3>
-          <p className="importanceText">Subscribe to our newsletter!</p>
-          <div className="subscribeInputs">
-            {/* <input
-              type="text"
-              id="firstName"
-              placeholder="First Name"
-              name="firstName"
-            /> */}
-            <input
-              type="email"
-              id="email"
-              placeholder="Email Address"
-              name="email"
-            />
-          </div>
-          <Link to="/onboarding/individual">
-            <Button value="Get started" theme="yellow">
-              {" "}
+	return (
+		<Wrapper>
+			<div className="card1Content" style={{ zIndex: 2 }}>
+				<div className="impotance">
+					<h3 className="importanceHead" style={{ marginBottom: '2.04rem' }}>
+            Intersted in Keeping up with Choose Life?{' '}
+					</h3>
+					<p className="importanceText">Subscribe to our newsletter!</p>
+					<div className="subscribeInputs">
+						<input
+							type="email"
+							id="email"
+							placeholder="Email Address"
+							name="email"
+						/>
+					</div>
+					<Link className='centered' to="/onboarding/individual">
+						<Button value="Get started" theme="yellow">
+							{' '}
               Get started
-            </Button>
-          </Link>
-        </div>
-      </div>
+						</Button>
+					</Link>
+				</div>
+			</div>
 
-      <img className="bg-flower" src={Bg1} alt="hiddenImg1" />
-    </Wrapper>
-  );
+			<img className="bg-flower" src={Bg1} alt="hiddenImg1" />
+		</Wrapper>
+	);
 }
 
 OurDrive.propTypes = {
-  //TODO: OurDrive prop types goes here
+	//TODO: OurDrive prop types goes here
 };

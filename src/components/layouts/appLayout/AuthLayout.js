@@ -91,7 +91,7 @@ export default function AuthLayout({ children, sidebar, data, centered }) {
 	const displayLogo = () => (
 		<div className="logo_section">
 			<Link to='/' className="logo_Link">
-				<img src={Frame} alt="frame" className="logo_img" />
+				<img src={Frame} alt="frame" className="logo_img" title='Go back home' />
 			</Link>
 			<div className="logo_details">
 				<div className="details_text">
@@ -129,5 +129,6 @@ AuthLayout.defaultProps = {
 AuthLayout.propTypes = {
 	children: PropTypes.any.isRequired,
 	sidebar: PropTypes.bool.isRequired,
+	centered: PropTypes.string,
 	data: PropTypes.object,
 };

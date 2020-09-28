@@ -130,7 +130,7 @@ function LoginForm({ history, loginUser }) {
 			</AuthFormLayout>
 			<div className="join-us">
 				<p>Don’t have a choose life account?</p>
-				<Link to="/onboarding/individual">
+				<Link to="/onboarding/company">
 					<p className="link"> Let’s create one now</p>{' '}
 				</Link>{' '}
 			</div>
