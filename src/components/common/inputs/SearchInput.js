@@ -14,6 +14,9 @@ const Wrapper = styled.div`
     padding: 9px 12px;
     width: 300px;
     border-radius: 8px;
+    &:focus-within{
+        border: 1px solid ${(props) => props.theme.color.brand_02};
+    }
     .MuiInputBase-input{
         font-family: Matteo;
         font-size: 1.4rem;
@@ -25,7 +28,7 @@ padding:0;
         content: none;
     }
     .MuiInput-underline:after{
-        border-bottom: 1px solid ${(props) => props.theme.color.brand_02};
+        content: none;
     }
 }
 `;

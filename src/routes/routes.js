@@ -90,7 +90,7 @@ const Routes = () => (
 			<PrivateRoute exact path="/dashboard" component={Dashboard} />
 
 			{/* company route */}
-			<PrivateRoute exact path="/employees" component={Employees} />
+			<Route exact path="/employees" component={Employees} />
 			<PrivateRoute exact path="/employees/pending" component={PendingInvites} />
 			<PrivateRoute exact path="/employees/suspended" component={Suspended} />
 
