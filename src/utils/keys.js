@@ -1,5 +1,6 @@
 const keys = {
-	server: process.env.REACT_APP_SERVER
+	server: process.env.REACT_APP_SERVER,
+	ghmServer: process.env.REACT_APP_GHM_SERVER
 };
 
 

@@ -26,7 +26,7 @@ export const sortTableData = (tableData, dataKey, callback) => {
 			const keys = Object.keys(dataKey);
 
 			keys.forEach(key => {
-				if (key === 'createdAt' || key === 'updatedAt') {
+				if (key === 'createdAt' || key === 'updatedAt' || key === 'report_ts') {
 					return data[dataKey[key]] = convertDate(data[key]);
 				}
 				return data[dataKey[key]] = data[key];
