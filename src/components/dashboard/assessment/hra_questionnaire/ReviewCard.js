@@ -166,7 +166,7 @@ function ReviewCard({ title, category, getQuestions, questions }) {
 						</div>
 
 						<div className="right-content questions">
-							{questions.q.map((question, index) => (
+							{questions.q && questions.q.map((question, index) => (
 								<HraInput
 									key={question.id}
 									id={question.id}
