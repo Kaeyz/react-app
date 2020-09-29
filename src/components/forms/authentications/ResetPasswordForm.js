@@ -70,7 +70,8 @@ function ResetPasswordForm({ resetToken, resetPassword, history }) {
 						onClick={onFormSubmit}
 						theme="darkGreen"
 					>
-Reset Password			</Button>
+						Reset Password
+					</Button>
 				</div>
 			</AuthFormLayout>
 		</Wrapper>

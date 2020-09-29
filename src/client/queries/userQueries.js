@@ -92,6 +92,7 @@ userQueries.resetPassword = (data) => {
 	});
 };
 
+
 userQueries.getCurrentUser = () => {
 	const query = `
 	query ME {

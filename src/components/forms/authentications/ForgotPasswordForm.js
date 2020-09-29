@@ -11,25 +11,25 @@ import AuthFormLayout from './AuthFormLayout';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-.submit{
+.submit	{
 	margin-top: 3rem;
-	.button{
+	.button	{
 		width: 100% !important;
-			}
-}
-	.info{
-		font-family: Sofia;
-font-size: 1.4rem;
-line-height: 2.5rem;
-color: ${props => props.theme.color.ui_13};
-padding-top: 3rem;
-span{
-	a{
-		color: ${props => props.theme.color.brand_02};
-	text-decoration: underline;
-	font-weight: bold;
+		}
 	}
-}
+	.info	{
+		font-family: Sofia;
+		font-size: 1.4rem;
+		line-height: 2.5rem;
+		color: ${props => props.theme.color.ui_13};
+		padding-top: 3rem;
+		span	{
+			a	{
+				color: ${props => props.theme.color.brand_02};
+				text-decoration: underline;
+				font-weight: bold;
+			}
+		}
 	}
 `;
 
@@ -68,7 +68,8 @@ function ForgotPasswordForm({forgotPassword, history}) {
 						onClick={onFormSubmit}
 						theme="darkGreen"
 					>
-Send Reset Link				</Button>
+						Send Reset Link
+					</Button>
 				</div>
 			</AuthFormLayout>
 			<p className="info">Remembered your password?<span> <Link to ='/login'>Sign In</Link></span>  </p>

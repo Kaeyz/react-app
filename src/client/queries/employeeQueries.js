@@ -123,6 +123,30 @@ employeeQueries.getEmployeeById = (id) => {
 	});
 };
 
+employeeQueries.searchEmployees = (searchInput) => {
+	const query = `
+	query SEARCH_EMPLOYEE($searchInput: String) {
+		searchEmployee(id: $id) {
+				_id
+				email
+				name
+				department
+				branch
+				createdAt
+		}
+	}
+	`;
+
+	const variables = {
+		searchInput
+	};
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
 employeeQueries.suspendEmployee = (id) => {
 	const query = `
 	mutation SUSPEND_EMPLOYEE_BY_ID($id: String!) {

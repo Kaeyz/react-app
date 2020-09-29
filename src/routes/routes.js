@@ -79,7 +79,7 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} exact path="/onboarding/mail_confirmed" component={MailConfirmation} />
 			<PrivateRoute isAuth={false} exact path="/forgot_password" component={ForgotPassword} />
 			<PrivateRoute isAuth={false} exact path="/reset_link_sent" component={PasswordResetLink} />
-			<PrivateRoute isAuth={false} exact path="/reset_password" component={ResetPassword} />
+			<PrivateRoute isAuth={false} exact path="/reset/:token" component={ResetPassword} />
 			<PrivateRoute isAuth={false} exact path="/reset_success" component={PasswordResetSuccessful} />
 
 			<PrivateRoute exact path="/settings/account" component={AccountSettings} />

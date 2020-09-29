@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 
 function Mental({ getQuestions, questions }) {
 	React.useEffect(() => {
-		getQuestions('MENTAL_HEALTH ');
+		getQuestions('MENTAL_HEALTH');
 	}, [getQuestions]);
 
 	return (
