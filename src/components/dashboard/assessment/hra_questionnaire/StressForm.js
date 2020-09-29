@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { saveQuestions } from '../../../../store/actions/hraActions';
 import HraInput from '../../../hra_input';
-import PropTypes from 'prop-types';
 import Button from '../../../common/Button';
+
 
 const Wrapper = styled.div`
 	margin-top: -1rem;
@@ -21,7 +22,7 @@ const Wrapper = styled.div`
 		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
 			grid-template-columns: 1fr;
 		}
-	  .button{
+	  .button	{
 			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
 				width:100% !important;
   		}
@@ -29,10 +30,8 @@ const Wrapper = styled.div`
 	}
 `;
 
-function MentalForm({ questions, isLoading, inputs, history, saveQuestions }) {
-
-
-	const nextLink = '/assessment/health/stress';
+function StressForm({ questions, isLoading, inputs, history, saveQuestions }) {
+	const nextLink = '/assessment/health/review';
 	const onSaveClick = (event) => {
 		event.preventDefault();
 		inputs.stage = 'UPDATE_RESPONSE';
@@ -70,7 +69,7 @@ function MentalForm({ questions, isLoading, inputs, history, saveQuestions }) {
 	);
 }
 
-MentalForm.propTypes = {
+StressForm.propTypes = {
 	questions: PropTypes.array.isRequired,
 	inputs: PropTypes.array.isRequired,
 	history: PropTypes.object.isRequired,
@@ -78,9 +77,10 @@ MentalForm.propTypes = {
 	saveQuestions: PropTypes.func.isRequired,
 };
 
+
 const mapStateToProps = state => {
 	const { isLoading, inputs } = state.hra;
 	return { isLoading, inputs };
 };
 
-export default connect(mapStateToProps, {saveQuestions})(withRouter(MentalForm));
+export default connect(mapStateToProps, {saveQuestions})(withRouter(StressForm));
