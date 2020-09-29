@@ -150,8 +150,7 @@ function ReviewCard({ title, category, getQuestions, questions }) {
 						<p className="heading" >{title}</p>
 
 						<p className="sub-heading">
-							Our aim is to help you live your best lives, taking into
-							consideration.
+							{questions.prompt || ''}
 						</p>
 					</AccordionSummary>
 				)}
@@ -162,13 +161,12 @@ function ReviewCard({ title, category, getQuestions, questions }) {
 							<p className="heading">{title}</p>
 
 							<p className="sub-heading">
-								Our aim is to help you live your best lives, taking into
-								consideration.
+								{questions.prompt || ''}
 							</p>
 						</div>
 
 						<div className="right-content questions">
-							{questions.map((question, index) => (
+							{questions.q.map((question, index) => (
 								<HraInput
 									key={question.id}
 									id={question.id}
@@ -200,7 +198,7 @@ ReviewCard.propTypes = {
 
 const mapStateToProps = (state, props) => {
 	const questions = state.hra.questions[props.category];
-	return { questions: questions || [] };
+	return { questions: questions || {} };
 };
 
 export default connect(mapStateToProps, { getQuestions })(ReviewCard);
