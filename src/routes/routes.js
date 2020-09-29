@@ -33,6 +33,7 @@ import BloodPressure from '../views/dashboard/assessment/hra_questionnaire/Blood
 import Smoking from '../views/dashboard/assessment/hra_questionnaire/Smoking';
 import Travel from '../views/dashboard/assessment/hra_questionnaire/Travel';
 import Sleep from '../views/dashboard/assessment/hra_questionnaire/Sleep';
+import Stress from '../views/dashboard/assessment/hra_questionnaire/Stress';
 import Food from '../views/dashboard/assessment/hra_questionnaire/Food';
 import Mental from '../views/dashboard/assessment/hra_questionnaire/Mental';
 import Gender from '../views/dashboard/assessment/hra_questionnaire/Gender';
@@ -119,6 +120,7 @@ const Routes = () => (
 			<PrivateRoute exact path="/assessment/health/mental" component={Mental} />
 			<PrivateRoute exact path="/assessment/health/activity" component={Activity} />
 			<PrivateRoute exact path="/assessment/health/gender" component={Gender} />
+			<PrivateRoute exact path="/assessment/health/stress" component={Stress} />
 			<PrivateRoute exact path="/assessment/health/review" component={HealthReview} />
 
 			<PrivateRoute exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
