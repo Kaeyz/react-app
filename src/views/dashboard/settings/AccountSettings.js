@@ -70,7 +70,7 @@ const AccountSettings = ({ user, updateUser }) => {
 			<Wrapper>
 				<div className="settings-body-main">
 					<h1 className='text'>General Information</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+					<p>This section contains general informaton about yourself.</p>
 				</div>
 				<form noValidate autoComplete="off">
 					<Grid container spacing={3}>

@@ -45,7 +45,7 @@ const PasswordSettings = ({updateUserPassword}) => {
 			<Wrapper>
 				<div className="settings-body-main">
 					<h1 className="text">Password</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+					<p>Your password information is private, keep it safe.</p>
 				</div>
 				<form noValidate autoComplete="off">
 					<Grid container spacing={3}>

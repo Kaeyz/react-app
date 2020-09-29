@@ -44,6 +44,7 @@ const DashboardHome = () => {
 						backgroundColor="orange"
 						where={'/assessment/health'}
 						image={pinkFlower}
+						details='Take a health risk asssesment, understand the risks to yourself and how your lifestyle can be improved.'
 					/>
 
 					<PreliminaryCard
@@ -52,6 +53,7 @@ const DashboardHome = () => {
 						image={greenFlower}
 						btnTheme="purpleBtn"
 						backgroundColor="green"
+						details="An Inbody check will help you understand your body's composition which in invaluable for self improvement."
 					/>
 
 					<PreliminaryCard
@@ -61,6 +63,7 @@ const DashboardHome = () => {
 						where={'/meals'}
 						btnTheme="yellowBtn"
 						backgroundColor="yellow"
+						details="Explore fitness routines to keep your body in shape or create a meal plan to keep you eating healthy."
 					/>
 				</div>
 

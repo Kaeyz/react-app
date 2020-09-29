@@ -78,7 +78,7 @@ const SetEmployeeLimitModal = ({ setEmployeeLimit, companyId }) => {
 				show={show}
 				handleClose={hideModal}
 				heading={<span> Set Employee limit</span>}
-				info='Id et elementum arcu convallis ornare cursus nisl cursus. Vulputate adipiscing iaculis orci placerat ac..'
+				info='Set the limit on the number of employees for this company'
 			>
 				<Grid item xs={12}>
 					<NumberInput

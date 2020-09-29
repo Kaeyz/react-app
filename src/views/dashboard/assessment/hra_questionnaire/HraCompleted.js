@@ -70,7 +70,7 @@ function HraCompleted() {
 		<Wrapper>
 			<h1 className="heading">Health Questionnaire Completed</h1>
 			<p className="detail">
-        Congratulations! You’ve got 100 points inthis section.
+        Congratulations! You’ve got 100 points in this section.
 			</p>
 			<p className="detail">
         You’re currently 210 on the{' '}

@@ -49,7 +49,7 @@ const SuspendCompanyModal = ({suspendCompany, companyId}) => {
 				handleClose={hideModal}
 				textBtn="Confirm Suspension"
 				btn2={<Button theme="whiteBtn" text="Cancel " />}
-				info='Are you sure you want to  suspend this company?'
+				info='Are you sure you want to suspend this company?'
 				heading={<span> Suspend Company?</span>}
 			>
 				<Grid container className='withBtn'>

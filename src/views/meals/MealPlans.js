@@ -6,8 +6,8 @@ import MealLayout from '../../components/layouts/dashboardLayout/MealLayout';
 import Table from '../../components/dashboard/common/Table';
 import { data } from '../../components/dashboard/meals/mockMealData';
 import { tableConstants } from '../../components/dashboard/meals/tableConstant';
-import left from '../../assets/btn_ChevronLeft.svg'
-import right from '../../assets/btn_ChevronRight.svg'
+import left from '../../assets/btn_ChevronLeft.svg';
+import right from '../../assets/btn_ChevronRight.svg';
 const Wrapper = styled(Paper)`
 .withNull{
     display: grid;
@@ -47,25 +47,25 @@ letter-spacing: 0.1px;
 color: ${props => props.theme.color.text_05};
     }
 }
-`
+`;
 function MealPlans() {
-    return (
-        <Wrapper>
-                 <MealLayout nullText="Your Meal Plans">
-                 <Table cols={tableConstants()} data={data} />
-                 <div className="pagination-ctrl flex">
-                     <img src={left} alt="left"/>
-                     <span>Week 4</span>
-                     <img src={right} alt="right"/>
-                 </div>
-                 </MealLayout>
-        </Wrapper>
-    )
+	return (
+		<Wrapper>
+			<MealLayout nullText="Your Meal Plans">
+				<Table cols={tableConstants()} data={data} />
+				<div className="pagination-ctrl flex">
+					<img src={left} alt="left"/>
+					<span>Week 4</span>
+					<img src={right} alt="right"/>
+				</div>
+			</MealLayout>
+		</Wrapper>
+	);
 }
 
 MealPlans.propTypes = {
 
-}
+};
 
 export default MealPlans;
 

@@ -61,7 +61,7 @@ function index({children,nullText }) {
 		<Wrapper>
 			<DashboardLayout whatPage="Meals">
 				<p className="heading">Meals</p>
-				<WelcomeBanner emoji='🍲' heading='Meal Plans' />
+				<WelcomeBanner emoji='🍲' heading='Meal Plans' detail='A balanced diet is essential to a healthy life and meal planning is the easiest way to ensure you eat healthy.'/>
 				<div className="withNull">
 					<h1>{nullText}</h1>
 					<div className="null" />

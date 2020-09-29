@@ -88,9 +88,8 @@ margin-top: 14rem;
 @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
     font-size: 1.3rem;
 		}
-    span {
+    img {
 margin-left: 1rem;
-display:flex;
     }
   }
   .darkP {
