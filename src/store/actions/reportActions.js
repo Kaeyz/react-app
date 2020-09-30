@@ -44,6 +44,9 @@ export const getAdminReports = () => dispatch => {
 				dispatch(setReports(res.data.fetchAdminReport.adminReportData));
 				dispatch(reportNotLoading());
 			}
+			if (res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+			}
 		})
 		.catch(() => {
 			dispatch(errorAlert({ msg: 'Network Error!!' }));
@@ -58,6 +61,9 @@ export const getCompanyReports = () => dispatch => {
 			if (res.data.fetchCompanyReport.adminReportData  !== null) {
 				dispatch(setReports(res.data.fetchCompanyReport.adminReportData));
 				dispatch(reportNotLoading());
+			}
+			if (res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
 			}
 		})
 		.catch(() => {

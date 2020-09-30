@@ -69,7 +69,7 @@ const key = {
 
 const mapStateToProps = state => {
 	const { employees, isLoading } = state.employee;
-	const data = sortTableData(employees, key);
+	const data = sortTableData(employees || [], key);
 	return { employees: data, isLoading };
 };
 
