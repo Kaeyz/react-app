@@ -36,6 +36,41 @@ export const getReports = () => dispatch => {
 		});
 };
 
+export const getAdminReports = () => dispatch => {
+	dispatch(reportIsLoading());
+	reportQueries.getAdminReports()
+		.then(res => {
+			if (res.data.fetchAdminReport.adminReportData !== null) {
+				dispatch(setReports(res.data.fetchAdminReport.adminReportData));
+				dispatch(reportNotLoading());
+			}
+			if (res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Network Error!!' }));
+			dispatch(reportNotLoading());
+		});
+};
+
+export const getCompanyReports = () => dispatch => {
+	dispatch(reportIsLoading());
+	reportQueries.getCompanyReports()
+		.then(res => {
+			if (res.data.fetchCompanyReport.adminReportData  !== null) {
+				dispatch(setReports(res.data.fetchCompanyReport.adminReportData));
+				dispatch(reportNotLoading());
+			}
+			if (res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Network Error!!' }));
+			dispatch(reportNotLoading());
+		});
+};
 
 const clearReport = () => {
 	return {

@@ -74,7 +74,7 @@ function CompanyRewards({ isLoading, getClosedRewards, getRewards, openReward, c
 				<WelcomeCard
 					emoji="Reward"
 					heading="🎉"
-					detail="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+					detail="See how well you compare to your colleagues. Complete activities to gain more points. Top the leaderboard and possibly qualify for rewards from your company."
 				/>
 				<div className="rewards">
 					<p className="sub-heading">Running Rewards</p>

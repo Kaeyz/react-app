@@ -107,7 +107,6 @@ function HealthReport({ getReport, reportData, downloadReportPdf, isLoading, mat
 								/>
 							</div>
 					}
-					
 					<ReportPaper
 						cardHeading="Disclaimer!!!"
 						cardBody={'Many serious injuries and health problems can be prevented but remember that a Health Risk Assessment DOES NOT take the place of a doctor or checkup and DOES NOT tell you if you have a medical problem. A Health Risk Assessment points out your highest health risks and gives you some ideas on how you might lower your risks to help guide you to better health.'}
