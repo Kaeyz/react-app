@@ -26,7 +26,7 @@ const Leaderboard = ({ isLoading, leaderboard, getCompanyLeaderBoard }) => {
 				<WelcomeCard
 					emoji="🎉"
 					heading="Leaderboard "
-					detail="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+					detail="See how well you compare to your colleagues. Complete activities to gain more points. Top the leaderboard and possibly qualify for rewards from your company."
 				/>
 				{
 					isLoading ?
