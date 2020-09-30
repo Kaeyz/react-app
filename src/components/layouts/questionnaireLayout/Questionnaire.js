@@ -201,6 +201,11 @@ const QuestionnaireLayout = ({
 	);
 };
 
+	
+QuestionnaireLayout.defaultProps = {
+	detail:'All questions are aimed at helping you live your best life, taking into consideration your wellbeing.',
+};
+
 QuestionnaireLayout.propTypes = {
 	alt: PropTypes.string,
 	alt2: PropTypes.string,

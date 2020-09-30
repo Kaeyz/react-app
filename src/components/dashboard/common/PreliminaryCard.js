@@ -20,15 +20,16 @@ const Wrapper = styled.div`
   }
   .paper {
     flex-direction: column;
-    padding: 3rem;
     align-items: start;
     height: 320px;
     position: relative;
-    justify-content: flex-end;
-    overflow: hidden;
+    padding: 3rem;
+    padding-top: 10rem;
+        overflow: hidden;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       height: auto;
       display: block;
+      padding: 3rem;
     }
     img {
       right: 24px;
@@ -60,15 +61,15 @@ const PreliminaryCard = ({
 	where,
 	btnTheme,
 	btnValue,
-	image,
+  image,
+  details
 }) => {
 	return (
 		<Wrapper>
-			<Paper className={`paper flex ${backgroundColor}`}>
+			<Paper className={`paper ${backgroundColor}`}>
 				<h1 className={`${fontSize}`}>{cardInfo}</h1>
 				<p>
-          Empowering you with the knowledge and opportunity to live the best
-          life possible.
+         {details}
 				</p>
 				<Link to={where || '/'}>
 					<Button theme={btnTheme}>{btnValue}</Button>
@@ -88,6 +89,7 @@ PreliminaryCard.propTypes = {
 	btnTheme: PropTypes.any,
 	btnValue: PropTypes.string,
 	backgroundColor: PropTypes.string.isRequired,
+	details: PropTypes.string.isRequired,
 };
 
 export default PreliminaryCard;

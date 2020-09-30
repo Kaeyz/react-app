@@ -113,6 +113,8 @@ class CreateAppointmentModal extends React.Component {
           handleClose={this.hideModal}
           position="modal-right"
           heading={<span> Create Appointment</span>}
+          info='Create an Inbody or a meal planning 
+          appointment.'
         >
           <Grid container spacing={3} className="appoint-body">
             <Grid item xs={12}>

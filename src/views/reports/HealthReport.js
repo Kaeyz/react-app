@@ -90,26 +90,26 @@ function HealthReport({ getReport, reportData, downloadReportPdf, isLoading, mat
 								<AnalysisCard
 									cardTheme="blue"
 									cardHeading="Your Target Age"
-									cardInfo="Your target age is what you want  your risk age to be if  you made changes to your lifestyle."
+									cardInfo="Your target age is what you ideally want your risk age to be, achievable if you made changes to your lifestyle."
 									cardValue={Number(reportData.target_age).toFixed(2)}
 								/>
 								<AnalysisCard
 									cardTheme="pink"
 									cardHeading="Your Risk Age"
-									cardInfo="Your risk age compares  you to other people , your age and sex for all causes of death"
+									cardInfo="Your risk age compares you to other people your age and sex and estimates the age you are operating at based on your lifestyle choices."
 									cardValue={Number(reportData.risk_age).toFixed(2)}
 								/>
 								<AnalysisCard
 									cardTheme="green"
 									cardHeading="Current Age"
-									cardInfo="Lorem Ipsum has been the industry's stan is the dard dummy text."
+									cardInfo="This is your real or current age as entered on the platform"
 									cardValue={reportData.actual_age}
 								/>
 							</div>
 					}
 					<ReportPaper
 						cardHeading="Disclaimer!!!"
-						cardBody={'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit'}
+						cardBody={'Many serious injuries and health problems can be prevented but remember that a Health Risk Assessment DOES NOT take the place of a doctor or checkup and DOES NOT tell you if you have a medical problem. A Health Risk Assessment points out your highest health risks and gives you some ideas on how you might lower your risks to help guide you to better health.'}
 					/>
 
 				</QuestionnaireLayout>

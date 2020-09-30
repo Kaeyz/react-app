@@ -49,7 +49,7 @@ class MealModal extends React.Component {
           show={this.state.show}
           handleClose={this.hideModal}
           heading={<span> Questions on Protein</span>}
-          info="A balanced diet lorem ipsum blished fact that a reader will be distracted by the readable content."
+          info="Plan your meals and ensure you eat healthy with a balanced diet."
         >
           <div className="select">
             <h1 className="bold">

@@ -33,7 +33,6 @@ import BloodPressure from '../views/dashboard/assessment/hra_questionnaire/Blood
 import Smoking from '../views/dashboard/assessment/hra_questionnaire/Smoking';
 import Travel from '../views/dashboard/assessment/hra_questionnaire/Travel';
 import Sleep from '../views/dashboard/assessment/hra_questionnaire/Sleep';
-import Stress from '../views/dashboard/assessment/hra_questionnaire/Stress';
 import Food from '../views/dashboard/assessment/hra_questionnaire/Food';
 import Mental from '../views/dashboard/assessment/hra_questionnaire/Mental';
 import Gender from '../views/dashboard/assessment/hra_questionnaire/Gender';
@@ -82,7 +81,7 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} exact path="/onboarding/mail_confirmed" component={MailConfirmation} />
 			<PrivateRoute isAuth={false} exact path="/forgot_password" component={ForgotPassword} />
 			<PrivateRoute isAuth={false} exact path="/reset_link_sent" component={PasswordResetLink} />
-			<PrivateRoute isAuth={false} exact path="/reset/:token" component={ResetPassword} />
+			<PrivateRoute isAuth={false} exact path="/reset_password" component={ResetPassword} />
 			<PrivateRoute isAuth={false} exact path="/reset_success" component={PasswordResetSuccessful} />
 
 			<PrivateRoute exact path="/settings/account" component={AccountSettings} />
@@ -107,6 +106,7 @@ const Routes = () => (
 
 
 			{/* assessment route */}
+
 			<PrivateRoute exact path="/assessment" isActivated={true} component={DashboardAssessment} />
 			<PrivateRoute exact path="/assessment/health" isActivated={true} component={HealthRiskAssessment}/>
 			<PrivateRoute exact path="/assessment/health/start" isActivated={true} component={General} />
@@ -125,7 +125,7 @@ const Routes = () => (
 			<PrivateRoute exact path="/assessment/health/review" isActivated={true} component={HealthReview} />
 
 			<PrivateRoute exact path="/assessment/health/questionnaire_completed" isActivated={true} component={HraCompleted} />
-
+  
 			{/* Report route */}
 			<PrivateRoute exact path="/reports" isActivated={true} component={Reports} />
 			<PrivateRoute exact path="/reports/:reportId" isActivated={true} component={HealthReport} />

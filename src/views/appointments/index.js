@@ -105,7 +105,7 @@ function CreateAppointment(props) {
 				Appointments"
 				/>
 				<div className="sub-heading">
-					<h1 className="text h-text">Appointment Lorem ipsum</h1>
+					<h1 className="text h-text">Appointments</h1>
 					<div className="null" />
 				</div>
 				<p className="text p-text">

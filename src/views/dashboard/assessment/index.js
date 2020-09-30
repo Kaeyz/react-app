@@ -16,24 +16,24 @@ import yellowFlower from '../../../assets/yellowFlower.svg';
 import greenFlower from '../../../assets/greenFlower.svg';
 
 const Wrapper = styled.div`
-	padding-top: 3rem;
-   .heading {
-			.paper {
-				padding: 3.3rem 3rem;
-			}
-			h1 {
-				font-weight: bold;
-				font-size: 2.4rem;
-				line-height: 2.4rem;
-				margin-bottom: 2rem;
-				letter-spacing: -0.2px;
-				color: ${props => props.theme.color.ui_05};
-			}
-			p {
-				font-size: 1.6rem;
-				line-height: 2.5rem;
-				letter-spacing: 0.2px;
-			}
+  padding-top: 3rem;
+  .heading {
+    .paper {
+      padding: 3.3rem 3rem;
+    }
+    h1 {
+      font-weight: bold;
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+      margin-bottom: 2rem;
+      letter-spacing: -0.2px;
+      color: ${(props) => props.theme.color.ui_05};
+    }
+    p {
+      font-size: 1.6rem;
+      line-height: 2.5rem;
+      letter-spacing: 0.2px;
+    }
   }
   .sub-heading {
     margin: 7.7rem 0 3.9rem;
@@ -44,73 +44,74 @@ const Wrapper = styled.div`
       letter-spacing: -0.2px;
       font-weight: normal;
       margin-left: 2rem;
-		  color: ${props => props.theme.color.ui_06};
-		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
-				font-size: 1.6rem;
-				line-height: 2.5rem;
-			}
+      color: ${(props) => props.theme.color.ui_06};
+      @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+      }
     }
   }
   .withAbsImg {
     position: relative;
-		padding: 0 3rem;
-		margin-top: 9rem;
-		margin-bottom: 6rem;
+    padding: 0 3rem;
+    margin-top: 9rem;
+    margin-bottom: 6rem;
     height: 240px;
-    border: 1px solid ${props => props.theme.color.text_09};
+    border: 1px solid ${(props) => props.theme.color.text_09};
     box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
-		border-radius: 10px;
-		justify-content: flex-end;
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
-			justify-content: start;
-			padding: 2rem;
-			margin-top: 4rem;
-		}
-
-		.withPicture {
-			width: 516px;
-			max-width: 60%;
-			justify-content: space-between;
-			@media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
-				flex-direction: column;
-				align-items: start;
-				height: 100%;
-				justify-content: center;					}
-		}
-    img {
-		width: 300px;
-		height: 240px;
-		bottom: 54px;
-		left: 30px;
-		max-width: 35%;
-	  position: absolute;
-	  @media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
-			left: unset;
-			right: -13px;
-			width: 300px;
-			height: 200px;
-			max-width: 43%;
-			bottom: 23px;
-		}
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			right: -8px;
-			bottom: 0;
-		 }
+    border-radius: 10px;
+    justify-content: flex-end;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      justify-content: start;
+      padding: 2rem;
+      margin-top: 4rem;
     }
 
-     p {
+    .withPicture {
+      width: 516px;
+      max-width: 60%;
+      justify-content: space-between;
+      @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+        flex-direction: column;
+        align-items: start;
+        height: 100%;
+        justify-content: center;
+      }
+    }
+    img {
+      width: 300px;
+      height: 240px;
+      bottom: 54px;
+      left: 30px;
+      max-width: 35%;
+      position: absolute;
+      @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+        left: unset;
+        right: -13px;
+        width: 300px;
+        height: 200px;
+        max-width: 43%;
+        bottom: 23px;
+      }
+      @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+        right: -8px;
+        bottom: 0;
+      }
+    }
+
+    p {
       font-size: 2rem;
       line-height: 3.5rem;
       letter-spacing: 0.2px;
-      color: ${props => props.theme.color.ui_05};
-		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.md}) {
-				font-size: 1.4rem;
-				line-height: 2.5rem;
-				max-width: 100%;
-				margin-bottom: 2.6rem;
-			}
-	 	  span {
-        color: ${props => props.theme.color.brand_02};
+      color: ${(props) => props.theme.color.ui_05};
+      @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+        font-size: 1.4rem;
+        line-height: 2.5rem;
+        max-width: 100%;
+        margin-bottom: 2.6rem;
+      }
+      span {
+        color: ${(props) => props.theme.color.brand_02};
         font-weight: bold;
       }
     }
@@ -141,16 +142,13 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
                 More and more people are struggling with obstacles that keep
                 them from eating better, moving around more and making healthy
                 lifestyle choices. We find both younger and older people coming
-                down with serious non communicable diseases like Hypertension,
-                Diabetes, Obesity and Cancer due to personal and workplace
-                related reasons.
+                down with serious non communicable diseases due to personal and
+                workplace related reasons. They are also unable to adopt the
+                healthy lifestyle needed to fend off preventable diseases..
 							</p>
 							<br />
 							<p>
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin literature from
-                45 BC, making it over 2000 years old. Richard McClintock, a
-                Latin professor at Hampden-Sydney College in Virginia
+							Choose life provides you with assessments to help you understand your body, identify potential risks as well as make better decisions on your Health, Fitness, Lifestyle and Nutrition.
 							</p>
 						</Paper>
 					</div>
@@ -169,6 +167,7 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 								backgroundColor="orange"
 								where={'/assessment/health'}
 								image={pinkFlower}
+								details="Take a health risk asssesment, understand the risks to yourself and how your lifestyle can be improved."
 							/>
 
 							<PreliminaryCard
@@ -177,6 +176,7 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 								image={greenFlower}
 								btnTheme="purpleBtn"
 								backgroundColor="green"
+								details="An Inbody check will help you understand your body's composition which in invaluable for self improvement."
 							/>
 
 							<PreliminaryCard
@@ -186,6 +186,7 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 								where={'/meals'}
 								btnTheme="yellowBtn"
 								backgroundColor="yellow"
+								details="Explore fitness routines to keep your body in shape or create a meal plan to keep you eating healthy."
 							/>
 						</div>
 
@@ -196,36 +197,34 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 								className="absolutePic"
 							/>
 
-							{type === 'EMPLOYEE' &&
+							{type === 'EMPLOYEE' && (
 								<div className="flex withPicture">
 									<p>
-										Others have completed this assessment. Fill
-										and qualify for the Wellness reward!
+                    Others have completed this assessment. Fill and get ahead of your colleagues!
 									</p>
 									<Link className="linked-btn" to="/rewards/leaderboard">
 										<Button value="View Leaderboard" theme="darkGreenBtn">
-											View Leaderboard
+                      View Leaderboard
 										</Button>
 									</Link>
 								</div>
-							}
+							)}
 
-							{type === 'COMPANY' &&
-
+							{type === 'COMPANY' && (
 								<div className="flex withPicture">
 									<p>
-										<span>{companySize > 1 ? companySize : 2}</span> Others have completed this assessment. Fill
-										and qualify for the Wellness reward!
+										<span>{companySize > 1 ? companySize : 2}</span> Others have
+                    completed this assessment. Fill and qualify for the Wellness
+                    reward!
 									</p>
 
 									<Link className="linked-btn" to="/rewards/leaderboard">
 										<Button value="View Leaderboard" theme="darkGreenBtn">
-											View Leaderboard
+                      View Leaderboard
 										</Button>
 									</Link>
 								</div>
-							}
-
+							)}
 						</Paper>
 					</div>
 				</main>
@@ -248,6 +247,3 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, { fetchHraResponse })(
 	DashboardAssessment
 );
-
-
-

@@ -60,7 +60,7 @@ function LeaderboardCard({getCompanyLeaderBoard, isLoading, 	userPosition, leade
 									{userPosition || 1}<span>/ {leaderboardLength || 1}</span>
 								</p>
 								<p className="position">
-							It is a long established fact that a reader
+								See how well you compare to your colleagues on the leaderboard.
 								</p>
 							</React.Fragment>
 					}
