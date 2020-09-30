@@ -104,7 +104,7 @@ function CompanyRewards({ getClosedRewards, getRewards }) {
 				<WelcomeCard
 					emoji="Reward"
 					heading="🎉"
-					detail="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+					detail="See how well you compare to your colleagues. Complete activities to gain more points. Top the leaderboard and possibly qualify for rewards from your company."
 				/>
 				<p className="info mt">
           Get rewards from your company by engaging activities on Choose Life.
