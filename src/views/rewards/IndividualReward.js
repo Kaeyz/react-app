@@ -104,13 +104,13 @@ function CompanyRewards({ getClosedRewards, getRewards }) {
 				<WelcomeCard
 					emoji="Reward"
 					heading="🎉"
-					detail="See how well you compare to your colleagues. Complete activities to gain more points. Top the leaderboard and possibly qualify for rewards from your company."
+					detail="Earn set employee rewards from your company when you top the leaderboard at the close of a period."
 				/>
 				<p className="info mt">
           Get rewards from your company by engaging activities on Choose Life.
           You get rewards everytime you finish a HRA and other activities
 				</p>
-				<p className="sub-heading cap ">RUNNING REWARDS</p>
+				<p className="sub-heading cap ">Running Rewards</p>
 				<Grid container>
 					<Grid item xs={9}>
 						<Paper className="paperCard">

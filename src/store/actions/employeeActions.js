@@ -45,7 +45,6 @@ export const addNewEmployee = (input) => dispatch => {
 		});
 };
 
-
 /**
  * Gets registered employees
  */

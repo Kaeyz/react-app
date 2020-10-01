@@ -11,6 +11,7 @@ import { tableConstants4 } from '../../components/dashboard/employees/tableConst
 import { Link } from 'react-router-dom';
 import NewEmployeeModal from '../../components/dashboard/employees/NewEmployeeModal';
 import { getActiveEmployees, searchEmployees } from '../../store/actions/employeeActions';
+import BatchUploadModal from '../../components/dashboard/employees/BatchUploadModal';
 import { sortTableData } from '../../utils/helper';
 
 const Wrapper = styled.div``;
@@ -28,8 +29,11 @@ const Employees = ({ getActiveEmployees, employees, isLoading, searchEmployees }
 					searchPlaceholder="Search Employees ..."
 					onSearchSubmit={searchEmployees}
 					text="Employees"
+					wrap="wrap"
 					buttons={
 						<React.Fragment>
+							<BatchUploadModal />
+
 							<Link to="/employees/suspended">
 								<Button theme="whiteBtn blackText" text="Suspended Employees" />
 							</Link>

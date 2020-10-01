@@ -1,5 +1,6 @@
 import React from 'react';
 import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
+import BodyMassCard from '../../components/dashboard/dashboard_home/BodyMassCard';
 import PreliminaryCard from '../../components/dashboard/common/PreliminaryCard';
 import pinkFlower from '../../assets/pinkFlower.svg';
 import yellowFlower from '../../assets/yellowFlower.svg';
@@ -35,6 +36,8 @@ const DashboardHome = () => {
 			<main className="content">
 				<h1 className="heading">Dashboard</h1>
 				<WelcomeBanner />
+				<h1 className="heading">Dashboard</h1>
+				<BodyMassCard/>
 				<h1 className="heading">Quick Assessment</h1>
 				<div className="grid-card">
 					<PreliminaryCard
