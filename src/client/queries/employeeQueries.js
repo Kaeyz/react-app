@@ -24,6 +24,7 @@ employeeQueries.addNewEmployee = (input) => {
 	});
 };
 
+
 employeeQueries.getActiveEmployees = () => {
 	const query = `
 	query FETCH_EMPLOYEES_OF_COMPANY ($by: FetchEmployeesOfACompanyEnum) {
@@ -126,7 +127,7 @@ employeeQueries.getEmployeeById = (id) => {
 employeeQueries.searchEmployees = (searchInput) => {
 	const query = `
 	query SEARCH_EMPLOYEE($searchInput: String) {
-		searchEmployee(id: $id) {
+		searchEmployee(searchInput: $searchInput) {
 				_id
 				email
 				name

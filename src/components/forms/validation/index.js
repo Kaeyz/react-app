@@ -5,5 +5,6 @@ module.exports = Object.freeze({
 	loginValidator: require('./login'),
 	forgotPasswordValidator: require('./forgotPassword'),
 	resetPasswordValidator: require('./resetPassword'),
-	rewardInputValidator: require('./newReward')
+	rewardInputValidator: require('./newReward'),
+	createAppointmentValidator: require('./createAppointment')
 });

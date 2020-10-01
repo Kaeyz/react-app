@@ -8,6 +8,7 @@ import reportReducer from './reportReducer';
 import companyReducer from './companyReducer';
 import employeeReducer from './employeeReducer';
 import rewardReducer from './rewardReducer';
+import appointmentReducer from './appointmentReducer';
 
 const rootReducer = combineReducers({
 	app: appReducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
 	company: companyReducer,
 	employee: employeeReducer,
 	reward: rewardReducer,
+	appointment: appointmentReducer,
 });
 
 export default rootReducer;

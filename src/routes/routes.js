@@ -141,7 +141,7 @@ const Routes = () => (
 			<Route exact path="/meals/meal_plans" component={MealPlans} />
 
 			{/* appointments */}
-			<Route exact path="/appointments" component={Appointments} />
+			<PrivateRoute exact path="/appointments" isActivated={true} component={Appointments} />
 
 			{/* reward */}
 			<Route exact path="/rewards/individual_reward" component={IndividualReward} />

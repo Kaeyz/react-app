@@ -1,176 +1,236 @@
-import React from "react";
-// import PropTypes from 'prop-types'
-import styled from "styled-components";
-import Modal from "../../dashboard/common/Modal";
-import Button from "../../../components/common/Button";
-import { Paper, Grid } from "@material-ui/core";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Modal from '../../dashboard/common/Modal';
+import Button from '../../../components/common/Button';
+import { Paper, Grid } from '@material-ui/core';
 import {
-  TextInput,
-  DateInput,
-  TextArea,
-  SelectInput,
-  TimeInput
-} from "../../../components/common/inputs";
+	TextInput,
+	DateInput,
+	TextArea,
+	SelectInput,
+	TimeInput
+} from '../../../components/common/inputs';
 import icon from '../../../assets/money.svg';
+import { addNewAppointment } from '../../../store/actions/appointmentActions';
+import { createAppointmentValidator } from '../../forms/validation';
+import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
-  .appoint-body {
-    margin-top: -5.5rem;
-  }
-}
-  }
-
-  .bottom {
-    .button {
-      width: 100% !important;
-    }
-    #mb {
-      padding: 3rem 0;
-    }
-  }
-  #trigger{
-    height: 100%;
-    &:hover{
-      transform: scale(.95);
-      transition: .3s;
-    }
-  }
+	.appoint-body {
+		margin-top: -5.5rem;
+	}
+	.bottom {
+		.button {
+			width: 100% !important;
+		}
+		#mb {
+			padding: 3rem 0;
+		}
+	}
+	#trigger{
+		height: 100%;
+		&:hover{
+			transform: scale(.95);
+			transition: .3s;
+		}
+	}
 .uglyCard{
-    padding: 3rem;
-    border-radius: 8px;
-    box-shadow: none;
-    min-height: 170px;
-    cursor: pointer;
-    height: 100%;
+		padding: 3rem;
+		border-radius: 8px;
+		box-shadow: none;
+		min-height: 170px;
+		cursor: pointer;
+		height: 100%;
 }
 .pink{
-    background-color:#fff1ed;
-    border: 1px solid #F37920;
+		background-color:#fff1ed;
+		border: 1px solid #F37920;
 }
 .green{
-    background-color:#f3f6eb;
-    border: 1px solid #9ECD43;
+		background-color:#f3f6eb;
+		border: 1px solid #9ECD43;
 }
 .text{
-    h1{
-        font-family: Sofia;
-font-weight: bold;
-font-size: 16px;
-line-height: 24px;
-padding-bottom: 1rem;
-letter-spacing: -0.2px;
-color: #000B0A;
-    }
-    p{
-        font-weight: 300;
-font-size: 14px;
-line-height: 25px;
-letter-spacing: 0.2px;
-color: #0A2523;
-    }
-}
+		h1{
+			font-family: Sofia;
+			font-weight: bold;
+			font-size: 16px;
+			line-height: 24px;
+			padding-bottom: 1rem;
+			letter-spacing: -0.2px;
+			color: #000B0A;
+		}
+		p {
+			font-weight: 300;
+			font-size: 14px;
+			line-height: 25px;
+			letter-spacing: 0.2px;
+			color: #0A2523;
+		}
+	}
 `;
 
-class CreateAppointmentModal extends React.Component {
-  state = {
-    show: false,
-    showButton: false,
-    Purpose: "Select Purpose",
-    date: new Date('07/08/2020'),
-  };
+const optionNutritionist = [
+	{ value: '', text: 'Select a Nutritionist' },
+	{ value: 'JOHN', text: 'John' },
+	{ value: 'ADE', text: 'Ade' },
+	{ value: 'TOMI', text: 'Tomi' },
+	{ value: 'FELIX', text: 'Felix' },
+	{ value: 'IBRAHIM', text: 'Ibrahim' },
+];
 
-  showModal = () => {
-    this.setState({ show: true });
-  };
+const purposeOptions = {
+	INBODY: [
+		{ value: 'Select Purpose', text: 'Select Purpose' },
+		{ value: 'INBODY', text: 'Inbody Appointment' },
+	],
+	PROFESSIONAL: [
+		{ value: 'Select Purpose', text: 'Select Purpose' },
+		{ value: 'PROFESSIONAL', text: 'Meal Appointment' },
+	],
+};
 
-  hideModal = () => {
-    this.setState({ show: false });
-  };
+const CreateAppointmentModal = ({type, title, cardTheme, details, addNewAppointment  }) => {
 
-  setNutritionist = (e) => {
-    this.setState({
-      Nutritionist: e.target.value,
-    });
-  };
- 
-  setPurpose = (e) => {
-    this.setState({
-      Purpose: e.target.value,
-    });
-  };
+	const [show, setShow] = useState(false);
 
-  render() {
-    
-   
-   
+	const [formTitle, setTitle] = useState('');
+	const [purpose, setPurpose] = useState(type);
+	const [date, setDate] = useState(new Date());
+	const [professional, setProfessional] = useState('');
+	const [time, setTime] = useState(new Date());
+	const [description, setDescription] = useState('');
+	const [errors, setErrors] = useState({});
 
-    return (
-      <Wrapper>
-        {/* <Modal show={this.state.show} handleClose={this.hideModal} textBtn='Complete' heading={<><img src={close} alt="adornment" id='adorn'/> <span> Questions on Protein</span></>} info='A balanced diet lorem ipsum blished fact that a reader will be distracted by the readable content.'> */}
-        {/* THE COMMENTED CODE ABOVE IS IF THE HEADING TEXT IS GOING TO HAVE AN IMAGE BY ITS SIDE */}
-        <Modal
-          show={this.state.show}
-          handleClose={this.hideModal}
-          position="modal-right"
-          heading={<span> Create Appointment</span>}
-          info='Create an Inbody or a meal planning 
-          appointment.'
-        >
-          <Grid container spacing={3} className="appoint-body">
-            <Grid item xs={12}>
-              <TextInput label="Appointment Title" />
-            </Grid>
-            <Grid item xs={12}>
-              <SelectInput
-                label="Purpose"
-                options={this.props.optionPurpose}
-                value={this.state.Purpose}
-                onChange={this.state.setPurpose}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <DateInput
-                label="Date"
-                value={this.state.date}
-                onChange={this.state.setDate}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              {this.props.Nutritionist}
-            </Grid>
-            <Grid item xs={12}>
-              <TimeInput
-                label="Propose a time (the time is subject to review)"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextArea label="Description" placeholder="Give a short description on what you need..." />
-            </Grid>
-          </Grid>
+	const toggleModal = () => {
+		setShow(!show);
+	};
 
-          <div className="bottom">
-            <Grid item xs={12} id="mb">
-              <Button theme="darkGreen" text="Create Appointment" />
-            </Grid>
-          </div>
-        </Modal>
+	const onFormSubmit = (e) => {
+		setErrors({});
+		e.preventDefault();
+		const data = {
+			type, formTitle, purpose, date, professional, time, description
+		};
 
-        <div onClick={this.showModal} id="trigger">
-        <Paper className={`uglyCard flex ${this.props.cardTheme}`} >
-				<div className="text">
-					<h1 className="title">{this.props.title}</h1>
-					<p className="details">{this.props.details}</p>
+		const { isValid, errors } = createAppointmentValidator(data);
+		if (!isValid) {
+			return setErrors(errors);
+		}
+
+		const dateString = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+
+		const timeString = `${time.getHours()}:${time.getMinutes()}`;
+		const payload = {
+			title: formTitle, purpose, description, date: dateString, time: timeString, type,
+		};
+
+		if (professional) payload.professional = professional;
+
+		addNewAppointment(payload);
+		toggleModal();
+	};
+
+	return (
+		<Wrapper>
+			<Modal
+				show={show}
+				handleClose={toggleModal}
+				position="modal-right"
+				heading={<span> Create Appointment</span>}
+				info='Create an Inbody or a meal planning
+					appointment.'
+			>
+				<Grid container spacing={3} className="appoint-body">
+					<Grid item xs={12}>
+						<TextInput
+							label="Appointment Title"
+							value={formTitle}
+							onChange={setTitle}
+							error={errors.formTitle}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<SelectInput
+							label="Purpose"
+							options={purposeOptions[type]}
+							value={purpose}
+							onChange={setPurpose}
+							error={errors.purpose}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<DateInput
+							label="Date"
+							value={date}
+							onChange={setDate}
+							error={errors.date}
+						/>
+					</Grid>
+					{
+						type === 'PROFESSIONAL' &&
+						<SelectInput
+							label="Select Nutritionist"
+							options={optionNutritionist}
+							value={professional}
+							onChange={setProfessional}
+							error={errors.professional}
+						/>
+					}
+					<Grid item xs={12}>
+						<TimeInput
+							label="Propose a time (the time is subject to review)"
+							value={time}
+							onDateChange={setTime}
+							error={errors.time}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<TextArea
+							label="Description" placeholder="Give a short description on what you need..."
+							value={description}
+							onChange={setDescription}
+							error={errors.description}
+						/>
+					</Grid>
+				</Grid>
+
+				<div className="bottom">
+					<Grid item xs={12} id="mb">
+						<Button
+							theme="darkGreen"
+							text="Create Appointment"
+							onClick={onFormSubmit}
+						/>
+					</Grid>
 				</div>
+			</Modal>
 
-				<img src={icon} alt="icon"/>
+			<div onClick={toggleModal} id="trigger">
+				<Paper className={`uglyCard flex ${cardTheme}`} >
+					<div className="text">
+						<h1 className="title">{title}</h1>
+						<p className="details">{details}</p>
+					</div>
 
-			</Paper>
-        </div>
-      </Wrapper>
-    );
-  }
-}
+					<img src={icon} alt="icon" />
 
-CreateAppointmentModal.propTypes = {};
+				</Paper>
+			</div>
+		</Wrapper>
+	);
+};
 
-export default CreateAppointmentModal;
+CreateAppointmentModal.propTypes = {
+	optionPurpose: PropTypes.array.isRequired,
+	Purpose: PropTypes.string.isRequired,
+	Nutritionist: PropTypes.string,
+	title: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired,
+	cardTheme: PropTypes.string.isRequired,
+	details: PropTypes.string.isRequired,
+	addNewAppointment: PropTypes.func.isRequired,
+};
+
+export default connect(null, {addNewAppointment})(CreateAppointmentModal);
