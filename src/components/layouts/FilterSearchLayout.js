@@ -45,10 +45,19 @@ const Wrapper = styled.div`
 	.flexy {
 		justify-content: space-between;
 	}
+	.wrap{
+		flex-wrap: wrap;
+		.buttons{
+			margin-top: 1rem;
+		}
+	}
 	.buttons {
 		grid-gap: 1rem;
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+			grid-template-columns: 1fr 1fr;
+		}
 		@media screen and ( max-width: ${props => props.theme.breakpoint.sm}) {
 			grid-template-columns: 1fr;
 		}
@@ -61,7 +70,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-function FilterSearchLayout({ children, text, buttons, oneGrid, display }) {
+function FilterSearchLayout({ children, text, buttons, oneGrid, display, wrap }) {
 	const options = ['Employee Name', 'Department', 'Branch', 'Date Invited'];
 
 	return (
@@ -73,7 +82,7 @@ function FilterSearchLayout({ children, text, buttons, oneGrid, display }) {
 						<Filter Icon={filtering} alt='filtering' placeholder="Filter" options={options} width={{ width: 150 }} />
 					</div>
 				</Paper>
-				<div className={`${display} searchWithButton flex flexy`}>
+				<div className={`${display} ${wrap} searchWithButton flex flexy`}>
 					<SearchInput
 						Icon={Icon}
 						alt="icon"
@@ -94,6 +103,7 @@ FilterSearchLayout.propTypes = {
 	oneGrid: PropTypes.string,
 	text: PropTypes.string.isRequired,
 	display: PropTypes.any,
+	wrap: PropTypes.any,
 };
 
 export default FilterSearchLayout;

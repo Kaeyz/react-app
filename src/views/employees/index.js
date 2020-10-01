@@ -10,6 +10,7 @@ import Table from '../../components/dashboard/common/Table';
 import { tableConstants4 } from '../../components/dashboard/employees/tableConstant4';
 import { Link } from 'react-router-dom';
 import NewEmployeeModal from '../../components/dashboard/employees/NewEmployeeModal';
+import BatchUploadModal from '../../components/dashboard/employees/BatchUploadModal';
 import { getActiveEmployees } from '../../store/actions/employeeActions';
 import { sortTableData } from '../../utils/helper';
 
@@ -26,8 +27,11 @@ const Employees = ({ getActiveEmployees, employees, isLoading }) => {
 			<DashboardLayout whatPage="Employees">
 				<FilterSearchLayout
 					text="Employees"
+					wrap="wrap"
 					buttons={
 						<React.Fragment>
+							<BatchUploadModal />
+
 							<Link to="/employees/suspended">
 								<Button theme="whiteBtn blackText" text="Suspended Employees" />
 							</Link>
