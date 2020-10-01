@@ -157,6 +157,7 @@ companyQueries.searchCompanies = (searchInput) => {
 				department
 				branch
 				createdAt
+				companyName
 		}
 	}
 	`;

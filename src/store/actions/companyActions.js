@@ -155,3 +155,23 @@ export const setEmployeeLimit = (amount, id) => dispatch => {
 			dispatch(companyNotLoading());
 		});
 };
+
+export const searchCompanies = searchInput => dispatch => {
+	dispatch(companyIsLoading());
+	companyQueries.searchCompanies(searchInput)
+		.then(res => {
+			if (res.data) {
+				const companies = res.data.searchCompany;
+				dispatch(addCompanies(companies));
+				dispatch(companyNotLoading());
+			}
+			if (res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+				dispatch(companyNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Network Error!!' }));
+			dispatch(companyNotLoading());
+		});
+};

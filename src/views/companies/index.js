@@ -11,11 +11,11 @@ import { Link } from 'react-router-dom';
 import { sortTableData } from '../../utils/helper';
 
 import { connect } from 'react-redux';
-import { getCompanies } from '../../store/actions/companyActions';
+import { getCompanies, searchCompanies} from '../../store/actions/companyActions';
 
 
 const Wrapper = styled.div``;
-function Companies({ getCompanies, companies, isLoading }) {
+function Companies({ getCompanies, searchCompanies, companies, isLoading }) {
 
 	React.useEffect(() => {
 		getCompanies();
@@ -26,6 +26,8 @@ function Companies({ getCompanies, companies, isLoading }) {
 			<DashboardLayout whatPage="Employees">
 				<FilterSearchLayout
 					text="Companies"
+					searchPlaceholder="Search Companies ..."
+					onSearchSubmit={searchCompanies}
 					buttons={
 						<>
 							<Link to="/companies/pending">
@@ -39,7 +41,7 @@ function Companies({ getCompanies, companies, isLoading }) {
 						isLoading ?
 							<div>Loading ...</div> :
 							companies.length < 1 ?
-								<div>No Available Pending company</div> :
+								<div>No Company Found</div> :
 								<React.Fragment>
 									<Table cols={tableConstants6()} data={companies} />
 									<PaginationTable />
@@ -53,6 +55,7 @@ function Companies({ getCompanies, companies, isLoading }) {
 
 Companies.propTypes = {
 	getCompanies: PropTypes.func.isRequired,
+	searchCompanies: PropTypes.func.isRequired,
 	companies: PropTypes.array.isRequired,
 	isLoading: PropTypes.bool.isRequired,
 };
@@ -70,4 +73,4 @@ const mapStateToProps = state => {
 	return { companies: data, isLoading };
 };
 
-export default connect(mapStateToProps, { getCompanies })(Companies);
+export default connect(mapStateToProps, { getCompanies, searchCompanies })(Companies);

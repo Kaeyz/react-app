@@ -10,12 +10,12 @@ import Table from '../../components/dashboard/common/Table';
 import { tableConstants4 } from '../../components/dashboard/employees/tableConstant4';
 import { Link } from 'react-router-dom';
 import NewEmployeeModal from '../../components/dashboard/employees/NewEmployeeModal';
-import { getActiveEmployees } from '../../store/actions/employeeActions';
+import { getActiveEmployees, searchEmployees } from '../../store/actions/employeeActions';
 import { sortTableData } from '../../utils/helper';
 
 const Wrapper = styled.div``;
 
-const Employees = ({ getActiveEmployees, employees, isLoading }) => {
+const Employees = ({ getActiveEmployees, employees, isLoading, searchEmployees }) => {
 
 	React.useEffect(() => {
 		getActiveEmployees();
@@ -25,6 +25,8 @@ const Employees = ({ getActiveEmployees, employees, isLoading }) => {
 		<Wrapper>
 			<DashboardLayout whatPage="Employees">
 				<FilterSearchLayout
+					searchPlaceholder="Search Employees ..."
+					onSearchSubmit={searchEmployees}
 					text="Employees"
 					buttons={
 						<React.Fragment>
@@ -56,6 +58,7 @@ const Employees = ({ getActiveEmployees, employees, isLoading }) => {
 
 Employees.propTypes = {
 	getActiveEmployees: PropTypes.func.isRequired,
+	searchEmployees: PropTypes.func.isRequired,
 	employees: PropTypes.array.isRequired,
 	isLoading: PropTypes.bool.isRequired
 };
@@ -73,4 +76,4 @@ const mapStateToProps = state => {
 	return { employees: data, isLoading };
 };
 
-export default connect(mapStateToProps, { getActiveEmployees })(Employees);
+export default connect(mapStateToProps, { getActiveEmployees, searchEmployees})(Employees);

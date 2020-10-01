@@ -71,7 +71,13 @@ function FilterSearchLayout({ children, text, buttons, oneGrid, display, onSearc
 				<Paper className="top-paper flex flexy">
 					<p className="text">{text}</p>
 					<div className="filter">
-						<Filter Icon={filtering} alt='filtering' placeholder="Filter" options={options} width={{ width: 150 }} />
+						<Filter
+							Icon={filtering}
+							alt='filtering'
+							placeholder="Filter"
+							options={options}
+							width={{ width: 150 }}
+						/>
 					</div>
 				</Paper>
 				<div className={`${display} searchWithButton flex flexy`}>

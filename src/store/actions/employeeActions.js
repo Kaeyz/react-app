@@ -157,3 +157,23 @@ export const unSuspendEmployee = (id) => dispatch => {
 			dispatch(employeeNotLoading());
 		});
 };
+
+export const searchEmployees = searchInput => dispatch => {
+	dispatch(employeeIsLoading());
+	employeeQueries.searchEmployees(searchInput)
+		.then(res => {
+			if (res.data) {
+				const employees = res.data.searchEmployee;
+				dispatch(addEmployees(employees));
+				dispatch(employeeNotLoading());
+			}
+			if (res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+				dispatch(employeeNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Network Error!!' }));
+			dispatch(employeeNotLoading());
+		});
+};
