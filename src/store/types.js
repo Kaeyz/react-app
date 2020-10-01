@@ -53,5 +53,14 @@ module.exports = Object.freeze({
 	ADD_REWARDS: 'add_rewards',
 	CLEAR_REWARDS: 'clear_rewards',
 	ADD_LEADERBOARD: 'add_leaderboard',
-	CLEAR_LEADERBOARD: 'clear_leaderboard'
+	CLEAR_LEADERBOARD: 'clear_leaderboard',
+
+	// APPOINTMENT ACTIONS
+	APPOINTMENT_IS_LOADING: 'appointment_is_loading',
+	APPOINTMENT_NOT_LOADING: 'appointment_not_loading',
+	ADD_APPOINTMENTS: 'add_appointments',
+	REMOVE_APPOINTMENTS: 'remove_appointments',
+	REMOVE_APPOINTMENT: 'remove_appointment',
+	ADD_APPOINTMENT: 'add_appointment',
+
 });

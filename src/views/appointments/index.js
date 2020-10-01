@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
+import React, {useEffect} from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getAppointments } from '../../store/actions/appointmentActions';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner';
 import styled from 'styled-components';
 import CreateAppointmentModal from '../../components/dashboard/appointments/CreateAppointmentModal';
 import AppointReward from '../../components/common/AppointReward';
+import { convertDate } from '../../utils/helper';
 import appoint from '../../assets/appoint.svg';
-import { SelectInput } from '../../components/common/inputs';
 
 const Wrapper = styled.div`
   .heading {
@@ -74,25 +76,13 @@ const Wrapper = styled.div`
     }
   }
 `;
-const optionNutritionist = [
-	{ value: 'Select a Nutritionist', text: 'Select a Nutritionist' },
-	{ value: 'JOHN', text: 'John' },
-	{ value: 'ADE', text: 'Ade' },
-	{ value: 'TOMI', text: 'Tomi' },
-	{ value: 'FELIX', text: 'Felix' },
-	{ value: 'IBRAHIM', text: 'Ibrahim' },
-];
-const InbodyOption = [
-	{ value: 'Select Purpose', text: 'Select Purpose' },
-	{ value: 'INBODY', text: 'Inbody Appointment' },
-];
-const MealOption = [
-	{ value: 'Select Purpose', text: 'Select Purpose' },
-	{ value: 'MEAL', text: 'Meal Appointment' },
-];
 
-function CreateAppointment(props) {
-	const [Nutritionist, setNutritionist] = useState('');
+
+function CreateAppointment({ appointments, getAppointments, isLoading }) {
+
+	useEffect(() => {
+		getAppointments();
+	}, [getAppointments]);
 
 	return (
 		<Wrapper>
@@ -117,48 +107,39 @@ function CreateAppointment(props) {
 
 				<div container spacing={3} className="ugly-cards">
 					<CreateAppointmentModal
+						type="INBODY"
 						cardTheme="pink"
 						title="Set an Inbody Appointment"
 						details="Understand your body with a scan"
-						optionPurpose={InbodyOption}
 					/>
 
 					<CreateAppointmentModal
+						type="PROFESSIONAL"
 						cardTheme="green"
 						title="Create a Meal Planning  Appointment"
 						details="Discuss with a Nutritionist "
-						optionPurpose={MealOption}
-						Nutritionist={
-							<SelectInput
-								label="Nutritionist"
-								options={optionNutritionist}
-								value={Nutritionist}
-								onChange={setNutritionist}
-							/>
-						}
 					/>
 				</div>
 				<div className="appoint-card">
 					<h1 className="heading-text">Appointments</h1>
 					<div className="grid-container">
-						<AppointReward
-							title="Appointment  Title"
-							info="Appointment Description in here lorem ipsum sample text with some more details"
-							cardTheme="pinkCard"
-							left="Nutritionist"
-							right="Date"
-							leftB="Dr. Lorem ipsu..."
-							icon={appoint}
-						/>
-						<AppointReward
-							title="Appointment  Title"
-							info="Appointment Description in here lorem ipsum sample text with some more details"
-							cardTheme="purpleCard"
-							left="Nutritionist"
-							right="Date"
-							leftB="Dr. Lorem ipsu... "
-							icon={appoint}
-						/>
+
+						{
+							!isLoading && appointments.length > 0 &&  appointments.map((appointment) => (
+
+								<AppointReward
+									key={appointment.title}
+									title={appointment.title}
+									info={appointment.description}
+									cardTheme="pinkCard"
+									right={appointment.professional && 'Nutritionist'}
+									left="Date"
+									rightB={appointment.professional || ''}
+									leftB={convertDate(appointment.appointmentTime)}
+									icon={appoint}
+								/>
+							))
+						}
 					</div>
 				</div>
 			</DashboardLayout>
@@ -166,6 +147,15 @@ function CreateAppointment(props) {
 	);
 }
 
-CreateAppointment.propTypes = {};
+CreateAppointment.propTypes = {
+	isLoading: PropTypes.bool.isRequired,
+	appointments: PropTypes.array.isRequired,
+	getAppointments: PropTypes.func.isRequired
+};
 
-export default CreateAppointment;
+const mapStateToProps = state => {
+	const { appointments, isLoading } = state.appointment;
+	return { isLoading, appointments };
+};
+
+export default connect(mapStateToProps, {getAppointments})(CreateAppointment);

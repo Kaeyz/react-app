@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -20,9 +20,9 @@ const Wrapper = styled.div`
     .MuiInputBase-input{
         font-family: Matteo;
         font-size: 1.4rem;
-line-height: 2.2rem;
-color: ${(props) => props.theme.color.ui_05};
-padding:0;
+        line-height: 2.2rem;
+        color: ${(props) => props.theme.color.ui_05};
+        padding:0;
     }
     .MuiInput-underline:before{
         content: none;
@@ -33,17 +33,19 @@ padding:0;
 }
 `;
 
-function SearchInput() {
+function SearchInput({onSubmit, placeholder, onChange, value,}) {
 	return (
 		<Wrapper>
 			<FormControl>
 				<Input
 					startAdornment={
-						<InputAdornment position="start">
+						<InputAdornment position="start" onClick={onSubmit}>
 							<img src={Icon} alt="icon"/>
 						</InputAdornment>
 					}
-					placeholder='Search Employees...'
+					placeholder={placeholder}
+					value={value}
+					onChange={event => onChange(event.target.value)}
 				/>
 			</FormControl>
 		</Wrapper>
@@ -51,7 +53,10 @@ function SearchInput() {
 }
 
 SearchInput.propTypes = {
-
+	onSubmit: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
+	placeholder: PropTypes.string.isRequired,
+	value: PropTypes.string.isRequired
 };
 
 export { SearchInput };

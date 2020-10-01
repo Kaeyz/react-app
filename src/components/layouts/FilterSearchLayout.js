@@ -70,8 +70,9 @@ const Wrapper = styled.div`
 	}
 `;
 
-function FilterSearchLayout({ children, text, buttons, oneGrid, display, wrap }) {
+function FilterSearchLayout({ children, text, buttons, oneGrid, display, wrap, onSearchSubmit, searchPlaceholder }) {
 	const options = ['Employee Name', 'Department', 'Branch', 'Date Invited'];
+	const [searchInput, setSearchInput] = React.useState('');
 
 	return (
 		<Wrapper>
@@ -86,7 +87,10 @@ function FilterSearchLayout({ children, text, buttons, oneGrid, display, wrap })
 					<SearchInput
 						Icon={Icon}
 						alt="icon"
-						placeholder="Search Employees..."
+						placeholder={searchPlaceholder|| ''}
+						value={searchInput}
+						onChange={setSearchInput}
+						onSubmit={onSearchSubmit}
 						style={{ width: 300 }}
 					/>
 					<div className={`${oneGrid} buttons`}>{buttons}</div>
@@ -104,6 +108,8 @@ FilterSearchLayout.propTypes = {
 	text: PropTypes.string.isRequired,
 	display: PropTypes.any,
 	wrap: PropTypes.any,
+	onSearchSubmit: PropTypes.func.isRequired,
+	searchPlaceholder: PropTypes.string.isRequired
 };
 
 export default FilterSearchLayout;

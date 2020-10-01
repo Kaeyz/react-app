@@ -147,5 +147,29 @@ companyQueries.setEmployeeLimit = (amount, id) => {
 	});
 };
 
+companyQueries.searchCompanies = (searchInput) => {
+	const query = `
+	query SEARCH_COMPANIES($searchInput: String) {
+		searchCompany(searchInput: $searchInput) {
+				_id
+				email
+				name
+				department
+				branch
+				createdAt
+		}
+	}
+	`;
+
+	const variables = {
+		searchInput
+	};
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
 
 export default Object.freeze(companyQueries);
