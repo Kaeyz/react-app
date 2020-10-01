@@ -50,6 +50,7 @@ const theme = {
 		ui_text_04: '#CEEE8F',
 		ui_text_05: '#011C34',
 		ui_text_06: '#f0f0f0',
+		ui_text_07: '#C4C4C4',
 		hover_primary: '#CEEE8F',
 		hover_row: '#F3F0F0',
 		active_primary: '#2EC4B6',

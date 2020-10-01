@@ -68,6 +68,7 @@ const NewEmployeeModal = ({addNewEmployee}) => {
 				show={show}
 				handleClose={hideModal}
 				position="modal-right"
+				info='Invite a single new employee to your company. Add multiple via batch upload.'
 				heading={<span> Add New Employee</span>}
 			>
 				<div className="select">
