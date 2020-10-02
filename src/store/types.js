@@ -63,4 +63,9 @@ module.exports = Object.freeze({
 	REMOVE_APPOINTMENT: 'remove_appointment',
 	ADD_APPOINTMENT: 'add_appointment',
 
+	// BMI ACTIONS
+	BMI_IS_LOADING: 'bmi_is_loading',
+	BMI_NOT_LOADING: 'bmi_not_loading',
+	ADD_BMI: 'add_bmi',
+
 });
