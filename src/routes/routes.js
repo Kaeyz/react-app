@@ -70,11 +70,9 @@ const Routes = () => (
 			<Route exact path="/wellness/individual/nutrition" component={Nutrition} />
 			<Route exact path="/wellness/individual/lifestyle" component={Lifestyle} />
 
-
 			{/* Auth routes */}
 			<PrivateRoute isAuth={false} exact path="/login" component={Login} />
 			<PrivateRoute isAuth={false} exact path="/admin_login" component={AdminLogin} />
-
 			<PrivateRoute isAuth={false} exact path="/onboarding/individual" component={IndividualSignUp} />
 			<PrivateRoute isAuth={false} exact path="/onboarding/company" component={CompanySignUp} />
 			<PrivateRoute isAuth={false} exact path="/onboarding/employee/:token" component={ResetPassword} />
@@ -105,9 +103,7 @@ const Routes = () => (
 			<PrivateRoute exact path="/companies/pending" component={PendingCompanies} />
 			<PrivateRoute exact path="/companies/:companyId" component={Company} />
 
-
 			{/* assessment route */}
-
 			<PrivateRoute exact path="/assessment" isActivated={true} component={DashboardAssessment} />
 			<PrivateRoute exact path="/assessment/health" isActivated={true} component={HealthRiskAssessment}/>
 			<PrivateRoute exact path="/assessment/health/start" isActivated={true} component={General} />
@@ -131,26 +127,23 @@ const Routes = () => (
 			<PrivateRoute exact path="/reports" isActivated={true} component={Reports} />
 			<PrivateRoute exact path="/reports/:reportId" isActivated={true} component={HealthReport} />
 
-
 			{/* Exercise route */}
-			<Route exact path="/exercise" component={Exercise} />
-			<Route exact path="/exercise/programme_details" component={ProgrammeDetails} />
+			<PrivateRoute exact path="/exercise" component={Exercise} />
+			<PrivateRoute exact path="/exercise/programme_details" component={ProgrammeDetails} />
 
 			{/* meal route */}
-			<Route exact path="/meals" component={Meals} />
-			<Route exact path="/meals/meal_plans" component={MealPlans} />
+			<PrivateRoute exact path="/meals" component={Meals} />
+			<PrivateRoute exact path="/meals/meal_plans" component={MealPlans} />
 
 			{/* appointments */}
 			<PrivateRoute exact path="/appointments" isActivated={true} component={Appointments} />
 
 			{/* reward */}
-			<Route exact path="/rewards/individual_reward" component={IndividualReward} />
-
+			<PrivateRoute exact path="/rewards/individual_reward" component={IndividualReward} />
 
 			{/* Blog route */}
 			<Route exact path="/blogPost" component={BlogPost} />
 			<Route exact path="/blogPostDetails" component={BlogPostDetail} />
-
 
 			<Route path="/not_activated" component={NotActivated} />
 			<Route path="/account_suspended" component={SuspendedPage} />
