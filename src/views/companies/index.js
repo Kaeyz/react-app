@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import FilterSearchLayout from '../../components/layouts/FilterSearchLayout';
 import Button from '../../components/common/Button';
-import PaginationTable from '../../components/common/PaginationTable';
+// import PaginationTable from '../../components/common/PaginationTable';
 import Table from '../../components/dashboard/common/Table';
 import { tableConstants6 } from '../../components/dashboard/companies/tableConstant6';
 import { Link } from 'react-router-dom';
@@ -44,7 +44,7 @@ function Companies({ getCompanies, searchCompanies, companies, isLoading }) {
 								<div>No Company Found</div> :
 								<React.Fragment>
 									<Table cols={tableConstants6()} data={companies} />
-									<PaginationTable />
+									{/* <PaginationTable /> */}
 								</React.Fragment>
 					}
 				</FilterSearchLayout>

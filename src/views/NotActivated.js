@@ -1,14 +1,16 @@
 import React from 'react';
-import errorImg from '../assets/404.svg';
+import errorImg from '../assets/405.svg';
 import CommonAuthFlowPage from '../components/forms/authentications/CommonAuthFlowPages';
+import errorTopImg from '../assets/405_top.svg';
 
 
 function NotActivated() {
 	return (
 		<CommonAuthFlowPage
 			img={errorImg}
-			title={'Account not activated'}
-			detail={'Please contact a Choose Life Admin'}
+			absImg={errorTopImg}
+			title={'Please activate your account.'}
+			detail={'Maybe try again?'}
 			buttonText={'BACK TO HOME'}
 			link={'/'}
 		/>

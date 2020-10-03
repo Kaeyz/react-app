@@ -5,7 +5,7 @@ import { getCompanyLeaderBoard } from '../../store/actions/rewardActions';
 import styled from 'styled-components';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner';
-import PaginationTable from '../../components/common/PaginationTable';
+// import PaginationTable from '../../components/common/PaginationTable';
 import Table from '../../components/dashboard/common/Table';
 import { tableConstants7 } from '../../components/dashboard/companyRewards/tableConstant7';
 import { sortTableData } from '../../utils/helper';
@@ -35,7 +35,7 @@ const Leaderboard = ({ isLoading, leaderboard, getCompanyLeaderBoard }) => {
 							<div>No current User in leaderboard</div> :
 							<React.Fragment>
 								<Table cols={tableConstants7()} data={leaderboard} whichTable='longTable' />
-								<PaginationTable />
+								{/* <PaginationTable /> */}
 							</React.Fragment>
 				}
 			</DashboardLayout>

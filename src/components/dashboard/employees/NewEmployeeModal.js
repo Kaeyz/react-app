@@ -27,7 +27,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const NewEmployeeModal = ({addNewEmployee}) => {
+const NewEmployeeModal = ({addNewEmployee, btnTheme}) => {
 	const [show, setShow] = React.useState(false);
 	const [firstName, setFirstName] = React.useState('');
 	const [lastName, setLastName] = React.useState('');
@@ -125,7 +125,7 @@ const NewEmployeeModal = ({addNewEmployee}) => {
 			</Modal>
 
 			<Button
-				theme="darkGreen"
+				theme={btnTheme}
 				text="Add Employee"
 				onClick={showModal}
 			/>
@@ -134,7 +134,8 @@ const NewEmployeeModal = ({addNewEmployee}) => {
 };
 
 NewEmployeeModal.propTypes = {
-	addNewEmployee: PropTypes.func.isRequired
+	addNewEmployee: PropTypes.func.isRequired,
+	btnTheme: PropTypes.string.isRequired,
 };
 
 export default connect(null, {addNewEmployee})(NewEmployeeModal);
