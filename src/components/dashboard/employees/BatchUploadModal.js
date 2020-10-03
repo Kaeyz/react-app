@@ -10,6 +10,7 @@ import csvFile from '../../../assets/csv/Batch_Upload.csv';
 import { addNewEmployee } from '../../../store/actions/employeeActions';
 
 const Wrapper = styled.div`
+
 .inlineP	{
 	font-size: 1.6rem;
 	line-height: 1.6rem;
