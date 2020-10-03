@@ -1,6 +1,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Back from '../../../../assets/greenBackArrow.svg';
 import styled from 'styled-components';
@@ -153,23 +153,24 @@ function QuestionnaireLayout({
 	reportButton,
 	exerciseButton,
 	Image,
+	history,
 	previousLink,
 	downloadAction,
 }) {
 	return (
 		<Wrapper>
 			{previousLink && (
-				<Link className="flex-back" to={previousLink}>
+				<div className="flex-back" onClick={history.goBack}>
 					<img src={Back} alt="go back" />
 					<p className="back">Back</p>
-				</Link>
+				</div>
 			)}
 			{reportButton && (
 				<Paper className='top-paper'>
-					<Link className="flex-back" to={Link}>
+					<div className="flex-back" onClick={history.goBack}>
 						<img src={Back} alt="go back" />
 						<p className="back">Back</p>
-					</Link>
+					</div>
 					<div className="download">
 						<Button
 							theme="darkGreen"
@@ -183,10 +184,10 @@ function QuestionnaireLayout({
 			)}
 			{exerciseButton && (
 				<Paper className='top-paper'>
-					<Link className="flex-back" to={Link}>
+					<div className="flex-back" onClick={history.goBack}>
 						<img src={Back} alt="go back" />
 						<p className="back">Back</p>
-					</Link>
+					</div>
 					<div className="download exercise flex">
 						<Button
 							theme="whiteOrange"
@@ -219,6 +220,7 @@ QuestionnaireLayout.defaultProps = {
 QuestionnaireLayout.propTypes = {
 	Image: PropTypes.any,
 	alt: PropTypes.any,
+	history: PropTypes.object.isRequired,
 	heading: PropTypes.string.isRequired,
 	previousLink: PropTypes.string.isRequired,
 	children: PropTypes.any.isRequired,
@@ -227,4 +229,4 @@ QuestionnaireLayout.propTypes = {
 	downloadAction: PropTypes.func.isRequired,
 };
 
-export default QuestionnaireLayout;
+export default withRouter(QuestionnaireLayout);
