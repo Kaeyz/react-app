@@ -128,7 +128,7 @@ userQueries.getCurrentUser = () => {
 userQueries.updateUser = (input) => {
 	const query = `
 	mutation UPDATE_USER ($input: updateUserInput) {
-		updateUser(input: $input){
+		updateUserMutation(input: $input){
 			name
 			email
 			mobile

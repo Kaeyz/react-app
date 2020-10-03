@@ -1,5 +1,4 @@
 import bmiQueries from '../../client/queries/bmiQueries';
-import { errorAlert } from './alertActions';
 import { ADD_BMI, BMI_IS_LOADING,BMI_NOT_LOADING,
 } from '../types';
 
@@ -23,13 +22,15 @@ export const getBmi = () => dispatch => {
 	dispatch(bmiIsLoading());
 	bmiQueries.getBmi()
 		.then(res => {
+			if (res.errors) {
+				dispatch(bmiNotLoading());
+			}
 			if (res.data.BMI !== null) {
 				dispatch(setBmi(res.data.BMI));
 				dispatch(bmiNotLoading());
 			}
 		})
 		.catch(() => {
-			dispatch(errorAlert({ msg: 'Network Error!!' }));
 			dispatch(bmiNotLoading());
 		});
 };

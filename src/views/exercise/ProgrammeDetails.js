@@ -12,8 +12,6 @@ import Button from '../../components/common/Button';
 import ExerciseMinitable from '../../components/dashboard/exercise/ExerciseMinitable';
 import Routine from '../../components/dashboard/exercise/Routine';
 
-
-
 const Wrapper = styled.div`
   .null {
     border: 1px solid rgba(214, 216, 211, 0.5);
@@ -21,7 +19,7 @@ const Wrapper = styled.div`
     margin: 10px 0px;
   }
   .top-header {
-	margin: 2rem 0;
+  	margin: 2rem 0;
     p {
       font-weight: normal;
       font-size: 1.6rem;
@@ -30,47 +28,44 @@ const Wrapper = styled.div`
       color: ${(props) => props.theme.color.ui_06};
       margin-right: 2rem;
       min-width: 180px;
-	      }
+	  }
   }
   .paper_bg{
-    
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.04);
-border-radius: 10px;
-padding:2rem;
+    border-radius: 10px;
+    padding:2rem;
     .paper-img{
-        width: 100%;
-    height: 360px;
-        background-image: url(${img});
-    background-repeat: no-repeat;
-    background-position: center;
-    
+      width: 100%;
+      height: 360px;
+      background-image: url(${img});
+      background-repeat: no-repeat;
+      background-position: center;
     }
   }
   .text{
     padding-top: 4rem;
-      p{
+      p {
         font-weight: 300;
         font-size: 1.6rem;
         line-height: 2.5rem;
-             letter-spacing: 0.2px;
-                color: ${(props) => props.theme.color.ui_05};
-                padding-bottom: 2rem;
+        letter-spacing: 0.2px;
+        color: ${(props) => props.theme.color.ui_05};
+        padding-bottom: 2rem;
       }
   }
-  .btn{
+  .btn  {
     display: none;
     padding-bottom: 4rem;
-    @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
       display: block;
   }
-  .button{
-    width: 100%!important;
-  }
+  .button {
+    width: 100% !important;
+    }
   }
 `;
 
 function ProgrammeDetails() {
-
 
 	return (
 		<Wrapper>
@@ -102,7 +97,7 @@ function ProgrammeDetails() {
 					<div className="btn">
 						<Button
 							theme="darkGreen"
-							text="Customise your meal plan"
+							text="Customize your meal plan"
 						>
 						</Button>
 					</div>

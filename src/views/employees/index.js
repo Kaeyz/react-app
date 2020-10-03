@@ -32,7 +32,6 @@ const Employees = ({ getActiveEmployees, employees, isLoading, searchEmployees }
 					wrap="wrap"
 					buttons={
 						<React.Fragment>
-							<BatchUploadModal />
 
 							<Link to="/employees/suspended">
 								<Button theme="whiteBtn blackText" text="Suspended Employees" />
@@ -40,6 +39,7 @@ const Employees = ({ getActiveEmployees, employees, isLoading, searchEmployees }
 							<Link to="/employees/pending">
 								<Button theme="whiteBtn blackText" text="Pending Invites" />
 							</Link>
+							<BatchUploadModal />
 							<NewEmployeeModal />
 						</React.Fragment>
 					}
