@@ -62,22 +62,22 @@ const Exercise = () => {
 					<WelcomeBanner detail='Discover fitness programs to keep you in shape and in the best of health' />
 
 					{Object.keys(exerciseData).map(key => (
-							<div className="row" key={key}>
-								<div className="heading">
-									<h1>{key.toUpperCase()}</h1>
-									<div className="null" />
-								</div>
-								<div className="exercise-programmes">
-									{exerciseData[key].map(item => (
-										<ExerciseCard
-											key={item.text}
-											image={item.img}
-											text={item.text}
-										/>
-									))}
-								</div>
+						<div className="row" key={key}>
+							<div className="heading">
+								<h1>{key.toUpperCase()}</h1>
+								<div className="null" />
 							</div>
-						))
+							<div className="exercise-programmes">
+								{exerciseData[key].map(item => (
+									<ExerciseCard
+										key={item.text}
+										image={item.img}
+										text={item.text}
+									/>
+								))}
+							</div>
+						</div>
+					))
 					}
 				</main>
 			</Wrapper>

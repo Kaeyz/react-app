@@ -97,7 +97,6 @@ const Employees = ({
 					wrap="wrap"
 					buttons={
 						<React.Fragment>
-							<BatchUploadModal />
 
 							<Link to="/employees/suspended">
 								<Button theme="whiteBtn blackText" text="Suspended Employees" />
@@ -105,7 +104,8 @@ const Employees = ({
 							<Link to="/employees/pending">
 								<Button theme="whiteBtn blackText" text="Pending Invites" />
 							</Link>
-							<NewEmployeeModal btnTheme="darkGreen" />
+							<BatchUploadModal />
+              <NewEmployeeModal btnTheme="darkGreen" />
 						</React.Fragment>
 					}
 				>

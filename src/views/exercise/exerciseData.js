@@ -16,49 +16,45 @@ import img16 from '../../assets/exercise16.svg';
 import img17 from '../../assets/exercise17.svg';
 
 
-const data = { Chest:
-	[
+const data = {
+	Chest: [
 		{text: 'Cross-Bench Dumbbell Pullovers', img: img4 },
 		{text: 'Decline Bench Press Barbell', img: img6 },
 		{text: 'Decline Pushups', img: img8 }
 	],
-Abs:
-	[
+	Abs: [
 		{text: 'Crunches', img: img5 },
 		{text: 'Flutter Kicks', img: img14 },
 		{text: 'Full Sit Outs', img: img15 },
 		{text: 'Hanging Leg Raises', img: img12 },
 		{text:	'Hollow Hold', img: img9 },
 	],
-Arms:
-	[
+	Arms: [
 		{text:	'Dips', img: img3 },
 		{text:	'Dumbbell Incline Curl', img: img4 },
 		{text:	'Dumbbells on Scott Machine', img: img6 },
 		{text:	'Hand Grip', img: img10 },
 		{text:	'Hercules Pillars', img: img11 },
 	],
-Legs:
-	[
-		{text:'Cycling', img: img1 },
-		{text:'Dumbbell Lunges Walking', img: img14 },
-		{text:'Front Squats', img: img13 },
-		{text:'Glute Bridge', img: img16 },
-		{text:'High Knees', img: img17 },
+	Legs: [
+		{text:	'Cycling', img: img1 },
+		{text:	'Dumbbell Lunges Walking', img: img14 },
+		{text:	'Front Squats', img: img13 },
+		{text:	'Glute Bridge', img: img16 },
+		{text:	'High Knees', img: img17 },
 	],
-Back: [
-	{text: 'Deadlifts', img: img2 },
-	{text: 'Deficit Deadlift', img: img3 },
-	{text: 'Hip Raise', img: img6 },
-],
-Shoulders:
-[
-	{text: 'Diagonal Shoulder Press', img: img2 },
-	{text: 'Facepull', img: img4 },
-	{text: 'Front Raises', img: img6 },
-	{text: 'Handstand Pushup', img: img8 },
-	{text: 'High Pull', img: img13 },
-]
+	Back: [
+		{text: 'Deadlifts', img: img2 },
+		{text: 'Deficit Deadlift', img: img3 },
+		{text: 'Hip Raise', img: img6 },
+	],
+	Shoulders:	[
+		{text: 'Diagonal Shoulder Press', img: img2 },
+		{text: 'Facepull', img: img4 },
+		{text: 'Front Raises', img: img6 },
+		{text: 'Handstand Pushup', img: img8 },
+		{text: 'High Pull', img: img13 },
+	]
 };
 
 export default Object.freeze(data);

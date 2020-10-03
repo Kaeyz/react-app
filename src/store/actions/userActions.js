@@ -159,7 +159,7 @@ export const updateUser = (data) => dispatch => {
 				dispatch(appNotLoading());
 			}
 			if (res.data) {
-				dispatch({ type: SET_USER, payload: res.data.updateUser });
+				dispatch({ type: SET_USER, payload: res.data.updateUserMutation });
 				dispatch(appNotLoading());
 				dispatch(successAlert('User Updated'));
 			}

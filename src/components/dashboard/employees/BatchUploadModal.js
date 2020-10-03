@@ -1,50 +1,51 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Modal from '../common/Modal';
 import Grid from '@material-ui/core/Grid';
-import { TextInput } from '../../common/inputs';
+import { CsvUpload } from '../../common/inputs';
 import Button from '../../common/Button';
-import { Link } from 'react-router-dom';
+import csvFile from '../../../assets/csv/Batch_Upload.csv';
+import { addNewEmployee } from '../../../store/actions/employeeActions';
 
 const Wrapper = styled.div`
-.inlineP{
-    font-size: 1.6rem;
-    line-height: 1.6rem;
-    letter-spacing: 0.2px;
-	color: ${(props) => props.theme.color.ui_06};
-    #link{
-        color: ${(props) => props.theme.color.brand_02};
-        text-decoration: underline;
-    }
+
+.inlineP	{
+	font-size: 1.6rem;
+	line-height: 1.6rem;
+	letter-spacing: 0.2px;
+	color: #0A2523;
+	#link{
+		color: #2EC4B6;
+		text-decoration: underline;
+	}
 }
-.smallerP{
+.smallerP	{
 	font-size: 1.2rem;
 	margin-top: 1rem;
 }
-	.pd {
-		padding-top: 4rem;
+.pd {
+	padding-top: 4rem;
+}
+.select {
+	padding-bottom: 2rem;
+	.flex {
+		justify-content: space-between;
 	}
-	.select {
-		padding-bottom: 2rem;
-		.flex {
-			justify-content: space-between;
-		}
-	}
-	.select-input {
-		font-weight: 300;
-		font-size: 1.4rem;
-		line-height: 2.2rem;
-		color: ${(props) => props.theme.color.ui_05};
-	}
+}
+.select-input {
+	font-weight: 300;
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+	color: ${(props) => props.theme.color.ui_05};
+}
 `;
 
-const BatchUploadModal = () => {
+const BatchUploadModal = ({addNewEmployee}) => {
 	const [show, setShow] = React.useState(false);
 	const [csv, setCsv] = React.useState('');
 	const [errors] = React.useState('');
-
 
 	const showModal = () => {
 		setShow(true);
@@ -54,8 +55,11 @@ const BatchUploadModal = () => {
 		setShow(false);
 	};
 
-
-
+	const onSubmit = event => {
+		event.preventDefault();
+		addNewEmployee(csv);
+		hideModal();
+	};
 
 
 	return (
@@ -64,22 +68,32 @@ const BatchUploadModal = () => {
 				show={show}
 				handleClose={hideModal}
 				position="modal-right"
-				info={<><p className='inlineP'>Add multiple employees at once via a CSV upload.</p> <p className='inlineP smallerP'>Download a sample CSV <Link id='link' to ="">here</Link> to see how to format your upload.</p></>}
+				info={<>
+					<p className='inlineP'>Add multiple employees at once via a CSV upload.</p>
+					<p className='inlineP smallerP'>
+						Download a sample CSV
+						<a id='link' href={csvFile} download="Batch_Upload"> here</a> to see how to format your upload.
+					</p>
+				</>}
 				heading={<span>Batch Upload</span>}
 			>
 				<div className="select">
 					<Grid container className="select-input">
 						<Grid item xs={12}>
-							<TextInput
+							<CsvUpload
 								label="Upload CSV"
 								value={csv}
-								onChange={setCsv}
+								onFileUpload={setCsv}
 								error={errors.csv}
 							/>
 						</Grid>
 
 						<Grid item xs={4} className="pd">
-							<Button theme="darkGreen" text="Save Changes" />
+							<Button
+								theme="darkGreen"
+								onClick={onSubmit}
+								text="Add"
+							/>
 						</Grid>
 					</Grid>
 				</div>
@@ -95,6 +109,7 @@ const BatchUploadModal = () => {
 };
 
 BatchUploadModal.propTypes = {
+	addNewEmployee: PropTypes.func.isRequired
 };
 
-export default BatchUploadModal;
+export default connect(null, {addNewEmployee})(BatchUploadModal);
