@@ -11,9 +11,37 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     height: -webkit-fill-available;
-    flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	.images{
+		position: relative;
+		img{
+			width: 381px;
+		}
+		.absImg{
+			top: 36%;
+			width: 181px;
+			position: absolute;
+			left: 36%;
+		}
+		}
+	}
+	
+	.pd{
+		padding: 5rem 0  3rem 0;
+		font-weight: 600;
+font-size: 3rem;
+line-height: 3.2rem;
+text-align: center;
+color: ${(props) => props.theme.color.text_01};
+width: 52%;
+@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+width:100% ;
+font-size: 2rem;
+}
+
+	}
     p{
-			width: 605px;
 			text-align:center;
     }
   }
@@ -22,23 +50,21 @@ const Wrapper = styled.div`
     margin-top: 2.7rem;
   }
 `;
-function CommonAuthFlowPage(props) {
+function CommonAuthFlowPage({ absImg, link, title, detail, buttonText, img }) {
 	return (
 		<Wrapper>
-			<Container>
+			<Container flexy="centered">
 				<div className="content">
-					<img src={props.img} alt="frame" />
-					<h1>{props.title}</h1>
-					<p>{props.detail} </p>
+					<div className="images">
+						<img src={img} alt="frame" />
+						<img className="absImg" src={absImg} alt="" />
+					</div>
+					<h1 className="pd">{title}</h1>
+					<p>{detail} </p>
 					<div className="submit">
-						<Link
-							to={props.link}
-						>
-							<Button
-								theme="darkGreen"
-								style={{ width: '100%' }}
-							>
-								{props.buttonText}
+						<Link to={link}>
+							<Button theme="darkGreen" style={{ width: '100%' }}>
+								{buttonText}
 							</Button>
 						</Link>
 					</div>
@@ -50,10 +76,11 @@ function CommonAuthFlowPage(props) {
 
 CommonAuthFlowPage.propTypes = {
 	img: PropTypes.any,
+	absImg: PropTypes.any,
 	title: PropTypes.string,
 	detail: PropTypes.string,
 	link: PropTypes.string,
-	buttonText: PropTypes.string
+	buttonText: PropTypes.string,
 };
 
 export default CommonAuthFlowPage;

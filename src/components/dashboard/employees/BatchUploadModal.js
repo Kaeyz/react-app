@@ -13,9 +13,9 @@ const Wrapper = styled.div`
     font-size: 1.6rem;
     line-height: 1.6rem;
     letter-spacing: 0.2px;
-    color: #0A2523;
+	color: ${(props) => props.theme.color.ui_06};
     #link{
-        color: #2EC4B6;
+        color: ${(props) => props.theme.color.brand_02};
         text-decoration: underline;
     }
 }

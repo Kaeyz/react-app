@@ -20,19 +20,20 @@ const Wrapper = styled.div`
     box-sizing: border-box;
     border-radius: 10px;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-      padding: 2rem;
+      padding: 1rem;
     }
   }
   .parkImage {
     width: 300px;
     height: 210px;
      bottom: 14px;
-    right: 54px;
+right: 11px;
     position: absolute;
     max-width: 40%;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      max-width: 40%;
+      max-width: 32%;
       margin-right: -50px;
+      right: 54px;
     }
     @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
       bottom: -32px;
@@ -41,10 +42,14 @@ const Wrapper = styled.div`
   }
   .info {
     width: 100%;
-    max-width: 51%;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-      max-width: 70%;
+    max-width: 78%;
+    z-index: 1;
+        @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      max-width: 68%;
     }
+        @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+          max-width: 78%;
+        }
     h1 {
       font-weight: bold;
       font-size: 2.4rem;

@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import Button from "../common/Button";
-import styled from "styled-components";
-import img from "../../assets/img/heroHome.svg";
-import flower1 from "../../assets/img/flower_1.svg";
-import flower2 from "../../assets/img/flower_2.svg";
-import umbrella from "../../assets/img/umbrella.svg";
-import Container from "../common/Container";
-import VideoCarousel from "./VideoCarousel";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import Button from '../common/Button';
+import styled from 'styled-components';
+import img from '../../assets/img/heroHome.svg';
+import flower1 from '../../assets/img/flower_1.svg';
+import flower2 from '../../assets/img/flower_2.svg';
+import umbrella from '../../assets/img/umbrella.svg';
+import Container from '../common/Container';
+import VideoCarousel from './VideoCarousel';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   background-image: url(${img});
@@ -69,47 +69,47 @@ const Wrapper = styled.div`
 `;
 
 class HomeHero extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <div className="flower1">
-          <div className="flower2">
-            <Container>
-              <div className="hero">
-                <div className="heroText">
-                  <div>
-                    <h1 className="bigText">Wellness is the gift</h1>
-                    <h1 className="bigText">you give yourself.</h1>
-                    <p className="smallText">
+	render() {
+		return (
+			<Wrapper>
+				<div className="flower1">
+					<div className="flower2">
+						<Container>
+							<div className="hero">
+								<div className="heroText">
+									<div>
+										<h1 className="bigText">Wellness is the gift</h1>
+										<h1 className="bigText">you give yourself.</h1>
+										<p className="smallText">
                       Empower yourself with the knowledge and opportunity to
-                      live the best life possible.{" "}
-                    </p>
-                  </div>
-                  <div className="buttons">
-                    <Link to="/onboarding/individual">
-                      <Button value="For you" theme="darkGreen">
+                      live the best life possible.{' '}
+										</p>
+									</div>
+									<div className="buttons">
+										<Link to="">
+											<Button value="For you" theme="darkGreen">
                         Individuals
-                      </Button>
-                    </Link>
-                    <Link to="/onboarding/company">
-                      <Button value="For Organizations" theme="yellow">
+											</Button>
+										</Link>
+										<Link to="/onboarding/company">
+											<Button value="For Organizations" theme="yellow">
                         Companies
-                      </Button>
-                    </Link>
-                  </div>
-                  <p className="smallText">SUPPORTED BY</p>
-                </div>
-                <div className="heroBanner">
-                  <img src={umbrella} alt="heroBanner" />
-                </div>
-              </div>
-              <VideoCarousel />
-            </Container>
-          </div>
-        </div>
-      </Wrapper>
-    );
-  }
+											</Button>
+										</Link>
+									</div>
+									<p className="smallText">SUPPORTED BY</p>
+								</div>
+								<div className="heroBanner">
+									<img src={umbrella} alt="heroBanner" />
+								</div>
+							</div>
+							<VideoCarousel />
+						</Container>
+					</div>
+				</div>
+			</Wrapper>
+		);
+	}
 }
 
 export default HomeHero;
