@@ -61,15 +61,15 @@ const PreliminaryCard = ({
 	where,
 	btnTheme,
 	btnValue,
-  image,
-  details
+	image,
+	details
 }) => {
 	return (
 		<Wrapper>
 			<Paper className={`paper ${backgroundColor}`}>
 				<h1 className={`${fontSize}`}>{cardInfo}</h1>
 				<p>
-         {details}
+					{details}
 				</p>
 				<Link to={where || '/'}>
 					<Button theme={btnTheme}>{btnValue}</Button>

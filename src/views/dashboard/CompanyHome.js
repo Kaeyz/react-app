@@ -33,33 +33,34 @@ const DashboardHome = () => {
 			<main className="content">
 				<h1 className="heading">Dashboard</h1>
 				<WelcomeBanner />
-				
+
 				<h1 className="heading">Quick Summary</h1>
 				<div className="grid-card">
 					<PreliminaryCard
-						btnValue="Start Assessment"
+						btnValue="View Employees"
 						cardInfo="Employees"
 						btnTheme="deepYellowBtn"
 						backgroundColor="orange"
-						where={'/assessment/health'}
+						where={'/employees'}
 						image={pinkFlower}
 						details='You have 12 employees on the Choose Life platform'
 					/>
 
 					<PreliminaryCard
-						btnValue="Start Check"
+						btnValue="View Rewards"
 						cardInfo="Create Rewards"
 						image={greenFlower}
+						where={'/rewards'}
 						btnTheme="purpleBtn"
 						backgroundColor="green"
 						details="Empowering you with the knowledge and opportunity to live the best life possible."
 					/>
 
 					<PreliminaryCard
-						btnValue="Start Guide"
+						btnValue="View Reports"
 						cardInfo={'Reports'}
 						image={yellowFlower}
-						where={'/meals'}
+						where={'/reports'}
 						btnTheme="yellowBtn"
 						backgroundColor="yellow"
 						details="Empowering you with the knowledge and opportunity to live the best life possible.."
