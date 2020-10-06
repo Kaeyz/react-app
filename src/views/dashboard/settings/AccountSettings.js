@@ -32,12 +32,12 @@ const textInput = {
 };
 
 const optionGender = [
-	{ value: 'SELECT HERE', text: 'Select here' },
+	{ value: '', text: 'Select here' },
 	{ value: 'MALE', text: 'Male' },
 	{ value: 'FEMALE', text: 'Female' },
 ];
 const optionActivity = [
-	{ value: 'SELECT HERE', text: 'Select here' },
+	{ value: '', text: 'Select here' },
 	{ value: 'HIGH', text: 'High' },
 	{ value: 'MEDIUM', text: 'Medium' },
 	{ value: 'VERYACTIVE', text: 'Very Active' },

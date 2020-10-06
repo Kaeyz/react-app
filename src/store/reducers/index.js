@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { CLEAR_SESSION } from '../types';
 
 import appReducer from './appReducer';
 import alertsReducer from './alertsReducer';
@@ -11,7 +12,7 @@ import rewardReducer from './rewardReducer';
 import appointmentReducer from './appointmentReducer';
 import bmiReducer from './bmiReducer';
 
-const rootReducer = combineReducers({
+const reducers = combineReducers({
 	app: appReducer,
 	alerts: alertsReducer,
 	user: userReducer,
@@ -23,5 +24,14 @@ const rootReducer = combineReducers({
 	appointment: appointmentReducer,
 	bmi: bmiReducer,
 });
+
+const rootReducer = (state, action) => {
+	// Clear all data in redux store to initial.
+	if(action.type === CLEAR_SESSION) state = undefined;
+	return reducers(state, action);
+};
+
+
+
 
 export default rootReducer;

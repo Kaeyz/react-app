@@ -1,7 +1,7 @@
 //import jwtDecode from 'jwt-decode';
 import { appIsLoading, appNotLoading } from './appActions';
 import { errorAlert, successAlert, clearAlert } from './alertActions';
-import { SET_USER, SET_AUTH } from '../types';
+import { SET_USER, SET_AUTH, CLEAR_SESSION } from '../types';
 import userQueries from '../../client/queries/userQueries';
 import {fetchHraResponse } from './hraActions';
 
@@ -74,7 +74,6 @@ export const registerCompany = (userData, history) => dispatch => {
 };
 
 
-// eslint-disable-next-line no-unused-vars
 export const loginUser = (userData) => dispatch => {
 	dispatch(clearAlert());
 	userQueries.login(userData)
@@ -102,8 +101,8 @@ export const loginUser = (userData) => dispatch => {
 export const logoutUser = () => dispatch =>  {
 	// Remove token from localStorage
 	localStorage.removeItem('auth');
-	dispatch(setIsAuthenticated(false));
-	dispatch({ type: SET_USER, payload: {} });
+	dispatch({ type: CLEAR_SESSION });
+	dispatch(appNotLoading());
 
 };
 
@@ -150,22 +149,18 @@ export const resetPassword = (data) => dispatch => {
 };
 
 export const updateUser = (data) => dispatch => {
-	dispatch(appIsLoading());
 	dispatch(clearAlert());
 	userQueries.updateUser(data)
 		.then(res => {
 			if (res.errors) {
 				dispatch(errorAlert({ msg: res.errors[0].message }));
-				dispatch(appNotLoading());
 			}
-			if (res.data) {
+			if (res.data.updateUserMutation) {
 				dispatch({ type: SET_USER, payload: res.data.updateUserMutation });
-				dispatch(appNotLoading());
 				dispatch(successAlert('User Updated'));
 			}
 		})
 		.catch(() => {
-			dispatch(appNotLoading());
 			dispatch(errorAlert({ msg: 'Connection Error: Try again!!' }));
 		});
 };

@@ -14,21 +14,21 @@ import { Grid } from '@material-ui/core';
 import { Paper, Divider } from '@material-ui/core';
 
 const Wrapper = styled.div`
-.mt{
+.mt	{
   margin-top: -27px;
   padding-bottom: 1rem;
 }
-.sub-heading{
-    font-size: 1.6rem;
-    line-height: 2.5rem;
-       letter-spacing: 0.2px;
-    color: ${(props) => props.theme.color.ui_05};
-    padding-bottom: 3rem;
+.sub-heading	{
+	font-size: 1.6rem;
+	line-height: 2.5rem;
+	letter-spacing: 0.2px;
+	color: ${(props) => props.theme.color.ui_05};
+	padding-bottom: 3rem;
 	font-weight: bold;
 }
-.grid-container{
+.grid-container	{
 	display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	grid-gap: 4rem;
 	@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 		grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
@@ -43,54 +43,52 @@ const Wrapper = styled.div`
   background: rgba(243, 121, 32, 0.02);
     border: 1px solid ${(props) => props.theme.color.ui_08};
 }
-.MuiDivider-root{
+.MuiDivider-root	{
   margin: 1rem 0;
   border: -0.5px solid ${(props) => props.theme.color.text_05};
 }
 
-.subHeading{
-justify-content:start;
-   p{
-         padding-left: .8rem;
-      font-weight: bold;
-      font-size: 2rem;
-      line-height: 2rem;
-             letter-spacing: 0.2px;
-             color: ${(props) => props.theme.color.ui_05};
-   }
+.subHeading	{
+	justify-content:start;
+  p	{
+    padding-left: .8rem;
+		font-weight: bold;
+		font-size: 2rem;
+		line-height: 2rem;
+		letter-spacing: 0.2px;
+		color: ${(props) => props.theme.color.ui_05};
+	}
 }
-.grid{
+.grid	{
    display: grid;
    grid-template-columns: 1fr 1fr;
-}
-}
-.detail{
-   .info{
+	}
+.detail	{
+   .info	{
       font-size: 1.3rem;
       line-height: 2.5rem;
       letter-spacing: 0.2px;
-            color: ${(props) => props.theme.color.ui_05};
-                padding-bottom: 2rem;
+      color: ${(props) => props.theme.color.ui_05};
+      padding-bottom: 2rem;
    }
 }
-.grid{
-   .bold{
+.grid	{
+   .bold	{
       font-weight: bold;
       font-size: 1.1rem;
       line-height: 1.1rem;
       letter-spacing: 0.2px;
       text-transform: uppercase;
-              color: ${(props) => props.theme.color.ui_06};
-              padding-bottom: 1rem;
-   }
+			color: ${(props) => props.theme.color.ui_06};
+			padding-bottom: 1rem;
+   	}
    .date{
       font-size: 1.4rem;
       line-height: 1.3rem;
-             letter-spacing: 0.2px;
+      letter-spacing: 0.2px;
       color: ${(props) => props.theme.color.ui_05};
    }
 }
-
 `;
 function CompanyRewards({ getClosedRewards, getRewards }) {
 	React.useEffect(() => {
@@ -102,8 +100,7 @@ function CompanyRewards({ getClosedRewards, getRewards }) {
 		<Wrapper>
 			<DashboardLayout whatPage="Rewards">
 				<WelcomeCard
-					emoji="Reward"
-					heading="🎉"
+					emoji="🎉"
 					detail="Earn set employee rewards from your company when you top the leaderboard at the close of a period."
 				/>
 				<p className="info mt">

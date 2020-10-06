@@ -151,8 +151,12 @@ userQueries.updateUser = (input) => {
 	const variables = { input };
 	return new Promise((resolve, reject) => {
 		client(query, variables)
-			.then(res => resolve(res))
-			.catch(err => reject(err));
+			.then(res => {
+				return resolve(res);
+			})
+			.catch(err => {
+				return reject(err);
+			});
 	});
 };
 
