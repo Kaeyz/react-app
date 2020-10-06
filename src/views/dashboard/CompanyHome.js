@@ -33,7 +33,7 @@ const DashboardHome = () => {
 			<main className="content">
 				<h1 className="heading">Dashboard</h1>
 				<WelcomeBanner />
-				
+
 				<h1 className="heading">Quick Summary</h1>
 				<div className="grid-card">
 					<PreliminaryCard

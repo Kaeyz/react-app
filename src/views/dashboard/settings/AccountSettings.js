@@ -112,7 +112,7 @@ const AccountSettings = ({ user, updateUser }) => {
 						</Grid>
 						<Grid item xs={12} sm={6}>
 							<NumberInput
-								label="Weight"
+								label="Weight (KG)"
 								// options={optionWeight}
 								value={weight}
 								placeholder='Enter Weight'
@@ -122,7 +122,7 @@ const AccountSettings = ({ user, updateUser }) => {
 						</Grid>
 						<Grid item xs={12} sm={6}>
 							<NumberInput
-								label="Height"
+								label="Height (CM)"
 								// options={optionHeight}
 								value={height}
 								placeholder='Enter height here.. '

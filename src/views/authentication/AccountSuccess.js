@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Container from '../../components/common/Container';
 import Button from '../../components/common/Button';
+import check from '../../assets/checkk.gif';
 
 const Wrapper = styled.div`
   background-color: #f7fdfc;
@@ -19,6 +20,9 @@ const Wrapper = styled.div`
     }
     @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
       width: 100%;
+    }
+    img{
+      width: 217px;
     }
       }
     h2 {
@@ -58,7 +62,8 @@ function AccountSuccess() {
 		<Wrapper>
 			<Container flexy="centered">
 				<div className="body">
-										<h2>
+        <img src={check} alt="check-gif"/>
+					<h2>
 						{' '}
             Congratulations, you’ve created a <span>Choose Life</span> account!
 					</h2>
