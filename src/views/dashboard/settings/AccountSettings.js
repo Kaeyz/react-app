@@ -38,11 +38,11 @@ const optionGender = [
 ];
 const optionActivity = [
 	{ value: 'SELECT HERE', text: 'Select here' },
-	{ value: 'HIGH', text: 'High' },
-	{ value: 'MEDIUM', text: 'Medium' },
-	{ value: 'VERYACTIVE', text: 'Very Active' },
-	{ value: 'SOMEWHATACTIVE', text: 'Some What Active' },
-	{ value: 'LOWACTIVITY', text: 'Low Activity' },
+	{ value: 'Almost no physical activity', text: 'Almost no physical activity' },
+	{ value: 'I often go for a walk', text: 'I often go for a walk' },
+	{ value: 'I exercise 1-2 times a week', text: 'I exercise 1-2 times a week' },
+	{ value: 'I exercise 3-5 times a week', text: 'I exercise 3-5 times a week' },
+	{ value: 'I exercise 5-7 times a week', text: 'I exercise 5-7 times a week' },
 ];
 
 const AccountSettings = ({ user, updateUser }) => {

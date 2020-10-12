@@ -80,9 +80,9 @@ function HraCompleted({ getCompanyLeaderBoard, isLoading, userPosition }) {
 				Congratulations! You’ve got 500 points in this section.
 			</p>
 			<p className="detail">
-				{!isLoading && `You’re currently ${userPosition || 1} on the` }
+				{!isLoading && `You’re currently ${userPosition || 1} on the` } {""}
 				<Link className="link" to="/rewards/leaderboard">
-					leaderboard
+					 leaderboard
 				</Link>
 				.
 			</p>
@@ -93,7 +93,7 @@ function HraCompleted({ getCompanyLeaderBoard, isLoading, userPosition }) {
 						Back to Assessment
 					</Button>
 				</Link>
-				<Link  to="/assessment/exercise">
+				<Link  to="/wellness/individual/fitness">
 					<Button value="Move to Fitness" theme="darkGreenBtn">
 						Move to Fitness
 					</Button>
