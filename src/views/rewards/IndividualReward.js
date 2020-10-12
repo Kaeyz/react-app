@@ -1,17 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import {
-	getRewards,
-	getClosedRewards,
-} from '../../store/actions/rewardActions';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Grid, Paper, Divider } from '@material-ui/core';
+import { getRewards } from '../../store/actions/rewardActions';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner';
 import LeaderboardCard from '../../components/dashboard/dashboard_home/LeaderboardCard';
-import { Link } from 'react-router-dom';
-import { Grid } from '@material-ui/core';
-import { Paper, Divider } from '@material-ui/core';
+import { convertDate } from '../../utils/helper';
 
 const Wrapper = styled.div`
 .mt	{
@@ -90,11 +87,10 @@ const Wrapper = styled.div`
    }
 }
 `;
-function CompanyRewards({ getClosedRewards, getRewards }) {
+function IndividualRewards({ getRewards, reward, isLoading}) {
 	React.useEffect(() => {
 		getRewards();
-		getClosedRewards();
-	}, [getClosedRewards, getRewards]);
+	}, [getRewards]);
 
 	return (
 		<Wrapper>
@@ -105,43 +101,44 @@ function CompanyRewards({ getClosedRewards, getRewards }) {
 				/>
 				<p className="info mt">
           Get rewards from your company by engaging activities on Choose Life.
-          You get rewards everytime you finish a HRA and other activities
+          You get rewards every time you finish a HRA and other activities
 				</p>
 				<p className="sub-heading cap ">Running Rewards</p>
-				<Grid container>
-					<Grid item xs={9}>
-						<Paper className="paperCard">
-							<div>
-								<div className="subHeading flex">
-									<p>Reward Title</p>
-								</div>
-								<Divider />
-								<div className="detail">
-									<p className="info">
-                    This is a short description on the rewards. Top on the
-                    leaderboard wins a Trip to Dubai at the end of the year.
-									</p>
-									<div className="sub-info">
+				{
+					isLoading ?
+						<div>Loading ...</div> :
+						Object.keys(reward).length === 0 && reward.constructor === Object ?
+							<h6>No Current running reward</h6> :
+							<Grid container>
+								<Grid item xs={9}>
+									<Paper className="paperCard">
 										<div>
-											<div className="grid">
-												<p className="bold"> Start Date </p>{' '}
-												<p className="date">22/01/2020</p>
+											<div className="subHeading flex">
+												<p>{reward.title}</p>
 											</div>
-											<div className="grid">
-												<p className="bold">End Date</p>{' '}
-												<p className="date"> 22/12/2020</p>
-											</div>
-											<div className="grid">
-												<p className="bold">Created</p>{' '}
-												<p className="date"> 01/01/2020</p>
+											<Divider />
+											<div className="detail">
+												<p className="info">
+													{reward.description}
+												</p>
+												<div className="sub-info">
+													<div>
+														<div className="grid">
+															<p className="bold"> Start Date </p>
+															<p className="date">{convertDate(reward.startDate)}</p>
+														</div>
+														<div className="grid">
+															<p className="bold">End Date</p>
+															<p className="date">{convertDate(reward.endDate)}</p>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
-								</div>
-							</div>
-						</Paper>
-					</Grid>
-				</Grid>
+									</Paper>
+								</Grid>
+							</Grid>
+				}
 				<Link to="/rewards/leaderboard" className="leaderboard">
 					<p className="sub-heading">Leaderboard</p>
 					<div className="grid-container">
@@ -153,20 +150,18 @@ function CompanyRewards({ getClosedRewards, getRewards }) {
 	);
 }
 
-CompanyRewards.propTypes = {
+IndividualRewards.propTypes = {
 	isLoading: PropTypes.bool.isRequired,
-	openRewards: PropTypes.array.isRequired,
-	closedRewards: PropTypes.array.isRequired,
+	reward: PropTypes.array.isRequired,
 	getRewards: PropTypes.func.isRequired,
-	getClosedRewards: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
 	const { isLoading, rewards } = state.reward;
-	const { openRewards, closedRewards } = rewards;
-	return { openRewards, closedRewards, isLoading };
+	const { openReward } = rewards;
+	return { reward: openReward, isLoading };
 };
 
-export default connect(mapStateToProps, { getRewards, getClosedRewards })(
-	CompanyRewards
+export default connect(mapStateToProps, { getRewards })(
+	IndividualRewards
 );

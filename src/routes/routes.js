@@ -95,9 +95,6 @@ const Routes = () => (
 			<PrivateRoute isActivated={true} exact path="/employees/pending" component={PendingInvites} />
 			<PrivateRoute isActivated={true} exact path="/employees/suspended" component={Suspended} />
 
-			<PrivateRoute isActivated={true} exact path="/rewards" component={CompanyRewards} />
-			<PrivateRoute isActivated={true} exact path="/rewards/leaderboard" component={Leaderboard} />
-
 			{/* admin route */}
 			<PrivateRoute exact path="/companies" component={Companies} />
 			<PrivateRoute exact path="/companies/pending" component={PendingCompanies} />
@@ -139,7 +136,9 @@ const Routes = () => (
 			<PrivateRoute isActivated={true} exact path="/appointments"  component={Appointments} />
 
 			{/* reward */}
-			<PrivateRoute isActivated={true} exact path="/rewards/individual_reward" component={IndividualReward} />
+			<PrivateRoute isActivated={true} exact path="/rewards" component={CompanyRewards} />
+			<PrivateRoute isActivated={true} exact path="/rewards/leaderboard" component={Leaderboard} />
+			<PrivateRoute isActivated={true} exact path="/rewards/individual" component={IndividualReward} />
 
 			{/* Blog route */}
 			<Route exact path="/blogPost" component={BlogPost} />
