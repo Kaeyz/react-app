@@ -28,7 +28,8 @@ color: ${(props) => props.theme.color.ui_06};
 margin-bottom: 1.2rem;
     }
     p{
-        margin-bottom: 2rem ;
+		margin-bottom: 2rem ;
+		font-size: 1.4rem;
     }
     .strong{
         color:red;

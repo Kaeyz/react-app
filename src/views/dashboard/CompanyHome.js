@@ -2,9 +2,11 @@ import React from 'react';
 import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
 import PreliminaryCard from '../../components/dashboard/common/PreliminaryCard';
 import pinkFlower from '../../assets/pinkFlower.svg';
+import PropTypes from 'prop-types';
 import yellowFlower from '../../assets/yellowFlower.svg';
 import greenFlower from '../../assets/greenFlower.svg';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
   padding-top: 3rem;
@@ -27,7 +29,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const DashboardHome = () => {
+const DashboardHome = ({companySize}) => {
 	return (
 		<Wrapper>
 			<main className="content">
@@ -36,30 +38,31 @@ const DashboardHome = () => {
 
 				<h1 className="heading">Quick Summary</h1>
 				<div className="grid-card">
-					<PreliminaryCard
-						btnValue="Start Assessment"
+				<PreliminaryCard
+						btnValue="View Employees"
 						cardInfo="Employees"
 						btnTheme="deepYellowBtn"
 						backgroundColor="orange"
-						where={'/assessment/health'}
+						where={'/employees'}
 						image={pinkFlower}
-						details='You have 12 employees on the Choose Life platform'
+						details={`You have ${companySize} employees on the Choose Life platform`}
 					/>
 
 					<PreliminaryCard
-						btnValue="Start Check"
+						btnValue="View Rewards"
 						cardInfo="Create Rewards"
 						image={greenFlower}
+						where={'/rewards'}
 						btnTheme="purpleBtn"
 						backgroundColor="green"
 						details="Empowering you with the knowledge and opportunity to live the best life possible."
 					/>
 
 					<PreliminaryCard
-						btnValue="Start Guide"
+						btnValue="View Reports"
 						cardInfo={'Reports'}
 						image={yellowFlower}
-						where={'/meals'}
+						where={'/reports'}
 						btnTheme="yellowBtn"
 						backgroundColor="yellow"
 						details="Empowering you with the knowledge and opportunity to live the best life possible.."
@@ -71,4 +74,14 @@ const DashboardHome = () => {
 	);
 };
 
-export default DashboardHome;
+DashboardHome.propTypes = {
+	companySize: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = state => {
+	const companySize = state.user.user.companySize;
+	return { companySize };
+};
+
+
+export default connect(mapStateToProps)(DashboardHome);
