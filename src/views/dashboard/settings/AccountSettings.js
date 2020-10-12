@@ -32,17 +32,17 @@ const textInput = {
 };
 
 const optionGender = [
-	{ value: 'SELECT HERE', text: 'Select here' },
+	{ value: '', text: 'Select here' },
 	{ value: 'MALE', text: 'Male' },
 	{ value: 'FEMALE', text: 'Female' },
 ];
 const optionActivity = [
 	{ value: 'SELECT HERE', text: 'Select here' },
-	{ value: 'Almost no physical activity', text: 'Almost no physical activity' },
-	{ value: 'I often go for a walk', text: 'I often go for a walk' },
-	{ value: 'I exercise 1-2 times a week', text: 'I exercise 1-2 times a week' },
-	{ value: 'I exercise 3-5 times a week', text: 'I exercise 3-5 times a week' },
-	{ value: 'I exercise 5-7 times a week', text: 'I exercise 5-7 times a week' },
+	{ value: 'LOWACTIVITY', text: 'Almost no physical activity' },
+	{ value: 'SOMEWHATACTIVE', text: 'I often go for a walk' },
+	{ value: 'MEDIUM', text: 'I exercise 1-2 times a week' },
+	{ value: 'HIGH', text: 'I exercise 3-5 times a week' },
+	{ value: 'VERYACTIVE', text: 'I exercise 5-7 times a week' },
 ];
 
 const AccountSettings = ({ user, updateUser }) => {

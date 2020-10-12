@@ -38,7 +38,8 @@ const DashboardHome = ({companySize}) => {
 
 				<h1 className="heading">Quick Summary</h1>
 				<div className="grid-card">
-				<PreliminaryCard
+
+					<PreliminaryCard
 						btnValue="View Employees"
 						cardInfo="Employees"
 						btnTheme="deepYellowBtn"
