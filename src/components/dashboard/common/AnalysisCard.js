@@ -42,7 +42,6 @@ line-height: 25px;
 letter-spacing: 0.2px;
 color: #737373;
 margin: 1rem 0 2.5rem 0;
-font-family: Brown;
 }
 h1{
     font-weight: bold;

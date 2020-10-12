@@ -97,7 +97,7 @@ const RewardDetailsModal = ({ theme, reward, closeReward }) => {
 
 				<div className="bottom">
 					<p>See how your employee are performing.</p>
-					<Link to="/leaderboard" id="link">
+					<Link to="/rewards/leaderboard" id="link">
 						View Leaderboard
 					</Link>
 				</div>

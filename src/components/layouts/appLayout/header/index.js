@@ -96,7 +96,7 @@ export default function Header() {
 						<Link to="/login">
 							<Button value="Log In" theme="green" style={buttonStyles}>Log In</Button>
 						</Link>
-						<Link to="/onboarding/individual">
+						<Link to="/onboarding/company">
 							<Button value="Join Us" theme="darkGreen" style={buttonStyles}>Join Us</Button>
 						</Link>
 					</div>

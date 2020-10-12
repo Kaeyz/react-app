@@ -37,7 +37,7 @@ const Wrapper = styled.div`
 	margin: 0 0 4rem 0;
 	display: grid;
 	grid-gap: 4rem;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 	&::-webkit-scrollbar {
 		height: .3rem;
 	}

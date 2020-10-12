@@ -37,12 +37,12 @@ const optionGender = [
 	{ value: 'FEMALE', text: 'Female' },
 ];
 const optionActivity = [
-	{ value: '', text: 'Select here' },
-	{ value: 'HIGH', text: 'High' },
-	{ value: 'MEDIUM', text: 'Medium' },
-	{ value: 'VERYACTIVE', text: 'Very Active' },
-	{ value: 'SOMEWHATACTIVE', text: 'Some What Active' },
-	{ value: 'LOWACTIVITY', text: 'Low Activity' },
+	{ value: 'SELECT HERE', text: 'Select here' },
+	{ value: 'LOWACTIVITY', text: 'Almost no physical activity' },
+	{ value: 'SOMEWHATACTIVE', text: 'I often go for a walk' },
+	{ value: 'MEDIUM', text: 'I exercise 1-2 times a week' },
+	{ value: 'HIGH', text: 'I exercise 3-5 times a week' },
+	{ value: 'VERYACTIVE', text: 'I exercise 5-7 times a week' },
 ];
 
 const AccountSettings = ({ user, updateUser }) => {

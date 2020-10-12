@@ -58,6 +58,11 @@ const Wrapper = styled.div`
 		letter-spacing: 0.2px;
 		color: ${props => props.theme.color.text_06};
 	}
+	.MuiInputLabel-outlined.MuiInputLabel-shrink {
+		transform: translate(14px, 1px) scale(0.75);
+		font-size: 1.3rem;
+		color:${props => props.theme.color.brand_02};
+	}
 	`;
 
 
@@ -69,11 +74,12 @@ const DateInput = ({label, value, onChange, error }) => {
 				<h6 className="input_label">{label}</h6>
 				<KeyboardDatePicker
 					fullWidth
+					label="dd/mm/yyyy"
+					id="outlined-helperText"
 					inputVariant="outlined"
 					className="input"
 					format="dd/MM/yyyy"
 					value={value}
-					hintText="Choose Date"
 					onChange={onChange}
 					KeyboardButtonProps={{
 						'aria-label': 'change date',

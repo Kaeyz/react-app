@@ -5,7 +5,7 @@ import ResetPasswordForm from '../../components/forms/authentications/ResetPassw
 import AuthLayout from '../../components/layouts/appLayout/AuthLayout';
 
 const layoutData = {
-	title: 'Reset your password',
+	title: 'Change Password',
 	description: 'Create a new password',
 };
 
