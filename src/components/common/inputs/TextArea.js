@@ -51,10 +51,9 @@ const TextArea = ({ label, placeholder, error, onChange, value  }) => {
 				id="text-area"
 				cols="30" rows="10"
 				placeholder={placeholder}
+				value={value}
 				onChange={handleChange}
-			>
-				{value}
-			</textarea>
+			/>
 			<p className="error">{error && error}</p>
 		</Wrapper>
 	);

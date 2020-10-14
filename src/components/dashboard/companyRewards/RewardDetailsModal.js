@@ -102,12 +102,16 @@ const RewardDetailsModal = ({ theme, reward, closeReward }) => {
 					</Link>
 				</div>
 
+				{!reward.isClosed &&
+
 				<div className="bottom">
 					<EditRewardModal reward={reward} />
 					<Grid item xs={12} >
 						<Button theme="pinkBtn" text="Close Reward" onClick={() => closeReward(reward._id)} />
 					</Grid>
 				</div>
+				}
+
 			</Modal>
 
 			<div onClick={showModal}>

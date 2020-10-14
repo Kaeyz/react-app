@@ -18,16 +18,25 @@ const Wrapper = styled.div`
 	}
 `;
 
-const EditRewardModal = ({updateReward, reward}) => {
+const EditRewardModal = ({ updateReward, reward }) => {
+
 	const [show, setShow] = React.useState(false);
-	const [title, setTitle] = React.useState(reward.title);
-	const [description, setDescription] = React.useState(reward.description);
-	const [startDate, setStartDate] = React.useState(reward.startDate);
-	const [endDate, setEndDate] = React.useState(new Date(reward.endDate));
+	const [title, setTitle] = React.useState('');
+	const [description, setDescription] = React.useState('');
+	const [startDate, setStartDate] = React.useState('');
+	const [endDate, setEndDate] = React.useState('');
 	const [errors, setErrors] = React.useState({});
 
+	React.useEffect(() => {
+		if (show) {
+			setTitle(reward.title);
+			setDescription(reward.description);
+			setStartDate(reward.startDate);
+			setEndDate(reward.endDate);
+		}
+	}, [reward, show]);
 
-	const	showModal = () => {
+	const showModal = () => {
 		setShow(true);
 	};
 
@@ -109,7 +118,7 @@ const EditRewardModal = ({updateReward, reward}) => {
 
 			<div onClick={showModal}>
 				<Grid item xs={12} id="mb">
-					<Button theme="darkGreen" text="Edit Reward" />
+					<Button theme="darkGreen" text="Edit Reward"/>
 				</Grid>
 			</div>
 		</Wrapper>
