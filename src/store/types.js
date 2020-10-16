@@ -68,4 +68,10 @@ module.exports = Object.freeze({
 	BMI_NOT_LOADING: 'bmi_not_loading',
 	ADD_BMI: 'add_bmi',
 
+	// BLOG ACTIONS
+	BLOG_IS_LOADING: 'blog_is_loading',
+	BLOG_NOT_LOADING: 'blog_not_loading',
+	ADD_BLOGS: 'add_blogs',
+	ADD_BLOG: 'add_blog',
+
 });

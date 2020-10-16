@@ -27,7 +27,7 @@ const Wrapper = styled.div`
     padding-top: 10rem;
         overflow: hidden;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      height: auto;
+      height: 210px;
       display: block;
       padding: 3rem;
     }
