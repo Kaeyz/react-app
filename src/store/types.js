@@ -40,7 +40,7 @@ module.exports = Object.freeze({
 	COMPANY_IS_LOADING: 'companies_is_loading',
 	COMPANY_NOT_LOADING: 'companies_not_loading',
 
-	// COMPANIES ACTIONS
+	// EMPLOYEES ACTIONS
 	ADD_EMPLOYEES: 'add_employees',
 	CLEAR_EMPLOYEES: 'clear_employees',
 	ADD_EMPLOYEE: 'add_employee',

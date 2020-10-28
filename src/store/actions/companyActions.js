@@ -28,7 +28,7 @@ const companyNotLoading = () => {
 /**
  * Gets registered companies
  */
-export const getCompanies = () => dispatch => {
+export const getCompanies = () => (dispatch) => {
 	dispatch(companyIsLoading());
 	companyQueries.getCompanies()
 		.then(res => {

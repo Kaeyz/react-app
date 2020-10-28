@@ -1,4 +1,3 @@
-//import jwtDecode from 'jwt-decode';
 import { appIsLoading, appNotLoading } from './appActions';
 import { errorAlert, successAlert, clearAlert } from './alertActions';
 import { SET_USER, SET_AUTH, CLEAR_SESSION } from '../types';
@@ -103,7 +102,6 @@ export const logoutUser = () => dispatch =>  {
 	localStorage.removeItem('auth');
 	dispatch({ type: CLEAR_SESSION });
 	dispatch(appNotLoading());
-
 };
 
 export const forgotPassword = (data, history) => dispatch => {
