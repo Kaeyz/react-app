@@ -12,7 +12,7 @@ import Lifestyle from '../views/wellness/individual/Lifestyle';
 import IndividualSignUp from '../views/authentication/IndividualSignUp';
 import CompanySignUp from '../views/authentication/CompanySignUp';
 import Login from '../views/authentication/Login';
-import BlogPost from '../views/blogParent/BlogPost';
+import BlogPost from '../views/blogParent';
 import BlogPostDetail from '../views/blogParent/BlogPostDetail';
 import Dashboard from '../views/dashboard/Dashboard';
 import DashboardAssessment from '../views/dashboard/assessment';
@@ -142,7 +142,7 @@ const Routes = () => (
 
 			{/* Blog route */}
 			<Route exact path="/blogPost" component={BlogPost} />
-			<Route exact path="/blogPostDetails" component={BlogPostDetail} />
+			<Route exact path="/blogPost/:blogId" component={BlogPostDetail} />
 
 			<Route path="/not_activated" component={NotActivated} />
 			<Route path="/account_suspended" component={SuspendedPage} />

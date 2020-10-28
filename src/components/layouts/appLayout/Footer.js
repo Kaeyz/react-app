@@ -83,7 +83,7 @@ export default function Footer() {
 							<h5 className="footer_nav_header">Business</h5>
 							<Link className="footer_nav_link" to="/book_visit">Book a Visit</Link>
 							<Link className="footer_nav_link" to="/onboarding/company">Sign Up for a Corporate Package</Link>
-							<Link className="footer_nav_link" to="/blog">Blog</Link>
+							<Link className="footer_nav_link" to="/blogPost">Blog</Link>
 						</div>
 
 					</div>
@@ -91,12 +91,17 @@ export default function Footer() {
 					<div>
 						<h5 className="footer_nav_header">Follow Us</h5>
 						<div className="socials">
-							<Avatar className="social">
-								<FacebookIcon fontSize="large"/>
-							</Avatar>
-							<Avatar className="social">
-								<TwitterIcon fontSize="large" />
-							</Avatar>
+							<a href='https://web.facebook.com/FitnessFairNG/?_rdc=1&_rdr' rel="noopener noreferrer" target='_blank' >
+								<Avatar className="social">
+									<FacebookIcon fontSize="large"/>
+								</Avatar>
+							</a>
+							<a href='https://twitter.com/fitnessfairng' rel="noopener noreferrer" target='_blank' >
+								<Avatar className="social">
+									<TwitterIcon fontSize="large" />
+								</Avatar>
+							</a>
+
 							<Avatar className="social">
 								<InstagramIcon fontSize="large"/>
 							</Avatar>

@@ -11,6 +11,7 @@ import employeeReducer from './employeeReducer';
 import rewardReducer from './rewardReducer';
 import appointmentReducer from './appointmentReducer';
 import bmiReducer from './bmiReducer';
+import blogReducer from './blogReducer';
 
 const reducers = combineReducers({
 	app: appReducer,
@@ -23,6 +24,7 @@ const reducers = combineReducers({
 	reward: rewardReducer,
 	appointment: appointmentReducer,
 	bmi: bmiReducer,
+	blog: blogReducer,
 });
 
 const rootReducer = (state, action) => {

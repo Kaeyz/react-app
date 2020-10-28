@@ -1,62 +1,142 @@
 // modules
 import React from 'react';
 import styled from 'styled-components';
-import MonoBlog from './MonoBlog.js';
-//import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Container from '../common/Container';
-
-// eslint-disable-next-line no-unused-vars
-const useStyles = makeStyles((theme) => ({
-	root: {
-		flexGrow: 1,
-	},
-}));
+import PropTypes from 'prop-types';
+import Button from '../common/Button';
+import blogBg from '../../assets/wellnessNav/check-up-dentist-doctors.svg';
+import { Card, CardContent } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getBlogs } from '../../store/actions/blogActions';
+import Container from '../../components/common/Container';
 
 const Wrapper = styled.div`
-  text-align: center;
   background: rgba(46, 196, 182, 0.05);
   border: 0.1rem solid rgba(46, 196, 182, 0.3);
   border-radius: 0.5rem;
+  .grid-container {
+    display: grid;
+    grid-gap: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .blog_card {
+    background: rgba(0, 0, 0, 0.03);
+    min-width: 30rem;
+    max-width: 100%;
+    height: 550px;
+    margin-top: 3rem;
+  }
+  .img_div {
+    width: 100%;
+    max-height: 30rem;
+  }
+  .blog_img {
+    width: 100%;
+    height: 100%;
+  }
   .blog-content {
     padding: 3rem 0rem 10rem 0rem;
     display: grid;
-    grid-gap: 3rem;
-  }
-  .blog-cards {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
+  }
+  .card_content {
+    text-align: start;
+    background: ${(props) => props.theme.color.brand_02};
+    margin-top: -0.9rem;
+    color: #fff;
+    height: 100%;
+  }
+  .card_description {
+    font-size: 1.1rem;
+  }
+  .card_footer {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  .test_link {
+    text-decoration: underline;
+    color: ${(props) => props.theme.color.ui_01};
   }
 `;
 
-const card = {
-	title: 'Healthy Living',
-	description:
-    'Using our algorithm, we carry out a preliminary assessment to understand the state of your health and determine how best to serve you!',
-};
+function LatestBlog({ tryTest, getBlogs, isLoading, blogs, color }) {
+	React.useEffect(() => {
+		getBlogs();
+	}, [getBlogs]);
 
-export default function LatestBlog() {
-	const classes = useStyles();
+	const displayTest = () => {
+		return (
+			<Link className="test_link" to="/">
+        Try the test
+			</Link>
+		);
+	};
+
+	const size = 3;
+	const items = blogs.slice(0, size);
+
 	return (
-		<div className={classes.root}>
+		<div>
 			<Wrapper>
 				<Container>
 					<div className="blog-content">
 						<h2>Our Blog</h2>
-						<Grid container spacing={3}>
-							<Grid item xs={4}>
-								<MonoBlog color="green" fontColor="black" data={card} />
-							</Grid>
-							<Grid item xs={4}>
-								<MonoBlog color="green" fontColor="black" data={card} />
-							</Grid>
-							<Grid item xs={4}>
-								<MonoBlog color="green" fontColor="black" data={card} />
-							</Grid>
-						</Grid>
+						<div className="grid-container">
+							{isLoading ? (
+								<div>Loading ...</div>
+							) : items.length !== 0 ? (
+								items.map(({ id, title, body, asset }) => {
+									return (
+										<div className="grid-item" key={id}>
+											<Card className="blog_card">
+												<div className="img_div">
+													{isLoading ? (
+														<div>Loading ...</div>
+													) : asset !== null ? (
+														<img
+															src={asset.url}
+															alt={asset.name}
+															className="blog_img"
+														/>
+													) : (
+														<img
+															src={blogBg}
+															alt="blog bg"
+															className="blog_img"
+														/>
+													)}
+												</div>
+												<CardContent className={'card_content green_card'}>
+													<h2>{title}</h2>
+													<p className="card_description">{body}</p>
+													<div className="card_footer">
+														{tryTest && displayTest()}
+														<Link to="/blogPost">
+															<Button
+																value="Read More"
+																theme="greenBtn"
+																style={{
+																	boxShadow:
+                                    '0px 4px 4px rgba(46, 196, 182, 0.25)',
+																}}
+															>
+																{' '}
+                                Read More
+															</Button>
+														</Link>
+													</div>
+												</CardContent>
+											</Card>
+										</div>
+									);
+								})
+							) : (
+								<p>No blogs loaded yet</p>
+							)}
+						</div>
 					</div>
 				</Container>
 			</Wrapper>
@@ -64,6 +144,21 @@ export default function LatestBlog() {
 	);
 }
 
-LatestBlog.propTypes = {
-	//TODO: blog prop types goes here
+LatestBlog.defaultProps = {
+	tryTest: true,
 };
+
+LatestBlog.propTypes = {
+	tryTest: PropTypes.bool,
+	color: PropTypes.string,
+	isLoading: PropTypes.bool.isRequired,
+	getBlogs: PropTypes.func.isRequired,
+	blogs: PropTypes.array.isRequired,
+};
+
+const mapStateToProps = (state) => {
+	const { blogs, isLoading } = state.blog;
+	return { blogs: blogs || [], isLoading };
+};
+
+export default connect(mapStateToProps, { getBlogs })(LatestBlog);
