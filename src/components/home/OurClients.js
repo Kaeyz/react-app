@@ -148,6 +148,11 @@ const Wrapper = styled.div`
 `;
 
 export default function OurClients() {
+	const [tab, setTab] = React.useState('');
+
+	const handleChange = (event) => {
+		setTab(event.target.value);
+	};
 	return (
 		<Wrapper>
 			{/* clients component goes here */}
@@ -172,6 +177,8 @@ export default function OurClients() {
 						id="tab1"
 						aria-controls="marzen"
 						checked
+						value={tab}
+						onChange={handleChange}
 					/>
 					<label htmlFor="tab1" style={{ marginRight: '2rem' }}>
 						OUR CLIENTS

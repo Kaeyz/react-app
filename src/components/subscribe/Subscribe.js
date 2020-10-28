@@ -89,7 +89,7 @@ const Subscribe = ({subscribeToEmail}) => {
 	return (
 		<Wrapper>
 			<div className="card1Content" style={{ zIndex: 2 }}>
-				<div className="importance">
+				<div className="">
 					<h3 className="importanceHead" style={{ marginBottom: '2.04rem' }}>
             Interested in Keeping up with Choose Life?
 					</h3>
