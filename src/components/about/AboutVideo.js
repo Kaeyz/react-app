@@ -78,7 +78,7 @@ function Video() {
 					<h3 className="videoText">For everyone</h3>
 					<p className='videoTextP'>
 					We are a Wellness solutions provider empowering both individuals organizations with the data, tools, and guides, to improve their physical and mental wellbeing. Using innovative technology that gives intelligent verifiable analytics and progress reports on wellness performance, Choose Life is driving Wellness into corporate culture and individual lifestyles.</p>
-					
+
 				</div>
 			</div>
 
