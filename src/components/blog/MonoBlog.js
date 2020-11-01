@@ -1,26 +1,26 @@
-// // modules
-// import React from 'react';
-// import styled from 'styled-components';
-// import { Link } from 'react-router-dom';
+// modules
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-// const Wrapper = styled.div`
+const Wrapper = styled.div`
 
-// `;
+`;
 
-// export default function MonoBlog({ color, tryTest, data }) {
-// 	const displayTest = () => {
-// 		return (
-// 			<Link className="test_link" to="/">
-//         Try the test
-// 			</Link>
-// 		);
-// 	};
+export default function MonoBlog({ color, tryTest, data }) {
+	const displayTest = () => {
+		return (
+			<Link className="test_link" to="/">
+        Try the test
+			</Link>
+		);
+	};
 
-// 	return (
-// 		<Wrapper>
+	return (
+		<Wrapper>
 	
-// 		</Wrapper>
-// 	);
-// }
+		</Wrapper>
+	);
+}

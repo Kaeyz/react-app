@@ -36,7 +36,7 @@ const Wrapper = styled.div`
 
 function TeamCard({ page, details, tryTest, card }) {
 	const fetchColor = (page) => {
-		if (page === 'health') return 'default';
+		if (page === 'health') return 'default'; 
 		if (page === 'fitness') return 'deepYellow';
 		if (page === 'lifestyle') return 'pink';
 		if (page === 'nutrition') return 'purple';

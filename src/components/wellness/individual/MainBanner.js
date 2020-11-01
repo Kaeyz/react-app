@@ -85,19 +85,19 @@ function MainBanner({page}) {
 							<CircleCard />
 						</div>
 						<div className='nav_section'>
-							<Link className="nav_link" to="/wellness/individual/health">
+							<Link className="nav_link" to="/wellness/health">
 								<img src={page === 'health' ? healthIsActive : health } alt={page} className="nav_icon" />
 								<h5 className="nav_text">HEALTH</h5>
 							</Link>
-							<Link className="nav_link" to="/wellness/individual/fitness">
+							<Link className="nav_link" to="/wellness/fitness">
 								<img src={page === 'fitness' ? fitnessIsActive : fitness} alt={page} className="nav_icon"/>
 								<h5 className="nav_text">FITNESS</h5>
 							</Link>
-							<Link className="nav_link" to="/wellness/individual/lifestyle">
+							<Link className="nav_link" to="/wellness/lifestyle">
 								<img src={page === 'lifestyle' ? lifestyleIsActive : lifestyle} alt={page} className="nav_icon"/>
 								<h5 className="nav_text">LIFESTYLE</h5>
 							</Link>
-							<Link className="nav_link" to="/wellness/individual/nutrition">
+							<Link className="nav_link" to="/wellness/nutrition">
 								<img src={page === 'nutrition' ? nutritionIsActive : nutrition} alt={page} className="nav_icon" />
 								<h5 className="nav_text">NUTRITION</h5>
 							</Link>

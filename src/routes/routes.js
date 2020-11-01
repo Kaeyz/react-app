@@ -65,10 +65,10 @@ const Routes = () => (
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/about" component={About} />
-			<Route exact path="/wellness/individual/health" component={Health} />
-			<Route exact path="/wellness/individual/fitness" component={Fitness} />
-			<Route exact path="/wellness/individual/nutrition" component={Nutrition} />
-			<Route exact path="/wellness/individual/lifestyle" component={Lifestyle} />
+			<Route exact path="/wellness/health" component={Health} />
+			<Route exact path="/wellness/fitness" component={Fitness} />
+			<Route exact path="/wellness/nutrition" component={Nutrition} />
+			<Route exact path="/wellness/lifestyle" component={Lifestyle} />
 
 			{/* Auth routes */}
 			<PrivateRoute isAuth={false} exact path="/login" component={Login} />

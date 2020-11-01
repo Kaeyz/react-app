@@ -98,7 +98,7 @@ function Recommendations({ data }) {
 										<h3>{title}</h3>
 										<p className="RecInfo">{description}</p>
 										<div>
-                    <Link to="/onboarding/individual">
+                    <Link to="/onboarding/company">
                     <Button value="Get started" theme={button === 'green' ? 'darkGreen': button}>
                     Get started
 											</Button>
