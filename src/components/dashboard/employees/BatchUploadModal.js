@@ -58,7 +58,7 @@ const BatchUploadModal = ({addNewEmployee}) => {
 	const onSubmit = event => {
 		event.preventDefault();
 		if (csv === '') {
-			return setErrors('Csv File not found')
+			return setErrors('Csv File not found');
 		}
 		addNewEmployee(csv);
 		hideModal();
