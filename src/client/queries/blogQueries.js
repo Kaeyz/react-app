@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import { client } from '../client';
 
 const blogQueries = {};

@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import React from 'react';
 import Container from '../../common/Container';
 import styled from 'styled-components';
@@ -33,6 +35,8 @@ const Wrapper = styled.div`
     grid-gap: 2rem;
   }
 `;
+
+
 
 function TeamCard({ page, details, tryTest, card }) {
 	const fetchColor = (page) => {
