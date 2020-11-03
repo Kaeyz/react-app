@@ -2,11 +2,9 @@ import React from 'react';
 import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
 import PreliminaryCard from '../../components/dashboard/common/PreliminaryCard';
 import pinkFlower from '../../assets/pinkFlower.svg';
-import PropTypes from 'prop-types';
 import yellowFlower from '../../assets/yellowFlower.svg';
 import greenFlower from '../../assets/greenFlower.svg';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
   padding-top: 3rem;
@@ -29,7 +27,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const DashboardHome = ({companySize}) => {
+const AdminHome = () => {
 	return (
 		<Wrapper>
 			<main className="content">
@@ -39,23 +37,13 @@ const DashboardHome = ({companySize}) => {
 				<h1 className="heading">Quick Summary</h1>
 				<div className="grid-card">
 					<PreliminaryCard
-						btnValue="View Employees"
-						cardInfo="Employees"
+						btnValue="View Companies"
+						cardInfo="Companies"
 						btnTheme="deepYellowBtn"
 						backgroundColor="orange"
-						where={'/employees'}
+						where={'/companies'}
 						image={pinkFlower}
-						details={`You have ${companySize} employees on the Choose Life platform`}
-					/>
-
-					<PreliminaryCard
-						btnValue="View Rewards"
-						cardInfo="Create Rewards"
-						image={greenFlower}
-						where={'/rewards'}
-						btnTheme="purpleBtn"
-						backgroundColor="green"
-						details="Empowering you with the knowledge and opportunity to live the best life possible."
+						details={'View all companies registered to Choose Life Platform'}
 					/>
 
 					<PreliminaryCard
@@ -74,14 +62,5 @@ const DashboardHome = ({companySize}) => {
 	);
 };
 
-DashboardHome.propTypes = {
-	companySize: PropTypes.string.isRequired,
-};
 
-const mapStateToProps = state => {
-	const companySize = state.user.user.companySize;
-	return { companySize };
-};
-
-
-export default connect(mapStateToProps)(DashboardHome);
+export default AdminHome;
