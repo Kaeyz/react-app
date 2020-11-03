@@ -45,7 +45,7 @@ const Wrapper = styled.div`
 const BatchUploadModal = ({addNewEmployee}) => {
 	const [show, setShow] = React.useState(false);
 	const [csv, setCsv] = React.useState('');
-	const [errors] = React.useState('');
+	const [errors, setErrors] = React.useState('');
 
 	const showModal = () => {
 		setShow(true);
@@ -57,6 +57,9 @@ const BatchUploadModal = ({addNewEmployee}) => {
 
 	const onSubmit = event => {
 		event.preventDefault();
+		if (csv === '') {
+			return setErrors('Csv File not found')
+		}
 		addNewEmployee(csv);
 		hideModal();
 	};
