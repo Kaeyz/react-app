@@ -3,7 +3,6 @@ import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBann
 import PreliminaryCard from '../../components/dashboard/common/PreliminaryCard';
 import pinkFlower from '../../assets/pinkFlower.svg';
 import yellowFlower from '../../assets/yellowFlower.svg';
-import greenFlower from '../../assets/greenFlower.svg';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
