@@ -71,8 +71,8 @@ function AccountSuccess() {
             Start benefiting from the wellness experience. For companies looking
             on increasing productivity, and improving organization wellness.
 					</h5>
-					<Link to="/dashboard" className="submit">
-						<Button theme="darkGreenBtn">Proceed to Dashboard</Button>
+					<Link to="/settings/account" className="submit">
+						<Button theme="darkGreenBtn">Proceed to Profile</Button>
 					</Link>
 				</div>
 			</Container>
