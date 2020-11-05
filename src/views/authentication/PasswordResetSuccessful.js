@@ -10,9 +10,9 @@ function PasswordResetSuccessful() {
 		<CommonAuthFlowPage
 			img={Frame}
 			title={'Reset Successful!'}
-			detail={'Try signing in with your new password'}
-			buttonText={'LOG IN'}
-			link={'/login'}
+			detail={'Proceed to Dashboard'}
+			buttonText={'Dashboard'}
+			link={'/dashboard'}
 		/>
 
 	);

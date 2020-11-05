@@ -76,12 +76,12 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} exact path="/onboarding/individual" component={IndividualSignUp} />
 			<PrivateRoute isAuth={false} exact path="/onboarding/company" component={CompanySignUp} />
 			<PrivateRoute isAuth={false} exact path="/onboarding/employee/:token" component={ResetPassword} />
-			<PrivateRoute isAuth={false} exact path="/onboarding/account_success" component={AccountSuccess} />
 			<PrivateRoute isAuth={true} exact path="/onboarding/mail_confirmed" component={MailConfirmation} />
 			<PrivateRoute isAuth={false} exact path="/forgot_password" component={ForgotPassword} />
 			<PrivateRoute isAuth={false} exact path="/reset_link_sent" component={PasswordResetLink} />
 			<PrivateRoute isAuth={false} exact path="/reset_password" component={ResetPassword} />
-			<PrivateRoute isAuth={false} exact path="/reset_success" component={PasswordResetSuccessful} />
+			<PrivateRoute exact path="/reset_success" component={PasswordResetSuccessful} />
+			<PrivateRoute exact path="/onboarding/account_success" component={AccountSuccess} />
 
 			<PrivateRoute exact path="/settings/account" component={AccountSettings} />
 			<PrivateRoute exact path="/settings/password" component={PasswordSettings} />
