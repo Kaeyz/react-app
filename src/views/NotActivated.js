@@ -10,7 +10,7 @@ function NotActivated() {
 			img={errorImg}
 			absImg={errorTopImg}
 			title={'Please activate your account.'}
-			detail={'Maybe try again?'}
+			detail={'Contact the ChooseLife Admin to activate your account and try again?'}
 			buttonText={'BACK TO HOME'}
 			link={'/'}
 		/>

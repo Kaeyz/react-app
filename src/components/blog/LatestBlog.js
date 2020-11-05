@@ -1,4 +1,5 @@
 /*eslint-disable */
+
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
@@ -23,16 +24,15 @@ const Wrapper = styled.div`
     background: rgba(0, 0, 0, 0.03);
     min-width: 30rem;
     max-width: 100%;
-    height: 550px;
+    height: 580px;
     margin-top: 3rem;
   }
   .img_div {
+    background-position: center;
     width: 100%;
-    max-height: 30rem;
-  }
-  .blog_img {
-    width: 100%;
-    height: 100%;
+    max-height: 40%;
+    height: 415px;
+    background-repeat: no-repeat;
   }
   .blog-content {
     padding: 3rem 0rem 10rem 0rem;
@@ -92,23 +92,19 @@ function LatestBlog({ tryTest, getBlogs, isLoading, blogs, color }) {
                   return (
                     <div className="grid-item" key={id}>
                       <Card className="blog_card">
-                        <div className="img_div">
                           {isLoading ? (
                             <div>Loading ...</div>
                           ) : asset !== null ? (
-                            <img
-                              src={asset.url}
-                              alt={asset.name}
-                              className="blog_img"
-                            />
+                            <div
+                              className="img_div"
+                              style={{ backgroundImage: `url(${asset.url})` }}
+                            ></div>
                           ) : (
-                            <img
-                              src={blogBg}
-                              alt="blog bg"
-                              className="blog_img"
-                            />
+                            <div
+                            className="img_div"
+                            style={{ backgroundImage: `url(${blogBg})` }}
+                            ></div>
                           )}
-                        </div>
                         <CardContent className={"card_content green_card"}>
                           <h2>{title}</h2>
                           <p className="card_description">{body}</p>

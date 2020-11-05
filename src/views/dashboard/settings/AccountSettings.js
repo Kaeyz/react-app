@@ -108,6 +108,7 @@ const AccountSettings = ({ user, updateUser }) => {
 								value={dob}
 								onChange={setDob}
 								error={errors.dob}
+								textHelper="dd/mm/yyyy"
 							/>
 						</Grid>
 						<Grid item xs={12} sm={6}>

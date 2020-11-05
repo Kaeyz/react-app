@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -60,7 +62,7 @@ const BatchUploadModal = ({addNewEmployee}) => {
 		addNewEmployee(csv);
 		hideModal();
 	};
-
+console.log(csv)
 
 	return (
 		<Wrapper>
@@ -71,8 +73,8 @@ const BatchUploadModal = ({addNewEmployee}) => {
 				info={<>
 					<p className='inlineP'>Add multiple employees at once via a CSV upload.</p>
 					<p className='inlineP smallerP'>
-						Download a sample CSV
-						<a id='link' href={csvFile} download="Batch_Upload"> here</a> to see how to format your upload.
+						To add multiple employees, click this
+						<a id='link' href={csvFile} download="Batch_Upload"> link</a> to use the csv batch upload.
 					</p>
 				</>}
 				heading={<span>Batch Upload</span>}
@@ -92,9 +94,10 @@ const BatchUploadModal = ({addNewEmployee}) => {
 							<Button
 								theme="darkGreen"
 								onClick={onSubmit}
+								isLoading={csv === "" ? true : false}
 								text="Add"
-							/>
-						</Grid>
+								/>
+							</Grid>
 					</Grid>
 				</div>
 			</Modal>

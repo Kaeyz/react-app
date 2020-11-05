@@ -54,6 +54,7 @@ const CreateRewardModal = ({addNewReward}) => {
 		<Wrapper>
 			<Modal
 				show={show}
+				info="One of the great power that this platform offers is the creation of rewards to motivate employees of a company to stay focused on the four pillars of choose life (health, nutrition, lifestyle and fitness. The rewards offer a mechanism to rate individual progress with a feature named leaderboard(link to the leaderboard should be added). Our goal is to give you and your employees all the tools to monitor and improve your general wellbeing."
 				handleClose={hideModal}
 				position="modal-right"
 				heading={
