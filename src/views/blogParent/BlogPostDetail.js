@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -160,7 +162,10 @@ function BlogPostDetail({
 							</h4>
 						</div>
 						<div>
-							<div className="detailbg"></div>
+						{isLoading ? (
+                            <div>Loading ...</div>
+                          ) : 
+							<div className="detailbg"></div>}
 							<p className="longDetail">{!isLoading && body}</p>
 						</div>
 					</div>

@@ -101,7 +101,7 @@ function SideBar({ logoutUser, user, type }) {
 					</div>
 					<Divider variant="middle" />
 					<div className="nav">
-						<UserInfo name={user.name} type={type} />
+						<UserInfo name={user.name} type={type} companyName={user.companyName} />
 						<NavSection title={type} items={navItems.topSection} />
 						<Divider variant="middle" />
 						<NavSection title="OTHER" items={[...navItems.otherSection, logoutItem]} />
@@ -121,9 +121,9 @@ SideBar.propTypes = {
 };
 
 const mapStateToProps = state => {
-	const { name, type } = state.user.user;
-	const user = { name, type };
-	return { user, type };
+	const { name, type,companyName } = state.user.user;
+	const user = { name, type,companyName };
+	return { user, type,companyName };
 };
 
 export default connect(mapStateToProps, { logoutUser })(SideBar);

@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import React from "react";
 import hiddenImg from "../../assets/Ellipse31.svg";
 import hiddenImg1 from "../../assets/Ellipse29.svg";

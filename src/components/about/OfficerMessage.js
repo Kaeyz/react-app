@@ -1,8 +1,8 @@
 // modules
-import React from "react";
-import styled from "styled-components";
-import Button from "../common/Button";
-import hug from "../../assets/shalom-mwenesi.svg";
+import React from 'react';
+import styled from 'styled-components';
+import Button from '../common/Button';
+import hug from '../../assets/shalom-mwenesi.svg';
 
 const Wrapper = styled.div`
   max-width: 1058px;
@@ -27,12 +27,12 @@ const Wrapper = styled.div`
     .hero-text {
       width: 83%;
       color: #ffffff;
-    
+
       position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-      
+
       h1 {
         font-size: 7.2rem;
         line-height: 8.6rem;
@@ -50,26 +50,26 @@ const Wrapper = styled.div`
 `;
 
 export default function OfficerMessage() {
-  return (
-    <Wrapper>
-      <div className="hero-image">
-        <div className="gradient">
-          <div className="hero-text">
-            <h1>A letter from our Chief Wellness Officer</h1>
-            <p>
+	return (
+		<Wrapper>
+			<div className="hero-image">
+				<div className="gradient">
+					<div className="hero-text">
+						<h1>A letter from our Chief Wellness Officer</h1>
+						<p>
               Read more on our commitment to driving Wellness engagement both in
               the workplace and in our lives.
-            </p>
-            <Button value="Read" theme="yellow">
+						</p>
+						<Button value="Read" theme="yellow">
               Read
-            </Button>
-          </div>
-        </div>
-      </div>
-    </Wrapper>
-  );
+						</Button>
+					</div>
+				</div>
+			</div>
+		</Wrapper>
+	);
 }
 
 OfficerMessage.propTypes = {
-  //TODO: Wellness info prop types goes here
+	//TODO: Wellness info prop types goes here
 };

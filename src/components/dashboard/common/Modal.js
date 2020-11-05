@@ -58,7 +58,7 @@ const Wrapper = styled.div`
   .bold {
     font-weight: bold;
     font-size: 1.6rem;
-    line-height: 2.5rem;
+    line-height: 3rem;
     color: ${(props) => props.theme.color.ui_05};
   }
   .big {

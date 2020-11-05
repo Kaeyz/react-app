@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import React from 'react';
 // This is the table constant/settings which needed to render table elements
 

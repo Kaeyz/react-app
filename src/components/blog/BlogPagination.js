@@ -1,4 +1,3 @@
-// modules
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -18,16 +17,15 @@ const Wrapper = styled.div`
     background: rgba(0, 0, 0, 0.03);
     min-width: 30rem;
     max-width: 100%;
-    height: 550px;
+    height: 580px;
     margin-top: 3rem;
   }
   .img_div {
+	background-position: center;
     width: 100%;
-    max-height: 30rem;
-  }
-  .blog_img {
-    width: 100%;
-    height: 100%;
+    max-height: 40%;
+    height: 415px;
+    background-repeat: no-repeat;
   }
   .card_content {
     text-align: start;
@@ -81,7 +79,6 @@ function BlogPagination({
 	getBlogs,
 	isLoading,
 	src,
-	alt,
 	id,
 	title,
 	body,
@@ -108,8 +105,8 @@ function BlogPagination({
 					) : (
 						<div className="grid-item">
 							<Card className="blog_card">
-								<div className="img_div">
-									<img src={src} alt={alt} className="blog_img" />
+								<div className="img_div" style={{ backgroundImage: `url(${src})` }}>
+									{/* <img src={src} alt={alt} className="blog_img" /> */}
 								</div>
 								<CardContent className={'card_content white_card'}>
 									<h2>{title}</h2>

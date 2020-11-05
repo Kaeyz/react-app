@@ -115,6 +115,7 @@ userQueries.getCurrentUser = () => {
 			suspended
 			companySize
 			companyUrl
+			companyName
 		}
 	}
 	`;
