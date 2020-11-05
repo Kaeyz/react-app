@@ -62,7 +62,7 @@ const Wrapper = styled.div`
 
 
 
-const DateInput = ({label, value, onChange, error }) => {
+const DateInput = ({label, value, onChange, error, textHelper }) => {
 	return (
 		<Wrapper>
 			<MuiPickersUtilsProvider utils={DateFnsUtils} >
@@ -73,6 +73,7 @@ const DateInput = ({label, value, onChange, error }) => {
 					inputVariant="outlined"
 					className="input"
 					format="dd/MM/yyyy"
+					label={textHelper}
 					value={value}
 					onChange={onChange}
 					KeyboardButtonProps={{
@@ -88,6 +89,7 @@ const DateInput = ({label, value, onChange, error }) => {
 
 DateInput.propTypes = {
 	label: PropTypes.string,
+	textHelper: PropTypes.string,
 	error: PropTypes.string,
 	placeholder: PropTypes.string,
 	onChange: PropTypes.func.isRequired,

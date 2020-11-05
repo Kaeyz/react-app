@@ -1,10 +1,10 @@
 // modules
-import React from "react";
-import styled from "styled-components";
-import Container from "../common/Container";
-import { Link } from "react-router-dom";
-import arrow from "../../assets/Arrow1.svg";
-import img from "../../assets/charles-etoroma.svg";
+import React from 'react';
+import styled from 'styled-components';
+import Container from '../common/Container';
+import { Link } from 'react-router-dom';
+import arrow from '../../assets/Arrow1.svg';
+import img from '../../assets/charles-etoroma.svg';
 
 const Wrapper = styled.div`
   /* leadership styling goes here */
@@ -52,37 +52,36 @@ const Wrapper = styled.div`
 `;
 
 export default function Leadership() {
-  return (
-    <Wrapper>
-      <Container>
-        <div className="flexy flex">
-          <div className="flex leadInfo">
-            <div style={{ maxWidth: "100%" }}>
-              <h1>For your mind, body & spirit</h1>
-              <p>
+	return (
+		<Wrapper>
+			<Container>
+				<div className="flexy flex">
+					<div className="flex leadInfo">
+						<div style={{ maxWidth: '100%' }}>
+							<h1>For your mind, body & spirit</h1>
+							<p>
                 Your physical and mental wellbeing are important. Do what keeps
                 you happier and living a more fulfilled life. Our goal is to
                 keep you healthy within your comfort zone, be it at home or at
                 the office. We will help you achieve more.
-              </p>
-            </div>
-            <div>
-              <Link to="../pages/About.js">
-                <span className="linkSpan1">Our Leadership</span>
-                <span>
-                  {" "}
-                  <img src={arrow} alt="arrow" className="arrow" />
-                </span>{" "}
-              </Link>
-            </div>
-          </div>
-          <div className="leaderBg"></div>
-        </div>
-      </Container>
-    </Wrapper>
-  );
+							</p>
+						</div>
+						<div>
+							<Link to="../pages/About.js">
+								<span className="linkSpan1">Our Leadership</span>
+								<span>
+									<img src={arrow} alt="arrow" className="arrow" />
+								</span>
+							</Link>
+						</div>
+					</div>
+					<div className="leaderBg"></div>
+				</div>
+			</Container>
+		</Wrapper>
+	);
 }
 
 Leadership.propTypes = {
-  //TODO: leadership prop types goes here
+	//TODO: leadership prop types goes here
 };
