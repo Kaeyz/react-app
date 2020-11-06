@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CSVReader from 'react-csv-reader';
 import styled from 'styled-components';
@@ -7,6 +7,10 @@ const Wrapper = styled.div`
 
 	.csv-input {
 		color: blue;
+	}
+	.error {
+		margin-top: 0.5rem;
+		color: red;
 	}
 `;
 
@@ -27,8 +31,13 @@ const sortData = (data) => {
 	return result;
 };
 
-function CsvUpload({value, onFileUpload}) {
-	const [error, setError] = React.useState('');
+function CsvUpload({value, onFileUpload, csvError}) {
+	const [error, setError] = useState('');
+
+	useEffect(() => {
+		setError(csvError);
+	}, [csvError]);
+
 	return (
 		<Wrapper>
 			<CSVReader
@@ -38,14 +47,15 @@ function CsvUpload({value, onFileUpload}) {
 				}}
 				onError= {error => setError(error)}
 			/>
-			<p>{error}</p>
+			<p className='error' >{error}</p>
 		</Wrapper>
 	);
 }
 
 CsvUpload.propTypes = {
 	value: PropTypes.any.isRequired,
-	onFileUpload: PropTypes.func.isRequired
+	onFileUpload: PropTypes.func.isRequired,
+	csvError: PropTypes.string
 };
 
 export { CsvUpload };

@@ -59,13 +59,13 @@ const BatchUploadModal = ({addNewEmployee}) => {
 
 	const onSubmit = event => {
 		event.preventDefault();
+		setErrors('');
 		if (csv === '') {
 			return setErrors('Csv File not found');
 		}
 		addNewEmployee(csv);
 		hideModal();
 	};
-console.log(csv)
 
 	return (
 		<Wrapper>
@@ -89,7 +89,7 @@ console.log(csv)
 								label="Upload CSV"
 								value={csv}
 								onFileUpload={setCsv}
-								error={errors.csv}
+								csvError={errors}
 							/>
 						</Grid>
 
@@ -97,7 +97,6 @@ console.log(csv)
 							<Button
 								theme="darkGreen"
 								onClick={onSubmit}
-								isLoading={csv === "" ? true : false}
 								text="Add"
 								/>
 							</Grid>
