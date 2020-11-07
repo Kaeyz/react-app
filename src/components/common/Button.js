@@ -107,7 +107,7 @@ width: 100%;
 `;
 
 
-function Button({style, theme, isLoading, children, text, ...rest}) {
+function Button({style, theme, isLoading, children, text, title, ...rest}) {
 	const themeClassName = theme ? `${theme}Btn`: '';
 	return (
 		<Wrapper>
@@ -116,6 +116,7 @@ function Button({style, theme, isLoading, children, text, ...rest}) {
 				disabled={isLoading}
 				type="button"
 				className={`${themeClassName} ${theme} button`}
+				title={title}
 				style={{
 					borderRadius: '0.5rem',
 					fontSize: '1.2rem',
@@ -148,6 +149,7 @@ Button.defaultProps = {
 
 Button.propTypes = {
 	style: PropTypes.object,
+	title: PropTypes.string,
 	theme: PropTypes.oneOf([
 		'pink',
 		'purple',
