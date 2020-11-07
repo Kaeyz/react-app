@@ -1,13 +1,13 @@
+/*eslint-disable */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Grid, Paper, Divider } from '@material-ui/core';
 import { getRewards } from '../../store/actions/rewardActions';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner';
-import LeaderboardCard from '../../components/dashboard/dashboard_home/LeaderboardCard';
 import { convertDate } from '../../utils/helper';
 
 const Wrapper = styled.div`
@@ -139,12 +139,7 @@ function IndividualRewards({ getRewards, reward, isLoading}) {
 								</Grid>
 							</Grid>
 				}
-				<Link to="/rewards/leaderboard" className="leaderboard">
-					<p className="sub-heading">Leaderboard</p>
-					<div className="grid-container">
-						<LeaderboardCard />
-					</div>
-				</Link>
+			
 			</DashboardLayout>
 		</Wrapper>
 	);
