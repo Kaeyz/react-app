@@ -47,7 +47,6 @@ exerciseQueries.getExerciseById = (id) => {
 		client(query, variables)
 			.then(res => {
 				const exercise = res.data.fetchOneExercise;
-				console.log({ exercise });
 				return resolve({
 					image: exercise.image,
 					name: exercise.exercise.name,
