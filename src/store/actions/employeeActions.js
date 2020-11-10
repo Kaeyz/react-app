@@ -52,7 +52,7 @@ export const getActiveEmployees = () => dispatch => {
 	dispatch(employeeIsLoading());
 	employeeQueries.getActiveEmployees()
 		.then(res => {
-			const employees = res.data.fetchEmployeesOfACompanyByCategory ;
+			const employees = res.data.fetchEmployeesOfACompanyByCategory;
 			dispatch(addEmployees(employees));
 			dispatch(employeeNotLoading());
 		})
@@ -145,6 +145,23 @@ export const unSuspendEmployee = (id) => dispatch => {
 			if (res.errors) {
 				dispatch(errorAlert({msg: res.errors[0].message}));
 				dispatch(employeeNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({msg: 'Network Error!!'}));
+			dispatch(employeeNotLoading());
+		});
+};
+
+export const removeEmployee = (id, history) => dispatch => {
+	dispatch(employeeIsLoading());
+	employeeQueries.removeEmployee(id)
+		.then(res => {
+			if (res.data) {
+				const message = res.data.removeEmployee.message;
+				dispatch(getActiveEmployees());
+				history.push('/employees');
+				dispatch(successAlert(message));
 			}
 			if (res.errors) {
 				dispatch(errorAlert({msg: res.errors[0].message}));

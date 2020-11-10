@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { suspendEmployee, unSuspendEmployee } from '../../../store/actions/employeeActions';
+import { suspendEmployee, unSuspendEmployee, removeEmployee } from '../../../store/actions/employeeActions';
 import styled from 'styled-components';
 import Modal from '../common/Modal';
 import Button from '../../common/Button';
 import Grid from '@material-ui/core/Grid';
+import { withRouter } from 'react-router-dom';
 
 const Wrapper = styled.div`
 	.pd {
@@ -58,7 +59,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Employee = ({ employee, suspendEmployee, unSuspendEmployee }) => {
+const Employee = ({ employee, suspendEmployee, unSuspendEmployee, history, removeEmployee }) => {
 
 	const { _id, name, department, email, branch, suspended   } = employee;
 	const date = employee['DATE CREATED'];
@@ -107,7 +108,7 @@ const Employee = ({ employee, suspendEmployee, unSuspendEmployee }) => {
 						}
 					</Grid>
 					<Grid item xs={12} className="pd">
-						<Button theme="pinkBtn" text="Remove Employee" />
+						<Button theme="pinkBtn" text="Remove Employee" onClick={() => removeEmployee(_id, history)} />
 					</Grid>
 				</Grid>
 			</Modal>
@@ -121,7 +122,9 @@ const Employee = ({ employee, suspendEmployee, unSuspendEmployee }) => {
 Employee.propTypes = {
 	employee: PropTypes.object.isRequired,
 	suspendEmployee: PropTypes.func.isRequired,
+	removeEmployee: PropTypes.func.isRequired,
 	unSuspendEmployee: PropTypes.func.isRequired,
+	history: PropTypes.object.isRequired,
 };
 
-export default connect(null, {suspendEmployee, unSuspendEmployee})(Employee);
+export default connect(null, {suspendEmployee, unSuspendEmployee, removeEmployee})(withRouter(Employee));
