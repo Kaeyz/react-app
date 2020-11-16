@@ -75,4 +75,9 @@ module.exports = Object.freeze({
 	ADD_BLOGS: 'add_blogs',
 	ADD_BLOG: 'add_blog',
 
+	// EXERCISE ACTIONS
+	EXERCISE_IS_LOADING: 'exercise_is_loading',
+	EXERCISE_NOT_LOADING: 'exercise_not_loading',
+	ADD_EXERCISES: 'add_exercises',
+	ADD_EXERCISE: 'add_exercise',
 });

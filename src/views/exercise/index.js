@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import ExerciseCard from '../../components/dashboard/exercise/ExerciseCard';
-import exerciseData from './exerciseData';
+import PropTypes from 'prop-types';
+import { getExercises } from '../../store/actions/exerciseActions';
+import { connect } from 'react-redux';
+
 
 
 const Wrapper = styled.div`
@@ -52,7 +55,11 @@ padding-top: 6rem;
 `;
 
 
-const Exercise = () => {
+const Exercise = ({ getExercises, isLoading, exercises  }) => {
+
+	useEffect(() => {
+		getExercises();
+	}, [getExercises]);
 
 	return (
 		<DashboardLayout whatPage="Exercise">
@@ -61,18 +68,19 @@ const Exercise = () => {
 
 					<WelcomeBanner detail='Discover fitness programs to keep you in shape and in the best of health' />
 
-					{Object.keys(exerciseData).map(key => (
+					{!isLoading && Object.keys(exercises).map(key => (
 						<div className="row" key={key}>
 							<div className="heading">
 								<h1>{key.toUpperCase()}</h1>
 								<div className="null" />
 							</div>
 							<div className="exercise-programmes">
-								{exerciseData[key].map(item => (
+								{exercises[key].map(item => (
 									<ExerciseCard
-										key={item.text}
-										image={item.img}
-										text={item.text}
+										key={item.uuid}
+										id={item.id}
+										image={item.image}
+										text={item.name}
 									/>
 								))}
 							</div>
@@ -85,4 +93,15 @@ const Exercise = () => {
 	);
 };
 
-export default Exercise;
+Exercise.propTypes = {
+	isLoading: PropTypes.bool.isRequired,
+	exercises: PropTypes.object.isRequired,
+	getExercises: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => {
+	const { isLoading, exercises } = state.exercise;
+	return {isLoading, exercises};
+};
+
+export default connect(mapStateToProps, {getExercises})(Exercise);

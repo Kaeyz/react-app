@@ -1,17 +1,18 @@
 import { combineReducers } from 'redux';
 import { CLEAR_SESSION } from '../types';
 
-import appReducer from './appReducer';
-import alertsReducer from './alertsReducer';
-import userReducer from './userReducer';
-import hraReducer from './hraReducer';
-import reportReducer from './reportReducer';
-import companyReducer from './companyReducer';
-import employeeReducer from './employeeReducer';
-import rewardReducer from './rewardReducer';
 import appointmentReducer from './appointmentReducer';
-import bmiReducer from './bmiReducer';
+import employeeReducer from './employeeReducer';
+import exerciseReducer from './exerciseReducer';
+import companyReducer from './companyReducer';
+import alertsReducer from './alertsReducer';
+import rewardReducer from './rewardReducer';
+import reportReducer from './reportReducer';
+import userReducer from './userReducer';
 import blogReducer from './blogReducer';
+import appReducer from './appReducer';
+import hraReducer from './hraReducer';
+import bmiReducer from './bmiReducer';
 
 const reducers = combineReducers({
 	app: appReducer,
@@ -21,6 +22,7 @@ const reducers = combineReducers({
 	report: reportReducer,
 	company: companyReducer,
 	employee: employeeReducer,
+	exercise: exerciseReducer,
 	reward: rewardReducer,
 	appointment: appointmentReducer,
 	bmi: bmiReducer,

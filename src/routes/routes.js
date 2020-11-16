@@ -126,7 +126,7 @@ const Routes = () => (
 
 			{/* Exercise route */}
 			<PrivateRoute exact path="/exercise" component={Exercise} />
-			<PrivateRoute exact path="/exercise/programme_details" component={ProgrammeDetails} />
+			<PrivateRoute exact path="/exercise/:exerciseId" component={ProgrammeDetails} />
 
 			{/* meal route */}
 			<PrivateRoute isActivated={true} exact path="/meals"  component={Meals} />

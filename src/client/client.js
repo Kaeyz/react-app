@@ -49,3 +49,25 @@ httpFetch.post = (path, body) => {
 			.catch(error => reject('error', error));
 	});
 };
+
+/**
+ *	makes a get request using fetch
+ * @param {string} path
+ */
+httpFetch.get = (path) => {
+	const myHeaders = new Headers();
+
+	const requestOptions = {
+		method: 'GET',
+		headers: myHeaders,
+		redirect: 'follow'
+	};
+
+
+	return new Promise((resolve, reject) => {
+		fetch(path, requestOptions)
+			.then(res => res.text())
+			.then(result => resolve(JSON.parse(result)))
+			.catch(error => reject('error', error));
+	});
+};

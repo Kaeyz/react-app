@@ -13,9 +13,7 @@ employeeQueries.addNewEmployee = (input) => {
 	}
 	`;
 
-	const variables = {
-		input
-	};
+	const variables = { input };
 
 	return new Promise((resolve, reject) => {
 		client(query, variables)
@@ -171,6 +169,25 @@ employeeQueries.unSuspendEmployee = (id) => {
 	const query = `
 	mutation UNSUSPEND_EMPLOYEE_BY_ID($id: String!) {
 		unSuspendEmployee(id: $id) {
+				message
+		}
+	}
+	`;
+
+	const variables = {
+		id
+	};
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
+employeeQueries.removeEmployee = (id) => {
+	const query = `
+	mutation REMOVE_EMPLOYEE_BY_ID($id: String!) {
+		removeEmployee(id: $id) {
 				message
 		}
 	}

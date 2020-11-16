@@ -16,6 +16,7 @@ border-radius: 10px;
 min-width: 230px;
 img{
     width: 100%;
+		height: 150px;
 }
     }
     .info{
@@ -29,11 +30,11 @@ padding: .5rem 0;
 }
 `;
 
-function ExerciseCard({text, image}) {
+function ExerciseCard({text, image, id}) {
 	return (
 		<Wrapper>
 			<div className="programmes">
-				<Link to="/exercise/programme_details">
+				<Link to={`/exercise/${id}`}>
 					<Paper className='paper' >
 						<LazyLoadImage
 							className="img"
@@ -54,6 +55,7 @@ function ExerciseCard({text, image}) {
 
 ExerciseCard.propTypes = {
 	text: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
 	image: PropTypes.any,
 };
 
