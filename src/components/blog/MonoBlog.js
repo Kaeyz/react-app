@@ -1,120 +1,107 @@
 /*eslint-disable */
 // modules
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import Button from '../common/Button';
-import blogBg from '../../assets/wellnessNav/check-up-dentist-doctors.svg';
-import { Card, CardContent } from '@material-ui/core';
-import PropTypes from 'prop-types';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Button from "../common/Button";
+import blogImg from "../../assets/girlRunning.png";
+import { Card, CardContent } from "@material-ui/core";
+import PropTypes from "prop-types";
+
 
 const Wrapper = styled.div`
   /* blog css styling goes here */
   .blog_card {
-    background: rgba(0, 0, 0, 0.03);
-    min-width: 30rem;
-    max-width: 34rem;
-    // margin-left: 3rem;
-    margin-top: 3rem;
+    min-width: 27rem;
+    max-width: 30rem;
+    margin: 0 0 3rem 0;
+    border: 1px solid ${(props) => props.theme.color.ui_text_09};
+    &:hover{
+      box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12);
+      transition : .3s;
+    }
   }
   .img_div {
     width: 100%;
     max-height: 30rem;
+    position: relative;
   }
   .blog_img {
     width: 100%;
     height: 100%;
+    margin-top: -14px;
   }
   .card_content {
-    text-align: start;
-    background: ${(props) => props.theme.color.brand_02};
-    margin-top: -0.9rem;
-    color: #fff;
+    text-align: center;
+    padding-bottom: 3rem;
   }
-  .card_description {
-    font-size: 1.1rem;
+  .blog-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
-  .card_footer {
-    display: grid;
-    grid-template-columns: max-content max-content;
-    justify-content: space-between;
-    margin-top: 2rem;
+  #yellow {
+    background-color: rgba(247, 194, 54, 0.8);
   }
-  .test_link {
-    text-decoration: underline;
-    color: ${(props) => props.theme.color.ui_01};
+  .blog-title {
+    color: ${(props) => props.theme.color.text_13};
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    width: 70%;
+    color: #1d1d1d;
+    margin: 25px auto;
   }
-  .deepYellow_card {
-    background-color: ${(props) => props.theme.color.brand_03};
-  }
-  .purple_card {
-    background-color: ${(props) => props.theme.color.brand_04};
-  }
-  .pink_card {
-    background-color: ${(props) => props.theme.color.brand_01};
-  }
-  .white_card {
-    background-color: ${(props) => props.theme.color.ui_01};
-    color: #000;
-    .test_link {
-      visibility: hidden;
-    }
-    button {
-      color: ${(props) => props.theme.color.brand_02};
-      background-color: ${(props) => props.theme.color.ui_text_01};
-      border: 1px solid ${(props) => props.theme.color.brand_02};
-      &:hover {
-        background-color: ${(props) => props.theme.color.brand_02};
-        transition: 0.2s;
-      }
-    }
+  .light {
+    font-size: 1.3rem;
+    font-weight: 100;
+    line-height: 1.8rem;
+    color: ${(props) => props.theme.color.text_12};
   }
 `;
 
-export default function MonoBlog({ color, tryTest, data }) {
-	const displayTest = () => {
-		return (
-			<Link className="test_link" to="/">
-        Try the test
-			</Link>
-		);
-	};
+ function MonoBlog({
+  getBlogs,
+  isLoading,
+  src,
+  id,
+  title,
+    createdAt
+}) {
 
-	return (
-		<Wrapper>
-			<Card className="blog_card">
-				<div className="img_div">
-					<img src={blogBg} alt="blog bg" className="blog_img" />
-				</div>
-				<CardContent className={`card_content  ${color}_card`}>
-					<h2>{data.title}</h2>
-					<p className="card_description">{data.description}</p>
-					<div className="card_footer">
-						{tryTest && displayTest()}
-						<Link to="/blogPost">
-							<Button
-								value="Read More"
-								theme={color === 'default' ? 'green' : color}
-								style={{ boxShadow: '0px 4px 4px rgba(46, 196, 182, 0.25)' }}
-							>
-								{' '}
-                Read More
-							</Button>
-						</Link>
-					</div>
-				</CardContent>
-			</Card>
-		</Wrapper>
-	);
-}
+  return (
+    <Wrapper>
+   
+      <Link class='mono-blog-link'>
+      <Card className="blog_card" elevation={0}>
+        <div className="img_div">
+          <img src={blogImg} alt="blog img" className="blog_img" />
+          <p className="tag blog-tag" id="yellow">
+            Fitness
+          </p>
+        </div>
+        <CardContent className={`card_content`}>
+          <h2 className="auto light">{id}</h2>
+          <p className="blog-title">{title}</p>
+          <h2 className="date light">{createdAt}</h2>
+        </CardContent>
+      </Card>
+      </Link>
+    </Wrapper>
+  );
 
-MonoBlog.defaultProps = {
-	tryTest: true,
-};
+  }
+MonoBlog.defaultProps = {};
 
 MonoBlog.propTypes = {
-	tryTest: PropTypes.bool,
-	color: PropTypes.string,
-	data: PropTypes.object.isRequired,
+ 
+	src: PropTypes.string,
+	alt: PropTypes.string,
+	id: PropTypes.string,
+	title: PropTypes.string.isRequired,
+	body: PropTypes.string.isRequired,
+	asset: PropTypes.any,
 };
 
+
+
+export default MonoBlog;

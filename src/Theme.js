@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import basicFont from './assets/Myfont/Matteo.otf';
 import secFont from './assets/Myfont/FuturaPTBook.otf';
 import brownFont from './assets/Myfont/BrownLightRegular.ttf';
+import avenirFont from './assets/Myfont/Metropolis-Light.otf';
+import caviarFont from './assets/Myfont/CaviarDreams.ttf';
 import hraFont from './assets/Myfont/sofiapro-light.otf';
 import Notify from './components/notification/Notify';
 
@@ -33,6 +35,7 @@ const theme = {
 		ui_13: '#5D6C76',
 		ui_14: '#BDBDBD',
 		ui_15: '#E2E2EA',
+		ui_16: '#969696',
 		text_01: '#1D1D1D',
 		text_02: '#606161',
 		text_03: '#ffffff',
@@ -44,6 +47,10 @@ const theme = {
 		text_09: '#3cbdb2',
 		text_10: '#F0F9F9',
 		text_11: '#9ECD43',
+		text_12: '#7C7D8D',
+		text_13: '#263035',
+		text_14: '#f6f6f6',
+		text_15: '#41b6a5',
 		ui_text_01: '#CBF3F0',
 		ui_text_02: '#FFA393',
 		ui_text_03: '#FFBF69',
@@ -51,6 +58,8 @@ const theme = {
 		ui_text_05: '#011C34',
 		ui_text_06: '#f0f0f0',
 		ui_text_07: '#C4C4C4',
+		ui_text_08: '#F7C236',
+		ui_text_09: '#EEEEEE',
 		hover_primary: '#CEEE8F',
 		hover_row: '#F3F0F0',
 		active_primary: '#2EC4B6',
@@ -79,6 +88,14 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: Sofia;
     src: url(${hraFont}) ;
+  }
+@font-face {
+    font-family: Avenir;
+    src: url(${avenirFont}) ;
+  }
+@font-face {
+    font-family: Caviar;
+    src: url(${caviarFont}) ;
   }
 @font-face {
     font-family: Brown;

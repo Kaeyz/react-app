@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   .grid-container {
     display: grid;
     grid-gap: 3rem;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
   .blog_card {
     background: rgba(0, 0, 0, 0.03);

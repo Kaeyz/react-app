@@ -4,7 +4,8 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import PrivateRoute from './PrivateRoute';
 import Home from '../views/Home';
-import About from '../views/About';
+import Team from '../views/Team';
+import Blog from '../views/Blog';
 import Health from '../views/wellness/individual/Health';
 import Fitness from '../views/wellness/individual/Fitness';
 import Nutrition from '../views/wellness/individual/Nutrition';
@@ -64,7 +65,8 @@ const Routes = () => (
 	<Router>
 		<Switch>
 			<Route exact path="/" component={Home} />
-			<Route exact path="/about" component={About} />
+			<Route exact path="/team" component={Team} />
+			<Route exact path="/blog" component={Blog} />
 			<Route exact path="/wellness/health" component={Health} />
 			<Route exact path="/wellness/fitness" component={Fitness} />
 			<Route exact path="/wellness/nutrition" component={Nutrition} />

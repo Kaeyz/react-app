@@ -1,107 +1,151 @@
+/*eslint-disable */
 // modules
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
+import styled from "styled-components";
 
 // Components
-import Button from '../../../common/Button';
-import Container from '../../../common/Container';
-import Logo from './Logo';
-
+import brandWhite from '../../../../assets/brandlogo.png';
+import brandBlack from '../../../../assets/brandlogoBlack.png';
+import Logo from "./Logo";
 
 const Wrapper = styled.nav`
-	height: max-content;
-	width: 100%;
-	background: rgba(203, 243, 240, 0.1);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	padding: 0.5rem 0rem;
-	.nav {
-		width: 100%;
-		display: grid;
-		grid-template-columns: max-content 1fr max-content;
-		justify-content: space-between;
-		align-items: center;
-		grid-gap: 1rem;
-	}
-	.middle-nav{
-		display: flex;
-		justify-content: center;
-	}
-	.nav-links {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		width: 100%;
-		min-width: 35rem;
-		max-width: 50rem;
-	}
-	.nav-buttons {
-	 display: grid;
-	 grid-gap: 1rem;
-	 grid-template-columns: max-content max-content;
-	}
-	@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-		.middle-nav, .nav-buttons {
-			display: none;
-		}
-		.nav {
-			display: flex;
-			justify-content: center;
-		}
-	}
+  position: fixed;
+  z-index: 22;
+  height: max-content;
+  width: 100%;
+  padding: 2rem 4rem;
+  .nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .middle-nav {
+    display: flex;
+    justify-content: center;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 33rem;
+    max-width: 50rem;
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+    .middle-nav {
+      display: none;
+    }
+    .nav {
+      display: flex;
+      justify-content: center;
+    }
+  }
 `;
 
 const NavLinks = styled(NavLink)`
-	display: inline-block;
-	text-decoration: none;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 1.4rem;
-	line-height: 2.5rem;
-	color: ${props => props.theme.color.text_01};
-	max-width: 9rem;
-	text-align: center;
-	&:hover {
-		color: #fcb813;
-		 transition: 0.2s;
-	};
+  display: inline-block;
+  text-decoration: none;
+  font-style: normal;
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  max-width: 9rem;
+  text-align: center;
+  &:hover {
+    color: ${(props) => props.theme.color.text_08} !important;
+    transition: 0.2s;
+  }
 `;
 
-const buttonStyles = {
-	minWidth : '8rem',
-	maxWidth : '10rem',
-	paddingLeft: '1rem',
-	paddingRight: '1rem',
-};
 
-export default function Header() {
-	return (
-		<Wrapper>
-			<Container>
-				<div className="nav">
 
-					<Logo />
+export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
 
-					<div className="middle-nav">
-						<div className="nav-links">
-							<NavLinks exact activeClassName="navbar__link--active" to="/"> Home </NavLinks>
-							<NavLinks activeClassName="navbar__link--active" to="/about">About Us</NavLinks>
-							<NavLinks activeClassName="navbar__link--active" to="/wellness/health">Wellness</NavLinks>
-							<NavLinks activeClassName="navbar__link--active" to="/fitnessFair">Fitness Fair</NavLinks>
-							<NavLinks activeClassName="navbar__link--active" to="/contactUs">Contact Us</NavLinks>
-						</div>
-					</div>
+    this.listener = null;
+    this.state = {
+      status: "top",
+    };
+  }
 
-					<div className="nav-buttons">
-						<Link to="/login">
-							<Button value="Log In" theme="green" style={buttonStyles}>Log In</Button>
-						</Link>
-						<Link to="/onboarding/company">
-							<Button value="Join Us" theme="darkGreen" style={buttonStyles}>Join Us</Button>
-						</Link>
-					</div>
-				</div>
-			</Container>
-		</Wrapper>
-	);
+  componentDidMount() {
+    this.listener = document.addEventListener("scroll", (e) => {
+      var scrolled = document.scrollingElement.scrollTop;
+      if (scrolled >= 450) {
+        if (this.state.status !== "amir") {
+          this.setState({ status: "amir" });
+        }
+      } else {
+        if (this.state.status !== "top") {
+          this.setState({ status: "top" });
+        }
+      }
+    });
+  }
+
+  componentDidUpdate() {
+    document.removeEventListener("scroll", this.listener);
+  }
+
+  render() {
+	    return (
+      <Wrapper style={{
+		backgroundColor: this.state.status === "top" ? "" : "white",
+		boxShadow: this.state.status === "top" ? "" : "0 4px 2px -2px gainsboro" 
+	  }}>
+        <div
+          className="nav"
+          
+        >
+          <Logo brand={this.state.status === "top" ? brandWhite : brandBlack}/>
+
+          <div className="middle-nav">
+            <div className="nav-links">
+              <NavLinks
+                exact
+                activeClassName="navbar__link--active"
+                to="/blog"
+                style={{
+                  color: this.state.status === "top" ? "white" : "black",
+                }}
+              >
+                {" "}
+                Blog{" "}
+              </NavLinks>
+              <NavLinks
+                activeClassName="navbar__link--active"
+                to="/team"
+                style={{
+                  color: this.state.status === "top" ? "white" : "black",
+                }}
+              >
+                Team
+              </NavLinks>
+              <NavLinks
+                activeClassName="navbar__link--active"
+                to="/login"
+                style={{
+                  color: this.state.status === "top" ? "white" : "black",
+                }}
+              >
+                Login
+              </NavLinks>
+              <NavLinks
+                activeClassName="navbar__link--active"
+                to="/onboarding/company"
+               A style={{
+                  color: this.state.status === "top" ? "white" : "black",
+                }}
+              >
+                Sign up
+              </NavLinks>
+            </div>
+          </div>
+        </div>
+      </Wrapper>
+    );
+  }
 }
