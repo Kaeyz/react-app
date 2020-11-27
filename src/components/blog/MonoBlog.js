@@ -37,7 +37,7 @@ const Wrapper = styled.div`
   }
   .blog-tag {
     position: absolute;
-    top: 10px;
+    top: 20px;
     right: 10px;
   }
   #yellow {

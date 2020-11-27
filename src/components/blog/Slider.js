@@ -1,11 +1,21 @@
-/*eslint-disable*/
-import React from 'react';
+/*eslint-disable */
+
+import React from "react";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import blogImg from "../../assets/girlRunning.png";
+import Slider from "react-slick";
 import styled from 'styled-components';
 import MonoBlog from './MonoBlog'
 import arrowLeft from '../../assets/slideArrowLeft.png'
 import arrowRight from '../../assets/slideArrowRight.png'
 import leftWhite from '../../assets/leftwhiteflower.png'
 import rightWhite from '../../assets/rightwhiteflower.png'
+import { connect } from "react-redux";
+import { getBlogs } from "../../store/actions/blogActions";
+import PropTypes from "prop-types";
+
 const Wrapper = styled.div`
 background-color: ${(props) => props.theme.color.ui_text_08};
 padding-left: 20rem;
@@ -24,32 +34,15 @@ line-height: 7.1rem;
 color: ${(props) => props.theme.color.ui_01};
 text-align : center;
 }
-.slider {
-	margin: 0 auto;
-	height: 500px;
-	overflow: hidden;
-  }
-  
-  .slider-wrapper {
-	height: 100%;
-	display: flex;
-	width: 100%;
-  }
-  
-  .slide {
-	display: inline-block;
-	margin-right: 2.5rem;
-	height: fit-content;
-  }
-  
-  .arrow {
+
+.slick-prev, .slick-next  {
 	height: 50px;
 	width: 50px;
 		cursor: pointer;
 	transition: transform ease-in .1s;
   }
   
-  .nextArrow {
+  .slick-next {
 	top: 50%;
 	right: 65px;
 	z-index: 999;
@@ -58,7 +51,7 @@ text-align : center;
 	  }
   }
   
-  .backArrow {
+  .slick-prev {
 	top: 50%;
 	left: 52px;
 	z-index: 999;
@@ -80,121 +73,77 @@ text-align : center;
     bottom: 0;
 }
   `
+ function SlideBlog({ getBlogs, blogs, isLoading }) {
+	React.useEffect(() => {
+		getBlogs();
+	  }, [getBlogs]);
 
-class Slider extends React.Component {
-	constructor(props) {
-	  super(props)
-  
-	  this.state = {
-		images: [
-		  "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg",
-		  "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg",
-		  "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg",
-		  "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/desert.jpg",
-		  "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/mountains.jpg",
-		  "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/redsky.jpg",
-		  "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/sandy-shores.jpg",
-		  "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/tree-of-life.jpg"
-		],
-		currentIndex: 0,
-		translateValue: 0
+	  function capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
 	  }
-	}
-  
-	goToPrevSlide = () => {
-	  if(this.state.currentIndex === 0)
-		return;
-	  
-	  this.setState(prevState => ({
-		currentIndex: prevState.currentIndex - 1,
-		translateValue: prevState.translateValue + this.slideWidth()
-	  }))
-	}
-  
-	goToNextSlide = () => {
-	  // Exiting the method early if we are at the end of the images array.
-	  // We also want to reset currentIndex and translateValue, so we return
-	  // to the first image in the array.
-	  if(this.state.currentIndex === this.state.images.length - 1) {
-		return this.setState({
-		  currentIndex: 0,
-		  translateValue: 0
-		})
-	  }
-	  
-	  // This will not run if we met the if condition above
-	  this.setState(prevState => ({
-		currentIndex: prevState.currentIndex + 1,
-		translateValue: prevState.translateValue + -(this.slideWidth())
-	  }));
-	}
-  
-	slideWidth = () => {
-	   return document.querySelector('.slide').clientWidth
-	}
-  
-	render() {
-	  return (
-		  <Wrapper>
-			  <img src={leftWhite} alt="leftWhite" className="absolute  leftwhite"/>
+// 	  const reduced = blogs.reduce(function (filtered, option) {
+// 		if (option.feature === "featured") {
+// 			const someNewValue = {
+// 				tags: option.tags,
+// 				title: option.title,
+// 				asset: option.asset,
+// 				author: option.author,
+// 				id: option.id,
+// 			};
+// 			filtered.push(someNewValue);
+// 		}
+// 		return filtered;
+// 	}, []);
+// console.log(reduced)
+  const renderSlides = () =>
+    blogs.map(blog => (
+		isLoading ? <div>Loading...</div> :
+		<MonoBlog
+        key={blog.id}
+        to={`/blog/${blog.id}`}
+        src={blog.asset !== null ? blog.asset.url : blogImg }
+        title={blog.title}
+        author={blog.author}
+        createdAt={blog.createdAt.slice(0, 10)}
+        tag={capitalizeFirstLetter(blog.tags)}
+        tagColor={
+          blog.tags === "fitness"
+            ? "yellow"
+            :blog.tags === "nutrition"
+            ? "blue"
+            : blog.tags === "lifestyle"
+            ? "orange"
+            : blog.tags === "health"
+            ? "green"
+            : ""
+        }
+      />
+    ));
+
+  return (
+    <Wrapper className="App">
+		<img src={leftWhite} alt="leftWhite" className="absolute  leftwhite"/>
 			  <img src={rightWhite} alt="rightWhite" className="absolute rightwhite"/>
 			  <p className="slide-heading">
 				  Featured
 			  </p>
-		<div className="slider">
-  
-		  <div className="slider-wrapper"
-			style={{
-			  transform: `translateX(${this.state.translateValue}px)`,
-			  transition: 'transform ease-out 0.45s'
-			}}>
-			  {
-				this.state.images.map((image, i) => (
-				  <Slide key={i} image={image} />
-				))
-			  }
-		  </div>
-  
-		  <LeftArrow
-		   goToPrevSlide={this.goToPrevSlide}
-		  />
-		  <RightArrow
-		   goToNextSlide={this.goToNextSlide}
-		  />
-		</div>
-		</Wrapper>
-	  );
-	}
-  }
-  
-  
-  const Slide = ({ image }) => {
+      <Slider dots={false} slidesToShow={3}
+        slidesToScroll={3} nextArrow={<img src={arrowRight} alt="arrowRight"/>}
+        prevArrow={ <img src={arrowLeft} alt="arrowLeft" />}>{renderSlides()}</Slider>
+    </Wrapper>
+  );
+}
 
-	return <div className="slide" >
-		<MonoBlog
-                  title="Keeping Fit In The Age of COVID-19"
-                  id="Elijah Burton"
-                  createdAt="27 Aug 2019"
-                />
-	</div>
-  }
+SlideBlog.propTypes = {
+	isLoading: PropTypes.bool.isRequired,
+	getBlogs: PropTypes.func.isRequired,
+	blogs: PropTypes.array.isRequired,
+  };
   
+  const mapStateToProps = (state) => {
+	const { blogs, isLoading } = state.blog;
+	return { blogs: blogs || [], isLoading };
+  };
   
-  const LeftArrow = (props) => {
-	return (
-	  <div className="backArrow arrow absolute" onClick={props.goToPrevSlide}>
- <img src={arrowLeft} alt="arrowLeft" />	  </div>
-	);
-  }
+  export default connect(mapStateToProps, { getBlogs })(SlideBlog);
   
-  
-  const RightArrow = (props) => {
-	return (
-	  <div className="nextArrow arrow absolute" onClick={props.goToNextSlide}>
-		  <img src={arrowRight} alt="arrowRight"/>
-
-	  </div>
-	);
-  }
-  
-  export default Slider
