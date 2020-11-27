@@ -1,220 +1,150 @@
-import React, { useState } from 'react';
-import AppLayout from '../../components/layouts/appLayout/AppLayout';
-import BlogPagination from '../../components/blog/BlogPagination';
-import Box from '@material-ui/core/Box';
-import blogBg from '../../assets/largeBlogImg.svg';
-import styled from 'styled-components';
-import Button from '../../components/common/Button';
-import { Link } from 'react-router-dom';
-import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import { makeStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import Container from '../../components/common/Container';
-import { Card, CardContent } from '@material-ui/core';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { getBlogs } from '../../store/actions/blogActions';
-import blogSmall from '../../assets/wellnessNav/check-up-dentist-doctors.svg';
+/*eslint-disable */
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import AppLayout from "../../components/layouts/appLayout/AppLayout";
+import Container from "../../components/common/Container";
+import Slider from "../../components/blog/Slider";
+import Pagination from "../../components/blog/Pagination";
+import Header from "../../components/layouts/appLayout/header/index2";
+import { Paper } from "@material-ui/core";
+import spread from "../../assets/woman-spreading-both-her-arms.svg";
+import avatar from "../../assets/avatarFemale.png";
+import { connect } from "react-redux";
+import { getBlogs } from "../../store/actions/blogActions";
 
 const Wrapper = styled.div`
-  margin: 5rem 0;
-  @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-    margin: 2rem 0;
-  }
-  .box {
+ .main{
+  padding: 10rem 0 0 0;
+ }
+  .head h1 {
+    font-size: 4.0rem;
+    position: relative;
+    line-height: 7.1rem;
+    text-align: center;
+    margin-bottom: 5rem;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      display: grid;
-    }
-  }
-  .sub-head {
-    .big {
       font-size: 3rem;
-      line-height: 3.2rem;
-      font-weight: 600;
-      @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-        font-size: 2.5rem;
-      }
-    }
-    .small {
-      font-size: 1.6rem;
-      line-height: 2.4rem;
-      margin: 1.4rem 0rem;
     }
   }
-  .grid-container {
-    display: grid;
-    grid-gap: 3rem;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  .head h1::after {
+    content: " ";
+    position: absolute;
+    top: 82%;
+    width: 50px;
+    height: 5px;
+    background-color: ${(props) => props.theme.color.text_08};
+    border-radius: 14px;
+    left: 50%;
+	transform: translate(-50%, 0%);
+
   }
-  .subscribeInputs {
-    margin-bottom: 1.7rem;
-  }
-  .subscribeInputs {
-    input {
-      background: #eeeded;
-      border-radius: 5px;
-      padding: 1rem 1.5rem;
-      border: none;
-      height: 4.8rem;
-      outline: none;
-      &::placeholder {
-        color: rgba(96, 97, 97, 0.5);
-        font-size: 1.4rem;
-        font-family: "Matteo";
-        line-height: 2.4rem;
-      }
-    }
-    [type="email"] {
-      width: 30.4rem;
-      max-width: 100%;
-    }
-    .info {
-      font-size: 16px;
-      line-height: 24px;
-      margin-bottom: 1.7rem;
-      color: ${(props) => props.theme.color.text_01};
+  .paper{
+    background-image:linear-gradient(rgba(65, 182, 165, 0.49), rgba(65, 182, 165, 0.49)), url(${spread});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+    border-radius: 10px;
+    margin-bottom: 4rem;
+    color: ${(props) => props.theme.color.ui_01};
+    padding: 109px 0 50px 91px;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      padding: 70px 0 20px 40px;
     }
   }
-  #demo-simple-select-label {
-       color: ${(props) => props.theme.color.text_02};
-    font-family: "Matteo";
+  .tag{
+    line-height: 23.94px;
+    font-size: 1.5rem;
+    font-weight: 100;
+    width: fit-content;
+    padding: 3px 20px;
+    color: ${(props) => props.theme.color.text_03};
+    font-family: Segoe UI emoji;
   }
-  .sub-head {
-    color: ${(props) => props.theme.color.text_01};
+  #yellow{
+    background-color: rgba(247,194,54,.8);
+   }
+ .paper .title{
+  line-height: 25.2px;
+  font-size: 2rem;
+  margin: 9px 0 3rem 0;
+  width: 50%;
+  @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+    width: 69%;
   }
+  @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+    width: 100%;
+  }
+  
+ }
+ .avatar img{
+   width: 65px;
+   height: 65px;
+ }
+ .avatar .text{
+  line-height: 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 1rem;
+ }
+.mid .title{
+  font-size: 3rem;
+  line-height: 4.8rem;
+  margin: 46px 0 31px 0px;
+ color: ${(props) => props.theme.color.text_01};
+    text-align: center;
+
+}
+}
 `;
+function Blog({ getBlogs, blogs, isLoading }) {
+  React.useEffect(() => {
+    getBlogs();
+  }, [getBlogs]);
+  return (
+    <AppLayout header={<Header />}>
+      <Wrapper>
+        <Container>
+          <div className="main">
+            <div className="head">
+              <h1>Blog</h1>
+              <Paper className="paper">
+                <p className="tag" id="yellow">
+                  Featured
+                </p>
+                <p className="title">
+                  Creating Remarkable Poster Prints Through 4 Color Poster
+                  Printing
+                </p>
+                <div className="avatar">
+                  <img src={avatar} alt="avatar-female" />
+                  <p className="text">Caleb Atkins</p>
+                </div>
+              </Paper>
+            </div>
+            <div className="mid">
+              <p className="title">Recent</p>
+              <Pagination/>
+            </div>
+          </div>
+        
+          </Container>
 
-const useStyles = makeStyles(() => ({
-	formControl: {
-		marginBottom: '2.55rem',
-		width: '100%',
-		minWidth: 120,
-	},
-}));
-
-const categories = ['Lifestyle', 'Health', 'Fitness', 'Nutrition'];
-
-function BlogPost({ getBlogs, blogs }) {
-	React.useEffect(() => {
-		getBlogs();
-	}, [getBlogs]);
-
-	const classes = useStyles();
-
-	const [filterText, setFilterText] = useState('');
-
-	const filteredItems = blogs.filter((item) =>
-		item.tags.toLocaleLowerCase().includes(filterText)
-	);
-
-	const itemsToDisplay = filterText ? filteredItems : blogs;
-
-	return (
-		<AppLayout>
-			<Wrapper>
-				<Container>
-					<div className="sub-head">
-						<p className="big">The Choose Life Blog</p>
-						<p className="small">The Wellness Blog</p>
-					</div>
-					<div style={{ width: '100%', padding: 0 }}>
-						<Box
-							display="flex"
-							justifyContent="center"
-							className="box"
-							style={{ padding: 0 }}
-							p={1}
-						>
-							<Box p={1} flexGrow={1}>
-								<div style={{ textDecoration: 'none' }}>
-									<Card className="blog_card">
-										<div className="img_div">
-											<img src={blogBg} alt="blog bg" className="blog_img" />
-										</div>
-
-										<CardContent className={'card_content'}>
-											<h2>Healthy Living</h2>
-											<p className="card_description">
-                        Using our algorithm, we carry out a preliminary
-                        assessment to understand the state of your health and
-                        determine how best to serve you!
-											</p>
-											<div className="card_footer">
-												<p>WELLNESS</p>
-											</div>
-										</CardContent>
-									</Card>
-								</div>
-							</Box>
-							<Box p={1}>
-								<FormControl className={classes.formControl}>
-									<InputLabel id="demo-simple-select-label">
-                    Explore by Category
-									</InputLabel>
-									<Select
-										labelId="demo-simple-select-label"
-										id="demo-simple-select"
-										value={filterText}
-										onChange={(e) =>
-											setFilterText(e.target.value.toLocaleLowerCase())
-										}
-									>
-										{categories.map((category) => (
-											<MenuItem key={category} value={category}>
-												{category}
-											</MenuItem>
-										))}
-									</Select>
-								</FormControl>
-
-								<p className="info">Subscribe to our Blog</p>
-								<div className="subscribeInputs">
-									<input
-										type="email"
-										id="email"
-										placeholder="Email Address"
-										name="email"
-									/>
-								</div>
-								<Link to="">
-									<Button value="Subscribe" theme="yellow">
-										{' '}
-                    Subscribe
-									</Button>
-								</Link>
-							</Box>{' '}
-						</Box>
-					</div>
-					<div className="grid-container">
-						{itemsToDisplay.map((item) => (
-							<div className="grid-item" key={item.id}>
-								<BlogPagination
-									title={item.title}
-									id={item.id}
-									body={item.body}
-									src={item.asset !== null ? item.asset.url : blogSmall}
-									alt={item.asset !== null ? item.asset.name : 'blog bg'}
-								/>
-							</div>
-						))}
-					</div>
-				</Container>
-			</Wrapper>
-		</AppLayout>
-	);
+          <Slider />
+      </Wrapper>
+    </AppLayout>
+  );
 }
 
-BlogPost.propTypes = {
-	isLoading: PropTypes.bool.isRequired,
-	getBlogs: PropTypes.func.isRequired,
-	blogs: PropTypes.array.isRequired,
+Blog.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  getBlogs: PropTypes.func.isRequired,
+  blogs: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => {
-	const { blogs, isLoading } = state.blog;
-	return { blogs: blogs || [], isLoading };
+  const { blogs, isLoading } = state.blog;
+  return { blogs: blogs || [], isLoading };
 };
-
-export default connect(mapStateToProps, { getBlogs })(BlogPost);
+export default connect(mapStateToProps, { getBlogs })(Blog);

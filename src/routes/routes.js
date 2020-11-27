@@ -5,7 +5,6 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import Home from '../views/Home';
 import Team from '../views/Team';
-import Blog from '../views/Blog';
 import Health from '../views/wellness/individual/Health';
 import Fitness from '../views/wellness/individual/Fitness';
 import Nutrition from '../views/wellness/individual/Nutrition';
@@ -13,7 +12,7 @@ import Lifestyle from '../views/wellness/individual/Lifestyle';
 import IndividualSignUp from '../views/authentication/IndividualSignUp';
 import CompanySignUp from '../views/authentication/CompanySignUp';
 import Login from '../views/authentication/Login';
-import BlogPost from '../views/blogParent';
+import Blog from '../views/blogParent';
 import BlogPostDetail from '../views/blogParent/BlogPostDetail';
 import Dashboard from '../views/dashboard/Dashboard';
 import DashboardAssessment from '../views/dashboard/assessment';
@@ -66,7 +65,6 @@ const Routes = () => (
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/team" component={Team} />
-			<Route exact path="/blog" component={Blog} />
 			<Route exact path="/wellness/health" component={Health} />
 			<Route exact path="/wellness/fitness" component={Fitness} />
 			<Route exact path="/wellness/nutrition" component={Nutrition} />
@@ -143,8 +141,8 @@ const Routes = () => (
 			<PrivateRoute isActivated={true} exact path="/rewards/individual" component={IndividualReward} />
 
 			{/* Blog route */}
-			<Route exact path="/blogPost" component={BlogPost} />
-			<Route exact path="/blogPost/:blogId" component={BlogPostDetail} />
+			<Route exact path="/blog" component={Blog} />
+			<Route exact path="/blog/:blogId" component={BlogPostDetail} />
 
 			<Route path="/not_activated" component={NotActivated} />
 			<Route path="/account_suspended" component={SuspendedPage} />

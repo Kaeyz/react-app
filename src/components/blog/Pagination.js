@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import Pagination from "react-js-pagination";
 import styled from "styled-components";
 import MonoBlog from "../../components/blog/MonoBlog";
+import { connect } from 'react-redux';
+import { getBlogs } from '../../store/actions/blogActions';
+import PropTypes from "prop-types";
 
 const Wrapper = styled.div`
   .grid-container {
@@ -55,100 +58,12 @@ const Wrapper = styled.div`
     color: ${(props) => props.theme.color.text_03};
   }
 `;
-const PaginatedContent = () => {
+const PaginatedContent = ({ getBlogs, blogs, isLoading }) => {
+  React.useEffect(() => {
+    getBlogs();
+  }, [getBlogs]);
   // Data to be rendered using pagination.
-  const todos = [
-    <MonoBlog
-      title="Keeping Fit In The Age of COVID-19"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="Keeping Fit In The Age of COVID-19"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="Keeping Fit In The Age of COVID-19"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="Keeping Fit In The Age of COVID-19"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="Keeping Fit In The Age of COVID-19"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="Keeping Fit In The Age of COVID-19"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="How your Lifestyle affects your back"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="How your Lifestyle affects your back"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="How your Lifestyle affects your back"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="How your Lifestyle affects your back"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="How your Lifestyle affects your back"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="How your Lifestyle affects your back"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="How your Lifestyle affects your back"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="Keeping Fit In The Age of COVID-19"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="Keeping Fit In The Age of COVID-19"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="Keeping Fit In The Age of COVID-19"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="Keeping Fit In The Age of COVID-19"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-    <MonoBlog
-      title="Keeping Fit In The Age of COVID-19"
-      id="Elijah Burton"
-      createdAt="27 Aug 2019"
-    />,
-  ];
+  const todos = blogs;
   const todosPerPage = 6;
   const [activePage, setCurrentPage] = useState(1);
 
@@ -157,8 +72,8 @@ const PaginatedContent = () => {
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
   const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
 
-  const renderTodos = currentTodos.map((todo, index) => {
-    return <li key={index}>{todo}</li>;
+  const renderTodos = currentTodos.map((tag, index) => {
+    return <MonoBlog key={index}/> ;
   });
 
   const handlePageChange = (pageNumber) => {
@@ -186,4 +101,15 @@ const PaginatedContent = () => {
   );
 };
 
-export default PaginatedContent;
+PaginatedContent.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  getBlogs: PropTypes.func.isRequired,
+  blogs: PropTypes.array.isRequired,
+};
+
+const mapStateToProps = (state) => {
+  const { blogs, isLoading } = state.blog;
+  return { blogs: blogs || [], isLoading };
+};
+
+export default connect(mapStateToProps, { getBlogs })(PaginatedContent);
