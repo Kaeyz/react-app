@@ -18,15 +18,8 @@ import PropTypes from "prop-types";
 
 const Wrapper = styled.div`
 background-color: ${(props) => props.theme.color.ui_text_08};
-// padding-left: 10rem;
 position: relative;
 overflow: hidden;
-// @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-// 	padding-left:12rem;
-// }
-// @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-// 	padding-left: 1rem;
-// }
 .slide-heading{
 	font-size: 4.5rem;
 		padding: 30px 0;
