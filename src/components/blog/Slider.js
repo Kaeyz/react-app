@@ -18,15 +18,15 @@ import PropTypes from "prop-types";
 
 const Wrapper = styled.div`
 background-color: ${(props) => props.theme.color.ui_text_08};
-padding-left: 20rem;
+// padding-left: 10rem;
 position: relative;
 overflow: hidden;
-@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-	padding-left:12rem;
-}
-@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-	padding-left: 1rem;
-}
+// @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+// 	padding-left:12rem;
+// }
+// @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+// 	padding-left: 1rem;
+// }
 .slide-heading{
 	font-size: 4.5rem;
 		padding: 30px 0;
@@ -34,7 +34,10 @@ line-height: 7.1rem;
 color: ${(props) => props.theme.color.ui_01};
 text-align : center;
 }
-
+.slick-slide{
+  width: auto !important;
+  margin: 0 1rem;
+}
 .slick-prev, .slick-next  {
 	height: 50px;
 	width: 50px;
@@ -120,6 +123,42 @@ text-align : center;
       />
     ));
 
+    var settings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      nextArrow:<img src={arrowRight} alt="arrowRight"/>,
+        prevArrow: <img src={arrowLeft} alt="arrowLeft" />,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            infinite: true,
+                     }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            infinite: true,
+            slidesToScroll:1,
+            
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    };
+    
   return (
     <Wrapper className="App">
 		<img src={leftWhite} alt="leftWhite" className="absolute  leftwhite"/>
@@ -127,9 +166,9 @@ text-align : center;
 			  <p className="slide-heading">
 				  Featured
 			  </p>
-      <Slider dots={false} slidesToShow={3}
-        slidesToScroll={3} nextArrow={<img src={arrowRight} alt="arrowRight"/>}
-        prevArrow={ <img src={arrowLeft} alt="arrowLeft" />}>{renderSlides()}</Slider>
+      <Slider {...settings} 
+        
+         >{renderSlides()}</Slider>
     </Wrapper>
   );
 }
