@@ -104,7 +104,7 @@ MonoBlog.defaultProps = {};
 
 MonoBlog.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-	src: PropTypes.string,
+	src: PropTypes.any,
 	id: PropTypes.string,
 	title: PropTypes.string.isRequired,
 	alt: PropTypes.string.isRequired,

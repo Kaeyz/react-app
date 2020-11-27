@@ -10,7 +10,7 @@ import AppLayout from "../../components/layouts/appLayout/AppLayout";
 import Slider from "../../components/blog/Slider";
 import spread from "../../assets/woman-spreading-both-her-arms.svg";
 import img2 from "../../assets/boyStretch.png";
-import { getSingleBlog, getBlogs } from "../../store/actions/blogActions";
+import { getSingleBlog } from "../../store/actions/blogActions";
 import Header from "../../components/layouts/appLayout/header/index2";
 
 const Wrapper = styled.div`
@@ -23,10 +23,10 @@ const Wrapper = styled.div`
     font-weight: 400;
     margin-bottom: 2rem;
     color: ${(props) => props.theme.color.text_01};
-	padding: 3rem 0 0 0;
-	@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-		font-size: 3rem;
-	  }
+    padding: 3rem 0 0 0;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      font-size: 3rem;
+    }
   }
   .author {
     color: ${(props) => props.theme.color.text_12};
@@ -58,10 +58,18 @@ const Wrapper = styled.div`
     color: ${(props) => props.theme.color.text_03};
     font-family: Segoe UI emoji;
   }
-  #yellow {
+  .yellow {
     background-color: rgba(247, 194, 54, 0.8);
   }
-
+  .blue{
+    background-color: rgba(46,196,182, 0.8);
+  }
+  .green{
+    background-color: rgba(141,184,56, 0.8);
+  }
+  .orange{
+    background-color: rgba(244,120,3, 0.8) !important;
+  }
   .card_description {
     font-size: 1.1rem;
   }
@@ -72,7 +80,7 @@ const Wrapper = styled.div`
     color: ${(props) => props.theme.color.text_02};
     font-weight: 300;
     margin: 4rem 0 6rem 0;
-    margin: 4rem 0 ;
+    margin: 4rem 0;
     text-align: left;
   }
   img {
@@ -80,7 +88,7 @@ const Wrapper = styled.div`
     height: 2.4rem;
     margin-right: 0.4rem;
   }
-  
+
   .orangeP {
     font-size: 1.4rem;
     line-height: 2.4rem;
@@ -88,24 +96,22 @@ const Wrapper = styled.div`
     display: flex;
     margin-top: 1.5rem;
   }
+
   .detailbg {
-    background: url(${spread});
     height: 424px;
-	margin: 2rem 0 0rem 0;
-	@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-		background-position: center;
-	}
+    margin: 2rem 0 0rem 0;
   }
   .img2 {
-	background: url(${img2});
-	background-size: cover;
-	background-position: center;
-	height: 300px;
-	margin: auto;
-	width: 70%;
-	@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-				width: 100%;
-	  }
+    height: 300px;
+    margin: auto;
+    width: 70%;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+      width: 100%;
+    }
+  }
+  .bg {
+    background-size: cover;
+    background-position: center;
   }
   .img-cap {
     font-style: italic;
@@ -113,11 +119,11 @@ const Wrapper = styled.div`
     font-size: 2rem;
     line-height: 3.7rem;
     color: ${(props) => props.theme.color.ui_text_08};
-	margin-top: 2rem;
-	@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-		font-size: 1.6rem;
-		line-height: 1.7rem;
-	  }
+    margin-top: 2rem;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+      font-size: 1.6rem;
+      line-height: 1.7rem;
+    }
   }
   .white_card {
     background-color: ${(props) => props.theme.color.ui_01};
@@ -137,118 +143,73 @@ const Wrapper = styled.div`
   }
 `;
 
-function BlogPostDetail({
-  match,
-  getSingleBlog,
-  getBlogs,
-  blogs,
-  blog,
-  isLoading,
-}) {
+function BlogPostDetail({ match, getSingleBlog, getBlogs, blog, isLoading }) {
   const { blogId } = match.params;
 
   React.useEffect(() => {
     getSingleBlog(blogId);
-    getBlogs();
-  }, [blogId, getSingleBlog, getBlogs]);
+  }, [blogId, getSingleBlog]);
 
-  const { title, body, createdAt, tags } = blog;
-  // const{id} = blogs;
-
-  const reduced = blogs.reduce(function (filtered, option) {
-    if (option.tags === tags && option.title !== title) {
-      const someNewValue = {
-        tags: option.tags,
-        title: option.title,
-        asset: option.asset,
-        body: option.body,
-        id: option.id,
-      };
-      filtered.push(someNewValue);
-    }
-    return filtered;
-  }, []);
-
-  const size = 3;
-  const items = reduced ? reduced.slice(0, size) : "";
-
+  const { title, body, createdAt, tags, author, asset } = blog;
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   return (
     <AppLayout header={<Header />}>
       <Wrapper>
         <Container>
           <div className="upper">
             <div className="sub-header">
-              {/* <p className="headP">{title}</p> */}
-              <p className="headP">Learning to Choose Wellness</p>
-              <p className="author">Elijah Burton</p>
+              <p className="headP">{!isLoading && title}</p>
+              <p className="author">{!isLoading && author ? author : ""}</p>
               <div className="tag-date flex">
-                <p className="tag " id="yellow">
-                  Nutrition
+                <p
+                  className={
+                    `${tags === "fitness"
+                    ? "yellow"
+                    : tags === "nutrition"
+                    ? "blue"
+                    : tags === "lifestyle"
+                    ? "orange"
+                    : tags === "health"
+                    ? "green"
+                    : ""} tag`
+                      }
+                >
+                  {!isLoading && tags ? capitalizeFirstLetter(tags) : ""}
                 </p>
-                <p className="date">29 Aug 2019</p>
+                <p className="date">
+                  {!isLoading && createdAt ? createdAt.slice(0, 10) : ""}
+                </p>
               </div>
-              {/* <p className="orangeP">
-                <img src={img} alt="img" />
-                {!isLoading && tags ? tags.toUpperCase() : ""}
-              </p> */}
-              {/* <h4>
-                Published on{" "}
-                {!isLoading && createdAt
-                  ? createdAt.split("T23:00:00.000Z")
-                  : ""}
-              </h4> */}
-              {/* <h4>
-                Published on{" "}
-                {!isLoading && createdAt
-                  ? createdAt.split("T23:00:00.000Z")
-                  : ""}
-              </h4> */}
             </div>
             <div>
               {isLoading ? (
                 <div>Loading ...</div>
               ) : (
-                <div className="detailbg"></div>
+                <div
+                  className="detailbg bg"
+                  style={{
+                    backgroundImage:
+                      asset != null ? `url(${asset.url})` : `url(${spread})`,
+                  }}
+                ></div>
               )}
               <p className="img-cap">Image Caption / Description or Credits</p>
-              {/* <p className="longDetail">{!isLoading && body}</p> */}
-              <p className=" detail longDetail">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et
-                posuere posuere cursus quisque sodales. Tortor malesuada
-                malesuada blandit sit sed egestas. Nunc consequat feugiat nunc,
-                erat sed. Id consequat nulla posuere risus tincidunt gravida. Ac
-                mi aliquet imperdiet turpis a, iaculis volutpat. Interdum sem ut
-                eu aliquam sed ac dolor libero tempus. Vitae sit a, quis enim,
-                neque consectetur fames quam. Egestas leo ultricies nulla sed
-                aenean. Leo dolor ut gravida odio. Feugiat quis donec auctor
-                commodo lacus. Imperdiet ultricies donec nisl, eget. Vestibulum,
-                pellentesque proin facilisis tellus vitae a, scelerisque. Eget
-                nulla praesent cursus ante eget augue sit fusce. Rhoncus morbi
-                aliquam dui purus ut a. Venenatis neque molestie arcu duis
-                lobortis orci volutpat egestas. In est in fringilla nulla
-                interdum hac. Vitae enim velit morbi id. Dictumst est, egestas
-                imperdiet nam nisi. Volutpat diam, risus convallis congue. Mi ut
-                hendrerit blandit magna tincidunt mauris eget. Pulvinar a
-                pellentesque tellus elementum, mauris. Nulla venenatis sagittis
-                et aliquet. Vestibulum rutrum ultrices gravida tincidunt lectus
-                at odio sollicitudin vivamus. Est, purus pharetra, sit non.
-                Pellentesque ac placerat adipiscing nibh odio varius consectetur
-                a feugiat. Varius pulvinar non enim, erat. Odio maecenas
-                hendrerit libero leo praesent ipsum neque. Tincidunt libero
-                elementum consequat.
-              </p>
-              <div className="img2"></div>
+              <p className=" detail longDetail">{!isLoading && body}</p>
+              {isLoading ? (
+                <div>Loading ...</div>
+              ) : (
+              <div
+                className="img2 bg"
+                style={{
+                  backgroundImage:
+                    asset != null ? `url(${asset.url})` : `url(${img2})`,
+                }}
+              ></div>
+              )}
               <p className="img-cap">Image Caption / Description or Credits</p>
-              <p className="detail">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et
-                posuere posuere cursus quisque sodales. Tortor malesuada
-                malesuada blandit sit sed egestas. Nunc consequat feugiat nunc,
-                erat sed. Id consequat nulla posuere risus tincidunt gravida. Ac
-                mi aliquet imperdiet turpis a, iaculis volutpat. Interdum sem ut
-                eu aliquam sed ac dolor libero tempus. Vitae sit a, quis enim,
-                neque consectetur fames quam. Egestas leo ultricies nulla sed
-                aenean. Leo dolor ut gravida odio
-              </p>
+              <p className="detail">{!isLoading && body}</p>
             </div>
           </div>
         </Container>
@@ -258,25 +219,19 @@ function BlogPostDetail({
   );
 }
 
-BlogPostDetail.defaultProps = {
-  tryTest: true,
-};
-
 BlogPostDetail.propTypes = {
   match: PropTypes.object.isRequired,
   blog: PropTypes.object.isRequired,
   getSingleBlog: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  getBlogs: PropTypes.func.isRequired,
-  blogs: PropTypes.array.isRequired,
   id: PropTypes.string,
 };
 
 const mapStateToProps = (state) => {
-  const { blog, blogs, isLoading } = state.blog;
-  return { blogs: blogs || [], blog, isLoading };
+  const { blog, isLoading } = state.blog;
+  return { blog, isLoading };
 };
 
-export default connect(mapStateToProps, { getBlogs, getSingleBlog })(
+export default connect(mapStateToProps, { getSingleBlog })(
   withRouter(BlogPostDetail)
 );

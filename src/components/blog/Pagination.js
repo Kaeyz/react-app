@@ -4,9 +4,10 @@ import React, { useState } from "react";
 import Pagination from "react-js-pagination";
 import styled from "styled-components";
 import MonoBlog from "../../components/blog/MonoBlog";
-import { connect } from 'react-redux';
-import { getBlogs } from '../../store/actions/blogActions';
+import { connect } from "react-redux";
+import { getBlogs } from "../../store/actions/blogActions";
 import PropTypes from "prop-types";
+import blogImg from "../../assets/girlRunning.png";
 
 const Wrapper = styled.div`
   .grid-container {
@@ -72,8 +73,33 @@ const PaginatedContent = ({ getBlogs, blogs, isLoading }) => {
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
   const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
 
-  const renderTodos = currentTodos.map((tag, index) => {
-    return <MonoBlog key={index}/> ;
+  const renderTodos = currentTodos.map((todo, index) => {
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    return (
+      isLoading ? <div>Loading...</div> :
+      <MonoBlog
+        key={index}
+        to={`/blog/${todo.id}`}
+        src={todo.asset !== null ? todo.asset.url : blogImg }
+        title={todo.title}
+        author={todo.author}
+        createdAt={todo.createdAt.slice(0, 10)}
+        tag={capitalizeFirstLetter(todo.tags)}
+        tagColor={
+          todo.tags === "fitness"
+            ? "yellow"
+            :todo.tags === "nutrition"
+            ? "blue"
+            : todo.tags === "lifestyle"
+            ? "orange"
+            : todo.tags === "health"
+            ? "green"
+            : ""
+        }
+      />
+    );
   });
 
   const handlePageChange = (pageNumber) => {
