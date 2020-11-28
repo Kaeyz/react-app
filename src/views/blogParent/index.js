@@ -1,28 +1,26 @@
 import React, { useState } from 'react';
-import AppLayout from '../../components/layouts/appLayout/AppLayout';
-import BlogPagination from '../../components/blog/BlogPagination';
-import Box from '@material-ui/core/Box';
-import blogBg from '../../assets/largeBlogImg.svg';
-import styled from 'styled-components';
-import Button from '../../components/common/Button';
-import { Link } from 'react-router-dom';
-import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import { makeStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import Container from '../../components/common/Container';
-import { Card, CardContent } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { getBlogs } from '../../store/actions/blogActions';
+import { Link } from 'react-router-dom';
+import { Card, CardContent, MenuItem, Box, InputLabel, Select, FormControl } from '@material-ui/core';
+import AppLayout from '../../components/layouts/appLayout/AppLayout';
+import Button from '../../components/common/Button';
+import Container from '../../components/common/Container';
+import BlogPagination from '../../components/blog/BlogPagination';
+import blogBg from '../../assets/largeBlogImg.svg';
 import blogSmall from '../../assets/wellnessNav/check-up-dentist-doctors.svg';
+import { getBlogs } from '../../store/actions/blogActions';
 
 const Wrapper = styled.div`
   margin: 5rem 0;
   @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
     margin: 2rem 0;
   }
+	.select_div {
+		min-width: 100%;
+		height: 5rem;
+	}
   .box {
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       display: grid;
@@ -86,22 +84,18 @@ const Wrapper = styled.div`
   }
 `;
 
-const useStyles = makeStyles(() => ({
-	formControl: {
-		marginBottom: '2.55rem',
-		width: '100%',
-		minWidth: 120,
-	},
-}));
 
-const categories = ['Lifestyle', 'Health', 'Fitness', 'Nutrition'];
+const categories = [
+	{text: 'Lifestyle', value: 'lifestyle'},
+	{text: 'Health', value: 'health'},
+	{text: 'Fitness', value: 'fitness'},
+	{ text: 'Nutrition', value: 'nutrition' }
+];
 
 function BlogPost({ getBlogs, blogs }) {
 	React.useEffect(() => {
 		getBlogs();
 	}, [getBlogs]);
-
-	const classes = useStyles();
 
 	const [filterText, setFilterText] = useState('');
 
@@ -149,21 +143,19 @@ function BlogPost({ getBlogs, blogs }) {
 								</div>
 							</Box>
 							<Box p={1}>
-								<FormControl className={classes.formControl}>
-									<InputLabel id="demo-simple-select-label">
+								<FormControl className='select_div'>
+									<InputLabel>
                     Explore by Category
 									</InputLabel>
 									<Select
-										labelId="demo-simple-select-label"
-										id="demo-simple-select"
 										value={filterText}
 										onChange={(e) =>
-											setFilterText(e.target.value.toLocaleLowerCase())
+											setFilterText(e.target.value)
 										}
 									>
 										{categories.map((category) => (
-											<MenuItem key={category} value={category}>
-												{category}
+											<MenuItem key={category.value} value={category.value}>
+												{category.text}
 											</MenuItem>
 										))}
 									</Select>
@@ -180,11 +172,10 @@ function BlogPost({ getBlogs, blogs }) {
 								</div>
 								<Link to="">
 									<Button value="Subscribe" theme="yellow">
-										{' '}
                     Subscribe
 									</Button>
 								</Link>
-							</Box>{' '}
+							</Box>
 						</Box>
 					</div>
 					<div className="grid-container">
