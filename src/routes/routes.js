@@ -5,10 +5,6 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import Home from '../views/Home';
 import Team from '../views/Team';
-import Health from '../views/wellness/individual/Health';
-import Fitness from '../views/wellness/individual/Fitness';
-import Nutrition from '../views/wellness/individual/Nutrition';
-import Lifestyle from '../views/wellness/individual/Lifestyle';
 import IndividualSignUp from '../views/authentication/IndividualSignUp';
 import CompanySignUp from '../views/authentication/CompanySignUp';
 import Login from '../views/authentication/Login';
@@ -65,10 +61,6 @@ const Routes = () => (
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/team" component={Team} />
-			<Route exact path="/wellness/health" component={Health} />
-			<Route exact path="/wellness/fitness" component={Fitness} />
-			<Route exact path="/wellness/nutrition" component={Nutrition} />
-			<Route exact path="/wellness/lifestyle" component={Lifestyle} />
 
 			{/* Auth routes */}
 			<PrivateRoute isAuth={false} exact path="/login" component={Login} />

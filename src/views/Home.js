@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 	background-size: cover;
 	border-radius: 10px;
   }
-  
+
 `
 const Home = () => {
 	const toHealth = (e) => {
@@ -76,63 +76,63 @@ const Home = () => {
             caption="“It’s not stress that kills us, it is our reaction to it.”"
           />}
 		colorHead="orange"
-        detail1="As Children, we played around running, swinging and jumping. As teenagers, our level of physical activity began to drop 
+        detail1="As Children, we played around running, swinging and jumping. As teenagers, our level of physical activity began to drop
 drastically while the amount of food we ate increased.
-As adults, our level of activity hits a very low point as a result of 
+As adults, our level of activity hits a very low point as a result of
 being seated at a desk, eight hours of the day while asleep
 Another eight hours"
       />
       <SimilarCard
-	  id="fitness"
+	  		id="fitness"
         src={fitness}
         alt="fitness"
-		subhead="Fitness"
-		order1="first-order"
-		order2="second-order"
-		pad="pd-b"
-		mt="mt"
-		colorSubHead="yellow"
-		flowerLeft={flower1}
-		smallsubhead="Fitness Plans"
-		detail2="Using all your date, we create recommended fitness plans 
-		to ensure you meet your physical and health goals."
-		whichImg={ <Wrapper>
+				subhead="Fitness"
+				order1="first-order"
+				order2="second-order"
+				pad="pd-b"
+				mt="mt"
+				colorSubHead="yellow"
+				flowerLeft={flower1}
+				smallsubhead="Fitness Plans"
+				detail2="Using all your date, we create recommended fitness plans
+				to ensure you meet your physical and health goals."
+				whichImg={ <Wrapper>
 			<div className="fit-bg">
 
 </div>
 		</Wrapper>}
 		colorHead="yellow"
-        detail1="Out technology allows unto accurately evaluate your fitness 
-		Score, Metabolic Rate, Hydration Levels, Body Fat, Water 
+        detail1="Out technology allows unto accurately evaluate your fitness
+		Score, Metabolic Rate, Hydration Levels, Body Fat, Water
 		Retention & Muscle Mass.
 		This gives us clear insight into how your body is performing"
       />
 
       <SimilarCard
-	  id='nutrition'
+	  		id='nutrition'
         src={nutrition}
-		alt="nutrition"
-		mt="mt"
-		colorSubHead="green"
-		subhead="Nutrition"
+				alt="nutrition"
+				mt="mt"
+				colorSubHead="green"
+				subhead="Nutrition"
 				smallsubhead="Recipes you know & love"
-		detail2="We also offer healthy recipes for yourself or your chef to follow easily.
+				detail2="We also offer healthy recipes for yourself or your chef to follow easily.
 		Choose Life outlines the amount of nutrients you need daily and offers
 		Recommendations on foods that are rich in those
 		"
-		detail3="We have reimagined how we can use our existing local recipes 
-		and prepare them in a way that is healthier and not harmful to 
+				detail3="We have reimagined how we can use our existing local recipes
+		and prepare them in a way that is healthier and not harmful to
 		your body"
-		whichImg={ <SquareImg
+				whichImg={ <SquareImg
             bg="img3"
             border1="lightgray"
             border2="green"
           />}
 		colorHead="green"
         detail1="At Choose Life, we understand that what goes into your body
-		Is the most important part of your health.	
-		This is why we offer support through personalized nutrition 
-		plans and recipe on how to make healthier versions of the 
+		Is the most important part of your health.
+		This is why we offer support through personalized nutrition
+		plans and recipe on how to make healthier versions of the
 		Foods you already love. "
       />
 	  <OurClients />

@@ -1,13 +1,9 @@
-/*eslint-disable */
-
-import React, { useState } from "react";
-import Pagination from "react-js-pagination";
-import styled from "styled-components";
-import MonoBlog from "../../components/blog/MonoBlog";
-import { connect } from "react-redux";
-import { getBlogs } from "../../store/actions/blogActions";
-import PropTypes from "prop-types";
-import blogImg from "../../assets/girlRunning.png";
+import React, { useState } from 'react';
+import Pagination from 'react-js-pagination';
+import styled from 'styled-components';
+import MonoBlog from '../../components/blog/MonoBlog';
+import PropTypes from 'prop-types';
+import blogImg from '../../assets/girlRunning.png';
 
 const Wrapper = styled.div`
   .grid-container {
@@ -59,83 +55,74 @@ const Wrapper = styled.div`
     color: ${(props) => props.theme.color.text_03};
   }
 `;
-const PaginatedContent = ({ getBlogs, blogs, isLoading }) => {
-  React.useEffect(() => {
-    getBlogs();
-  }, [getBlogs]);
-  // Data to be rendered using pagination.
-  const todos = blogs;
-  const todosPerPage = 6;
-  const [activePage, setCurrentPage] = useState(1);
+const PaginatedContent = ({ blogs, isLoading }) => {
+	// Data to be rendered using pagination.
+	const [activePage, setCurrentPage] = useState(1);
+	const todos = blogs;
+	const todosPerPage = 6;
 
-  // Logic for displaying current todos
-  const indexOfLastTodo = activePage * todosPerPage;
-  const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-  const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+	// Logic for displaying current todos
+	const indexOfLastTodo = activePage * todosPerPage;
+	const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+	const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
 
-  const renderTodos = currentTodos.map((todo, index) => {
-    function capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-    return (
-      isLoading ? <div>Loading...</div> :
-      <MonoBlog
-        key={index}
-        to={`/blog/${todo.id}`}
-        src={todo.asset !== null ? todo.asset.url : blogImg }
-        title={todo.title}
-        author={todo.author}
-        createdAt={todo.createdAt.slice(0, 10)}
-        tag={capitalizeFirstLetter(todo.tags)}
-        tagColor={
-          todo.tags === "fitness"
-            ? "yellow"
-            :todo.tags === "nutrition"
-            ? "blue"
-            : todo.tags === "lifestyle"
-            ? "orange"
-            : todo.tags === "health"
-            ? "green"
-            : ""
-        }
-      />
-    );
-  });
+	const renderTodos = currentTodos.map((todo, index) => {
+		function capitalizeFirstLetter(string) {
+			return string.charAt(0).toUpperCase() + string.slice(1);
+		}
+		return (
+			isLoading ? <div>Loading...</div> :
+				<MonoBlog
+					key={index}
+					to={`/blog/${todo.id}`}
+					src={todo.asset !== null ? todo.asset.url : blogImg }
+					title={todo.title}
+					author={todo.author}
+					createdAt={todo.createdAt.slice(0, 10)}
+					tag={capitalizeFirstLetter(todo.tags)}
+					tagColor={
+						todo.tags === 'fitness'
+							? 'yellow'
+							:todo.tags === 'nutrition'
+								? 'blue'
+								: todo.tags === 'lifestyle'
+									? 'orange'
+									: todo.tags === 'health'
+										? 'green'
+										: ''
+					}
+				/>
+		);
+	});
 
-  const handlePageChange = (pageNumber) => {
-    console.log(`active page is ${pageNumber}`);
-    setCurrentPage(pageNumber);
-  };
+	const handlePageChange = (pageNumber) => {
+		setCurrentPage(pageNumber);
+	};
 
-  return (
-    <Wrapper>
-      <div className="result grid-container">{renderTodos}</div>
-      <div className="pagination">
-        <Pagination
-          activePage={activePage}
-          firstPageText=""
-          lastPageText=""
-          prevPageText={"Previous"}
-          nextPageText={"Next"}
-          itemsCountPerPage={6}
-          totalItemsCount={todos.length}
-          pageRangeDisplayed={3}
-          onChange={handlePageChange}
-        />
-      </div>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<div className="result grid-container">{renderTodos}</div>
+			<div className="pagination">
+				<Pagination
+					activePage={activePage}
+					firstPageText=""
+					lastPageText=""
+					prevPageText={'Previous'}
+					nextPageText={'Next'}
+					itemsCountPerPage={6}
+					totalItemsCount={todos.length}
+					pageRangeDisplayed={3}
+					onChange={handlePageChange}
+				/>
+			</div>
+		</Wrapper>
+	);
 };
 
 PaginatedContent.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  getBlogs: PropTypes.func.isRequired,
-  blogs: PropTypes.array.isRequired,
+	isLoading: PropTypes.bool.isRequired,
+	getBlogs: PropTypes.func.isRequired,
+	blogs: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  const { blogs, isLoading } = state.blog;
-  return { blogs: blogs || [], isLoading };
-};
-
-export default connect(mapStateToProps, { getBlogs })(PaginatedContent);
+export default PaginatedContent;

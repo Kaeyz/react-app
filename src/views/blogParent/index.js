@@ -1,17 +1,16 @@
-/*eslint-disable */
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import AppLayout from "../../components/layouts/appLayout/AppLayout";
-import Container from "../../components/common/Container";
-import Slider from "../../components/blog/Slider";
-import Pagination from "../../components/blog/Pagination";
-import Header from "../../components/layouts/appLayout/header/index2";
-import { Paper } from "@material-ui/core";
-import spread from "../../assets/woman-spreading-both-her-arms.svg";
-import avatar from "../../assets/avatarFemale.png";
-import { connect } from "react-redux";
-import { getBlogs } from "../../store/actions/blogActions";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import AppLayout from '../../components/layouts/appLayout/AppLayout';
+import Container from '../../components/common/Container';
+import Slider from '../../components/blog/Slider';
+import Pagination from '../../components/blog/Pagination';
+import Header from '../../components/layouts/appLayout/header/index2';
+import { Paper } from '@material-ui/core';
+import spread from '../../assets/woman-spreading-both-her-arms.svg';
+import avatar from '../../assets/avatarFemale.png';
+import { connect } from 'react-redux';
+import { getBlogs } from '../../store/actions/blogActions';
 
 const Wrapper = styled.div`
  .main{
@@ -97,52 +96,54 @@ const Wrapper = styled.div`
 }
 `;
 function Blog({ getBlogs, blogs, isLoading }) {
-  React.useEffect(() => {
-    getBlogs();
-  }, [getBlogs]);
-  return (
-    <AppLayout header={<Header />}>
-      <Wrapper>
-        <Container>
-          <div className="main">
-            <div className="head">
-              <h1>Blog</h1>
-              <Paper className="paper">
-                <p className="tag" id="yellow">
+
+	React.useEffect(() => {
+		getBlogs();
+	}, [getBlogs]);
+
+	return (
+		<AppLayout header={<Header />}>
+			<Wrapper>
+				<Container>
+					<div className="main">
+						<div className="head">
+							<h1>Blog</h1>
+							<Paper className="paper">
+								<p className="tag" id="yellow">
                   Featured
-                </p>
-                <p className="title">
+								</p>
+								<p className="title">
                   Creating Remarkable Poster Prints Through 4 Color Poster
                   Printing
-                </p>
-                <div className="avatar">
-                  <img src={avatar} alt="avatar-female" />
-                  <p className="text">Caleb Atkins</p>
-                </div>
-              </Paper>
-            </div>
-            <div className="mid">
-              <p className="title">Recent</p>
-              <Pagination/>
-            </div>
-          </div>
+								</p>
+								<div className="avatar">
+									<img src={avatar} alt="avatar-female" />
+									<p className="text">Caleb Atkins</p>
+								</div>
+							</Paper>
+						</div>
+						<div className="mid">
+							<p className="title">Recent</p>
+							<Pagination blogs={blogs} isLoading={isLoading} />
+						</div>
+					</div>
 
-          </Container>
+				</Container>
 
-          <Slider />
-      </Wrapper>
-    </AppLayout>
-  );
+				<Slider blogs={blogs} isLoading={isLoading} />
+			</Wrapper>
+		</AppLayout>
+	);
 }
 
 Blog.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  getBlogs: PropTypes.func.isRequired,
-  blogs: PropTypes.array.isRequired,
+	isLoading: PropTypes.bool.isRequired,
+	getBlogs: PropTypes.func.isRequired,
+	blogs: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => {
-  const { blogs, isLoading } = state.blog;
-  return { blogs: blogs || [], isLoading };
+	const { blogs, isLoading } = state.blog;
+	return { blogs: blogs || [], isLoading };
 };
 export default connect(mapStateToProps, { getBlogs })(Blog);
