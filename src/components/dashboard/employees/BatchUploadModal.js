@@ -98,7 +98,7 @@ const BatchUploadModal = ({addNewEmployee}) => {
 								theme="darkGreen"
 								onClick={onSubmit}
 								text="Add"
-								title={csv !== '' ? "" : "Tooltip text"}
+								title ={csv === "" ? "not allowed" : ""}
 								/>
 							</Grid>
 					</Grid>
