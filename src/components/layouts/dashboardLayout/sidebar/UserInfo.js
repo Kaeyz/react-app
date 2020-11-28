@@ -64,7 +64,7 @@ function UserInfo({ name, type, companyName }) {
 UserInfo.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  companyName: PropTypes.string.isRequired,
+  companyName: PropTypes.string,
 };
 
 export default UserInfo;
