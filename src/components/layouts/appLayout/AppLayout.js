@@ -3,8 +3,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
-import Header from './header';
 import Footer from './Footer';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
@@ -63,7 +61,16 @@ function ScrollTop(props) {
 //    */
 //   window: PropTypes.func,
 // };
-export default function AppLayout({ children }) {
+export default function AppLayout({ children, arrow, header, toPillar, toAbout }) {
+	const handleClick = (event) => {
+		const anchor = (event.target.ownerDocument || document).querySelector(
+			'#back-to-top-anchor'
+		);
+
+		if (anchor) {
+			anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+		}
+	};
 	return (
 		<>
 			<Wrapper>
@@ -71,9 +78,9 @@ export default function AppLayout({ children }) {
 					id="back-to-top-anchor"
 					style={{ position: 'absolute', visibility: 'hidden' }}
 				/>
-				<Header />
+				{header}
 				{children}
-				<Footer />
+				<Footer arrow ={arrow} onClick={handleClick} onClickPillar={toPillar} onClickAbout={toAbout}/>
 			</Wrapper>
 			<ScrollTop>
 				<Fab
@@ -91,4 +98,8 @@ export default function AppLayout({ children }) {
 
 AppLayout.propTypes = {
 	children: PropTypes.array.isRequired,
+	header: PropTypes.any.isRequired,
+	arrow: PropTypes.any,
+	toPillar: PropTypes.func,
+	toAbout: PropTypes.func
 };

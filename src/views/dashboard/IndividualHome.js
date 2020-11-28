@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import React from 'react';
 import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
 import BodyMassCard from '../../components/dashboard/dashboard_home/BodyMassCard';
@@ -5,9 +7,7 @@ import PreliminaryCard from '../../components/dashboard/common/PreliminaryCard';
 import pinkFlower from '../../assets/pinkFlower.svg';
 import yellowFlower from '../../assets/yellowFlower.svg';
 import greenFlower from '../../assets/greenFlower.svg';
-import LeaderboardCard from '../../components/dashboard/dashboard_home/LeaderboardCard';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   padding-top: 3rem;
@@ -70,12 +70,7 @@ const DashboardHome = () => {
 					/>
 				</div>
 
-				<Link to='/rewards/leaderboard'>
-					<h1 className="heading">Leaderboard</h1>
-					<div className="grid-card">
-						<LeaderboardCard />
-					</div>
-				</Link>
+				
 			</main>
 		</Wrapper>
 	);

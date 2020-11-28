@@ -1,17 +1,28 @@
+/*eslint-disable */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
-import brand from '../../../../assets/brand.svg';
+import PropTypes from "prop-types";
 import Drawer from './Drawer';
 
 const Wrapper = styled.div`
 	display: grid;
 	grid-template-columns: max-content max-content;
 	grid-gap: 1rem;
+	align-items: center;
+
+	img{
+		height: 55px;
+	}
+	.white{
+		color: ${props => props.theme.color.text_03};
+	}
+	.black{
+		color: ${props => props.theme.color.text_05};
+	}
 `;
 
-function Logo() {
+function Logo({brand}) {
 	return (
 		<Wrapper>
 			<Drawer />
@@ -23,7 +34,7 @@ function Logo() {
 }
 
 Logo.propTypes = {
-
+	brand: PropTypes.any.isRequired,
 };
 
 export default Logo;
