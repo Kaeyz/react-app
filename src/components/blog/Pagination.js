@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import Pagination from 'react-js-pagination';
-import styled from 'styled-components';
-import MonoBlog from '../../components/blog/MonoBlog';
-import PropTypes from 'prop-types';
-import blogImg from '../../assets/girlRunning.png';
+/* eslint-disable*/
+import React, { useState } from "react";
+import Pagination from "react-js-pagination";
+import styled from "styled-components";
+import MonoBlog from "../../components/blog/MonoBlog";
+import PropTypes from "prop-types";
+import blogImg from "../../assets/girlRunning.png";
 
 const Wrapper = styled.div`
   .grid-container {
@@ -56,73 +57,100 @@ const Wrapper = styled.div`
   }
 `;
 const PaginatedContent = ({ blogs, isLoading }) => {
-	// Data to be rendered using pagination.
-	const [activePage, setCurrentPage] = useState(1);
-	const todos = blogs;
-	const todosPerPage = 6;
+  // Data to be rendered using pagination.
+  const [activePage, setCurrentPage] = useState(1);
+  const todos = blogs;
+  const todosPerPage = 6;
 
-	// Logic for displaying current todos
-	const indexOfLastTodo = activePage * todosPerPage;
-	const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-	const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+  // Logic for displaying current todos
+  const indexOfLastTodo = activePage * todosPerPage;
+  const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+  const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
 
-	const renderTodos = currentTodos.map((todo, index) => {
-		function capitalizeFirstLetter(string) {
-			return string.charAt(0).toUpperCase() + string.slice(1);
-		}
-		return (
-			isLoading ? <div>Loading...</div> :
-				<MonoBlog
-					key={index}
-					to={`/blog/${todo.id}`}
-					src={todo.asset !== null ? todo.asset.url : blogImg }
-					title={todo.title}
-					author={todo.author}
-					createdAt={todo.createdAt.slice(0, 10)}
-					tag={capitalizeFirstLetter(todo.tags)}
-					tagColor={
-						todo.tags === 'fitness'
-							? 'yellow'
-							:todo.tags === 'nutrition'
-								? 'blue'
-								: todo.tags === 'lifestyle'
-									? 'orange'
-									: todo.tags === 'health'
-										? 'green'
-										: ''
-					}
-				/>
-		);
-	});
+  const renderTodos = currentTodos.map((todo, index) => {
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
-	const handlePageChange = (pageNumber) => {
-		setCurrentPage(pageNumber);
-	};
+    // change date format
+    var updatedAtMonth = todo.createdAt.slice(5, 7);
+    var updatedAtDay = todo.createdAt.slice(8, 10);
+    var updatedAtYear = todo.createdAt.slice(0, 4);
+    var mlist = [];
+    var month_name = function (dt) {
+      mlist = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sept",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      return mlist[dt.getMonth()];
+    };
+    const published = `${updatedAtDay} ${month_name(
+      new Date(`${updatedAtMonth}`)
+    )} ${updatedAtYear}`;
 
-	return (
-		<Wrapper>
-			<div className="result grid-container">{renderTodos}</div>
-			<div className="pagination">
-				<Pagination
-					activePage={activePage}
-					firstPageText=""
-					lastPageText=""
-					prevPageText={'Previous'}
-					nextPageText={'Next'}
-					itemsCountPerPage={6}
-					totalItemsCount={todos.length}
-					pageRangeDisplayed={3}
-					onChange={handlePageChange}
-				/>
-			</div>
-		</Wrapper>
-	);
+    return isLoading ? (
+      <div>Loading...</div>
+    ) : (
+      <MonoBlog
+        key={index}
+        to={`/blog/${todo.id}`}
+        src={todo.asset !== null ? todo.asset.url : blogImg}
+        title={todo.title}
+        author={todo.author}
+        createdAt={published}
+        tag={capitalizeFirstLetter(todo.tags)}
+        tagColor={
+          todo.tags === "fitness"
+            ? "yellow"
+            : todo.tags === "nutrition"
+            ? "blue"
+            : todo.tags === "lifestyle"
+            ? "orange"
+            : todo.tags === "health"
+            ? "green"
+            : ""
+        }
+      />
+    );
+  });
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  return (
+    <Wrapper>
+      <div className="result grid-container">{renderTodos}</div>
+      <div className="pagination">
+        <Pagination
+          activePage={activePage}
+          firstPageText=""
+          lastPageText=""
+          prevPageText={"Previous"}
+          nextPageText={"Next"}
+          itemsCountPerPage={6}
+          totalItemsCount={todos.length}
+          pageRangeDisplayed={3}
+          onChange={handlePageChange}
+        />
+      </div>
+    </Wrapper>
+  );
 };
 
 PaginatedContent.propTypes = {
-	isLoading: PropTypes.bool.isRequired,
-	getBlogs: PropTypes.func.isRequired,
-	blogs: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  blogs: PropTypes.array.isRequired,
 };
 
 export default PaginatedContent;

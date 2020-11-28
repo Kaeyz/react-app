@@ -17,6 +17,7 @@ blogQueries.getBlogs = () => {
         body
         createdAt
         tags
+        feature
         author
         authorRole
         asset {

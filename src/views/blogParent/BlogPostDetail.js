@@ -10,7 +10,7 @@ import AppLayout from "../../components/layouts/appLayout/AppLayout";
 import Slider from "../../components/blog/Slider";
 import spread from "../../assets/woman-spreading-both-her-arms.svg";
 import img2 from "../../assets/boyStretch.png";
-import { getSingleBlog } from "../../store/actions/blogActions";
+import { getSingleBlog, getBlogs } from "../../store/actions/blogActions";
 import Header from "../../components/layouts/appLayout/header/index2";
 
 const Wrapper = styled.div`
@@ -143,12 +143,13 @@ const Wrapper = styled.div`
   }
 `;
 
-function BlogPostDetail({ match, getSingleBlog, getBlogs, blog, isLoading }) {
+function BlogPostDetail({ match, getSingleBlog, getBlogs,blogs, blog, isLoading }) {
   const { blogId } = match.params;
 
   React.useEffect(() => {
     getSingleBlog(blogId);
-  }, [blogId, getSingleBlog]);
+    getBlogs();
+  }, [getBlogs,blogId, getSingleBlog]);
 
   const { title, body, createdAt, tags, author, asset } = blog;
   function capitalizeFirstLetter(string) {
@@ -213,7 +214,7 @@ function BlogPostDetail({ match, getSingleBlog, getBlogs, blog, isLoading }) {
             </div>
           </div>
         </Container>
-        <Slider />
+        <Slider blogs={blogs} isLoading={isLoading}/>
       </Wrapper>
     </AppLayout>
   );
@@ -224,14 +225,16 @@ BlogPostDetail.propTypes = {
   blog: PropTypes.object.isRequired,
   getSingleBlog: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  getBlogs: PropTypes.func.isRequired,
+	blogs: PropTypes.array.isRequired,
   id: PropTypes.string,
 };
 
 const mapStateToProps = (state) => {
-  const { blog, isLoading } = state.blog;
-  return { blog, isLoading };
+  const { blogs, blog, isLoading } = state.blog;
+  return {blogs: blogs || [], blog, isLoading };
 };
 
-export default connect(mapStateToProps, { getSingleBlog })(
+export default connect(mapStateToProps, { getBlogs, getSingleBlog })(
   withRouter(BlogPostDetail)
 );
