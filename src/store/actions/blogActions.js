@@ -21,15 +21,15 @@ const addBlog = (blog) => {
 
 
 // Get all blog post
-export const getBlogs = () => dispatch => {
+export const getBlogs = (skip = 0, limit = 9) => dispatch => {
 	dispatch(blogIsLoading());
-	blogQueries.getBlogs()
+	blogQueries.getBlogs(skip, limit)
 		.then(res => {
 			if (res.errors) {
 				dispatch(blogNotLoading());
 			}
 			if (res.data.fetchAllBlogPost.content !== null) {
-				dispatch(addBlogs(res.data.fetchAllBlogPost.content));
+				dispatch(addBlogs(res.data.fetchAllBlogPost));
 				dispatch(blogNotLoading());
 			}
 		})

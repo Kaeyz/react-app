@@ -1,9 +1,9 @@
 import { ADD_BLOGS , ADD_BLOG, BLOG_IS_LOADING, BLOG_NOT_LOADING } from '../types';
 
 const initialState = {
-	blogs: [],
 	isLoading: false,
-	blog: {},
+	blogs: {},
+	blog: {}
 };
 
 export default function (state = initialState, action) {

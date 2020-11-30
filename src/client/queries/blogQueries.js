@@ -4,10 +4,10 @@ import { client } from '../client';
 
 const blogQueries = {};
 
-blogQueries.getBlogs = () => {
+blogQueries.getBlogs = (skip, limit) => {
 	const query = `
-  query mutation_LOGIN_MUTAT278 {
-    fetchAllBlogPost {
+  query GET_BLOGS($limit: Int! $skip: Int!) {
+    fetchAllBlogPost(limit: $limit, skip: $skip) {
       total
       skip
       limit
@@ -27,10 +27,11 @@ blogQueries.getBlogs = () => {
       }
     }
   }
-	`;
+  `;
+  const variables = { skip, limit };
 
 	return new Promise((resolve, reject) => {
-		client(query)
+		client(query, variables)
 			.then((res) => resolve(res))
 			.catch((err) => reject(err));
 	});

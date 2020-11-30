@@ -18,6 +18,10 @@ export const convertDate = (date) => {
 	return `${month[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 };
 
+export const capitalizeFirstLetter = (string) => {
+	return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
 export const sortTableData = (tableData, dataKey, callback) => {
 
 	tableData.forEach((data, index) => {
