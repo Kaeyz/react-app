@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import blogImg from '../../assets/girlRunning.png';
@@ -10,16 +10,17 @@ import arrowRight from '../../assets/slideArrowRight.png';
 import leftWhite from '../../assets/leftwhiteflower.png';
 import rightWhite from '../../assets/rightwhiteflower.png';
 import PropTypes from 'prop-types';
-import { convertDate } from '../../utils/helper';
+import { convertDate, capitalizeFirstLetter } from '../../utils/helper';
+import { getFeaturedBlogs } from '../../store/actions/blogActions';
+import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.ui_text_08};
-  position: relative;
+	padding: 2.5rem;
   overflow: hidden;
   .slide-heading {
     font-size: 4.5rem;
     padding: 30px 0;
-    line-height: 7.1rem;
     color: ${(props) => props.theme.color.ui_01};
     text-align: center;
   }
@@ -66,50 +67,31 @@ const Wrapper = styled.div`
     bottom: 0;
   }
 `;
-function SlideBlog({ blogs, isLoading }) {
-	function capitalizeFirstLetter(string) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
-	}
+const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 
-	//get featured blogs only
-	const reduced = blogs.reduce(function (filtered, option) {
-		if (option.feature === 'Featured') {
-
-			const someNewValue = {
-				tags: option.tags,
-				title: option.title,
-				asset: option.asset,
-				author: option.author,
-				createdAt: convertDate(option.createdAt),
-				id: option.id,
-			};
-			filtered.push(someNewValue);
-		}
-		return filtered;
+	useEffect(() => {
+		getFeaturedBlogs();
 	}, []);
 
-	const renderSlides = () =>
-		reduced.map((blog) =>
-			isLoading ? (
-				<div>Loading...</div>
-			) : (
-				<MonoBlog
-					key={blog.id}
-					to={`/blog/${blog.id}`}
-					src={blog.asset !== null ? blog.asset.url : blogImg}
-					title={blog.title}
-					author={blog.author}
-					createdAt={blog.createdAt}
-					tag={capitalizeFirstLetter(blog.tags)}
-					tagColor={
-						blog.tags === 'fitness' ? 'yellow'
-							: blog.tags === 'nutrition' ? 'blue'
-								: blog.tags === 'lifestyle' ? 'orange'
-									: blog.tags === 'health' ? 'green' : ''
-					}
-				/>
-			)
+	const renderSlides = () => {
+		return featuredBlogs.content.map((blog) =>
+			<MonoBlog
+				key={blog.id}
+				to={`/blog/${blog.id}`}
+				src={blog.asset !== null ? blog.asset.url : blogImg}
+				title={blog.title}
+				author={blog.author}
+				createdAt={convertDate(blog.createdAt)}
+				tag={capitalizeFirstLetter(blog.tags)}
+				tagColor={
+					blog.tags === 'fitness' ? 'yellow'
+						: blog.tags === 'nutrition' ? 'blue'
+							: blog.tags === 'lifestyle' ? 'orange'
+								: blog.tags === 'health' ? 'green' : ''
+				}
+			/>
 		);
+	};
 
 	const settings = {
 		dots: false,
@@ -151,14 +133,25 @@ function SlideBlog({ blogs, isLoading }) {
 			<img src={leftWhite} alt="leftWhite" className="absolute  leftwhite" />
 			<img src={rightWhite} alt="rightWhite" className="absolute rightwhite" />
 			<p className="slide-heading"> Featured</p>
-			<Slider {...settings}>{renderSlides()}</Slider>
+			<Slider {...settings}>{
+				isLoading ?
+					<div>Loading...</div> :
+					featuredBlogs.content ? renderSlides() :
+						<div>No Featured Blog</div>
+			}</Slider>
 		</Wrapper>
 	);
-}
+};
 
 SlideBlog.propTypes = {
 	isLoading: PropTypes.bool.isRequired,
-	blogs: PropTypes.array.isRequired,
+	featuredBlogs: PropTypes.object.isRequired,
+	getFeaturedBlogs: PropTypes.func.isRequired,
 };
 
-export default SlideBlog;
+const mapStateToProps = state => {
+	const { featuredBlogs, isLoading } = state.blog;
+	return { featuredBlogs, isLoading };
+};
+
+export default connect(mapStateToProps, {getFeaturedBlogs})(SlideBlog);

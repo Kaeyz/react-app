@@ -1,5 +1,5 @@
 import blogQueries from '../../client/queries/blogQueries';
-import { ADD_BLOGS, ADD_BLOG, BLOG_IS_LOADING, BLOG_NOT_LOADING
+import { ADD_BLOGS, ADD_FEATURED_BLOGS, ADD_BLOG, BLOG_IS_LOADING, BLOG_NOT_LOADING
 } from '../types';
 
 const blogIsLoading = () => {
@@ -12,6 +12,10 @@ const blogNotLoading = () => {
 
 const addBlogs = (blogs) => {
 	return { type: ADD_BLOGS, payload: blogs };
+};
+
+const addFeaturedBlogs = (blogs) => {
+	return { type: ADD_FEATURED_BLOGS, payload: blogs };
 };
 
 const addBlog = (blog) => {
@@ -39,7 +43,25 @@ export const getBlogs = (skip = 0, limit = 9) => dispatch => {
 
 };
 
-// Get all blog post
+// Get featured blog post
+export const getFeaturedBlogs = () => dispatch => {
+	dispatch(blogIsLoading());
+	blogQueries.getFeaturedBlogs()
+		.then(res => {
+			if (res.errors) {
+				dispatch(blogNotLoading());
+			}
+			if (res.data.fetchAllFeaturedBlogPost.content !== null) {
+				dispatch(addFeaturedBlogs(res.data.fetchAllFeaturedBlogPost));
+				dispatch(blogNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(blogNotLoading());
+		});
+};
+
+// Get single blog post
 export const getSingleBlog = (id) => dispatch => {
 	dispatch(blogIsLoading());
 	blogQueries.getSingleBlog(id)

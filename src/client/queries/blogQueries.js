@@ -37,6 +37,38 @@ blogQueries.getBlogs = (skip, limit) => {
 	});
 };
 
+blogQueries.getFeaturedBlogs = () => {
+	const query = `
+  query FETCH_FEATURED_BLOGS {
+    fetchAllFeaturedBlogPost {
+         total
+         skip
+         limit
+         content {
+              id
+              title
+              body
+              createdAt
+              tags
+              author
+              authorRole
+              asset {
+                   name
+                   url
+              }
+              feature
+         }
+    }
+}
+  `;
+
+	return new Promise((resolve, reject) => {
+		client(query)
+			.then((res) => resolve(res))
+			.catch((err) => reject(err));
+	});
+};
+
 
 blogQueries.getSingleBlog = (id) => {
 	const query = `

@@ -1,7 +1,8 @@
-import { ADD_BLOGS , ADD_BLOG, BLOG_IS_LOADING, BLOG_NOT_LOADING } from '../types';
+import { ADD_BLOGS, ADD_FEATURED_BLOGS, ADD_BLOG, BLOG_IS_LOADING, BLOG_NOT_LOADING } from '../types';
 
 const initialState = {
 	isLoading: false,
+	featuredBlogs: {},
 	blogs: {},
 	blog: {}
 };
@@ -12,6 +13,11 @@ export default function (state = initialState, action) {
 		return {
 			...state,
 			blogs: action.payload,
+		};
+	case ADD_FEATURED_BLOGS:
+		return {
+			...state,
+			featuredBlogs: action.payload,
 		};
 	case ADD_BLOG:
 		return {

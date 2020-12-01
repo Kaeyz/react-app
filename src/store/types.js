@@ -72,6 +72,7 @@ module.exports = Object.freeze({
 	// BLOG ACTIONS
 	BLOG_IS_LOADING: 'blog_is_loading',
 	BLOG_NOT_LOADING: 'blog_not_loading',
+	ADD_FEATURED_BLOGS: 'add_featured_blogs',
 	ADD_BLOGS: 'add_blogs',
 	ADD_BLOG: 'add_blog',
 

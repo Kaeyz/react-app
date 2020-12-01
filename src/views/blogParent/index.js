@@ -10,7 +10,7 @@ import spread from '../../assets/woman-spreading-both-her-arms.svg';
 import avatar from '../../assets/avatarFemale.png';
 import { connect } from 'react-redux';
 import { getBlogs } from '../../store/actions/blogActions';
-//import Slider from '../../components/blog/Slider';
+import Slider from '../../components/blog/Slider';
 
 const Wrapper = styled.div`
  .main{
@@ -128,7 +128,7 @@ function Blog({ getBlogs, blogs, isLoading }) {
 						</div>
 					</div>
 				</Container>
-				{/* <Slider blogs={blogs.content} isLoading={isLoading} /> */}
+				<Slider  />
 			</Wrapper>
 		</AppLayout>
 	);
