@@ -9,10 +9,12 @@ import alertsReducer from './alertsReducer';
 import rewardReducer from './rewardReducer';
 import reportReducer from './reportReducer';
 import userReducer from './userReducer';
+import mealReducer from './mealReducer';
 import blogReducer from './blogReducer';
 import appReducer from './appReducer';
 import hraReducer from './hraReducer';
 import bmiReducer from './bmiReducer';
+
 
 const reducers = combineReducers({
 	app: appReducer,
@@ -27,6 +29,7 @@ const reducers = combineReducers({
 	appointment: appointmentReducer,
 	bmi: bmiReducer,
 	blog: blogReducer,
+	meal: mealReducer,
 });
 
 const rootReducer = (state, action) => {

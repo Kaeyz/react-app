@@ -2,11 +2,11 @@
 
 export const data = [
 	{
-		'Day': 'Monday',
-		'Breakfast': 'Meal  1',
-			'Lunch': 'Meal  2 ',
-		'Dinner': 'Meal 3 ',
-
+		Day: 'Monday',
+		Breakfast: 'A bowl of cereal, Banana Smoothie Oat Cereal & Milk Alternative (soy milk)',
+		Lunch: 'Beans and plantain pottage with vegetables & a protein of your choice',
+		Dinner: 'Pepper soup – uziza leaf & a protein of your choice',
+		Snarks: 'Pepper soup – uziza leaf & a protein of your choice',
 	},
 	{
 		'Day': 'Tuesday',

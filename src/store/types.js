@@ -81,4 +81,12 @@ module.exports = Object.freeze({
 	EXERCISE_NOT_LOADING: 'exercise_not_loading',
 	ADD_EXERCISES: 'add_exercises',
 	ADD_EXERCISE: 'add_exercise',
+
+
+	// MEAL ACTIONS
+	MEAL_IS_LOADING: 'meal_is_loading',
+	MEAL_NOT_LOADING: 'meal_not_loading',
+	ADD_MEAL_PLAN: 'add_mealPlan',
+	CLEAR_MEAL_PLAN: 'clear_mealPlan',
+	ADD_MEAL_OPTIONS: 'add_mealOptions',
 });

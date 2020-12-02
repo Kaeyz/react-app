@@ -40,7 +40,6 @@ import HealthReport from '../views/reports/HealthReport';
 import HraCompleted from '../views/dashboard/assessment/hra_questionnaire/HraCompleted';
 import Exercise from '../views/exercise';
 import Meals from '../views/meals';
-import MealPlans from '../views/meals/MealPlans';
 import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
 import Employees from '../views/employees';
 import PendingInvites from '../views/employees/PendingInvites';
@@ -122,7 +121,6 @@ const Routes = () => (
 
 			{/* meal route */}
 			<PrivateRoute isActivated={true} exact path="/meals"  component={Meals} />
-			<PrivateRoute isActivated={true} exact path="/meals/meal_plans"  component={MealPlans} />
 
 			{/* appointments */}
 			<PrivateRoute isActivated={true} exact path="/appointments"  component={Appointments} />

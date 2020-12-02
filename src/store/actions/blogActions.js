@@ -40,7 +40,6 @@ export const getBlogs = (skip = 0, limit = 9) => dispatch => {
 		.catch(() => {
 			dispatch(blogNotLoading());
 		});
-
 };
 
 // Get featured blog post
