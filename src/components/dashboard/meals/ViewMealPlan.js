@@ -80,8 +80,8 @@ const ViewMealPlan = ({mealPlan, deleteMealPlan}) => {
 
 	const getWeekData = (mealData, week) => {
 		const data = mealData;
-		const max = week * 7;
-		const min = max - 7;
+		const max = (week * 7) - 1;
+		const min = max - 6;
 		const response = [];
 		data &&	Object.keys(data).map((key, index) => {
 			if (index >= min && index <= max) {

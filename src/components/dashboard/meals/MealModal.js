@@ -17,7 +17,6 @@ const Wrapper = styled.div`
 	}
 `;
 
-// eslint-disable-next-line no-unused-vars
 const MealModal = ({isLoading, mealOptions, getMealOptions, generateMealPlan }) => {
 	const [show, setShow] = useState(false);
 	const [meals, setMeals] = useState([]);
