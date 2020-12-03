@@ -75,6 +75,8 @@ const Wrapper = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 30px;
     font-family: Avenir;
+    z-index: 44;
+    position: relative;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
       display: block;
     }
@@ -200,21 +202,27 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 
             <div className="footer_nav_section">
               <h5 className="footer_nav_header blue">Contact Us</h5>
-              <Link className="footer_nav_link">
+              <Link className="footer_nav_link flex" style={{justifyContent: "start" , alignItems: "baseline" 
+}}>
                 <span className="icon">
                   <img className="icons" src={callIcon} alt="callIcon" />
                 </span>
-                <b>0815 345 7789</b>
+                <span style={{display:"grid"}}>
+                  <b>0802 648 4048, </b>
+                <b>0802 648 3318</b></span>
               </Link>
               <a
                 className="footer_nav_link"
                 target="_blank"
-                href="Info@chooselife.com"
+                href="mailto:chooselife@fitnessfairng.com"
+                style={{whiteSpace: "pre"}}
               >
                 <span className="icon">
                   <img className="icons" src={atIcon} alt="atIcon" />
                 </span>
-                Info@chooselife.com
+                <span>
+                chooselife@fitnessfairng.com
+                </span>
               </a>
               <Link className="footer_nav_link">
                 <span className="icon">
@@ -224,7 +232,7 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
                     alt="addressIcon"
                   />
                 </span>
-                1 , Ajayi Road , Owerri
+                Shop 2, Banana Island Shopping Complex, Banana Island, Ikoyi-Lagos,Nigeria
               </Link>
             </div>
 

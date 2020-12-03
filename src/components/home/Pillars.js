@@ -36,8 +36,12 @@ const Wrapper = styled.div`
   }
   .grid .link img{
     height: 130px;
+	@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+    height: 85px;
+	}
 	@media screen and ( max-width: ${props => props.theme.breakpoint.sm}) {
-		width: 45px;
+    width: 45px;
+    height: 60px;
 	}
 	  }
   .grid .link p{

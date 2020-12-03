@@ -4,9 +4,15 @@ import styled from "styled-components";
 import AppLayout from "../components/layouts/appLayout/AppLayout";
 import Header from "../components/layouts/appLayout/header/index2";
 import team1 from "../assets/testimony3.png";
+import ceo from "../assets/ceo.jpg";
+import eke from "../assets/eke.jpg";
+import joel from "../assets/joel.jpg";
+import prince from "../assets/prince.jpg";
+import adenike from "../assets/adenike.jpg";
+import soteye from "../assets/soteye.jpg";
 import linkedin from "../assets/linkedIn.png";
-import mail from "../assets/mail.png";
-import twitter from "../assets/twitter.png";
+// import mail from "../assets/mail.png";
+// import twitter from "../assets/twitter.png";
 
 const Wrapper = styled.div`
   padding-top: 10rem;
@@ -53,9 +59,7 @@ const Wrapper = styled.div`
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       height: 400px;
     }
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-      height: 345px;
-    }
+ 
   }
 
   .blue-bg {
@@ -65,9 +69,30 @@ const Wrapper = styled.div`
   .member {
     text-align: center;
     position: absolute;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      max-width: 30%;
+    }
     .img {
       background-image: url(${team1});
     }
+  }
+  .one .img{
+    background-image: url(${ceo});
+  }
+  .two .img{
+    background-image: url(${eke});
+  }
+  .three .img{
+    background-image: url(${joel});
+  }
+  .four .img{
+    background-image: url(${prince});
+  }
+  .five .img{
+    background-image: url(${soteye});
+  }
+  .six .img{
+    background-image: url(${adenike});
   }
   .one {
     top: 0;
@@ -102,30 +127,31 @@ const Wrapper = styled.div`
  
   }
   .four {
-    right: 58%;
+    left: 15%;
     bottom: -83px;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       bottom: 0;
-      right: 62%;
+      left: 5%;
     }
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-      bottom: 0;
-      right: 56%;
-    }
- 
+    
   }
   .five {
-    right: 27%;
+    left: 50%;
+    transform: translate(-50%, 0%);
     bottom: -83px;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       bottom: 0;
-      right: 23%;
     }
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-      right: 20%;
-    }
-   
+  
   }
+  .six {
+    right: 15%;
+    bottom: -83px;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      bottom: 0;
+      right: 5%;
+    }
+    }
   .member .img {
     display: inline-block;
     width: 170px;
@@ -148,19 +174,25 @@ const Wrapper = styled.div`
     font-weight: 400;
   }
   .name {
+    font-size: 2rem;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       font-size: 1.5rem;
+      line-height: 12px;
     }
   }
   .role {
     font-size: 1.5rem;
-    line-height: 0.2rem;
+    line-height: 12px;
+    margin-top: 5px;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       font-size: 1.3rem;
     }
   }
   .social {
     margin-top: 15px;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      margin-top: 0;
+    }
     img {
       width: auto;
       height: 20px;
@@ -191,9 +223,7 @@ function Team(props) {
         <div className="head">
           <h1>Our TEAM</h1>
           <p>
-            Out technology allows unto accurately evaluate your fitness Score,
-            Metabolic Rate, Hydration Levels, Body Fat, Water Retention & Muscle
-            Mass. This gives us clear insight into how your body is performing
+            Meet the wellness team.
           </p>
         </div>
 
@@ -201,52 +231,75 @@ function Team(props) {
           <div className="blue-bg"></div>
           <div className="member one">
             <div className="img"></div>
-            <h2 className="name text">Alice Cooper</h2>
-            <h3 className="role text">Founder CEO</h3>
+            <h2 className="name text">Dr Uganze Eze</h2>
+            <h3 className="role text">CEO</h3>
             <div className="social flex">
-              <img src={linkedin} alt="linkedin" />
-              <img className="pd" src={twitter} alt="twitter" />
-              <img src={mail} alt="mail" />
+              <a href="https://www.linkedin.com/in/uganze-eke" target='_blank'><img src={linkedin} alt="linkedin" /></a>
+              
+            
+              {/* <img className="pd" src={twitter} alt="twitter" />
+              <img src={mail} alt="mail" /> */}
             </div>
           </div>
           <div className="member two">
             <div className="img"></div>
-            <h2 className="name text">Craig Floss</h2>
-            <h3 className="role text">Director</h3>
+            <h2 className="name text">Mr UK Eke</h2>
+            <h3 className="role text">Chairman</h3>
             <div className="social flex">
+            <a href="https://www.linkedin.com/in/uk-eke-076647200" target='_blank'>
               <img src={linkedin} alt="linkedin" />
-              <img className="pd" src={twitter} alt="twitter" />
-              <img src={mail} alt="mail" />
+              </a>
+           
+              {/* <img className="pd" src={twitter} alt="twitter" />
+              <img src={mail} alt="mail" /> */}
             </div>
           </div>
           <div className="member three">
             <div className="img"></div>
-            <h2 className="name text">Alice Cooper</h2>
-            <h3 className="role text">Founder CEO</h3>
+            <h2 className="name text">Mr Joel Uzamere</h2>
+            <h3 className="role text">Certified Fitness Consultant</h3>
             <div className="social flex">
+              <a href="https://www.linkedin.com/in/joel-uzamere-805395b" target='_blank'>
               <img src={linkedin} alt="linkedin" />
-              <img className="pd" src={twitter} alt="twitter" />
-              <img src={mail} alt="mail" />
+              </a>
+              {/* <img className="pd" src={twitter} alt="twitter" />
+              <img src={mail} alt="mail" /> */}
             </div>
           </div>
           <div className="member four">
             <div className="img"></div>
-            <h2 className="name text">Alice Cooper</h2>
-            <h3 className="role text">Founder CEO</h3>
+            <h2 className="name text">Mr Prince Anusiem</h2>
+            <h3 className="role text">Chief Operations Manager</h3>
             <div className="social flex">
+            <a href="https://www.linkedin.com/in/prince-anusiem-362085146" target='_blank'>
               <img src={linkedin} alt="linkedin" />
-              <img className="pd" src={twitter} alt="twitter" />
-              <img src={mail} alt="mail" />
+              </a>        
+                    {/* <img className="pd" src={twitter} alt="twitter" />
+              <img src={mail} alt="mail" /> */}
             </div>
           </div>
           <div className="member five">
             <div className="img"></div>
-            <h2 className="name text">Debra Mills</h2>
-            <h3 className="role text">Co-Founder</h3>
+            <h2 className="name text">Mr Soteye Babatunde</h2>
+            <h3 className="role text">Nutritionist</h3>
             <div className="social flex">
+            <a href="https://www.linkedin.com/in/soteyeheinrich-babatunde-6531127b" target='_blank'>
               <img src={linkedin} alt="linkedin" />
-              <img className="pd" src={twitter} alt="twitter" />
-              <img src={mail} alt="mail" />
+              </a>
+              {/* <img className="pd" src={twitter} alt="twitter" />
+              <img src={mail} alt="mail" /> */}
+            </div>
+          </div>
+          <div className="member six">
+            <div className="img"></div>
+            <h2 className="name text">Mrs Adenike Adeyemi</h2>
+            <h3 className="role text">Corporate Strategy Adviser</h3>
+            <div className="social flex">
+              <a href="https://www.linkedin.com/in/adenike-adeyemi-8286a81" target='_blank'>
+              <img src={linkedin} alt="linkedin" />
+              </a>
+              {/* <img className="pd" src={twitter} alt="twitter" />
+              <img src={mail} alt="mail" /> */}
             </div>
           </div>
         </div>

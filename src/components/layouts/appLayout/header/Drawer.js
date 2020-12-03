@@ -24,6 +24,7 @@ const Wrapper = styled.div`
 	}
 `;
 const Wrap = styled.div`
+
 	.MuiListItem-button{
 		border-bottom: 1px solid rgba(141, 184, 56, 0.6);
 		text-align: center;
@@ -66,6 +67,9 @@ export default function AppDrawer() {
   </ListItem>
 			<ListItem button component="a" href="/team">
     <ListItemText primary="Team" />
+  </ListItem>
+			<ListItem button component="a" href="/contact_us">
+    <ListItemText primary="Contact Us" />
   </ListItem>
 			<ListItem button component="a" href="/login">
     <ListItemText primary="Login" />

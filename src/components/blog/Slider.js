@@ -113,12 +113,13 @@ function SlideBlog({ blogs, isLoading }) {
     }
     return filtered;
   }, []);
-
+console.log(reduced.length)
   const renderSlides = () =>
+  reduced.length === 0 ? <div>No featured blog</div> : 
     reduced.map((blog) =>
       isLoading ? (
         <div>Loading...</div>
-      ) : (
+      ) :  (
         <MonoBlog
           key={blog.id}
           to={`/blog/${blog.id}`}

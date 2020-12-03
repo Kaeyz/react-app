@@ -9,7 +9,7 @@ import brandBlack from '../../../../assets/brandlogoBlack.png';
 
 const Wrapper = styled.nav`
   position: fixed;
-  z-index: 22;
+  z-index: 53;
   height: max-content;
   width: 100%;
   padding: 2rem 4rem;
@@ -30,8 +30,8 @@ const Wrapper = styled.nav`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    min-width: 33rem;
-    max-width: 50rem;
+    min-width: 40rem;
+    max-width: 60rem;
   }
 
   @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
@@ -51,7 +51,7 @@ const NavLinks = styled(NavLink)`
   font-style: normal;
   font-size: 1.8rem;
   line-height: 2.5rem;
-  max-width: 9rem;
+  max-width: 12rem;
   color: ${(props) => props.theme.color.text_05};
   text-align: center;
   &:hover {
@@ -73,6 +73,9 @@ const index2 = () => {
             </NavLinks>
             <NavLinks activeClassName="navbar__link--active" to="/team">
               Team
+            </NavLinks>
+            <NavLinks activeClassName="navbar__link--active" to="/contact_us">
+              Contact Us
             </NavLinks>
             <NavLinks activeClassName="navbar__link--active" to="/login">
               Login

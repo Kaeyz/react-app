@@ -5,7 +5,7 @@ import LoginForm from '../../components/forms/authentications/LoginForm';
 
 const layoutData = {
 	title: 'Welcome back to Choose Life',
-	description: 'Inspiring wholesome harmony for the mind, body and spirit, for everyone, everywhere.',
+	description: 'Let’s help your team regain their health by giving them a well-deserved wellness experience.	',
 };
 
 
