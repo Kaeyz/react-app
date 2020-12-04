@@ -75,7 +75,6 @@ const Wrapper = styled.div`
   @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
     width: 100%;
   }
-
  }
  .avatar img{
    width: 65px;
