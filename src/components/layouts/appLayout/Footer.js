@@ -197,40 +197,40 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 							</div>
 						</div>
 
-            <div className="footer_nav_section">
-              <h5 className="footer_nav_header blue">Contact Us</h5>
-              <Link className="footer_nav_link flex" style={{justifyContent: "start" , alignItems: "baseline"}}>
-                <span className="icon">
-                  <img className="icons" src={callIcon} alt="callIcon" />
-                </span>
-                <span style={{display:"grid"}}>
-                  <b>0802 648 4048, </b>
-                <b>0802 648 3318</b></span>
-              </Link>
-              <a
-                className="footer_nav_link"
-                target="_blank"
-                href="mailto:chooselife@fitnessfairng.com"
-                style={{whiteSpace: "pre"}}
-              >
-                <span className="icon">
-                  <img className="icons" src={atIcon} alt="atIcon" />
-                </span>
-                <span>
+						<div className="footer_nav_section">
+							<h5 className="footer_nav_header blue">Contact Us</h5>
+							<Link className="footer_nav_link flex" style={{justifyContent: 'start' , alignItems: 'baseline'}}>
+								<span className="icon">
+									<img className="icons" src={callIcon} alt="callIcon" />
+								</span>
+								<span style={{display:'grid'}}>
+									<b>0802 648 4048, </b>
+									<b>0802 648 3318</b></span>
+							</Link>
+							<a
+								className="footer_nav_link"
+								target="_blank" rel="noreferrer"
+								href="mailto:chooselife@fitnessfairng.com"
+								style={{whiteSpace: 'pre'}}
+							>
+								<span className="icon">
+									<img className="icons" src={atIcon} alt="atIcon" />
+								</span>
+								<span>
                 chooselife@fitnessfairng.com
-                </span>
-              </a>
-              <Link className="footer_nav_link">
-                <span className="icon">
-                  <img
-                    className="icons addressIcon"
-                    src={addressIcon}
-                    alt="addressIcon"
-                  />
-                </span>
+								</span>
+							</a>
+							<Link className="footer_nav_link">
+								<span className="icon">
+									<img
+										className="icons addressIcon"
+										src={addressIcon}
+										alt="addressIcon"
+									/>
+								</span>
                 Shop 2, Banana Island Shopping Complex, Banana Island, Ikoyi-Lagos,Nigeria
-              </Link>
-            </div>
+							</Link>
+						</div>
 
 						<div className="footer_nav_section">
 							<h5 className="footer_nav_header blue">Social Media</h5>
