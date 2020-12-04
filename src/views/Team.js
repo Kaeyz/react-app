@@ -231,7 +231,7 @@ function Team(props) {
           <div className="blue-bg"></div>
           <div className="member one">
             <div className="img"></div>
-            <h2 className="name text">Dr Uganze Eze</h2>
+            <h2 className="name text">Dr Uganze Eke</h2>
             <h3 className="role text">CEO</h3>
             <div className="social flex">
               <a href="https://www.linkedin.com/in/uganze-eke" target='_blank'><img src={linkedin} alt="linkedin" /></a>
@@ -281,7 +281,7 @@ function Team(props) {
           <div className="member five">
             <div className="img"></div>
             <h2 className="name text">Mr Soteye Babatunde</h2>
-            <h3 className="role text">Nutritionist</h3>
+            <h3 className="role text">Consultant Nutritionist</h3>
             <div className="social flex">
             <a href="https://www.linkedin.com/in/soteyeheinrich-babatunde-6531127b" target='_blank'>
               <img src={linkedin} alt="linkedin" />
