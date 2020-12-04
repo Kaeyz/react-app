@@ -37,10 +37,10 @@ const Wrapper = styled.div`
         font-size: 2.4rem;
         line-height: 130%;
       }
-      span {
-        color: ${(props) => props.theme.color.brand_02};
-        font-weight: 600;
-      }
+      // span {
+      //   color: ${(props) => props.theme.color.brand_02};
+      //   font-weight: 600;
+      // }
     }
     h5 {
       font-size: 1.4rem;
@@ -67,14 +67,13 @@ function AccountSuccess() {
         <img src={check} alt="check-gif"/>
 					<h2>
 						{' '}
-            Congratulations, you’ve created a <span>Choose Life</span> account!
-					</h2>
+            Your initial registration has been successfully completed.
+            					</h2>
 					<h5>
-            Start benefiting from the wellness experience. For companies looking
-            on increasing productivity, and improving organization wellness.
+          A ChooseLife representative will contact you to complete your registration and begin onboarding your organisation.
 					</h5>
 					<Link to="/settings/account" className="submit">
-						<Button theme="darkGreenBtn">Proceed to Profile</Button>
+						<Button theme="darkGreenBtn">Continue</Button>
 					</Link>
 				</div>
 			</Container>

@@ -5,6 +5,7 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import Home from '../views/Home';
 import Team from '../views/Team';
+import ContactUs from '../views/ContactUs';
 import IndividualSignUp from '../views/authentication/IndividualSignUp';
 import CompanySignUp from '../views/authentication/CompanySignUp';
 import Login from '../views/authentication/Login';
@@ -60,6 +61,7 @@ const Routes = () => (
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/team" component={Team} />
+			<Route exact path="/contact_us" component={ContactUs} />
 
 			{/* Auth routes */}
 			<PrivateRoute isAuth={false} exact path="/login" component={Login} />
@@ -72,7 +74,7 @@ const Routes = () => (
 			<PrivateRoute isAuth={false} exact path="/reset_link_sent" component={PasswordResetLink} />
 			<PrivateRoute isAuth={false} exact path="/reset_password" component={ResetPassword} />
 			<PrivateRoute exact path="/reset_success" component={PasswordResetSuccessful} />
-			<PrivateRoute exact path="/onboarding/account_success" component={AccountSuccess} />
+			<Route exact path="/onboarding/account_success" component={AccountSuccess} />
 
 			<PrivateRoute exact path="/settings/account" component={AccountSettings} />
 			<PrivateRoute exact path="/settings/password" component={PasswordSettings} />
@@ -109,7 +111,7 @@ const Routes = () => (
 			<PrivateRoute isActivated={true} exact path="/assessment/health/stress" component={Stress} />
 			<PrivateRoute isActivated={true} exact path="/assessment/health/review" component={HealthReview} />
 
-			<PrivateRoute isActivated={true} exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
+			<PrivateRoute  exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
 
 			{/* Report route */}
 			<PrivateRoute isActivated={true} exact path="/reports" component={Reports} />

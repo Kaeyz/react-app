@@ -172,7 +172,7 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 
 							<PreliminaryCard
 								btnValue="Start Check"
-								cardInfo="InBody Comprehensive Check"
+								cardInfo="InBody Comprehensive Check (COMING SOON)"
 								image={greenFlower}
 								btnTheme="purpleBtn"
 								backgroundColor="green"

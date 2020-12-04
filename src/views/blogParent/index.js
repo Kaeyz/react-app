@@ -6,7 +6,7 @@ import Container from '../../components/common/Container';
 import Pagination from '../../components/blog/Pagination';
 import Header from '../../components/layouts/appLayout/header/index2';
 import { Paper } from '@material-ui/core';
-import spread from '../../assets/woman-spreading-both-her-arms.svg';
+import spread from '../../assets/coverImageBlog.png';
 import avatar from '../../assets/avatarFemale.png';
 import { connect } from 'react-redux';
 import { getBlogs } from '../../store/actions/blogActions';
@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 
   }
   .paper{
-    background-image:linear-gradient(rgba(65, 182, 165, 0.49), rgba(65, 182, 165, 0.49)), url(${spread});
+    background-image: url(${spread});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

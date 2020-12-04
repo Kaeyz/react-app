@@ -2,8 +2,9 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import styled from "styled-components";
-import img2 from "../../assets/FatherSon.jpeg";
-import img from "../../assets/shalom-mwenesi.svg";
+import img2 from "../../assets/FatherSon.png";
+import img3 from "../../assets/family.png";
+import img from "../../assets/shalom-mwenesi.png";
 import triangle from "../../assets/polyarrow.png";
 import { Link } from "react-router-dom";
 
@@ -45,8 +46,8 @@ position: relative;
     color: ${(props) => props.theme.color.text_03};
   }
   .hero-text h2{
-    line-height: 7.1rem;
-    font-size: 5.9rem;
+    line-height: 5rem;
+    font-size: 4.5rem;
     margin-bottom: 15px;
     font-weight: 100;
     @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
@@ -90,12 +91,16 @@ position: relative;
 function CarouselHero(props) {
   var items = [
     {
-      name: "Wellness is the gift you give yourself",
+      name: "Wellness is a gift you give yourself. So start your own health and wellness journey on CHOOSELIFE.",
       bgImg: img,
     },
     {
-      name: "Wellness is the gift you give yourself",
+      name: "Redesign your life by picking yourself up everyday and choosing life.",
       bgImg: img2,
+    },
+    {
+      name: "Wellness is not just something you gift yourself, it is a way to show you care for your loved one.",
+      bgImg: img3,
     },
   ];
 
@@ -122,7 +127,7 @@ function Item(props) {
       <div
         className="hero-image"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${props.item.bgImg})`,
+          backgroundImage: ` url(${props.item.bgImg})`,
         }}
       >
         <div className="hero-text">

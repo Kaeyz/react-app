@@ -28,7 +28,7 @@ const HelpSettings = () => {
 			<Wrapper>
 				<div className="settings-body-main">
 					<h1 className='text'>General Information</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+					<p>Coming Soon</p>
 				</div>
 				<p>Help</p>
 			</Wrapper>

@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
 import Button from '../../../../components/common/Button';
+import checked from '../../../../assets/checkk.gif';
 
 const Wrapper = styled(Paper)`
 	background: ${(props) => props.theme.color.ui_01};
@@ -29,6 +30,9 @@ const Wrapper = styled(Paper)`
 	@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
 		width: 90%;
 		padding: 2rem;
+	}
+	#check-img{
+		height: 100px;
 	}
 	.heading {
 		font-weight: bold;
@@ -77,6 +81,7 @@ function HraCompleted({ getCompanyLeaderBoard, isLoading, userPosition }) {
 
 	return (
 		<Wrapper>
+			<img src={checked} id="check-img" alt="completed"/>
 			<h1 className="heading">Health Questionnaire Completed</h1>
 			<p className="detail">
 				Congratulations! You’ve got 500 points in this section.

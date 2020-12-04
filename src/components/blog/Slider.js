@@ -68,7 +68,6 @@ const Wrapper = styled.div`
   }
 `;
 const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
-
 	useEffect(() => {
 		getFeaturedBlogs();
 	}, []);

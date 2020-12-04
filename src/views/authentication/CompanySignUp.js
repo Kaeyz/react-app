@@ -5,7 +5,7 @@ import CompanySignUpForm from '../../components/forms/authentications/CompanySig
 
 const layoutData = {
 	title: 'For Companies',
-	description: 'Start benefiting from the wellness experience. For companies looking on increasing productivity, and improving organization wellness.',
+	description: 'Turn your organisation into a wellness center with our help. Are you asking:” How do I get my team performing to the best of their ability” You’ve landed on the right page.',
 	buttonText: 'Switch to Individual',
 	buttonLink: '/onboarding/individual',
 };
