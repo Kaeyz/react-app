@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import Container from "../../components/common/Container";
-import styled from "styled-components";
-import AppLayout from "../../components/layouts/appLayout/AppLayout";
-import Slider from "../../components/blog/Slider";
-import spread from "../../assets/woman-spreading-both-her-arms.png";
-import img2 from "../../assets/boyStretch.png";
-import { getSingleBlog, getBlogs } from "../../store/actions/blogActions";
-import Header from "../../components/layouts/appLayout/header/index2";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import Container from '../../components/common/Container';
+import styled from 'styled-components';
+import AppLayout from '../../components/layouts/appLayout/AppLayout';
+import Slider from '../../components/blog/Slider';
+import spread from '../../assets/woman-spreading-both-her-arms.png';
+import { getSingleBlog, getBlogs } from '../../store/actions/blogActions';
+import Header from '../../components/layouts/appLayout/header/index2';
+import { capitalizeFirstLetter } from '../../utils/helper';
 
 
 const Wrapper = styled.div`
@@ -189,7 +189,7 @@ function BlogPostDetail({ match, getSingleBlog, blog, isLoading }) {
 						</div>
 					</div>
 				</Container>
-				{/* <Slider /> */}
+				<Slider />
 			</Wrapper>
 		</AppLayout>
 	);
@@ -208,6 +208,4 @@ const mapStateToProps = (state) => {
 	return {blogs: blogs || [], blog, isLoading };
 };
 
-export default connect(mapStateToProps, { getBlogs, getSingleBlog })(
-	withRouter(BlogPostDetail)
-);
+export default connect(mapStateToProps, { getBlogs, getSingleBlog })(withRouter(BlogPostDetail));
