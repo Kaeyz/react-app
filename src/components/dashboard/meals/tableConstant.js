@@ -1,37 +1,36 @@
-/*eslint-disable */
-
 import React from 'react';
-// This is the table constant/settings which needed to render table elements
-
 
 export const tableConstants = () => {
 	return [
-
 		{
 			title: 'DAY',
-			render: rowData => {
-				return <span>{rowData[ 'Day' ]}</span>;
+			render: function Day (rowData) {
+				return <span>{rowData['Day']}</span>;
 			},
 		},
 		{
 			title: 'BREAKFAST',
-			render: rowData => {
-				return <span>{rowData[ 'Breakfast' ]}</span>;
+			render: function Breakfast (rowData) {
+				return <span>{rowData['Breakfast']}</span>;
 			},
 		},
 		{
 			title: 'LUNCH',
-			render: rowData => {
-				return <span>{rowData[ 'Lunch' ]}</span>;
+			render: function Lunch (rowData) {
+				return <span>{rowData['Lunch']}</span>;
 			},
 		},
 		{
 			title: 'DINNER',
-			render: rowData => {
-				return <span>{rowData[ 'Dinner' ]}</span>;
+			render: function Dinner (rowData) {
+				return <span>{rowData['Dinner']}</span>;
 			},
 		},
-
-	
+		{
+			title: 'SNACKS',
+			render: function Snacks (rowData) {
+				return <span>{rowData['Snacks']}</span>;
+			},
+		},
 	];
 };

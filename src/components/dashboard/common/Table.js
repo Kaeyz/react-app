@@ -50,12 +50,11 @@ font-weight: normal;
 
 }
 .content{
-
-  padding: 2rem 0;
-  font-size: 1.4rme;
-line-height: 1.6rme;
-color: ${(props) => props.theme.color.ui_05};;
-
+  padding: 2rem 0.5rem;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: ${(props) => props.theme.color.ui_05};
+  max-width: 2rem;
 }
 .longTable{
   .thead{
@@ -72,7 +71,7 @@ color: ${(props) => props.theme.color.ui_05};;
 }
 thead{
   background: rgba(243, 121, 32, 0.05);
-border: 1px solid ${(props) => props.theme.color.ui_08};
+  border: 1px solid ${(props) => props.theme.color.ui_08};
 }
 .width{
   max-width: 45px;

@@ -63,7 +63,6 @@ export const getQuestions = (category) => (dispatch, getState) => {
 			.then(res => {
 				const { q, prompt } = res.data.fetchHraQuestion;
 				const questions = { q, prompt };
-
 				dispatch(addQuestions(questions, category));
 				dispatch(hraNotLoading());
 			})
@@ -76,7 +75,6 @@ export const getQuestions = (category) => (dispatch, getState) => {
 };
 
 /**
- *
  * @param {object} payload
  * @param {string} nextLink
  * @param {object} history
@@ -84,8 +82,14 @@ export const getQuestions = (category) => (dispatch, getState) => {
 export const saveQuestions = (payload, nextLink, history) => dispatch => {
 	hraQueries.submitQuestion(clean(payload))
 		.then(res => {
-			dispatch(successAlert(res.data.submitHRAResponse.message));
-			history.push(nextLink);
+			if (res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+				dispatch(hraNotLoading());
+			}
+			if (res.data.submitHRAResponse) {
+				dispatch(successAlert(res.data.submitHRAResponse.message));
+				history.push(nextLink);
+			}
 		}).catch(() => {
 			dispatch(errorAlert({msg: 'Network Error!!'}));
 		});

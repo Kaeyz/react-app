@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import AppLayout from '../../components/layouts/appLayout/AppLayout';
 import Container from '../../components/common/Container';
-import Slider from '../../components/blog/Slider';
 import Pagination from '../../components/blog/Pagination';
 import Header from '../../components/layouts/appLayout/header/index2';
 import { Paper } from '@material-ui/core';
@@ -11,6 +10,7 @@ import spread from '../../assets/coverImageBlog.png';
 import avatar from '../../assets/avatarFemale.png';
 import { connect } from 'react-redux';
 import { getBlogs } from '../../store/actions/blogActions';
+import Slider from '../../components/blog/Slider';
 
 const Wrapper = styled.div`
  .main{
@@ -127,10 +127,8 @@ function Blog({ getBlogs, blogs, isLoading }) {
 							<Pagination blogs={blogs} isLoading={isLoading} />
 						</div>
 					</div>
-
 				</Container>
-
-				<Slider blogs={blogs} isLoading={isLoading} />
+				<Slider  />
 			</Wrapper>
 		</AppLayout>
 	);
@@ -144,6 +142,6 @@ Blog.propTypes = {
 
 const mapStateToProps = (state) => {
 	const { blogs, isLoading } = state.blog;
-	return { blogs: blogs || [], isLoading };
+	return { blogs: blogs || {}, isLoading };
 };
 export default connect(mapStateToProps, { getBlogs })(Blog);

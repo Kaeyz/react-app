@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Select, MenuItem } from '@material-ui/core';
 
-
-// eslint-disable-next-line no-unused-vars
-
-
 const Wrapper = styled.div`
   margin-top: 1.5rem;
   width: 100%;
@@ -57,7 +53,6 @@ const Wrapper = styled.div`
 
 const SelectInput = ({ label, onChange, value, options, error }) => {
 	const handleChange = (event) => {
-
 		onChange(event.target.value);
 	};
 

@@ -14,11 +14,11 @@ const Wrapper = styled.div`
 			margin-right:1.6rem;
 		}
 	}
-	.grid{
+	.grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 	}
-	
+
 	.option {
 		border: 1px solid ${props => props.theme.color.brand_02};
 		color: ${props => props.theme.color.brand_02};
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
 			grid-gap: 1rem;
 		}
 	}
-	
+
 	.label {
 		font-size: 1.4rem;
 		font-weight: normal;
@@ -109,7 +109,7 @@ function SelectInput({ options, otherInput, otherLabel, name, value, onChange, g
 
 	return (
 		<Wrapper>
-			<div className={`options ${ grid}`}>
+			<div className={`options ${grid}`}>
 				{options && options.map((option, index) => (
 					<div key={option.id} className='options-div'>
 						{
