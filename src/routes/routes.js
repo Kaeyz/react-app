@@ -34,7 +34,6 @@ import Stress from '../views/dashboard/assessment/hra_questionnaire/Stress';
 import Food from '../views/dashboard/assessment/hra_questionnaire/Food';
 import Mental from '../views/dashboard/assessment/hra_questionnaire/Mental';
 import Gender from '../views/dashboard/assessment/hra_questionnaire/Gender';
-import Activity from '../views/dashboard/assessment/hra_questionnaire/Activity';
 import HealthReview from '../views/dashboard/assessment/hra_questionnaire/HealthReview';
 import Reports from '../views/reports/Reports';
 import HealthReport from '../views/reports/HealthReport';
@@ -106,7 +105,6 @@ const Routes = () => (
 			<PrivateRoute isActivated={true} exact path="/assessment/health/sleep" component={Sleep}/>
 			<PrivateRoute isActivated={true} exact path="/assessment/health/food"  component={Food} />
 			<PrivateRoute isActivated={true} exact path="/assessment/health/mental" component={Mental} />
-			<PrivateRoute isActivated={true} exact path="/assessment/health/activity" component={Activity} />
 			<PrivateRoute isActivated={true} exact path="/assessment/health/gender" component={Gender} />
 			<PrivateRoute isActivated={true} exact path="/assessment/health/stress" component={Stress} />
 			<PrivateRoute isActivated={true} exact path="/assessment/health/review" component={HealthReview} />
