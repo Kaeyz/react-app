@@ -1,16 +1,16 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import Container from '../../components/common/Container';
-import styled from 'styled-components';
-import AppLayout from '../../components/layouts/appLayout/AppLayout';
-import Slider from '../../components/blog/Slider';
-import spread from '../../assets/woman-spreading-both-her-arms.png';
-import { getSingleBlog, getBlogs } from '../../store/actions/blogActions';
-import Header from '../../components/layouts/appLayout/header/index2';
-import { capitalizeFirstLetter } from '../../utils/helper';
 import { Remarkable } from 'remarkable';
+import styled from 'styled-components';
+import spread from '../../assets/woman-spreading-both-her-arms.png';
+import Slider from '../../components/blog/Slider';
+import Container from '../../components/common/Container';
+import AppLayout from '../../components/layouts/appLayout/AppLayout';
+import Header from '../../components/layouts/appLayout/header/index2';
+import { getBlogs, getSingleBlog } from '../../store/actions/blogActions';
+import { capitalizeFirstLetter } from '../../utils/helper';
 
 
 const Wrapper = styled.div`
@@ -184,7 +184,7 @@ function BlogPostDetail({ match, getSingleBlog, blog, isLoading }) {
 										style={{ backgroundImage: asset != null ? `url(${asset.url})` : `url(${spread})` }}
 									/>
 									<p className="img-cap">Image Caption / Description or Credits</p>
-									<div className=" detail longDetail" dangerouslySetInnerHTML={{ __html: new Remarkable().render(body) }} />
+									<div className=" detail longDetail" dangerouslySetInnerHTML={{ __html: new Remarkable({html: true, breaks: true}).render(body) }} />
 								</React.Fragment>
 							}
 						</div>
