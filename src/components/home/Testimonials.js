@@ -6,9 +6,10 @@ import Container from "../common/Container";
 import img from "../../assets/testimony1.png";
 import img2 from "../../assets/testimony2.png";
 import img3 from "../../assets/testimony3.png";
-import img4 from "../../assets/testimony4.png";
-import img5 from "../../assets/testimony5.png";
-import img6 from "../../assets/testimony6.png";
+import img4 from "../../assets/testimony4.jpg";
+import img5 from "../../assets/testimony5.jpg";
+import img6 from "../../assets/testimony6.jpg";
+import img7 from "../../assets/testimony7.jpg";
 import graystar from "../../assets/graystar.jpg";
 import yellowstar from "../../assets/yellowstar.png";
 
@@ -63,16 +64,28 @@ const Wrapper = styled.div`
     height: 85px;
     width: 85px;
   }
-  .bg {
+  .bg,{
     width: 110px;
     height: 110px;
   }
+.unikem {
+  margin: 20px auto auto auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      width: 85px;
+      height: 85px;
+    }
+  }
   .dp img,
-  .switch img {
+  .switch img, .unikem img {
     border-radius: 50%;
     width: 100%;
     height: 100%;
     cursor: pointer;
+    
   }
   .switch img {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -82,6 +95,7 @@ const Wrapper = styled.div`
     font-size: 2.5rem;
     font-weight: 600;
     opacity: 0.8;
+    line-height: 30px;
   }
   .details {
     line-height: 2.5rem;
@@ -98,6 +112,11 @@ const Wrapper = styled.div`
   }
   .testifiers {
     position: relative;
+  }
+  .dept{
+    line-height: 17px;
+    margin-top: 15px;
+}
   }
   .testifiers .images {
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
@@ -173,11 +192,11 @@ class Testimonials extends Component {
     // Set initial state
     this.state = {
       dp: img,
-      title: "It was a great experience!",
+      title: "It was a great impactful!",
       details:
-        "At Choose Life, we understand that what goes into your body Is the most important part of your health. This is why we offer support through personalized nutrition plans and recipe on how to make healthier versions of the	Foods you already love.",
-      name: "David Akingbale",
-      dept: "Sales Manager, First Bank",
+        "A big Thank You to the Fitness Fair team for always being organized, prompt and providing added value to our Customer Appreciation Programs. The technology driven health assessments conducted were impactful while raising awareness on health,fitness and general wellbeing.",
+      name: "Elizabeth Agugoh",
+      dept: "Head, Marketing & Corporate Communications, FBN Insurance",
     };
 
     // Binding this keyword
@@ -187,72 +206,84 @@ class Testimonials extends Component {
     this.handleClick4 = this.handleClick4.bind(this);
     this.handleClick5 = this.handleClick5.bind(this);
     this.handleClick6 = this.handleClick6.bind(this);
+    this.handleClick7 = this.handleClick7.bind(this);
   }
 
   handleClick() {
     // Changing state
     this.setState({
       dp: img,
-      title: "It was a great experience!",
+      title: "It was impactful!",
       details:
-        "At Choose Life, we understand that what goes into your body Is the most important part of your health. This is why we offer support through personalized nutrition plans and recipe on how to make healthier versions of the	Foods you already love.",
-      name: "David Akingbale",
-      dept: "Sales Manager, First Bank",
+        "A big Thank You to the Fitness Fair team for always being organized, prompt and providing added value to our Customer Appreciation Programs. The technology driven health assessments conducted were impactful while raising awareness on health,fitness and general wellbeing.",
+      name: "Elizabeth Agugoh",
+      dept: "Head, Marketing & Corporate Communications, FBN Insurance",
     });
   }
   handleClick2() {
     // Changing state
     this.setState({
       dp: img2,
-      title: "Very nice",
+      title: "Very unique",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      name: "Melinda Joe",
-      dept: "Graphics Designer, Printivo",
+        "Thank you for the knowledge and influence on our employees, the uniquely tailored programs on Nutrition, Fitness, Lifestyle, and Medical numbers has reframed the mindset around health and wholesome living in this Organization and beyond. ",
+      name: "Gabriel Orukpe",
+      dept: "EHSSQ Lead, Enyo Retail and Supply Ltd",
     });
   }
   handleClick3() {
     // Changing state
     this.setState({
       dp: img3,
-      title: "Awesome",
+      title: "So helpful",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      name: "Paul Dean",
-      dept: "Web Designer, Google",
+        "You are one of the key drivers in a total lifestyle change of myself and members of my team. The simple communication of tools and guides by The Choose Life Team made this possible. Your tracking method has helped keep us accountable",
+      name: "Nnenna Agu",
+      dept: "Practice Administrator, Streamsowers and Kohn",
     });
   }
   handleClick4() {
     // Changing state
     this.setState({
       dp: img4,
-      title: "Interesting",
+      title: "Satisfied",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      name: "Uche Christinah",
-      dept: "Sales Manager, Adios",
+        "Thank you for the knowledge and influence on our employees, the uniquely tailored programs on Nutrition, Fitness, Lifestyle and Medical numbers has reframed the mindset around health and wholesome living in this Organization and beyond. ",
+      name: "",
+      dept: "Unicane Industries",
     });
   }
   handleClick5() {
     // Changing state
     this.setState({
       dp: img5,
-      title: "So so good",
+      title: "Awesome",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      name: "Samuel Olayemi",
-      dept: "Software Engineer, Paystack",
+        "Thank you so much for always being so impactful and helpful in our Wellness programs. It has made such a huge difference and motivated us all at Nepal Oil and Gas that healthy living is achievable and possible even while at work. Kudos to your efficient team in your ability to run a successful wellness program! ",
+      name: "",
+      dept: "Nepal Oil and Gas",
     });
   }
   handleClick6() {
     // Changing state
     this.setState({
       dp: img6,
-      title: "Satisfied",
+      title: "Wonderful and Effective",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      name: "Akin Daniels",
-      dept: "Manager, First Bank Nigeria",
+        "Our onsite screening event could not have gone any better. The staff was wonderful and the event flowed smoothly and no one had to wait unnecessarily. The Fitness Fair lead was very thorough in her communications and expectations of her staff to deliver. The company has remained effective in transitioning to online webinars that have impacted our staff through this Covid 19 pandemic. ",
+      name: "Oluwakemi Oyinloye",
+      dept: "Human Resources, First Pensions Custodians",
+    });
+  }
+  handleClick7() {
+    // Changing state
+    this.setState({
+      dp: img7,
+      title: "Knowledgeable, creative, and solutions-based",
+      details:
+        "It is such a joy working with Fitness Fair. They are so knowledgeable, creative, and solutions-based. The team has so much passion for what they do and customizes our program to get the best results. They pay attention to wellness analytics and create our program as need be.",
+      name: "",
+      dept: "Unikem Industries",
     });
   }
 
@@ -264,11 +295,11 @@ class Testimonials extends Component {
           <div className="gridy">
             <div className="grid1 testifiers">
               <div className="images">
-                <div onClick={this.handleClick} className="switch bg">
-                  <img src={img} alt="Testifier" />
+                <div onClick={this.handleClick3} className="switch bg">
+                  <img src={img3} alt="Testifier" />
                 </div>
-                <div className="switch sm" onClick={this.handleClick3}>
-                  <img src={img3} alt="Testifier" />{" "}
+                <div className="switch sm" onClick={this.handleClick}>
+                  <img src={img} alt="Testifier" />{" "}
                 </div>
                 <div className="switch md" onClick={this.handleClick2}>
                   <img src={img2} alt="Testifier" />{" "}
@@ -295,6 +326,7 @@ class Testimonials extends Component {
                   <p className="dept">{this.state.dept}</p>
                 </div>
               </Paper>
+              
             </div>
             <div className="grid3 testifiers">
               <div className="images">
@@ -310,6 +342,9 @@ class Testimonials extends Component {
               </div>
             </div>
           </div>
+          <div className="unikem" onClick={this.handleClick7}>
+                <img src={img7} alt="unikem"/>
+              </div>
         </Container>
       </Wrapper>
     );
