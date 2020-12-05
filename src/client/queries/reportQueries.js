@@ -138,4 +138,23 @@ reportQueries.getAdminReportPdf = async () => {
 	});
 };
 
+reportQueries.getCompanyReportPdf = async (userId) => {
+
+	//const path = `${keys.ghmServer}/get_group_report_pdf`;
+
+	const path = 'https://hra-api.ghmcorp.com/api/v2/get_group_report_pdf';
+
+
+	return new Promise((resolve, reject) => {
+		const formdata = new FormData();
+		formdata.append('json', `{"get_group_report_pdf.client_id":"fitnessfair", "get_group_report_pdf.org_id": "${userId}"}`);
+
+		httpFetch
+			.post(path, formdata)
+			.then(resp => resp.blob())
+			.then(response => resolve(response))
+			.catch(err => reject(err));
+	});
+};
+
 export default Object.freeze(reportQueries);

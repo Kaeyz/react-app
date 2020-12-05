@@ -10,6 +10,7 @@ import spread from '../../assets/woman-spreading-both-her-arms.png';
 import { getSingleBlog, getBlogs } from '../../store/actions/blogActions';
 import Header from '../../components/layouts/appLayout/header/index2';
 import { capitalizeFirstLetter } from '../../utils/helper';
+import { Remarkable } from 'remarkable';
 
 
 const Wrapper = styled.div`
@@ -183,7 +184,7 @@ function BlogPostDetail({ match, getSingleBlog, blog, isLoading }) {
 										style={{ backgroundImage: asset != null ? `url(${asset.url})` : `url(${spread})` }}
 									/>
 									<p className="img-cap">Image Caption / Description or Credits</p>
-									<div className=" detail longDetail" dangerouslySetInnerHTML={{ __html: body }} />
+									<div className=" detail longDetail" dangerouslySetInnerHTML={{ __html: new Remarkable().render(body) }} />
 								</React.Fragment>
 							}
 						</div>

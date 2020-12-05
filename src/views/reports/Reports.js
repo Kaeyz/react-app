@@ -9,7 +9,7 @@ import Button from '../../components/common/Button';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getReports, getCompanyReports, getAdminReports, downloadAdminReportPdf } from '../../store/actions/reportActions';
+import { getReports, getCompanyReports, getAdminReports, downloadAdminReportPdf, downloadCompanyReportPdf } from '../../store/actions/reportActions';
 
 const Wrapper = styled.div`
 .paper{
@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 }
 `;
 
-const Reports = ({reports, isLoading, getReports, getCompanyReports, getAdminReports, name, type, downloadAdminReportPdf}) => {
+const Reports = ({reports, isLoading, getReports, getCompanyReports, getAdminReports, name, type, downloadAdminReportPdf, downloadCompanyReportPdf}) => {
 
 	React.useEffect(() => {
 		type === 'ADMIN' && getAdminReports();
@@ -69,6 +69,7 @@ const Reports = ({reports, isLoading, getReports, getCompanyReports, getAdminRep
 					<h1 className="heading">Reports</h1>
 					{type === 'ADMIN' && <Button text="Download Report" theme="green" onClick={downloadAdminReportPdf}/>}
 					{type === 'SUPERADMIN' && <Button text="Download Report" theme="green" onClick={downloadAdminReportPdf}/>}
+					{type === 'COMPANY' && <Button text="Download Report" theme="green" onClick={downloadCompanyReportPdf}/>}
 				</Paper>
 				{isLoading ?
 					<div>Loading ...</div> :
@@ -86,6 +87,7 @@ Reports.propTypes = {
 	getAdminReports: PropTypes.func.isRequired,
 	getCompanyReports: PropTypes.func.isRequired,
 	downloadAdminReportPdf: PropTypes.func.isRequired,
+	downloadCompanyReportPdf: PropTypes.func.isRequired,
 	type: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 };
@@ -96,4 +98,4 @@ const mapStateToProps = state => {
 	return { reports, name, type };
 };
 
-export default connect(mapStateToProps, {getReports, getCompanyReports, getAdminReports, downloadAdminReportPdf})(Reports);
+export default connect(mapStateToProps, {getReports, getCompanyReports, getAdminReports, downloadAdminReportPdf, downloadCompanyReportPdf})(Reports);
