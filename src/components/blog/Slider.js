@@ -96,7 +96,7 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: 3,
+		slidesToShow: 1,
 		slidesToScroll: 1,
 		nextArrow: <img src={arrowRight} alt="arrowRight" />,
 		prevArrow: <img src={arrowLeft} alt="arrowLeft" />,
@@ -104,7 +104,7 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 			{
 				breakpoint: 1024,
 				settings: {
-					slidesToShow: 2,
+					slidesToShow: 1,
 					slidesToScroll: 1,
 					infinite: true,
 				},
@@ -112,7 +112,7 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 			{
 				breakpoint: 600,
 				settings: {
-					slidesToShow: 2,
+					slidesToShow: 1,
 					infinite: true,
 					slidesToScroll: 1,
 				},
@@ -133,10 +133,9 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 			<img src={rightWhite} alt="rightWhite" className="absolute rightwhite" />
 			<p className="slide-heading"> Featured</p>
 			<Slider {...settings}>{
-				isLoading ?
-					<div>Loading...</div> :
+				!isLoading &&
 					featuredBlogs.content ? renderSlides() :
-						<div>No Featured Blog</div>
+					<div>No Featured Blog</div>
 			}</Slider>
 		</Wrapper>
 	);
