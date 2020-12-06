@@ -1,13 +1,13 @@
 /*eslint-disable */
 
-import React from 'react';
+import { Divider, Grid, Paper } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from 'react';
 import { connect } from 'react-redux';
-import { Grid, Paper, Divider } from '@material-ui/core';
-import { getRewards } from '../../store/actions/rewardActions';
-import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
+import styled from 'styled-components';
 import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner';
+import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
+import { getRewards } from '../../store/actions/rewardActions';
 import { convertDate } from '../../utils/helper';
 
 const Wrapper = styled.div`
@@ -107,7 +107,7 @@ function IndividualRewards({ getRewards, reward, isLoading}) {
 				{
 					isLoading ?
 						<div>Loading ...</div> :
-						Object.keys(reward).length === 0 && reward.constructor === Object ?
+						Object.keys(reward).length === 0 ?
 							<h6>No Current running reward</h6> :
 							<Grid container>
 								<Grid item xs={9}>
@@ -139,7 +139,7 @@ function IndividualRewards({ getRewards, reward, isLoading}) {
 								</Grid>
 							</Grid>
 				}
-			
+
 			</DashboardLayout>
 		</Wrapper>
 	);
