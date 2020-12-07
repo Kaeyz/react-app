@@ -16,12 +16,11 @@ import flower2 from '../assets/img/flower_2.png';
 import flower1 from '../assets/img/flower_1.png';
 import arrow from '../assets/arrow.png';
 import Header from '../components/layouts/appLayout/header';
-import img4 from "../assets/timecheck.png";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
 .fit-bg{
-	background-image: url(${img4});
+	background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/timecheck_gra6hk.png");
 	height: 400px;
     width: 100%;
     background-position: center;

@@ -8,8 +8,6 @@ import Container from "../../components/common/Container";
 import styled from "styled-components";
 import AppLayout from "../../components/layouts/appLayout/AppLayout";
 import Slider from "../../components/blog/Slider";
-import spread from "../../assets/woman-spreading-both-her-arms.png";
-import img2 from "../../assets/boyStretch.png";
 import { getSingleBlog, getBlogs } from "../../store/actions/blogActions";
 import Header from "../../components/layouts/appLayout/header/index2";
 
@@ -192,7 +190,7 @@ function BlogPostDetail({ match, getSingleBlog, getBlogs,blogs, blog, isLoading 
                   className="detailbg bg"
                   style={{
                     backgroundImage:
-                      asset != null ? `url(${asset.url})` : `url(${spread})`,
+                      asset != null ? `url(${asset.url})` : `url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309872/chooseLife/woman-spreading-both-her-arms_hly6ur.png")`,
                   }}
                 ></div>
               )}
@@ -205,7 +203,7 @@ function BlogPostDetail({ match, getSingleBlog, getBlogs,blogs, blog, isLoading 
                 className="img2 bg"
                 style={{
                   backgroundImage:
-                    asset != null ? `url(${asset.url})` : `url(${img2})`,
+                    asset != null ? `url(${asset.url})` : `url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309857/chooseLife/boyStretch_zxvvlx.png")`,
                 }}
               ></div>
               )}

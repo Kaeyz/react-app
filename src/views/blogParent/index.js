@@ -7,7 +7,6 @@ import Slider from '../../components/blog/Slider';
 import Pagination from '../../components/blog/Pagination';
 import Header from '../../components/layouts/appLayout/header/index2';
 import { Paper } from '@material-ui/core';
-import spread from '../../assets/coverImageBlog.png';
 import avatar from '../../assets/avatarFemale.png';
 import { connect } from 'react-redux';
 import { getBlogs } from '../../store/actions/blogActions';
@@ -39,7 +38,7 @@ const Wrapper = styled.div`
 
   }
   .paper{
-    background-image: url(${spread});
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309856/chooseLife/coverImageBlog_vdzjx6.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

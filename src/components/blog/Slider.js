@@ -2,7 +2,6 @@
 import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import blogImg from "../../assets/girlRunning.png";
 import Slider from "react-slick";
 import styled from "styled-components";
 import MonoBlog from "./MonoBlog";
@@ -76,9 +75,9 @@ function SlideBlog({ blogs, isLoading }) {
     if (option.feature === "Featured") {
 		
       // change date format
-      var updatedAtMonth = option.createdAt.slice(5, 7);
-      var updatedAtDay = option.createdAt.slice(8, 10);
-      var updatedAtYear = option.createdAt.slice(0, 4);
+      var updatedAtMonth = option.createdAt === null ? "" : option.createdAt.slice(5, 7);
+      var updatedAtDay = option.createdAt === null ? "" :option.createdAt.slice(8, 10);
+      var updatedAtYear = option.createdAt === null ? "" : option.createdAt.slice(0, 4);
       var mlist = [];
       var month_name = function (dt) {
         mlist = [
@@ -113,7 +112,6 @@ function SlideBlog({ blogs, isLoading }) {
     }
     return filtered;
   }, []);
-console.log(reduced.length)
   const renderSlides = () =>
   reduced.length === 0 ? <div>No featured blog</div> : 
     reduced.map((blog) =>
@@ -123,7 +121,7 @@ console.log(reduced.length)
         <MonoBlog
           key={blog.id}
           to={`/blog/${blog.id}`}
-          src={blog.asset !== null ? blog.asset.url : blogImg}
+          src={blog.asset !== null ? blog.asset.url : "https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/girlRunning_mwel4s.png"}
           title={blog.title}
           author={blog.author}
           createdAt={blog.createdAt}

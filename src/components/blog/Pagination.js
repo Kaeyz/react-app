@@ -4,7 +4,6 @@ import Pagination from "react-js-pagination";
 import styled from "styled-components";
 import MonoBlog from "../../components/blog/MonoBlog";
 import PropTypes from "prop-types";
-import blogImg from "../../assets/girlRunning.png";
 
 const Wrapper = styled.div`
   .grid-container {
@@ -73,9 +72,9 @@ const PaginatedContent = ({ blogs, isLoading }) => {
     }
 
     // change date format
-    var updatedAtMonth = todo.createdAt.slice(5, 7);
-    var updatedAtDay = todo.createdAt.slice(8, 10);
-    var updatedAtYear = todo.createdAt.slice(0, 4);
+    var updatedAtMonth = todo.createdAt === null ? "" : todo.createdAt.slice(5, 7);
+    var updatedAtDay = todo.createdAt === null ? "" :todo.createdAt.slice(8, 10);
+    var updatedAtYear = todo.createdAt === null ? "" : todo.createdAt.slice(0, 4);
     var mlist = [];
     var month_name = function (dt) {
       mlist = [
@@ -102,9 +101,9 @@ const PaginatedContent = ({ blogs, isLoading }) => {
       <div>Loading...</div>
     ) : (
       <MonoBlog
-        key={index}
+        key={todo.id}
         to={`/blog/${todo.id}`}
-        src={todo.asset !== null ? todo.asset.url : blogImg}
+        src={todo.asset !== null ? todo.asset.url : "https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/girlRunning_mwel4s.png"}
         title={todo.title}
         author={todo.author}
         createdAt={published}

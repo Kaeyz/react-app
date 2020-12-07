@@ -2,9 +2,6 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import styled from "styled-components";
-import img2 from "../../assets/FatherSon.png";
-import img3 from "../../assets/family.png";
-import img from "../../assets/shalom-mwenesi.png";
 import triangle from "../../assets/polyarrow.png";
 import { Link } from "react-router-dom";
 
@@ -82,8 +79,9 @@ position: relative;
         border-right: 14px solid transparent;
         border-top: 23px solid rgba(255,255,255,.6);
         position: absolute;
-        bottom: 28px;
-        right: 50%;
+        bottom: 6px;
+        left: 50%;
+    transform: translate(-50%, -50%);
       }
   }
     `;
@@ -92,15 +90,15 @@ function CarouselHero(props) {
   var items = [
     {
       name: "Wellness is a gift you give yourself. So start your own health and wellness journey on CHOOSELIFE.",
-      bgImg: img,
+      bgImg: "https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309874/chooseLife/shalom-mwenesi_wbmcyn.png",
     },
     {
       name: "Redesign your life by picking yourself up everyday and choosing life.",
-      bgImg: img2,
+      bgImg: "https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309853/chooseLife/FatherSon_aybzjf.png",
     },
     {
       name: "Wellness is not just something you gift yourself, it is a way to show you care for your loved one.",
-      bgImg: img3,
+      bgImg: "https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309873/chooseLife/family_satzio.png",
     },
   ];
 

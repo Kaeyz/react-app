@@ -85,9 +85,9 @@ const Routes = () => (
 			<PrivateRoute exact path="/dashboard" component={Dashboard} />
 
 			{/* company route */}
-			<PrivateRoute isActivated={true} exact path="/employees" component={Employees} />
-			<PrivateRoute isActivated={true} exact path="/employees/pending" component={PendingInvites} />
-			<PrivateRoute isActivated={true} exact path="/employees/suspended" component={Suspended} />
+			<PrivateRoute  exact path="/employees" component={Employees} />
+			<PrivateRoute  exact path="/employees/pending" component={PendingInvites} />
+			<PrivateRoute  exact path="/employees/suspended" component={Suspended} />
 
 			{/* admin route */}
 			<PrivateRoute exact path="/companies" component={Companies} />
@@ -95,44 +95,44 @@ const Routes = () => (
 			<PrivateRoute exact path="/companies/:companyId" component={Company} />
 
 			{/* assessment route */}
-			<PrivateRoute isActivated={true} exact path="/assessment" component={DashboardAssessment} />
-			<PrivateRoute isActivated={true} exact path="/assessment/health" component={HealthRiskAssessment}/>
-			<PrivateRoute isActivated={true} exact path="/assessment/health/start" component={General} />
-			<PrivateRoute isActivated={true} exact path="/assessment/health/general" component={General} />
+			<PrivateRoute  exact path="/assessment" component={DashboardAssessment} />
+			<PrivateRoute  exact path="/assessment/health" component={HealthRiskAssessment}/>
+			<PrivateRoute  exact path="/assessment/health/start" component={General} />
+			<PrivateRoute  exact path="/assessment/health/general" component={General} />
 
-			<PrivateRoute isActivated={true} exact path="/assessment/health/covid" component={Covid}/>
-			<PrivateRoute isActivated={true} exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
-			<PrivateRoute isActivated={true} exact path="/assessment/health/smoking" component={Smoking}/>
-			<PrivateRoute isActivated={true} exact path="/assessment/health/travel" component={Travel}/>
-			<PrivateRoute isActivated={true} exact path="/assessment/health/sleep" component={Sleep}/>
-			<PrivateRoute isActivated={true} exact path="/assessment/health/food"  component={Food} />
-			<PrivateRoute isActivated={true} exact path="/assessment/health/mental" component={Mental} />
-			<PrivateRoute isActivated={true} exact path="/assessment/health/activity" component={Activity} />
-			<PrivateRoute isActivated={true} exact path="/assessment/health/gender" component={Gender} />
-			<PrivateRoute isActivated={true} exact path="/assessment/health/stress" component={Stress} />
-			<PrivateRoute isActivated={true} exact path="/assessment/health/review" component={HealthReview} />
+			<PrivateRoute  exact path="/assessment/health/covid" component={Covid}/>
+			<PrivateRoute  exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
+			<PrivateRoute  exact path="/assessment/health/smoking" component={Smoking}/>
+			<PrivateRoute  exact path="/assessment/health/travel" component={Travel}/>
+			<PrivateRoute  exact path="/assessment/health/sleep" component={Sleep}/>
+			<PrivateRoute  exact path="/assessment/health/food"  component={Food} />
+			<PrivateRoute  exact path="/assessment/health/mental" component={Mental} />
+			<PrivateRoute  exact path="/assessment/health/activity" component={Activity} />
+			<PrivateRoute  exact path="/assessment/health/gender" component={Gender} />
+			<PrivateRoute  exact path="/assessment/health/stress" component={Stress} />
+			<PrivateRoute  exact path="/assessment/health/review" component={HealthReview} />
 
 			<PrivateRoute  exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
 
 			{/* Report route */}
-			<PrivateRoute isActivated={true} exact path="/reports" component={Reports} />
-			<PrivateRoute isActivated={true} exact path="/reports/:reportId" component={HealthReport} />
+			<PrivateRoute  exact path="/reports" component={Reports} />
+			<PrivateRoute  exact path="/reports/:reportId" component={HealthReport} />
 
 			{/* Exercise route */}
 			<PrivateRoute exact path="/exercise" component={Exercise} />
 			<PrivateRoute exact path="/exercise/:exerciseId" component={ProgrammeDetails} />
 
 			{/* meal route */}
-			<PrivateRoute isActivated={true} exact path="/meals"  component={Meals} />
-			<PrivateRoute isActivated={true} exact path="/meals/meal_plans"  component={MealPlans} />
+			<PrivateRoute  exact path="/meals"  component={Meals} />
+			<PrivateRoute  exact path="/meals/meal_plans"  component={MealPlans} />
 
 			{/* appointments */}
-			<PrivateRoute isActivated={true} exact path="/appointments"  component={Appointments} />
+			<PrivateRoute  exact path="/appointments"  component={Appointments} />
 
 			{/* reward */}
-			<PrivateRoute isActivated={true} exact path="/rewards" component={CompanyRewards} />
-			<PrivateRoute isActivated={true} exact path="/rewards/leaderboard" component={Leaderboard} />
-			<PrivateRoute isActivated={true} exact path="/rewards/individual" component={IndividualReward} />
+			<PrivateRoute  exact path="/rewards" component={CompanyRewards} />
+			<PrivateRoute  exact path="/rewards/leaderboard" component={Leaderboard} />
+			<PrivateRoute  exact path="/rewards/individual" component={IndividualReward} />
 
 			{/* Blog route */}
 			<Route exact path="/blog" component={Blog} />

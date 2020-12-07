@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Container from '../../components/common/Container';
 import Button from '../../components/common/Button';
-import check from '../../assets/checkk.gif';
 
 const Wrapper = styled.div`
   background-color: #f7fdfc;
@@ -64,7 +63,7 @@ function AccountSuccess() {
 		<Wrapper>
 			<Container flexy="centered">
 				<div className="body">
-        <img src={check} alt="check-gif"/>
+        <img src="https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/checkk_k1bie4.gif" alt="check-gif"/>
 					<h2>
 						{' '}
             Your initial registration has been successfully completed.

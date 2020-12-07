@@ -9,7 +9,6 @@ import CreateAppointmentModal from '../../components/dashboard/appointments/Crea
 import AppointReward from '../../components/common/AppointReward';
 import { convertDate } from '../../utils/helper';
 import appoint from '../../assets/appoint.svg';
-
 const Wrapper = styled.div`
   .heading {
     font-weight: bold;
