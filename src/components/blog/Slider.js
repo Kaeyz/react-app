@@ -1,24 +1,26 @@
-/* eslint-disable*/
-import React from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import styled from "styled-components";
-import MonoBlog from "./MonoBlog";
-import arrowLeft from "../../assets/slideArrowLeft.png";
-import arrowRight from "../../assets/slideArrowRight.png";
-import leftWhite from "../../assets/leftwhiteflower.png";
-import rightWhite from "../../assets/rightwhiteflower.png";
-import PropTypes from "prop-types";
+import React, {useEffect} from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import blogImg from '../../assets/girlRunning.png';
+import Slider from 'react-slick';
+import styled from 'styled-components';
+import MonoBlog from './MonoBlog';
+import arrowLeft from '../../assets/slideArrowLeft.png';
+import arrowRight from '../../assets/slideArrowRight.png';
+import leftWhite from '../../assets/leftwhiteflower.png';
+import rightWhite from '../../assets/rightwhiteflower.png';
+import PropTypes from 'prop-types';
+import { convertDate, capitalizeFirstLetter } from '../../utils/helper';
+import { getFeaturedBlogs } from '../../store/actions/blogActions';
+import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.ui_text_08};
-  position: relative;
+	padding: 2.5rem;
   overflow: hidden;
   .slide-heading {
     font-size: 4.5rem;
     padding: 30px 0;
-    line-height: 7.1rem;
     color: ${(props) => props.theme.color.ui_01};
     text-align: center;
   }
@@ -65,130 +67,89 @@ const Wrapper = styled.div`
     bottom: 0;
   }
 `;
-function SlideBlog({ blogs, isLoading }) {
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
+	useEffect(() => {
+		getFeaturedBlogs();
+	}, []);
 
-  //get featured blogs only
-  const reduced = blogs.reduce(function (filtered, option) {
-    if (option.feature === "Featured") {
-		
-      // change date format
-      var updatedAtMonth = option.createdAt === null ? "" : option.createdAt.slice(5, 7);
-      var updatedAtDay = option.createdAt === null ? "" :option.createdAt.slice(8, 10);
-      var updatedAtYear = option.createdAt === null ? "" : option.createdAt.slice(0, 4);
-      var mlist = [];
-      var month_name = function (dt) {
-        mlist = [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sept",
-          "Oct",
-          "Nov",
-          "Dec",
-        ];
-        return mlist[dt.getMonth()];
-      };
-      const published = `${updatedAtDay} ${month_name(
-        new Date(`${updatedAtMonth}`)
-      )} ${updatedAtYear}`;
+	const renderSlides = () => {
+		return featuredBlogs.content.map((blog) =>
+			<MonoBlog
+				key={blog.id}
+				to={`/blog/${blog.id}`}
+				src={blog.asset !== null ? blog.asset.url : blogImg}
+				title={blog.title}
+				author={blog.author}
+				createdAt={convertDate(blog.createdAt)}
+				tag={capitalizeFirstLetter(blog.tags)}
+				tagColor={
+					blog.tags === 'fitness' ? 'yellow'
+						: blog.tags === 'nutrition' ? 'blue'
+							: blog.tags === 'lifestyle' ? 'orange'
+								: blog.tags === 'health' ? 'green' : ''
+				}
+			/>
+		);
+	};
 
-      const someNewValue = {
-        tags: option.tags,
-        title: option.title,
-        asset: option.asset,
-        author: option.author,
-        createdAt: published,
-        id: option.id,
-      };
-      filtered.push(someNewValue);
-    }
-    return filtered;
-  }, []);
-  const renderSlides = () =>
-  reduced.length === 0 ? <div>No featured blog</div> : 
-    reduced.map((blog) =>
-      isLoading ? (
-        <div>Loading...</div>
-      ) :  (
-        <MonoBlog
-          key={blog.id}
-          to={`/blog/${blog.id}`}
-          src={blog.asset !== null ? blog.asset.url : "https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/girlRunning_mwel4s.png"}
-          title={blog.title}
-          author={blog.author}
-          createdAt={blog.createdAt}
-          tag={capitalizeFirstLetter(blog.tags)}
-          tagColor={
-            blog.tags === "fitness"
-              ? "yellow"
-              : blog.tags === "nutrition"
-              ? "blue"
-              : blog.tags === "lifestyle"
-              ? "orange"
-              : blog.tags === "health"
-              ? "green"
-              : ""
-          }
-        />
-      )
-    );
+	const settings = {
+		dots: false,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		nextArrow: <img src={arrowRight} alt="arrowRight" />,
+		prevArrow: <img src={arrowLeft} alt="arrowLeft" />,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					infinite: true,
+				},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1,
+					infinite: true,
+					slidesToScroll: 1,
+				},
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
+	};
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    nextArrow: <img src={arrowRight} alt="arrowRight" />,
-    prevArrow: <img src={arrowLeft} alt="arrowLeft" />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          infinite: true,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
-  return (
-    <Wrapper className="App">
-      <img src={leftWhite} alt="leftWhite" className="absolute  leftwhite" />
-      <img src={rightWhite} alt="rightWhite" className="absolute rightwhite" />
-      <p className="slide-heading"> Featured</p>
-      <Slider {...settings}>{renderSlides()}</Slider>
-    </Wrapper>
-  );
-}
-
-SlideBlog.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  blogs: PropTypes.array.isRequired,
+	return (
+		<Wrapper className="App">
+			<img src={leftWhite} alt="leftWhite" className="absolute  leftwhite" />
+			<img src={rightWhite} alt="rightWhite" className="absolute rightwhite" />
+			<p className="slide-heading"> Featured</p>
+			<Slider {...settings}>{
+				!isLoading &&
+					featuredBlogs.content ? renderSlides() :
+					<div>No Featured Blog</div>
+			}</Slider>
+		</Wrapper>
+	);
 };
 
-export default SlideBlog;
+SlideBlog.propTypes = {
+	isLoading: PropTypes.bool.isRequired,
+	featuredBlogs: PropTypes.object.isRequired,
+	getFeaturedBlogs: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => {
+	const { featuredBlogs, isLoading } = state.blog;
+	return { featuredBlogs, isLoading };
+};
+
+export default connect(mapStateToProps, {getFeaturedBlogs})(SlideBlog);

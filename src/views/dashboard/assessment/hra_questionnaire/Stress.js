@@ -26,7 +26,7 @@ function Stress({ getQuestions, questions }) {
 			<Wrapper>
 				<main className="content">
 					<QuestionnaireLayout
-						whatQuestion="Gender Specific Risk"
+						whatQuestion="Stress"
 						heading="Health Risk Assessment"
 						detail={questions.prompt || ''}
 					>

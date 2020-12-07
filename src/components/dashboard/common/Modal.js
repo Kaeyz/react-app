@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     background: rgba(0, 0, 0, 0.6);
     .modal-main {
       background: ${(props) => props.theme.color.ui_01};
-      width: 440px;
+      width: 500px;
       padding: 0 2.4rem 2.4rem;
       height: auto;
       text-align: start;
@@ -45,11 +45,11 @@ const Wrapper = styled.div`
       }
     }
     .modal-right{
-          transform: translate(-0%,-0%);
-          height: 100%;
-    top: 0;
-    left: 0;
-    float: right;
+      transform: translate(-0%,-0%);
+      height: 100%;
+      top: 0;
+      left: 0;
+      float: right;
     }
     .centered{
       text-align: center;
@@ -83,7 +83,7 @@ const Wrapper = styled.div`
     margin-top: -18px;
     padding: 0;
   }
- 
+
   .display-block {
     display: block;
   }
@@ -91,7 +91,7 @@ const Wrapper = styled.div`
   .display-none {
     display: none;
   }
- 
+
 `;
 
 const Modal = ({
@@ -107,7 +107,7 @@ const Modal = ({
 	return (
 		<Wrapper>
 			<div className={showHideClassName}>
-				<section  className={` ${position} ${align} modal-main`}>
+				<section  className={`${position} ${align} modal-main`}>
 					<div className="close flex" onClick={handleClose}>
 						<img src={close} alt="close-modal" id="close-icon" />
 					</div>

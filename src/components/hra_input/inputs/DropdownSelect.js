@@ -32,7 +32,7 @@ padding: 1.5rem;
 	.MuiInputBase-input{
 		padding:0;
 	}
-  
+
   .dropdown > .MuiInput-root {
     // max-width: 33rem;
     .MuiSelect-select.MuiSelect-select {
@@ -62,6 +62,17 @@ function DropdownSelect({options, name, onChange, value, showHide, validateShowH
 		validateShowHide(name, showHide);
 	};
 
+	const getLabel = (option) => {
+		const { label, id, unitlabel } = option;
+		if (label) {
+			return label;
+		}
+		if (unitlabel) {
+			return unitlabel.metric;
+		}
+		return id;
+	};
+
 	return (
 		<Wrapper>
 			<Grid xs={12} sm={6}>
@@ -74,7 +85,9 @@ function DropdownSelect({options, name, onChange, value, showHide, validateShowH
 					>
 						{options.map((option) => (
 							<MenuItem value={option.id} key={option.id}>
-								{option.label || option.id}
+								{
+									getLabel(option)
+								}
 							</MenuItem>
 						))}
 					</Select>

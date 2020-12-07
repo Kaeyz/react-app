@@ -1,25 +1,22 @@
-/*eslint-disable */
-
 // modules
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { Avatar } from "@material-ui/core";
-import logo from "../../../assets/logo.png";
-import brandlogoBlue from "../../../assets/brandlogoBlue.png";
-import homeIcon from "../../../assets/homeIcon.png";
-import pillarIcon from "../../../assets/ionic-pillarIcon.png";
-import abtIcon from "../../../assets/abtIcon.png";
-import callIcon from "../../../assets/callIcon.png";
-import atIcon from "../../../assets/atIcon.png";
-import addressIcon from "../../../assets/addressIcon.png";
-import twitterIcon from "../../../assets/twitterIcon.png";
-import facebookIcon from "../../../assets/facebookIcon.png";
-import copyright from "../../../assets/copyright.png";
-import instagramIcon from "../../../assets/instagramIcon.png";
-import greenflower from "../../../assets/greenflower.png";
-import Container from "../../common/Container";
-import PropTypes from "prop-types";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import logo from '../../../assets/logo.png';
+import brandlogoBlue from '../../../assets/brandlogoBlue.png';
+import homeIcon from '../../../assets/homeIcon.png';
+import pillarIcon from '../../../assets/ionic-pillarIcon.png';
+import abtIcon from '../../../assets/abtIcon.png';
+import callIcon from '../../../assets/callIcon.png';
+import atIcon from '../../../assets/atIcon.png';
+import addressIcon from '../../../assets/addressIcon.png';
+import twitterIcon from '../../../assets/twitterIcon.png';
+import facebookIcon from '../../../assets/facebookIcon.png';
+import copyright from '../../../assets/copyright.png';
+import instagramIcon from '../../../assets/instagramIcon.png';
+import greenflower from '../../../assets/greenflower.png';
+import Container from '../../common/Container';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.text_03};
@@ -55,7 +52,7 @@ const Wrapper = styled.div`
     line-height: 27px;
     margin-top: 5px;
     img{
-      
+
     }
   }
   .blue {
@@ -153,144 +150,145 @@ const Wrapper = styled.div`
 `;
 
 export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) {
-  return (
-    <Wrapper>
-      <img className="greenflower" src={greenflower} alt="greenflower" />
-      <Container>
-        <div className="footer">
-          <div className="footer-info">
-            <h5 className="footer_nav_header blue flex">
-              <span>
-                <img className ="logo"src={logo} alt="brand" />
-              </span>
-              <img className='brandlogoBlue' src={brandlogoBlue} alt="brandlogoBlue"/>
-            </h5>
-            <div className="info">
-              <p className="info-top">
+	return (
+		<Wrapper>
+			<img className="greenflower" src={greenflower} alt="greenflower" />
+			<Container>
+				<div className="footer">
+					<div className="footer-info">
+						<h5 className="footer_nav_header blue flex">
+							<span>
+								<img className ="logo"src={logo} alt="brand" />
+							</span>
+							<img className='brandlogoBlue' src={brandlogoBlue} alt="brandlogoBlue"/>
+						</h5>
+						<div className="info">
+							<p className="info-top">
                 At Choose Life, we understand that what goes into your body Is
                 the most important part of your health. This is why we offer
                 support through personalized nutrition plans and recipe on how
-                to make healthier versions of the Foods you already love.{" "}
-              </p>
-              <p className="info-bottom">
-                <span><img className='copyright' src={copyright} alt="copyright"/></span>2020 Choose Life Ltd. All Rights Reserved
-              </p>
-            </div>
-          </div>
-          <div className="footer_nav">
-            <div className="footer_nav_section">
-              <h5 className="footer_nav_header blue">Site Links</h5>
-              <Link className="footer_nav_link" to='/'   onClick={onClick}>
-                <span className="icon">
-                  <img className="icons" src={homeIcon} alt="homeIcon" />
-                </span>
+                to make healthier versions of the Foods you already love.{' '}
+							</p>
+							<p className="info-bottom">
+								<span><img className='copyright' src={copyright} alt="copyright"/></span>2020 Choose Life Ltd. All Rights Reserved
+							</p>
+						</div>
+					</div>
+					<div className="footer_nav">
+						<div className="footer_nav_section">
+							<h5 className="footer_nav_header blue">Site Links</h5>
+							<div className="footer_nav_link" onClick={onClick}>
+								<span className="icon">
+									<img className="icons" src={homeIcon} alt="homeIcon" />
+								</span>
                 Home
-              </Link>
-              <Link className="footer_nav_link" to='/' onClick={onClickPillar}>
-                <span className="icon">
-                  <img className="icons" src={pillarIcon} alt="pillarIcon" />
-                </span>
+							</div>
+							<div className="footer_nav_link" onClick={onClickPillar}>
+								<span className="icon">
+									<img className="icons" src={pillarIcon} alt="pillarIcon" />
+								</span>
                 Choose Life Pillars
-              </Link>
-              <Link className="footer_nav_link" to='/'  onClick={onClickAbout}>
-                <span className="icon">
-                  <img className="icons abtIcon" src={abtIcon} alt="abtIcon" />
-                </span>
+							</div>
+							<div className="footer_nav_link" onClick={onClickAbout}>
+								<span className="icon">
+									<img className="icons abtIcon" src={abtIcon} alt="abtIcon" />
+								</span>
                 About us
-              </Link>
-            </div>
+							</div>
+						</div>
 
-            <div className="footer_nav_section">
-              <h5 className="footer_nav_header blue">Contact Us</h5>
-              <Link className="footer_nav_link flex" style={{justifyContent: "start" , alignItems: "baseline" 
-}}>
-                <span className="icon">
-                  <img className="icons" src={callIcon} alt="callIcon" />
-                </span>
-                <span style={{display:"grid"}}>
-                  <b>0802 648 4048, </b>
-                <b>0802 648 3318</b></span>
-              </Link>
-              <a
-                className="footer_nav_link"
-                target="_blank"
-                href="mailto:chooselife@fitnessfairng.com"
-                style={{whiteSpace: "pre"}}
-              >
-                <span className="icon">
-                  <img className="icons" src={atIcon} alt="atIcon" />
-                </span>
-                <span>
+						<div className="footer_nav_section">
+							<h5 className="footer_nav_header blue">Contact Us</h5>
+							<Link className="footer_nav_link flex" style={{justifyContent: 'start' , alignItems: 'baseline'}}>
+								<span className="icon">
+									<img className="icons" src={callIcon} alt="callIcon" />
+								</span>
+								<span style={{display:'grid'}}>
+									<b>0802 648 4048, </b>
+									<b>0802 648 3318</b></span>
+							</Link>
+							<a
+								className="footer_nav_link"
+								target="_blank" rel="noreferrer"
+								href="mailto:chooselife@fitnessfairng.com"
+								style={{whiteSpace: 'pre'}}
+							>
+								<span className="icon">
+									<img className="icons" src={atIcon} alt="atIcon" />
+								</span>
+								<span>
                 chooselife@fitnessfairng.com
-                </span>
-              </a>
-              <Link className="footer_nav_link">
-                <span className="icon">
-                  <img
-                    className="icons addressIcon"
-                    src={addressIcon}
-                    alt="addressIcon"
-                  />
-                </span>
+								</span>
+							</a>
+							<Link className="footer_nav_link">
+								<span className="icon">
+									<img
+										className="icons addressIcon"
+										src={addressIcon}
+										alt="addressIcon"
+									/>
+								</span>
                 Shop 2, Banana Island Shopping Complex, Banana Island, Ikoyi-Lagos,Nigeria
-              </Link>
-            </div>
+							</Link>
+						</div>
 
-            <div className="footer_nav_section">
-              <h5 className="footer_nav_header blue">Social Media</h5>
-              <a
-                className="footer_nav_link"
-                target="_blank"
-                href="https://twitter.com/fitnessfairng"
-              >
-                <span className="icon">
-                  <img className="icons" src={twitterIcon} alt="twitterIcon" />
-                </span>
+						<div className="footer_nav_section">
+							<h5 className="footer_nav_header blue">Social Media</h5>
+							<a
+								className="footer_nav_link"
+								target="_blank"
+								rel="noreferrer"
+								href="https://twitter.com/fitnessfairng"
+							>
+								<span className="icon">
+									<img className="icons" src={twitterIcon} alt="twitterIcon" />
+								</span>
                 Twitter
-              </a>
-              <a
-                className="footer_nav_link"
-                target="_blank"
-                href="https://web.facebook.com/FitnessFairNG/?_rdc=1&_rdr"
-              >
-                <span className="icon">
-                  <img
-                    className="icons"
-                    src={facebookIcon}
-                    alt="facebookIcon"
-                  />
-                </span>
+							</a>
+							<a
+								className="footer_nav_link"
+								target="_blank"
+								rel="noreferrer"
+								href="https://web.facebook.com/FitnessFairNG/?_rdc=1&_rdr"
+							>
+								<span className="icon">
+									<img
+										className="icons"
+										src={facebookIcon}
+										alt="facebookIcon"
+									/>
+								</span>
                 Facebook
-              </a>
-              <a className="footer_nav_link" target="_blank" href="#">
-                <span className="icon">
-                  <img
-                    className="icons"
-                    src={instagramIcon}
-                    alt="instagramIcon"
-                  />
-                </span>
+							</a>
+							<a className="footer_nav_link" target="_blank" href="#">
+								<span className="icon">
+									<img
+										className="icons"
+										src={instagramIcon}
+										alt="instagramIcon"
+									/>
+								</span>
                 Instagram
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="arrow flex">
-          <img src={arrow} />
-        </div>
-      </Container>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div className="arrow flex">
+					<img src={arrow} />
+				</div>
+			</Container>
 
-      <div className="shapes">
-        <div class="irreg-left"></div>
-        <div class="irreg-right"></div>
-      </div>
-    </Wrapper>
-  );
+			<div className="shapes">
+				<div className="irreg-left"></div>
+				<div className="irreg-right"></div>
+			</div>
+		</Wrapper>
+	);
 }
 
 Footer.propTypes = {
-  arrow: PropTypes.any,
-  onClick: PropTypes.func,
-  onClickPillar: PropTypes.func,
-  onClickAbout: PropTypes.func,
+	arrow: PropTypes.any,
+	onClick: PropTypes.func,
+	onClickPillar: PropTypes.func,
+	onClickAbout: PropTypes.func,
 };

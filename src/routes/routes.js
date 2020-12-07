@@ -1,7 +1,5 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-
-
 import PrivateRoute from './PrivateRoute';
 import Home from '../views/Home';
 import Team from '../views/Team';
@@ -34,14 +32,12 @@ import Stress from '../views/dashboard/assessment/hra_questionnaire/Stress';
 import Food from '../views/dashboard/assessment/hra_questionnaire/Food';
 import Mental from '../views/dashboard/assessment/hra_questionnaire/Mental';
 import Gender from '../views/dashboard/assessment/hra_questionnaire/Gender';
-import Activity from '../views/dashboard/assessment/hra_questionnaire/Activity';
 import HealthReview from '../views/dashboard/assessment/hra_questionnaire/HealthReview';
 import Reports from '../views/reports/Reports';
 import HealthReport from '../views/reports/HealthReport';
 import HraCompleted from '../views/dashboard/assessment/hra_questionnaire/HraCompleted';
 import Exercise from '../views/exercise';
 import Meals from '../views/meals';
-import MealPlans from '../views/meals/MealPlans';
 import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
 import Employees from '../views/employees';
 import PendingInvites from '../views/employees/PendingInvites';
@@ -95,22 +91,21 @@ const Routes = () => (
 			<PrivateRoute exact path="/companies/:companyId" component={Company} />
 
 			{/* assessment route */}
-			<PrivateRoute  exact path="/assessment" component={DashboardAssessment} />
-			<PrivateRoute  exact path="/assessment/health" component={HealthRiskAssessment}/>
-			<PrivateRoute  exact path="/assessment/health/start" component={General} />
-			<PrivateRoute  exact path="/assessment/health/general" component={General} />
+			<PrivateRoute isActivated={true} exact path="/assessment" component={DashboardAssessment} />
+			<PrivateRoute isActivated={true} exact path="/assessment/health" component={HealthRiskAssessment}/>
+			<PrivateRoute isActivated={true} exact path="/assessment/health/start" component={General} />
+			<PrivateRoute isActivated={true} exact path="/assessment/health/general" component={General} />
 
-			<PrivateRoute  exact path="/assessment/health/covid" component={Covid}/>
-			<PrivateRoute  exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
-			<PrivateRoute  exact path="/assessment/health/smoking" component={Smoking}/>
-			<PrivateRoute  exact path="/assessment/health/travel" component={Travel}/>
-			<PrivateRoute  exact path="/assessment/health/sleep" component={Sleep}/>
-			<PrivateRoute  exact path="/assessment/health/food"  component={Food} />
-			<PrivateRoute  exact path="/assessment/health/mental" component={Mental} />
-			<PrivateRoute  exact path="/assessment/health/activity" component={Activity} />
-			<PrivateRoute  exact path="/assessment/health/gender" component={Gender} />
-			<PrivateRoute  exact path="/assessment/health/stress" component={Stress} />
-			<PrivateRoute  exact path="/assessment/health/review" component={HealthReview} />
+			<PrivateRoute isActivated={true} exact path="/assessment/health/covid" component={Covid}/>
+			<PrivateRoute isActivated={true} exact path="/assessment/health/blood_pressure" component={BloodPressure}/>
+			<PrivateRoute isActivated={true} exact path="/assessment/health/smoking" component={Smoking}/>
+			<PrivateRoute isActivated={true} exact path="/assessment/health/travel" component={Travel}/>
+			<PrivateRoute isActivated={true} exact path="/assessment/health/sleep" component={Sleep}/>
+			<PrivateRoute isActivated={true} exact path="/assessment/health/food"  component={Food} />
+			<PrivateRoute isActivated={true} exact path="/assessment/health/mental" component={Mental} />
+			<PrivateRoute isActivated={true} exact path="/assessment/health/gender" component={Gender} />
+			<PrivateRoute isActivated={true} exact path="/assessment/health/stress" component={Stress} />
+			<PrivateRoute isActivated={true} exact path="/assessment/health/review" component={HealthReview} />
 
 			<PrivateRoute  exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
 
@@ -123,8 +118,7 @@ const Routes = () => (
 			<PrivateRoute exact path="/exercise/:exerciseId" component={ProgrammeDetails} />
 
 			{/* meal route */}
-			<PrivateRoute  exact path="/meals"  component={Meals} />
-			<PrivateRoute  exact path="/meals/meal_plans"  component={MealPlans} />
+			<PrivateRoute isActivated={true} exact path="/meals"  component={Meals} />
 
 			{/* appointments */}
 			<PrivateRoute  exact path="/appointments"  component={Appointments} />

@@ -5,10 +5,11 @@ import { sortTableData } from '../../utils/helper';
 import Table from '../../components/dashboard/common/Table';
 import { tableConstants } from '../../components/dashboard/report/tableConstant';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
+import Button from '../../components/common/Button';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getReports, getCompanyReports, getAdminReports } from '../../store/actions/reportActions';
+import { getReports, getCompanyReports, getAdminReports, downloadAdminReportPdf, downloadCompanyReportPdf } from '../../store/actions/reportActions';
 
 const Wrapper = styled.div`
 .paper{
@@ -16,6 +17,10 @@ const Wrapper = styled.div`
 		box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
 		border-radius: 0px;
 		padding: 2rem;
+		display: grid;
+		grid-template-columns: max-content max-content;
+		justify-content: space-between;
+		align-items: center;
 .heading{
     font-weight: bold;
     font-size: 1.6rem;
@@ -25,7 +30,7 @@ const Wrapper = styled.div`
 }
 `;
 
-const Reports = ({reports, isLoading, getReports, getCompanyReports, getAdminReports, name, type}) => {
+const Reports = ({reports, isLoading, getReports, getCompanyReports, getAdminReports, name, type, downloadAdminReportPdf, downloadCompanyReportPdf}) => {
 
 	React.useEffect(() => {
 		type === 'ADMIN' && getAdminReports();
@@ -55,7 +60,6 @@ const Reports = ({reports, isLoading, getReports, getCompanyReports, getAdminRep
 		} else {
 			return sortTableData(reports, adminKey);
 		}
-
 	};
 
 	return (
@@ -63,15 +67,16 @@ const Reports = ({reports, isLoading, getReports, getCompanyReports, getAdminRep
 			<DashboardLayout whatPage="Reports">
 				<Paper className="paper">
 					<h1 className="heading">Reports</h1>
+					{type === 'ADMIN' && <Button text="Download Report" theme="green" onClick={downloadAdminReportPdf}/>}
+					{type === 'SUPERADMIN' && <Button text="Download Report" theme="green" onClick={downloadAdminReportPdf}/>}
+					{type === 'COMPANY' && <Button text="Download Report" theme="green" onClick={downloadCompanyReportPdf}/>}
 				</Paper>
 				{isLoading ?
 					<div>Loading ...</div> :
 					<Table cols={tableConstants()} data={sortReportData(reports, type)} />
-
 				}
 			</DashboardLayout>
 		</Wrapper>
-
 	);
 };
 
@@ -81,6 +86,8 @@ Reports.propTypes = {
 	getReports: PropTypes.func.isRequired,
 	getAdminReports: PropTypes.func.isRequired,
 	getCompanyReports: PropTypes.func.isRequired,
+	downloadAdminReportPdf: PropTypes.func.isRequired,
+	downloadCompanyReportPdf: PropTypes.func.isRequired,
 	type: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 };
@@ -91,4 +98,4 @@ const mapStateToProps = state => {
 	return { reports, name, type };
 };
 
-export default connect(mapStateToProps, {getReports, getCompanyReports, getAdminReports})(Reports);
+export default connect(mapStateToProps, {getReports, getCompanyReports, getAdminReports, downloadAdminReportPdf, downloadCompanyReportPdf})(Reports);

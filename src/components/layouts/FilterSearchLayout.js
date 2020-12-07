@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
-import { SearchInput, Filter } from '../common/inputs';
+import { SearchInput } from '../common/inputs';
 import Icon from '../../assets/searchIcon.svg';
-import filtering from '../../assets/Filter.svg';
+/* import filtering from '../../assets/Filter.svg'; */
 
 const Wrapper = styled.div`
 	.top-paper {
@@ -71,7 +71,6 @@ const Wrapper = styled.div`
 `;
 
 function FilterSearchLayout({ children, text, buttons, oneGrid, display, wrap, onSearchSubmit, searchPlaceholder }) {
-	const options = ['Employee Name', 'Department', 'Branch', 'Date Invited'];
 	const [searchInput, setSearchInput] = React.useState('');
 
 	return (
@@ -79,9 +78,9 @@ function FilterSearchLayout({ children, text, buttons, oneGrid, display, wrap, o
 			<div>
 				<Paper className="top-paper flex flexy">
 					<p className="text">{text}</p>
-					<div className="filter">
+					{/* <div className="filter">
 						<Filter Icon={filtering} alt='filtering' placeholder="Filter" options={options} width={{ width: 150 }} />
-					</div>
+					</div> */}
 				</Paper>
 				<div className={`${display} ${wrap} searchWithButton flex flexy`}>
 					<SearchInput

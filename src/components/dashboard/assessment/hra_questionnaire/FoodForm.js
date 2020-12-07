@@ -31,7 +31,7 @@ margin-top: -1rem;
 
 function FoodForm({ questions, isLoading, inputs, history, saveQuestions }) {
 
-	const nextLink = '/assessment/health/activity';
+	const nextLink = '/assessment/health/smoking';
 	const onSaveClick = (event) => {
 		event.preventDefault();
 		inputs.stage = 'UPDATE_RESPONSE';

@@ -114,3 +114,32 @@ export const downloadReportPdf = (reportId) => (dispatch) => {
 			dispatch(errorAlert({ msg: 'Network Error!!' }));
 		});
 };
+
+export const downloadAdminReportPdf = () => (dispatch) => {
+	reportQueries.getAdminReportPdf()
+		.then((res) => {
+			const a = document.createElement('a');
+			a.href = window.URL.createObjectURL(res);
+			a.download = 'AdminReport.pdf';
+			document.body.appendChild(a);
+			a.click();
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Network Error!!' }));
+		});
+};
+
+export const downloadCompanyReportPdf = () => (dispatch, getState) => {
+	const { _id } = getState().user.user;
+	reportQueries.getCompanyReportPdf(_id)
+		.then((res) => {
+			const a = document.createElement('a');
+			a.href = window.URL.createObjectURL(res);
+			a.download = 'AdminReport.pdf';
+			document.body.appendChild(a);
+			a.click();
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Network Error!!' }));
+		});
+};
