@@ -141,7 +141,7 @@ const Wrapper = styled.div`
   }
 `;
 
-function BlogPostDetail({ match, getSingleBlog, getBlogs,blogs, blog, isLoading }) {
+function BlogPostDetail({ match, getSingleBlog, blog, isLoading }) {
   const { blogId } = match.params;
 
   React.useEffect(() => {
