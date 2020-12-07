@@ -4,15 +4,8 @@ import styled from "styled-components";
 import AppLayout from "../components/layouts/appLayout/AppLayout";
 import Header from "../components/layouts/appLayout/header/index2";
 import team1 from "../assets/testimony3.png";
-import ceo from "../assets/ceo.jpg";
-import eke from "../assets/eke.jpg";
-import joel from "../assets/joel.jpg";
-import prince from "../assets/prince.jpg";
-import adenike from "../assets/adenike.jpg";
-import soteye from "../assets/soteye.jpg";
 import linkedin from "../assets/linkedIn.png";
-// import mail from "../assets/mail.png";
-// import twitter from "../assets/twitter.png";
+
 
 const Wrapper = styled.div`
   padding-top: 10rem;
@@ -77,22 +70,22 @@ const Wrapper = styled.div`
     }
   }
   .one .img{
-    background-image: url(${ceo});
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/ceo_xero8q.jpg");
   }
   .two .img{
-    background-image: url(${eke});
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/eke_gwouoy.jpg");
   }
   .three .img{
-    background-image: url(${joel});
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607312175/chooseLife/joel_bcbizs.jpg");
   }
   .four .img{
-    background-image: url(${prince});
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/prince_tahnhg.jpg");
   }
   .five .img{
-    background-image: url(${soteye});
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/soteye_l2rm67.jpg");
   }
   .six .img{
-    background-image: url(${adenike});
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607312175/chooseLife/adenike_froorz.jpg");
   }
   .one {
     top: 0;
@@ -158,7 +151,7 @@ const Wrapper = styled.div`
     height: 170px;
     border-radius: 50%;
     background-size: cover;
-    background-position: center;
+    background-position: center 0px;
     background-repeat: no-repeat;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       width: 100px;

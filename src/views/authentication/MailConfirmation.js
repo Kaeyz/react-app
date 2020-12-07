@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import Header from '../../components/layouts/appLayout/header';
-import mailGif from '../../assets/Sendmail.gif';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Container from '../../components/common/Container';
@@ -69,7 +68,7 @@ function MailConfirmation({email}) {
 		<Wrapper>
 			<Container flexy="centered">
 				<div className="body">
-					<img src={mailGif} alt="mail-gif" />
+					<img src="https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/checkk_k1bie4.gif" alt="mail-gif" />
 					<h2>A confirmation mail has been sent to the email below</h2>
 					<Link to="">
 						{' '}

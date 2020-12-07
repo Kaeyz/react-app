@@ -1,7 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
-import img from '../../../assets/affection-couple.svg';
 import Button from '../../common/Button';
 import { Link } from 'react-router-dom';
 
@@ -24,7 +23,7 @@ const Wrapper = styled.div`
 		}
 	}
 	.bg {
-		background-image: url(${img});
+		background-image: url('https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309882/chooseLife/affection-couple_v36hii.svg');
 		width: 100%;
 		height: 219px;
 		margin-top: 3.7rem;

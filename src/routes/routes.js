@@ -1,7 +1,5 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-
-
 import PrivateRoute from './PrivateRoute';
 import Home from '../views/Home';
 import Team from '../views/Team';
@@ -83,9 +81,9 @@ const Routes = () => (
 			<PrivateRoute exact path="/dashboard" component={Dashboard} />
 
 			{/* company route */}
-			<PrivateRoute isActivated={true} exact path="/employees" component={Employees} />
-			<PrivateRoute isActivated={true} exact path="/employees/pending" component={PendingInvites} />
-			<PrivateRoute isActivated={true} exact path="/employees/suspended" component={Suspended} />
+			<PrivateRoute  exact path="/employees" component={Employees} />
+			<PrivateRoute  exact path="/employees/pending" component={PendingInvites} />
+			<PrivateRoute  exact path="/employees/suspended" component={Suspended} />
 
 			{/* admin route */}
 			<PrivateRoute exact path="/companies" component={Companies} />
@@ -112,8 +110,8 @@ const Routes = () => (
 			<PrivateRoute  exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
 
 			{/* Report route */}
-			<PrivateRoute isActivated={true} exact path="/reports" component={Reports} />
-			<PrivateRoute isActivated={true} exact path="/reports/:reportId" component={HealthReport} />
+			<PrivateRoute  exact path="/reports" component={Reports} />
+			<PrivateRoute  exact path="/reports/:reportId" component={HealthReport} />
 
 			{/* Exercise route */}
 			<PrivateRoute exact path="/exercise" component={Exercise} />
@@ -123,12 +121,12 @@ const Routes = () => (
 			<PrivateRoute isActivated={true} exact path="/meals"  component={Meals} />
 
 			{/* appointments */}
-			<PrivateRoute isActivated={true} exact path="/appointments"  component={Appointments} />
+			<PrivateRoute  exact path="/appointments"  component={Appointments} />
 
 			{/* reward */}
-			<PrivateRoute isActivated={true} exact path="/rewards" component={CompanyRewards} />
-			<PrivateRoute isActivated={true} exact path="/rewards/leaderboard" component={Leaderboard} />
-			<PrivateRoute isActivated={true} exact path="/rewards/individual" component={IndividualReward} />
+			<PrivateRoute  exact path="/rewards" component={CompanyRewards} />
+			<PrivateRoute  exact path="/rewards/leaderboard" component={Leaderboard} />
+			<PrivateRoute  exact path="/rewards/individual" component={IndividualReward} />
 
 			{/* Blog route */}
 			<Route exact path="/blog" component={Blog} />

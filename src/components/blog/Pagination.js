@@ -60,7 +60,6 @@ const Wrapper = styled.div`
 `;
 
 
-
 const PaginatedContent = ({ blogs, isLoading, getBlogs }) => {
 	// Data to be rendered using pagination.
 	const [activePage, setCurrentPage] = useState(1);

@@ -76,7 +76,6 @@ CircularProgressCard.defaultProps = {
 
 
 CircularProgressCard.propTypes = {
-	Image: PropTypes.any,
 	cardValue: PropTypes.any,
 	cardInfo: PropTypes.any,
 	fontSize: PropTypes.any,

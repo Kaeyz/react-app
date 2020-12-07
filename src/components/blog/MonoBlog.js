@@ -99,7 +99,7 @@ MonoBlog.propTypes = {
 	src: PropTypes.any,
 	id: PropTypes.string,
 	title: PropTypes.string.isRequired,
-	alt: PropTypes.string.isRequired,
+	alt: PropTypes.string,
 	author: PropTypes.string.isRequired,
 	tag: PropTypes.string.isRequired,
 	tagColor: PropTypes.string.isRequired,

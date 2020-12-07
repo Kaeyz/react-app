@@ -6,12 +6,6 @@ import Paper from "@material-ui/core/Paper";
 import DashboardLayout from "../../components/layouts/dashboardLayout/DashboardLayout";
 import QuestionnaireLayout from "../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout";
 import smallImg from "../../assets/Activity.svg";
-import img from "../../assets/exercise_bg.svg";
-import ExerciseTable from "../../components/dashboard/exercise/ExerciseTable";
-import ExerciseCalendar from "../../components/dashboard/exercise/ExerciseCalendar";
-import Button from "../../components/common/Button";
-import ExerciseMinitable from "../../components/dashboard/exercise/ExerciseMinitable";
-import Routine from "../../components/dashboard/exercise/Routine";
 import { connect } from "react-redux";
 import { getExercise } from "../../store/actions/exerciseActions";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -58,16 +52,6 @@ const Wrapper = styled.div`
       padding-bottom: 2rem;
     }
   }
-  .btn {
-    display: none;
-    padding-bottom: 4rem;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-      display: block;
-    }
-    .button {
-      width: 100% !important;
-    }
-  }
 `;
 
 const ProgrammeDetails = ({ match, getExercise, isLoading, exercise }) => {
@@ -98,7 +82,7 @@ const ProgrammeDetails = ({ match, getExercise, isLoading, exercise }) => {
                   alt="exercise"
                   height={140}
                   placeholder={<h5>Loading</h5>}
-                  placeholderSrc={img}
+                  placeholderSrc={"https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309856/chooseLife/exercise_bg_ouhdef.svg"}
                   effect="blur"
                   src={exercise.image}
                 />
@@ -116,19 +100,7 @@ const ProgrammeDetails = ({ match, getExercise, isLoading, exercise }) => {
             </p>
           </div>
 
-          {/* not yet available */}
-          {/* <ExerciseTable maxW='width' />
-					<ExerciseMinitable/>
 
-					<ExerciseCalendar/>
-					<div className="btn">
-						<Button
-							theme="darkGreen"
-							text="Customize your meal plan"
-						>
-						</Button>
-					</div>
-					<Routine/> */}
         </QuestionnaireLayout>
       </DashboardLayout>
     </Wrapper>
