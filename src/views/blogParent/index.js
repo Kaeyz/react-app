@@ -105,7 +105,7 @@ function Blog({ getBlogs, blogs, isLoading }) {
 					<div className="main">
 						<div className="head">
 							<h1>Blog</h1>
-							{/* <Paper className="paper">
+							<Paper className="paper">
 								<p className="tag" id="yellow">
 									Featured
 								</p>
@@ -117,7 +117,7 @@ function Blog({ getBlogs, blogs, isLoading }) {
 									<img src={avatar} alt="avatar-female" />
 									<p className="text">Caleb Atkins</p>
 								</div>
-							</Paper> */}
+							</Paper>
 						</div>
 						<div className="mid">
 							{/* 	<p className="title">Recent</p> */}
