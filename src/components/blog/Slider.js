@@ -1,7 +1,7 @@
+/*eslint-disable*/
 import React, {useEffect} from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import blogImg from '../../assets/girlRunning.png';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 import MonoBlog from './MonoBlog';
@@ -17,6 +17,7 @@ import { connect } from 'react-redux';
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.ui_text_08};
 	padding: 2.5rem;
+	position: relative;
   overflow: hidden;
   .slide-heading {
     font-size: 4.5rem;
@@ -77,7 +78,7 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 			<MonoBlog
 				key={blog.id}
 				to={`/blog/${blog.id}`}
-				src={blog.asset !== null ? blog.asset.url : blogImg}
+				src={blog.asset !== null ? blog.asset.url : "https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/girlRunning_mwel4s.png"}
 				title={blog.title}
 				author={blog.author}
 				createdAt={convertDate(blog.createdAt)}
