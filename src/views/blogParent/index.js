@@ -5,8 +5,8 @@ import AppLayout from '../../components/layouts/appLayout/AppLayout';
 import Container from '../../components/common/Container';
 import Pagination from '../../components/blog/Pagination';
 import Header from '../../components/layouts/appLayout/header/index2';
-import { Paper } from '@material-ui/core';
-import avatar from '../../assets/avatarFemale.png';
+// import { Paper } from '@material-ui/core';
+// import avatar from '../../assets/avatarFemale.png';
 import { connect } from 'react-redux';
 import { getBlogs } from '../../store/actions/blogActions';
 import Slider from '../../components/blog/Slider';
@@ -105,7 +105,7 @@ function Blog({ getBlogs, blogs, isLoading }) {
 					<div className="main">
 						<div className="head">
 							<h1>Blog</h1>
-							<Paper className="paper">
+							{/* <Paper className="paper">
 								<p className="tag" id="yellow">
 									Featured
 								</p>
@@ -117,7 +117,7 @@ function Blog({ getBlogs, blogs, isLoading }) {
 									<img src={avatar} alt="avatar-female" />
 									<p className="text">Caleb Atkins</p>
 								</div>
-							</Paper>
+							</Paper> */}
 						</div>
 						<div className="mid">
 							{/* 	<p className="title">Recent</p> */}
