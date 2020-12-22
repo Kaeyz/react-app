@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import React, {useEffect} from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -78,7 +77,7 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 			<MonoBlog
 				key={blog.id}
 				to={`/blog/${blog.id}`}
-				src={blog.asset !== null ? blog.asset.url : "https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/girlRunning_mwel4s.png"}
+				src={blog.asset !== null ? blog.asset.url : 'https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/girlRunning_mwel4s.png'}
 				title={blog.title}
 				author={blog.author}
 				createdAt={convertDate(blog.createdAt)}

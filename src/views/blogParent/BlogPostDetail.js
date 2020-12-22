@@ -180,7 +180,7 @@ function BlogPostDetail({ match, getSingleBlog, blog, isLoading }) {
 								<div>Loading</div> :
 								<React.Fragment>
 									<div className="detailbg bg"
-										style={{ backgroundImage: asset != null ? `url(${asset.url})` : `url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309872/chooseLife/woman-spreading-both-her-arms_hly6ur.png"})` }}
+										style={{ backgroundImage: asset != null ? `url(${asset.url})` : 'url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309872/chooseLife/woman-spreading-both-her-arms_hly6ur.png"})' }}
 									/>
 									<p className="img-cap">Image Caption / Description or Credits</p>
 									<div className=" detail longDetail" dangerouslySetInnerHTML={{ __html: new Remarkable({html: true, breaks: true}).render(body) }} />
