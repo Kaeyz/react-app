@@ -5,9 +5,8 @@ import AppLayout from '../../components/layouts/appLayout/AppLayout';
 import Container from '../../components/common/Container';
 import Pagination from '../../components/blog/Pagination';
 import Header from '../../components/layouts/appLayout/header/index2';
-//import { Paper } from '@material-ui/core';
-import spread from '../../assets/coverImageBlog.png';
-//import avatar from '../../assets/avatarFemale.png';
+// import { Paper } from '@material-ui/core';
+// import avatar from '../../assets/avatarFemale.png';
 import { connect } from 'react-redux';
 import { getBlogs } from '../../store/actions/blogActions';
 import Slider from '../../components/blog/Slider';
@@ -36,34 +35,33 @@ const Wrapper = styled.div`
 		border-radius: 14px;
 		left: 50%;
 	transform: translate(-50%, 0%);
-
-	}
-	.paper{
-		background-image: url(${spread});
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		height: 350px;
-		border-radius: 10px;
-		margin-bottom: 4rem;
-		color: ${(props) => props.theme.color.ui_01};
-		padding: 109px 0 50px 91px;
-		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-			padding: 70px 0 20px 40px;
-		}
-	}
-	.tag{
-		line-height: 23.94px;
-		font-size: 1.5rem;
-		font-weight: 100;
-		width: fit-content;
-		padding: 3px 20px;
-		color: ${(props) => props.theme.color.text_03};
-		font-family: Segoe UI emoji;
-	}
-	#yellow{
-		background-color: rgba(247,194,54,.8);
-	 }
+  }
+  .paper{
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309856/chooseLife/coverImageBlog_vdzjx6.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+    border-radius: 10px;
+    margin-bottom: 4rem;
+    color: ${(props) => props.theme.color.ui_01};
+    padding: 109px 0 50px 91px;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+      padding: 70px 0 20px 40px;
+    }
+  }
+  .tag{
+    line-height: 23.94px;
+    font-size: 1.5rem;
+    font-weight: 100;
+    width: fit-content;
+    padding: 3px 20px;
+    color: ${(props) => props.theme.color.text_03};
+    font-family: Segoe UI emoji;
+  }
+  #yellow{
+    background-color: rgba(247,194,54,.8);
+   }
  .paper .title{
 	line-height: 25.2px;
 	font-size: 2rem;

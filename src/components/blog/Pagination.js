@@ -1,9 +1,9 @@
+/*eslint-disable*/
 import React, { useState, useEffect } from 'react';
 import Pagination from 'react-js-pagination';
 import styled from 'styled-components';
 import MonoBlog from '../../components/blog/MonoBlog';
 import PropTypes from 'prop-types';
-import blogImg from '../../assets/girlRunning.png';
 import { convertDate, capitalizeFirstLetter } from '../../utils/helper';
 import { getBlogs } from '../../store/actions/blogActions';
 import { connect } from 'react-redux';
@@ -60,7 +60,6 @@ const Wrapper = styled.div`
 `;
 
 
-
 const PaginatedContent = ({ blogs, isLoading, getBlogs }) => {
 	// Data to be rendered using pagination.
 	const [activePage, setCurrentPage] = useState(1);
@@ -75,7 +74,7 @@ const PaginatedContent = ({ blogs, isLoading, getBlogs }) => {
 			<MonoBlog
 				key={index}
 				to={`/blog/${blog.id}`}
-				src={blog.asset !== null ? blog.asset.url : blogImg}
+				src={blog.asset !== null ? blog.asset.url : "https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/girlRunning_mwel4s.png"}
 				title={blog.title}
 				author={blog.author}
 				createdAt={convertDate(blog.createdAt)}

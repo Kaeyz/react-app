@@ -30,7 +30,6 @@ const HelpSettings = () => {
 					<h1 className='text'>General Information</h1>
 					<p>Coming Soon</p>
 				</div>
-				<p>Help</p>
 			</Wrapper>
 
 		</SideBar>

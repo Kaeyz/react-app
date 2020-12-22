@@ -7,9 +7,6 @@ import { Link } from 'react-router-dom';
 import QuestionnaireLayout from '../../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout';
 import DashboardLayout from '../../../components/layouts/dashboardLayout/DashboardLayout';
 import CircularProgressCard from '../../../components/dashboard/assessment/CircularProgressCard';
-import HraImg from '../../../assets/hraImg.svg';
-import inbodyImg from '../../../assets/inbodyImg.svg';
-import mealImg from '../../../assets/mealImg.svg';
 import smallImg from '../../../assets/Activity.svg';
 import Back from '../../../assets/greenBackArrow.svg';
 import GHM from '../../../assets/GHM.svg';
@@ -179,7 +176,6 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 									<CircularProgressCard
 										btnValue={percentageCompleted > 0 ? 'Continue' : 'Start'}
 										cardInfo={'Health Assessment'}
-										Image={HraImg}
 										btnTheme="darkGreenBtn"
 										backgroundColor="blue"
 										where={
@@ -195,7 +191,6 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 										btnValue={percentageCompleted > 0 ? 'Continue' : 'Start'}
 										showButton = {percentageCompleted > 0 ? true : false }
 										cardInfo={'Lifestyle Assessment'}
-										Image={inbodyImg}
 										btnTheme="deepYellowBtn"
 										backgroundColor="orange"
 										progress={percentageCompleted}
@@ -212,7 +207,6 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 										btnValue={percentageCompleted > 0 ? 'Continue' : 'Start'}
 										showButton = {percentageCompleted > 0 ? true : false }
 										cardInfo={'Fitness Assessment'}
-										Image={mealImg}
 										btnTheme="yellowBtn"
 										backgroundColor="yellow"
 										progress={percentageCompleted}
@@ -229,7 +223,6 @@ const HealthRiskAssessment = ({ percentageCompleted }) => {
 										btnValue={percentageCompleted > 0 ? 'Continue' : 'Start'}
 										showButton = {percentageCompleted > 0 ? true : false }
 										cardInfo={'Nutrition Assessment'}
-										Image={mealImg}
 										btnTheme="purpleBtn"
 										backgroundColor="green"
 										progress={percentageCompleted}

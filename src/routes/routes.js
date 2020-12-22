@@ -1,7 +1,5 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-
-
 import PrivateRoute from './PrivateRoute';
 import Home from '../views/Home';
 import Team from '../views/Team';
@@ -112,8 +110,8 @@ const Routes = () => (
 			<PrivateRoute  exact path="/assessment/health/questionnaire_completed" component={HraCompleted} />
 
 			{/* Report route */}
-			<PrivateRoute isActivated={true} exact path="/reports" component={Reports} />
-			<PrivateRoute isActivated={true} exact path="/reports/:reportId" component={HealthReport} />
+			<PrivateRoute  exact path="/reports" component={Reports} />
+			<PrivateRoute  exact path="/reports/:reportId" component={HealthReport} />
 
 			{/* Exercise route */}
 			<PrivateRoute exact path="/exercise" component={Exercise} />
@@ -123,7 +121,7 @@ const Routes = () => (
 			<PrivateRoute isActivated={true} exact path="/meals"  component={Meals} />
 
 			{/* appointments */}
-			<PrivateRoute isActivated={true} exact path="/appointments"  component={Appointments} />
+			<PrivateRoute isActivated={true}  exact path="/appointments"  component={Appointments} />
 
 			{/* reward */}
 			<PrivateRoute isActivated={true} exact path="/rewards" component={CompanyRewards} />
