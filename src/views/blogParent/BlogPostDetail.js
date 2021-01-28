@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Remarkable } from 'remarkable';
 import styled from 'styled-components';
-import spread from '../../assets/woman-spreading-both-her-arms.png';
 import Slider from '../../components/blog/Slider';
 import Container from '../../components/common/Container';
 import AppLayout from '../../components/layouts/appLayout/AppLayout';
@@ -181,7 +180,7 @@ function BlogPostDetail({ match, getSingleBlog, blog, isLoading }) {
 								<div>Loading</div> :
 								<React.Fragment>
 									<div className="detailbg bg"
-										style={{ backgroundImage: asset != null ? `url(${asset.url})` : `url(${spread})` }}
+										style={{ backgroundImage: asset != null ? `url(${asset.url})` : 'url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309872/chooseLife/woman-spreading-both-her-arms_hly6ur.png"})' }}
 									/>
 									<p className="img-cap">Image Caption / Description or Credits</p>
 									<div className=" detail longDetail" dangerouslySetInnerHTML={{ __html: new Remarkable({html: true, breaks: true}).render(body) }} />

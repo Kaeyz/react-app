@@ -1,9 +1,6 @@
 /*eslint-disable */
 import { Grid } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import addressIcon from "../assets/addressWhite.png";
 import flower from "../assets/greenflower.png";
 import logo from "../assets/logo.png";
 import atIcon from "../assets/mailWhite.png";

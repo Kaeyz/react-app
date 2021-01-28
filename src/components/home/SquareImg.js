@@ -1,9 +1,6 @@
 /*eslint-disable */
 import React from "react";
 import PropTypes from "prop-types";
-import img1 from "../../assets/smilingManDoc.png";
-import img2 from "../../assets/affection-couple.svg";
-import img3 from "../../assets/friuts.png";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -25,13 +22,13 @@ const Wrapper = styled.div`
     }
   }
   .img1 {
-    background-image: url(${img1});
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607310686/chooseLife/Webp.net-compress-image_1_fxxnx8.jpg");
   }
   .img2 {
-    background-image: url(${img2});
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309882/chooseLife/affection-couple_v36hii.svg");
   }
   .img3 {
-    background-image: url(${img3});
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607310415/chooseLife/Webp.net-compress-image_lyqf0s.jpg");
   }
   .absolute {
     position: absolute;

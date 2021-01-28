@@ -24,12 +24,10 @@ const Wrapper = styled.div`
     height: 320px;
     position: relative;
     padding: 3rem;
-    padding-top: 10rem;
+    padding-top: 9rem;
         overflow: hidden;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      height: 210px;
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {      
       display: block;
-      padding: 3rem;
     }
     img {
       right: 24px;
