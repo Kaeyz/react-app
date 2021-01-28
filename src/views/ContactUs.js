@@ -4,8 +4,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import addressIcon from "../assets/addressWhite.png";
-import contact1 from "../assets/contact1.png";
-import contact2 from "../assets/contact2.png";
 import flower from "../assets/greenflower.png";
 import logo from "../assets/logo.png";
 import atIcon from "../assets/mailWhite.png";
@@ -22,7 +20,7 @@ const Wrapper = styled.div`
   .hero {
     position: relative;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url(${contact1});
+      url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309846/chooseLife/contact1_zfmsqp.png");
     height: 600px;
     background-position: center;
     background-repeat: no-repeat;
@@ -127,7 +125,7 @@ const Wrapper = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url(${contact2});
+      url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309853/chooseLife/contact2_eccs5p.png");
       @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
         order: 2;
       }
@@ -273,7 +271,7 @@ const ContactUs = () => {
               <p>
                 Take control of your fitness goals. Evaluate your fitness, score
                 metabolic rates,check your hydration levels, body fat, water
-                retention and muscle mass. It will help us help you understand
+                retension and muscle mass. It will help us help you understand
                 your body and how it’s performing.
               </p>
               <p className="or">or</p>
