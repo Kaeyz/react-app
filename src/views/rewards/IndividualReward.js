@@ -153,7 +153,11 @@ IndividualRewards.propTypes = {
 
 const mapStateToProps = (state) => {
 	const { isLoading, rewards } = state.reward;
-	const { openReward } = rewards;
+	let { openReward } = rewards;
+
+	if ( openReward === null) {
+		openReward = {}
+	}
 	return { reward: openReward, isLoading };
 };
 

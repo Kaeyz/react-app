@@ -1,23 +1,22 @@
 /*eslint-disable */
+import { Grid } from "@material-ui/core";
 import React from "react";
-import CarouselHero from "../components/home/CarouselHero";
-import Header from "../components/layouts/appLayout/header";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import addressIcon from "../assets/addressWhite.png";
 import contact1 from "../assets/contact1.png";
 import contact2 from "../assets/contact2.png";
-import logo from "../assets/logo.png";
 import flower from "../assets/greenflower.png";
+import logo from "../assets/logo.png";
+import atIcon from "../assets/mailWhite.png";
+import callIcon from "../assets/phoneWhite.png";
+import yellow from "../assets/wellnessNav/fitnessIsActive.svg";
 import blue from "../assets/wellnessNav/healthIsActive.svg";
 import orange from "../assets/wellnessNav/lifestyleIsActive.svg";
 import green from "../assets/wellnessNav/nutritionIsActive.svg";
-import yellow from "../assets/wellnessNav/fitnessIsActive.svg";
-import AppLayout from "../components/layouts/appLayout/AppLayout";
-import { Link } from "react-router-dom";
-import callIcon from "../assets/phoneWhite.png";
-import atIcon from "../assets/mailWhite.png";
-import addressIcon from "../assets/addressWhite.png";
-import styled from "styled-components";
-import { Grid } from "@material-ui/core";
 import Button from "../components/common/Button";
+import AppLayout from "../components/layouts/appLayout/AppLayout";
+import Header from "../components/layouts/appLayout/header";
 
 const Wrapper = styled.div`
   .hero {
@@ -92,7 +91,7 @@ const Wrapper = styled.div`
     border: none;
     background-color: rgba(255, 255, 255, 0.3);
     font-size: 2rem;
-   
+
     @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
       padding: 10px 30px;
       font-size: 1.5rem;
@@ -146,7 +145,7 @@ const Wrapper = styled.div`
       @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
         padding: 20px 0;
       }
-      
+
     }
     }
     .header{
@@ -164,7 +163,7 @@ const Wrapper = styled.div`
   }
   .contact-form {
     position: relative;
-    
+
   }
   .empty{
     background-color:${(props) => props.theme.color.ui_01};
@@ -249,7 +248,7 @@ const Wrapper = styled.div`
   label{
     font-size: 1.7rem;
   }
-  
+
   textarea, input{
     width: 100%;
     outline: none;
@@ -274,7 +273,7 @@ const ContactUs = () => {
               <p>
                 Take control of your fitness goals. Evaluate your fitness, score
                 metabolic rates,check your hydration levels, body fat, water
-                retension and muscle mass. It will help us help you understand
+                retention and muscle mass. It will help us help you understand
                 your body and how it’s performing.
               </p>
               <p className="or">or</p>

@@ -1,8 +1,8 @@
-import { appIsLoading, appNotLoading } from './appActions';
-import { errorAlert, successAlert, clearAlert } from './alertActions';
-import { SET_USER, SET_AUTH, CLEAR_SESSION } from '../types';
 import userQueries from '../../client/queries/userQueries';
-import {fetchHraResponse } from './hraActions';
+import { CLEAR_SESSION, SET_AUTH, SET_USER } from '../types';
+import { clearAlert, errorAlert, successAlert } from './alertActions';
+import { appIsLoading, appNotLoading } from './appActions';
+import { fetchHraResponse } from './hraActions';
 
 
 export const setIsAuthenticated = (payload) => {
@@ -146,6 +146,26 @@ export const resetPassword = (data) => dispatch => {
 		});
 };
 
+export const resendResetPasswordMail = (data) => dispatch => {
+	dispatch(appIsLoading());
+	dispatch(clearAlert());
+	userQueries.resendResetPasswordMail(data)
+		.then(res => {
+			if (res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+				dispatch(appNotLoading());
+			}
+			// eslint-disable-next-line no-console
+			if (res.data) {
+				dispatch(successAlert(res.data.resendResetPasswordRequestMail.message));
+				dispatch(appNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Connection Error: Try again!!' }));
+		});
+};
+
 export const updateUser = (data) => dispatch => {
 	dispatch(clearAlert());
 	userQueries.updateUser(data)
@@ -168,7 +188,7 @@ export const updateUserPassword = (data) => dispatch => {
 	userQueries.updateUserPassword(data)
 		.then(res => {
 			if (res.errors) {
-				dispatch(errorAlert({ msg: 'Invalid Input' }));
+				dispatch(errorAlert({ msg: res.errors[0].message }));
 			}
 			if (res.data) {
 				dispatch(successAlert(res.data.updateUserPassword.message));

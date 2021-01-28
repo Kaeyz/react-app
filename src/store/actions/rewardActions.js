@@ -1,8 +1,6 @@
 import rewardQueries from '../../client/queries/rewardQueries';
+import { ADD_LEADERBOARD, ADD_REWARDS, REWARD_IS_LOADING, REWARD_NOT_LOADING } from '../types';
 import { errorAlert, successAlert } from './alertActions';
-import {
-	ADD_REWARDS, REWARD_NOT_LOADING, REWARD_IS_LOADING, ADD_LEADERBOARD
-} from '../types';
 
 
 const addRewards = (rewards, type) => {
@@ -90,7 +88,10 @@ export const getRewards = () => dispatch => {
 	dispatch(rewardIsLoading());
 	rewardQueries.getCurrentReward()
 		.then(res => {
-			const reward = res.data.fetchCurrentReward ;
+			let reward = res.data.fetchCurrentReward;
+			if (reward === null) {
+				reward = [];
+			}
 			dispatch(addRewards(reward, 'openReward'));
 			dispatch(rewardNotLoading());
 		})
