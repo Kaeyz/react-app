@@ -1,22 +1,21 @@
 // modules
+import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/logo.png';
+import styled from 'styled-components';
+import abtIcon from '../../../assets/abtIcon.png';
+import addressIcon from '../../../assets/addressIcon.png';
+import atIcon from '../../../assets/atIcon.png';
 import brandlogoBlue from '../../../assets/brandlogoBlue.png';
+import callIcon from '../../../assets/callIcon.png';
+import copyright from '../../../assets/copyright.png';
+import facebookIcon from '../../../assets/facebookIcon.png';
+import greenflower from '../../../assets/greenflower.png';
 import homeIcon from '../../../assets/homeIcon.png';
 import pillarIcon from '../../../assets/ionic-pillarIcon.png';
-import abtIcon from '../../../assets/abtIcon.png';
-import callIcon from '../../../assets/callIcon.png';
-import atIcon from '../../../assets/atIcon.png';
-import addressIcon from '../../../assets/addressIcon.png';
+import logo from '../../../assets/logo.png';
 import twitterIcon from '../../../assets/twitterIcon.png';
-import facebookIcon from '../../../assets/facebookIcon.png';
-import copyright from '../../../assets/copyright.png';
-import instagramIcon from '../../../assets/instagramIcon.png';
-import greenflower from '../../../assets/greenflower.png';
 import Container from '../../common/Container';
-import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.text_03};
@@ -260,7 +259,7 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 								</span>
                 Facebook
 							</a>
-							<a className="footer_nav_link" target="_blank" href="#">
+							{/* <a className="footer_nav_link" target="_blank" href="#">
 								<span className="icon">
 									<img
 										className="icons"
@@ -269,7 +268,7 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 									/>
 								</span>
                 Instagram
-							</a>
+							</a> */}
 						</div>
 					</div>
 				</div>
