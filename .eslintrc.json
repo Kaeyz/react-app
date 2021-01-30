@@ -23,7 +23,7 @@
     "semi": ["error", "always"],
     "no-trailing-spaces": "error",
     "no-console": "error",
-    "prefer-const": "error",
+    "prefer-const": "warn",
     "no-var": "error",
     "no-irregular-whitespace": "error"
   },
