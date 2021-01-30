@@ -7,6 +7,11 @@ module.exports = function resetPasswordValidator(data) {
 	data.password = !isEmpty(data.password) ? data.password : '';
 	data.confirmPassword = !isEmpty(data.confirmPassword) ? data.confirmPassword : '';
 
+	if (!validator.matches(data.password, /(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}/g)) {
+		errors.password =
+      'Must includes one uppercase and one number';
+	}
+
 	if (!validator.isLength(data.password, { min: 8 })) {
 		errors.password = 'Password must be at least 8';
 	}

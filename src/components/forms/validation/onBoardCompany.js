@@ -49,6 +49,11 @@ module.exports = function onBoardCompanyValidator(data) {
 		errors.jobTitle = 'Job title is required';
 	}
 
+	if (!validator.matches(data.password, /(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}/g)) {
+		errors.password =
+      'Must include 1 uppercase & 1 number';
+	}
+
 	if (!validator.isLength(data.password, { min: 8 })) {
 		errors.password = 'Password must be at least 8';
 	}
