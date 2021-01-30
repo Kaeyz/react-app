@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import FormControl from '@material-ui/core/FormControl';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 import Icon from '../../../assets/searchIcon.svg';
 
 const Wrapper = styled.div`
@@ -36,7 +36,7 @@ const Wrapper = styled.div`
 }
 `;
 
-function SearchInput({onSubmit, placeholder, onChange, value,}) {
+function SearchInput({onSubmit, placeholder, onChange, value, title}) {
 	const onEnterPress = event => {
 		if (event.key === 'Enter') {
 			onSubmit(value);
@@ -55,6 +55,7 @@ function SearchInput({onSubmit, placeholder, onChange, value,}) {
 							<img src={Icon} alt="icon"/>
 						</InputAdornment>
 					}
+					title={title}
 					placeholder={placeholder}
 					value={value}
 					onChange={e => onChange(e.target.value)}
@@ -69,8 +70,8 @@ SearchInput.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
 	placeholder: PropTypes.string.isRequired,
-	value: PropTypes.string.isRequired
+	value: PropTypes.string.isRequired,
+	title: PropTypes.string,
 };
 
 export { SearchInput };
-

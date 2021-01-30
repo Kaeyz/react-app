@@ -1,22 +1,22 @@
 /*eslint-disable */
 
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
-import FilterSearchLayout from '../../components/layouts/FilterSearchLayout';
 import Button from '../../components/common/Button';
 // import PaginationTable from '../../components/common/PaginationTable';
 import Table from '../../components/dashboard/common/Table';
-import { tableConstants4 } from '../../components/dashboard/employees/tableConstant4';
-import { Link } from 'react-router-dom';
+import BatchUploadModal from '../../components/dashboard/employees/BatchUploadModal';
 import NewEmployeeModal from '../../components/dashboard/employees/NewEmployeeModal';
+import { tableConstants4 } from '../../components/dashboard/employees/tableConstant4';
+import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
+import FilterSearchLayout from '../../components/layouts/FilterSearchLayout';
 import {
 	getActiveEmployees,
-	searchEmployees,
+	searchEmployees
 } from '../../store/actions/employeeActions';
-import BatchUploadModal from '../../components/dashboard/employees/BatchUploadModal';
 import { sortTableData } from '../../utils/helper';
 
 const Wrapper = styled.div`
@@ -93,7 +93,8 @@ const Employees = ({
 		<Wrapper>
 			<DashboardLayout whatPage="Employees">
 				<FilterSearchLayout
-					searchPlaceholder="Search Employees ..."
+					searchPlaceholder="Search Employees ... and press Enter"
+					title="Type a name and press enter"
 					onSearchSubmit={searchEmployees}
 					text="Employees"
 					wrap="wrap"
