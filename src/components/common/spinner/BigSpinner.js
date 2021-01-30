@@ -1,7 +1,7 @@
+import CircularProgress from '@material-ui/core/CircularProgress';
 import React from 'react';
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Wrapper = styled.div`
 .modal {
@@ -24,9 +24,9 @@ const Wrapper = styled.div`
 		}
 	}
 		.MuiCircularProgress-indeterminate{
-				width: 100px !important;
-		height: 100px !important;
-		color: ${(props) => props.theme.color.brand_02};
+			width: 100px !important;
+			height: 100px !important;
+			color: ${(props) => props.theme.color.brand_02};
 		}
 `;
 

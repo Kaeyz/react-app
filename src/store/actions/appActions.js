@@ -1,4 +1,6 @@
-import { APP_IS_LOADING, APP_NOT_LOADING} from '../types';
+import landingPageQueries from '../../client/queries/landingPageQueries';
+import { APP_IS_LOADING, APP_NOT_LOADING } from '../types';
+import { errorAlert, successAlert } from './alertActions';
 
 
 export const appIsLoading = () => {
@@ -13,3 +15,15 @@ export const appNotLoading = () => {
 	};
 };
 
+export const contactUs = (data) => (dispatch) => {
+	landingPageQueries
+		.contactUs(data)
+		.then((res) => {
+			const { message } = res.data.ContactUs;
+			dispatch(successAlert(message));
+
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Network Error!!' }));
+		});
+};

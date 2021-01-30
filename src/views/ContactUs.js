@@ -1,21 +1,24 @@
 /*eslint-disable */
+import { Grid } from "@material-ui/core";
 import React from "react";
-import CarouselHero from "../components/home/CarouselHero";
-import Header from "../components/layouts/appLayout/header";
-import logo from "../assets/logo.png";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import addressIcon from "../assets/addressIcon.png";
 import flower from "../assets/greenflower.png";
+import logo from "../assets/logo.png";
+import atIcon from "../assets/mailWhite.png";
+import callIcon from "../assets/phoneWhite.png";
+import yellow from "../assets/wellnessNav/fitnessIsActive.svg";
 import blue from "../assets/wellnessNav/healthIsActive.svg";
 import orange from "../assets/wellnessNav/lifestyleIsActive.svg";
 import green from "../assets/wellnessNav/nutritionIsActive.svg";
-import yellow from "../assets/wellnessNav/fitnessIsActive.svg";
-import AppLayout from "../components/layouts/appLayout/AppLayout";
-import { Link } from "react-router-dom";
-import callIcon from "../assets/phoneWhite.png";
-import atIcon from "../assets/mailWhite.png";
-import addressIcon from "../assets/addressWhite.png";
-import styled from "styled-components";
-import { Grid } from "@material-ui/core";
 import Button from "../components/common/Button";
+import AppLayout from "../components/layouts/appLayout/AppLayout";
+import Header from "../components/layouts/appLayout/header";
+import { contactUs } from "../store/actions/appActions";
+import useForm from "../utils/useForm";
+
 
 const Wrapper = styled.div`
   .hero {
@@ -90,7 +93,7 @@ const Wrapper = styled.div`
     border: none;
     background-color: rgba(255, 255, 255, 0.3);
     font-size: 2rem;
-   
+
     @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
       padding: 10px 30px;
       font-size: 1.5rem;
@@ -144,7 +147,7 @@ const Wrapper = styled.div`
       @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
         padding: 20px 0;
       }
-      
+
     }
     }
     .header{
@@ -162,7 +165,7 @@ const Wrapper = styled.div`
   }
   .contact-form {
     position: relative;
-    
+
   }
   .empty{
     background-color:${(props) => props.theme.color.ui_01};
@@ -247,7 +250,7 @@ const Wrapper = styled.div`
   label{
     font-size: 1.7rem;
   }
-  
+
   textarea, input{
     width: 100%;
     outline: none;
@@ -262,6 +265,17 @@ const Wrapper = styled.div`
 }
 `;
 const ContactUs = () => {
+  const dispatch = useDispatch();
+  const { inputs, handleChange, clearForm } = useForm({
+    firstName: "",
+    lastName: "",
+    companyName: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+
+
   return (
     <AppLayout header={<Header />}>
       <Wrapper>
@@ -350,7 +364,14 @@ const ContactUs = () => {
               <div className="head">
                 <h1>Send a Message</h1>
               </div>
-              <form className="form">
+              <form
+                className="form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  dispatch(contactUs(inputs))
+                  clearForm()
+                }}
+              >
                 <Grid container spacing={1}>
                   <Grid item xs={12} sm={6}>
                     <div className="mt">
@@ -359,6 +380,8 @@ const ContactUs = () => {
                     <input
                       type="text"
                       id="firstName"
+                      onChange={handleChange}
+                      value={inputs.firstName}
                       name="firstName"
                       required
                     />
@@ -367,7 +390,14 @@ const ContactUs = () => {
                     <div className="mt">
                       <label for="lastName">Last Name</label>{" "}
                     </div>
-                    <input type="text" id="lastName" name="lastName" required />
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      onChange={handleChange}
+                      value={inputs.required}
+                      required
+                    />
                   </Grid>
                   <Grid item xs={12}>
                     <div className="mt">
@@ -376,6 +406,8 @@ const ContactUs = () => {
                     <input
                       type="text"
                       id="companyName"
+                      onChange={handleChange}
+                      value={inputs.companyName}
                       name="companyName"
                       required
                     />
@@ -385,23 +417,44 @@ const ContactUs = () => {
                       {" "}
                       <label for="email">Email Address</label>
                     </div>
-                    <input type="email" id="email" name="email" required />
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      onChange={handleChange}
+                      value={inputs.email}
+                      required
+                    />
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <div className="mt">
                       {" "}
                       <label for="phone">Phone</label>{" "}
                     </div>
-                    <input type="tel" id="phone" name="phone" required />
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      onChange={handleChange}
+                      value={inputs.phone}
+                      required
+                    />
                   </Grid>
                   <Grid item xs={12}>
                     <div className="mt">
                       <label for="message">Message</label>
                     </div>
-                    <textarea id="message" name="message" rows="8" required />
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="8"
+                      onChange={handleChange}
+                      value={inputs.message}
+                      required
+                    />
                   </Grid>
                   <Grid item xs={12}>
-                    <Button theme="deepYellowBtn">Submit</Button>
+                    <Button type="submit" theme="deepYellowBtn">Submit</Button>
                   </Grid>
                 </Grid>
               </form>
