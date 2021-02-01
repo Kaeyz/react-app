@@ -1,15 +1,15 @@
+import { Grid, Paper } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNewReward } from '../../../store/actions/rewardActions';
-import PropTypes from 'prop-types';
-import { rewardInputValidator } from '../../forms/validation';
 import styled from 'styled-components';
-import Modal from '../../dashboard/common/Modal';
-import Button from '../../../components/common/Button';
-import { TextInput, DateInput, TextArea } from '../../../components/common/inputs';
-import pinkIcon from '../../../assets/pinkIcon.svg';
 import add from '../../../assets/Add.svg';
-import { Paper, Grid } from '@material-ui/core';
+import pinkIcon from '../../../assets/pinkIcon.svg';
+import Button from '../../../components/common/Button';
+import { DateInput, TextArea, TextInput } from '../../../components/common/inputs';
+import { addNewReward } from '../../../store/actions/rewardActions';
+import Modal from '../../dashboard/common/Modal';
+import { rewardInputValidator } from '../../forms/validation';
 
 const Wrapper = styled.div`
 	#mb {
@@ -41,8 +41,12 @@ const CreateRewardModal = ({addNewReward}) => {
 		setErrors({});
 		const data = { title, description, startDate, endDate };
 
+		// check if the startDate is greater than the end date
+
 		const { errors, isValid } = rewardInputValidator(data);
 		if (!isValid) {
+			// eslint-disable-next-line no-console
+			console.log(errors);
 			return setErrors(errors);
 		}
 
@@ -86,7 +90,7 @@ const CreateRewardModal = ({addNewReward}) => {
 							label="Start Date"
 							value={startDate}
 							onChange={setStartDate}
-							errors={errors.startDate}
+							error={errors.startDate}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
@@ -94,7 +98,7 @@ const CreateRewardModal = ({addNewReward}) => {
 							label="End Date"
 							value={endDate}
 							onChange={setEndDate}
-							errors={errors.endDate}
+							error={errors.endDate}
 						/>
 					</Grid>
 					<Grid item xs={12} id="mb">

@@ -1,12 +1,12 @@
 /*eslint-disable*/
-import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import Pagination from 'react-js-pagination';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import MonoBlog from '../../components/blog/MonoBlog';
-import PropTypes from 'prop-types';
-import { convertDate, capitalizeFirstLetter } from '../../utils/helper';
 import { getBlogs } from '../../store/actions/blogActions';
-import { connect } from 'react-redux';
+import { capitalizeFirstLetter, convertDate } from '../../utils/helper';
 
 const Wrapper = styled.div`
 	.grid-container {
@@ -99,8 +99,8 @@ const PaginatedContent = ({ blogs, isLoading, getBlogs }) => {
 		<Wrapper>
 			<div className="result grid-container">
 				{isLoading ? <div>Loading...</div> :
-					blogs.content ? renderBlogContent() :
-						<div>No Blog Found</div>
+					blogs && blogs.content ? renderBlogContent() :
+						<div>{setTimeout(() => "No Blog Found", 3000)}</div>
 				}
 			</div>
 			<div className="pagination">

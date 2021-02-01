@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -205,6 +206,7 @@ BlogPostDetail.propTypes = {
 
 const mapStateToProps = (state) => {
 	const { blogs, blog, isLoading } = state.blog;
+	console.log(isLoading);
 	return {blogs: blogs || [], blog, isLoading };
 };
 
