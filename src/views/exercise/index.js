@@ -1,11 +1,11 @@
+import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
-import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import ExerciseCard from '../../components/dashboard/exercise/ExerciseCard';
-import PropTypes from 'prop-types';
+import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import { getExercises } from '../../store/actions/exerciseActions';
-import { connect } from 'react-redux';
 
 
 
@@ -85,7 +85,7 @@ const Exercise = ({ getExercises, isLoading, exercises  }) => {
 								))}
 							</div>
 						</div>
-					))
+					)) || <div>loading...</div>
 					}
 				</main>
 			</Wrapper>
