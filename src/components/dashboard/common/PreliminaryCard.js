@@ -1,9 +1,9 @@
-import React from 'react';
 import Paper from '@material-ui/core/Paper';
-import Button from '../../common/Button';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import Button from '../../common/Button';
 
 const Wrapper = styled.div`
   .orange {
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     padding: 3rem;
     padding-top: 9rem;
         overflow: hidden;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {      
+    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       display: block;
     }
     img {
@@ -69,9 +69,9 @@ const PreliminaryCard = ({
 				<p>
 					{details}
 				</p>
-				<Link to={where || '/'}>
+				{btnValue !=='Coming Soon' && <Link to={where || '/'}>
 					<Button theme={btnTheme}>{btnValue}</Button>
-				</Link>
+				</Link>}
 				<img src={image} alt="Flower" />
 			</Paper>
 		</Wrapper>

@@ -1,13 +1,13 @@
 /*eslint-disable */
 
 import React from 'react';
-import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
-import BodyMassCard from '../../components/dashboard/dashboard_home/BodyMassCard';
-import PreliminaryCard from '../../components/dashboard/common/PreliminaryCard';
+import styled from 'styled-components';
+import greenFlower from '../../assets/greenFlower.svg';
 import pinkFlower from '../../assets/pinkFlower.svg';
 import yellowFlower from '../../assets/yellowFlower.svg';
-import greenFlower from '../../assets/greenFlower.svg';
-import styled from 'styled-components';
+import PreliminaryCard from '../../components/dashboard/common/PreliminaryCard';
+import BodyMassCard from '../../components/dashboard/dashboard_home/BodyMassCard';
+import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
 
 const Wrapper = styled.div`
   padding-top: 3rem;
@@ -51,7 +51,7 @@ const DashboardHome = () => {
 					/>
 
 					<PreliminaryCard
-						btnValue="Start Check"
+						btnValue="Coming Soon"
 						cardInfo="InBody Comprehensive Check"
 						image={greenFlower}
 						btnTheme="purpleBtn"
@@ -70,7 +70,7 @@ const DashboardHome = () => {
 					/>
 				</div>
 
-				
+
 			</main>
 		</Wrapper>
 	);

@@ -1,12 +1,12 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
+import Paper from '@material-ui/core/Paper';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import Back from '../../../../assets/greenBackArrow.svg';
 import styled from 'styled-components';
-import Button from '../../../../components/common/Button';
+import Back from '../../../../assets/greenBackArrow.svg';
 import downloadIcon from '../../../../assets/Vector.svg';
-import Paper from '@material-ui/core/Paper';
+import Button from '../../../../components/common/Button';
 
 const Wrapper = styled.div`
 	padding: 1rem 0;
@@ -188,7 +188,7 @@ function QuestionnaireLayout({
 						<img src={Back} alt="go back" />
 						<p className="back">Back</p>
 					</div>
-					<div className="download exercise flex">
+					{/* <div className="download exercise flex">
 						<Button
 							theme="whiteOrange"
 							text="Leave programme"
@@ -199,7 +199,7 @@ function QuestionnaireLayout({
 							text="Start Workout"
 						>
 						</Button>
-					</div>
+					</div> */}
 				</Paper>
 			)}
 			<div className="flex withGuage">
