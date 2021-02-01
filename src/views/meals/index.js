@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react';
-import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
-import { getMealPlan } from '../../store/actions/mealActions';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import NewMealPlan from '../../components/dashboard/meals/NewMealPlan';
 import ViewMealPlan from '../../components/dashboard/meals/ViewMealPlan';
+import { getMealPlan } from '../../store/actions/mealActions';
 
 
 const Wrapper = styled(Paper)`
@@ -46,7 +46,7 @@ const Meal = ({mealPlan, isLoading, getMealPlan}) => {
 			{
 				!isLoading && mealPlan ?
 					<ViewMealPlan mealPlan={mealPlan} /> :
-					<NewMealPlan />
+					<NewMealPlan /> || <div>loading...</div>
 			}
 		</Wrapper>
 	);

@@ -1,20 +1,20 @@
-import React from 'react';
+import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
-import { closeReward } from '../../../store/actions/rewardActions';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Modal from '../../dashboard/common/Modal';
-import Grid from '@material-ui/core/Grid';
-import Button from '../../../components/common/Button';
-import pinkIcon from '../../../assets/pinkIcon.svg';
-import AppointReward from '../../../components/common/AppointReward';
-import EditRewardModal from './EditRewardModal';
-import { convertDate } from '../../../utils/helper';
 import blueIcon from '../../../assets/blueIcon.svg';
-import orangeIcon from '../../../assets/orangeIcon.svg';
 import greenIcon from '../../../assets/greenIcon.svg';
+import orangeIcon from '../../../assets/orangeIcon.svg';
+import pinkIcon from '../../../assets/pinkIcon.svg';
 import purpleIcon from '../../../assets/purpleIcon.svg';
+import AppointReward from '../../../components/common/AppointReward';
+import Button from '../../../components/common/Button';
+import { closeReward } from '../../../store/actions/rewardActions';
+import { convertDate } from '../../../utils/helper';
+import Modal from '../../dashboard/common/Modal';
+import EditRewardModal from './EditRewardModal';
 
 const Wrapper = styled.div`
   .body {
@@ -80,7 +80,7 @@ const RewardDetailsModal = ({ theme, reward, closeReward }) => {
 				heading={
 					<span>
 						<img src={icon[theme]} alt="icon" />
-						{reward && reward.title}
+						{reward && reward.title}{reward && reward.isClosed && `${' (closed)'}`}
 					</span>
 				}
 			>

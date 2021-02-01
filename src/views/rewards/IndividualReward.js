@@ -139,7 +139,6 @@ function IndividualRewards({ getRewards, reward, isLoading}) {
 								</Grid>
 							</Grid>
 				}
-
 			</DashboardLayout>
 		</Wrapper>
 	);
