@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable no-console */
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -206,7 +207,6 @@ BlogPostDetail.propTypes = {
 
 const mapStateToProps = (state) => {
 	const { blogs, blog, isLoading } = state.blog;
-	console.log(isLoading);
 	return {blogs: blogs || [], blog, isLoading };
 };
 

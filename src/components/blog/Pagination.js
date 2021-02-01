@@ -100,7 +100,7 @@ const PaginatedContent = ({ blogs, isLoading, getBlogs }) => {
 			<div className="result grid-container">
 				{isLoading ? <div>Loading...</div> :
 					blogs && blogs.content ? renderBlogContent() :
-						<div>{setTimeout(() => "No Blog Found", 3000)}</div>
+						<div>loading...</div>
 				}
 			</div>
 			<div className="pagination">

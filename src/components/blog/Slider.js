@@ -1,17 +1,17 @@
-import React, {useEffect} from 'react';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 import styled from 'styled-components';
-import MonoBlog from './MonoBlog';
-import arrowLeft from '../../assets/slideArrowLeft.png';
-import arrowRight from '../../assets/slideArrowRight.png';
 import leftWhite from '../../assets/leftwhiteflower.png';
 import rightWhite from '../../assets/rightwhiteflower.png';
-import PropTypes from 'prop-types';
-import { convertDate, capitalizeFirstLetter } from '../../utils/helper';
+import arrowLeft from '../../assets/slideArrowLeft.png';
+import arrowRight from '../../assets/slideArrowRight.png';
 import { getFeaturedBlogs } from '../../store/actions/blogActions';
-import { connect } from 'react-redux';
+import { capitalizeFirstLetter, convertDate } from '../../utils/helper';
+import MonoBlog from './MonoBlog';
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.ui_text_08};
@@ -134,8 +134,8 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 			<p className="slide-heading"> Featured</p>
 			<Slider {...settings}>{
 				!isLoading &&
-					featuredBlogs.content ? renderSlides() :
-					<div>No Featured Blog</div>
+					featuredBlogs && featuredBlogs.content ? renderSlides() :
+					<div>loading</div>
 			}</Slider>
 		</Wrapper>
 	);
