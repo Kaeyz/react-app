@@ -203,7 +203,13 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 									<img className="icons" src={callIcon} alt="callIcon" />
 								</span>
 								<span style={{display:'grid'}}>
-									<b>0802 648 4048, </b>
+									<b>0802 648 4048, </b></span>
+							</Link>
+							<Link className="footer_nav_link flex" style={{justifyContent: 'start' , alignItems: 'baseline'}}>
+								<span className="icon">
+									<img className="icons" src={callIcon} alt="callIcon" />
+								</span>
+								<span style={{display:'grid'}}>
 									<b>0802 648 3318</b></span>
 							</Link>
 							<a
