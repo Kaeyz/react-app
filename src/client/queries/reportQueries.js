@@ -1,5 +1,5 @@
-import { httpFetch, client } from '../client';
 import keys from '../../utils/keys';
+import { client, httpFetch } from '../client';
 const reportQueries = {};
 
 
@@ -122,8 +122,8 @@ reportQueries.getReportPdf = async (reportId) => {
 
 reportQueries.getAdminReportPdf = async () => {
 
-	//	const path = `${keys.ghmServer}/get_group_report_pdf`;
-	const path = 'https://hra-api.ghmcorp.com/api/v2/get_group_report_pdf';
+	const path = `${keys.ghmServer}/get_group_report_pdf`;
+	// const path = 'https://hra-api.ghmcorp.com/api/v2/get_group_report_pdf';
 
 
 	return new Promise((resolve, reject) => {
@@ -140,9 +140,9 @@ reportQueries.getAdminReportPdf = async () => {
 
 reportQueries.getCompanyReportPdf = async (userId) => {
 
-	//const path = `${keys.ghmServer}/get_group_report_pdf`;
+	const path = `${keys.ghmServer}/get_group_report_pdf`;
 
-	const path = 'https://hra-api.ghmcorp.com/api/v2/get_group_report_pdf';
+	// const path = 'https://hra-api.ghmcorp.com/api/v2/get_group_report_pdf';
 
 
 	return new Promise((resolve, reject) => {
