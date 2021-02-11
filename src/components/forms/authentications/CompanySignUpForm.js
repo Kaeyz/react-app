@@ -1,15 +1,14 @@
+import { Grid } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { registerCompany } from '../../../store/actions/userActions';
-import AuthFormLayout from './AuthFormLayout';
-import { TextInput, PasswordInput } from '../../common/inputs';
-import { Grid } from '@material-ui/core';
-import styled from 'styled-components';
-import Button from '../../common/Button';
-import { onBoardCompanyValidator } from '../validation';
 import { Link } from 'react-router-dom';
-
+import styled from 'styled-components';
+import { registerCompany } from '../../../store/actions/userActions';
+import Button from '../../common/Button';
+import { PasswordInput, TextInput } from '../../common/inputs';
+import { onBoardCompanyValidator } from '../validation';
+import AuthFormLayout from './AuthFormLayout';
 
 const Wrapper = styled.div`
 	.submit {
@@ -17,25 +16,24 @@ const Wrapper = styled.div`
 		display: flex;
 		justify-content: center;
 	}
-	.info{
+	.info {
 		text-align: center;
 		font-family: Sofia;
-font-size: 1.4rem;
-line-height: 2.5rem;
-color: ${props => props.theme.color.ui_05};
-padding-top: 3rem;
-font-weight: bold;
-span{
-	a{
-		color: ${props => props.theme.color.brand_02};
-	text-decoration: underline;
-	}
-}
+		font-size: 1.4rem;
+		line-height: 2.5rem;
+		color: ${(props) => props.theme.color.ui_05};
+		padding-top: 3rem;
+		font-weight: bold;
+		span {
+			a {
+				color: ${(props) => props.theme.color.brand_02};
+				text-decoration: underline;
+			}
+		}
 	}
 `;
 
-
-function CompanySignUpForm({history, registerCompany}) {
+function CompanySignUpForm({ history, registerCompany }) {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [password, setPassword] = useState('');
@@ -50,15 +48,33 @@ function CompanySignUpForm({history, registerCompany}) {
 
 	const onFormSubmit = () => {
 		setErrors({});
-		const data = { firstName, lastName, organizationName, password, password2, organizationEmail, representativeEmail, jobTitle };
+		const data = {
+			firstName,
+			lastName,
+			organizationName,
+			password,
+			password2,
+			organizationEmail,
+			representativeEmail,
+			jobTitle,
+		};
 		const { isValid, errors } = onBoardCompanyValidator(data);
 
 		if (!isValid) {
-			return	setErrors(errors);
+			return setErrors(errors);
 		}
 
-		const company = { firstName, lastName, organizationName, password, organizationEmail, representativeEmail, jobTitle };
-		if (organizationAddress) company.organizationAddress = organizationAddress;
+		const company = {
+			firstName,
+			lastName,
+			organizationName,
+			password,
+			organizationEmail,
+			representativeEmail,
+			jobTitle,
+		};
+		if (organizationAddress)
+			company.organizationAddress = organizationAddress;
 		if (organizationUrl) company.organizationUrl = organizationUrl;
 
 		registerCompany(company, history);
@@ -66,16 +82,14 @@ function CompanySignUpForm({history, registerCompany}) {
 
 	return (
 		<Wrapper>
-
-			<AuthFormLayout showFormAgreement={false} >
+			<AuthFormLayout showFormAgreement={false}>
 				<div>
-
 					<Grid container spacing={2} justify="space-between">
 						<Grid item xs={12} sm={6}>
 							<TextInput
 								label="First Name"
 								placeholder="Type here..."
-								value= {firstName}
+								value={firstName}
 								onChange={setFirstName}
 								error={errors.firstName}
 							/>
@@ -83,7 +97,7 @@ function CompanySignUpForm({history, registerCompany}) {
 						<Grid item xs={12} sm={6}>
 							<TextInput
 								label="Last Name "
-								value= {lastName}
+								value={lastName}
 								placeholder="Type here..."
 								onChange={setLastName}
 								error={errors.lastName}
@@ -94,7 +108,7 @@ function CompanySignUpForm({history, registerCompany}) {
 						<Grid item xs={12} sm={6}>
 							<TextInput
 								label="Job Title (Description)"
-								value= {jobTitle}
+								value={jobTitle}
 								placeholder="Type here..."
 								onChange={setJobTitle}
 								error={errors.jobTitle}
@@ -102,7 +116,7 @@ function CompanySignUpForm({history, registerCompany}) {
 						</Grid>
 						<Grid item xs={12} sm={6}>
 							<TextInput
-								placeholder='example@address.com'
+								placeholder="example@address.com"
 								label="Representative Email"
 								value={representativeEmail}
 								type="email"
@@ -112,11 +126,11 @@ function CompanySignUpForm({history, registerCompany}) {
 						</Grid>
 					</Grid>
 
-					<Grid container  spacing={2}>
+					<Grid container spacing={2}>
 						<Grid item xs={12} sm={6}>
 							<TextInput
 								label="Organization Name"
-								value= {organizationName}
+								value={organizationName}
 								placeholder="Type here..."
 								onChange={setOrganizationName}
 								error={errors.organizationName}
@@ -125,8 +139,8 @@ function CompanySignUpForm({history, registerCompany}) {
 						<Grid item xs={12} sm={6}>
 							<TextInput
 								label="Company Website (Optional)"
-								value= {organizationUrl }
-								onChange={setOrganizationUrl }
+								value={organizationUrl}
+								onChange={setOrganizationUrl}
 								placeholder="Type here..."
 								error={errors.organizationUrl}
 							/>
@@ -174,24 +188,32 @@ function CompanySignUpForm({history, registerCompany}) {
 								error={errors.password2}
 							/>
 						</Grid>
-
 					</Grid>
 					<div className="submit">
-						<Button theme="darkGreen" onClick={onFormSubmit} style={{width: '100%'}}>Register</Button>
+						<Button
+							theme="darkGreen"
+							onClick={onFormSubmit}
+							style={{ width: '100%' }}
+						>
+							Register
+						</Button>
 					</div>
-
 				</div>
-				<p className="info">Already have an account? <span> <Link to ='/login'>Log In</Link></span> </p>
-
+				<p className="info">
+					Already have an account?{' '}
+					<span>
+						{' '}
+						<Link to="/login">Log In</Link>
+					</span>{' '}
+				</p>
 			</AuthFormLayout>
-
 		</Wrapper>
 	);
 }
 
 CompanySignUpForm.propTypes = {
 	history: PropTypes.object.isRequired,
-	registerCompany: PropTypes.func.isRequired
+	registerCompany: PropTypes.func.isRequired,
 };
 
-export default connect(null, {registerCompany})(CompanySignUpForm);
+export default connect(null, { registerCompany })(CompanySignUpForm);
