@@ -58,7 +58,8 @@ module.exports = function onBoardIndividualValidator(data) {
 			/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$&()\\-`.+,/"\]*$]{8,}$/,
 		)
 	) {
-		errors.password = 'Must include 1 uppercase  & 1 lowercase & 1 number';
+		errors.password =
+			'Must include 1 uppercase  & 1 lowercase & 1 number & 1 special character';
 	}
 
 	if (!validator.isLength(data.password, { min: 8 })) {

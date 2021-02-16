@@ -13,7 +13,8 @@ module.exports = function resetPasswordValidator(data) {
 			/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$&()\\-`.+,/"\]*$]{8,}$/,
 		)
 	) {
-		errors.password = 'Must includes 1 uppercase & 1 lowercase & 1 number';
+		errors.password =
+			'Must includes 1 uppercase & 1 lowercase & 1 number & 1 special character';
 	}
 
 	if (!validator.isLength(data.password, { min: 8 })) {
