@@ -10,11 +10,10 @@ module.exports = function resetPasswordValidator(data) {
 	if (
 		!validator.matches(
 			data.password,
-			/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+			/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$&()\\-`.+,/"\]*$]{8,}$/,
 		)
 	) {
-		errors.password =
-				'Must includes 1 uppercase & 1 lowercase & 1 number';
+		errors.password = 'Must includes 1 uppercase & 1 lowercase & 1 number';
 	}
 
 	if (!validator.isLength(data.password, { min: 8 })) {

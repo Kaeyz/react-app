@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 import close from '../../../assets/close.svg';
 
@@ -26,13 +26,13 @@ const Wrapper = styled.div`
       display: flex;
       flex-direction: column;
       position: relative;
-      overflow-y: scroll;
+      overflow-y: auto;
       overflow-x: hidden;
       @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
         padding-top: 6rem;
       }
       &::-webkit-scrollbar {
-        width: 0.3rem;
+        width: 1.3rem;
       }
 
       &::-webkit-scrollbar-track {

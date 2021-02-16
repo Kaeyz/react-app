@@ -1,10 +1,10 @@
 /*eslint-disable */
 import React from "react";
 import styled from "styled-components";
+import linkedin from "../assets/linkedIn.png";
+import team1 from "../assets/testimony3.png";
 import AppLayout from "../components/layouts/appLayout/AppLayout";
 import Header from "../components/layouts/appLayout/header/index2";
-import team1 from "../assets/testimony3.png";
-import linkedin from "../assets/linkedIn.png";
 
 
 const Wrapper = styled.div`
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       height: 400px;
     }
- 
+
   }
 
   .blue-bg {
@@ -96,7 +96,7 @@ const Wrapper = styled.div`
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       top: 10%;
     }
-   
+
   }
 
   .two {
@@ -106,7 +106,7 @@ const Wrapper = styled.div`
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       top: 10%;
     }
- 
+
   }
   .three {
     top: 0;
@@ -117,7 +117,7 @@ const Wrapper = styled.div`
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       top: 10%;
     }
- 
+
   }
   .four {
     left: 15%;
@@ -126,7 +126,7 @@ const Wrapper = styled.div`
       bottom: 0;
       left: 5%;
     }
-    
+
   }
   .five {
     left: 50%;
@@ -135,7 +135,7 @@ const Wrapper = styled.div`
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       bottom: 0;
     }
-  
+
   }
   .six {
     right: 15%;
@@ -214,7 +214,7 @@ function Team(props) {
     <AppLayout header={<Header />} >
       <Wrapper>
         <div className="head">
-          <h1>Our TEAM</h1>
+          <h1>OUR TEAM</h1>
           <p>
             Meet the wellness team.
           </p>
@@ -228,8 +228,8 @@ function Team(props) {
             <h3 className="role text">CEO</h3>
             <div className="social flex">
               <a href="https://www.linkedin.com/in/uganze-eke" target='_blank'><img src={linkedin} alt="linkedin" /></a>
-              
-            
+
+
               {/* <img className="pd" src={twitter} alt="twitter" />
               <img src={mail} alt="mail" /> */}
             </div>
@@ -242,7 +242,7 @@ function Team(props) {
             <a href="https://www.linkedin.com/in/uk-eke-076647200" target='_blank'>
               <img src={linkedin} alt="linkedin" />
               </a>
-           
+
               {/* <img className="pd" src={twitter} alt="twitter" />
               <img src={mail} alt="mail" /> */}
             </div>
@@ -266,7 +266,7 @@ function Team(props) {
             <div className="social flex">
             <a href="https://www.linkedin.com/in/prince-anusiem-362085146" target='_blank'>
               <img src={linkedin} alt="linkedin" />
-              </a>        
+              </a>
                     {/* <img className="pd" src={twitter} alt="twitter" />
               <img src={mail} alt="mail" /> */}
             </div>
