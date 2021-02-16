@@ -1,14 +1,15 @@
+/* eslint-disable no-console */
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { getRewards, getClosedRewards } from '../../store/actions/rewardActions';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
-import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner';
-import LeaderboardCard from '../../components/dashboard/dashboard_home/LeaderboardCard';
 import { Link } from 'react-router-dom';
-import RewardDetailsModal from '../../components/dashboard/companyRewards/RewardDetailsModal';
+import styled from 'styled-components';
 import CreateRewardModal from '../../components/dashboard/companyRewards/CreateRewardModal';
+import RewardDetailsModal from '../../components/dashboard/companyRewards/RewardDetailsModal';
+import LeaderboardCard from '../../components/dashboard/dashboard_home/LeaderboardCard';
+import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner';
+import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
+import { getClosedRewards, getRewards } from '../../store/actions/rewardActions';
 
 
 const Wrapper = styled.div`
@@ -94,13 +95,23 @@ function CompanyRewards({ isLoading, getClosedRewards, getRewards, openReward, c
 							<div>Loading ...</div> :
 							closedRewards < 1 ?
 								<div>No Closed Rewards Found</div> :
-								closedRewards.map((reward, index) => (
-									<React.Fragment key={index}>
-										<RewardDetailsModal
-											theme={themes[closedRewards.length-1 % themes.length]}
-											reward={reward} />
-									</React.Fragment>
-								))
+								closedRewards.map((reward, index) => {
+									console.log(
+										(closedRewards.length -
+											1) / (themes.length - 1)
+									);
+									return (
+										<React.Fragment key={index}>
+											<RewardDetailsModal
+												theme={
+													themes[
+														Math.trunc(Math.random() * themes.length)
+													]
+												}
+												reward={reward}
+											/>
+										</React.Fragment>
+									);})
 						}
 					</div>
 				</div>

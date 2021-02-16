@@ -1,16 +1,6 @@
 /*eslint-disable */
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
-import fly from "../../assets/fly.png";
-import firstBank from "../../assets/firstBank.png";
-import paystack from "../../assets/paystack.png";
-import flutter from "../../assets/flutter.png";
-import gtb from "../../assets/gtb.png";
-import amazon from "../../assets/amazon.png";
-import kuda from "../../assets/kuda.png";
-import hp from "../../assets/hp.png";
-import interswitch from "../../assets/interswitch.png";
 import flower1 from "../../assets/img/flower_1.png";
 import flower2 from "../../assets/img/flower_2.png";
 import Container from "../common/Container";
@@ -193,14 +183,14 @@ function OurClients(props) {
               healthier versions of the Foods you already love.
             </p>
 
-            <div className="rand-img flex big hp">
+            {/* <div className="rand-img flex big hp">
               <div className="circle flex hp">
                 {" "}
                 <img src={hp} alt="hp" />
               </div>
-            </div>
+            </div> */}
           </div>
-          <div className="rhs">
+          {/* <div className="rhs">
             <div className="rand-img flex small amazon">
               <div className="circle flex ">
                 {" "}
@@ -244,14 +234,10 @@ function OurClients(props) {
                 <img src={fly} alt="" />
               </div>
             </div>
-            {/* <div className="rand-img flex big hp-mobile">
-              <div className="circle flex hp-mobile">hp</div>
-            </div>
-             */}
             <div className="rand-img flex big hp hp-mobile">
               <div className="circle flex hp "><img src={hp} alt="hp" /></div>
             </div>
-          </div>
+          </div> */}
         </div>
       </Container>
     </Wrapper>

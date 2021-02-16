@@ -15,6 +15,7 @@ import homeIcon from '../../../assets/homeIcon.png';
 import pillarIcon from '../../../assets/ionic-pillarIcon.png';
 import logo from '../../../assets/logo.png';
 import twitterIcon from '../../../assets/twitterIcon.png';
+import whatsappIcon from '../../../assets/whatsapp.png';
 import Container from '../../common/Container';
 
 const Wrapper = styled.div`
@@ -157,88 +158,170 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 					<div className="footer-info">
 						<h5 className="footer_nav_header blue flex">
 							<span>
-								<img className ="logo"src={logo} alt="brand" />
+								<img className="logo" src={logo} alt="brand" />
 							</span>
-							<img className='brandlogoBlue' src={brandlogoBlue} alt="brandlogoBlue"/>
+							<img
+								className="brandlogoBlue"
+								src={brandlogoBlue}
+								alt="brandlogoBlue"
+							/>
 						</h5>
 						<div className="info">
 							<p className="info-top">
-                At Choose Life, we understand that what goes into your body Is
-                the most important part of your health. This is why we offer
-                support through personalized nutrition plans and recipe on how
-                to make healthier versions of the Foods you already love.{' '}
+								At Choose Life, we understand that what goes
+								into your body Is the most important part of
+								your health. This is why we offer support
+								through personalized nutrition plans and recipe
+								on how to make healthier versions of the Foods
+								you already love.{' '}
 							</p>
 							<p className="info-bottom">
-								<span><img className='copyright' src={copyright} alt="copyright"/></span>2020 Choose Life Ltd. All Rights Reserved
+								<span>
+									<img
+										className="copyright"
+										src={copyright}
+										alt="copyright"
+									/>
+								</span>
+								2020 Choose Life Ltd. All Rights Reserved
 							</p>
 						</div>
 					</div>
 					<div className="footer_nav">
 						<div className="footer_nav_section">
-							<h5 className="footer_nav_header blue">Site Links</h5>
+							<h5 className="footer_nav_header blue">
+								Site Links
+							</h5>
 							<div className="footer_nav_link" onClick={onClick}>
 								<span className="icon">
-									<img className="icons" src={homeIcon} alt="homeIcon" />
-								</span>
-                Home
-							</div>
-							<div className="footer_nav_link" onClick={onClickPillar}>
-								<span className="icon">
-									<img className="icons" src={pillarIcon} alt="pillarIcon" />
-								</span>
-                Choose Life Pillars
-							</div>
-							<div className="footer_nav_link" onClick={onClickAbout}>
-								<span className="icon">
-									<img className="icons abtIcon" src={abtIcon} alt="abtIcon" />
-								</span>
-                About us
-							</div>
-						</div>
-
-						<div className="footer_nav_section">
-							<h5 className="footer_nav_header blue">Contact Us</h5>
-							<Link className="footer_nav_link flex" style={{justifyContent: 'start' , alignItems: 'baseline'}}>
-								<span className="icon">
-									<img className="icons" src={callIcon} alt="callIcon" />
-								</span>
-								<span style={{display:'grid'}}>
-									<b>0802 648 4048, </b></span>
-							</Link>
-							<Link className="footer_nav_link flex" style={{justifyContent: 'start' , alignItems: 'baseline'}}>
-								<span className="icon">
-									<img className="icons" src={callIcon} alt="callIcon" />
-								</span>
-								<span style={{display:'grid'}}>
-									<b>0802 648 3318</b></span>
-							</Link>
-							<a
-								className="footer_nav_link"
-								target="_blank" rel="noreferrer"
-								href="mailto:chooselife@fitnessfairng.com"
-								style={{whiteSpace: 'pre'}}
-							>
-								<span className="icon">
-									<img className="icons" src={atIcon} alt="atIcon" />
-								</span>
-								<span>
-                chooselife@fitnessfairng.com
-								</span>
-							</a>
-							<Link className="footer_nav_link">
-								<span className="icon">
 									<img
-										className="icons addressIcon"
-										src={addressIcon}
-										alt="addressIcon"
+										className="icons"
+										src={homeIcon}
+										alt="homeIcon"
 									/>
 								</span>
-                Shop 2, Banana Island Shopping Complex, Banana Island, Ikoyi-Lagos,Nigeria
+								Home
+							</div>
+							<div
+								className="footer_nav_link"
+								onClick={onClickPillar}
+							>
+								<span className="icon">
+									<img
+										className="icons"
+										src={pillarIcon}
+										alt="pillarIcon"
+									/>
+								</span>
+								Choose Life Pillars
+							</div>
+							<div
+								className="footer_nav_link"
+								onClick={onClickAbout}
+							>
+								<span className="icon">
+									<img
+										className="icons abtIcon"
+										src={abtIcon}
+										alt="abtIcon"
+									/>
+								</span>
+								About us
+							</div>
+						</div>
+
+						<div className="footer_nav_section">
+							<h5 className="footer_nav_header blue">
+								Contact Us
+							</h5>
+							<Link>
+								<a
+									href="tel:+2348026484048"
+									className="footer_nav_link"
+									target="_blank"
+									rel="noreferrer"
+								>
+									<span className="icon">
+										<img
+											className="icons"
+											src={callIcon}
+											alt="callIcon"
+										/>
+									</span>
+									<span>
+										<b>0802 648 4048</b>
+									</span>
+								</a>
+							</Link>
+							<Link
+								className="flex"
+								style={{
+									justifyContent: 'start',
+									alignItems: 'baseline',
+								}}
+							>
+								<a
+									href="tel:+2348026483318"
+									className="footer_nav_link"
+									target="_blank"
+									rel="noreferrer"
+								>
+									<span className="icon">
+										<img
+											className="icons"
+											src={callIcon}
+											alt="callIcon"
+										/>
+									</span>
+									<span>
+										<b>0802 648 3318</b>
+									</span>
+								</a>
+							</Link>
+							<Link className="footer_nav_link">
+								<a
+									className="footer_nav_link"
+									target="_blank"
+									rel="noreferrer"
+									style={{ whiteSpace: 'pre' }}
+									href="mailto:chooselife@fitnessfairng.com"
+								>
+									<span className="icon">
+										<img
+											className="icons"
+											src={atIcon}
+											alt="atIcon"
+										/>
+									</span>
+									<span>chooselife@fitnessfairng.com</span>
+								</a>
+							</Link>
+							<Link className="footer_nav_link">
+								<a
+									href="https://goo.gl/maps/tz9eTPMRhUfk8Rdk9"
+									className="footer_nav_link"
+									target="_blank"
+									rel="noreferrer"
+								>
+									<span className="icon">
+										<img
+											className="icons addressIcon"
+											src={addressIcon}
+											alt="addressIcon"
+										/>
+									</span>
+									<span>
+										2, Banana Island Shopping Complex,
+										Banana Island, Ikoyi-Lagos,Nigeria
+									</span>
+								</a>
 							</Link>
 						</div>
 
 						<div className="footer_nav_section">
-							<h5 className="footer_nav_header blue">Social Media</h5>
+							<h5 className="footer_nav_header blue">
+								Social Media
+							</h5>
 							<a
 								className="footer_nav_link"
 								target="_blank"
@@ -246,9 +329,13 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 								href="https://twitter.com/fitnessfairng"
 							>
 								<span className="icon">
-									<img className="icons" src={twitterIcon} alt="twitterIcon" />
+									<img
+										className="icons"
+										src={twitterIcon}
+										alt="twitterIcon"
+									/>
 								</span>
-                Twitter
+								Twitter
 							</a>
 							<a
 								className="footer_nav_link"
@@ -263,7 +350,22 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 										alt="facebookIcon"
 									/>
 								</span>
-                Facebook
+								Facebook
+							</a>
+							<a
+								className="footer_nav_link"
+								target="_blank"
+								rel="noreferrer"
+								href="https://wa.link/suqxdt"
+							>
+								<span className="icon">
+									<img
+										className="icons"
+										src={whatsappIcon}
+										alt="whatsapp"
+									/>
+								</span>
+								WhatsApp
 							</a>
 							{/* <a className="footer_nav_link" target="_blank" href="#">
 								<span className="icon">

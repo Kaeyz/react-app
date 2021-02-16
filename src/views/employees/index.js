@@ -126,7 +126,7 @@ const Employees = ({
 							</div>
 							<div className="placeholderDetail">
 								<p>
-                  Add your employess to the platform. Create An Employee
+                  Add your employees to the platform. Create An Employee
                   Account.
 								</p>
 								<div className="buttons-center">

@@ -80,7 +80,7 @@ const RewardDetailsModal = ({ theme, reward, closeReward }) => {
 				heading={
 					<span>
 						<img src={icon[theme]} alt="icon" />
-						{reward && reward.title}{reward && reward.isClosed && `${' (closed)'}`}
+						{' '}{reward && reward.title}{reward && reward.isClosed && `${' (closed)'}`}
 					</span>
 				}
 			>
