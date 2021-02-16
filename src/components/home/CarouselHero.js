@@ -109,9 +109,10 @@ function CarouselHero(props) {
 
 	return (
 		<Wrap>
-			<Carousel
+      <Carousel
+        interval={6000}
 				autoPlay={true}
-				timeout={5000}
+				timeout={200}
 				indicators={false}
 				navButtonsAlwaysVisible={true}
 				animation="fade"
