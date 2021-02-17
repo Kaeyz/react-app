@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import csvFile from '../../../assets/csv/Batch_Upload.csv';
+import csvFile from '../../../assets/excel/batch_upload.xlsx';
 import { addNewEmployee } from '../../../store/actions/employeeActions';
 import Button from '../../common/Button';
 import { CsvUpload } from '../../common/inputs';
