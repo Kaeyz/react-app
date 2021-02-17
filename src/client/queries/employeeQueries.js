@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
 	client
 } from '../client';
@@ -170,6 +171,25 @@ employeeQueries.unSuspendEmployee = (id) => {
 	mutation UNSUSPEND_EMPLOYEE_BY_ID($id: String!) {
 		unSuspendEmployee(id: $id) {
 				message
+		}
+	}
+	`;
+
+	const variables = {
+		id
+	};
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
+employeeQueries.resendEmployeeInvite = (id) => {
+	const query = `
+	mutation RESEND_EMPLOYEE_INVITE($id: String!) {
+		resendCompanyAddEmployeeEmail(id: $id) {
+			message
 		}
 	}
 	`;

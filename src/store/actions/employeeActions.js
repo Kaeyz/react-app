@@ -1,11 +1,11 @@
 import employeeQueries from '../../client/queries/employeeQueries';
-import { errorAlert, successAlert } from './alertActions';
 import {
-	ADD_EMPLOYEES,
-	ADD_EMPLOYEE,
+	ADD_EMPLOYEE, ADD_EMPLOYEES,
+
 	EMPLOYEE_IS_LOADING,
-	EMPLOYEE_NOT_LOADING,
+	EMPLOYEE_NOT_LOADING
 } from '../types';
+import { errorAlert, successAlert } from './alertActions';
 
 
 const addEmployees = (employees) => {
@@ -170,6 +170,29 @@ export const removeEmployee = (id, history) => dispatch => {
 		})
 		.catch(() => {
 			dispatch(errorAlert({msg: 'Network Error!!'}));
+			dispatch(employeeNotLoading());
+		});
+};
+
+export const resendEmployeeInvite = (id, history) => (dispatch) => {
+	// eslint-disable-next-line no-console
+	dispatch(employeeIsLoading());
+	employeeQueries
+		.resendEmployeeInvite(id)
+		.then((res) => {
+			if (res.data) {
+				const message = res.data.resendCompanyAddEmployeeEmail.message;
+				dispatch(getPendingEmployees());
+				history.push('/employees/pending');
+				dispatch(successAlert(message));
+			}
+			if (res.errors) {
+				dispatch(errorAlert({ msg: res.errors[0].message }));
+				dispatch(employeeNotLoading());
+			}
+		})
+		.catch(() => {
+			dispatch(errorAlert({ msg: 'Network Error!!' }));
 			dispatch(employeeNotLoading());
 		});
 };
