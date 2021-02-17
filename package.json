@@ -31,7 +31,8 @@
     "remarkable": "^2.0.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.1",
-    "validator": "^13.1.1"
+    "validator": "^13.1.1",
+    "xlsx": "^0.16.9"
   },
   "scripts": {
     "start": "react-scripts start",

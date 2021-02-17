@@ -14,9 +14,10 @@ import Modal from '../common/Modal';
 const Wrapper = styled.div`
 	.inlineP {
 		font-size: 1.6rem;
-		line-height: 2rem;
-		letter-spacing: .6px;
+		line-height: 2.3rem;
+		letter-spacing: 0.6px;
 		color: #0a2523;
+		padding-bottom: 15px;
 		#link {
 			color: #2ec4b6;
 			text-decoration: underline;
@@ -45,7 +46,7 @@ const Wrapper = styled.div`
 
 const BatchUploadModal = ({ addNewEmployee }) => {
 	const [show, setShow] = React.useState(false);
-	const [csv, setCsv] = React.useState('');
+	const [csv, setCsv] = React.useState([]);
 	const [errors, setErrors] = React.useState('');
 
 	const showModal = () => {
@@ -56,11 +57,19 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 		setShow(false);
 	};
 
+	React.useEffect(() => {
+		// console.log(errors)
+		setErrors(errors);
+		// return () => setErrors('');
+	}, [errors]);
+
 	const onSubmit = (event) => {
 		event.preventDefault();
-		setErrors('');
-		if (csv === '') {
-			return setErrors('Csv File not found');
+		setCsv(csv)
+		if (csv.length === 0) {
+			console.log('inside batch')
+			setErrors('csv file not present');
+			return;
 		}
 		addNewEmployee(csv);
 		hideModal();
@@ -75,7 +84,8 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 				info={
 					<>
 						<p className="inlineP">
-							Add multiple employees at once via a CSV upload.
+							Add multiple employees at once via an Excel file
+							upload.
 						</p>
 						<p className="inlineP">
 							To add multiple employees, click this
@@ -83,7 +93,13 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 								{' '}
 								link
 							</a>{' '}
-							to use the csv batch upload.
+							to use see the sample excel file.
+						</p>
+						<p className="inlineP" style={{fontStyle: "italic", color: 'red'}}>
+							The format of the excel file must be followed
+							properly, if you encounter any error while using
+							this multiple upload, contact the chooselife admin
+							for help.
 						</p>
 					</>
 				}
@@ -96,7 +112,8 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 								label="Upload CSV"
 								value={csv}
 								onFileUpload={setCsv}
-								csvError={errors}
+								csvError={setErrors}
+								error={errors}
 							/>
 						</Grid>
 
@@ -105,6 +122,7 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 								theme="darkGreen"
 								onClick={onSubmit}
 								text="Add"
+								// isLoading={csv.length === 0 }
 								title={csv === '' ? 'not allowed' : ''}
 							/>
 						</Grid>

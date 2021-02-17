@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import SmallSpinner from './spinner/SmallSpinner';
 
 const Wrapper = styled.div`
@@ -124,9 +124,12 @@ function Button({style, theme, isLoading, children, text, title, ...rest}) {
 					width: '13.3rem',
 					fontFamily: 'Sofia',
 					outline: 'none',
-					cursor: 'pointer',
+					cursor: isLoading ? 'not-allowed' : 'pointer',
+					// pointerEvents: isLoading && 'none',
+					opacity: isLoading && .6,
 					padding: '1.1rem 0.4rem',
-					...style
+					backgroundColor: isLoading ? 'white' : '',
+					...style,
 				}}
 				{...rest }
 			>
@@ -162,4 +165,3 @@ Button.propTypes = {
 
 
 export default Button;
-
