@@ -19,7 +19,7 @@ import Header from '../components/layouts/appLayout/header';
 
 const Wrapper = styled.div`
   .fit-bg {
-    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/timecheck_gra6hk.png");
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309862/chooseLife/timecheck_gra6hk.png");
     height: 400px;
     width: 100%;
     background-position: center;

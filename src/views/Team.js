@@ -70,22 +70,22 @@ const Wrapper = styled.div`
     }
   }
   .one .img{
-    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/ceo_xero8q.jpg");
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309840/chooseLife/ceo_xero8q.jpg");
   }
   .two .img{
-    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/eke_gwouoy.jpg");
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309840/chooseLife/eke_gwouoy.jpg");
   }
   .three .img{
-    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607312175/chooseLife/joel_bcbizs.jpg");
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607312175/chooseLife/joel_bcbizs.jpg");
   }
   .four .img{
-    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/prince_tahnhg.jpg");
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309840/chooseLife/prince_tahnhg.jpg");
   }
   .five .img{
-    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/soteye_l2rm67.jpg");
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309840/chooseLife/soteye_l2rm67.jpg");
   }
   .six .img{
-    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607312175/chooseLife/adenike_froorz.jpg");
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607312175/chooseLife/adenike_froorz.jpg");
   }
   .one {
     top: 0;

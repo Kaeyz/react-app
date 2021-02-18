@@ -74,7 +74,7 @@ const PaginatedContent = ({ blogs, isLoading, getBlogs }) => {
 			<MonoBlog
 				key={index}
 				to={`/blog/${blog.id}`}
-				src={blog.asset !== null ? blog.asset.url : "https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/girlRunning_mwel4s.png"}
+				src={blog.asset !== null ? blog.asset.url : "https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309862/chooseLife/girlRunning_mwel4s.png"}
 				title={blog.title}
 				author={blog.author}
 				createdAt={convertDate(blog.createdAt)}

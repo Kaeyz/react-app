@@ -1,13 +1,13 @@
 /*eslint-disable */
 
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { getCompanyLeaderBoard } from "../../../../store/actions/rewardActions";
-import { connect } from "react-redux";
-import styled from "styled-components";
 import Paper from "@material-ui/core/Paper";
+import PropTypes from "prop-types";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import Button from "../../../../components/common/Button";
+import { getCompanyLeaderBoard } from "../../../../store/actions/rewardActions";
 
 const Wrapper = styled(Paper)`
   background: ${(props) => props.theme.color.ui_01};
@@ -67,7 +67,7 @@ function HraCompleted({ getCompanyLeaderBoard, isLoading, userPosition }) {
 
   return (
     <Wrapper>
-      <img src="https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/checkk_k1bie4.gif" id="check-img" alt="completed" />
+      <img src="https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309840/chooseLife/checkk_k1bie4.gif" id="check-img" alt="completed" />
       <h1 className="heading">Health Questionnaire Completed</h1>
       <p className="detail">
         Congratulations! You’ve got 500 points in this section.

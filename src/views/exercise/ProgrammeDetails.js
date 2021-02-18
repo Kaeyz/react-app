@@ -1,14 +1,14 @@
 /* eslint-disable */
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
 import Paper from "@material-ui/core/Paper";
-import DashboardLayout from "../../components/layouts/dashboardLayout/DashboardLayout";
-import QuestionnaireLayout from "../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout";
-import smallImg from "../../assets/Activity.svg";
-import { connect } from "react-redux";
-import { getExercise } from "../../store/actions/exerciseActions";
+import PropTypes from "prop-types";
+import React, { useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { connect } from "react-redux";
+import styled from "styled-components";
+import smallImg from "../../assets/Activity.svg";
+import QuestionnaireLayout from "../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout";
+import DashboardLayout from "../../components/layouts/dashboardLayout/DashboardLayout";
+import { getExercise } from "../../store/actions/exerciseActions";
 
 const Wrapper = styled.div`
   .null {
@@ -82,7 +82,7 @@ const ProgrammeDetails = ({ match, getExercise, isLoading, exercise }) => {
                   alt="exercise"
                   height={140}
                   placeholder={<h5>Loading</h5>}
-                  placeholderSrc={"https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309856/chooseLife/exercise_bg_ouhdef.svg"}
+                  placeholderSrc={"https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309856/chooseLife/exercise_bg_ouhdef.svg"}
                   effect="blur"
                   src={exercise.image}
                 />

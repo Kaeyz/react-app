@@ -1,11 +1,11 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 // import Header from '../../components/layouts/appLayout/header';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import Container from '../../components/common/Container';
 import Button from '../../components/common/Button';
-import { connect } from 'react-redux';
+import Container from '../../components/common/Container';
 
 const Wrapper = styled.div`
   background-color: #f7fdfc;
@@ -68,7 +68,7 @@ function MailConfirmation({email}) {
 		<Wrapper>
 			<Container flexy="centered">
 				<div className="body">
-					<img src="https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/checkk_k1bie4.gif" alt="mail-gif" />
+					<img src="https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309840/chooseLife/checkk_k1bie4.gif" alt="mail-gif" />
 					<h2>A confirmation mail has been sent to the email below</h2>
 					<Link to="">
 						{' '}

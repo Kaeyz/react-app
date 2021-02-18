@@ -1,12 +1,12 @@
 /*eslint-disable */
+import { Grid } from "@material-ui/core";
+import PropTypes from "prop-types";
 import React from "react";
 // import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Grid } from "@material-ui/core";
-import Container from "../common/Container";
 import flower1 from "../../assets/img/flower_1.png";
 import flower2 from "../../assets/img/flower_2.png";
-import PropTypes from "prop-types";
+import Container from "../common/Container";
 
 const Wrapper = styled.div`
   position: relative;
@@ -92,7 +92,7 @@ const Wrapper = styled.div`
     }
   }
   .smile-girl {
-    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309849/chooseLife/smileGirl_ydpr6a.png");
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309849/chooseLife/smileGirl_ydpr6a.png");
     z-index: 5;
     width: 234px;
     height: 248px;
@@ -105,7 +105,7 @@ const Wrapper = styled.div`
   }
 
   .boy {
-    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309857/chooseLife/boyStretch_zxvvlx.png");
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309857/chooseLife/boyStretch_zxvvlx.png");
     z-index: 3;
     top: 305px;
     height: 260px;
@@ -118,7 +118,7 @@ const Wrapper = styled.div`
     padding-bottom: 100%;
   }
   .run-girl {
-    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/girlRunning_mwel4s.png");
+    background-image: url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309862/chooseLife/girlRunning_mwel4s.png");
     height: 260px;
     width: 260px;
     z-index: 4;

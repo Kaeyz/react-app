@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   .hero {
     position: relative;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309846/chooseLife/contact1_zfmsqp.png");
+      url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309846/chooseLife/contact1_zfmsqp.png");
     height: 600px;
     background-position: center;
     background-repeat: no-repeat;
@@ -129,7 +129,7 @@ const Wrapper = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309853/chooseLife/contact2_eccs5p.png");
+      url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309853/chooseLife/contact2_eccs5p.png");
       @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
         order: 2;
       }

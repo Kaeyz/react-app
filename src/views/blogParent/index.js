@@ -1,15 +1,15 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import AppLayout from '../../components/layouts/appLayout/AppLayout';
-import Container from '../../components/common/Container';
-import Pagination from '../../components/blog/Pagination';
-import Header from '../../components/layouts/appLayout/header/index2';
+import React from 'react';
 // import { Paper } from '@material-ui/core';
 // import avatar from '../../assets/avatarFemale.png';
 import { connect } from 'react-redux';
-import { getBlogs } from '../../store/actions/blogActions';
+import styled from 'styled-components';
+import Pagination from '../../components/blog/Pagination';
 import Slider from '../../components/blog/Slider';
+import Container from '../../components/common/Container';
+import AppLayout from '../../components/layouts/appLayout/AppLayout';
+import Header from '../../components/layouts/appLayout/header/index2';
+import { getBlogs } from '../../store/actions/blogActions';
 
 const Wrapper = styled.div`
 	.main {
@@ -37,7 +37,7 @@ const Wrapper = styled.div`
 		transform: translate(-50%, 0%);
 	}
 	.paper {
-		background-image: url('https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309856/chooseLife/coverImageBlog_vdzjx6.png');
+		background-image: url('https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309856/chooseLife/coverImageBlog_vdzjx6.png');
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;

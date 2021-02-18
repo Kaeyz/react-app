@@ -1,11 +1,11 @@
 /*eslint-disable */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import Container from '../../components/common/Container';
 import Button from '../../components/common/Button';
+import Container from '../../components/common/Container';
 
 const Wrapper = styled.div`
   background-color: #f7fdfc;
@@ -31,7 +31,7 @@ const Wrapper = styled.div`
       font-size: 4rem;
       line-height: 5rem;
       letter-spacing: -0.8px;
-      color: ${props => props.theme.color.ui_05};
+      color: ${(props) => props.theme.color.ui_05};
       @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
         font-size: 2.4rem;
         line-height: 130%;
@@ -63,13 +63,19 @@ function AccountSuccess() {
 		<Wrapper>
 			<Container flexy="centered">
 				<div className="body">
-        <img src="https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309840/chooseLife/checkk_k1bie4.gif" alt="check-gif"/>
+					<img
+						src="https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309840/chooseLife/checkk_k1bie4.gif"
+						alt="check-gif"
+					/>
 					<h2>
 						{' '}
-            Your initial registration has been successfully completed.
-            					</h2>
+						Your initial registration has been successfully
+						completed.
+					</h2>
 					<h5>
-          A ChooseLife representative will contact you to complete your registration and begin onboarding your organisation.
+						A ChooseLife representative will contact you to complete
+						your registration and begin onboarding your
+						organisation.
 					</h5>
 					<Link to="/settings/account" className="submit">
 						<Button theme="darkGreenBtn">Continue</Button>
