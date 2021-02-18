@@ -76,14 +76,24 @@ const Wrapper = styled.div`
 	}
 	.longDetail,
 	.detail {
-		font-size: 1.6rem;
-		line-height: 2.4rem;
+		font-size: 2rem;
+		line-height: 3rem;
 		color: ${(props) => props.theme.color.text_02};
 		font-weight: 300;
 		margin: 4rem 0 6rem 0;
 		margin: 4rem 0;
 		text-align: left;
 	}
+	.longDetail p {
+		margin-bottom: 20px;
+		br {
+			margin-bottom: 20px;
+			height: 10px;
+			content: "";
+			display: block;
+		}
+	}
+
 	img {
 		width: 2.4rem;
 		height: 2.4rem;

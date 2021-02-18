@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import triangle from '../../assets/polyarrow.png';
 
 const Wrap = styled.div`
+	background-color: #474848;
 	.Carousel-prev-13 {
 		left: 20px;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
@@ -91,28 +92,28 @@ function CarouselHero(props) {
 			name:
 				'Wellness is a gift you give yourself. So start your own health and wellness journey on CHOOSELIFE.',
 			bgImg:
-				'https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309874/chooseLife/shalom-mwenesi_wbmcyn.png',
+				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309874/chooseLife/shalom-mwenesi_wbmcyn',
 		},
 		{
 			name:
 				'Redesign your life by picking yourself up everyday and choosing life.Start your health & wellness journey here.',
 			bgImg:
-				'https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309853/chooseLife/FatherSon_aybzjf.png',
+				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309853/chooseLife/FatherSon_aybzjf.png',
 		},
 		{
 			name:
 				'Wellness is not just something you gift yourself, it is a way to show you care for your loved one.Start your health & wellness journey here.',
 			bgImg:
-				'https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309873/chooseLife/family_satzio.png',
+				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309873/chooseLife/family_satzio.png',
 		},
 	];
 
 	return (
 		<Wrap>
-      <Carousel
-        interval={6000}
+			<Carousel
+				interval={9000}
 				autoPlay={true}
-				timeout={200}
+				timeout={300}
 				indicators={false}
 				navButtonsAlwaysVisible={true}
 				animation="fade"
