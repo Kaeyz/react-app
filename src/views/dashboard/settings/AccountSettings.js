@@ -51,7 +51,7 @@ const optionActivity = [
 ];
 
 const AccountSettings = ({ user, updateUser }) => {
-	console.log(user);
+	// console.log(user);
 	const names = user && user.name.split(' ');
 	const [firstName, setFirstName] = useState(names[0]);
 	const [lastName, setLastName] = useState(names[1]);
