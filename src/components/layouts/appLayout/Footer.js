@@ -183,7 +183,7 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 										alt="copyright"
 									/>
 								</span>
-								2020 Choose Life Ltd. All Rights Reserved
+								{new Date().getFullYear()} Choose Life Ltd. All Rights Reserved
 							</p>
 						</div>
 					</div>

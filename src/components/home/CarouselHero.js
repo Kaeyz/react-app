@@ -92,19 +92,19 @@ function CarouselHero(props) {
 			name:
 				'Wellness is a gift you give yourself. So start your own health and wellness journey on CHOOSELIFE.',
 			bgImg:
-				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309874/chooseLife/shalom-mwenesi_wbmcyn',
+				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto,q_auto,w_auto/v1607309874/chooseLife/shalom-mwenesi_wbmcyn',
 		},
 		{
 			name:
 				'Redesign your life by picking yourself up everyday and choosing life.Start your health & wellness journey here.',
 			bgImg:
-				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309853/chooseLife/FatherSon_aybzjf.png',
+				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto,q_auto,w_auto/v1607309853/chooseLife/FatherSon_aybzjf.png',
 		},
 		{
 			name:
 				'Wellness is not just something you gift yourself, it is a way to show you care for your loved one.Start your health & wellness journey here.',
 			bgImg:
-				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309873/chooseLife/family_satzio.png',
+				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto,q_auto,w_auto/v1607309873/chooseLife/family_satzio.png',
 		},
 	];
 

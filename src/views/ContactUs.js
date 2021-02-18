@@ -1,24 +1,23 @@
 /*eslint-disable */
-import { Grid } from "@material-ui/core";
-import React from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import addressIcon from "../assets/addressIcon.png";
-import flower from "../assets/greenflower.png";
-import logo from "../assets/logo.png";
-import atIcon from "../assets/mailWhite.png";
-import callIcon from "../assets/phoneWhite.png";
-import yellow from "../assets/wellnessNav/fitnessIsActive.svg";
-import blue from "../assets/wellnessNav/healthIsActive.svg";
-import orange from "../assets/wellnessNav/lifestyleIsActive.svg";
-import green from "../assets/wellnessNav/nutritionIsActive.svg";
-import Button from "../components/common/Button";
-import AppLayout from "../components/layouts/appLayout/AppLayout";
-import Header from "../components/layouts/appLayout/header";
-import { contactUs } from "../store/actions/appActions";
-import useForm from "../utils/useForm";
-
+import { Grid } from '@material-ui/core';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import addressIcon from '../assets/addressIcon.png';
+import flower from '../assets/greenflower.png';
+import logo from '../assets/logo.png';
+import atIcon from '../assets/mailWhite.png';
+import callIcon from '../assets/phoneWhite.png';
+import yellow from '../assets/wellnessNav/fitnessIsActive.svg';
+import blue from '../assets/wellnessNav/healthIsActive.svg';
+import orange from '../assets/wellnessNav/lifestyleIsActive.svg';
+import green from '../assets/wellnessNav/nutritionIsActive.svg';
+import Button from '../components/common/Button';
+import AppLayout from '../components/layouts/appLayout/AppLayout';
+import Header from '../components/layouts/appLayout/header';
+import { contactUs } from '../store/actions/appActions';
+import useForm from '../utils/useForm';
 
 const Wrapper = styled.div`
   .hero {
@@ -265,205 +264,264 @@ const Wrapper = styled.div`
 }
 `;
 const ContactUs = () => {
-  const dispatch = useDispatch();
-  const { inputs, handleChange, clearForm } = useForm({
-    firstName: "",
-    lastName: "",
-    companyName: "",
-    email: "",
-    phone: "",
-    message: ""
-  });
+	const dispatch = useDispatch();
+	const { inputs, handleChange, clearForm } = useForm({
+		firstName: '',
+		lastName: '',
+		companyName: '',
+		email: '',
+		phone: '',
+		message: '',
+	});
 
+	return (
+		<AppLayout header={<Header />}>
+			<Wrapper>
+				<div class="hero">
+					<div className="text-content">
+						<div className="head">
+							<h1>Get In Touch</h1>
+							<p>
+								Take control of your fitness goals. Evaluate
+								your fitness, score metabolic rates,check your
+								hydration levels, body fat, water retension and
+								muscle mass. It will help us help you understand
+								your body and how it’s performing.
+							</p>
+							<p className="or">or</p>
+						</div>
+						<button>
+							<Link className="link" to="/onboarding/company">
+								Get Started
+							</Link>
+						</button>
+					</div>
+				</div>
+				<div className="gridy">
+					<div className="contact-info">
+						<div className="content flex">
+							<div className="header flex">
+								<img className="logo" src={logo} alt="logo" />
+								<h1>Choose Life</h1>
+							</div>
+							<div className="empty"></div>
+							<div className="socials">
+								<div className="with-icon flex">
+									<a
+										href="tel:+2348026483318"
+										className="with-icon"
+										target="_blank"
+										rel="noreferrer"
+									>
+										<span className="icon">
+											<img
+												className="icons"
+												src={callIcon}
+												alt="callIcon"
+											/>
+										</span>
+										0802 648 3318
+									</a>
+								</div>
+								<div className="with-icon flex">
+									<a
+										href="tel:+2348026483318"
+										className="with-icon"
+										target="_blank"
+										rel="noreferrer"
+									>
+										<span className="icon">
+											<img
+												className="icons"
+												src={callIcon}
+												alt="callIcon"
+											/>
+										</span>
+										0802 648 4048
+									</a>
+								</div>
+								<a
+									className="with-icon"
+									target="_blank"
+									href="mailto:chooselife@fitnessfairng.com"
+								>
+									<span className="icon">
+										<img
+											className="icons"
+											src={atIcon}
+											alt="atIcon"
+										/>
+									</span>
+									chooselife@fitnessfairng.com
+								</a>
+								<div className="with-icon address flex">
+									<span className="icon ">
+										<img
+											className="icons addressIcon"
+											src={addressIcon}
+											alt="addressIcon"
+										/>
+									</span>
+									<a
+										href="https://goo.gl/maps/tz9eTPMRhUfk8Rdk9"
+										className="with-icon"
+										target="_blank"
+										rel="noreferrer"
+									>
+										<span className="text">
+											{' '}
+											Shop 2, Banana Island Shopping
+											Complex, Banana Island,
+											Ikoyi-Lagos,Nigeria
+										</span>
+									</a>
+								</div>
+							</div>
+							<div className="lower-icons flex">
+								<img src={blue} alt="health" />
 
-  return (
-    <AppLayout header={<Header />}>
-      <Wrapper>
-        <div class="hero">
-          <div className="text-content">
-            <div className="head">
-              <h1>Get In Touch</h1>
-              <p>
-                Take control of your fitness goals. Evaluate your fitness, score
-                metabolic rates,check your hydration levels, body fat, water
-                retension and muscle mass. It will help us help you understand
-                your body and how it’s performing.
-              </p>
-              <p className="or">or</p>
-            </div>
-            <button>
-              <Link className="link" to="/onboarding/company">
-                Get Started
-              </Link>
-            </button>
-          </div>
-        </div>
-        <div className="gridy">
-          <div className="contact-info">
-            <div className="content flex">
-              <div className="header flex">
-                <img className="logo" src={logo} alt="logo" />
-                <h1>Choose Life</h1>
-              </div>
-              <div className="empty"></div>
-              <div className="socials">
-                <div className="with-icon flex">
-                  <span className="icon">
-                    <img className="icons" src={callIcon} alt="callIcon" />
-                  </span>
-                  0802 648 4048, 0802 648 3318
-                </div>
-                <a
-                  className="with-icon"
-                  target="_blank"
-                  href="mailto:chooselife@fitnessfairng.com"
-                >
-                  <span className="icon">
-                    <img className="icons" src={atIcon} alt="atIcon" />
-                  </span>
-                  chooselife@fitnessfairng.com
-                </a>
-                <div className="with-icon address flex">
-                  <span className="icon ">
-                    <img
-                      className="icons addressIcon"
-                      src={addressIcon}
-                      alt="addressIcon"
-                    />
-                  </span>
-                  <span className="text">
-                    {" "}
-                    Shop 2, Banana Island Shopping Complex, Banana Island,
-                    Ikoyi-Lagos,Nigeria
-                  </span>
-                </div>
-              </div>
-              <div className="lower-icons flex">
-                <img src={blue} alt="health" />
+								<img
+									className="fitness"
+									src={orange}
+									alt="fitness"
+								/>
 
-                <img className="fitness" src={orange} alt="fitness" />
+								<img src={green} alt="nutrition" />
 
-                <img src={green} alt="nutrition" />
-
-                <img src={yellow} alt="lifestyle" />
-              </div>
-            </div>
-          </div>
-          <div className="contact-form">
-            <img
-              class="absolute flower flower-left"
-              src={flower}
-              alt="flower"
-            />
-            <img
-              class="absolute flower flower-right"
-              src={flower}
-              alt="flower"
-            />
-            <div className="content">
-              <div className="head">
-                <h1>Send a Message</h1>
-              </div>
-              <form
-                className="form"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  dispatch(contactUs(inputs))
-                  clearForm()
-                }}
-              >
-                <Grid container spacing={1}>
-                  <Grid item xs={12} sm={6}>
-                    <div className="mt">
-                      <label for="firstName">First Name</label>{" "}
-                    </div>
-                    <input
-                      type="text"
-                      id="firstName"
-                      onChange={handleChange}
-                      value={inputs.firstName}
-                      name="firstName"
-                      required
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <div className="mt">
-                      <label for="lastName">Last Name</label>{" "}
-                    </div>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      onChange={handleChange}
-                      value={inputs.required}
-                      required
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <div className="mt">
-                      <label for="companyName">Company Name</label>
-                    </div>
-                    <input
-                      type="text"
-                      id="companyName"
-                      onChange={handleChange}
-                      value={inputs.companyName}
-                      name="companyName"
-                      required
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <div className="mt">
-                      {" "}
-                      <label for="email">Email Address</label>
-                    </div>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      onChange={handleChange}
-                      value={inputs.email}
-                      required
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <div className="mt">
-                      {" "}
-                      <label for="phone">Phone</label>{" "}
-                    </div>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      onChange={handleChange}
-                      value={inputs.phone}
-                      required
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <div className="mt">
-                      <label for="message">Message</label>
-                    </div>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="8"
-                      onChange={handleChange}
-                      value={inputs.message}
-                      required
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Button type="submit" theme="deepYellowBtn">Submit</Button>
-                  </Grid>
-                </Grid>
-              </form>
-            </div>
-          </div>
-        </div>
-      </Wrapper>
-    </AppLayout>
-  );
+								<img src={yellow} alt="lifestyle" />
+							</div>
+						</div>
+					</div>
+					<div className="contact-form">
+						<img
+							class="absolute flower flower-left"
+							src={flower}
+							alt="flower"
+						/>
+						<img
+							class="absolute flower flower-right"
+							src={flower}
+							alt="flower"
+						/>
+						<div className="content">
+							<div className="head">
+								<h1>Send a Message</h1>
+							</div>
+							<form
+								className="form"
+								onSubmit={(e) => {
+									e.preventDefault();
+									dispatch(contactUs(inputs));
+									clearForm();
+								}}
+							>
+								<Grid container spacing={1}>
+									<Grid item xs={12} sm={6}>
+										<div className="mt">
+											<label for="firstName">
+												First Name
+											</label>{' '}
+										</div>
+										<input
+											type="text"
+											id="firstName"
+											onChange={handleChange}
+											value={inputs.firstName}
+											name="firstName"
+											required
+										/>
+									</Grid>
+									<Grid item xs={12} sm={6}>
+										<div className="mt">
+											<label for="lastName">
+												Last Name
+											</label>{' '}
+										</div>
+										<input
+											type="text"
+											id="lastName"
+											name="lastName"
+											onChange={handleChange}
+											value={inputs.required}
+											required
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<div className="mt">
+											<label for="companyName">
+												Company Name
+											</label>
+										</div>
+										<input
+											type="text"
+											id="companyName"
+											onChange={handleChange}
+											value={inputs.companyName}
+											name="companyName"
+											required
+										/>
+									</Grid>
+									<Grid item xs={12} sm={6}>
+										<div className="mt">
+											{' '}
+											<label for="email">
+												Email Address
+											</label>
+										</div>
+										<input
+											type="email"
+											id="email"
+											name="email"
+											onChange={handleChange}
+											value={inputs.email}
+											required
+										/>
+									</Grid>
+									<Grid item xs={12} sm={6}>
+										<div className="mt">
+											{' '}
+											<label for="phone">
+												Phone
+											</label>{' '}
+										</div>
+										<input
+											type="tel"
+											id="phone"
+											name="phone"
+											onChange={handleChange}
+											value={inputs.phone}
+											required
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<div className="mt">
+											<label for="message">Message</label>
+										</div>
+										<textarea
+											id="message"
+											name="message"
+											rows="8"
+											onChange={handleChange}
+											value={inputs.message}
+											required
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<Button
+											type="submit"
+											theme="deepYellowBtn"
+										>
+											Submit
+										</Button>
+									</Grid>
+								</Grid>
+							</form>
+						</div>
+					</div>
+				</div>
+			</Wrapper>
+		</AppLayout>
+	);
 };
 
 export default ContactUs;
