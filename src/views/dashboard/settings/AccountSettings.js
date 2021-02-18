@@ -1,31 +1,36 @@
-import React, { useState } from 'react';
-import SideBar from '../../../components/layouts/dashboardLayout/settingsSidebar/Sidebar';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-
-import styled from 'styled-components';
+/* eslint-disable no-console */
 import Grid from '@material-ui/core/Grid';
-import { TextInput, SelectInput, DateInput, NumberInput } from '../../../components/common/inputs';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
 import Button from '../../../components/common/Button';
+import {
+	DateInput,
+	NumberInput, SelectInput, TextInput
+} from '../../../components/common/inputs';
+import SideBar from '../../../components/layouts/dashboardLayout/settingsSidebar/Sidebar';
 import { updateUser } from '../../../store/actions/userActions';
 
 
 const Wrapper = styled.div`
-margin-top:1.5rem;
-.settings-body-main{
-	@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-	display:none;
-}
-  }
-    p{
-        padding-bottom: 1.3px
-    }
-}
-.submit{
-	.button{
-		@media screen and ( max-width: ${props => props.theme.breakpoint.sm}) {
-			width:100% !important;	}
-}
+	margin-top: 1.5rem;
+	.settings-body-main {
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+			display: none;
+		}
+	}
+	p {
+		padding-bottom: 1.3px;
+	}
+	.submit {
+		.button {
+			@media screen and (max-width: ${(props) =>
+		props.theme.breakpoint.sm}) {
+				width: 100% !important;
+			}
+		}
+	}
 `;
 const textInput = {
 	placeholder: 'Type here...',
@@ -46,31 +51,145 @@ const optionActivity = [
 ];
 
 const AccountSettings = ({ user, updateUser }) => {
+	console.log(user);
 	const names = user && user.name.split(' ');
 	const [firstName, setFirstName] = useState(names[0]);
 	const [lastName, setLastName] = useState(names[1]);
 	const [gender, setGender] = useState(user.gender);
 	const [activity, setActivityLevel] = useState(user.activity);
-	const [weight,setWeight] = React.useState(user.weight);
-	const [height,setHeight] = React.useState(user.height);
+	const [weight, setWeight] = React.useState(user.weight);
+	const [height, setHeight] = React.useState(user.height);
 	const [dob, setDob] = useState(user.dob);
+	const [companyName, setCompanyName] = useState(user.companyName);
+	const [address, setAddress] = useState(user.address);
 	const [errors] = React.useState({});
+
+
+	const CompanyInformation = () => {
+		return (
+			<>
+				<div
+					className="settings-body-main"
+					style={{ paddingTop: '20px' }}
+				>
+					<h1 className="text">Company Information</h1>
+					<p>
+						This section contains general information about the
+						company.
+					</p>
+				</div>
+				<form noValidate autoComplete="off">
+					<Grid container spacing={3}>
+						<Grid item xs={12} sm={6}>
+							<TextInput
+								placeholder={textInput.placeholder}
+								label="Enter your company name"
+								value={companyName || 'no value'}
+								onChange={setCompanyName}
+								error={errors.companyName}
+								readonly
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextInput
+								placeholder={textInput.placeholder}
+								label="Enter your company address"
+								value={address || 'no value'}
+								onChange={setAddress}
+								error={errors.address}
+								readonly
+							/>
+						</Grid>
+
+						<Grid item xs={12} sm={6}>
+							<TextInput
+								placeholder={textInput.placeholder}
+								label="Company size"
+								value={user.companySize || 'no value'}
+								// onChange={setAddress}
+								// error={errors.address}
+								readonly
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextInput
+								placeholder={textInput.placeholder}
+								label="Company url"
+								value={user.companyUrl || 'no value'}
+								// onChange={setAddress}
+								// error={errors.address}
+								readonly
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextInput
+								placeholder={textInput.placeholder}
+								label="Employee Limit"
+								value={user.employeeLimit || 'no value'}
+								// onChange={setAddress}
+								// error={errors.address}
+								readonly
+							/>
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<TextInput
+								placeholder={textInput.placeholder}
+								label="Representative Email"
+								value={user.representativeEmail || 'no value'}
+								// onChange={setAddress}
+								// error={errors.address}
+								readonly
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<TextInput
+								placeholder={textInput.placeholder}
+								label="Company email"
+								value={user.email || 'no value'}
+								// onChange={setAddress}
+								// error={errors.address}
+								readonly
+							/>
+						</Grid>
+					</Grid>
+					{/* <div className="submit">
+						<Button
+							value="save changes"
+							type="submit"
+							theme="darkGreen"
+							onClick={onFormSubmit}
+						>
+							Save Changes
+						</Button>
+					</div> */}
+				</form>
+			</>
+		);
+	};
 
 	const onFormSubmit = (event) => {
 		event.preventDefault();
 		const data = {
-			firstName, lastName, gender, activity, weight: Number(weight), height: Number(height), dob, company: user.company
+			firstName,
+			lastName,
+			gender,
+			activity,
+			weight: Number(weight),
+			height: Number(height),
+			dob,
+			company: user.company,
 		};
 		updateUser(data);
 	};
-
 
 	return (
 		<SideBar>
 			<Wrapper>
 				<div className="settings-body-main">
-					<h1 className='text'>General Information</h1>
-					<p>This section contains general informaton about yourself.</p>
+					<h1 className="text">General Information</h1>
+					<p>
+						This section contains general information about yourself.
+					</p>
 				</div>
 				<form noValidate autoComplete="off">
 					<Grid container spacing={3}>
@@ -116,7 +235,7 @@ const AccountSettings = ({ user, updateUser }) => {
 								label="Weight (KG)"
 								// options={optionWeight}
 								value={weight}
-								placeholder='Enter Weight'
+								placeholder="Enter Weight"
 								onChange={setWeight}
 								error={errors.weight}
 							/>
@@ -126,7 +245,7 @@ const AccountSettings = ({ user, updateUser }) => {
 								label="Height (CM)"
 								// options={optionHeight}
 								value={height}
-								placeholder='Enter height here.. '
+								placeholder="Enter height here.. "
 								onChange={setHeight}
 								error={errors.height}
 							/>
@@ -148,13 +267,12 @@ const AccountSettings = ({ user, updateUser }) => {
 							theme="darkGreen"
 							onClick={onFormSubmit}
 						>
-            Save Changes
+							Save Changes
 						</Button>
 					</div>
 				</form>
-
+				{	user.type === 'COMPANY' && <CompanyInformation />}
 			</Wrapper>
-
 		</SideBar>
 	);
 };
@@ -164,9 +282,9 @@ AccountSettings.propTypes = {
 	updateUser: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	const user = state.user.user;
 	return { user };
 };
 
-export default connect(mapStateToProps, {updateUser})(AccountSettings);
+export default connect(mapStateToProps, { updateUser })(AccountSettings);

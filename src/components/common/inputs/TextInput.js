@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 
 const Wrapper = styled.div`
@@ -64,7 +64,7 @@ color: ${props => props.theme.color.ui_text_05};
 	}
 `;
 
-const TextInput = ({ label, onChange, value, placeholder, error,  type }) => {
+const TextInput = ({ label, onChange, value, placeholder, error,  type, readonly }) => {
 
 	const handleChange = (event) => {
 		onChange(event.target.value);
@@ -80,6 +80,7 @@ const TextInput = ({ label, onChange, value, placeholder, error,  type }) => {
 					value={value}
 					onChange={handleChange}
 					type={type ? type : 'text'}
+					readOnly={readonly ? true : false}
 				/>
 			</div>
 			<p className="error">{error && error}</p>
@@ -93,7 +94,8 @@ TextInput.propTypes = {
 	placeholder: PropTypes.string,
 	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
-	type: PropTypes.string
+	type: PropTypes.string,
+	readonly: PropTypes.bool
 };
 
 export { TextInput };

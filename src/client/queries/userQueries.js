@@ -132,6 +132,10 @@ userQueries.getCurrentUser = () => {
 			companySize
 			companyUrl
 			companyName
+			employeeLimit
+			representativeEmail
+			branch
+			department
 		}
 	}
 	`;
