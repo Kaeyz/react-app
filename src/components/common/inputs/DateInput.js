@@ -1,11 +1,10 @@
+import DateFnsUtils from '@date-io/date-fns';
+import {
+	KeyboardDatePicker, MuiPickersUtilsProvider
+} from '@material-ui/pickers';
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import {
-	MuiPickersUtilsProvider,
-	KeyboardDatePicker
-} from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
 import datePickerIcon from '../../../assets/datePickerIcon.svg';
 
 const Wrapper = styled.div`
@@ -93,8 +92,8 @@ DateInput.propTypes = {
 	error: PropTypes.string,
 	placeholder: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
-	value: PropTypes.any.isRequired,
+	value: PropTypes.any,
 };
 
 
-export {DateInput};
+export { DateInput };

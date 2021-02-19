@@ -10,6 +10,10 @@ module.exports = Object.freeze({
 	INFO_ALERT: 'info_alert',
 	CLEAR_ALERT: 'clear_alert',
 
+	//Static pop message for info Action Types
+	DISPLAY_INFO: 'display_info',
+	CLEAR_INFO_DISPLAY: 'clear_info_display',
+
 	// User Action Types
 	SET_USER: 'set_user',
 	SET_AUTH: 'set_auth',
@@ -81,7 +85,6 @@ module.exports = Object.freeze({
 	EXERCISE_NOT_LOADING: 'exercise_not_loading',
 	ADD_EXERCISES: 'add_exercises',
 	ADD_EXERCISE: 'add_exercise',
-
 
 	// MEAL ACTIONS
 	MEAL_IS_LOADING: 'meal_is_loading',

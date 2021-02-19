@@ -92,8 +92,8 @@ TextInput.propTypes = {
 	label: PropTypes.string,
 	error: PropTypes.string,
 	placeholder: PropTypes.string,
-	value: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired,
+	value: PropTypes.any,
+	onChange: PropTypes.any,
 	type: PropTypes.string,
 	readonly: PropTypes.bool
 };

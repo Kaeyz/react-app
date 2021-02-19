@@ -160,6 +160,7 @@ Button.propTypes = {
 		'green',
 		'white',
 		'deepYellow',
+		'darkGreenBtn',
 		'darkGreen'])
 };
 

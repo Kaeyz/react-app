@@ -277,7 +277,7 @@ const ContactUs = () => {
 	return (
 		<AppLayout header={<Header />}>
 			<Wrapper>
-				<div class="hero">
+				<div className="hero">
 					<div className="text-content">
 						<div className="head">
 							<h1>Get In Touch</h1>
@@ -394,12 +394,12 @@ const ContactUs = () => {
 					</div>
 					<div className="contact-form">
 						<img
-							class="absolute flower flower-left"
+							className="absolute flower flower-left"
 							src={flower}
 							alt="flower"
 						/>
 						<img
-							class="absolute flower flower-right"
+							className="absolute flower flower-right"
 							src={flower}
 							alt="flower"
 						/>
@@ -418,7 +418,7 @@ const ContactUs = () => {
 								<Grid container spacing={1}>
 									<Grid item xs={12} sm={6}>
 										<div className="mt">
-											<label for="firstName">
+											<label htmlFor="firstName">
 												First Name
 											</label>{' '}
 										</div>
@@ -433,7 +433,7 @@ const ContactUs = () => {
 									</Grid>
 									<Grid item xs={12} sm={6}>
 										<div className="mt">
-											<label for="lastName">
+											<label htmlFor="lastName">
 												Last Name
 											</label>{' '}
 										</div>
@@ -448,7 +448,7 @@ const ContactUs = () => {
 									</Grid>
 									<Grid item xs={12}>
 										<div className="mt">
-											<label for="companyName">
+											<label htmlFor="companyName">
 												Company Name
 											</label>
 										</div>
@@ -464,7 +464,7 @@ const ContactUs = () => {
 									<Grid item xs={12} sm={6}>
 										<div className="mt">
 											{' '}
-											<label for="email">
+											<label htmlFor="email">
 												Email Address
 											</label>
 										</div>
@@ -480,7 +480,7 @@ const ContactUs = () => {
 									<Grid item xs={12} sm={6}>
 										<div className="mt">
 											{' '}
-											<label for="phone">
+											<label htmlFor="phone">
 												Phone
 											</label>{' '}
 										</div>
@@ -495,7 +495,7 @@ const ContactUs = () => {
 									</Grid>
 									<Grid item xs={12}>
 										<div className="mt">
-											<label for="message">Message</label>
+											<label htmlFor="message">Message</label>
 										</div>
 										<textarea
 											id="message"
@@ -509,7 +509,7 @@ const ContactUs = () => {
 									<Grid item xs={12}>
 										<Button
 											type="submit"
-											theme="deepYellowBtn"
+											theme="deepYellow"
 										>
 											Submit
 										</Button>

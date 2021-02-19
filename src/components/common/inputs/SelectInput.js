@@ -1,7 +1,7 @@
+import { MenuItem, Select } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { Select, MenuItem } from '@material-ui/core';
 
 const Wrapper = styled.div`
   margin-top: 1.5rem;
@@ -62,7 +62,7 @@ const SelectInput = ({ label, onChange, value, options, error }) => {
 			<Select
 				className="input"
 				variant="outlined"
-				value={value}
+				value={value === null ? '' : value}
 				onChange={handleChange}
 			>
 
@@ -81,7 +81,7 @@ SelectInput.propTypes = {
 	label: PropTypes.string,
 	error: PropTypes.string,
 	options: PropTypes.array.isRequired,
-	value: PropTypes.any.isRequired,
+	value: PropTypes.any,
 	onChange: PropTypes.func.isRequired,
 };
 

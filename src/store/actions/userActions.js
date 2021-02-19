@@ -3,6 +3,7 @@ import { CLEAR_SESSION, SET_AUTH, SET_USER } from '../types';
 import { clearAlert, errorAlert, successAlert } from './alertActions';
 import { appIsLoading, appNotLoading } from './appActions';
 import { fetchHraResponse } from './hraActions';
+import { infoAlert } from './infoActions';
 
 
 export const setIsAuthenticated = (payload) => {
@@ -22,6 +23,7 @@ export const setCurrentUser = () => dispatch => {
 				dispatch({type: SET_USER, payload: res.data.me});
 				dispatch(setIsAuthenticated(true));
 				dispatch(fetchHraResponse());
+				dispatch(infoAlert(res?.data?.me?.adminVerified));
 				dispatch(appNotLoading());
 			}
 		})

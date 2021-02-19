@@ -37,7 +37,7 @@ const textInput = {
 };
 
 const optionGender = [
-	{ value: '', text: 'Select here' },
+	{ value: 'select here', text: 'Select here' },
 	{ value: 'MALE', text: 'Male' },
 	{ value: 'FEMALE', text: 'Female' },
 ];
@@ -51,8 +51,7 @@ const optionActivity = [
 ];
 
 const AccountSettings = ({ user, updateUser }) => {
-	// console.log(user);
-	const names = user && user.name.split(' ');
+	const names = user && user.name.split(' ') || 'no name';
 	const [firstName, setFirstName] = useState(names[0]);
 	const [lastName, setLastName] = useState(names[1]);
 	const [gender, setGender] = useState(user.gender);

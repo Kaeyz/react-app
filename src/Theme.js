@@ -1,12 +1,13 @@
-import React from 'react';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
-import basicFont from './assets/Myfont/Matteo.otf';
-import secFont from './assets/Myfont/FuturaPTBook.otf';
+import React from 'react';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import brownFont from './assets/Myfont/BrownLightRegular.ttf';
-import avenirFont from './assets/Myfont/Metropolis-Light.otf';
 import caviarFont from './assets/Myfont/CaviarDreams.ttf';
+import secFont from './assets/Myfont/FuturaPTBook.otf';
+import basicFont from './assets/Myfont/Matteo.otf';
+import avenirFont from './assets/Myfont/Metropolis-Light.otf';
 import hraFont from './assets/Myfont/sofiapro-light.otf';
+import Info from './components/notification/Info';
 import Notify from './components/notification/Notify';
 
 const theme = {
@@ -151,6 +152,7 @@ const Theme = (props) => (
 		<div>
 			<GlobalStyle />
 			<Notify />
+			<Info />
 			{props.children}
 		</div>
 	</ThemeProvider>

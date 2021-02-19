@@ -1,19 +1,20 @@
 import { combineReducers } from 'redux';
 import { CLEAR_SESSION } from '../types';
-
+import alertsReducer from './alertsReducer';
 import appointmentReducer from './appointmentReducer';
+import appReducer from './appReducer';
+import blogReducer from './blogReducer';
+import bmiReducer from './bmiReducer';
+import companyReducer from './companyReducer';
 import employeeReducer from './employeeReducer';
 import exerciseReducer from './exerciseReducer';
-import companyReducer from './companyReducer';
-import alertsReducer from './alertsReducer';
-import rewardReducer from './rewardReducer';
-import reportReducer from './reportReducer';
-import userReducer from './userReducer';
-import mealReducer from './mealReducer';
-import blogReducer from './blogReducer';
-import appReducer from './appReducer';
 import hraReducer from './hraReducer';
-import bmiReducer from './bmiReducer';
+import infoReducer from './infoReducer';
+import mealReducer from './mealReducer';
+import reportReducer from './reportReducer';
+import rewardReducer from './rewardReducer';
+import userReducer from './userReducer';
+
 
 
 const reducers = combineReducers({
@@ -30,6 +31,7 @@ const reducers = combineReducers({
 	bmi: bmiReducer,
 	blog: blogReducer,
 	meal: mealReducer,
+	info: infoReducer
 });
 
 const rootReducer = (state, action) => {
