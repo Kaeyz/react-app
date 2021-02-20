@@ -1,19 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
-import { fetchHraResponse } from '../../../store/actions/hraActions';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import smallImg from '../../../assets/Activity.svg';
-import DashboardLayout from '../../../components/layouts/dashboardLayout/DashboardLayout';
+import greenFlower from '../../../assets/greenFlower.svg';
+import pinkFlower from '../../../assets/pinkFlower.svg';
 // import ProgressSection from '../../../components/dashboard/common/ProgressSection';
 import absoluteImg from '../../../assets/undraw_through_the_park.svg';
-import PreliminaryCard from '../../../components/dashboard/common/PreliminaryCard';
-import Button from '../../../components/common/Button';
-import pinkFlower from '../../../assets/pinkFlower.svg';
 import yellowFlower from '../../../assets/yellowFlower.svg';
-import greenFlower from '../../../assets/greenFlower.svg';
+import Button from '../../../components/common/Button';
+import PreliminaryCard from '../../../components/dashboard/common/PreliminaryCard';
+import DashboardLayout from '../../../components/layouts/dashboardLayout/DashboardLayout';
+import { fetchHraResponse } from '../../../store/actions/hraActions';
 
 const Wrapper = styled.div`
   padding-top: 3rem;
@@ -167,11 +167,11 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 								backgroundColor="orange"
 								where={'/assessment/health'}
 								image={pinkFlower}
-								details="Take a health risk asssesment, understand the risks to yourself and how your lifestyle can be improved."
+								details="Take a health risk assessment, understand the risks to yourself and how your lifestyle can be improved."
 							/>
 
 							<PreliminaryCard
-								btnValue="Start Check"
+								btnValue="Coming Soon"
 								cardInfo="InBody Comprehensive Check (COMING SOON)"
 								image={greenFlower}
 								btnTheme="purpleBtn"

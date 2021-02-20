@@ -114,7 +114,7 @@ const Modal = ({
 					<div className="heading">
 						<img src={img} alt={alt}/>
 						<h1 className="bold  big">{heading}</h1>
-						<p className="light bold">{info}</p>
+						<div className="light bold">{info}</div>
 					</div>
 					{children}
 
@@ -129,18 +129,18 @@ Modal.defaultProps = {
 };
 
 Modal.propTypes = {
-	handleClose: PropTypes.func.isRequired,
-	show: PropTypes.bool.isRequired,
-	children: PropTypes.any.isRequired,
-	img: PropTypes.any,
-	alt : PropTypes.string,
-	textBtn: PropTypes.string,
-	shortBtn: PropTypes.string,
-	heading: PropTypes.string.isRequired,
-	position: PropTypes.string,
 	align: PropTypes.string,
-	info: PropTypes.string.isRequired,
+	alt: PropTypes.string,
 	btn2: PropTypes.element,
+	children: PropTypes.any.isRequired,
+	handleClose: PropTypes.func.isRequired,
+	heading: PropTypes.any.isRequired,
+	img: PropTypes.any,
+	info: PropTypes.any.isRequired,
+	position: PropTypes.string,
+	shortBtn: PropTypes.string,
+	show: PropTypes.bool.isRequired,
+	textBtn: PropTypes.string
 };
 
 export default Modal;

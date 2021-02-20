@@ -44,13 +44,13 @@ const Wrapper = styled.div`
 		color: ${(props) => props.theme.color.text_03};
 	}
 	.hero-text h2 {
-		line-height: 5rem;
-		font-size: 4.5rem;
+		line-height: 4rem;
+		font-size: 3.5rem;
 		margin-bottom: 15px;
 		font-weight: 100;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-			line-height: 4.8rem;
-			font-size: 4rem;
+			line-height: 3.8rem;
+			font-size: 3rem;
 		}
 	}
 	.hero-text button {

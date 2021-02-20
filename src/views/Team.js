@@ -211,93 +211,114 @@ function Team(props) {
 		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })
 	}
   return (
-    <AppLayout header={<Header />} >
-      <Wrapper>
-        <div className="head">
-          <h1>OUR TEAM</h1>
-          <p>
-            Meet the wellness team.
-          </p>
-        </div>
+		<AppLayout header={<Header />}>
+			<Wrapper>
+				<div className="head">
+					<h1>OUR TEAM</h1>
+					<p>Meet the wellness team.</p>
+				</div>
 
-        <div className="team">
-          <div className="blue-bg"></div>
-          <div className="member one">
-            <div className="img"></div>
-            <h2 className="name text">Dr Uganze Eke</h2>
-            <h3 className="role text">CEO</h3>
-            <div className="social flex">
-              <a href="https://www.linkedin.com/in/uganze-eke" target='_blank'><img src={linkedin} alt="linkedin" /></a>
+				<div className="team">
+					<div className="blue-bg"></div>
+					<div className="member one">
+						<div className="img"></div>
+						<h2 className="name text">Dr Uganze Eke</h2>
+						<h3 className="role text">CEO</h3>
+						<div className="social flex">
+							<a
+								href="https://www.linkedin.com/in/uganze-eke-22a1946b/"
+								target="_blank"
+							>
+								<img src={linkedin} alt="linkedin" />
+							</a>
 
+							{/* <img className="pd" src={twitter} alt="twitter" />
+              <img src={mail} alt="mail" /> */}
+						</div>
+					</div>
+					<div className="member two">
+						<div className="img"></div>
+						<h2 className="name text">Mr UK Eke</h2>
+						<h3 className="role text">Chairman</h3>
+						<div className="social flex">
+							<a
+								href="https://www.linkedin.com/in/u-k-eke-076647200/"
+								target="_blank"
+							>
+								<img src={linkedin} alt="linkedin" />
+							</a>
 
-              {/* <img className="pd" src={twitter} alt="twitter" />
+							{/* <img className="pd" src={twitter} alt="twitter" />
               <img src={mail} alt="mail" /> */}
-            </div>
-          </div>
-          <div className="member two">
-            <div className="img"></div>
-            <h2 className="name text">Mr UK Eke</h2>
-            <h3 className="role text">Chairman</h3>
-            <div className="social flex">
-            <a href="https://www.linkedin.com/in/uk-eke-076647200" target='_blank'>
-              <img src={linkedin} alt="linkedin" />
-              </a>
-
-              {/* <img className="pd" src={twitter} alt="twitter" />
+						</div>
+					</div>
+					<div className="member three">
+						<div className="img"></div>
+						<h2 className="name text">Mr Joel Uzamere</h2>
+						<h3 className="role text">
+							Certified Fitness Consultant
+						</h3>
+						<div className="social flex">
+							<a
+								href="https://www.linkedin.com/in/joel-uzamere-805395b"
+								target="_blank"
+							>
+								<img src={linkedin} alt="linkedin" />
+							</a>
+							{/* <img className="pd" src={twitter} alt="twitter" />
               <img src={mail} alt="mail" /> */}
-            </div>
-          </div>
-          <div className="member three">
-            <div className="img"></div>
-            <h2 className="name text">Mr Joel Uzamere</h2>
-            <h3 className="role text">Certified Fitness Consultant</h3>
-            <div className="social flex">
-              <a href="https://www.linkedin.com/in/joel-uzamere-805395b" target='_blank'>
-              <img src={linkedin} alt="linkedin" />
-              </a>
-              {/* <img className="pd" src={twitter} alt="twitter" />
+						</div>
+					</div>
+					<div className="member four">
+						<div className="img"></div>
+						<h2 className="name text">Mr Prince Anusiem</h2>
+						<h3 className="role text">Chief Operations Manager</h3>
+						<div className="social flex">
+							<a
+								href="https://www.linkedin.com/in/prince-anusiem-362085146"
+								target="_blank"
+							>
+								<img src={linkedin} alt="linkedin" />
+							</a>
+							{/* <img className="pd" src={twitter} alt="twitter" />
               <img src={mail} alt="mail" /> */}
-            </div>
-          </div>
-          <div className="member four">
-            <div className="img"></div>
-            <h2 className="name text">Mr Prince Anusiem</h2>
-            <h3 className="role text">Chief Operations Manager</h3>
-            <div className="social flex">
-            <a href="https://www.linkedin.com/in/prince-anusiem-362085146" target='_blank'>
-              <img src={linkedin} alt="linkedin" />
-              </a>
-                    {/* <img className="pd" src={twitter} alt="twitter" />
+						</div>
+					</div>
+					<div className="member five">
+						<div className="img"></div>
+						<h2 className="name text">Mr Soteye Babatunde</h2>
+						<h3 className="role text">Consultant Nutritionist</h3>
+						<div className="social flex">
+							<a
+								href="https://www.linkedin.com/in/soteyeheinrich-babatunde-6531127b"
+								target="_blank"
+							>
+								<img src={linkedin} alt="linkedin" />
+							</a>
+							{/* <img className="pd" src={twitter} alt="twitter" />
               <img src={mail} alt="mail" /> */}
-            </div>
-          </div>
-          <div className="member five">
-            <div className="img"></div>
-            <h2 className="name text">Mr Soteye Babatunde</h2>
-            <h3 className="role text">Consultant Nutritionist</h3>
-            <div className="social flex">
-            <a href="https://www.linkedin.com/in/soteyeheinrich-babatunde-6531127b" target='_blank'>
-              <img src={linkedin} alt="linkedin" />
-              </a>
-              {/* <img className="pd" src={twitter} alt="twitter" />
+						</div>
+					</div>
+					<div className="member six">
+						<div className="img"></div>
+						<h2 className="name text">Mrs Adenike Adeyemi</h2>
+						<h3 className="role text">
+							Corporate Strategy Adviser
+						</h3>
+						<div className="social flex">
+							<a
+								href="https://www.linkedin.com/in/adenike-adeyemi-8286a81"
+								target="_blank"
+							>
+								<img src={linkedin} alt="linkedin" />
+							</a>
+							{/* <img className="pd" src={twitter} alt="twitter" />
               <img src={mail} alt="mail" /> */}
-            </div>
-          </div>
-          <div className="member six">
-            <div className="img"></div>
-            <h2 className="name text">Mrs Adenike Adeyemi</h2>
-            <h3 className="role text">Corporate Strategy Adviser</h3>
-            <div className="social flex">
-              <a href="https://www.linkedin.com/in/adenike-adeyemi-8286a81" target='_blank'>
-              <img src={linkedin} alt="linkedin" />
-              </a>
-              {/* <img className="pd" src={twitter} alt="twitter" />
-              <img src={mail} alt="mail" /> */}
-            </div>
-          </div>
-        </div>
-      </Wrapper>
-    </AppLayout>
+						</div>
+					</div>
+				</div>
+			</Wrapper>
+		</AppLayout>
   );
 }
 

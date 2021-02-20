@@ -131,7 +131,7 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 			</Modal>
 
 			<Button
-				theme="whiteBtn blackText"
+				theme="whiteBtn"
 				text="Batch Upload"
 				onClick={showModal}
 			/>
@@ -140,7 +140,8 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 };
 
 BatchUploadModal.propTypes = {
-	addNewEmployee: PropTypes.func.isRequired,
-};
+  addNewEmployee: PropTypes.func
+}
+
 
 export default connect(null, { addNewEmployee })(BatchUploadModal);

@@ -155,13 +155,19 @@ Button.propTypes = {
 	title: PropTypes.string,
 	theme: PropTypes.oneOf([
 		'pink',
+		'pinkBtn',
 		'purple',
+		'purpleBtn',
 		'yellow',
+		'yellowBtn',
 		'green',
 		'white',
+		'whiteBtn',
 		'deepYellow',
+		'deepYellowBtn',
 		'darkGreenBtn',
-		'darkGreen'])
+		'darkGreen',
+	]),
 };
 
 
