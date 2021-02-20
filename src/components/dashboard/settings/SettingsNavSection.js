@@ -65,7 +65,6 @@ const Wrapper = styled.div`
 		}
 	}
 `;
-
 function Link({ item }) {
 	const [iconName, setIconName] = React.useState(item.icon);
 	const [isActive, setIsActive] = React.useState(false);
@@ -109,7 +108,7 @@ function SettingsNavSection({ items }) {
 }
 
 SettingsNavSection.propTypes = {
-	title: PropTypes.string.isRequired,
+	title: PropTypes.string,
 	items: PropTypes.array.isRequired,
 };
 

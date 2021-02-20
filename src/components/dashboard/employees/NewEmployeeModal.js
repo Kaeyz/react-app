@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { addNewEmployee } from '../../../store/actions/employeeActions';
-import {onBoardEmployeeValidator} from '../../forms/validation';
-import styled from 'styled-components';
-import Modal from '../common/Modal';
 import Grid from '@material-ui/core/Grid';
-import { TextInput } from '../../common/inputs';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import { addNewEmployee } from '../../../store/actions/employeeActions';
 import Button from '../../common/Button';
+import { TextInput } from '../../common/inputs';
+import { onBoardEmployeeValidator } from '../../forms/validation';
+import Modal from '../common/Modal';
 
 const Wrapper = styled.div`
 	.pd {
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const NewEmployeeModal = ({addNewEmployee, btnTheme}) => {
+const NewEmployeeModal = ({ addNewEmployee, btnTheme }) => {
 	const [show, setShow] = React.useState(false);
 	const [firstName, setFirstName] = React.useState('');
 	const [lastName, setLastName] = React.useState('');

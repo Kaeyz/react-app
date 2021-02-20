@@ -1,11 +1,11 @@
 /*eslint-disable */
-import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import fitness from "../../assets/fitness.png";
 import health from "../../assets/health.png";
 import lifestyle from "../../assets/lifestyle.png";
-import fitness from "../../assets/fitness.png";
 import nutrition from "../../assets/nutrition.png";
 
 const Wrapper = styled.div`

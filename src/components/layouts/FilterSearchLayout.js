@@ -87,7 +87,7 @@ function FilterSearchLayout({
 		<Wrapper>
 			<div>
 				<Paper className="top-paper flex flexy">
-					<p className="text">{text}</p>
+					<div className="text">{text}</div>
 					{/* <div className="filter">
 						<Filter Icon={filtering} alt='filtering' placeholder="Filter" options={options} width={{ width: 150 }} />
 					</div> */}
@@ -113,14 +113,14 @@ function FilterSearchLayout({
 
 FilterSearchLayout.propTypes = {
 	children: PropTypes.any.isRequired,
-	buttons: PropTypes.any.isRequired,
+	buttons: PropTypes.any,
 	oneGrid: PropTypes.string,
 	title: PropTypes.string,
-	text: PropTypes.string.isRequired,
+	text: PropTypes.any.isRequired,
 	display: PropTypes.any,
 	wrap: PropTypes.any,
-	onSearchSubmit: PropTypes.func.isRequired,
-	searchPlaceholder: PropTypes.string.isRequired,
+	onSearchSubmit: PropTypes.func,
+	searchPlaceholder: PropTypes.string,
 };
 
 export default FilterSearchLayout;

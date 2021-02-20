@@ -1,7 +1,6 @@
 // modules
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import abtIcon from '../../../assets/abtIcon.png';
 import addressIcon from '../../../assets/addressIcon.png';
@@ -234,88 +233,74 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 							<h5 className="footer_nav_header blue">
 								Contact Us
 							</h5>
-							<Link>
-								<a
-									href="tel:+2348026484048"
-									className="footer_nav_link"
-									target="_blank"
-									rel="noreferrer"
-								>
-									<span className="icon">
-										<img
-											className="icons"
-											src={callIcon}
-											alt="callIcon"
-										/>
-									</span>
-									<span>
-										<b>0802 648 4048</b>
-									</span>
-								</a>
-							</Link>
-							<Link
-								className="flex"
-								style={{
-									justifyContent: 'start',
-									alignItems: 'baseline',
-								}}
+							<a
+								href="tel:+2348026484048"
+								className="footer_nav_link"
+								target="_blank"
+								rel="noreferrer"
 							>
-								<a
-									href="tel:+2348026483318"
-									className="footer_nav_link"
-									target="_blank"
-									rel="noreferrer"
-								>
-									<span className="icon">
-										<img
-											className="icons"
-											src={callIcon}
-											alt="callIcon"
-										/>
-									</span>
-									<span>
-										<b>0802 648 3318</b>
-									</span>
-								</a>
-							</Link>
-							<Link className="footer_nav_link">
-								<a
-									className="footer_nav_link"
-									target="_blank"
-									rel="noreferrer"
-									style={{ whiteSpace: 'pre' }}
-									href="mailto:chooselife@fitnessfairng.com"
-								>
-									<span className="icon">
-										<img
-											className="icons"
-											src={atIcon}
-											alt="atIcon"
-										/>
-									</span>
-									<span>chooselife@fitnessfairng.com</span>
-								</a>
-							</Link>
-							<Link className="footer_nav_link">
-								<a
-									href="https://goo.gl/maps/tz9eTPMRhUfk8Rdk9"
-									className="footer_nav_link"
-									target="_blank"
-									rel="noreferrer"
-								>
-									<span className="icon">
-										<img
-											className="icons addressIcon"
-											src={addressIcon}
-											alt="addressIcon"
-										/>
-									</span>
-									<span>
+								<span className="icon">
+									<img
+										className="icons"
+										src={callIcon}
+										alt="callIcon"
+									/>
+								</span>
+								<span>
+									<b>0802 648 4048</b>
+								</span>
+							</a>
+							<a
+								href="tel:+2348026483318"
+								className="footer_nav_link"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<span className="icon">
+									<img
+										className="icons"
+										src={callIcon}
+										alt="callIcon"
+									/>
+								</span>
+								<span>
+									<b>0802 648 3318</b>
+								</span>
+							</a>
+							<a
+								className="footer_nav_link"
+								target="_blank"
+								rel="noreferrer"
+								style={{ whiteSpace: 'pre' }}
+								href="mailto:chooselife@fitnessfairng.com"
+							>
+								<span className="icon">
+									<img
+										className="icons"
+										src={atIcon}
+										alt="atIcon"
+									/>
+								</span>
+								<span>chooselife@fitnessfairng.com</span>
+							</a>
+							<a
+								href="https://goo.gl/maps/tz9eTPMRhUfk8Rdk9"
+								className="footer_nav_link"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<span className="icon">
+									<img
+										className="icons addressIcon"
+										src={addressIcon}
+										alt="addressIcon"
+									/>
+								</span>
+								<span>
 										2, Banana Island Shopping Complex,
 										Banana Island, Ikoyi-Lagos,Nigeria
-									</span>
-								</a>
-							</Link>
+								</span>
+							</a>
 						</div>
 
 						<div className="footer_nav_section">

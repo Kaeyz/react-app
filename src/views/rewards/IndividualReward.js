@@ -108,7 +108,7 @@ function IndividualRewards({ getRewards, reward, isLoading }) {
 				{isLoading ? (
 					<div>Loading ...</div>
 				) : Object.keys(reward).length === 0 ? (
-					<h6>No Current running reward</h6>
+					<h6>Your company does not have any running reward.</h6>
 				) : (
 					<Grid container>
 						<Grid item xs={9}>

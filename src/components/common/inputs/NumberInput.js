@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
 import { Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import React from 'react';
 import NumberFormat from 'react-number-format';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
 	width: 100%;
@@ -73,7 +73,7 @@ NumberInput.propTypes = {
 	label: PropTypes.string,
 	error: PropTypes.string,
 	placeholder: PropTypes.string,
-	value: PropTypes.string.isRequired,
+	value: PropTypes.number,
 	onChange: PropTypes.func.isRequired
 };
 

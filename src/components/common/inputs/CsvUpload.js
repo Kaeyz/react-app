@@ -14,7 +14,6 @@ const Wrapper = styled.div`
 `;
 
 // take the csv data and return the arr of object with line 1 as the object key
-/* eslint-disable */
 const sortData = (data) => {
 	const keys = data[0];
 	const result = [];
@@ -30,10 +29,10 @@ const sortData = (data) => {
 	return result;
 };
 
-function CsvUpload({ value, onFileUpload, csvError, error }) {
+function CsvUpload({  onFileUpload, csvError, error }) {
 
 	const onFileLoaded = (e) => {
-		let f = e.target.files[0];
+		const f = e.target.files[0];
 		if (f) {
 			const reader = new FileReader();
 			reader.onload = (evt) => {
@@ -48,12 +47,12 @@ function CsvUpload({ value, onFileUpload, csvError, error }) {
 				const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
 				/* Update state */
 				// console.log('Data>>>' + data);
-				let value = sortData(data);
+				const value = sortData(data);
 
 				// clear input
 				onFileUpload(value);
 				// setError('')
-				csvError('')
+				csvError('');
 				return;
 			};
 			reader.readAsBinaryString(f);
@@ -62,7 +61,7 @@ function CsvUpload({ value, onFileUpload, csvError, error }) {
 			e.target.value = '';
 			onFileUpload([]);
 			// setError('');
-			csvError('something bad happened')
+			csvError('something bad happened');
 		}
 	};
 
@@ -94,9 +93,11 @@ function CsvUpload({ value, onFileUpload, csvError, error }) {
 }
 
 CsvUpload.propTypes = {
-	value: PropTypes.any.isRequired,
+	label: PropTypes.any,
+	csvError: PropTypes.func,
+	error: PropTypes.any,
 	onFileUpload: PropTypes.func.isRequired,
-	csvError: PropTypes.string,
+	value: PropTypes.any.isRequired
 };
 
 export { CsvUpload };

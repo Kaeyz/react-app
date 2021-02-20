@@ -1,15 +1,15 @@
 /*eslint-disable */
 
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import Footer from './Footer';
 import Fab from '@material-ui/core/Fab';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import Zoom from '@material-ui/core/Zoom';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Zoom from '@material-ui/core/Zoom';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
+import Footer from './Footer';
 
 
 const Wrapper = styled.div``;
@@ -97,9 +97,9 @@ export default function AppLayout({ children, arrow, header, toPillar, toAbout }
 }
 
 AppLayout.propTypes = {
-	children: PropTypes.array.isRequired,
-	header: PropTypes.any.isRequired,
 	arrow: PropTypes.any,
-	toPillar: PropTypes.func,
-	toAbout: PropTypes.func
-};
+	children: PropTypes.any.isRequired,
+	header: PropTypes.any.isRequired,
+	toAbout: PropTypes.func,
+	toPillar: PropTypes.func
+}
