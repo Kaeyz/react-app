@@ -12,25 +12,28 @@ const Wrapper = styled.div`
 		color: red;
 	}
 `;
-
+/* eslint-disable */
 // take the csv data and return the arr of object with line 1 as the object key
 const sortData = (data) => {
+	let cleanArr = data.filter((arr) => arr.length);
+
 	const keys = data[0];
 	const result = [];
-	data.map((item, i) => {
+	cleanArr.map((item, i) => {
 		if (i > 0) {
 			const obj = {};
-			keys.map((key, index) => (obj[key] = item[index]));
+			keys.map((key, index) => {
+				obj[key] = item[index];
+				return obj;
+			});
 			return result.push(obj);
 		}
 		return null;
 	});
-	result.pop();
 	return result;
 };
 
-function CsvUpload({  onFileUpload, csvError, error }) {
-
+function CsvUpload({ onFileUpload, csvError, error }) {
 	const onFileLoaded = (e) => {
 		const f = e.target.files[0];
 		if (f) {
@@ -97,7 +100,7 @@ CsvUpload.propTypes = {
 	csvError: PropTypes.func,
 	error: PropTypes.any,
 	onFileUpload: PropTypes.func.isRequired,
-	value: PropTypes.any.isRequired
+	value: PropTypes.any.isRequired,
 };
 
 export { CsvUpload };

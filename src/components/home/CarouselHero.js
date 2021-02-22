@@ -111,9 +111,9 @@ function CarouselHero(props) {
 	return (
 		<Wrap>
 			<Carousel
-				interval={9000}
+				interval={5000}
 				autoPlay={true}
-				timeout={300}
+				timeout={{appear: 1000, enter: 0, exit: 1000}}
 				indicators={false}
 				navButtonsAlwaysVisible={true}
 				animation="fade"
