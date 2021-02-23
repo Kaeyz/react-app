@@ -1,10 +1,11 @@
-import React from 'react';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { connect } from 'react-redux';
-import undraw_through_the_park from '../../../assets/undraw_through_the_park.svg';
-import styled from 'styled-components';
+import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import undraw_through_the_park from '../../../assets/undraw_through_the_park.svg';
+import { capitalizeFirstLetter } from '../../../utils/helper';
 
 const Wrapper = styled.div`
   margin-bottom: 6rem;
@@ -79,7 +80,9 @@ right: 11px;
     }
   }
 `;
-const WelcomeBanner = ({detail,emoji, name}) => {
+/* eslint-disable */
+const WelcomeBanner = ({ detail, emoji, name }) => {
+	console.log({name: capitalizeFirstLetter(name)});
 	return (
 		<Wrapper>
 			<div>
@@ -90,7 +93,7 @@ const WelcomeBanner = ({detail,emoji, name}) => {
 								<span role="img" aria-label="wave">
 									{emoji}
 								</span>{' '}
-								{`Hello, ${name && name}`}
+								{`Hello, ${name && name.split(' ').map(capitalizeFirstLetter).join(' ')}`}
 							</h1>
 							<p>
 								{detail}
