@@ -13,8 +13,8 @@ import Modal from '../common/Modal';
 
 const Wrapper = styled.div`
 	.inlineP {
-		font-size: 1.6rem;
-		line-height: 2.3rem;
+		font-size: 1.5rem;
+		line-height: 2.1rem;
 		letter-spacing: 0.6px;
 		color: #0a2523;
 		padding-bottom: 15px;
@@ -84,18 +84,20 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 				info={
 					<>
 						<p className="inlineP">
-							Add multiple employees at once via an Excel file
-							upload.
-						</p>
-						<p className="inlineP">
-							To add multiple employees, click this
+							To add multiple employees,
 							<a id="link" href={csvFile} download="Batch_Upload">
 								{' '}
-								link
+								click this link	to see the sample excel file.
 							</a>{' '}
-							to use see the sample excel file.
 						</p>
-						<p className="inlineP" style={{fontStyle: "italic", color: 'red'}}>
+						<p
+							className="inlineP"
+							style={{
+								fontStyle: 'italic',
+								color: '#646060',
+								fontSize: '1.1rem',
+							}}
+						>
 							The format of the excel file must be followed
 							properly, if you encounter any error while using
 							this multiple upload, contact the chooselife admin
@@ -130,11 +132,7 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 				</div>
 			</Modal>
 
-			<Button
-				theme="whiteBtn"
-				text="Batch Upload"
-				onClick={showModal}
-			/>
+			<Button theme="whiteBtn" text="Batch Upload" onClick={showModal} />
 		</Wrapper>
 	);
 };

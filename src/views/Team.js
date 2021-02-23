@@ -222,7 +222,7 @@ function Team(props) {
 					<div className="blue-bg"></div>
 					<div className="member one">
 						<div className="img"></div>
-						<h2 className="name text">Dr Uganze Eke</h2>
+						<h2 className="name text">Dr. Uganze Eke</h2>
 						<h3 className="role text">CEO</h3>
 						<div className="social flex">
 							<a
@@ -238,7 +238,7 @@ function Team(props) {
 					</div>
 					<div className="member two">
 						<div className="img"></div>
-						<h2 className="name text">Mr UK Eke</h2>
+						<h2 className="name text">Mr. UK Eke</h2>
 						<h3 className="role text">Chairman</h3>
 						<div className="social flex">
 							<a
@@ -254,7 +254,7 @@ function Team(props) {
 					</div>
 					<div className="member three">
 						<div className="img"></div>
-						<h2 className="name text">Mr Joel Uzamere</h2>
+						<h2 className="name text">Mr. Joel Uzamere</h2>
 						<h3 className="role text">
 							Certified Fitness Consultant
 						</h3>
@@ -271,7 +271,7 @@ function Team(props) {
 					</div>
 					<div className="member four">
 						<div className="img"></div>
-						<h2 className="name text">Mr Prince Anusiem</h2>
+						<h2 className="name text">Mr. Prince Anusiem</h2>
 						<h3 className="role text">Chief Operations Manager</h3>
 						<div className="social flex">
 							<a
@@ -286,7 +286,7 @@ function Team(props) {
 					</div>
 					<div className="member five">
 						<div className="img"></div>
-						<h2 className="name text">Mr Soteye Babatunde</h2>
+						<h2 className="name text">Mr. Soteye Babatunde</h2>
 						<h3 className="role text">Consultant Nutritionist</h3>
 						<div className="social flex">
 							<a
@@ -301,7 +301,7 @@ function Team(props) {
 					</div>
 					<div className="member six">
 						<div className="img"></div>
-						<h2 className="name text">Mrs Adenike Adeyemi</h2>
+						<h2 className="name text">Mrs. Adenike Adeyemi</h2>
 						<h3 className="role text">
 							Corporate Strategy Adviser
 						</h3>

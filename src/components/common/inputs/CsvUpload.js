@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import * as XLSX from 'xlsx';
 
 const Wrapper = styled.div`
+	width: 300px;
 	.csv-input {
 		color: blue;
 	}
@@ -11,11 +12,36 @@ const Wrapper = styled.div`
 		margin-top: 0.5rem;
 		color: red;
 	}
+	.custom-file-input::-webkit-file-upload-button {
+		visibility: hidden;
+	}
+	.custom-file-input::before {
+		content: 'Select file';
+		display: inline-block;
+		/* background: linear-gradient(top, #f9f9f9, #e3e3e3); */
+		border: 1px solid #999;
+		border-radius: 4px;
+		padding: 5px 8px;
+		outline: none;
+		white-space: nowrap;
+		-webkit-user-select: none;
+		cursor: pointer;
+		/* text-shadow: 1px 1px #fff; */
+		font-weight: 500;
+		font-size: 16px;
+		font-family: 'Matteo'
+	}
+	.custom-file-input:hover::before {
+		border-color: black;
+	}
+	.custom-file-input:active::before {
+		background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+	}
 `;
-/* eslint-disable */
+
 // take the csv data and return the arr of object with line 1 as the object key
 const sortData = (data) => {
-	let cleanArr = data.filter((arr) => arr.length);
+	const cleanArr = data.filter((arr) => arr.length);
 
 	const keys = data[0];
 	const result = [];
@@ -86,6 +112,7 @@ function CsvUpload({ onFileUpload, csvError, error }) {
 			<input
 				id="upload"
 				type="file"
+				className="custom-file-input"
 				onChange={onFileLoaded}
 				// value={value}
 				accept=".xls,.xlsx"

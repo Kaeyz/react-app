@@ -4,10 +4,10 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import addressIcon from '../assets/addressIcon.png';
+import addressIcon from '../assets/addressWhite.png';
+import atIcon from '../assets/emailAtWhite.svg';
 import flower from '../assets/greenflower.png';
 import logo from '../assets/logo.png';
-import atIcon from '../assets/mailWhite.png';
 import callIcon from '../assets/phoneWhite.png';
 import yellow from '../assets/wellnessNav/fitnessIsActive.svg';
 import blue from '../assets/wellnessNav/healthIsActive.svg';
@@ -168,7 +168,7 @@ const Wrapper = styled.div`
   }
   .empty{
     background-color:${(props) => props.theme.color.ui_01};
-    height: 4px;
+    height: 2px;
     width: 200px;
     margin: 5px 0 0 7px;
     border-radius: 5px;
@@ -191,7 +191,7 @@ const Wrapper = styled.div`
   .address{
     align-items: flex-start;
     span.text{
-      margin-left: 10px;
+      /* margin-left: 10px; */
     }
     img{
       margin-right: 20px;
@@ -288,7 +288,7 @@ const ContactUs = () => {
 								muscle mass. It will help us help you understand
 								your body and how it’s performing.
 							</p>
-							<p className="or">or</p>
+							{/* <p className="or">or</p> */}
 						</div>
 						<button>
 							<Link className="link" to="/onboarding/company">
@@ -341,7 +341,7 @@ const ContactUs = () => {
 									</a>
 								</div>
 								<a
-									className="with-icon"
+									className="with-icon flex"
 									target="_blank"
 									href="mailto:chooselife@fitnessfairng.com"
 								>
@@ -372,7 +372,7 @@ const ContactUs = () => {
 											{' '}
 											Shop 2, Banana Island Shopping
 											Complex, Banana Island,
-											Ikoyi-Lagos,Nigeria
+											Ikoyi-Lagos, Nigeria.
 										</span>
 									</a>
 								</div>

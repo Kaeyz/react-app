@@ -161,7 +161,7 @@ function BlogPostDetail({ match, getSingleBlog, blog, isLoading }) {
 		getSingleBlog(blogId);
 	}, [blogId, getSingleBlog]);
 
-	const { title, body, createdAt, tags, author, asset } = blog;
+	const { title, body, createdAt, tags, author, asset, imageCaption, imageCredit } = blog;
 
 	return (
 		<AppLayout header={<Header />}>
@@ -194,7 +194,7 @@ function BlogPostDetail({ match, getSingleBlog, blog, isLoading }) {
 									<div className="detailbg bg"
 										style={{ backgroundImage: asset != null ? `url(${asset.url})` : 'url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309872/chooseLife/woman-spreading-both-her-arms_hly6ur.png"})' }}
 									/>
-									<p className="img-cap">Image Caption / Description or Credits</p>
+									<p className="img-cap">{ imageCaption || 'no image caption' } / { imageCredit || 'chooselife team' }</p>
 									<div className=" detail longDetail" dangerouslySetInnerHTML={{ __html: new Remarkable({html: true, breaks: true}).render(body) }} />
 								</React.Fragment>
 							}

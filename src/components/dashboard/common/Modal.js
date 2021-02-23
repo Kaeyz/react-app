@@ -114,7 +114,7 @@ const Modal = ({
 					<div className="heading">
 						<img src={img} alt={alt}/>
 						<h1 className="bold  big">{heading}</h1>
-						<div className="light bold">{info}</div>
+						<div className="light">{info}</div>
 					</div>
 					{children}
 

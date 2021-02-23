@@ -2,19 +2,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import abtIcon from '../../../assets/abtIcon.png';
-import addressIcon from '../../../assets/addressIcon.png';
-import atIcon from '../../../assets/atIcon.png';
 import brandlogoBlue from '../../../assets/brandlogoBlue.png';
-import callIcon from '../../../assets/callIcon.png';
-import copyright from '../../../assets/copyright.png';
-import facebookIcon from '../../../assets/facebookIcon.png';
+import atIcon from '../../../assets/emailAt.svg';
+import facebookIcon from '../../../assets/facebook.svg';
 import greenflower from '../../../assets/greenflower.png';
-import homeIcon from '../../../assets/homeIcon.png';
-import pillarIcon from '../../../assets/ionic-pillarIcon.png';
+import homeIcon from '../../../assets/home.svg';
 import logo from '../../../assets/logo.png';
-import twitterIcon from '../../../assets/twitterIcon.png';
-import whatsappIcon from '../../../assets/whatsapp.png';
+import addressIcon from '../../../assets/map.svg';
+import callIcon from '../../../assets/phone.svg';
+import pillarIcon from '../../../assets/pillars.svg';
+import twitterIcon from '../../../assets/twitter.svg';
+import abtIcon from '../../../assets/userGroup.svg';
+import whatsappIcon from '../../../assets/whatsapp.svg';
 import Container from '../../common/Container';
 
 const Wrapper = styled.div`
@@ -23,8 +22,8 @@ const Wrapper = styled.div`
   position: relative;
   .footer {
     display: grid;
-    grid-template-columns: 42% 53%;
-    grid-gap: 5%;
+    grid-template-columns: 42% 55%;
+    grid-gap: 3%;
     padding: 6rem 0rem;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       display: block;
@@ -67,10 +66,10 @@ const Wrapper = styled.div`
   .footer_nav {
     display: grid;
     grid-auto-flow: column;
-    grid-gap: 3rem;
+    grid-gap: 5rem;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 30px;
-    font-family: Avenir;
+    /* font-family: Avenir; */
     z-index: 44;
     position: relative;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
@@ -89,12 +88,6 @@ const Wrapper = styled.div`
       height: 20px;
       margin-right: 10px;
       vertical-align: middle;
-    }
-    .abtIcon {
-      height: 13px !important;
-    }
-    .addressIcon {
-      height: 17px !important;
     }
   }
 
@@ -176,11 +169,7 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 							</p>
 							<p className="info-bottom">
 								<span>
-									<img
-										className="copyright"
-										src={copyright}
-										alt="copyright"
-									/>
+									&copy;
 								</span>
 								{new Date().getFullYear()} Choose Life Ltd. All Rights Reserved
 							</p>
@@ -298,7 +287,7 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 								</span>
 								<span>
 										2, Banana Island Shopping Complex,
-										Banana Island, Ikoyi-Lagos,Nigeria
+										Banana Island, Ikoyi-Lagos, Nigeria
 								</span>
 							</a>
 						</div>

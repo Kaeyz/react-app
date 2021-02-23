@@ -83,21 +83,20 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 				createdAt={convertDate(blog.createdAt)}
 				tag={capitalizeFirstLetter(blog.tags)}
 				tagColor={
-					blog.tags === 'fitness' ? 'yellow'
-						: blog.tags === 'nutrition' ? 'blue'
-							: blog.tags === 'lifestyle' ? 'orange'
-								: blog.tags === 'health' ? 'green' : ''
+					blog.tags.toLowerCase() === 'fitness' ? 'yellow'
+						: blog.tags.toLowerCase() === 'nutrition' ? 'blue'
+							: blog.tags.toLowerCase() === 'lifestyle' ? 'orange' : 'green'
 				}
 			/>
 		);
 	};
 
 	const settings = {
-		dots: false,
+		dots: true,
 		infinite: true,
-		speed: 500,
+		speed: 50,
 		slidesToShow: 1,
-		slidesToScroll: 1,
+		slidesToScroll: 4,
 		nextArrow: <img src={arrowRight} alt="arrowRight" />,
 		prevArrow: <img src={arrowLeft} alt="arrowLeft" />,
 		responsive: [
@@ -113,15 +112,16 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 				breakpoint: 600,
 				settings: {
 					slidesToShow: 1,
+					slidesToScroll: 2,
 					infinite: true,
-					slidesToScroll: 1,
 				},
 			},
 			{
 				breakpoint: 480,
 				settings: {
 					slidesToShow: 1,
-					slidesToScroll: 1,
+					slidesToScroll: 4,
+					infinite: true
 				},
 			},
 		],
@@ -132,7 +132,7 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 			<img src={leftWhite} alt="leftWhite" className="absolute  leftwhite" />
 			<img src={rightWhite} alt="rightWhite" className="absolute rightwhite" />
 			<p className="slide-heading"> Featured</p>
-			<Slider {...settings}>{
+			<Slider key={Date.now()} {...settings}>{
 				!isLoading &&
 					featuredBlogs && featuredBlogs.content ? renderSlides() :
 					<div>loading</div>

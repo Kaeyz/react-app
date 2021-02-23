@@ -54,6 +54,7 @@ const Wrapper = styled.div`
 		}
 	}
 	.hero-text button {
+		font-family: Avenir;
 		padding: 14px 40px;
 		border-radius: 30px;
 		outline: none;
@@ -90,7 +91,7 @@ function CarouselHero(props) {
 	var items = [
 		{
 			name:
-				'Wellness is a gift you give yourself. So start your own health and wellness journey on CHOOSELIFE.',
+				'Wellness is a gift you give yourself. start your own health and wellness journey on CHOOSELIFE.',
 			bgImg:
 				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto,q_auto,w_auto/v1607309874/chooseLife/shalom-mwenesi_wbmcyn',
 		},
