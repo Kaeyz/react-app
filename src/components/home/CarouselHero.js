@@ -91,7 +91,7 @@ function CarouselHero(props) {
 	var items = [
 		{
 			name:
-				'Wellness is a gift you give yourself. start your own health and wellness journey on CHOOSELIFE.',
+				'Wellness is a gift you give yourself. Start your own health and wellness journey on CHOOSELIFE.',
 			bgImg:
 				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto,q_auto,w_auto/v1607309874/chooseLife/shalom-mwenesi_wbmcyn',
 		},
