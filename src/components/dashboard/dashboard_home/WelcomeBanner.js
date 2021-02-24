@@ -111,8 +111,9 @@ const WelcomeBanner = ({ detail, emoji, name }) => {
 	);
 };
 WelcomeBanner.defaultProps = {
-	detail:'Empowering you with the knowledge & opportunity to live the best life possible.',
-	emoji:'👋🏽 ',
+	detail:
+		'We are here to empower you with the knowledge and opportunity to live the best life possible.',
+	emoji: '👋🏽 ',
 };
 
 WelcomeBanner.propTypes = {

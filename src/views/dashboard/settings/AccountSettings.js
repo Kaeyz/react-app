@@ -7,14 +7,14 @@ import styled from 'styled-components';
 import Button from '../../../components/common/Button';
 import {
 	DateInput,
-	NumberInput, SelectInput, TextInput
+	NumberInput,
+	SelectInput,
+	TextInput
 } from '../../../components/common/inputs';
 import SideBar from '../../../components/layouts/dashboardLayout/settingsSidebar/Sidebar';
 import { updateUser } from '../../../store/actions/userActions';
 
-
 const Wrapper = styled.div`
-	margin-top: 1.5rem;
 	.settings-body-main {
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
 			display: none;
@@ -51,7 +51,7 @@ const optionActivity = [
 ];
 
 const AccountSettings = ({ user, updateUser }) => {
-	const names = user && user.name.split(' ') || 'no name';
+	const names = (user && user.name.split(' ')) || 'no name';
 	const [firstName, setFirstName] = useState(names[0]);
 	const [lastName, setLastName] = useState(names[1]);
 	const [gender, setGender] = useState(user.gender);
@@ -63,14 +63,10 @@ const AccountSettings = ({ user, updateUser }) => {
 	const [address, setAddress] = useState(user.address);
 	const [errors] = React.useState({});
 
-
 	const CompanyInformation = () => {
 		return (
 			<>
-				<div
-					className="settings-body-main"
-					style={{ paddingTop: '20px' }}
-				>
+				<div className="settings-body-main">
 					<h1 className="text">Company Information</h1>
 					<p>
 						This section contains general information about the
@@ -184,10 +180,15 @@ const AccountSettings = ({ user, updateUser }) => {
 	return (
 		<SideBar>
 			<Wrapper>
-				<div className="settings-body-main">
+				{user.type === 'COMPANY' && <CompanyInformation />}
+				<div
+					className="settings-body-main"
+					style={{ paddingTop: '40px' }}
+				>
 					<h1 className="text">General Information</h1>
 					<p>
-						This section contains general information about yourself.
+						This section contains general information about
+						yourself.
 					</p>
 				</div>
 				<form noValidate autoComplete="off">
@@ -270,7 +271,6 @@ const AccountSettings = ({ user, updateUser }) => {
 						</Button>
 					</div>
 				</form>
-				{	user.type === 'COMPANY' && <CompanyInformation />}
 			</Wrapper>
 		</SideBar>
 	);
