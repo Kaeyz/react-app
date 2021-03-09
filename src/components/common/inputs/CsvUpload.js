@@ -75,7 +75,6 @@ function CsvUpload({ onFileUpload, csvError, error }) {
 				/* Convert array of arrays */
 				const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
 				/* Update state */
-				// console.log('Data>>>' + data);
 				const value = sortData(data);
 
 				// clear input

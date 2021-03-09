@@ -49,8 +49,6 @@ const CreateRewardModal = ({ addNewReward }) => {
 
 		const { errors, isValid } = rewardInputValidator(data);
 		if (!isValid) {
-			// eslint-disable-next-line no-console
-			console.log(errors);
 			return setErrors(errors);
 		}
 

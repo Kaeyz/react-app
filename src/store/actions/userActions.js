@@ -19,8 +19,8 @@ export const setCurrentUser = () => dispatch => {
 				dispatch({ type: SET_USER, payload: {} });
 				dispatch(appNotLoading());
 			}
-			if (res.data.me) {
-				dispatch({type: SET_USER, payload: res.data.me});
+			if (res?.data?.me) {
+				dispatch({type: SET_USER, payload: res?.data?.me});
 				dispatch(setIsAuthenticated(true));
 				dispatch(fetchHraResponse());
 				dispatch(infoAlert(res?.data?.me?.adminVerified));

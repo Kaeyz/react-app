@@ -80,9 +80,8 @@ right: 11px;
     }
   }
 `;
-/* eslint-disable */
+
 const WelcomeBanner = ({ detail, emoji, name }) => {
-	console.log({name: capitalizeFirstLetter(name)});
 	return (
 		<Wrapper>
 			<div>

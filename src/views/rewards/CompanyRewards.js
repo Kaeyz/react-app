@@ -109,10 +109,6 @@ function CompanyRewards({
 							<div>No Closed Rewards Found</div>
 						) : (
 							closedRewards.map((reward, index) => {
-								// console.log(
-								// 	(closedRewards.length -
-								// 		1) / (themes.length - 1)
-								// );
 								return (
 									<React.Fragment key={index}>
 										<RewardDetailsModal

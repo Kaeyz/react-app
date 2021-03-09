@@ -58,16 +58,13 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 	};
 
 	React.useEffect(() => {
-		// console.log(errors)
 		setErrors(errors);
-		// return () => setErrors('');
 	}, [errors]);
 
 	const onSubmit = (event) => {
 		event.preventDefault();
 		setCsv(csv)
 		if (csv.length === 0) {
-			// console.log('inside batch')
 			setErrors('csv file not present');
 			return;
 		}

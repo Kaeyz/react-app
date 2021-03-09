@@ -82,7 +82,7 @@ reportQueries.getReport = async (reportId) => {
 		}
 
 		const path = `${keys.ghmServer}/get_report_data`;
-		const body = `{"get_report_data.client_id":"fitnessfair","get_report_data.report_id":"${reportId}"}`;
+		const body = `{"get_report_data.client_id":"chooselife","get_report_data.report_id":"${reportId}"}`;
 
 		const formdata = new FormData();
 		formdata.append('json', body);
@@ -108,7 +108,7 @@ reportQueries.getReportPdf = async (reportId) => {
 		}
 
 		const formdata = new FormData();
-		formdata.append('json', `{"get_report_pdf.client_id":"fitnessfair","get_report_pdf.report_id":"${reportId}"}`);
+		formdata.append('json', `{"get_report_pdf.client_id":"chooselife","get_report_pdf.report_id":"${reportId}"}`);
 		formdata.append('signer', 'e650303e-e1e1-11e6-b68a-42010af00005@api.ghmcorp.com');
 		formdata.append('signature', '9f1c026cb6795e7a0a53ab33c7304053cae51eea5653d6faed59e9a5c0547aa8');
 
@@ -128,7 +128,7 @@ reportQueries.getAdminReportPdf = async () => {
 
 	return new Promise((resolve, reject) => {
 		const formdata = new FormData();
-		formdata.append('json', '{"get_group_report_pdf.client_id":"fitnessfair"}');
+		formdata.append('json', '{"get_group_report_pdf.client_id":"chooselife"}');
 
 		httpFetch
 			.post(path, formdata)
@@ -147,7 +147,7 @@ reportQueries.getCompanyReportPdf = async (userId) => {
 
 	return new Promise((resolve, reject) => {
 		const formdata = new FormData();
-		formdata.append('json', `{"get_group_report_pdf.client_id":"fitnessfair", "get_group_report_pdf.org_id": "${userId}"}`);
+		formdata.append('json', `{"get_group_report_pdf.client_id":"chooselife", "get_group_report_pdf.org_id": "${userId}"}`);
 
 		httpFetch
 			.post(path, formdata)
