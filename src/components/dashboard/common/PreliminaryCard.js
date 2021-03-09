@@ -49,6 +49,7 @@ const Wrapper = styled.div`
     letter-spacing: 0.2px;
     color: ${props => props.theme.color.ui_05};
     margin: 1rem 0 2rem 0;
+    height: 75px;
   }
 `;
 
