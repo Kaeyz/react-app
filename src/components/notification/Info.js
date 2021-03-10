@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-/* eslint-disable */
 const Info = ({ info, isAuthenticated }) => {
 	const [open, setOpen] = useState(false);
 
@@ -40,6 +39,7 @@ const Info = ({ info, isAuthenticated }) => {
 
 Info.propTypes = {
 	info: PropTypes.object,
+	isAuthenticated: PropTypes.bool
 };
 
 const mapStateToProps = (state) => {

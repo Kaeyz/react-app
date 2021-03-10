@@ -69,6 +69,7 @@ function CompanyRewards({
 	openReward,
 	closedRewards,
 }) {
+	console.log(openReward);
 	const themes = ['purple', 'blue', 'blue', 'pink', 'green'];
 
 	React.useEffect(() => {
@@ -89,13 +90,13 @@ function CompanyRewards({
 						<CreateRewardModal />
 						{isLoading ? (
 							<div>Loading...</div>
+						) : openReward.length < 1 ? (
+							<div>No Current Rewards Found</div>
 						) : (
-							openReward && (
-								<RewardDetailsModal
-									theme="pink"
-									reward={openReward}
-								/>
-							)
+							<RewardDetailsModal
+								theme="pink"
+								reward={openReward}
+							/>
 						)}
 					</div>
 				</div>
