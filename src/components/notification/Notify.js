@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Notify = ({ alerts }) => {
+const Notify = ({ alerts, isAuthenticated }) => {
 	const [open, setOpen] = useState(false);
 
 	useEffect(() => {
@@ -30,37 +30,43 @@ const Notify = ({ alerts }) => {
 
 	const display = (alerts) => {
 		return (
-			<Snackbar
-				open={open}
-				autoHideDuration={6000}
-				onClose={handleClose}
-				style={{width: '100%', marginTop: '55px'}}
-				anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-			>
-				<Alert
-					style={{width: '50%'}}
-					onClose={handleClose} severity={alerts.type ? alerts.type : undefined}>
-					<Typography variant="h5" component="h5">{alerts.msg}</Typography>
-				</Alert>
-			</Snackbar>
+			<div>
+				<Snackbar
+					open={open}
+					autoHideDuration={6000}
+					onClose={handleClose}
+					style={{ width: '100%' }}
+					anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+				>
+					<Alert
+						style={{ width: '50%' }}
+						onClose={handleClose}
+						severity={alerts.type ? alerts.type : undefined}
+					>
+						<Typography variant="h5" component="h5">
+							{alerts.msg}
+						</Typography>
+					</Alert>
+				</Snackbar>
+			</div>
 		);
 	};
 
 	const { status } = alerts;
 
-	return (
-		<Wrapper>
-			{status && display(alerts)}
-		</Wrapper>
-	);
+	return isAuthenticated && <Wrapper>{status && display(alerts)}</Wrapper>;
 };
 
 Notify.propTypes = {
 	alerts: PropTypes.object,
+	isAuthenticated: PropTypes.any,
 };
 
-const mapStateToProps = state => ({
-	alerts: state.alerts
-});
+const mapStateToProps = (state) => {
+	return {
+		alerts: state.alerts,
+		isAuthenticated: state.user.isAuthenticated,
+	};
+};
 
 export default connect(mapStateToProps)(Notify);
