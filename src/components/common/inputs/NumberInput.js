@@ -6,16 +6,16 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
 	width: 100%;
-    margin-top: 1.5rem;
+	margin-top: 1.5rem;
 	.label {
 		margin-bottom: 1rem;
 		margin-top: 0;
-		font-family:Sofia;
+		font-family: Sofia;
 		letter-spacing: 0.1px;
 		font-weight: 600;
 		font-size: 1.4rem;
 		line-height: 1.4rem;
-		color: ${props => props.theme.color.ui_text_05};
+		color: ${(props) => props.theme.color.ui_text_05};
 	}
 	.input {
 		background-color: rgba(255, 255, 255, 0);
@@ -24,28 +24,27 @@ const Wrapper = styled.div`
 		min-width: 100%;
 		max-width: 100%;
 		padding: 1.5rem;
-		border: 1px solid ${props => props.theme.color.ui_text_06};
+		border: 1px solid ${(props) => props.theme.color.ui_text_06};
 		border-radius: 8px;
-    :focus {
-		outline: none;
-		border-color: ${props => props.theme.color.brand_02};
-		box-shadow: 0 0 3px ${props => props.theme.color.brand_02};
-
-	}
-	&:hover {
-		border: 1px solid ${props => props.theme.color.ui_text_05};
-		transition: .3s;
-    }
-	&::placeholder{
-		font-family: Sofia;
-		font-size: 1.4rem;
-		line-height: 2.0rem;
-		letter-spacing: 0.2px;
-		color: ${props => props.theme.color.text_06};
+		:focus {
+			outline: none;
+			border-color: ${(props) => props.theme.color.brand_02};
+			box-shadow: 0 0 3px ${(props) => props.theme.color.brand_02};
+		}
+		&:hover {
+			border: 1px solid ${(props) => props.theme.color.ui_text_05};
+			transition: 0.3s;
+		}
+		&::placeholder {
+			font-family: Sofia;
+			font-size: 1.4rem;
+			line-height: 2rem;
+			letter-spacing: 0.2px;
+			color: ${(props) => props.theme.color.text_06};
 		}
 	}
 	.error {
-		color: red;
+		color: #b40001;
 		font-size: 1.3rem;
 		padding-top: 2px;
 	}

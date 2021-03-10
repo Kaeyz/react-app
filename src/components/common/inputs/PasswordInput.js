@@ -1,68 +1,73 @@
-import React from 'react';
-import styled from 'styled-components';
 import { IconButton } from '@material-ui/core';
-import show from '../../../assets/show.svg';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
+import show from '../../../assets/show.svg';
 
 const Wrapper = styled.div`
-  margin-top: 1.5rem;
-  width: 100%;
-  .input_label {
-	margin-bottom: 1rem;
-	margin-top: 0;
-	font-family:Sofia;
-	letter-spacing: 0.1px;
-	font-weight: 600;
-font-size: 1.4rem;
-line-height: 1.4rem;
-color: ${props => props.theme.color.ui_text_05};
-}
-.input_div {
-border: 1px solid ${props => props.theme.color.ui_text_06};
-	height: 4.8rem;
-display: grid;
-grid-template-columns: 1fr max-content;
-border-radius: 8px;
-&:hover {
-	border: 1px solid ${props => props.theme.color.ui_text_05};
-	transition: .3s;
-}
-&:focus-within{
-	outline: none;
-	border-color: ${props => props.theme.color.brand_02};
-	box-shadow: 0 0 3px ${props => props.theme.color.brand_02};
-}
-}
-.input {
-	background-color: rgba(255, 255, 255, 0);
-	margin: 0;
-outline: none;
-border: none;
-height: 100%;
-// min-width: 100%;
-width: 100%;
-padding-left: 1rem;
-&::placeholder{
-	font-family: Sofia;
-font-size: 1.4rem;
-line-height: 2.0rem;
-letter-spacing: 0.2px;
-color: ${props => props.theme.color.text_06};
-}
-:focus :hover {
-  outline: none;
-}
-  }
-  .adornment {
-    width: max-content;
-    padding-right: 1rem;
-  }
-  .error {
-    color: red;
-		font-size: 1.3rem;
-		padding-top: 2px;
-  }
+	margin-top: 3rem;
+	width: 100%;
+	.input_label {
+		margin-bottom: 1rem;
+		margin-top: 0;
+		font-family: Sofia;
+		letter-spacing: 0.1px;
+		font-weight: 600;
+		font-size: 1.4rem;
+		line-height: 1.4rem;
+		color: ${(props) => props.theme.color.ui_text_05};
+	}
+	.input_div {
+		border: 1px solid ${(props) => props.theme.color.ui_text_06};
+		height: 4rem;
+		display: grid;
+		grid-template-columns: 1fr max-content;
+		border-radius: 8px;
+		&:hover {
+			border: 1px solid ${(props) => props.theme.color.ui_text_05};
+			transition: 0.3s;
+		}
+		&:focus-within {
+			outline: none;
+			border-color: ${(props) => props.theme.color.brand_02};
+			box-shadow: 0 0 3px ${(props) => props.theme.color.brand_02};
+		}
+	}
+	.input {
+		background-color: rgba(255, 255, 255, 0);
+		margin: 0;
+		outline: none;
+		border: none;
+		height: 100%;
+		/* min-width: 100%; */
+		width: 100%;
+		padding-left: 1rem;
+		&::placeholder {
+			font-family: Sofia;
+			font-size: 1.4rem;
+			line-height: 2rem;
+			letter-spacing: 0.2px;
+			color: ${(props) => props.theme.color.text_06};
+		}
+		:focus :hover {
+			outline: none;
+		}
+	}
+	.adornment {
+		width: max-content;
+		padding-right: 1rem;
+	}
+	.error {
+		color: #b40001;
+		font-size: 1.2rem;
+		padding-top: 5px;
+		width: 30ch;
+		grid-column: 1/-1;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+			width: 40ch;
+		}
+	}
 `;
 
 const PasswordInput = ({ label, onChange, value, placeholder, error }) => {
@@ -99,7 +104,11 @@ const PasswordInput = ({ label, onChange, value, placeholder, error }) => {
 						onMouseDown={handleMouseDownPassword}
 						edge="end"
 					>
-						{values.showPassword ? 	<img src={show} alt="showPassword"/>: <VisibilityOff />}
+						{values.showPassword ? (
+							<img src={show} alt="showPassword" />
+						) : (
+							<VisibilityOff />
+						)}
 					</IconButton>
 				</div>
 				<p className="error">{error && error}</p>

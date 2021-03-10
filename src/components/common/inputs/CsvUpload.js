@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 	}
 	.error {
 		margin-top: 0.5rem;
-		color: red;
+		color: #b40001;
 	}
 	.custom-file-input::-webkit-file-upload-button {
 		visibility: hidden;
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 		/* text-shadow: 1px 1px #fff; */
 		font-weight: 500;
 		font-size: 16px;
-		font-family: 'Matteo'
+		font-family: 'Matteo';
 	}
 	.custom-file-input:hover::before {
 		border-color: black;
