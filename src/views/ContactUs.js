@@ -290,11 +290,9 @@ const ContactUs = () => {
 							</p>
 							{/* <p className="or">or</p> */}
 						</div>
-						<button>
-							<Link className="link" to="/onboarding/company">
-								Get Started
-							</Link>
-						</button>
+						<Link className="link" to="/onboarding/company">
+							<button>Get Started</button>
+						</Link>
 					</div>
 				</div>
 				<div className="gridy">
@@ -371,8 +369,8 @@ const ContactUs = () => {
 										<span className="text">
 											{' '}
 											Shop 2, Banana Island Shopping
-											Complex, Banana Island,
-											Ikoyi-Lagos, Nigeria.
+											Complex, Banana Island, Ikoyi-Lagos,
+											Nigeria.
 										</span>
 									</a>
 								</div>
@@ -495,7 +493,9 @@ const ContactUs = () => {
 									</Grid>
 									<Grid item xs={12}>
 										<div className="mt">
-											<label htmlFor="message">Message</label>
+											<label htmlFor="message">
+												Message
+											</label>
 										</div>
 										<textarea
 											id="message"
