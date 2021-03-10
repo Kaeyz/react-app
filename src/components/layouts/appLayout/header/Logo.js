@@ -1,14 +1,14 @@
 /*eslint-disable */
+import PropTypes from "prop-types";
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import PropTypes from "prop-types";
 import Drawer from './Drawer';
 
 const Wrapper = styled.div`
 	display: grid;
 	grid-template-columns: max-content max-content;
-	grid-gap: 1rem;
+	grid-gap: 6rem;
 	align-items: center;
 
 	img{
@@ -38,4 +38,3 @@ Logo.propTypes = {
 };
 
 export default Logo;
-

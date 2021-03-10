@@ -12,7 +12,7 @@ import AuthFormLayout from './AuthFormLayout';
 
 const Wrapper = styled.div`
 	.submit {
-		padding-top: 4rem;
+		padding-top: 5rem;
 		display: flex;
 		justify-content: center;
 	}
@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 		font-size: 1.4rem;
 		line-height: 2.5rem;
 		color: ${(props) => props.theme.color.ui_05};
-		padding-top: 3rem;
+		padding-top: 4rem;
 		font-weight: bold;
 		span {
 			a {
