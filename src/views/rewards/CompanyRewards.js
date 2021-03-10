@@ -69,6 +69,7 @@ function CompanyRewards({
 	openReward,
 	closedRewards,
 }) {
+	console.log(openReward);
 	const themes = ['purple', 'blue', 'blue', 'pink', 'green'];
 
 	React.useEffect(() => {

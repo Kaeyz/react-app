@@ -1,8 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Alert } from '@material-ui/lab';
 import { Snackbar, Typography } from '@material-ui/core';
-import { connect } from 'react-redux';
+import { Alert } from '@material-ui/lab';
 import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+	@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+		margin-top: 45px;
+	}
+	@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+		margin-top: 45px;
+	}
+`;
 
 const Notify = ({ alerts }) => {
 	const [open, setOpen] = useState(false);
@@ -24,7 +34,7 @@ const Notify = ({ alerts }) => {
 				open={open}
 				autoHideDuration={6000}
 				onClose={handleClose}
-				style={{width: '100%'}}
+				style={{width: '100%', marginTop: '55px'}}
 				anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
 			>
 				<Alert
@@ -39,9 +49,9 @@ const Notify = ({ alerts }) => {
 	const { status } = alerts;
 
 	return (
-		<React.Fragment>
+		<Wrapper>
 			{status && display(alerts)}
-		</React.Fragment>
+		</Wrapper>
 	);
 };
 
