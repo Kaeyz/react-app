@@ -3,8 +3,10 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import linkedin from '../assets/linkedIn.png';
 import team1 from '../assets/testimony3.png';
+import SEO from '../components/common/SEO';
 import AppLayout from '../components/layouts/appLayout/AppLayout';
 import Header from '../components/layouts/appLayout/header/index2';
+
 
 const Wrapper = styled.div`
 	padding-top: 10rem;
@@ -215,6 +217,7 @@ function Team(props) {
 	return (
 		<AppLayout header={<Header />}>
 			<ScrollToTopOnMount />
+			<SEO title="Our Team" location={location.href}/>
 			<Wrapper>
 				<div className="head">
 					<h1>OUR TEAM</h1>

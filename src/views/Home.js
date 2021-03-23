@@ -6,6 +6,7 @@ import flower2 from '../assets/img/flower_2.png';
 import fitness from '../assets/wellnessNav/fitness.svg';
 import lifestyle from '../assets/wellnessNav/lifestyle.svg';
 import nutrition from '../assets/wellnessNav/nutrition.svg';
+import SEO from '../components/common/SEO';
 import AboutUs from '../components/home/AboutUs';
 import CarouselHero from '../components/home/CarouselHero';
 import ChooseHealth from '../components/home/ChooseHealth';
@@ -60,6 +61,8 @@ const Home = () => {
 			toPillar={toPillar}
 			toAbout={toAbout}
 		>
+			<SEO title="Home" location={location.href} />
+
 			<CarouselHero />
 			<AboutUs id="aboutUs" />
 			<Pillars
@@ -133,7 +136,9 @@ Another eight hours"
 				detail3="We have reimagined how we can use our existing local recipes
 		and prepare them in a way that is healthier and not harmful to
 		your body"
-				whichImg={<SquareImg bg="img3" border1="lightgray" border2="green" />}
+				whichImg={
+					<SquareImg bg="img3" border1="lightgray" border2="green" />
+				}
 				colorHead="green"
 				detail1="At Choose Life, we understand that what goes into your body
 		Is the most important part of your health.

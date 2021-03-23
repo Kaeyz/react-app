@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import Pagination from '../../components/blog/Pagination';
 import Slider from '../../components/blog/Slider';
 import Container from '../../components/common/Container';
+import SEO from '../../components/common/SEO';
 import AppLayout from '../../components/layouts/appLayout/AppLayout';
 import Header from '../../components/layouts/appLayout/header/index2';
 import { getBlogs } from '../../store/actions/blogActions';
@@ -100,6 +101,8 @@ function Blog({ getBlogs, blogs, isLoading }) {
 
 	return (
 		<AppLayout header={<Header />}>
+			<SEO title="Our Blog" />
+
 			<Wrapper>
 				<Container>
 					<div className="main">

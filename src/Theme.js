@@ -1,3 +1,4 @@
+import { CssBaseline } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
@@ -77,35 +78,35 @@ const theme = {
 };
 
 const GlobalStyle = createGlobalStyle`
-@font-face {
-    font-family: Matteo;
-    src: url(${basicFont}) ;
-  }
+	@font-face {
+		font-family: Matteo;
+		src: url(${basicFont}) ;
+	}
 
-@font-face {
-    font-family: Futura;
-    src: url(${secFont}) ;
-  }
-@font-face {
-    font-family: Sofia;
-    src: url(${hraFont}) ;
-  }
-@font-face {
-    font-family: Avenir;
-    src: url(${avenirFont}) ;
-  }
-@font-face {
-    font-family: Caviar;
-    src: url(${caviarFont}) ;
-  }
-@font-face {
-    font-family: Brown;
-    src: url(${brownFont}) ;
-  }
+	@font-face {
+		font-family: Futura;
+		src: url(${secFont}) ;
+	}
+	@font-face {
+		font-family: Sofia;
+		src: url(${hraFont}) ;
+	}
+	@font-face {
+		font-family: Avenir;
+		src: url(${avenirFont}) ;
+	}
+	@font-face {
+		font-family: Caviar;
+		src: url(${caviarFont}) ;
+	}
+	@font-face {
+		font-family: Brown;
+		src: url(${brownFont}) ;
+	}
 
 	html {
 		box-sizing: border-box;
-		font-size: 10px;
+		font-size: 12px;
 	}
 	*, *:before, *:after {
 		box-sizing: inherit;
@@ -113,34 +114,34 @@ const GlobalStyle = createGlobalStyle`
 	body {
 		padding: 0;
 		margin: 0;
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 		line-height: 2;
 		outline: none;
-    height: 100%;
-    font-family: Matteo ;
+		height: 100%;
+		font-family: Matteo ;
 		background:#fff;
-  }
+	}
 	div, span {
-    margin: 0;
-    padding: 0;
-  }
+		margin: 0;
+		padding: 0;
+	}
 	h1, h2, h3, h4, h5, p {
 		margin: 0;
 		padding: 0;
 	}
 	.navbar__link--active {
 		color: #2ec4b6 !important;
-	  }
+		}
 
 	.flex {
-  	display: flex;
-  	justify-content: center;
-  	align-items: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	img {
-  	vertical-align: middle;
-  	max-width: 100%;
-  	height: auto;
+		vertical-align: middle;
+		max-width: 100%;
+		height: auto;
 	}
 	a {
 		text-decoration: none;
@@ -150,6 +151,7 @@ const GlobalStyle = createGlobalStyle`
 const Theme = (props) => (
 	<ThemeProvider theme={theme}>
 		<div>
+			<CssBaseline />
 			<GlobalStyle />
 			<Notify />
 			<Info />

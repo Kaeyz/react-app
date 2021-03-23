@@ -14,6 +14,7 @@ import blue from '../assets/wellnessNav/healthIsActive.svg';
 import orange from '../assets/wellnessNav/lifestyleIsActive.svg';
 import green from '../assets/wellnessNav/nutritionIsActive.svg';
 import Button from '../components/common/Button';
+import SEO from '../components/common/SEO';
 import AppLayout from '../components/layouts/appLayout/AppLayout';
 import Header from '../components/layouts/appLayout/header';
 import { contactUs } from '../store/actions/appActions';
@@ -276,6 +277,7 @@ const ContactUs = () => {
 
 	return (
 		<AppLayout header={<Header />}>
+			<SEO title="Contact Us" location={location.href} description="to contact us send an email to <chooselife@firnessfairng.com or call 08026484048; 08026483318" />
 			<Wrapper>
 				<div className="hero">
 					<div className="text-content">

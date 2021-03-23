@@ -8,6 +8,7 @@ import { Remarkable } from 'remarkable';
 import styled from 'styled-components';
 import Slider from '../../components/blog/Slider';
 import Container from '../../components/common/Container';
+import SEO from '../../components/common/SEO';
 import AppLayout from '../../components/layouts/appLayout/AppLayout';
 import Header from '../../components/layouts/appLayout/header/index2';
 import { getBlogs, getSingleBlog } from '../../store/actions/blogActions';
@@ -167,39 +168,69 @@ function BlogPostDetail({ match, getSingleBlog, blog, isLoading }) {
 
 	return (
 		<AppLayout header={<Header />}>
+			<SEO title={!isLoading && title} image={!isLoading && asset?.url} location={location.href} />
 			<Wrapper>
 				<Container>
 					<div className="upper">
 						<div className="sub-header">
 							<p className="headP">{!isLoading && title}</p>
-							<p className="author">{!isLoading && author ? author : ''}</p>
+							<p className="author">
+								{!isLoading && author ? author : ''}
+							</p>
 							<div className="tag-date flex">
 								<p
-									className= {
-										`${tags === 'fitness' ? 'yellow' :
-											tags === 'nutrition' ? 'blue' :
-												tags === 'lifestyle' ? 'orange' :
-													tags === 'health' ? 'green' : ''} tag`
-									}
+									className={`${
+										tags === 'fitness'
+											? 'yellow'
+											: tags === 'nutrition'
+												? 'blue'
+												: tags === 'lifestyle'
+													? 'orange'
+													: tags === 'health'
+														? 'green'
+														: ''
+									} tag`}
 								>
-									{!isLoading && tags ? capitalizeFirstLetter(tags) : ''}
+									{!isLoading && tags
+										? capitalizeFirstLetter(tags)
+										: ''}
 								</p>
 								<p className="date">
-									{!isLoading && createdAt ? createdAt.slice(0, 10) : ''}
+									{!isLoading && createdAt
+										? createdAt.slice(0, 10)
+										: ''}
 								</p>
 							</div>
 						</div>
 						<div>
-							{isLoading ?
-								<div>Loading</div> :
+							{isLoading ? (
+								<div>Loading</div>
+							) : (
 								<React.Fragment>
-									<div className="detailbg bg"
-										style={{ backgroundImage: asset != null ? `url(${asset.url})` : 'url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309872/chooseLife/woman-spreading-both-her-arms_hly6ur.png"})' }}
+									<div
+										className="detailbg bg"
+										style={{
+											backgroundImage:
+												asset != null
+													? `url(${asset.url})`
+													: 'url("https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309872/chooseLife/woman-spreading-both-her-arms_hly6ur.png"})',
+										}}
 									/>
-									<p className="img-cap">{ imageCaption || 'no image caption' } / { imageCredit || 'chooselife team' }</p>
-									<div className=" detail longDetail" dangerouslySetInnerHTML={{ __html: new Remarkable({html: true, breaks: true}).render(body) }} />
+									<p className="img-cap">
+										{imageCaption || 'no image caption'} /{' '}
+										{imageCredit || 'chooselife team'}
+									</p>
+									<div
+										className=" detail longDetail"
+										dangerouslySetInnerHTML={{
+											__html: new Remarkable({
+												html: true,
+												breaks: true,
+											}).render(body),
+										}}
+									/>
 								</React.Fragment>
-							}
+							)}
 						</div>
 					</div>
 				</Container>
