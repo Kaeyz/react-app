@@ -14,6 +14,7 @@ import { getBlogs, getSingleBlog } from '../../store/actions/blogActions';
 import { capitalizeFirstLetter } from '../../utils/helper';
 
 
+
 const Wrapper = styled.div`
 	text-align: center;
 	padding-top: 103px;
@@ -158,6 +159,7 @@ function BlogPostDetail({ match, getSingleBlog, blog, isLoading }) {
 	const { blogId } = match.params;
 
 	React.useEffect(() => {
+		window.scrollTo(0, 0);
 		getSingleBlog(blogId);
 	}, [blogId, getSingleBlog]);
 

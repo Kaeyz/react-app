@@ -94,6 +94,7 @@ const Wrapper = styled.div`
 `;
 function Blog({ getBlogs, blogs, isLoading }) {
 	React.useEffect(() => {
+		window.scrollTo(0, 0);
 		getBlogs();
 	}, [getBlogs]);
 
