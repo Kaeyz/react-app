@@ -18,9 +18,7 @@ const Wrapper = styled.div`
 	}
 	.info {
 		text-align: center;
-		font-family: Sofia;
-		font-size: 1.4rem;
-		line-height: 2.5rem;
+		/* font-family: Sofia; */
 		color: ${(props) => props.theme.color.ui_05};
 		padding-top: 4rem;
 		font-weight: bold;
@@ -138,7 +136,7 @@ function CompanySignUpForm({ history, registerCompany }) {
 						</Grid>
 						<Grid item xs={12} sm={6}>
 							<TextInput
-								label="Company Website (Optional)"
+								label="Company Website"
 								value={organizationUrl}
 								onChange={setOrganizationUrl}
 								placeholder="Type here..."

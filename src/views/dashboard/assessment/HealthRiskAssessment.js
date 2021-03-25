@@ -16,8 +16,6 @@ const Wrapper = styled.div`
 		margin: 4rem 0;
 		p {
 			min-width: max-content;
-			font-size: 1.6rem;
-			line-height: 1.5rem;
 			letter-spacing: -0.2px;
 			color: #0a2523;
 			margin-right: 2rem;
@@ -47,8 +45,6 @@ const Wrapper = styled.div`
 			}
 		}
 		.info-2 {
-			font-size: 1.6rem;
-			line-height: 2.4rem;
 			color: ${(props) => props.theme.color.text_02};
 			margin: 4.8rem 0 1.5rem 0;
 		}
@@ -59,8 +55,6 @@ const Wrapper = styled.div`
 		margin: 3.2rem 0;
 		padding: 0 2px;
 		h1 {
-			font-size: 1.8rem;
-			line-height: 2.4rem;
 			font-weight: 600;
 			margin-right: 4.1rem;
 			color: ${(props) => props.theme.color.text_01};
@@ -83,14 +77,12 @@ const Wrapper = styled.div`
 		display: flex;
 		margin-top: 14rem;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-			font-size: 1.3rem;
 		}
 		img {
 			margin-left: 1rem;
 		}
 	}
 	.darkP {
-		font-size: 1.6rem;
 		line-height: 2.5rem;
 		display: flex;
 		align-items: center;
@@ -101,8 +93,6 @@ const Wrapper = styled.div`
 		margin-top: -50px;
 		p {
 			font-weight: bold;
-			font-size: 2rem;
-			line-height: 2rem;
 			letter-spacing: -0.2px;
 		}
 	}

@@ -6,7 +6,6 @@ const initialState = {
 	status: false,
 	errors: {}
 };
-/* eslint-disable */
 export default function (state = initialState, action) {
 	switch (action.type) {
 	case DISPLAY_INFO:

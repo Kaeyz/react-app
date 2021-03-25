@@ -8,7 +8,6 @@ const Wrapper = styled.div`
 	width: 100%;
 	.input_label {
 		margin-bottom: 0.3rem;
-		font-size: 1.3rem;
 		margin-top: 0;
 	}
 	.input {
@@ -17,7 +16,6 @@ const Wrapper = styled.div`
 	}
 	.error {
 		color: #b40001;
-		font-size: 1.3rem;
 		padding-top: 2px;
 	}
 	.MuiSelect-select:focus {
@@ -39,8 +37,7 @@ const Wrapper = styled.div`
 		border: none;
 	}
 	.MuiSelect-select.MuiSelect-select {
-		font-family: Sofia;
-		font-size: 1.4rem;
+		/* font-family: Sofia; */
 		line-height: 2rem;
 		letter-spacing: 0.2px;
 		color: ${(props) => props.theme.color.text_06};

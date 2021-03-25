@@ -1,4 +1,3 @@
-/*eslint-disable */
 
 export const data6 = [
 	{
@@ -29,7 +28,7 @@ export const data6 = [
 		'DATE JOINED': 'March 19, 2020 ',
 	},
 	{
-		
+
 		'COMPANY  NAME': 'Total Nigeria LTD.',
 		'REPRESENTATIVE': 'Mr. Joseph Agunbiade',
 		'EMAIL ADDRESS': 'Joseph.iroko@total.com ',

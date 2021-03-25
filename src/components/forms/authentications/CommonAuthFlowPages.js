@@ -37,7 +37,6 @@ const Wrapper = styled.div`
 		width: 52%;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 			width:100% ;
-			font-size: 2rem;
 		}
 
 	}
@@ -50,7 +49,15 @@ const Wrapper = styled.div`
     margin-top: 2.7rem;
   }
 `;
-function CommonAuthFlowPage({ absImg, link, title, detail, buttonText, img, onClick }) {
+function CommonAuthFlowPage({
+	absImg,
+	link,
+	title,
+	detail,
+	buttonText,
+	img,
+	onClick,
+}) {
 	return (
 		<Wrapper>
 			<Container flexy="centered">
@@ -63,12 +70,19 @@ function CommonAuthFlowPage({ absImg, link, title, detail, buttonText, img, onCl
 					<p>{detail} </p>
 					<div className="submit">
 						{title === 'Reset Link Sent!' ? (
-							<Button theme="darkGreen" style={{ width: '100%' }} onClick={onClick}>
+							<Button
+								theme="darkGreen"
+								style={{ width: '100%' }}
+								onClick={onClick}
+							>
 								{buttonText}
 							</Button>
 						) : (
 							<Link to={link}>
-								<Button theme="darkGreen" style={{ width: '100%' }}>
+								<Button
+									theme="darkGreen"
+									style={{ width: '100%' }}
+								>
 									{buttonText}
 								</Button>
 							</Link>

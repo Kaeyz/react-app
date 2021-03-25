@@ -19,7 +19,6 @@ const Wrapper = styled.div`
 		}
 		.MuiInputBase-input {
 			font-family: Matteo;
-			font-size: 1.4rem;
 			line-height: 2.2rem;
 			color: ${(props) => props.theme.color.ui_05};
 			padding: 0;

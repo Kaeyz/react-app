@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import {
 	client
 } from '../client';

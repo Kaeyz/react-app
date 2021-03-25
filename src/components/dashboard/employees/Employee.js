@@ -27,7 +27,6 @@ const Wrapper = styled.div`
 		.tooltiptext {
 			visibility: hidden;
 			width: 112px;
-			font-size: 1.2rem;
 			background: rgba(243, 121, 32, 0.05);
 			border: 1px solid ${(props) => props.theme.color.ui_08};
 			color: ${(props) => props.theme.color.text_05};
@@ -47,14 +46,12 @@ const Wrapper = styled.div`
 			p {
 				@media screen and (max-width: ${(props) =>
 		props.theme.breakpoint.sm}) {
-					font-size: 1.3rem;
 				}
 			}
 		}
 	}
 	.select-input {
 		font-weight: 300;
-		font-size: 1.4rem;
 		line-height: 2.2rem;
 		color: ${(props) => props.theme.color.ui_05};
 	}

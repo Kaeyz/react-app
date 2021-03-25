@@ -48,8 +48,6 @@ const Wrapper = styled.div`
 
 		}
 	.node>.flex{
-		font-size: 1.6rem;
-		line-height: 1.9rem;
 		color: #606161
 	}
 	.centered {
@@ -104,4 +102,3 @@ CircleCard.propTypes = {
 };
 
 export default CircleCard;
-

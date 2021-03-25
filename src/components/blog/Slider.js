@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 	position: relative;
   overflow: hidden;
   .slide-heading {
-    font-size: 4.5rem;
+		font-size: 4.5rem;
     padding: 30px 0;
     color: ${(props) => props.theme.color.ui_01};
     text-align: center;
@@ -82,11 +82,6 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 				author={blog.author}
 				createdAt={convertDate(blog.createdAt)}
 				tag={capitalizeFirstLetter(blog.tags)}
-				tagColor={
-					blog.tags.toLowerCase() === 'fitness' ? 'yellow'
-						: blog.tags.toLowerCase() === 'nutrition' ? 'blue'
-							: blog.tags.toLowerCase() === 'lifestyle' ? 'orange' : 'green'
-				}
 			/>
 		);
 	};

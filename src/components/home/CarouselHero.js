@@ -1,4 +1,4 @@
-/*eslint-disable */
+import PropTypes from 'prop-types';
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import { Link } from 'react-router-dom';
@@ -45,25 +45,22 @@ const Wrapper = styled.div`
 	}
 	.hero-text h2 {
 		line-height: 4rem;
-		font-size: 3.5rem;
 		margin-bottom: 15px;
 		font-weight: 100;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 			line-height: 3.8rem;
-			font-size: 3rem;
 		}
 	}
 	.hero-text button {
-		font-family: Avenir;
-		padding: 14px 40px;
-		border-radius: 30px;
+		/* font-family: Avenir; */
+		padding: 14px 30px;
+		border-radius: 20px;
 		outline: none;
 		border: none;
 		background-color: rgba(255, 255, 255, 0.3);
-		font-size: 2rem;
+		cursor: pointer;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 			padding: 10px 30px;
-			font-size: 1.5rem;
 		}
 		.link {
 			color: ${(props) => props.theme.color.text_03};
@@ -83,12 +80,19 @@ const Wrapper = styled.div`
 		position: absolute;
 		bottom: 6px;
 		left: 50%;
+		/* transform-origin: center; */
 		transform: translate(-50%, -50%);
+		&:hover {
+			transform: translate(-50%, -50%) rotate(180deg) scale(2);
+			transform-origin: center;
+			transition: transform 2s;
+			cursor: pointer;
+		}
 	}
 `;
 
 function CarouselHero(props) {
-	var items = [
+	const items = [
 		{
 			name:
 				'Wellness is a gift you give yourself. Start your own health and wellness journey on CHOOSELIFE.',
@@ -114,18 +118,22 @@ function CarouselHero(props) {
 			<Carousel
 				interval={5000}
 				autoPlay={true}
-				timeout={{appear: 1000, enter: 0, exit: 1000}}
+				timeout={{ appear: 1000, enter: 0, exit: 1000 }}
 				indicators={false}
 				navButtonsAlwaysVisible={true}
 				animation="fade"
 			>
 				{items.map((item, i) => (
-					<Item key={i} item={item} />
+					<Item key={i} item={item} toAbout={props.toAbout} />
 				))}
 			</Carousel>
 		</Wrap>
 	);
 }
+
+CarouselHero.propTypes = {
+	toAbout: PropTypes.any
+};
 
 function Item(props) {
 	return (
@@ -138,16 +146,29 @@ function Item(props) {
 			>
 				<div className="hero-text">
 					<h2>{props.item.name}</h2>
-					<button>
-						<Link className="link" to="/onboarding/company">
-							Get Started
-						</Link>
-					</button>
+					<Link className="link" to="/onboarding/company">
+						<button>Get Started</button>
+					</Link>
 				</div>
-				<img src={triangle} alt="" className="triangle" />
+				<img
+					style={{}}
+					onClick={props.toAbout}
+					src={triangle}
+					alt="move to about section"
+					className="triangle"
+					title="click to move to the next section"
+				/>
 			</div>
 		</Wrapper>
 	);
 }
+
+Item.propTypes = {
+	item: PropTypes.shape({
+		bgImg: PropTypes.any,
+		name: PropTypes.any
+	}),
+	toAbout: PropTypes.any
+};
 
 export default CarouselHero;

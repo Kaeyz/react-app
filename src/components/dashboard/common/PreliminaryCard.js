@@ -24,8 +24,8 @@ const Wrapper = styled.div`
     height: 320px;
     position: relative;
     padding: 3rem;
-    padding-top: 9rem;
-        overflow: hidden;
+    padding-top: 3rem;
+    overflow: hidden;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       display: block;
     }
@@ -37,14 +37,11 @@ const Wrapper = styled.div`
   }
   h1 {
     font-weight: bold;
-    font-size: 1.6rem;
-    line-height: 1.6rem;
     letter-spacing: 0.2px;
     color: ${props => props.theme.color.ui_05};
   }
   p {
     font-weight: 300;
-    font-size: 1.3rem;
     line-height: 2.5rem;
     letter-spacing: 0.2px;
     color: ${props => props.theme.color.ui_05};

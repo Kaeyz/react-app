@@ -1,10 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../../common/Button';
-import { Link } from 'react-router-dom';
-import LinearProgress from './LinearProgress';
 import CircularProgress from './CircularProgressWithLabel';
+import LinearProgress from './LinearProgress';
 
 const Wrapper = styled.div`
 	margin-bottom: 5.9rem;
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 		margin-bottom: 3.8rem;
 		padding: 0 2px;
 		h1 {
-			font-size: 18px;
+			 18px;
 			line-height: 24px;
 			font-weight: 600;
 			color: ${(props) => props.theme.color.text_01};
@@ -27,13 +27,13 @@ const Wrapper = styled.div`
 	}
 	.progress-section{
 			h4{
-				font-size: 16px;
+				 16px;
 				line-height: 24px;
 				color:${props => props.theme.color.text_02};
 				font-weight: normal;
 			}
 			h3{
-				font-size: 14px;
+				 14px;
 				line-height: 24px;
 				color: #605E5C;
 				margin-bottom:2rem;

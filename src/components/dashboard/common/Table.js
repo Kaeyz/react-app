@@ -22,7 +22,6 @@ const Wrapper = styled.div`
     }
     .text {
       font-weight: normal;
-      font-size: 1.4rem;
       line-height: 1.6rem;
       text-decoration-line: underline;
       padding-left: 1rem;
@@ -40,7 +39,6 @@ const Wrapper = styled.div`
     width: 100%;
   }
   .thead {
-    font-size: 1.6rem;
     line-height: 1.5rem;
     letter-spacing: 0.2px;
     color: ${(props) => props.theme.color.ui_05};
@@ -49,7 +47,6 @@ const Wrapper = styled.div`
   }
   .content {
     padding: 2rem 0.5rem;
-    font-size: 1.4rem;
     line-height: 1.6rem;
     color: ${(props) => props.theme.color.ui_05};
     width: 12rem;

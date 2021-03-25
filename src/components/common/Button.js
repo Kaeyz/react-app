@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -148,8 +147,10 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
+	children: PropTypes.any,
+	isLoading: PropTypes.bool,
 	style: PropTypes.object,
-	title: PropTypes.string,
+	text: PropTypes.any,
 	theme: PropTypes.oneOf([
 		'pink',
 		'pinkBtn',
@@ -163,8 +164,9 @@ Button.propTypes = {
 		'deepYellow',
 		'deepYellowBtn',
 		'darkGreenBtn',
-		'darkGreen',
+		'darkGreen'
 	]),
+	title: PropTypes.string
 };
 
 export default Button;

@@ -1,12 +1,12 @@
+import Accordion from '@material-ui/core/Accordion';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import plus from '../../../../assets/plus.svg';
 import minus from '../../../../assets/minus.svg';
+import plus from '../../../../assets/plus.svg';
 import rectangle from '../../../../assets/Rectangle.svg';
 import { getQuestions } from '../../../../store/actions/hraActions';
 import HraInput from '../../../hra_input';
@@ -22,14 +22,16 @@ const Wrapper = styled.div`
 		align-items: start;
 		display: flex;
 		justify-content: space-between;
-		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-			display: block;	}
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+			display: block;
+		}
 		.left-content {
 			margin-right: 3rem;
 			width: 30rem;
-			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			@media screen and (max-width: ${(props) =>
+		props.theme.breakpoint.sm}) {
 				width: 100%;
-					  }
+			}
 		}
 		.right-content {
 			width: 70%;
@@ -48,16 +50,13 @@ const Wrapper = styled.div`
 
 	.paper {
 		margin: 1rem 0;
-		color: ${props => props.theme.color.text_01};
+		color: ${(props) => props.theme.color.text_01};
 		padding: 1rem;
 		justify-content: space-between;
 		h2 {
-			font-size: 1.5rem;
-			line-height: 2rem;
 			font-weight: normal;
 		}
 		h4 {
-			font-size: 1.5rem;
 			line-height: 2rem;
 			font-weight: normal;
 		}
@@ -70,56 +69,57 @@ const Wrapper = styled.div`
 		margin: 0;
 	}
 	.MuiAccordionSummary-root {
-	padding: 3rem 3rem;
-	align-items: end;
-	border-radius: 1rem;
-	border: 1px solid #fff;
-  }
-  .MuiAccordionSummary-content.Mui-expanded,.MuiAccordionSummary-expandIcon.Mui-expanded {
-    display: none;
-  }
-  .MuiAccordionSummary-root.Mui-expanded {
-    height: .2rem;
-    top: -1.0rem;
-    position: absolute;
-  	width: 100%;
-	  border: 0;
-	  z-index: 300;
-  }
-  .MuiAccordionSummary-expandIcon.Mui-expanded {
-    position: absolute;
-    right: 3.7rem;
-    top: 3.1rem;
-  }
-  .MuiAccordionDetails-root {
-    padding: 0;
-  }
-  .MuiAccordion-rounded,.MuiAccordionSummary-root{
-	  border-radius: 1rem !important;
-  }
-  #panel1bh-header {
-  }
-  .colored{
-    color: ${(props) => props.theme.color.ui_05};
-  }
-  .heading {
-    color: ${(props) => props.theme.color.brand_02};
-    font-weight: bold;
-    font-size: 2.1rem;
-    line-height: 3.0rem;
-    margin-bottom: 1rem;
-  }
-  .sub-heading {
-    font-weight: 300;
-    font-size: 1.6rem;
-    line-height: 2.5rem;
-    letter-spacing: 0..2rem;
-    color: ${(props) => props.theme.color.ui_05};
-  }
-  .MuiCollapse-entered{
-    border: .1rem solid ${(props) => props.theme.color.brand_02};
-    transition: .1s;
-	border-radius: 1rem;
+		padding: 3rem 3rem;
+		align-items: end;
+		border-radius: 1rem;
+		border: 1px solid #fff;
+	}
+	.MuiAccordionSummary-content.Mui-expanded,
+	.MuiAccordionSummary-expandIcon.Mui-expanded {
+		display: none;
+	}
+	.MuiAccordionSummary-root.Mui-expanded {
+		height: 0.2rem;
+		top: -1rem;
+		position: absolute;
+		width: 100%;
+		border: 0;
+		z-index: 300;
+	}
+	.MuiAccordionSummary-expandIcon.Mui-expanded {
+		position: absolute;
+		right: 3.7rem;
+		top: 3.1rem;
+	}
+	.MuiAccordionDetails-root {
+		padding: 0;
+	}
+	.MuiAccordion-rounded,
+	.MuiAccordionSummary-root {
+		border-radius: 1rem !important;
+	}
+	#panel1bh-header {
+	}
+	.colored {
+		color: ${(props) => props.theme.color.ui_05};
+	}
+	.heading {
+		color: ${(props) => props.theme.color.brand_02};
+		font-weight: bold;
+		font-size: 2.1rem;
+		line-height: 3rem;
+		margin-bottom: 1rem;
+	}
+	.sub-heading {
+		font-weight: 300;
+		line-height: 2.5rem;
+		letter-spacing: 0.2rem;
+		color: ${(props) => props.theme.color.ui_05};
+	}
+	.MuiCollapse-entered {
+		border: 0.1rem solid ${(props) => props.theme.color.brand_02};
+		transition: 0.1s;
+		border-radius: 1rem;
 	}
 `;
 
@@ -147,11 +147,9 @@ function ReviewCard({ title, category, getQuestions, questions }) {
 						aria-controls="panel1bh-content"
 						id="panel1bh-header"
 					>
-						<p className="heading" >{title}</p>
+						<p className="heading">{title}</p>
 
-						<p className="sub-heading">
-							{questions.prompt || ''}
-						</p>
+						<p className="sub-heading">{questions.prompt || ''}</p>
 					</AccordionSummary>
 				)}
 
@@ -166,21 +164,22 @@ function ReviewCard({ title, category, getQuestions, questions }) {
 						</div>
 
 						<div className="right-content questions">
-							{questions.q && questions.q.map((question, index) => (
-								<HraInput
-									key={question.id}
-									id={question.id}
-									number = {index + 1}
-									label={question.label}
-									prompt={question.prompt}
-									inputs={question.input}
-								/>
-							))}
+							{questions.q &&
+								questions.q.map((question, index) => (
+									<HraInput
+										key={question.id}
+										id={question.id}
+										number={index + 1}
+										label={question.label}
+										prompt={question.prompt}
+										inputs={question.input}
+									/>
+								))}
 						</div>
-						<div className='minimize'>
+						<div className="minimize">
 							<img src={minus} alt="miniimize" />
 						</div>
-						<div className='rectangle'>
+						<div className="rectangle">
 							<img src={rectangle} alt="rectangle" />
 						</div>
 					</div>

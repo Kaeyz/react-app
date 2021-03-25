@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -23,7 +22,6 @@ const Wrapper = styled.div`
 		}
 		.sub-head {
 			font-weight: bold;
-			font-size: 1.4rem;
 			line-height: 1.6rem;
 			letter-spacing: -0.2px;
 			color: ${(props) => props.theme.color.ui_05};
@@ -50,12 +48,10 @@ const Wrapper = styled.div`
 
 			.text {
 				font-weight: 300;
-				font-size: 1.4rem;
 				line-height: 2.2rem;
 				color: ${(props) => props.theme.color.ui_05};
 				@media screen and (max-width: ${(props) =>
 		props.theme.breakpoint.md}) {
-					font-size: 1.3rem;
 				}
 			}
 			.bold {

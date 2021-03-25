@@ -17,145 +17,145 @@ import whatsappIcon from '../../../assets/whatsapp.svg';
 import Container from '../../common/Container';
 
 const Wrapper = styled.div`
-  background-color: ${(props) => props.theme.color.text_03};
-  border-top: 1px solid rgba(141, 184, 56, 0.3);
-  position: relative;
-  .footer {
-    display: grid;
-    grid-template-columns: 42% 55%;
-    grid-gap: 3%;
-    padding: 6rem 0rem;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      display: block;
-    }
-  }
-  .footer-info {
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      margin-bottom: 30px;
-    }
-  }
-   .footer_nav_header .brandlogoBlue {
-    margin-left: 2rem;
-    height: 45px;
-  }
-   .footer_nav_header .logo {
-    height: 73px;
-  }
-  .copyright{
-    width: 20px;
-    margin-right: 1rem;
-  }
-  .info-top {
-    padding-bottom: 15px;
-    line-height: 27px;
-    margin-top: 5px;
-    img{
+	background-color: ${(props) => props.theme.color.text_03};
+	border-top: 1px solid rgba(141, 184, 56, 0.3);
+	position: relative;
+	.footer {
+		display: grid;
+		grid-template-columns: 42% 55%;
+		grid-gap: 3%;
+		padding: 6rem 0rem;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+			display: block;
+		}
+	}
+	.footer-info {
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+			margin-bottom: 30px;
+		}
+	}
+	.footer_nav_header .brandlogoBlue {
+		margin-left: 2rem;
+		height: 45px;
+	}
+	.footer_nav_header .logo {
+		height: 73px;
+	}
+	.copyright {
+		/* width: 20px; */
+		margin-right: 1rem;
+		text-align: center;
+	}
+	.info-top {
+		padding-bottom: 15px;
+		margin-top: 5px;
+	}
+	.blue {
+		color: ${(props) => props.theme.color.brand_02};
+		font-weight: 400;
+	}
+	.footer_nav .footer_nav_header {
+		img {
+			width: 48px;
+			margin-right: 1rem;
+		}
+	}
+	.footer_nav {
+		display: grid;
+		grid-auto-flow: column;
+		grid-gap: 5rem;
+		grid-template-columns: 1fr 1fr 1fr;
+		margin-top: 30px;
+		/* font-family: Avenir; */
+		z-index: 44;
+		position: relative;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+			display: block;
+		}
+	}
 
-    }
-  }
-  .blue {
-    color: ${(props) => props.theme.color.brand_02};
-    font-weight: 400;
-  }
-  .footer_nav .footer_nav_header {
-    img {
-      width: 48px;
-      margin-right: 1rem;
-    }
-  }
-  .footer_nav {
-    display: grid;
-    grid-auto-flow: column;
-    grid-gap: 5rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 30px;
-    /* font-family: Avenir; */
-    z-index: 44;
-    position: relative;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-      display: block;
-    }
-  }
+	.footer_nav_section {
+		display: flex;
+		flex-direction: column;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+			margin-bottom: 30px;
+		}
+		.icon img.icons {
+			width: 20px;
+			height: 20px;
+			margin-right: 10px;
+			vertical-align: middle;
+		}
+	}
 
-  .footer_nav_section {
-    display: flex;
-    flex-direction: column;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      margin-bottom: 30px;
-    }
-    .icon img.icons {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-      vertical-align: middle;
-    }
-  }
+	.footer_nav_header {
+		justify-content: start;
+		color: ${(props) => props.theme.color.brand_02};
 
-  .footer_nav_header {
-    justify-content: start;
-    font-size: 1.5rem;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      font-size: 1.7rem;
-    }
-  }
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+		}
+	}
 
-  .footer_nav_link {
-    text-decoration: none;
-    color: ${(props) => props.theme.color.text_05};
-    font-weight: 500;
-    font-size: 1.2rem;
-    padding: 7px 0;
-    &:hover {
-      color: ${(props) => props.theme.color.brand_02};
-      transition: 0.3s;
-    }
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      font-size: 1.4rem;
-    }
-  }
-  .shapes {
-    background-color: ${(props) => props.theme.color.brand_03};
-  }
-  .irreg-left {
-    width: 70%;
-    height: 0;
-    border-top: 115px solid ${(props) => props.theme.color.brand_02};
-    border-right: 100px solid transparent;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      border-top: 78px solid ${(props) => props.theme.color.brand_02};
-      border-right: 60px solid transparent;
-    }
-  }
+	.footer_nav_link {
+		text-decoration: none;
+		color: ${(props) => props.theme.color.text_05};
+		font-weight: 500;
+		padding: 7px 0;
+		&:hover {
+			color: ${(props) => props.theme.color.brand_02};
+			transition: 0.3s;
+		}
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+		}
+	}
+	.shapes {
+		background-color: ${(props) => props.theme.color.brand_03};
+	}
+	.irreg-left {
+		width: 70%;
+		height: 0;
+		border-top: 115px solid ${(props) => props.theme.color.brand_02};
+		border-right: 100px solid transparent;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+			border-top: 78px solid ${(props) => props.theme.color.brand_02};
+			border-right: 60px solid transparent;
+		}
+	}
 
-  .greenflower {
-    position: absolute;
-    height: 250px;
-    top: 120px;
-    @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      top: 300px;
-    }
-  }
-  .arrow img {
-    width: 80px;
-    margin-bottom: 5px;
-  }
+	.greenflower {
+		position: absolute;
+		height: 250px;
+		top: 120px;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+			top: 300px;
+		}
+	}
+	.arrow img {
+		width: 80px;
+		margin-bottom: 5px;
+	}
 `;
 
-export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) {
+export default function Footer({
+	arrow,
+	onClick,
+	onClickAbout,
+	onClickPillar,
+}) {
 	return (
 		<Wrapper>
 			<img className="greenflower" src={greenflower} alt="greenflower" />
 			<Container>
 				<div className="footer">
 					<div className="footer-info">
-						<h5 className="footer_nav_header blue flex">
+						<h5 className="footer_nav_header flex">
 							<span>
 								<img className="logo" src={logo} alt="brand" />
 							</span>
 							<img
-								className="brandlogoBlue"
+								className="brandlog"
 								src={brandlogoBlue}
-								alt="brandlogoBlue"
+								alt="brandlog"
 							/>
 						</h5>
 						<div className="info">
@@ -167,19 +167,13 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 								on how to make healthier versions of the Foods
 								you already love.{' '}
 							</p>
-							<p className="info-bottom">
-								<span>
-									&copy;
-								</span>
-								{new Date().getFullYear()} Choose Life Ltd. All Rights Reserved
-							</p>
 						</div>
 					</div>
 					<div className="footer_nav">
 						<div className="footer_nav_section">
-							<h5 className="footer_nav_header blue">
+							<h4 className="footer_nav_header">
 								Site Links
-							</h5>
+							</h4>
 							<div className="footer_nav_link" onClick={onClick}>
 								<span className="icon">
 									<img
@@ -201,7 +195,7 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 										alt="pillarIcon"
 									/>
 								</span>
-								Choose Life Pillars
+								Pillars
 							</div>
 							<div
 								className="footer_nav_link"
@@ -214,14 +208,14 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 										alt="abtIcon"
 									/>
 								</span>
-								About us
+								About
 							</div>
 						</div>
 
 						<div className="footer_nav_section">
-							<h5 className="footer_nav_header blue">
+							<h4 className="footer_nav_header">
 								Contact Us
-							</h5>
+							</h4>
 							<a
 								href="tel:+2348026484048"
 								className="footer_nav_link"
@@ -286,16 +280,16 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 									/>
 								</span>
 								<span>
-										2, Banana Island Shopping Complex,
-										Banana Island, Ikoyi-Lagos, Nigeria
+									2, Banana Island Shopping Complex, Banana
+									Island, Ikoyi-Lagos, Nigeria
 								</span>
 							</a>
 						</div>
 
 						<div className="footer_nav_section">
-							<h5 className="footer_nav_header blue">
+							<h4 className="footer_nav_header">
 								Social Media
-							</h5>
+							</h4>
 							<a
 								className="footer_nav_link"
 								target="_blank"
@@ -356,6 +350,15 @@ export default function Footer({ arrow, onClick, onClickAbout, onClickPillar }) 
 				</div>
 				<div className="arrow flex">
 					<img src={arrow} />
+				</div>
+				<div className="copyright">
+					<p className="info-bottom">
+						<b>
+							<span>&copy;</span>
+							{new Date().getFullYear()}
+						</b>{' '}
+						Choose Life Ltd. All Rights Reserved
+					</p>
 				</div>
 			</Container>
 

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -19,8 +18,6 @@ const Wrapper = styled.div`
 		padding-bottom: 3rem;
 	}
 	.sub-heading {
-		font-size: 1.6rem;
-		line-height: 2.5rem;
 		letter-spacing: 0.2px;
 		color: ${(props) => props.theme.color.ui_05};
 		padding-bottom: 3rem;
@@ -54,9 +51,7 @@ const Wrapper = styled.div`
 		}
 		h1 {
 			font-weight: bold;
-			font-size: 1.4rem;
 			padding-top: 3rem;
-			line-height: 1.4rem;
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.ui_06};
 		}
@@ -69,7 +64,6 @@ function CompanyRewards({
 	openReward,
 	closedRewards,
 }) {
-	console.log(openReward);
 	const themes = ['purple', 'blue', 'blue', 'pink', 'green'];
 
 	React.useEffect(() => {

@@ -8,11 +8,11 @@ const Wrapper = styled.div`
 	.input_label {
 		margin-bottom: 1rem;
 		margin-top: 0;
-		font-family: Sofia;
+		/* font-family: Sofia; */
 		letter-spacing: 0.1px;
 		font-weight: 600;
-		font-size: 1.4rem;
 		line-height: 1.4rem;
+		font-size: 1.4rem;
 		color: ${(props) => props.theme.color.ui_text_05};
 	}
 	.input_div {
@@ -43,7 +43,6 @@ const Wrapper = styled.div`
 		}
 		&::placeholder {
 			font-family: Sofia;
-			font-size: 1.4rem;
 			line-height: 2rem;
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.text_06};
@@ -58,7 +57,6 @@ const Wrapper = styled.div`
 	}
 	.error {
 		color: #b40001;
-		font-size: 1.1rem;
 		padding-top: 5px;
 	}
 `;

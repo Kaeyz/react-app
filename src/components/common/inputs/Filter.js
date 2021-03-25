@@ -1,11 +1,10 @@
-/* eslint-disable no-use-before-define */
-import React from 'react';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import styled from 'styled-components';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import sort from '../../../assets/sort.svg';
 import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
+import sort from '../../../assets/sort.svg';
 
 const Wrapper = styled.div`
 .MuiAutocomplete-input{
@@ -16,7 +15,6 @@ border-radius: 8px;
 }
 .MuiInputBase-input{
     font-weight: normal;
-font-size: 1.3rem;
 line-height: 1.3rem;
 color: ${(props) => props.theme.color.ui_05};
 font-family: Matteo;

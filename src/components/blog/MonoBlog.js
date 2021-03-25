@@ -5,7 +5,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-
 const Wrapper = styled.div`
 	/* blog css styling goes here */
 	.blog_card {
@@ -35,9 +34,9 @@ const Wrapper = styled.div`
 	}
 	.blog-tag {
 		position: relative;
-		top: 88px;
-		right: 10px;
-		z-index: 99999;
+		top: 110px;
+		right: -235px;
+		z-index: 50;
 	}
 	#yellow {
 		background-color: rgba(247, 194, 54, 0.8);
@@ -60,11 +59,11 @@ const Wrapper = styled.div`
 		width: 100%;
 		text-align: center;
 		color: #1d1d1d;
+		text-transform: uppercase;
 	}
-	.light {
-		font-size: 1.3rem;
+	h2 {
+		font-size: 1.2rem;
 		font-weight: 100;
-		line-height: 1.3rem;
 		color: ${(props) => props.theme.color.text_12};
 	}
 	.card_info {
@@ -73,17 +72,25 @@ const Wrapper = styled.div`
 		padding-top: 1rem;
 	}
 `;
-const MonoBlog = ({ author, to, title, tag, createdAt, src, alt, tagColor }) => {
+const MonoBlog = ({
+	author,
+	to,
+	title,
+	tag,
+	createdAt,
+	src,
+	alt,
+	tagColor,
+}) => {
 	return (
 		<Wrapper>
-
-			<Link class='mono-blog-link' to={to}>
+			<Link class="mono-blog-link" to={to}>
 				<Card className="blog_card" elevation={0}>
 					<div className="img_div">
 						<img src={src} alt={alt} className="blog_img" />
-						<p className="tag blog-tag" id={`${tagColor}`}>
+						<h2 className="tag blog-tag" id={`${tagColor}`}>
 							{tag}
-						</p>
+						</h2>
 					</div>
 					<CardContent className="card_content">
 						<p className="blog-title">{title}</p>
@@ -109,6 +116,5 @@ MonoBlog.propTypes = {
 	to: PropTypes.any,
 	createdAt: PropTypes.string.isRequired,
 };
-
 
 export default MonoBlog;

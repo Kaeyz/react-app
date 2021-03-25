@@ -1,16 +1,15 @@
-/*eslint-disable */
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 import corona from '../../assets/clients/corona.png';
 import streamsower from '../../assets/clients/streamsowers-kohn-nigeria.jpg';
-import flower1 from "../../assets/img/flower_1.png";
-import flower2 from "../../assets/img/flower_2.png";
-import fbnInsurance from "../../assets/testimony1.png";
-import enyo from "../../assets/testimony2.png";
-import unicane from "../../assets/testimony4.jpg";
-import nepal from "../../assets/testimony5.jpg";
-import unikem from "../../assets/testimony7.jpg";
-import Container from "../common/Container";
+import flower1 from '../../assets/img/flower_1.png';
+import flower2 from '../../assets/img/flower_2.png';
+import fbnInsurance from '../../assets/testimony1.png';
+import enyo from '../../assets/testimony2.png';
+import unicane from '../../assets/testimony4.jpg';
+import nepal from '../../assets/testimony5.jpg';
+import unikem from '../../assets/testimony7.jpg';
+import Container from '../common/Container';
 
 const Wrapper = styled.div`
   position: relative;
@@ -36,12 +35,9 @@ const Wrapper = styled.div`
     justify-content: center;
   }
   .lhs h1 {
-    font-size: 35px;
     margin-bottom: 10px;
-    font-weight: 400;
-    line-height: 30px;
+    font-weight: 500;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      font-size: 3rem;
     }
   }
   .lhs .info {
@@ -183,8 +179,8 @@ const Wrapper = styled.div`
     bottom: -50px;
   }
 `;
-function OurClients(props) {
-  return (
+function OurClients() {
+	return (
 		<Wrapper>
 			<img className="flower flower1" src={flower1} alt="flower1" />
 			<img className="flower flower2" src={flower2} alt="flower2" />
@@ -273,7 +269,7 @@ function OurClients(props) {
 				</div>
 			</Container>
 		</Wrapper>
-  );
+	);
 }
 
 OurClients.propTypes = {};

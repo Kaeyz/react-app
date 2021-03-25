@@ -13,14 +13,12 @@ const Wrapper = styled.div`
     padding: 2rem;
     .text {
       font-weight: normal;
-      font-size: 2rem;
       line-height: 1.9rem;
       letter-spacing: -0.4px;
       display: flex;
       align-items: center;
       color: ${(props) => props.theme.color.ui_05};
       @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-        font-size: 1.6rem;
       }
       @media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
         display: block;

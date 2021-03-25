@@ -1,4 +1,3 @@
-/*eslint-disable */
 // modules
 import React from 'react';
 import { NavLink } from 'react-router-dom';

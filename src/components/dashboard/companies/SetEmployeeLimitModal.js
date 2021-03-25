@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { setEmployeeLimit } from '../../../store/actions/companyActions';
-import styled from 'styled-components';
-import Modal from '../../dashboard/common/Modal';
 import Grid from '@material-ui/core/Grid';
-import {NumberInput} from '../../common/inputs';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
 import Button from '../../../components/common/Button';
+import { setEmployeeLimit } from '../../../store/actions/companyActions';
+import { NumberInput } from '../../common/inputs';
+import Modal from '../../dashboard/common/Modal';
 
 const Wrapper = styled.div`
 	.pd {
@@ -22,7 +22,6 @@ const Wrapper = styled.div`
 		.tooltiptext {
 			visibility: hidden;
 			width: 112px;
-			font-size: 1.2rem;
 			background: rgba(243, 121, 32, 0.05);
 			border: 1px solid #f37920;
 			color: ${(props) => props.theme.color.text_05};
@@ -43,8 +42,6 @@ const Wrapper = styled.div`
 	}
 	.select-input {
 		font-weight: 300;
-		font-size: 1.4rem;
-		line-height: 2.2rem;
 		color: ${(props) => props.theme.color.ui_05};
 	}
 	#mb{

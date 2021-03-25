@@ -1,4 +1,4 @@
-import { httpFetch, client } from '../client';
+import { client, httpFetch } from '../client';
 
 const exerciseQueries = {};
 
@@ -86,7 +86,7 @@ const sortData = (categories, exercises) => {
 	return response;
 };
 
-exerciseQueries.getAllExercises = () => {
+exerciseQueries.getAllExercises = async () => {
 	const categoriesPromise = httpFetch.get('https://wger.de/api/v2/exercisecategory/?format=json');
 
 	const exercisesPromise = getExercises();
@@ -103,4 +103,3 @@ exerciseQueries.getAllExercises = () => {
 };
 
 export default Object.freeze(exerciseQueries);
-

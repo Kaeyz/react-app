@@ -1,8 +1,8 @@
-import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import React from 'react';
+import styled from 'styled-components';
 import bodyMass from '../../../assets/bodyMass.svg';
 import calorieIntake from '../../../assets/calorieIntake.svg';
-import styled from 'styled-components';
 import PreliminaryCard from '../common/PreliminaryCard';
 
 const Wrapper = styled.div`
@@ -13,7 +13,6 @@ const Wrapper = styled.div`
     margin-bottom: 3.8rem;
     padding: 0 2px;
     h1 {
-      font-size: 18px;
       line-height: 24px;
       font-weight: 600;
       color: ${(props) => props.theme.color.text_01};

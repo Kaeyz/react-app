@@ -1,4 +1,3 @@
-/*eslint-disable */
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -27,8 +26,13 @@ const Wrapper = styled.div`
 		margin: 1rem 0 3rem 0;
 		color: ${(props) => props.theme.color.ui_10};
 	}
+	h2 {
+		font-size: 3rem;
+	}
+	h5 {
+		font-size: 1.8rem;
+	}
 	.smallsubhead {
-		font-size: 18px;
 		margin-top: 2rem;
 	}
 
@@ -61,16 +65,7 @@ const Wrapper = styled.div`
 	}
 
 	.sub-heading {
-		font-size: 3.5rem;
-		line-height: 3rem;
-		font-weight: 400;
 		margin-top: 1.5rem;
-	}
-	.detail1,
-	.detail2,
-	.detail3 {
-		font-size: 1.8rem;
-		line-height: 2.6rem;
 	}
 	.detail3 {
 		margin-top: 2rem;

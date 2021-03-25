@@ -18,7 +18,6 @@ export const client = async (query, variables) => {
 		next();
 	});
 
-/* eslint-disable */
 	if (token) {
 		// eslint-disable-next-line no-unused-vars
 		apolloFetch.use(({ request, options }, next) => {

@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import { withRouter } from 'react-router-dom';
-import Back from '../../../assets/greenBackArrow.svg';
-import styled from 'styled-components';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import smallImg from '../../../assets/Activity.svg';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import Paper from '@material-ui/core/Paper';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
+import smallImg from '../../../assets/Activity.svg';
+import Back from '../../../assets/greenBackArrow.svg';
 
 const Wrapper = styled.div`
 	.flex-back {
@@ -16,113 +16,110 @@ const Wrapper = styled.div`
 		justify-content: start;
 		padding: 1rem 0;
 		text-decoration: none;
-		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-			display:none;
-			}
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+			display: none;
 		}
-		.back {
-			font-weight: bold;
-			font-size: 1.4rem;
-			line-height: 1.4rem;
-			color: #2ec4b6;
-			padding-left: 0.8rem;
-		}
+	}
+	.back {
+		font-weight: bold;
+		line-height: 1.4rem;
+		color: #2ec4b6;
+		padding-left: 0.8rem;
+	}
 	.titleWithNull {
 		width: 100%;
 		padding: 3.8rem 0;
 		align-items: center;
-		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-			justify-content:start;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+			justify-content: start;
+		}
+	}
+	h1 {
+		font-weight: bold;
+		font-size: 2rem;
+		line-height: 2rem;
+		letter-spacing: -0.2px;
+		color: #000b0a;
+		width: 275px;
+		max-width: 100%;
+	}
+	.title {
+		display: grid;
+		grid-gap: 1rem;
+		grid-template-columns: 1fr max-content;
+		align-items: center;
+		img {
+			max-width: max-content;
+		}
+		.img {
+			@media screen and (max-width: ${(props) =>
+		props.theme.breakpoint.md}) {
+				display: none;
 			}
 		}
-		h1 {
-			font-weight: bold;
-			font-size: 2.0rem;
-			line-height: 2.0rem;
-			letter-spacing: -0.2px;
-			color: #000b0a;
-			width: 275px;
-			max-width: 100%;
+	}
+	.img2 {
+		display: none;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+			display: block;
 		}
-		.title {
-			display: grid;
-			grid-gap: 1rem;
-			grid-template-columns: 1fr max-content;
-			align-items: center;
-			img {
-				max-width: max-content;
-			}
-			.img {
-				@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-					display:none;
-				}
-			}
-		}
-		.img2 {
+	}
+	.null {
+		border: 1px solid rgba(214, 216, 211, 0.5);
+		margin: 10px 0px;
+		width: 100%;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
 			display: none;
-			@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-				display: block;
-				}
-			}
-		.null {
-			border: 1px solid rgba(214, 216, 211, 0.5);
-			margin: 10px 0px;
-			width: 100%;
-			@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-				display:none;
-			}
 		}
+	}
 	.questions-container {
 		box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
 		border-radius: 10px;
 		padding: 3rem;
 		display: grid;
-		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
 			display: block;
-			background-color:#fbfbfb;
+			background-color: #fbfbfb;
 			box-shadow: 0px 0px 0px rgba(233, 233, 233, 0.25);
-			padding:	0;
-			}
+			padding: 0;
 		}
+	}
 	.gridy {
-		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
 			display: block;
-			}
 		}
+	}
 	.gridy1 {
-		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
 			max-width: 100%;
-			}
 		}
+	}
 	.paper-question {
 		box-shadow: 0px 0px 0px;
-		@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
 			box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
 			border-radius: 4px;
-			background-color:#fff;
+			background-color: #fff;
 			padding: 2.4rem 1rem;
-			}
 		}
+	}
 	.what-question {
 		position: sticky;
 		top: 40px;
 		h5 {
 			font-weight: bold;
 			font-size: 2.1rem;
-			line-height: 3.0rem;
+			line-height: 3rem;
 			color: #171f46;
 			padding: 2.9rem 0 1rem 0;
 		}
 		p {
-			font-size: 1.6rem;
-			line-height: 2.5rem;
 			align-items: center;
 			letter-spacing: 0.2px;
 			color: #000b0a;
 		}
 		.pointBar {
 			h2 {
-				font-size: 1.2rem;
 				line-height: 1.1rem;
 				color: #737373;
 				padding-bottom: 1rem;
@@ -131,7 +128,8 @@ const Wrapper = styled.div`
 				justify-content: space-between;
 				.show_mobile {
 					display: none;
-					@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
+					@media screen and (max-width: ${(props) =>
+		props.theme.breakpoint.md}) {
 						display: block;
 					}
 				}
@@ -180,7 +178,9 @@ const QuestionnaireLayout = ({
 						<div className="what-question">
 							<div className="pointBar">
 								<div className="flex">
-									<h2>{percentageCompleted || 0}% Completed</h2>
+									<h2>
+										{percentageCompleted || 0}% Completed
+									</h2>
 								</div>
 								<LinearProgress
 									variant="determinate"
@@ -201,9 +201,9 @@ const QuestionnaireLayout = ({
 	);
 };
 
-
 QuestionnaireLayout.defaultProps = {
-	detail:'All questions are aimed at helping you live your best life, taking into consideration your wellbeing.',
+	detail:
+		'All questions are aimed at helping you live your best life, taking into consideration your wellbeing.',
 };
 
 QuestionnaireLayout.propTypes = {
@@ -221,7 +221,7 @@ QuestionnaireLayout.propTypes = {
 	reportButton: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return { percentageCompleted: state.hra.percentageCompleted };
 };
 

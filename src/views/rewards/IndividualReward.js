@@ -1,4 +1,3 @@
-/*eslint-disable */
 
 import { Divider, Grid, Paper } from '@material-ui/core';
 import PropTypes from 'prop-types';
@@ -16,9 +15,6 @@ const Wrapper = styled.div`
 		padding-bottom: 1rem;
 	}
 	.sub-heading {
-		font-size: 1.6rem;
-		line-height: 2.5rem;
-		letter-spacing: 0.2px;
 		color: ${(props) => props.theme.color.ui_05};
 		padding-bottom: 3rem;
 		font-weight: bold;
@@ -50,7 +46,6 @@ const Wrapper = styled.div`
 		p {
 			padding-left: 0.8rem;
 			font-weight: bold;
-			font-size: 2rem;
 			line-height: 2rem;
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.ui_05};
@@ -62,7 +57,6 @@ const Wrapper = styled.div`
 	}
 	.detail {
 		.info {
-			font-size: 1.3rem;
 			line-height: 2.5rem;
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.ui_05};
@@ -72,7 +66,6 @@ const Wrapper = styled.div`
 	.grid {
 		.bold {
 			font-weight: bold;
-			font-size: 1.1rem;
 			line-height: 1.1rem;
 			letter-spacing: 0.2px;
 			text-transform: uppercase;
@@ -80,7 +73,6 @@ const Wrapper = styled.div`
 			padding-bottom: 1rem;
 		}
 		.date {
-			font-size: 1.4rem;
 			line-height: 1.3rem;
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.ui_05};

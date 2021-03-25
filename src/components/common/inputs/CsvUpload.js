@@ -28,7 +28,6 @@ const Wrapper = styled.div`
 		cursor: pointer;
 		/* text-shadow: 1px 1px #fff; */
 		font-weight: 500;
-		font-size: 16px;
 		font-family: 'Matteo';
 	}
 	.custom-file-input:hover::before {

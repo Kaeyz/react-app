@@ -18,22 +18,21 @@ import {
 import { sortTableData } from '../../utils/helper';
 
 const Wrapper = styled.div`
-  .paper {
-    background: ${(props) => props.theme.color.text_03};
-    box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
-    border-radius: 0px;
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: max-content max-content;
-    justify-content: space-between;
-    align-items: center;
-    .heading {
-      font-weight: bold;
-      font-size: 1.6rem;
-      line-height: 1.6rem;
-      color: ${(props) => props.theme.color.text_05};
-    }
-  }
+	.paper {
+		background: ${(props) => props.theme.color.text_03};
+		box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
+		border-radius: 0px;
+		padding: 2rem;
+		display: grid;
+		grid-template-columns: max-content max-content;
+		justify-content: space-between;
+		align-items: center;
+		.heading {
+			font-weight: bold;
+			line-height: 1.6rem;
+			color: ${(props) => props.theme.color.text_05};
+		}
+	}
 `;
 
 const Reports = ({
@@ -108,9 +107,15 @@ const Reports = ({
 				) : reports.length < 1 ? (
 					<div>No Report Found</div>
 				) : type === 'EMPLOYEE' || type === 'INDIVIDUAL' ? (
-					<Table cols={tableConstants()} data={sortReportData(reports, type)} />
+					<Table
+						cols={tableConstants()}
+						data={sortReportData(reports, type)}
+					/>
 				) : (
-					<Table cols={tableConstantAdminCompany()} data={sortReportData(reports, type)} />
+					<Table
+						cols={tableConstantAdminCompany()}
+						data={sortReportData(reports, type)}
+					/>
 				)}
 			</DashboardLayout>
 		</Wrapper>

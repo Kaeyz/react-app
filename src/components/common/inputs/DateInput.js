@@ -11,8 +11,8 @@ const Wrapper = styled.div`
 	margin-top: 1.5rem;
 	width: 100%;
 	.input_label {
+		font-size: 1.4rem;
 		margin-bottom: 0.3rem;
-		font-size: 1.3rem;
 		margin-top: 0;
 	}
 	.input {
@@ -40,16 +40,14 @@ const Wrapper = styled.div`
 	}
 	.error {
 		color: #b40001;
-		font-size: 1.3rem;
 		padding-top: 2px;
 	}
 	.MuiOutlinedInput-notchedOutline {
 		border: none;
 	}
 	.MuiOutlinedInput-inputAdornedEnd {
-		font-family: Sofia;
+		/* font-family: Sofia; */
 		font-weight: 300;
-		font-size: 1.4rem;
 		line-height: 2rem;
 		letter-spacing: 0.2px;
 		color: ${(props) => props.theme.color.text_06};

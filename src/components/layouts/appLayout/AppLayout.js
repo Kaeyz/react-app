@@ -1,4 +1,4 @@
-/*eslint-disable */
+
 
 import Fab from '@material-ui/core/Fab';
 import { makeStyles } from '@material-ui/core/styles';
@@ -53,14 +53,11 @@ function ScrollTop(props) {
 	);
 }
 
-// ScrollTop.propTypes = {
-//   children: PropTypes.element.isRequired,
-//   /**
-//    * Injected by the documentation to work in an iframe.
-//    * You won't need it on your project.
-//    */
-//   window: PropTypes.func,
-// };
+ScrollTop.propTypes = {
+	children: PropTypes.any,
+	window: PropTypes.func
+};
+
 export default function AppLayout({ children, arrow, header, toPillar, toAbout }) {
 	const handleClick = (event) => {
 		const anchor = (event.target.ownerDocument || document).querySelector(
@@ -102,4 +99,4 @@ AppLayout.propTypes = {
 	header: PropTypes.any.isRequired,
 	toAbout: PropTypes.func,
 	toPillar: PropTypes.func
-}
+};

@@ -24,8 +24,6 @@ const Wrapper = styled.div`
       grid-template-columns: 1fr 1fr;
       .text {
         font-weight: 300;
-        font-size: 1.4rem;
-        line-height: 2.2rem;
         color: ${props => props.theme.color.ui_05};
       }
       .bolder {

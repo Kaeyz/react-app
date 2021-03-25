@@ -1,4 +1,3 @@
-/*eslint-disable */
 // modules
 import React from 'react';
 import { NavLink } from 'react-router-dom';
@@ -69,8 +68,8 @@ export default class Header extends React.Component {
 	}
 
 	componentDidMount() {
-		this.listener = document.addEventListener('scroll', (e) => {
-			var scrolled = document.scrollingElement.scrollTop;
+		this.listener = document.addEventListener('scroll', () => {
+			const scrolled = document.scrollingElement.scrollTop;
 			if (scrolled >= 450) {
 				if (this.state.status !== 'amir') {
 					this.setState({ status: 'amir' });

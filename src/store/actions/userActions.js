@@ -157,7 +157,6 @@ export const resendResetPasswordMail = (data) => dispatch => {
 				dispatch(errorAlert({ msg: res.errors[0].message }));
 				dispatch(appNotLoading());
 			}
-			// eslint-disable-next-line no-console
 			if (res.data) {
 				dispatch(successAlert(res.data.resendResetPasswordRequestMail.message));
 				dispatch(appNotLoading());

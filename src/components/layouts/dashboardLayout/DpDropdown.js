@@ -1,22 +1,16 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
-import React from 'react';
-import arrowDown from '../../../assets/arrow-down.svg';
-import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import React from 'react';
 import styled from 'styled-components';
-//import PropTypes from 'prop-types';
-
+import arrowDown from '../../../assets/arrow-down.svg';
 
 const Wrapper = styled.div`
-
-display:flex;
-.flex {
-    display: flex;
-    align-items: center;
-  }
-
+	display: flex;
+	.flex {
+		display: flex;
+		align-items: center;
+	}
 `;
-
 
 function DpDropdown() {
 	const handleMenu = (event) => {
@@ -31,27 +25,25 @@ function DpDropdown() {
 
 	return (
 		<Wrapper>
-
-	  <div>
+			<div>
 				<img
 					alt="arrowDown"
 					src={arrowDown}
 					onClick={handleMenu}
-					style={{cursor:'pointer'}}
+					style={{ cursor: 'pointer' }}
 				/>
 				<Menu
 					anchorEl={anchorEl}
-					anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+					anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
 					keepMounted
-					transformOrigin={{ vertical: 'top', horizontal: 'right'}}
+					transformOrigin={{ vertical: 'top', horizontal: 'right' }}
 					open={open}
 					onClose={handleClose}
 				>
-		  		<MenuItem onClick={handleClose}>Profile</MenuItem>
-		  		<MenuItem onClick={handleClose}>My account</MenuItem>
+					<MenuItem onClick={handleClose}>Profile</MenuItem>
+					<MenuItem onClick={handleClose}>My account</MenuItem>
 				</Menu>
-	  </div>
-
+			</div>
 		</Wrapper>
 	);
 }
@@ -59,4 +51,3 @@ function DpDropdown() {
 //DpDropdown.propTypes = {};
 
 export default DpDropdown;
-

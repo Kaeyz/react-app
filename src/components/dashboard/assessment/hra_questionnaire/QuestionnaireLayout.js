@@ -1,4 +1,3 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -12,20 +11,19 @@ const Wrapper = styled.div`
 	padding: 1rem 0;
 	.back {
 		font-weight: bold;
-		font-size: 1.4rem;
 		line-height: 1.4rem;
 		color: ${(props) => props.theme.color.brand_02};
 		margin-left: 0.8rem;
 	}
-	.top-paper	{
+	.top-paper {
 		background: ${(props) => props.theme.color.ui_01};
 		box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
 		border-radius: 0px;
 		display: flex;
 		justify-content: space-between;
 		padding: 1rem;
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			display:none;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+			display: none;
 		}
 	}
 	.flex-back {
@@ -34,18 +32,18 @@ const Wrapper = styled.div`
 		justify-content: start;
 		padding: 1rem 0;
 		text-decoration: none;
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-				display:none;
-			}
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+			display: none;
 		}
-	.review-back{
-		display:none;
+	}
+	.review-back {
+		display: none;
 		justify-content: start;
 		padding-bottom: 2rem;
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			display:flex;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+			display: flex;
 		}
-		p	{
+		p {
 			font-weight: bold;
 			font-size: 2rem;
 			line-height: 2rem;
@@ -54,15 +52,15 @@ const Wrapper = styled.div`
 		}
 	}
 	.null {
-			border: 1px solid rgba(214, 216, 211, 0.5);
-			margin: 10px 0px;
-			width: 100%;
-		}
+		border: 1px solid rgba(214, 216, 211, 0.5);
+		margin: 10px 0px;
+		width: 100%;
+	}
 	.title {
 		display: flex;
 		justify-content: start;
-		align-items:center;
-		width:100%;
+		align-items: center;
+		width: 100%;
 		img {
 			padding-right: 1rem;
 		}
@@ -71,14 +69,14 @@ const Wrapper = styled.div`
 			font-weight: bold;
 			color: ${(props) => props.theme.color.ui_05};
 			min-width: max-content;
-			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+			@media screen and (max-width: ${(props) =>
+		props.theme.breakpoint.sm}) {
 				min-width: auto;
 				line-height: 1.7rem;
-				font-size: 1.3rem;
 			}
 		}
 	}
-	.withGuage{
+	.withGuage {
 		display: grid;
 		width: 100%;
 		grid-template-columns: max-content 1fr;
@@ -86,61 +84,64 @@ const Wrapper = styled.div`
 		align-items: center;
 		grid-gap: 1rem;
 		margin-top: 1.5rem;
-		.none	{
-			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-				display:none;
-					}
+		.none {
+			@media screen and (max-width: ${(props) =>
+		props.theme.breakpoint.sm}) {
+				display: none;
+			}
 		}
-		.download{
+		.download {
 			margin-left: auto;
-			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-				display:none;
+			@media screen and (max-width: ${(props) =>
+		props.theme.breakpoint.sm}) {
+				display: none;
 			}
 		}
 	}
 	.exercise {
 		display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
-		}
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 2rem;
+	}
 	.top-header2 {
-		display:grid;
+		display: grid;
 		grid-gap: 1rem;
 		align-items: center;
 		grid-template-columns: max-content max-content 1fr;
-	  margin: 0 0 4rem 0;
-	  @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+		margin: 0 0 4rem 0;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 			grid-template-columns: max-content 1fr;
-			display:none;
+			display: none;
 		}
-	  .null {
+		.null {
 			border: 1px solid rgba(214, 216, 211, 0.5);
 			width: -webkit-fill-available;
 			margin: 10px 0px;
-	  }
-	  img	{
-		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			  display:none;
+		}
+		img {
+			@media screen and (max-width: ${(props) =>
+		props.theme.breakpoint.sm}) {
+				display: none;
 			}
-	  }
+		}
 		p {
-		  font-weight: bold;
-		  font-size: 1.6rem;
-		  line-height: 1.6rem;
-		  letter-spacing: 1.8px;
-		  color: ${(props) => props.theme.color.ui_05};
-		  @media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			letter-spacing: -0.2px;
+			font-weight: bold;
+			letter-spacing: 1.8px;
+			color: ${(props) => props.theme.color.ui_05};
+			@media screen and (max-width: ${(props) =>
+		props.theme.breakpoint.sm}) {
+				letter-spacing: -0.2px;
 			}
 		}
 	}
-	.review-mobile-only{
-		display:none;
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			display:grid;
+	.review-mobile-only {
+		display: none;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+			display: grid;
 		}
-		p	{
-			@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
+		p {
+			@media screen and (max-width: ${(props) =>
+		props.theme.breakpoint.sm}) {
 				font-weight: normal;
 			}
 		}
@@ -166,7 +167,7 @@ function QuestionnaireLayout({
 				</div>
 			)}
 			{reportButton && (
-				<Paper className='top-paper'>
+				<Paper className="top-paper">
 					<div className="flex-back" onClick={history.goBack}>
 						<img src={Back} alt="go back" />
 						<p className="back">Back</p>
@@ -183,7 +184,7 @@ function QuestionnaireLayout({
 				</Paper>
 			)}
 			{exerciseButton && (
-				<Paper className='top-paper'>
+				<Paper className="top-paper">
 					<div className="flex-back" onClick={history.goBack}>
 						<img src={Back} alt="go back" />
 						<p className="back">Back</p>

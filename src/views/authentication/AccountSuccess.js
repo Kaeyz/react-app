@@ -1,4 +1,3 @@
-/*eslint-disable */
 
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -36,13 +35,12 @@ const Wrapper = styled.div`
         font-size: 2.4rem;
         line-height: 130%;
       }
-      // span {
-      //   color: ${(props) => props.theme.color.brand_02};
-      //   font-weight: 600;
-      // }
+       /* span {
+         color: ${(props) => props.theme.color.brand_02};
+         font-weight: 600;
+       } */
     }
     h5 {
-      font-size: 1.4rem;
       line-height: 2.5rem;
       font-weight: normal;
       padding: 2rem 0 4rem 0;
@@ -85,9 +83,5 @@ function AccountSuccess() {
 		</Wrapper>
 	);
 }
-
-// AccountSuccess.propTypes = {
-
-// }
 
 export default AccountSuccess;

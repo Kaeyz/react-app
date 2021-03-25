@@ -1,7 +1,6 @@
-/*eslint-disable */
-import PropTypes from "prop-types";
-import React from "react";
-import styled from "styled-components";
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   .main {
@@ -74,8 +73,6 @@ const Wrapper = styled.div`
   }
   .caption {
     color: ${(props) => props.theme.color.ui_08};
-    font-size: 2rem;
-    line-height: 2.5rem;
     font-family: Caviar;
     text-align: center;
     margin: 30px auto 0 auto;
@@ -83,25 +80,25 @@ const Wrapper = styled.div`
   }
 `;
 function SquareImg({ bg, border1, border2, caption, childImage }) {
-  return (
-    <Wrapper>
-      <div className="main">
-        <div className={` ${bg} absolute img`}></div>
-        <div className={` ${border1} absolute empty empty1`}></div>
-        <div className={` ${border2}  empty empty2`}></div>
-        <img className={` absolute img2`} src={childImage} alt="" />
-      </div>
-      <p className="caption">{caption}</p>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<div className="main">
+				<div className={` ${bg} absolute img`}></div>
+				<div className={` ${border1} absolute empty empty1`}></div>
+				<div className={` ${border2}  empty empty2`}></div>
+				<img className={' absolute img2'} src={childImage} alt="" />
+			</div>
+			<p className="caption">{caption}</p>
+		</Wrapper>
+	);
 }
 
 SquareImg.propTypes = {
-  bg: PropTypes.string.isRequired,
-  border1: PropTypes.string,
-  childImage: PropTypes.string,
-  border2: PropTypes.string,
-  caption: PropTypes.string,
+	bg: PropTypes.string.isRequired,
+	border1: PropTypes.string,
+	childImage: PropTypes.string,
+	border2: PropTypes.string,
+	caption: PropTypes.string,
 };
 
 export default SquareImg;

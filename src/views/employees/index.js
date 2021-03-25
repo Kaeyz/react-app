@@ -1,4 +1,3 @@
-/*eslint-disable */
 
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -40,11 +39,9 @@ const Wrapper = styled.div`
 		}
 		h1 {
 			font-weight: normal;
-			font-size: 1.2rem;
-			line-height: 1.8rem;
 			color: ${(props) => props.theme.color.ui_05};
 			@media screen and (max-width: ${(props) =>
-					props.theme.breakpoint.md}) {
+		props.theme.breakpoint.md}) {
 				min-width: 115px;
 			}
 		}
@@ -63,18 +60,16 @@ const Wrapper = styled.div`
 			grid-gap: 1rem;
 			grid-template-columns: 1fr 1fr;
 			@media screen and (max-width: ${(props) =>
-					props.theme.breakpoint.md}) {
+		props.theme.breakpoint.md}) {
 				width: 70%;
 			}
 			@media screen and (max-width: ${(props) =>
-					props.theme.breakpoint.sm}) {
+		props.theme.breakpoint.sm}) {
 				width: 100%;
 			}
 		}
 		p {
 			font-weight: normal;
-			font-size: 1.5rem;
-			line-height: 1.4rem;
 			padding-bottom: 3rem;
 			letter-spacing: -0.4px;
 			color: ${(props) => props.theme.color.text_04};

@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 import check from '../../../assets/check-all.svg';
 
@@ -35,7 +35,6 @@ const Wrapper = styled.div`
 		transition: 2sec;
 	}
 	.label {
-		font-size: 1.3rem;
 	}
 
 `;
@@ -83,4 +82,4 @@ MultiSelectInput.propTypes = {
 	onChange: PropTypes.func.isRequired,
 };
 
-export {MultiSelectInput};
+export { MultiSelectInput };

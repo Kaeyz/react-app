@@ -1,11 +1,10 @@
-/*eslint-disable */
 
+import PropTypes from 'prop-types';
 import React from 'react';
-import PropTypes from 'prop-types'
-import errorImg from '../assets/405.svg';
-import CommonAuthFlowPage from '../components/forms/authentications/CommonAuthFlowPages';
-import errorTopImg from '../assets/405_top.svg';
 import { connect } from 'react-redux';
+import errorImg from '../assets/405.svg';
+import errorTopImg from '../assets/405_top.svg';
+import CommonAuthFlowPage from '../components/forms/authentications/CommonAuthFlowPages';
 
 
 function NotActivated({user}) {

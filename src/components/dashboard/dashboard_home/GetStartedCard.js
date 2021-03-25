@@ -11,7 +11,6 @@ const Wrapper = styled.div`
 
 		padding: 0 2px;
 		h1 {
-			font-size: 18px;
 			line-height: 24px;
 			font-weight: 600;
 			color: ${(props) => props.theme.color.text_01};
@@ -31,10 +30,8 @@ const Wrapper = styled.div`
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
-	.read-more{
+	.read-more {
 		margin: 1.8rem 0;
-		font-size: 14px;
-		line-height: 24px;
 		color: ${(props) => props.theme.color.text_02};
 	}
 `;
@@ -48,15 +45,17 @@ function GetStartedCard() {
 			</div>
 			<div className="bg"></div>
 			<p className="read-more">
-				More and more people are struggling with obstacles that keep them from
-				eating better, moving around more and making healthy lifestyle choices.
-				We find both younger and older people coming down with serious non
-				communicable diseases like Hypertension, Diabetes, Obesity and Cancer
-				due to personal and workplace related reasons. <span style={{color: '#2EC4B6'}}>View more</span>
+				More and more people are struggling with obstacles that keep
+				them from eating better, moving around more and making healthy
+				lifestyle choices. We find both younger and older people coming
+				down with serious non communicable diseases like Hypertension,
+				Diabetes, Obesity and Cancer due to personal and workplace
+				related reasons.{' '}
+				<span style={{ color: '#2EC4B6' }}>View more</span>
 			</p>
 			<Link to="/dashboard_home2">
 				<Button value="Get started" theme="green">
-				Get started
+					Get started
 				</Button>
 			</Link>
 		</Wrapper>

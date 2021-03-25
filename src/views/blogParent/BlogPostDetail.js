@@ -1,5 +1,4 @@
-/* eslint-disable no-debugger */
-/* eslint-disable no-console */
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -13,8 +12,6 @@ import AppLayout from '../../components/layouts/appLayout/AppLayout';
 import Header from '../../components/layouts/appLayout/header/index2';
 import { getBlogs, getSingleBlog } from '../../store/actions/blogActions';
 import { capitalizeFirstLetter } from '../../utils/helper';
-
-
 
 const Wrapper = styled.div`
 	text-align: center;
@@ -53,32 +50,27 @@ const Wrapper = styled.div`
 		color: ${(props) => props.theme.color.text_02};
 	}
 	.tag {
-		line-height: 23.94px;
-		font-size: 1.5rem;
 		font-weight: 100;
 		width: fit-content;
 		padding: 3px 20px;
 		color: ${(props) => props.theme.color.text_03};
-		font-family: Segoe UI emoji;
 	}
 	.yellow {
 		background-color: rgba(247, 194, 54, 0.8);
 	}
-	.blue{
-		background-color: rgba(46,196,182, 0.8);
+	.blue {
+		background-color: rgba(46, 196, 182, 0.8);
 	}
-	.green{
-		background-color: rgba(141,184,56, 0.8);
+	.green {
+		background-color: rgba(141, 184, 56, 0.8);
 	}
-	.orange{
-		background-color: rgba(244,120,3, 0.8) !important;
+	.orange {
+		background-color: rgba(244, 120, 3, 0.8) !important;
 	}
 	.card_description {
-		font-size: 1.1rem;
 	}
 	.longDetail,
 	.detail {
-		font-size: 2rem;
 		line-height: 3rem;
 		color: ${(props) => props.theme.color.text_02};
 		font-weight: 300;
@@ -91,7 +83,7 @@ const Wrapper = styled.div`
 		br {
 			margin-bottom: 20px;
 			height: 10px;
-			content: "";
+			content: '';
 			display: block;
 		}
 	}
@@ -103,8 +95,6 @@ const Wrapper = styled.div`
 	}
 
 	.orangeP {
-		font-size: 1.4rem;
-		line-height: 2.4rem;
 		letter-spacing: 0.075rem;
 		display: flex;
 		margin-top: 1.5rem;
@@ -129,12 +119,9 @@ const Wrapper = styled.div`
 	.img-cap {
 		font-style: italic;
 		font-weight: 500;
-		font-size: 2rem;
-		line-height: 3.7rem;
 		color: ${(props) => props.theme.color.ui_text_08};
 		margin-top: 2rem;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-			font-size: 1.6rem;
 			line-height: 1.7rem;
 		}
 	}
@@ -164,11 +151,24 @@ function BlogPostDetail({ match, getSingleBlog, blog, isLoading }) {
 		getSingleBlog(blogId);
 	}, [blogId, getSingleBlog]);
 
-	const { title, body, createdAt, tags, author, asset, imageCaption, imageCredit } = blog;
+	const {
+		title,
+		body,
+		createdAt,
+		tags,
+		author,
+		asset,
+		imageCaption,
+		imageCredit,
+	} = blog;
 
 	return (
 		<AppLayout header={<Header />}>
-			<SEO title={!isLoading && title} image={!isLoading && asset?.url} location={location.href} />
+			<SEO
+				title={!isLoading && title}
+				image={!isLoading && asset?.url}
+				location={location.href}
+			/>
 			<Wrapper>
 				<Container>
 					<div className="upper">
@@ -250,7 +250,9 @@ BlogPostDetail.propTypes = {
 
 const mapStateToProps = (state) => {
 	const { blogs, blog, isLoading } = state.blog;
-	return {blogs: blogs || [], blog, isLoading };
+	return { blogs: blogs || [], blog, isLoading };
 };
 
-export default connect(mapStateToProps, { getBlogs, getSingleBlog })(withRouter(BlogPostDetail));
+export default connect(mapStateToProps, { getBlogs, getSingleBlog })(
+	withRouter(BlogPostDetail),
+);

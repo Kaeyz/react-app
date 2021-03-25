@@ -1,7 +1,7 @@
-import React from 'react';
+import { Divider, Paper } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
-import { Paper, Divider } from '@material-ui/core';
 
 const Wrapper = styled.div`
 	.paperCard {
@@ -43,7 +43,6 @@ const Wrapper = styled.div`
 		p {
 			padding-left: .8rem;
 			font-weight: bold;
-			font-size: 2rem;
 			line-height: 2rem;
 			letter-spacing: 0.2px;
 			color: ${props => props.theme.color.ui_05};
@@ -55,7 +54,6 @@ const Wrapper = styled.div`
  }
  .detail{
 	.info{
-		font-size: 1.3rem;
 		line-height: 2.5rem;
 		letter-spacing: 0.2px;
 		color: ${props => props.theme.color.ui_05};
@@ -65,7 +63,6 @@ const Wrapper = styled.div`
  .grid{
 		.bold{
 			font-weight: bold;
-			font-size: 1.1rem;
 			line-height: 1.1rem;
 			letter-spacing: 0.2px;
 			text-transform: uppercase;
@@ -73,7 +70,6 @@ const Wrapper = styled.div`
 			padding-bottom: 1rem;
 		}
 		.date{
-			font-size: 1.4rem;
 			line-height: 1.3rem;
 			letter-spacing: 0.2px;
 			color: ${props => props.theme.color.ui_05};

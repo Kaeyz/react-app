@@ -1,4 +1,3 @@
-/*eslint-disable */
 
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
@@ -13,7 +12,6 @@ import Modal from '../common/Modal';
 
 const Wrapper = styled.div`
 	.inlineP {
-		font-size: 1.5rem;
 		line-height: 2.1rem;
 		letter-spacing: 0.6px;
 		color: #0a2523;
@@ -24,7 +22,6 @@ const Wrapper = styled.div`
 		}
 	}
 	.smallerP {
-		font-size: 1.2rem;
 		margin-top: 1rem;
 	}
 	.pd {
@@ -38,7 +35,6 @@ const Wrapper = styled.div`
 	}
 	.select-input {
 		font-weight: 300;
-		font-size: 1.4rem;
 		line-height: 2.2rem;
 		color: ${(props) => props.theme.color.ui_05};
 	}
@@ -63,7 +59,7 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 
 	const onSubmit = (event) => {
 		event.preventDefault();
-		setCsv(csv)
+		setCsv(csv);
 		if (csv.length === 0) {
 			setErrors('csv file not present');
 			return;
@@ -135,8 +131,8 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 };
 
 BatchUploadModal.propTypes = {
-  addNewEmployee: PropTypes.func
-}
+	addNewEmployee: PropTypes.func
+};
 
 
 export default connect(null, { addNewEmployee })(BatchUploadModal);

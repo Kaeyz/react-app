@@ -28,14 +28,12 @@ const Wrapper = styled.div`
     line-height: 1.4rem;
   }
   .main {
-    font-size: 1.4rem;
     font-weight: bold;
     color: #000000;
     letter-spacing: -0.4px;
     margin-bottom: 5px;
   }
   .sub {
-    font-size: 1.3rem;
     color: #828282;
     line-height: 12px;
   }

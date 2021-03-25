@@ -1,4 +1,3 @@
-/* eslint-disable  react/no-unescaped-entities */
 import { Grid, Paper } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -72,7 +71,7 @@ const CreateRewardModal = ({ addNewReward }) => {
 
 						<p>
 							The rewards offer a mechanism to rate individual
-							progress with our "Leaderboard" feature.
+							progress with our &quot;Leaderboard&quot; feature.
 						</p>
 
 						<p>

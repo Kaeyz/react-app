@@ -17,6 +17,8 @@ import SquareImg from '../components/home/SquareImg';
 import Testimonials from '../components/home/Testimonials';
 import AppLayout from '../components/layouts/appLayout/AppLayout';
 import Header from '../components/layouts/appLayout/header';
+import { ScrollToTopOnMount } from '../views/Team';
+
 
 const Wrapper = styled.div`
   .fit-bg {
@@ -29,31 +31,32 @@ const Wrapper = styled.div`
     border-radius: 10px;
   }
 `;
+const toHealth = () => {
+	const anchor = document.querySelector('#health');
+	anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+};
+const toLifestyle = () => {
+	const anchor = document.querySelector('#lifestyle');
+	anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+};
+const toFitness = () => {
+	const anchor = document.querySelector('#fitness');
+	anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+};
+const toNutrition = () => {
+	const anchor = document.querySelector('#nutrition');
+	anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+};
+const toPillar = () => {
+	const anchor = document.querySelector('#pillar');
+	anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+};
+const toAbout = () => {
+	const anchor = document.querySelector('#aboutUs');
+	anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+};
+
 const Home = () => {
-	const toHealth = () => {
-		const anchor = document.querySelector('#health');
-		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-	};
-	const toLifestyle = () => {
-		const anchor = document.querySelector('#lifestyle');
-		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-	};
-	const toFitness = () => {
-		const anchor = document.querySelector('#fitness');
-		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-	};
-	const toNutrition = () => {
-		const anchor = document.querySelector('#nutrition');
-		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-	};
-	const toPillar = () => {
-		const anchor = document.querySelector('#pillar');
-		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-	};
-	const toAbout = () => {
-		const anchor = document.querySelector('#aboutUs');
-		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-	};
 	return (
 		<AppLayout
 			header={<Header />}
@@ -62,8 +65,8 @@ const Home = () => {
 			toAbout={toAbout}
 		>
 			<SEO title="Home" location={location.href} />
-
-			<CarouselHero />
+			<ScrollToTopOnMount />
+			<CarouselHero toAbout={toAbout} />
 			<AboutUs id="aboutUs" />
 			<Pillars
 				toHealth={toHealth}
@@ -152,4 +155,5 @@ Another eight hours"
 	);
 };
 
+export { toHealth, toAbout, toPillar, toLifestyle, toFitness, toNutrition };
 export default Home;

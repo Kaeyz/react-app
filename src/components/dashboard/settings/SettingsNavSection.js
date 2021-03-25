@@ -35,12 +35,10 @@ const Wrapper = styled.div`
 		transition: 0.3s;
 	}
 	p {
-		font-size: 1.6rem;
 		line-height: 1.5rem;
 		color: ${(props) => props.theme.color.text_06};
 		font-weight: normal;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-			font-size: 1.3rem;
 		}
 	}
 
@@ -48,7 +46,6 @@ const Wrapper = styled.div`
 		p {
 			color: ${(props) => props.theme.color.text_05};
 			font-weight: bold;
-			font-size: 1.6rem;
 			line-height: 1.6rem;
 			@media screen and (max-width: ${(props) =>
 		props.theme.breakpoint.md}) {
@@ -60,7 +57,6 @@ const Wrapper = styled.div`
 			}
 			@media screen and (max-width: ${(props) =>
 		props.theme.breakpoint.sm}) {
-				font-size: 1.3rem;
 			}
 		}
 	}

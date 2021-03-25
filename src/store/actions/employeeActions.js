@@ -175,7 +175,6 @@ export const removeEmployee = (id, history) => dispatch => {
 };
 
 export const resendEmployeeInvite = (id, history) => (dispatch) => {
-	// eslint-disable-next-line no-console
 	dispatch(employeeIsLoading());
 	employeeQueries
 		.resendEmployeeInvite(id)

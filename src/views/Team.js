@@ -1,4 +1,4 @@
-/*eslint-disable */
+import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import linkedin from '../assets/linkedIn.png';
@@ -6,7 +6,6 @@ import team1 from '../assets/testimony3.png';
 import SEO from '../components/common/SEO';
 import AppLayout from '../components/layouts/appLayout/AppLayout';
 import Header from '../components/layouts/appLayout/header/index2';
-
 
 const Wrapper = styled.div`
 	padding-top: 10rem;
@@ -162,18 +161,14 @@ const Wrapper = styled.div`
 		font-weight: 400;
 	}
 	.name {
-		font-size: 2rem;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-			font-size: 1.5rem;
 			line-height: 12px;
 		}
 	}
 	.role {
-		font-size: 1.5rem;
 		line-height: 12px;
 		margin-top: 5px;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-			font-size: 1.3rem;
 		}
 	}
 	.social {
@@ -185,14 +180,14 @@ const Wrapper = styled.div`
 			width: auto;
 			height: 20px;
 			@media screen and (max-width: ${(props) =>
-					props.theme.breakpoint.md}) {
+		props.theme.breakpoint.md}) {
 				height: 15px;
 			}
 		}
 		.pd {
 			margin: 0 15px;
 			@media screen and (max-width: ${(props) =>
-					props.theme.breakpoint.sm}) {
+		props.theme.breakpoint.sm}) {
 				margin: 0 5px;
 			}
 		}
@@ -206,18 +201,19 @@ function ScrollToTopOnMount() {
 	return null;
 }
 function Team(props) {
-	const toPillar = (e) => {
-		const anchor = document.querySelector('#pillar');
-		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-	};
-	const toAbout = (e) => {
-		const anchor = document.querySelector('#aboutUs');
-		anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-	};
+
 	return (
-		<AppLayout header={<Header />}>
+		<AppLayout
+			header={<Header />}
+			toAbout={() => {
+				props.history.push('/#aboutUs');
+			}}
+			toPillar={() => {
+				props.history.push('/#pillar');
+			}}
+		>
 			<ScrollToTopOnMount />
-			<SEO title="Our Team" location={location.href}/>
+			<SEO title="Our Team" location={location.href} />
 			<Wrapper>
 				<div className="head">
 					<h1>OUR TEAM</h1>
@@ -234,6 +230,7 @@ function Team(props) {
 							<a
 								href="https://www.linkedin.com/in/uganze-eke-22a1946b/"
 								target="_blank"
+								rel="noreferrer"
 							>
 								<img src={linkedin} alt="linkedin" />
 							</a>
@@ -250,6 +247,7 @@ function Team(props) {
 							<a
 								href="https://www.linkedin.com/in/u-k-eke-076647200/"
 								target="_blank"
+								rel="noreferrer"
 							>
 								<img src={linkedin} alt="linkedin" />
 							</a>
@@ -268,6 +266,7 @@ function Team(props) {
 							<a
 								href="https://www.linkedin.com/in/joel-uzamere-805395b"
 								target="_blank"
+								rel="noreferrer"
 							>
 								<img src={linkedin} alt="linkedin" />
 							</a>
@@ -283,6 +282,7 @@ function Team(props) {
 							<a
 								href="https://www.linkedin.com/in/prince-anusiem-362085146"
 								target="_blank"
+								rel="noreferrer"
 							>
 								<img src={linkedin} alt="linkedin" />
 							</a>
@@ -298,6 +298,7 @@ function Team(props) {
 							<a
 								href="https://www.linkedin.com/in/soteyeheinrich-babatunde-6531127b"
 								target="_blank"
+								rel="noreferrer"
 							>
 								<img src={linkedin} alt="linkedin" />
 							</a>
@@ -315,6 +316,7 @@ function Team(props) {
 							<a
 								href="https://www.linkedin.com/in/adenike-adeyemi-8286a81"
 								target="_blank"
+								rel="noreferrer"
 							>
 								<img src={linkedin} alt="linkedin" />
 							</a>
@@ -327,6 +329,12 @@ function Team(props) {
 		</AppLayout>
 	);
 }
+
+Team.propTypes = {
+	history: PropTypes.shape({
+		push: PropTypes.func
+	})
+};
 
 export { ScrollToTopOnMount };
 export default Team;

@@ -121,7 +121,6 @@ SideBar.propTypes = {
 	// companyName: PropTypes.string
 };
 
-/* eslint-disable */
 const mapStateToProps = state => {
 	const { name, type, companyName } = state.user.user;
 	const user = { name, type,companyName };

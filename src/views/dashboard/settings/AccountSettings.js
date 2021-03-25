@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';

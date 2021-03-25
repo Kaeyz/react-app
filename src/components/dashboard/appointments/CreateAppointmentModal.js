@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import { Grid, Paper } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
-import Modal from '../../dashboard/common/Modal';
+import icon from '../../../assets/money.svg';
 import Button from '../../../components/common/Button';
-import { Paper, Grid } from '@material-ui/core';
 import {
-	TextInput,
 	DateInput,
-	TextArea,
-	SelectInput,
+
+	SelectInput, TextArea, TextInput,
+
+
+
 	TimeInput
 } from '../../../components/common/inputs';
-import icon from '../../../assets/money.svg';
 import { addNewAppointment } from '../../../store/actions/appointmentActions';
+import Modal from '../../dashboard/common/Modal';
 import { createAppointmentValidator } from '../../forms/validation';
-import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
 	.appoint-body {
@@ -53,17 +55,15 @@ const Wrapper = styled.div`
 }
 .text{
 		h1{
-			font-family: Sofia;
+			/* font-family: Sofia; */
 			font-weight: bold;
-			font-size: 16px;
-			line-height: 24px;
 			padding-bottom: 1rem;
 			letter-spacing: -0.2px;
 			color: #000B0A;
 		}
 		p {
 			font-weight: 300;
-			font-size: 14px;
+			 14px;
 			line-height: 25px;
 			letter-spacing: 0.2px;
 			color: #0A2523;

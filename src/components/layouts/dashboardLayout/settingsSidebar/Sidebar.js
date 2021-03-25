@@ -9,7 +9,6 @@ import DashboardLayout from '../../../../components/layouts/dashboardLayout/Dash
 
 const Wrapper = styled.div`
 	.text {
-		font-size: 1.6rem;
 		line-height: 1.6rem;
 		color: ${(props) => props.theme.color.ui_05};
 	}
@@ -21,8 +20,6 @@ const Wrapper = styled.div`
 	}
 	h1 {
 		font-weight: bold;
-		font-size: 24px;
-		line-height: 24px;
 		margin: 1rem 0 1.6rem 0;
 	}
 	.settings-body {

@@ -2,7 +2,7 @@ import { CssBaseline } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import brownFont from './assets/Myfont/BrownLightRegular.ttf';
+// import brownFont from './assets/Myfont/BrownLightRegular.ttf';
 import caviarFont from './assets/Myfont/CaviarDreams.ttf';
 import secFont from './assets/Myfont/FuturaPTBook.otf';
 import basicFont from './assets/Myfont/Matteo.otf';
@@ -84,9 +84,15 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	@font-face {
+		font-family: Avenir;
+		src: url(${avenirFont}) ;
+	}
+
+	@font-face {
 		font-family: Futura;
 		src: url(${secFont}) ;
 	}
+
 	@font-face {
 		font-family: Sofia;
 		src: url(${hraFont}) ;
@@ -99,10 +105,6 @@ const GlobalStyle = createGlobalStyle`
 		font-family: Caviar;
 		src: url(${caviarFont}) ;
 	}
-	@font-face {
-		font-family: Brown;
-		src: url(${brownFont}) ;
-	}
 
 	html {
 		box-sizing: border-box;
@@ -112,13 +114,13 @@ const GlobalStyle = createGlobalStyle`
 		box-sizing: inherit;
 	}
 	body {
+		font-family: Matteo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
 		padding: 0;
 		margin: 0;
-		font-size: 1.3rem;
 		line-height: 2;
+		font-size: 1.2rem;
 		outline: none;
 		height: 100%;
-		font-family: Matteo ;
 		background:#fff;
 	}
 	div, span {
@@ -145,6 +147,24 @@ const GlobalStyle = createGlobalStyle`
 	}
 	a {
 		text-decoration: none;
+	}
+  p, li {
+    letter-spacing: 0.0083em;
+  }
+	p {
+		font-size: 1.3rem;
+		font-weight: 100;
+	}
+	@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+		body {
+			font-size: 1.3rem;
+		}
+
+	}
+	@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+		body {
+			font-size: 1.1rem;
+		}
 	}
 `;
 
