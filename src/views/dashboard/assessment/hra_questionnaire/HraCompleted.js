@@ -15,7 +15,7 @@ const Wrapper = styled(Paper)`
 	margin: auto;
 	align-items: center;
 	text-align: center;
-	padding: 8rem;
+	padding: 5rem;
 	display: flex;
 	min-height: 90vh;
 	justify-content: center;
@@ -53,7 +53,7 @@ const Wrapper = styled(Paper)`
 		}
 	}
 	.button-links {
-		padding-top: 6rem;
+		padding-top: 4rem;
 	}
 `;
 
@@ -86,7 +86,7 @@ function HraCompleted({ getCompanyLeaderBoard, isLoading, userPosition }) {
 			</p>
 			<div className="button-links flex">
 				<Link className="linked-btn" to="/assessment">
-					<Button value="Back to Assessment" theme="whiteBtn">
+					<Button value="Back to Assessment" theme="whiteBtn" style={{width: '100%'}}>
 						Back to Assessment
 					</Button>
 				</Link>

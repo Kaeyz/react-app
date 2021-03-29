@@ -54,6 +54,7 @@ const Wrapper = styled.div`
 				p {
 					@media screen and (max-width: ${(props) =>
 		props.theme.breakpoint.sm}) {
+						font-size: 1.1.rem;
 					}
 				}
 				.flexy {
@@ -138,9 +139,9 @@ const Company = ({ match, getCompany, company, isLoading }) => {
 						<Grid item xs={12} sm={6}>
 							<Paper className="grids-item">
 								<div className="headingy flex">
-									<h1 className="boldy bigy">
+									<h3 className="boldy bigy">
 										COMPANY DETAILS
-									</h1>
+									</h3>
 									<div>
 										{!adminVerified && (
 											<ActivateCompany
@@ -162,37 +163,37 @@ const Company = ({ match, getCompany, company, isLoading }) => {
 								<div className="detail">
 									<div className="info grid">
 										<p>Official Name</p>
-										<h1 className="boldy">
+										<h4 className="boldy">
 											{companyName || ''}
-										</h1>
+										</h4>
 									</div>
 									<div className="info grid">
 										<p>Company Email</p>
-										<h1 className="boldy">{email || ''}</h1>
+										<h4 className="boldy">{email || ''}</h4>
 									</div>
 									<div className="info grid">
 										<p>Company website</p>
 										<Link to="#companyWebsite">
-											<h1 className="boldy web">
+											<h4 className="boldy web">
 												{companyUrl || ''}
-											</h1>
+											</h4>
 										</Link>
 									</div>
 									<div className="info grid">
 										<p>Company Address</p>
-										<h1 className="boldy">
+										<h4 className="boldy">
 											{address || ''}
-										</h1>
+										</h4>
 									</div>
 									<div className="info grid">
 										<p>Employee invited</p>
-										<h1 className="boldy">
+										<h4 className="boldy">
 											{companySize || ''}
-										</h1>
+										</h4>
 									</div>
 									<div className="info grid">
 										<p>Employee Limit</p>
-										<h1 className="boldy flex flexy">
+										<h4 className="boldy flex flexy">
 											{employeeLimit || ''}
 											{adminVerified && (
 												<span id="modal">
@@ -201,7 +202,7 @@ const Company = ({ match, getCompany, company, isLoading }) => {
 													/>
 												</span>
 											)}
-										</h1>
+										</h4>
 									</div>
 								</div>
 							</Paper>
@@ -209,35 +210,35 @@ const Company = ({ match, getCompany, company, isLoading }) => {
 						<Grid item xs={12} sm={6}>
 							<Paper className="grids-item">
 								<div className="headingy flex">
-									<h1 className="boldy bigy">
+									<h3 className="boldy bigy">
 										REPRESENTATIVE DETAILS
-									</h1>
+									</h3>
 								</div>
 								<Divider />
 								<div className="detail">
 									<div className="info grid">
 										<p>Representative Name</p>
-										<h1 className="boldy">{name || ''}</h1>
+										<h4 className="boldy">{name || ''}</h4>
 									</div>
 									<div className="info grid">
 										<p>Email Address</p>
-										<h1 className="boldy">
+										<h4 className="boldy">
 											{representativeEmail || ''}
-										</h1>
+										</h4>
 									</div>
 									<div className="info grid">
 										<p>Designation</p>
-										<h1 className="boldy">
+										<h4 className="boldy">
 											{department || ''}
-										</h1>
+										</h4>
 									</div>
 									<div className="info grid">
 										<p>Date Created</p>
-										<h1 className="boldy">
+										<h4 className="boldy">
 											{createdAt
 												? convertDate(createdAt)
 												: ''}
-										</h1>
+										</h4>
 									</div>
 								</div>
 							</Paper>

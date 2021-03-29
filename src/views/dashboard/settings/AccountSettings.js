@@ -66,7 +66,7 @@ const AccountSettings = ({ user, updateUser }) => {
 		return (
 			<>
 				<div className="settings-body-main">
-					<h1 className="text">Company Information</h1>
+					<h2 className="text">Company Information</h2>
 					<p>
 						This section contains general information about the
 						company.
@@ -182,9 +182,9 @@ const AccountSettings = ({ user, updateUser }) => {
 				{user.type === 'COMPANY' && <CompanyInformation />}
 				<div
 					className="settings-body-main"
-					style={{ paddingTop: '40px' }}
+					style={{ paddingTop: user.type === 'COMPANY' ? '40px' : '0px' }}
 				>
-					<h1 className="text">General Information</h1>
+					<h2 className="text">General Information</h2>
 					<p>
 						This section contains general information about
 						yourself.

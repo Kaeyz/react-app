@@ -12,13 +12,13 @@ import { getQuestions } from '../../../../store/actions/hraActions';
 import HraInput from '../../../hra_input';
 
 const Wrapper = styled.div`
-	margin: 4rem 0;
+	margin: 2rem 0;
 	.MuiCollapse-wrapperInner {
 		display: flex;
 		justify-content: space-between;
 	}
 	.expanded-content {
-		padding: 4rem 3rem;
+		padding: 3rem 2rem;
 		align-items: start;
 		display: flex;
 		justify-content: space-between;
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 			display: block;
 		}
 		.left-content {
-			margin-right: 3rem;
+			margin-right: 2rem;
 			width: 30rem;
 			@media screen and (max-width: ${(props) =>
 		props.theme.breakpoint.sm}) {
@@ -113,7 +113,7 @@ const Wrapper = styled.div`
 	.sub-heading {
 		font-weight: 300;
 		line-height: 2.5rem;
-		letter-spacing: 0.2rem;
+		letter-spacing: 0.2px;
 		color: ${(props) => props.theme.color.ui_05};
 	}
 	.MuiCollapse-entered {
@@ -193,7 +193,7 @@ ReviewCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	category: PropTypes.string.isRequired,
 	getQuestions: PropTypes.func.isRequired,
-	questions: PropTypes.array.isRequired,
+	questions: PropTypes.any.isRequired,
 };
 
 const mapStateToProps = (state, props) => {

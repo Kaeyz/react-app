@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 	padding-bottom: 4rem;
 	.grid-container {
 		left: 300px;
-		padding: 3rem 0rem;
+		padding: 1.5rem 0rem;
 		top: 425px;
 		background-color: ${(props) => props.theme.color.text_10};
 		border: 1px solid ${(props) => props.theme.color.ui_12};
@@ -22,7 +22,6 @@ const Wrapper = styled.div`
 		}
 		.sub-head {
 			font-weight: bold;
-			line-height: 1.6rem;
 			letter-spacing: -0.2px;
 			color: ${(props) => props.theme.color.ui_05};
 		}
@@ -42,8 +41,8 @@ const Wrapper = styled.div`
 		}
 		.grid {
 			display: grid;
-			padding-top: 3rem;
-			grid-gap: 4rem;
+			padding-top: 1.5rem;
+			grid-gap: 2rem;
 			grid-template-columns: 1fr 1fr;
 
 			.text {
@@ -101,34 +100,34 @@ function BodyMassCard({ height, weight, BMI, getBmi, isLoading }) {
 			<Paper className="grid-container">
 				<div className="gridy">
 					<div className="pad">
-						<h1 className="sub-head">BMI Details</h1>
+						<h2 className="sub-head">BMI Details</h2>
 						<div className="grid">
 							<p className="light text">Height (CM)</p>
-							<h2 className="bold text">{height}</h2>
+							<h3 className="bold text">{height}</h3>
 						</div>
 						<div className="grid">
 							<p className="light text">Weight (Kg)</p>
-							<h2 className="bold text">{weight}</h2>
+							<h3 className="bold text">{weight}</h3>
 						</div>
 						<div className="grid">
 							<p className="light text">Body Mass Index (BMI)</p>
-							<h2 className="bold text">
+							<h3 className="bold text">
 								{!isLoading && BMI.bmi}
-							</h2>
+							</h3>
 						</div>
 						<div className="grid">
 							<p className="light text">BMI Result</p>
-							<h2 className="bold text">
+							<h3 className="bold text">
 								{!isLoading && BMI.rating}
-							</h2>
+							</h3>
 						</div>
 					</div>
 					<hr orientation="vertical" />
 
 					<div id="pt" className="pad">
-						<h1 className="sub-head">
+						<h2 className="sub-head">
 							What does this result mean?
-						</h1>
+						</h2>
 						{ratingMessage.map((item) => (
 							<div className="grid" key={item.key}>
 								<p className="light text">{item.key}</p>

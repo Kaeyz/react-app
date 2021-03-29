@@ -60,7 +60,12 @@ const CircularProgressCard = ({
 				<p className={`${fontSize}`}>{props.cardInfo}</p>
 				{showButton && (
 					<Link to={props.where || '/'}>
-						<Button theme={props.btnTheme}>{props.btnValue}</Button>
+						<Button
+							theme={props.btnTheme}
+							style={{ borderRadius: '4px' }}
+						>
+							{props.btnValue}
+						</Button>
 					</Link>
 				)}
 			</Paper>

@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getQuestions } from '../../../../store/actions/hraActions';
+import React from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import CovidForm from '../../../../components/dashboard/assessment/hra_questionnaire/CovidForm';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
-import CovidForm from '../../../../components/dashboard/assessment/hra_questionnaire/CovidForm';
+import { getQuestions } from '../../../../store/actions/hraActions';
 // import smallImg from '../../../../assets/Activity.svg';
 
 const Wrapper = styled.div`
@@ -43,7 +43,7 @@ function Covid({ getQuestions, questions }) {
 
 Covid.propTypes = {
 	getQuestions: PropTypes.func.isRequired,
-	questions: PropTypes.object.isRequired,
+	questions: PropTypes.any.isRequired,
 };
 
 const mapStateToProps = (state) => {

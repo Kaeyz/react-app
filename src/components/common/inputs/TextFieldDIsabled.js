@@ -14,7 +14,6 @@ const Wrapper = styled.div`
 		/* font-family: Sofia; */
 		letter-spacing: 0.1px;
 		font-weight: 600;
-		line-height: 1.4rem;
 		color: ${(props) => props.theme.color.ui_text_05};
 	}
 	.MuiInputBase-input.Mui-disabled {

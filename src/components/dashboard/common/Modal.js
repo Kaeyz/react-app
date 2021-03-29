@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -58,19 +59,16 @@ const Wrapper = styled.div`
 	}
 	.bold {
 		font-weight: bold;
-		line-height: 3rem;
 		color: ${(props) => props.theme.color.ui_05};
 	}
 	.big {
 		font-size: 2.1rem;
-		line-height: 4rem;
 	}
 	.light {
 		font-weight: 300;
-		padding: 1rem 0 3rem 0;
+		margin: 1rem 0 4rem 0;
 		p {
 			margin-top: 13px;
-			line-height: 2.5rem;
 		}
 	}
 	.close {
@@ -110,17 +108,18 @@ const Modal = ({
 	return (
 		<Wrapper>
 			<div className={showHideClassName}>
-				<section  className={`${position} ${align} modal-main`}>
+				<section
+					className={`${classnames(position, align, 'modal-main')}`}
+				>
 					<div className="close flex" onClick={handleClose}>
 						<img src={close} alt="close-modal" id="close-icon" />
 					</div>
 					<div className="heading">
-						<img src={img} alt={alt}/>
-						<h1 className="bold  big">{heading}</h1>
-						<div className="light">{info}</div>
+						{img && <img src={img} alt={alt} />}
+						<h2 className="bold  big">{heading}</h2>
+						<p className="light">{info}</p>
 					</div>
 					{children}
-
 				</section>
 			</div>
 		</Wrapper>

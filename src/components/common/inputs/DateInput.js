@@ -11,27 +11,32 @@ const Wrapper = styled.div`
 	margin-top: 1.5rem;
 	width: 100%;
 	.input_label {
+		/* font-family: Matteo; */
 		font-size: 1.4rem;
-		margin-bottom: 0.3rem;
+		line-height: 1.4rem;
+		margin-bottom: 0.9rem;
 		margin-top: 0;
 	}
 	.input {
+		font-size: 1.4rem;
+		line-height: 1.4rem;
+		/* height: 4rem; */
 		margin: 0;
-		// min-width: 100%;
+		min-width: 100%;
 		max-width: 100%;
 		outline: none;
 		color: ${(props) => props.theme.color.active_primary};
-		border-radius: 8px;
+		border-radius: 0px;
 	}
 
 	.MuiOutlinedInput-root {
 		border: 1px solid ${(props) => props.theme.color.ui_text_06};
-		border-radius: 2px;
+		border-radius: 0px;
 		&:hover {
 			border: 1px solid ${(props) => props.theme.color.ui_text_05};
 			transition: 0.3s;
 		}
-		:focus-within {
+		&:focus-within {
 			background-color: ${(props) => props.theme.color.text_03};
 			outline: none;
 			border-color: ${(props) => props.theme.color.brand_02};
@@ -48,7 +53,8 @@ const Wrapper = styled.div`
 	.MuiOutlinedInput-inputAdornedEnd {
 		/* font-family: Sofia; */
 		font-weight: 300;
-		line-height: 2rem;
+		font-size: 1.4rem;
+		line-height: 1.4rem;
 		letter-spacing: 0.2px;
 		color: ${(props) => props.theme.color.text_06};
 	}

@@ -9,10 +9,11 @@ import SelectInput from './inputs/SelectInput';
 import TextInput from './inputs/TextInput';
 
 const Wrapper = styled.div`
-	margin: 4rem 0;
+	margin: 2rem 0;
 	.input_label {
-		margin-bottom: 3rem;
-		line-height: 1.5rem;
+		margin-bottom: 2rem;
+		line-height: 1.5;
+		font-size: 1.3rem;
 		margin-top: 0;
 		font-weight: normal;
 		color: ${(props) => props.theme.color.ui_06};
@@ -153,8 +154,8 @@ HraInput.propTypes = {
 	unit: PropTypes.string,
 	number: PropTypes.number.isRequired,
 	id: PropTypes.string.isRequired,
-	prompt: PropTypes.string.isRequired,
-	inputs: PropTypes.array.isRequired,
+	prompt: PropTypes.string,
+	inputs: PropTypes.any.isRequired,
 	showInput: PropTypes.object.isRequired,
 	hraInputValues: PropTypes.object.isRequired,
 	input: PropTypes.object,

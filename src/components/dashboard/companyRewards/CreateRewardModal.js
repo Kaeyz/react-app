@@ -137,7 +137,7 @@ const CreateRewardModal = ({ addNewReward }) => {
 			<div onClick={showModal}>
 				<Paper className="add">
 					<img src={add} alt="add" />
-					<h1>CREATE NEW REWARD</h1>
+					<h2>CREATE NEW REWARD</h2>
 				</Paper>
 			</div>
 		</Wrapper>

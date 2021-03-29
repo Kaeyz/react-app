@@ -17,7 +17,7 @@ const Wrapper = styled(Paper)`
     display: grid;
     align-items: center;
     grid-template-columns: max-content 1fr;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
     #disclaimer{
     	vertical-align: bottom;
     	padding-right: 5px;
@@ -38,7 +38,7 @@ const Wrapper = styled(Paper)`
 .pagination-ctrl{
     align-items: center;
     justify-content: start;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
     span{
       font-weight: bold;
 			line-height: 2.4rem;

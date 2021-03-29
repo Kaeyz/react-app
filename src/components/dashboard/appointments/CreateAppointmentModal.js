@@ -38,7 +38,7 @@ const Wrapper = styled.div`
 		}
 	}
 .uglyCard{
-		padding: 3rem;
+		padding: 2rem;
 		border-radius: 8px;
 		box-shadow: none;
 		min-height: 170px;
@@ -63,7 +63,6 @@ const Wrapper = styled.div`
 		}
 		p {
 			font-weight: 300;
-			 14px;
 			line-height: 25px;
 			letter-spacing: 0.2px;
 			color: #0A2523;
@@ -210,7 +209,7 @@ const CreateAppointmentModal = ({type, title, cardTheme, details, addNewAppointm
 			<div onClick={toggleModal} id="trigger">
 				<Paper className={`uglyCard flex ${cardTheme}`} >
 					<div className="text">
-						<h1 className="title">{title}</h1>
+						<h3 className="title">{title}</h3>
 						<p className="details">{details}</p>
 					</div>
 

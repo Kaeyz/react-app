@@ -14,17 +14,21 @@ const Wrapper = styled.div`
 	.input_label {
 		margin-bottom: 0.3rem;
 		margin-top: 0;
+		font-size: 1.4rem;
+		line-height: 1.4rem;
 	}
 	.MuiFormControl-marginNormal {
 		width: 100%;
 		border: 1px solid ${(props) => props.theme.color.ui_text_06};
-		border-radius: 8px;
+		border-radius: 0px;
 	}
 	.MuiInput-underline.Mui-error:after {
 		border-bottom: none;
 	}
 	.MuiInputBase-input {
 		padding: 1.8rem;
+		font-size: 1.4rem;
+		/* line-height: 1.4rem; */
 		/* font-family: Sofia; */
 	}
 	.MuiInput-underline:before,
@@ -32,6 +36,7 @@ const Wrapper = styled.div`
 		content: none;
 	}
 	.MuiInput-root {
+			border: 1px solid transparent;
 		&:hover {
 			border: 1px solid ${(props) => props.theme.color.ui_text_05};
 			transition: 0.3s;

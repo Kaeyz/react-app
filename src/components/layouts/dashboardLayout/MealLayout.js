@@ -13,13 +13,12 @@ const Wrapper = styled(Paper)`
 		line-height: 2.4rem;
 		letter-spacing: -0.2px;
 		color: ${(props) => props.theme.color.ui_05};
-		padding: 2rem 0 4rem 0;
+		padding: 2rem 0 2rem 0;
 	}
 	.withNull {
 		display: grid;
 		align-items: center;
 		grid-template-columns: max-content 1fr;
-		padding-bottom: 4rem;
 		#disclaimer {
 			vertical-align: bottom;
 			padding-right: 5px;
@@ -27,7 +26,6 @@ const Wrapper = styled(Paper)`
 		h1 {
 			padding-right: 2rem;
 			font-weight: normal;
-			line-height: 1.5rem;
 			letter-spacing: -0.2px;
 			color: ${(props) => props.theme.color.ui_06};
 		}
@@ -58,7 +56,7 @@ function index({ children, nullText }) {
 	return (
 		<Wrapper>
 			<DashboardLayout whatPage="Meals">
-				<p className="heading">Meals</p>
+				<h1 className="heading">Meals</h1>
 				<WelcomeBanner
 					emoji="🍲"
 					heading="Meal Plans"

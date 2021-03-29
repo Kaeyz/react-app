@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -25,8 +26,8 @@ const Wrapper = styled.div`
 		width: max-content;
 		width: 100%;
 		justify-content: space-between;
-		padding: 1.8rem 1.6rem;
-		border-radius: 7px;
+		padding: 1.2rem 1rem;
+		border-radius: 0px;
 		background-color: ${(props) => props.theme.color.ui_01};
 		margin-right: 1rem;
 		margin-bottom: 1rem;
@@ -45,12 +46,12 @@ const Wrapper = styled.div`
 
 	.label {
 		font-weight: normal;
-		margin-top: 1.5rem;
+		margin-top: 1.3rem;
 	}
 	.isSelected {
 		background-color: ${(props) => props.theme.color.ui_text_01};
 		transition: 2sec;
-		height: 5.8rem;
+		height: 3.8rem;
 	}
 	.tag {
 		border: 1px solid ${(props) => props.theme.color.brand_02};
@@ -58,7 +59,7 @@ const Wrapper = styled.div`
 		font-weight: 600;
 		text-align: center;
 		line-height: normal;
-		border-radius: 5px;
+		border-radius: 0px;
 		/* font-family: Sofia; */
 		background-color: ${(props) => props.theme.color.ui_01};
 	}
@@ -125,7 +126,7 @@ function SelectInput({
 
 	return (
 		<Wrapper>
-			<div className={`options ${grid}`}>
+			<div className={`options ${classNames(grid)}`}>
 				{options &&
 					options.map((option, index) => (
 						<div key={option.id} className="options-div">

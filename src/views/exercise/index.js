@@ -8,7 +8,7 @@ import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardL
 import { getExercises } from '../../store/actions/exerciseActions';
 
 const Wrapper = styled.div`
-	padding-top: 6rem;
+	padding-top: 3rem;
 	.heading {
 		display: grid;
 		align-items: center;
@@ -56,6 +56,7 @@ const Exercise = ({ getExercises, isLoading, exercises }) => {
 
 	return (
 		<DashboardLayout whatPage="Exercise">
+			<h1>Exercise</h1>
 			<Wrapper>
 				<main className="content">
 					<WelcomeBanner detail="Discover fitness programs to keep you in shape and in the best of health" />

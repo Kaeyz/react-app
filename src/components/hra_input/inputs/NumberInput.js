@@ -11,10 +11,10 @@ const Wrapper = styled.div`
 	margin-top: 1.5rem;
 	margin-bottom: 1rem;
 	.input_label {
-		margin-bottom: 2rem;
-		line-height: 2.4rem;
-		font-size: 1.4rem;
+		margin-bottom: 1.5rem;
 		margin-top: 0;
+		line-height: 1.5;
+		font-size: 1.3rem;
 		font-weight: normal;
 	}
 	.flex {

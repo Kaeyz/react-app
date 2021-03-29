@@ -16,9 +16,11 @@ const Wrapper = styled.div`
 		color: ${(props) => props.theme.color.ui_text_05};
 	}
 	#text-area {
+		font-size: 1.4rem;
+		line-height: 1.4rem;
 		width: 100%;
 		border: 1px solid ${(props) => props.theme.color.ui_text_06};
-		border-radius: 8px;
+		/* border-radius: 8px; */
 		padding: 1.5rem;
 		&:hover {
 			border: 1px solid ${(props) => props.theme.color.ui_text_05};

@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -6,7 +7,7 @@ const Wrapper = styled.div`
   max-width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
-  margin: 3rem 0 6rem 0;
+  margin: 1rem 0 3rem 0;
   &::-webkit-scrollbar {
     height: 0.1rem;
   }
@@ -39,17 +40,15 @@ const Wrapper = styled.div`
     width: 100%;
   }
   .thead {
-    line-height: 1.5rem;
     letter-spacing: 0.2px;
     color: ${(props) => props.theme.color.ui_05};
-    padding: 4rem 0;
+    padding: 2rem 0;
     font-weight: normal;
   }
   .content {
-    padding: 2rem 0.5rem;
-    line-height: 1.6rem;
+    padding: 1rem 0.5rem;
     color: ${(props) => props.theme.color.ui_05};
-    width: 12rem;
+    width: 8rem;
   }
   .longTable {
     .thead {
@@ -60,7 +59,7 @@ const Wrapper = styled.div`
     .content,
     .thead {
       &:nth-child(1) {
-        padding-left: 5rem;
+        padding-left: 2rem;
         text-align: left;
       }
     }
@@ -70,7 +69,7 @@ const Wrapper = styled.div`
     border: 1px solid ${(props) => props.theme.color.ui_08};
   }
   .width {
-    max-width: 45px;
+    max-width: 40px;
   }
   tbody {
     text-align: center;
@@ -80,12 +79,17 @@ const Wrapper = styled.div`
 const Table = ({ cols, data, whichTable, maxW }) => {
 	return (
 		<Wrapper className="table-responsive">
-			<table className={`${whichTable} table`}>
+			<table className={`${classnames(whichTable, 'table')}`}>
 				<thead>
 					<tr>
 						{cols.map((headerItem, index) => (
-							<th className={`${maxW} thead`} key={index}>
-								{headerItem.title === '_id' ? '' : headerItem.title}
+							<th
+								className={`${classnames(maxW, 'thead')}`}
+								key={index}
+							>
+								{headerItem.title === '_id'
+									? ''
+									: headerItem.title}
 							</th>
 						))}
 					</tr>

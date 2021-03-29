@@ -8,14 +8,14 @@ import undraw_through_the_park from '../../../assets/undraw_through_the_park.svg
 import { capitalizeFirstLetter } from '../../../utils/helper';
 
 const Wrapper = styled.div`
-	margin-bottom: 6rem;
+	margin-bottom: 3rem;
 	.paper {
 		display: flex;
 		align-items: center;
 		height: 200px;
 		position: relative;
-		padding: 5.5rem 6rem;
-		padding-left: 3rem;
+		padding: 2.5rem 3rem;
+		/* padding-left: 3rem; */
 		background: ${(props) => props.theme.color.text_10};
 		border: 1px solid ${(props) => props.theme.color.ui_12};
 		box-sizing: border-box;

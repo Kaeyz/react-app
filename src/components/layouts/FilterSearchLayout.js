@@ -1,9 +1,11 @@
 import Paper from '@material-ui/core/Paper';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import Icon from '../../assets/searchIcon.svg';
 import { SearchInput } from '../common/inputs';
+
 /* import filtering from '../../assets/Filter.svg'; */
 
 const Wrapper = styled.div`
@@ -45,12 +47,9 @@ const Wrapper = styled.div`
   }
   .wrap {
     flex-wrap: wrap;
-    .buttons {
-      margin-top: 1rem;
-    }
   }
   .buttons {
-    grid-gap: 1rem;
+    grid-gap: .5rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
@@ -90,7 +89,7 @@ function FilterSearchLayout({
 						<Filter Icon={filtering} alt='filtering' placeholder="Filter" options={options} width={{ width: 150 }} />
 					</div> */}
 				</Paper>
-				<div className={`${display} ${wrap} searchWithButton flex flexy`}>
+				<div className={`${classnames(display, wrap)} searchWithButton flex flexy`}>
 					<SearchInput
 						Icon={Icon}
 						alt="icon"
@@ -101,7 +100,7 @@ function FilterSearchLayout({
 						onSubmit={onSearchSubmit}
 						style={{ width: 300 }}
 					/>
-					<div className={`${oneGrid} buttons`}>{buttons}</div>
+					<div className={`${classnames(oneGrid)}buttons`}>{buttons}</div>
 				</div>
 				{children}
 			</div>

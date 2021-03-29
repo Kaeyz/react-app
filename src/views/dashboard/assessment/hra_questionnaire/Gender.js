@@ -42,7 +42,7 @@ function Gender({ getQuestions, questions }) {
 
 Gender.propTypes = {
 	getQuestions: PropTypes.func.isRequired,
-	questions: PropTypes.object.isRequired,
+	questions: PropTypes.any.isRequired,
 };
 
 const mapStateToProps = (state) => {

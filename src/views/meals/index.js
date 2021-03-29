@@ -43,7 +43,7 @@ const Meal = ({ mealPlan, isLoading, getMealPlan }) => {
 			{!isLoading && mealPlan ? (
 				<ViewMealPlan mealPlan={mealPlan} />
 			) : (
-				<NewMealPlan /> || <div>loading...</div>
+				<NewMealPlan /> || <p>loading...</p>
 			)}
 		</Wrapper>
 	);

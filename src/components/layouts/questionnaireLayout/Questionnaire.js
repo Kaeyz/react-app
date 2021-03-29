@@ -154,6 +154,8 @@ const QuestionnaireLayout = ({
 	detail,
 	percentageCompleted,
 }) => {
+	React.useEffect(() => {
+	},[percentageCompleted]);
 	return (
 		<Wrapper>
 			<section className="top">

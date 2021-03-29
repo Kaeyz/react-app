@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
 import { saveQuestions } from '../../../../store/actions/hraActions';
-import HraInput from '../../../hra_input';
 import Button from '../../../common/Button';
+import HraInput from '../../../hra_input';
 
 
 const Wrapper = styled.div`
@@ -71,7 +71,7 @@ function StressForm({ questions, isLoading, inputs, history, saveQuestions }) {
 
 StressForm.propTypes = {
 	questions: PropTypes.array.isRequired,
-	inputs: PropTypes.array.isRequired,
+	inputs: PropTypes.any.isRequired,
 	history: PropTypes.object.isRequired,
 	isLoading: PropTypes.bool.isRequired,
 	saveQuestions: PropTypes.func.isRequired,

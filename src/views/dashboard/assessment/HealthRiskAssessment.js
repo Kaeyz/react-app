@@ -13,7 +13,7 @@ import DashboardLayout from '../../../components/layouts/dashboardLayout/Dashboa
 
 const Wrapper = styled.div`
 	.flex {
-		margin: 4rem 0;
+		margin: 3rem 0;
 		p {
 			min-width: max-content;
 			letter-spacing: -0.2px;
@@ -66,7 +66,7 @@ const Wrapper = styled.div`
 		}
 	}
 	.middle {
-		margin-bottom: 6rem;
+		margin-bottom: 3rem;
 	}
 	.footer {
 		font-size: 1.6rem;
@@ -97,10 +97,10 @@ const Wrapper = styled.div`
 		}
 	}
 	.top-header4 {
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 	}
 	.review-back {
-		margin-top: -60px;
+		margin-top: -20px;
 	}
 	.top-header5 {
 		grid-template-columns: max-content 1fr;

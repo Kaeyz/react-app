@@ -9,19 +9,19 @@ import PreliminaryCard from '../../components/dashboard/common/PreliminaryCard';
 import WelcomeBanner from '../../components/dashboard/dashboard_home/WelcomeBanner';
 
 const Wrapper = styled.div`
-	padding-top: 3rem;
+	padding-top: 2rem;
 	.heading {
 		font-weight: bold;
 		font-size: 2.4rem;
 		line-height: 2.4rem;
 		letter-spacing: -0.2px;
 		color: ${(props) => props.theme.color.ui_05};
-		padding-bottom: 4rem;
+		padding-bottom: 2rem;
 	}
 	.grid-card {
 		display: grid;
-		grid-gap: 4rem;
-		padding-bottom: 6rem;
+		grid-gap: 1rem;
+		padding-bottom: 3rem;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

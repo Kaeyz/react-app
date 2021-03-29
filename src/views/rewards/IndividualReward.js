@@ -96,11 +96,11 @@ function IndividualRewards({ getRewards, reward, isLoading }) {
 					Choose Life. You get rewards every time you finish a HRA and
 					other activities
 				</p>
-				<p className="sub-heading cap ">Running Rewards</p>
+				<p className="sub-heading cap ">Current Rewards</p>
 				{isLoading ? (
 					<div>Loading ...</div>
 				) : Object.keys(reward).length === 0 ? (
-					<h6>Your company does not have any running reward.</h6>
+					<p>Your company does not have any current reward.</p>
 				) : (
 					<Grid container>
 						<Grid item xs={9}>

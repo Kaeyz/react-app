@@ -3,7 +3,7 @@ import { client } from '../client';
 const hraQueries = {};
 
 hraQueries.getQuestion = (input) => {
-	const query =`
+	const query = `
 	query HRA_QUERY ($input: HraInputSectionsEnum ) {
 		fetchHraQuestion(input: $input) {
 			id
@@ -53,28 +53,27 @@ hraQueries.getQuestion = (input) => {
 	const variables = { input };
 	return new Promise((resolve, reject) => {
 		client(query, variables)
-			.then(res => resolve(res))
-			.catch(err => reject(err));
+			.then((res) => resolve(res))
+			.catch((err) => reject(err));
 	});
 };
-
 
 hraQueries.submitQuestion = (input) => {
 	const query = `
 	mutation SUBMIT_RESPONSE ($input: HRAResponseInput ){
 		submitHRAResponse(input: $input) {
 			message
+			percentageProgress
 		}
-		 }
+	}
 	`;
 	const variables = { input };
 	return new Promise((resolve, reject) => {
 		client(query, variables)
-			.then(res => resolve(res))
-			.catch(err => reject(err));
+			.then((res) => resolve(res))
+			.catch((err) => reject(err));
 	});
 };
-
 
 hraQueries.getCurrentResponse = () => {
 	const query = `
@@ -234,11 +233,9 @@ hraQueries.getCurrentResponse = () => {
 
 	return new Promise((resolve, reject) => {
 		client(query)
-			.then(res => resolve(res))
-			.catch(err => reject(err));
+			.then((res) => resolve(res))
+			.catch((err) => reject(err));
 	});
 };
-
-
 
 export default Object.freeze(hraQueries);

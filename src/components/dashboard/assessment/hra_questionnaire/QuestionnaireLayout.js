@@ -108,7 +108,7 @@ const Wrapper = styled.div`
 		grid-gap: 1rem;
 		align-items: center;
 		grid-template-columns: max-content max-content 1fr;
-		margin: 0 0 4rem 0;
+		margin: 0 0 1rem 0;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 			grid-template-columns: max-content 1fr;
 			display: none;

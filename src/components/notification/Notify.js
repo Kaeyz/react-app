@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Notify = ({ alerts, isAuthenticated }) => {
+const Notify = ({ alerts }) => {
 	const [open, setOpen] = useState(false);
 
 	useEffect(() => {
@@ -53,8 +53,7 @@ const Notify = ({ alerts, isAuthenticated }) => {
 	};
 
 	const { status } = alerts;
-
-	return isAuthenticated && <Wrapper>{status && display(alerts)}</Wrapper>;
+	return <Wrapper>{status && display(alerts)}</Wrapper>;
 };
 
 Notify.propTypes = {
@@ -65,7 +64,6 @@ Notify.propTypes = {
 const mapStateToProps = (state) => {
 	return {
 		alerts: state.alerts,
-		isAuthenticated: state.user.isAuthenticated,
 	};
 };
 

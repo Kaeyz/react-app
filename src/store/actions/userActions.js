@@ -79,9 +79,9 @@ export const loginUser = (userData) => dispatch => {
 	dispatch(clearAlert());
 	userQueries.login(userData)
 		.then(res => {
-			if(res.errors) {
-				dispatch(errorAlert({ msg: res.errors[0].message }));
+			if (res.errors) {
 				dispatch(setIsAuthenticated(false));
+				dispatch(errorAlert({ msg: res.errors[0].message }));
 				dispatch(appNotLoading());
 			}
 			if (res.data) {
@@ -91,6 +91,11 @@ export const loginUser = (userData) => dispatch => {
 				dispatch(setIsAuthenticated(true));
 				dispatch(setCurrentUser());
 				dispatch(appNotLoading());
+				dispatch(
+					successAlert(
+						'User Logged In Successfully',
+					),
+				);
 			}
 		})
 		.catch(() => {

@@ -127,7 +127,12 @@ const NewEmployeeModal = ({ addNewEmployee, btnTheme }) => {
 				</div>
 			</Modal>
 
-			<Button theme={btnTheme} text="Add Employee" onClick={showModal} />
+			<Button
+				theme={btnTheme}
+				text="Add Employee"
+				onClick={showModal}
+				style={{ fontSize: '1rem' }}
+			/>
 		</Wrapper>
 	);
 };

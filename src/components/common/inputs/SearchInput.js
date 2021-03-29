@@ -13,13 +13,12 @@ const Wrapper = styled.div`
 		box-sizing: border-box;
 		padding: 9px 12px;
 		width: 300px;
-		border-radius: 8px;
+		/* border-radius: 8px; */
 		&:focus-within {
 			border: 1px solid ${(props) => props.theme.color.brand_02};
 		}
 		.MuiInputBase-input {
 			font-family: Matteo;
-			line-height: 2.2rem;
 			color: ${(props) => props.theme.color.ui_05};
 			padding: 0;
 		}

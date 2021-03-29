@@ -49,9 +49,9 @@ const Wrapper = styled.div`
 			transform: scale(0.95);
 			transition: 0.3s;
 		}
-		h1 {
+		h2 {
 			font-weight: bold;
-			padding-top: 3rem;
+			padding-top: 1rem;
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.ui_06};
 		}
@@ -79,13 +79,13 @@ function CompanyRewards({
 					detail="See how well you compare to your colleagues. Complete activities to gain more points. Top the leaderboard and possibly qualify for rewards from your company."
 				/>
 				<div className="rewards">
-					<p className="sub-heading">Running Rewards</p>
+					<h2 className="sub-heading">Current Rewards</h2>
 					<div className="grid-container">
 						<CreateRewardModal />
 						{isLoading ? (
 							<div>Loading...</div>
 						) : openReward.length < 1 ? (
-							<div>No Current Rewards Found</div>
+							<p>No Current Rewards</p>
 						) : (
 							<RewardDetailsModal
 								theme="pink"
@@ -96,12 +96,12 @@ function CompanyRewards({
 				</div>
 
 				<div className="rewards">
-					<p className="sub-heading">Closed Rewards</p>
+					<h2 className="sub-heading">Closed Rewards</h2>
 					<div className="grid-container">
 						{isLoading ? (
 							<div>Loading ...</div>
 						) : closedRewards < 1 ? (
-							<div>No Closed Rewards Found</div>
+							<p>No Closed Rewards Found</p>
 						) : (
 							closedRewards.map((reward, index) => {
 								return (
@@ -124,7 +124,7 @@ function CompanyRewards({
 					</div>
 				</div>
 				<Link to="/rewards/leaderboard" className="leaderboard">
-					<p className="sub-heading">Leaderboard</p>
+					<h3 className="sub-heading">Leaderboard</h3>
 					<div className="grid-container">
 						<LeaderboardCard />
 					</div>

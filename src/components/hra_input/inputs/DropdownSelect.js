@@ -13,14 +13,15 @@ const Wrapper = styled.div`
 	margin-bottom: 1rem;
 	.input_label {
 		margin-bottom: 0.3rem;
-		line-height: 2.4rem;
+		line-height: 1.5;
+		font-size: 1.3rem;
 		margin-top: 0;
 		font-weight: normal;
 	}
 
 	.MuiFormControl-root {
 		border: 1px solid ${(props) => props.theme.color.ui_03};
-		border-radius: 2px;
+		border-radius: 0px;
 		padding: 1.5rem;
 		width: 100%;
 		&:hover {

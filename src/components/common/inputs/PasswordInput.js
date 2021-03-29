@@ -6,6 +6,10 @@ import styled from 'styled-components';
 import show from '../../../assets/show.svg';
 
 const Wrapper = styled.div`
+	.MuiIconButton-edgeEnd {
+		height: 100%;
+		/* width: 30%; */
+	}
 	margin-top: 3rem;
 	width: 100%;
 	.input_label {
@@ -19,10 +23,11 @@ const Wrapper = styled.div`
 	}
 	.input_div {
 		border: 1px solid ${(props) => props.theme.color.ui_text_06};
-		height: 4rem;
+		height: 4.8rem;
 		display: grid;
 		grid-template-columns: 1fr max-content;
-		border-radius: 8px;
+		grid-template-rows: 100%;
+		/* border-radius: 8px; */
 		&:hover {
 			border: 1px solid ${(props) => props.theme.color.ui_text_05};
 			transition: 0.3s;
@@ -34,17 +39,17 @@ const Wrapper = styled.div`
 		}
 	}
 	.input {
+		font-size: 1.4rem;
+		line-height: 1.4rem;
 		background-color: rgba(255, 255, 255, 0);
 		margin: 0;
 		outline: none;
 		border: none;
 		height: 100%;
-		/* min-width: 100%; */
 		width: 100%;
 		padding-left: 1rem;
 		&::placeholder {
 			/* font-family: Sofia; */
-			line-height: 2rem;
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.text_06};
 		}
@@ -53,7 +58,7 @@ const Wrapper = styled.div`
 		}
 	}
 	.adornment {
-		width: max-content;
+		/* width: max-content; */
 		padding-right: 1rem;
 	}
 	.error {

@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 	.input_div {
 		border: 1px solid ${(props) => props.theme.color.ui_text_06};
 		height: 4.8rem;
-		//display: grid;
+		display: grid;
 		grid-template-columns: 1fr max-content;
 		&:hover {
 			border: 1px solid ${(props) => props.theme.color.ui_text_05};
@@ -31,6 +31,8 @@ const Wrapper = styled.div`
 		}
 	}
 	.input {
+		font-size: 1.4rem;
+		line-height: 1.4rem;
 		margin: 0;
 		outline: none;
 		border: none;
@@ -43,7 +45,11 @@ const Wrapper = styled.div`
 		}
 		&::placeholder {
 			font-family: Sofia;
-			line-height: 2rem;
+			letter-spacing: 0.2px;
+			color: ${(props) => props.theme.color.text_06};
+		}
+		&::-moz-placeholder {
+			font-family: Sofia;
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.text_06};
 		}

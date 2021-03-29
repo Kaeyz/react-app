@@ -10,7 +10,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-margin-bottom: 6rem;
+margin-bottom: 3rem;
 .MuiPaper-rounded{
   border-radius:0;
 }

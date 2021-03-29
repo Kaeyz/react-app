@@ -80,7 +80,7 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 							To add multiple employees,
 							<a id="link" href={csvFile} download="Batch_Upload">
 								{' '}
-								click this link	to see the sample excel file.
+								click this link to see the sample excel file.
 							</a>{' '}
 						</p>
 						<p
@@ -125,7 +125,12 @@ const BatchUploadModal = ({ addNewEmployee }) => {
 				</div>
 			</Modal>
 
-			<Button theme="whiteBtn" text="Batch Upload" onClick={showModal} />
+			<Button
+				theme="whiteBtn"
+				text="Batch Upload"
+				onClick={showModal}
+				style={{ fontSize: '1rem' }}
+			/>
 		</Wrapper>
 	);
 };

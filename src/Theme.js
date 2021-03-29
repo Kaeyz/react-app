@@ -131,6 +131,9 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 	}
+	input, select, textarea, button {
+		font-family:inherit;
+	}
 	.navbar__link--active {
 		color: #2ec4b6 !important;
 		}

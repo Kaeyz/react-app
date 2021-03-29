@@ -31,7 +31,6 @@ const Wrapper = styled.div`
 	}
 	.MuiInputBase-input::placeholder {
 		font-family: Matteo;
-		line-height: 2.4rem;
 	}
 	.MuiInput-underline:before,
 	.MuiInput-underline:after {

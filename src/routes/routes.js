@@ -1,57 +1,57 @@
 import React from 'react';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
-import Home from '../views/Home';
-import Team from '../views/Team';
-import ContactUs from '../views/ContactUs';
-import IndividualSignUp from '../views/authentication/IndividualSignUp';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Appointments from '../views/appointments';
+import AccountSuccess from '../views/authentication/AccountSuccess';
+import AdminLogin from '../views/authentication/AdminLogin';
 import CompanySignUp from '../views/authentication/CompanySignUp';
+import ForgotPassword from '../views/authentication/ForgotPassword';
+import IndividualSignUp from '../views/authentication/IndividualSignUp';
 import Login from '../views/authentication/Login';
+import MailConfirmation from '../views/authentication/MailConfirmation';
+import PasswordResetLink from '../views/authentication/PasswordResetLink';
+import PasswordResetSuccessful from '../views/authentication/PasswordResetSuccessful';
+import ResetPassword from '../views/authentication/ResetPassword';
 import Blog from '../views/blogParent';
 import BlogPostDetail from '../views/blogParent/BlogPostDetail';
-import Dashboard from '../views/dashboard/Dashboard';
+import Companies from '../views/companies';
+import Company from '../views/companies/Company';
+import PendingCompanies from '../views/companies/Pending';
+import ContactUs from '../views/ContactUs';
 import DashboardAssessment from '../views/dashboard/assessment';
-import AccountSettings from '../views/dashboard/settings/AccountSettings';
-import PasswordSettings from '../views/dashboard/settings/PasswordSettings';
-import HelpSettings from '../views/dashboard/settings/HelpSettings';
-import AdminLogin from '../views/authentication/AdminLogin';
-import ForgotPassword from '../views/authentication/ForgotPassword';
-import ResetPassword from '../views/authentication/ResetPassword';
-import PasswordResetLink from '../views/authentication/PasswordResetLink';
-import AccountSuccess from '../views/authentication/AccountSuccess';
-import PasswordResetSuccessful from '../views/authentication/PasswordResetSuccessful';
-import MailConfirmation from '../views/authentication/MailConfirmation';
 import HealthRiskAssessment from '../views/dashboard/assessment/HealthRiskAssessment';
-import General from '../views/dashboard/assessment/hra_questionnaire/General';
-import Covid from '../views/dashboard/assessment/hra_questionnaire/Covid';
 import BloodPressure from '../views/dashboard/assessment/hra_questionnaire/BloodPressure';
-import Smoking from '../views/dashboard/assessment/hra_questionnaire/Smoking';
-import Travel from '../views/dashboard/assessment/hra_questionnaire/Travel';
-import Sleep from '../views/dashboard/assessment/hra_questionnaire/Sleep';
-import Stress from '../views/dashboard/assessment/hra_questionnaire/Stress';
+import Covid from '../views/dashboard/assessment/hra_questionnaire/Covid';
 import Food from '../views/dashboard/assessment/hra_questionnaire/Food';
-import Mental from '../views/dashboard/assessment/hra_questionnaire/Mental';
 import Gender from '../views/dashboard/assessment/hra_questionnaire/Gender';
+import General from '../views/dashboard/assessment/hra_questionnaire/General';
 import HealthReview from '../views/dashboard/assessment/hra_questionnaire/HealthReview';
-import Reports from '../views/reports/Reports';
-import HealthReport from '../views/reports/HealthReport';
 import HraCompleted from '../views/dashboard/assessment/hra_questionnaire/HraCompleted';
-import Exercise from '../views/exercise';
-import Meals from '../views/meals';
-import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
+import Mental from '../views/dashboard/assessment/hra_questionnaire/Mental';
+import Sleep from '../views/dashboard/assessment/hra_questionnaire/Sleep';
+import Smoking from '../views/dashboard/assessment/hra_questionnaire/Smoking';
+import Stress from '../views/dashboard/assessment/hra_questionnaire/Stress';
+import Travel from '../views/dashboard/assessment/hra_questionnaire/Travel';
+import Dashboard from '../views/dashboard/Dashboard';
+import AccountSettings from '../views/dashboard/settings/AccountSettings';
+import HelpSettings from '../views/dashboard/settings/HelpSettings';
+import PasswordSettings from '../views/dashboard/settings/PasswordSettings';
 import Employees from '../views/employees';
 import PendingInvites from '../views/employees/PendingInvites';
 import Suspended from '../views/employees/Suspended';
+import Exercise from '../views/exercise';
+import ProgrammeDetails from '../views/exercise/ProgrammeDetails';
+import Home from '../views/Home';
+import Meals from '../views/meals';
+import Page404 from '../views/Page404';
+import HealthReport from '../views/reports/HealthReport';
+import Reports from '../views/reports/Reports';
 import CompanyRewards from '../views/rewards/CompanyRewards';
 import IndividualReward from '../views/rewards/IndividualReward';
 import Leaderboard from '../views/rewards/Leaderboard';
-import Page404 from '../views/Page404';
-import Companies from '../views/companies';
-import Appointments from '../views/appointments';
-import Company from '../views/companies/Company';
-import PendingCompanies from '../views/companies/Pending';
+import Team from '../views/Team';
 import NotActivated from './../views/NotActivated';
 import SuspendedPage from './../views/Suspended';
+import PrivateRoute from './PrivateRoute';
 
 const Routes = () => (
 	<Router>
@@ -73,6 +73,7 @@ const Routes = () => (
 			<PrivateRoute exact path="/reset_success" component={PasswordResetSuccessful} />
 			<Route exact path="/onboarding/account_success" component={AccountSuccess} />
 
+			{/* settings */}
 			<PrivateRoute exact path="/settings/account" component={AccountSettings} />
 			<PrivateRoute exact path="/settings/password" component={PasswordSettings} />
 			<PrivateRoute exact path="/settings/help" component={HelpSettings} />

@@ -56,7 +56,7 @@ const Wrapper = styled.div`
 		border: 1px solid ${(props) => props.theme.color.text_08};
 	}
 	.yellowBtn:hover {
-		box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+		box-shadow: 0px 4px 4px rgba(255, 198, 36, 0.25);
 		background-color: ${(props) => props.theme.color.text_03};
 		color: ${(props) => props.theme.color.text_08};
 		transition: 0.4s;
@@ -78,7 +78,7 @@ const Wrapper = styled.div`
 		border: 1px solid ${(props) => props.theme.color.brand_04};
 	}
 	.purpleBtn:hover {
-		box-shadow: 0px 4px 4px rgba(206, 238, 143, 0.25);
+		box-shadow: 0px 4px 4px rgba(174, 249, 27,  0.25);
 		background-color: ${(props) => props.theme.color.text_03};
 		color: ${(props) => props.theme.color.ui_10};
 		transition: 0.4s;
@@ -114,8 +114,8 @@ function Button({ style, theme, isLoading, children, text, title, ...rest }) {
 				className={`${themeClassName} ${theme} button`}
 				title={title}
 				style={{
-					borderRadius: '0.5rem',
-					fontSize: '1.2rem',
+					borderRadius: '0rem',
+					fontSize: '1.4rem',
 					fontWeight: 'bold',
 					width: '13.3rem',
 					fontFamily: 'Matteo',
@@ -123,7 +123,7 @@ function Button({ style, theme, isLoading, children, text, title, ...rest }) {
 					cursor: isLoading ? 'not-allowed' : 'pointer',
 					// pointerEvents: isLoading && 'none',
 					opacity: isLoading && 0.6,
-					padding: '1.1rem 0.4rem',
+					padding: '.7rem 0.2rem',
 					backgroundColor: isLoading ? 'white' : '',
 					...style,
 				}}

@@ -71,7 +71,7 @@ const Wrapper = styled.div`
 	}
 	.longDetail,
 	.detail {
-		line-height: 3rem;
+		font-size: 1.5rem;
 		color: ${(props) => props.theme.color.text_02};
 		font-weight: 300;
 		margin: 4rem 0 6rem 0;

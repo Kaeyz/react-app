@@ -9,13 +9,15 @@ import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
 import { getAppointments } from '../../store/actions/appointmentActions';
 import { convertDate } from '../../utils/helper';
+
 const Wrapper = styled.div`
 	.heading {
 		font-weight: bold;
 		line-height: 2.4rem;
+		font-size: 2.4rem;
 		letter-spacing: -0.2px;
 		color: ${(props) => props.theme.color.ui_05};
-		padding-bottom: 4rem;
+		padding-bottom: 2rem;
 	}
 	.text {
 		font-weight: normal;
@@ -24,7 +26,7 @@ const Wrapper = styled.div`
 		display: grid;
 		align-items: center;
 		grid-template-columns: max-content 1fr;
-		padding-bottom: 4rem;
+		padding-bottom: 2rem;
 		.h-text {
 			padding-right: 2rem;
 			letter-spacing: -0.2px;
@@ -40,15 +42,20 @@ const Wrapper = styled.div`
 	.p-text {
 		letter-spacing: 0.2px;
 		color: ${(props) => props.theme.color.ui_05};
-		line-height: 25px;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-gap: 2rem;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			justify-items: center;
+		}
 	}
 	.ugly-cards {
 		padding: 3rem 0;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		grid-gap: 4rem;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 			justify-items: center;
 		}
 	}
@@ -116,10 +123,10 @@ function CreateAppointment({ appointments, getAppointments, isLoading }) {
 					/>
 				</div>
 				<div className="appoint-card">
-					<h1 className="heading-text">Appointments</h1>
+					<h2 className="heading-text">Appointments</h2>
 					<div className="grid-container">
 						{!isLoading &&
-							appointments.length > 0 &&
+							appointments.length == 0 ?  <p>No Appointment Record</p> :
 							appointments.map((appointment) => (
 								<AppointReward
 									key={appointment.title}

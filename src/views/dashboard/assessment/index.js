@@ -50,18 +50,18 @@ const Wrapper = styled.div`
 	}
 	.withAbsImg {
 		position: relative;
-		padding: 0 3rem;
-		margin-top: 9rem;
-		margin-bottom: 6rem;
+		padding: 0 1rem;
+		margin-top: 5rem;
+		margin-bottom: 3rem;
 		height: 240px;
 		border: 1px solid ${(props) => props.theme.color.text_09};
 		box-shadow: 20px 12px 20px rgba(233, 233, 233, 0.25);
-		border-radius: 10px;
+		border-radius: 4px;
 		justify-content: flex-end;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
 			justify-content: start;
 			padding: 2rem;
-			margin-top: 4rem;
+			margin-top: 3rem;
 		}
 
 		.withPicture {
@@ -104,7 +104,6 @@ const Wrapper = styled.div`
 			color: ${(props) => props.theme.color.ui_05};
 			@media screen and (max-width: ${(props) =>
 		props.theme.breakpoint.md}) {
-				line-height: 2.5rem;
 				max-width: 100%;
 				margin-bottom: 2.6rem;
 			}
@@ -116,7 +115,7 @@ const Wrapper = styled.div`
 	}
 	.grid-card {
 		display: grid;
-		grid-gap: 4rem;
+		grid-gap: 1rem;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -183,7 +182,7 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 								image={greenFlower}
 								btnTheme="purpleBtn"
 								backgroundColor="green"
-								details="An Inbody check will help you understand your body's composition which in invaluable for self improvement."
+								details="Inbody check will help you understand your body's composition which is valuable for self improvement."
 							/>
 
 							<PreliminaryCard
@@ -217,6 +216,9 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 										<Button
 											value="View Leaderboard"
 											theme="darkGreenBtn"
+											style={{
+												borderRadius: '4px',
+											}}
 										>
 											View Leaderboard
 										</Button>
@@ -242,6 +244,9 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 										<Button
 											value="View Leaderboard"
 											theme="darkGreenBtn"
+											style={{
+												borderRadius: '4px',
+											}}
 										>
 											View Leaderboard
 										</Button>

@@ -52,6 +52,7 @@ const Wrapper = styled.div`
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 			padding: 4rem 0;
 		}
+
 		.buttons-center {
 			display: grid;
 			justify-items: center;
@@ -102,12 +103,14 @@ const Employees = ({
 								<Button
 									theme="whiteBtn"
 									text="Suspended Employees"
+									style={{ fontSize: '1rem' }}
 								/>
 							</Link>
 							<Link to="/employees/pending">
 								<Button
 									theme="whiteBtn"
 									text="Pending Invites"
+									style={{ fontSize: '1rem' }}
 								/>
 							</Link>
 							<BatchUploadModal />
@@ -121,10 +124,10 @@ const Employees = ({
 						<div>
 							<div>
 								<div className="placeholderHeader flex">
-									<h1>EMPLOYEE NAME</h1>
-									<h1>DEPARTMENT</h1>
-									<h1>BRANCH</h1>
-									<h1>DATE CREATED</h1>
+									<h4>EMPLOYEE NAME</h4>
+									<h4>DEPARTMENT</h4>
+									<h4>BRANCH</h4>
+									<h4>DATE CREATED</h4>
 								</div>
 							</div>
 							<div className="placeholderDetail">
