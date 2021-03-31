@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 		font-size: 2.4rem;
 		letter-spacing: -0.2px;
 		color: ${(props) => props.theme.color.ui_05};
-		padding-bottom: 2rem;
+		padding-bottom: 1rem;
 	}
 	.text {
 		font-weight: normal;
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 		display: grid;
 		align-items: center;
 		grid-template-columns: max-content 1fr;
-		padding-bottom: 2rem;
+		padding-bottom: 1rem;
 		.h-text {
 			padding-right: 2rem;
 			letter-spacing: -0.2px;
@@ -64,7 +64,7 @@ const Wrapper = styled.div`
 		line-height: 2.4rem;
 		letter-spacing: -0.2px;
 		color: ${(props) => props.theme.color.ui_05};
-		padding-bottom: 4rem;
+		padding-bottom: 2rem;
 	}
 	.appoint-card {
 		.grid-container {
