@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 		margin: 10px 0px;
 	}
 	.top-header {
-		margin: 4rem 0;
+		margin: 2rem 0;
 		#risk-level {
 			width: 13%;
 		}
@@ -33,9 +33,9 @@ const Wrapper = styled.div`
 		}
 	}
 	.analysis-card {
-		margin: 0 0 4rem 0;
+		margin: 0 0 2rem 0;
 		display: grid;
-		grid-gap: 4rem;
+		grid-gap: 2rem;
 		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 		&::-webkit-scrollbar {
 			height: 0.3rem;
@@ -46,7 +46,7 @@ const Wrapper = styled.div`
 		}
 
 		&::-webkit-scrollbar-thumb {
-			background-color: darkgrey;
+			background-color: red;
 			outline: 1px solid slategrey;
 		}
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
@@ -83,7 +83,7 @@ function HealthReport({
 					Link="/assessment/health/review"
 				>
 					<div className="flex top-header">
-						<p>ANALYSIS</p>
+						<h3>ANALYSIS</h3>
 						<div className="null" />
 					</div>
 					{isLoading ? (
@@ -95,22 +95,22 @@ function HealthReport({
 								cardHeading="Your Target Age"
 								cardInfo="Your target age is what you ideally want your risk age to be, achievable if you made changes to your lifestyle."
 								cardValue={Number(
-									reportData.target_age,
-								).toFixed(2)}
+									reportData?.target_age,
+								).toFixed(2) && 'No Value'}
 							/>
 							<AnalysisCard
 								cardTheme="pink"
 								cardHeading="Your Risk Age"
 								cardInfo="Your risk age compares you to other people your age and sex and estimates the age you are operating at based on your lifestyle choices."
-								cardValue={Number(reportData.risk_age).toFixed(
-									2,
-								)}
+								cardValue={Number(reportData?.risk_age).toFixed(
+									2
+								) && 'No Value'}
 							/>
 							<AnalysisCard
 								cardTheme="green"
 								cardHeading="Current Age"
 								cardInfo="This is your real or current age as entered on the platform"
-								cardValue={reportData.actual_age}
+								cardValue={reportData?.actual_age || 'No Value'}
 							/>
 						</div>
 					)}

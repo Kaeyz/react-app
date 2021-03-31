@@ -176,6 +176,7 @@ function QuestionnaireLayout({
 						<Button
 							theme="darkGreen"
 							text="Download Report"
+							style={{ fontSize: '1.1rem' }}
 							onClick={downloadAction}
 						>
 							<img src={downloadIcon} alt={downloadIcon} />

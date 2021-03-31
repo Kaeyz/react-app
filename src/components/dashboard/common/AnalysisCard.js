@@ -1,4 +1,5 @@
 import Paper from '@material-ui/core/Paper';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -17,13 +18,13 @@ const Wrapper = styled.div`
 		border: 1px solid #8db838;
 	}
 	.paper {
-		border-radius: 10px;
-		padding: 3rem;
+		border-radius: 4px;
+		padding: 1.5rem;
 		text-align: left;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		height: 235px;
+		height: 260px;
 		margin-bottom: 2rem;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
 			width: 300px;
@@ -39,13 +40,12 @@ const Wrapper = styled.div`
 			line-height: 25px;
 			letter-spacing: 0.2px;
 			color: #737373;
-			margin: 1rem 0 2.5rem 0;
+			margin: 1rem 0 2rem 0;
 		}
 		h1 {
 			font-weight: bold;
-			line-height: 39px;
 			letter-spacing: 0.2px;
-			margin-top: 2.5rem;
+			margin-top: 2rem;
 			color: ${(props) => props.theme.color.ui_05};
 		}
 	}
@@ -60,9 +60,9 @@ const Analysis = ({
 }) => {
 	return (
 		<Wrapper>
-			<Paper className={`paper ${cardTheme}`}>
+			<Paper className={`paper ${classNames(cardTheme)}`}>
 				<h5>{cardHeading}</h5>
-				<p className={`${fontSize}`}>{cardInfo}</p>
+				<p className={`${classNames(fontSize)}`}>{cardInfo}</p>
 				<h2>{cardValue}</h2>
 			</Paper>
 		</Wrapper>
