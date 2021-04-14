@@ -85,7 +85,6 @@ HealthReview.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-	console.log(state);
 	const { isLoading } = state.hra;
 	return { isLoading };
 };
