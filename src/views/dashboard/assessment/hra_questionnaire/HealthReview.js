@@ -1,14 +1,14 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { saveQuestions } from '../../../../store/actions/hraActions';
-import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
-import QuestionnaireLayout from '../../../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout';
-import ReviewCard from '../../../../components/dashboard/assessment/hra_questionnaire/ReviewCard';
+import styled from 'styled-components';
 import smallImg from '../../../../assets/Activity.svg';
 import Button from '../../../../components/common/Button';
+import QuestionnaireLayout from '../../../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout';
+import ReviewCard from '../../../../components/dashboard/assessment/hra_questionnaire/ReviewCard';
+import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
+import { saveQuestions } from '../../../../store/actions/hraActions';
 
 const Wrapper = styled.div`
 .submit {
@@ -33,6 +33,7 @@ function HealthReview({ isLoading, saveQuestions, history }) {
 	const onSaveClick = (event) => {
 		event.preventDefault();
 		const input = { stage: 'SUBMIT' };
+		// console.log(input);
 		saveQuestions(input, nextLink, history);
 	};
 
@@ -84,6 +85,7 @@ HealthReview.propTypes = {
 };
 
 const mapStateToProps = (state) => {
+	console.log(state);
 	const { isLoading } = state.hra;
 	return { isLoading };
 };

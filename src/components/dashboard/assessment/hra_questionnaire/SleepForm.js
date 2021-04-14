@@ -71,7 +71,7 @@ function SleepForm({ questions, isLoading, inputs, history, saveQuestions }) {
 }
 
 SleepForm.propTypes = {
-	questions: PropTypes.array.isRequired,
+	questions: PropTypes.any.isRequired,
 	inputs: PropTypes.any.isRequired,
 	history: PropTypes.object.isRequired,
 	isLoading: PropTypes.bool.isRequired,

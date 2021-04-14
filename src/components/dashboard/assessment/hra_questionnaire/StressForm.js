@@ -34,6 +34,9 @@ function StressForm({ questions, isLoading, inputs, history, saveQuestions }) {
 	const nextLink = '/assessment/health/review';
 	const onSaveClick = (event) => {
 		event.preventDefault();
+		// console.clear();
+		// console.log(inputs);
+		// console.log('object');
 		inputs.stage = 'UPDATE_RESPONSE';
 		saveQuestions(inputs, nextLink, history);
 	};
@@ -70,7 +73,7 @@ function StressForm({ questions, isLoading, inputs, history, saveQuestions }) {
 }
 
 StressForm.propTypes = {
-	questions: PropTypes.array.isRequired,
+	questions: PropTypes.any.isRequired,
 	inputs: PropTypes.any.isRequired,
 	history: PropTypes.object.isRequired,
 	isLoading: PropTypes.bool.isRequired,

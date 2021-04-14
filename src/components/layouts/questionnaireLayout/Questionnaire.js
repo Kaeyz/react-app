@@ -218,9 +218,9 @@ QuestionnaireLayout.propTypes = {
 	percentageCompleted: PropTypes.number.isRequired,
 	whatQuestion: PropTypes.string.isRequired,
 	detail: PropTypes.string.isRequired,
-	previousLink: PropTypes.string.isRequired,
+	previousLink: PropTypes.string,
 	children: PropTypes.any.isRequired,
-	reportButton: PropTypes.bool.isRequired,
+	reportButton: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => {

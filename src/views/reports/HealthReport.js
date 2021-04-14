@@ -70,7 +70,6 @@ function HealthReport({
 	React.useEffect(() => {
 		getReport(reportId);
 	}, [getReport, reportId]);
-
 	return (
 		<Wrapper>
 			<DashboardLayout whatPage="Reports">
@@ -94,17 +93,23 @@ function HealthReport({
 								cardTheme="blue"
 								cardHeading="Your Target Age"
 								cardInfo="Your target age is what you ideally want your risk age to be, achievable if you made changes to your lifestyle."
-								cardValue={Number(
-									reportData?.target_age,
-								).toFixed(2) && 'No Value'}
+								cardValue={
+									(reportData?.target_age &&
+										Number(reportData?.target_age).toFixed(
+											2,
+										)) ||
+									'No Value'
+								}
 							/>
 							<AnalysisCard
 								cardTheme="pink"
 								cardHeading="Your Risk Age"
 								cardInfo="Your risk age compares you to other people your age and sex and estimates the age you are operating at based on your lifestyle choices."
-								cardValue={Number(reportData?.risk_age).toFixed(
-									2
-								) && 'No Value'}
+								cardValue={
+									reportData
+										?.risk_age && Number(reportData?.risk_age)
+										.toFixed(2) || 'No Value'
+								}
 							/>
 							<AnalysisCard
 								cardTheme="green"

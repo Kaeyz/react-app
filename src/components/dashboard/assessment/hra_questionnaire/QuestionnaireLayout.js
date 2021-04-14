@@ -227,8 +227,8 @@ QuestionnaireLayout.propTypes = {
 	previousLink: PropTypes.string.isRequired,
 	children: PropTypes.any.isRequired,
 	reportButton: PropTypes.bool.isRequired,
-	exerciseButton: PropTypes.bool.isRequired,
-	downloadAction: PropTypes.func.isRequired,
+	exerciseButton: PropTypes.bool,
+	downloadAction: PropTypes.func,
 };
 
 export default withRouter(QuestionnaireLayout);

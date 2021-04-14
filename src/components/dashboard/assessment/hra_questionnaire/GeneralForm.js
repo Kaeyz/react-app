@@ -33,6 +33,9 @@ function GeneralForm({ questions, isLoading, inputs, history, saveQuestions }) {
 	const nextLink = '/assessment/health/covid';
 	const onSaveClick = (event) => {
 		event.preventDefault();
+		// console.clear()
+		// console.log(inputs);
+		// console.log('object')
 		inputs.stage = stage;
 		saveQuestions(inputs, nextLink, history);
 	};

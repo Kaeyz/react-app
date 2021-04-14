@@ -33,6 +33,9 @@ function BloodPressureForm({questions, isLoading, inputs, history, saveQuestions
 	const nextLink = '/assessment/health/gender';
 	const onSaveClick = (event) => {
 		event.preventDefault();
+		// console.clear();
+		// console.log(inputs);
+		// console.log('object');
 		inputs.stage = 'UPDATE_RESPONSE';
 		saveQuestions(inputs, nextLink, history);
 	};

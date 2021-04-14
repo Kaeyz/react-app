@@ -159,6 +159,7 @@ Button.propTypes = {
 		'yellow',
 		'yellowBtn',
 		'green',
+		'greenBtn',
 		'white',
 		'whiteBtn',
 		'deepYellow',

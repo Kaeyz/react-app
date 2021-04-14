@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
 import { saveQuestions } from '../../../../store/actions/hraActions';
-import HraInput from '../../../hra_input';
 import Button from '../../../common/Button';
+import HraInput from '../../../hra_input';
 
 
 const Wrapper = styled.div`
@@ -34,6 +34,9 @@ function SmokingForm({ questions, isLoading, inputs, history, saveQuestions }) {
 	const nextLink = '/assessment/health/travel';
 	const onSaveClick = (event) => {
 		event.preventDefault();
+		// console.clear();
+		// console.log(inputs);
+		// console.log('object');
 		inputs.stage = 'UPDATE_RESPONSE';
 		saveQuestions(inputs, nextLink, history);
 	};
