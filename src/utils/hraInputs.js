@@ -38,7 +38,7 @@ const hraInputs = {
 	colon_cancer_screening: 'not answered',
 	commercial_driver: 'not answered',
 	daily_cigars: 'not answered',
-	daily_marujuana: 'not answered',
+	daily_marajuana: 'not answered',
 	daily_pipes: 'not answered',
 	daily_shisha: 'not answered',
 	desserts: 'not answered',
