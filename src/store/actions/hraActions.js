@@ -87,7 +87,7 @@ export const saveQuestions = (payload, nextLink, history) => (dispatch) => {
 				dispatch(errorAlert({ msg: res.errors[0].message }));
 				dispatch(hraNotLoading());
 			}
-			if (res.data.submitHRAResponse) {
+			if (res.data?.submitHRAResponse) {
 				dispatch(successAlert(res.data.submitHRAResponse.message));
 				dispatch(
 					setPercentageCompleted(
@@ -97,7 +97,10 @@ export const saveQuestions = (payload, nextLink, history) => (dispatch) => {
 				history.push(nextLink);
 			}
 		})
-		.catch(() => {
+		.catch((error) => {
+			if (error && error[0]?.message) {
+				dispatch(errorAlert({ msg: error && error[0]?.message }));
+			}
 			dispatch(errorAlert({ msg: 'Network Error!!' }));
 		});
 };
