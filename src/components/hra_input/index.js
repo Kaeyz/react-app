@@ -19,7 +19,6 @@ const Wrapper = styled.div`
 		color: ${(props) => props.theme.color.ui_06};
 	}
 `;
-
 function HraInput({
 	label,
 	prompt,
@@ -30,17 +29,20 @@ function HraInput({
 	hraInputValues,
 	showInput,
 }) {
-	const displayRadio = (input, name) => (
-		<SelectInput
-			options={input.values}
-			limit={{ min: input.min, max: input.max }}
-			unit={input.units}
-			name={name}
-			onChange={onHraInputChange}
-			value={hraInputValues[name]}
-			showHide={input.showhide}
-		/>
-	);
+	const displayRadio = (input, name) => {
+		// console.log({v: input.values});
+		return (
+			<SelectInput
+				options={input.values}
+				limit={{ min: input.min, max: input.max }}
+				unit={input.units}
+				name={name}
+				onChange={onHraInputChange}
+				value={hraInputValues[name]}
+				showHide={input.showhide || input.values}
+			/>
+		);
+	};
 
 	const displayText = (input, name) => (
 		<TextInput
@@ -75,7 +77,6 @@ function HraInput({
 			showHide={input.showhide}
 		/>
 	);
-
 	const checkInputShowStatus = (name) => {
 		if (name in showInput) {
 			if (showInput[name] === false) {
@@ -110,21 +111,24 @@ function HraInput({
 			<React.Fragment>
 				{inputs.length > 1 ? (
 					<React.Fragment>
-						<h6 className="input_label">
-							{`${number}. ${displayLabel()}`}
-						</h6>
-						{inputs.map((input, index) => (
-							<div key={input.id || index}>
-								{displayInput({
-									input,
-									name: `${id}_${input.units
-										.split(' ')
-										.join('_')
-										.split('/')
-										.join('_')}`,
-								})}
-							</div>
-						))}
+						{checkInputShowStatus(id) && (
+							<h6 className="input_label">
+								{`${number}. ${displayLabel()}`}
+							</h6>
+						)}
+						{checkInputShowStatus(id) &&
+							inputs.map((input, index) => (
+								<div key={input.id || index}>
+									{displayInput({
+										input,
+										name: `${id}_${input.units
+											.split(' ')
+											.join('_')
+											.split('/')
+											.join('_')}`,
+									})}
+								</div>
+							))}
 					</React.Fragment>
 				) : (
 					<div>

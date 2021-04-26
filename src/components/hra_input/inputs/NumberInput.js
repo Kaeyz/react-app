@@ -63,7 +63,7 @@ const Wrapper = styled.div`
 		}
 	}
 `;
-
+/* eslint-disable */
 function NumberInput({
 	limit,
 	unit,
@@ -73,7 +73,9 @@ function NumberInput({
 	validateShowHide,
 	showHide,
 }) {
+
 	const handleChange = (event) => {
+		// console.log(showHide, name)
 		onChange(event.target.value, name);
 		validateShowHide(name, showHide);
 	};

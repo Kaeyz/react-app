@@ -1,8 +1,11 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import check_all from '../../../assets/check-all.svg';
+import { validateShowHide } from '../../../store/actions/hraActions';
+
 
 const Wrapper = styled.div`
 	.options {
@@ -104,7 +107,7 @@ const optionLabel = {
 	19: 'S',
 	20: 'T',
 };
-
+/* eslint-disable */
 function SelectInput({
 	options,
 	otherInput,
@@ -113,6 +116,8 @@ function SelectInput({
 	value,
 	onChange,
 	grid,
+	validateShowHide,
+	showHide
 }) {
 	const [isSelected, setIsSelected] = React.useState('');
 
@@ -122,6 +127,8 @@ function SelectInput({
 
 	const handleChange = (value) => {
 		onChange(value, name);
+		// console.clear();
+		validateShowHide(name, showHide);
 	};
 
 	return (
@@ -177,6 +184,8 @@ SelectInput.propTypes = {
 	otherInput: PropTypes.bool,
 	otherLabel: PropTypes.string,
 	options: PropTypes.array,
+	validateShowHide: PropTypes.func,
+	showHide: PropTypes.any,
 };
 
-export default SelectInput;
+export default connect(null, { validateShowHide })(SelectInput);

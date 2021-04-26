@@ -39,6 +39,8 @@ hraQueries.getQuestion = (input) => {
 					values {
 						id
 						label
+						hide
+						show
 						unitlabel {
 							us_customary
 							metric

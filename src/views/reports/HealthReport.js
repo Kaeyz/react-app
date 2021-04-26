@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import smallImg from '../../assets/Activity.svg';
 import QuestionnaireLayout from '../../components/dashboard/assessment/hra_questionnaire/QuestionnaireLayout';
@@ -12,6 +12,23 @@ import {
 	downloadReportPdf,
 	getReport
 } from '../../store/actions/reportActions';
+
+const LinkWrapper = styled(Link)`
+	text-decoration: none;
+	/* text-decoration-color: black; */
+	&:active {
+		text-decoration: none;
+		color: red;
+	}
+	&:visited {
+		color: ${(props) => props.theme.color.brand_01};
+	}
+	&:hover {
+		border-bottom: 2px solid ${(props) => props.theme.color.brand_02};
+		cursor: pointer;
+		color: ${(props) => props.theme.color.text_01};
+	}
+`;
 
 const Wrapper = styled.div`
 	.null {
@@ -106,9 +123,11 @@ function HealthReport({
 								cardHeading="Your Risk Age"
 								cardInfo="Your risk age compares you to other people your age and sex and estimates the age you are operating at based on your lifestyle choices."
 								cardValue={
-									reportData
-										?.risk_age && Number(reportData?.risk_age)
-										.toFixed(2) || 'No Value'
+									(reportData?.risk_age &&
+										Number(reportData?.risk_age).toFixed(
+											2,
+										)) ||
+									'No Value'
 								}
 							/>
 							<AnalysisCard
@@ -120,16 +139,26 @@ function HealthReport({
 						</div>
 					)}
 					<ReportPaper
-						cardHeading="Disclaimer!!!"
-						cardBody={
-							'Many serious injuries and health problems can be prevented but remember that a Health Risk Assessment DOES NOT take the place of a doctor or checkup and DOES NOT tell you if you have a medical problem. A Health Risk Assessment points out your highest health risks and gives you some ideas on how you might lower your risks to help guide you to better health.'
-						}
+						cardHeading="For your next steps!"
+						cardBody={cardBody()}
 					/>
 				</QuestionnaireLayout>
 			</DashboardLayout>
 		</Wrapper>
 	);
 }
+
+const cardBody = () => (
+	<>
+		<p>We have solutions to enhance your lifestyle for:</p>
+
+		<ul>
+			<li><LinkWrapper to="/meals">Meal guidelines via Custom Meal Schedule Creator.</LinkWrapper></li>
+			<li><LinkWrapper to="/appointments">To speak to a consultant via Appointments.</LinkWrapper></li>
+			<li><LinkWrapper to="/exercise">To get and stay in shape via Exercise.</LinkWrapper></li>
+		</ul>
+	</>
+);
 
 HealthReport.propTypes = {
 	getReport: PropTypes.func.isRequired,

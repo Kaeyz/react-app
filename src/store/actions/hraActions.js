@@ -17,7 +17,6 @@ const addQuestions = (questions, category) => {
 		payload: { questions, category },
 	};
 };
-
 const hraIsLoading = () => {
 	return { type: HRA_IS_LOADING };
 };
@@ -162,6 +161,7 @@ export const setShowInputs = (state, inputs) => (dispatch) => {
 		});
 };
 
+/* eslint-disable */
 export const validateShowHide = (field, rules) => (dispatch, getState) => {
 	const value = getState().hra.inputs[field];
 	rules &&
@@ -175,5 +175,22 @@ export const validateShowHide = (field, rules) => (dispatch, getState) => {
 				dispatch(setShowInputs(true, rule.show));
 				dispatch(setShowInputs(false, rule.hide));
 			}
+
+
+
 		});
+	// if select
+	let	rulesSelect = rules && rules.find(rule => rule.id === value)
+	if (rulesSelect && !Array.isArray(rulesSelect)) {
+		let rule = rulesSelect;
+
+		if (rule.hide) {
+			dispatch(setShowInputs(false, rule.hide));
+			rule.show && dispatch(setShowInputs(true, rule.show));
+		}
+		if (rule.show) {
+			rule.hide && dispatch(setShowInputs(false, rule.hide));
+			rule.show && dispatch(setShowInputs(true, rule.show));
+		}
+	}
 };
