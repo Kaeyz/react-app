@@ -1,17 +1,17 @@
-import React, {useEffect} from 'react';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 import styled from 'styled-components';
-import MonoBlog from './MonoBlog';
-import arrowLeft from '../../assets/slideArrowLeft.png';
-import arrowRight from '../../assets/slideArrowRight.png';
 import leftWhite from '../../assets/leftwhiteflower.png';
 import rightWhite from '../../assets/rightwhiteflower.png';
-import PropTypes from 'prop-types';
-import { convertDate, capitalizeFirstLetter } from '../../utils/helper';
+import arrowLeft from '../../assets/slideArrowLeft.png';
+import arrowRight from '../../assets/slideArrowRight.png';
 import { getFeaturedBlogs } from '../../store/actions/blogActions';
-import { connect } from 'react-redux';
+import { capitalizeFirstLetter, convertDate } from '../../utils/helper';
+import MonoBlog from './MonoBlog';
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.ui_text_08};
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 	position: relative;
   overflow: hidden;
   .slide-heading {
-    font-size: 4.5rem;
+		font-size: 4.5rem;
     padding: 30px 0;
     color: ${(props) => props.theme.color.ui_01};
     text-align: center;
@@ -77,27 +77,21 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 			<MonoBlog
 				key={blog.id}
 				to={`/blog/${blog.id}`}
-				src={blog.asset !== null ? blog.asset.url : 'https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/girlRunning_mwel4s.png'}
+				src={blog.asset !== null ? blog.asset.url : 'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309862/chooseLife/girlRunning_mwel4s.png'}
 				title={blog.title}
 				author={blog.author}
 				createdAt={convertDate(blog.createdAt)}
 				tag={capitalizeFirstLetter(blog.tags)}
-				tagColor={
-					blog.tags === 'fitness' ? 'yellow'
-						: blog.tags === 'nutrition' ? 'blue'
-							: blog.tags === 'lifestyle' ? 'orange'
-								: blog.tags === 'health' ? 'green' : ''
-				}
 			/>
 		);
 	};
 
 	const settings = {
-		dots: false,
+		dots: true,
 		infinite: true,
-		speed: 500,
+		speed: 50,
 		slidesToShow: 1,
-		slidesToScroll: 1,
+		slidesToScroll: 4,
 		nextArrow: <img src={arrowRight} alt="arrowRight" />,
 		prevArrow: <img src={arrowLeft} alt="arrowLeft" />,
 		responsive: [
@@ -113,15 +107,16 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 				breakpoint: 600,
 				settings: {
 					slidesToShow: 1,
+					slidesToScroll: 2,
 					infinite: true,
-					slidesToScroll: 1,
 				},
 			},
 			{
 				breakpoint: 480,
 				settings: {
 					slidesToShow: 1,
-					slidesToScroll: 1,
+					slidesToScroll: 4,
+					infinite: true
 				},
 			},
 		],
@@ -132,10 +127,10 @@ const SlideBlog = ({ featuredBlogs, isLoading, getFeaturedBlogs }) => {
 			<img src={leftWhite} alt="leftWhite" className="absolute  leftwhite" />
 			<img src={rightWhite} alt="rightWhite" className="absolute rightwhite" />
 			<p className="slide-heading"> Featured</p>
-			<Slider {...settings}>{
+			<Slider key={Date.now()} {...settings}>{
 				!isLoading &&
-					featuredBlogs.content ? renderSlides() :
-					<div>No Featured Blog</div>
+					featuredBlogs && featuredBlogs.content ? renderSlides() :
+					<div>loading</div>
 			}</Slider>
 		</Wrapper>
 	);

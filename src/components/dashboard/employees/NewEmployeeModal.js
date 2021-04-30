@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { addNewEmployee } from '../../../store/actions/employeeActions';
-import {onBoardEmployeeValidator} from '../../forms/validation';
-import styled from 'styled-components';
-import Modal from '../common/Modal';
 import Grid from '@material-ui/core/Grid';
-import { TextInput } from '../../common/inputs';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import { addNewEmployee } from '../../../store/actions/employeeActions';
 import Button from '../../common/Button';
+import { TextInput } from '../../common/inputs';
+import { onBoardEmployeeValidator } from '../../forms/validation';
+import Modal from '../common/Modal';
 
 const Wrapper = styled.div`
 	.pd {
@@ -21,13 +21,11 @@ const Wrapper = styled.div`
 	}
 	.select-input {
 		font-weight: 300;
-		font-size: 1.4rem;
-		line-height: 2.2rem;
 		color: ${(props) => props.theme.color.ui_05};
 	}
 `;
 
-const NewEmployeeModal = ({addNewEmployee, btnTheme}) => {
+const NewEmployeeModal = ({ addNewEmployee, btnTheme }) => {
 	const [show, setShow] = React.useState(false);
 	const [firstName, setFirstName] = React.useState('');
 	const [lastName, setLastName] = React.useState('');
@@ -48,7 +46,10 @@ const NewEmployeeModal = ({addNewEmployee, btnTheme}) => {
 		event.preventDefault();
 		setErrors({});
 		const data = {
-			firstName, lastName, email };
+			firstName,
+			lastName,
+			email,
+		};
 		const { errors, isValid } = onBoardEmployeeValidator(data);
 		if (!isValid) {
 			return setErrors(errors);
@@ -60,15 +61,13 @@ const NewEmployeeModal = ({addNewEmployee, btnTheme}) => {
 		hideModal();
 	};
 
-
-
 	return (
 		<Wrapper>
 			<Modal
 				show={show}
 				handleClose={hideModal}
 				position="modal-right"
-				info='Invite a single new employee to your company. Add multiple via batch upload.'
+				info="Invite a single new employee to your company. Add multiple via batch upload."
 				heading={<span> Add New Employee</span>}
 			>
 				<div className="select">
@@ -111,14 +110,18 @@ const NewEmployeeModal = ({addNewEmployee, btnTheme}) => {
 							<TextInput
 								placeholder="Type here..."
 								label="Email Address"
-								type='email'
+								type="email"
 								value={email}
 								onChange={setEmail}
 								error={errors.email}
 							/>
 						</Grid>
 						<Grid item xs={12} className="pd">
-							<Button theme="darkGreen" text="Add Employee" onClick={onFormSubmit}/>
+							<Button
+								theme="darkGreen"
+								text="Add Employee"
+								onClick={onFormSubmit}
+							/>
 						</Grid>
 					</Grid>
 				</div>
@@ -128,6 +131,7 @@ const NewEmployeeModal = ({addNewEmployee, btnTheme}) => {
 				theme={btnTheme}
 				text="Add Employee"
 				onClick={showModal}
+				style={{ fontSize: '1rem' }}
 			/>
 		</Wrapper>
 	);
@@ -138,4 +142,4 @@ NewEmployeeModal.propTypes = {
 	btnTheme: PropTypes.string.isRequired,
 };
 
-export default connect(null, {addNewEmployee})(NewEmployeeModal);
+export default connect(null, { addNewEmployee })(NewEmployeeModal);

@@ -1,33 +1,30 @@
-/*eslint-disable */
 
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
 import { Grid } from '@material-ui/core';
-import { TextInput, PasswordInput } from '../../common/inputs';
-import Button from '../../common/Button';
-import { loginValidator } from '../validation';
-import { loginUser } from '../../../store/actions/userActions';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { loginUser } from '../../../store/actions/userActions';
+import Button from '../../common/Button';
+import { PasswordInput, TextInput } from '../../common/inputs';
+import { loginValidator } from '../validation';
 
 const Wrapper = styled.div`
-.forgot{
-	font-family: Sofia;
-font-size: 1.4rem;
-line-height: 1.4rem;
-letter-spacing: 0.2px;
-padding: 2rem 0;
-text-align: right;
-color: ${props => props.theme.color.brand_02};
-}
+	.forgot {
+		/* font-family: Sofia; */
+		line-height: 1.4rem;
+		letter-spacing: 0.2px;
+		padding: 2rem 0;
+		text-align: right;
+		color: ${(props) => props.theme.color.brand_02};
+	}
 `;
 
-function AdminLoginFrom({history, loginUser}) {
+function AdminLoginFrom({ history, loginUser }) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [errors, setErrors] = useState({});
-
 
 	const onFormSubmit = (event) => {
 		event.preventDefault();
@@ -75,16 +72,17 @@ function AdminLoginFrom({history, loginUser}) {
 					Log in
 				</Button>
 			</div>
-			<Link to='/forgot_password'>			<p className='forgot'>Forgot Password?</p>
-</Link>
+			<Link to="/forgot_password">
+				{' '}
+				<p className="forgot">Forgot Password?</p>
+			</Link>
 		</Wrapper>
 	);
 }
 
 AdminLoginFrom.propTypes = {
 	history: PropTypes.object.isRequired,
-	loginUser: PropTypes.func.isRequired
+	loginUser: PropTypes.func.isRequired,
 };
 
-export default connect(null, {loginUser})(AdminLoginFrom);
-
+export default connect(null, { loginUser })(AdminLoginFrom);

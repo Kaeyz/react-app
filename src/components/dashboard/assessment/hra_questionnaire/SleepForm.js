@@ -1,11 +1,11 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
 import { saveQuestions } from '../../../../store/actions/hraActions';
-import HraInput from '../../../hra_input';
-import PropTypes from 'prop-types';
 import Button from '../../../common/Button';
+import HraInput from '../../../hra_input';
 
 const Wrapper = styled.div`
 	margin-top: -1rem;
@@ -71,8 +71,8 @@ function SleepForm({ questions, isLoading, inputs, history, saveQuestions }) {
 }
 
 SleepForm.propTypes = {
-	questions: PropTypes.array.isRequired,
-	inputs: PropTypes.array.isRequired,
+	questions: PropTypes.any.isRequired,
+	inputs: PropTypes.any.isRequired,
 	history: PropTypes.object.isRequired,
 	isLoading: PropTypes.bool.isRequired,
 	saveQuestions: PropTypes.func.isRequired,

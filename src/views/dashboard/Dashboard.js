@@ -1,10 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
 import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
-import IndividualHome from './IndividualHome';
 import AdminHome from './AdminHome';
 import CompanyHome from './CompanyHome';
+import IndividualHome from './IndividualHome';
 
 const Dashboard = ({userType}) => {
 	return (

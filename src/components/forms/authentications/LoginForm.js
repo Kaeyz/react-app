@@ -1,14 +1,14 @@
+import { Grid } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import AuthFormLayout from './AuthFormLayout';
-import { TextInput, PasswordInput } from '../../common/inputs';
-import { Grid } from '@material-ui/core';
-import styled from 'styled-components';
-import Button from '../../common/Button';
-import { loginUser } from '../../../store/actions/userActions';
-import { loginValidator } from '../validation';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { loginUser } from '../../../store/actions/userActions';
+import Button from '../../common/Button';
+import { PasswordInput, TextInput } from '../../common/inputs';
+import { loginValidator } from '../validation';
+import AuthFormLayout from './AuthFormLayout';
 
 const Wrapper = styled.div`
   .submit {
@@ -28,10 +28,8 @@ const Wrapper = styled.div`
     color: inherit;
   }
   .link_text {
-    font-size: 1.4rem;
-    font-family: Sofia;
+    /* font-family: Sofia; */
     color: ${(props) => props.theme.color.brand_02};
-    line-height: 1.4rem;
     letter-spacing: 0.2px;
     padding: 1rem 0 1.4rem 0;
   }
@@ -47,8 +45,7 @@ const Wrapper = styled.div`
       text-align: center;
     }
     p {
-      font-family: Sofia;
-      font-size: 1.4rem;
+      /* font-family: Sofia; */
       line-height: 2.5rem;
       color: ${(props) => props.theme.color.ui_13};
     }

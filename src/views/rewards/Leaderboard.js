@@ -1,13 +1,13 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
-import { getCompanyLeaderBoard } from '../../store/actions/rewardActions';
 import styled from 'styled-components';
-import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
-import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner';
 // import PaginationTable from '../../components/common/PaginationTable';
 import Table from '../../components/dashboard/common/Table';
 import { tableConstants7 } from '../../components/dashboard/companyRewards/tableConstant7';
+import WelcomeCard from '../../components/dashboard/dashboard_home/WelcomeBanner';
+import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
+import { getCompanyLeaderBoard } from '../../store/actions/rewardActions';
 import { sortTableData } from '../../utils/helper';
 
 const Wrapper = styled.div`

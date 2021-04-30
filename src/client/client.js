@@ -1,11 +1,22 @@
 import { createApolloFetch } from 'apollo-fetch';
+import { logoutUser } from '../store/actions/userActions';
+import store from '../store/store';
 import keys from '../utils/keys';
+
 
 
 export const client = async (query, variables) => {
 	const token =  localStorage.getItem('auth');
 	const apolloFetch = createApolloFetch({ uri: keys.server });
 
+	apolloFetch.useAfter(({ response }, next) => {
+		// check if token has not expired
+		if (response.status === 401) {
+			store.dispatch(logoutUser());
+			return;
+		}
+		next();
+	});
 
 	if (token) {
 		// eslint-disable-next-line no-unused-vars

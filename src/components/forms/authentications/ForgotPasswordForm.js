@@ -1,14 +1,14 @@
+import { Grid } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { TextInput } from '../../../components/common/inputs';
-import Button from '../../common/Button';
-import { Grid } from '@material-ui/core';
 import { forgotPassword } from '../../../store/actions/userActions';
+import Button from '../../common/Button';
 import { forgotPasswordValidator } from '../validation';
 import AuthFormLayout from './AuthFormLayout';
-import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
 .submit	{
@@ -18,9 +18,7 @@ const Wrapper = styled.div`
 		}
 	}
 	.info	{
-		font-family: Sofia;
-		font-size: 1.4rem;
-		line-height: 2.5rem;
+		/* font-family: Sofia; */
 		color: ${props => props.theme.color.ui_13};
 		padding-top: 3rem;
 		span	{

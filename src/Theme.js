@@ -1,12 +1,14 @@
-import React from 'react';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { CssBaseline } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import basicFont from './assets/Myfont/Matteo.otf';
-import secFont from './assets/Myfont/FuturaPTBook.otf';
-import brownFont from './assets/Myfont/BrownLightRegular.ttf';
-import avenirFont from './assets/Myfont/Metropolis-Light.otf';
+import React from 'react';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+// import brownFont from './assets/Myfont/BrownLightRegular.ttf';
 import caviarFont from './assets/Myfont/CaviarDreams.ttf';
+import secFont from './assets/Myfont/FuturaPTBook.otf';
+import basicFont from './assets/Myfont/Matteo.otf';
+import avenirFont from './assets/Myfont/Metropolis-Light.otf';
 import hraFont from './assets/Myfont/sofiapro-light.otf';
+import Info from './components/notification/Info';
 import Notify from './components/notification/Notify';
 
 const theme = {
@@ -76,81 +78,106 @@ const theme = {
 };
 
 const GlobalStyle = createGlobalStyle`
-@font-face {
-    font-family: Matteo;
-    src: url(${basicFont}) ;
-  }
+	@font-face {
+		font-family: Matteo;
+		src: url(${basicFont}) ;
+	}
 
-@font-face {
-    font-family: Futura;
-    src: url(${secFont}) ;
-  }
-@font-face {
-    font-family: Sofia;
-    src: url(${hraFont}) ;
-  }
-@font-face {
-    font-family: Avenir;
-    src: url(${avenirFont}) ;
-  }
-@font-face {
-    font-family: Caviar;
-    src: url(${caviarFont}) ;
-  }
-@font-face {
-    font-family: Brown;
-    src: url(${brownFont}) ;
-  }
+	@font-face {
+		font-family: Avenir;
+		src: url(${avenirFont}) ;
+	}
+
+	@font-face {
+		font-family: Futura;
+		src: url(${secFont}) ;
+	}
+
+	@font-face {
+		font-family: Sofia;
+		src: url(${hraFont}) ;
+	}
+	@font-face {
+		font-family: Avenir;
+		src: url(${avenirFont}) ;
+	}
+	@font-face {
+		font-family: Caviar;
+		src: url(${caviarFont}) ;
+	}
 
 	html {
 		box-sizing: border-box;
-		font-size: 10px;
+		font-size: 12px;
 	}
 	*, *:before, *:after {
 		box-sizing: inherit;
 	}
 	body {
+		font-family: Matteo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
 		padding: 0;
 		margin: 0;
-		font-size: 1.5rem;
 		line-height: 2;
+		font-size: 1.2rem;
 		outline: none;
-    height: 100%;
-    font-family: Matteo ;
+		height: 100%;
 		background:#fff;
-  }
+	}
 	div, span {
-    margin: 0;
-    padding: 0;
-  }
+		margin: 0;
+		padding: 0;
+	}
 	h1, h2, h3, h4, h5, p {
 		margin: 0;
 		padding: 0;
 	}
+	input, select, textarea, button {
+		font-family:inherit;
+	}
 	.navbar__link--active {
 		color: #2ec4b6 !important;
-	  }
+		}
 
 	.flex {
-  	display: flex;
-  	justify-content: center;
-  	align-items: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	img {
-  	vertical-align: middle;
-  	max-width: 100%;
-  	height: auto;
+		vertical-align: middle;
+		max-width: 100%;
+		height: auto;
 	}
 	a {
 		text-decoration: none;
+	}
+  p, li {
+    letter-spacing: 0.0083em;
+  }
+	p {
+		font-size: 1.3rem;
+		font-weight: 100;
+	}
+	@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+		body {
+			font-size: 1.3rem;
+		}
+
+	}
+	@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+		body {
+			font-size: 1.1rem;
+		}
 	}
 `;
 
 const Theme = (props) => (
 	<ThemeProvider theme={theme}>
 		<div>
+			<CssBaseline />
 			<GlobalStyle />
 			<Notify />
+			<Info />
 			{props.children}
 		</div>
 	</ThemeProvider>

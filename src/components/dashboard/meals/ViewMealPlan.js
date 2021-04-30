@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+import left from '../../../assets/btn_ChevronLeft.svg';
+import right from '../../../assets/btn_ChevronRight.svg';
+import { deleteMealPlan } from '../../../store/actions/mealActions';
+import Button from '../../common/Button';
 import MealLayout from '../../layouts/dashboardLayout/MealLayout';
 import Table from '../common/Table';
 import { tableConstants } from './tableConstant';
-import left from '../../../assets/btn_ChevronLeft.svg';
-import right from '../../../assets/btn_ChevronRight.svg';
-import Button from '../../common/Button';
-import { connect } from 'react-redux';
-import {deleteMealPlan } from '../../../store/actions/mealActions';
 
 
 const Wrapper = styled(Paper)`
@@ -17,7 +17,7 @@ const Wrapper = styled(Paper)`
     display: grid;
     align-items: center;
     grid-template-columns: max-content 1fr;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
     #disclaimer{
     	vertical-align: bottom;
     	padding-right: 5px;
@@ -25,8 +25,6 @@ const Wrapper = styled(Paper)`
     h1{
       padding-right: 2rem;
       font-weight: normal;
-			font-size: 1.6rem;
-			line-height: 1.5rem;
 			letter-spacing: -0.2px;
 			color:${props => props.theme.color.ui_06};
     }
@@ -40,10 +38,9 @@ const Wrapper = styled(Paper)`
 .pagination-ctrl{
     align-items: center;
     justify-content: start;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
     span{
       font-weight: bold;
-			font-size: 1.6rem;
 			line-height: 2.4rem;
 			padding: 0 1.6rem;
 			text-align: center;

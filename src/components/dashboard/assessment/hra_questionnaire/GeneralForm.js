@@ -1,12 +1,11 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
+import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import HraInput from '../../../hra_input';
-import PropTypes from 'prop-types';
-import Button from '../../../common/Button';
+import styled from 'styled-components';
 import { saveQuestions } from '../../../../store/actions/hraActions';
+import Button from '../../../common/Button';
+import HraInput from '../../../hra_input';
 
 const Wrapper = styled.div`
 	.submit {
@@ -15,30 +14,31 @@ const Wrapper = styled.div`
 		grid-template-columns: max-content max-content;
 		grid-gap: 2rem;
 		justify-content: end;
-		@media screen and ( max-width: ${props => props.theme.breakpoint.sm}) {
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 			grid-template-columns: 1fr;
 		}
 	}
-	.button	{
-		@media screen and ( max-width: ${(props) => props.theme.breakpoint.sm}) {
-			width:100% !important;
+	.button {
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+			width: 100% !important;
 		}
 	}
 `;
 
 function GeneralForm({ questions, isLoading, inputs, history, saveQuestions }) {
 	const stage =
-    history.location.pathname === '/assessment/health/start'
-    	? 'RESPONSE'
-    	: 'UPDATE_RESPONSE';
+		history.location.pathname === '/assessment/health/start'
+			? 'RESPONSE'
+			: 'UPDATE_RESPONSE';
 	const nextLink = '/assessment/health/covid';
 	const onSaveClick = (event) => {
 		event.preventDefault();
+		// console.clear()
+		// console.log(inputs);
+		// console.log('object')
 		inputs.stage = stage;
 		saveQuestions(inputs, nextLink, history);
 	};
-
-
 
 	const displayQuestions = () => {
 		return (
@@ -47,7 +47,7 @@ function GeneralForm({ questions, isLoading, inputs, history, saveQuestions }) {
 					<HraInput
 						key={question.id}
 						id={question.id}
-						number = {index + 1}
+						number={index + 1}
 						label={question.label}
 						prompt={question.prompt}
 						inputs={question.input}
@@ -56,14 +56,14 @@ function GeneralForm({ questions, isLoading, inputs, history, saveQuestions }) {
 				<div className="submit">
 					<Button theme="green">Save</Button>
 					<Button theme="darkGreen" onClick={onSaveClick}>
-            Continue
+						Continue
 					</Button>
 				</div>
 			</div>
 		);
 	};
 
-	return <Wrapper>{isLoading ? 'Loading ...' : displayQuestions() }</Wrapper>;
+	return <Wrapper>{isLoading ? 'Loading ...' : displayQuestions()}</Wrapper>;
 }
 
 GeneralForm.propTypes = {
@@ -80,5 +80,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { saveQuestions })(
-	withRouter(GeneralForm)
+	withRouter(GeneralForm),
 );

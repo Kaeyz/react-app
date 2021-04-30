@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
+import { Divider, Paper } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
-import { logoutUser } from '../../../../store/actions/userActions';
-import { Paper, Divider } from '@material-ui/core';
-
+import styled from 'styled-components';
 import toggleLogo from '../../../../assets/Frame.svg';
-import UserInfo from './UserInfo';
+import { logoutUser } from '../../../../store/actions/userActions';
 import NavSection from './NavSection';
 import sideBarData from './sideBarData';
+import UserInfo from './UserInfo';
+
 
 
 const Wrapper = styled(Paper)`
@@ -117,11 +117,12 @@ function SideBar({ logoutUser, user, type }) {
 SideBar.propTypes = {
 	logoutUser: PropTypes.func.isRequired,
 	user: PropTypes.object.isRequired,
-	type: PropTypes.string.isRequired
+	type: PropTypes.string.isRequired,
+	// companyName: PropTypes.string
 };
 
 const mapStateToProps = state => {
-	const { name, type,companyName } = state.user.user;
+	const { name, type, companyName } = state.user.user;
 	const user = { name, type,companyName };
 	return { user, type,companyName };
 };

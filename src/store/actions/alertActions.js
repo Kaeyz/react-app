@@ -1,4 +1,4 @@
-import { SUCCESS_ALERT, INFO_ALERT, CLEAR_ALERT, ERROR_ALERT } from '../types';
+import { CLEAR_ALERT, ERROR_ALERT, INFO_ALERT, SUCCESS_ALERT } from '../types';
 
 export const successAlert = (message) => {
 	return {
@@ -24,4 +24,3 @@ export const errorAlert = (errors) => {
 export const clearAlert = () => {
 	return { type: CLEAR_ALERT };
 };
-

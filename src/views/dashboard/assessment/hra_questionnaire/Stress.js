@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getQuestions } from '../../../../store/actions/hraActions';
+import React from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import StressForm from '../../../../components/dashboard/assessment/hra_questionnaire/StressForm';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
-import StressForm from '../../../../components/dashboard/assessment/hra_questionnaire/StressForm';
+import { getQuestions } from '../../../../store/actions/hraActions';
 
 
 const Wrapper = styled.div`
@@ -40,7 +40,7 @@ function Stress({ getQuestions, questions }) {
 
 Stress.propTypes = {
 	getQuestions: PropTypes.func.isRequired,
-	questions: PropTypes.object.isRequired,
+	questions: PropTypes.any.isRequired,
 };
 
 const mapStateToProps = (state) => {

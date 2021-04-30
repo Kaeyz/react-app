@@ -1,64 +1,57 @@
+import DateFnsUtils from '@date-io/date-fns';
+import {
+	KeyboardDatePicker, MuiPickersUtilsProvider
+} from '@material-ui/pickers';
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import {
-	MuiPickersUtilsProvider,
-	KeyboardDatePicker
-} from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
 import datePickerIcon from '../../../assets/datePickerIcon.svg';
 
 const Wrapper = styled.div`
-	margin-top: 1.5rem;
+	margin-top: -1.5rem;
 	width: 100%;
 	.input_label {
-		margin-bottom: 0.3rem;
-		font-size: 1.3rem;
+		font-size: 1.4rem;
+		margin-bottom: 0.9rem;
 		margin-top: 0;
 	}
 	.input {
+		font-size: 1.4rem;
 		margin: 0;
-		// min-width: 100%;
+		min-width: 100%;
 		max-width: 100%;
 		outline: none;
-		color: ${props => props.theme.color.active_primary};
-		border-radius: 8px;
+		color: ${(props) => props.theme.color.active_primary};
+		border-radius: 0px;
 	}
 
-
-	.MuiOutlinedInput-root{
-		border: 1px solid ${props => props.theme.color.ui_text_06};
-		border-radius: 2px;
+	.MuiOutlinedInput-root {
+		border: 1px solid ${(props) => props.theme.color.ui_text_06};
+		border-radius: 0px;
 		&:hover {
-			border: 1px solid ${props => props.theme.color.ui_text_05};
-			transition: .3s;
+			border: 1px solid ${(props) => props.theme.color.ui_text_05};
+			transition: 0.3s;
 		}
-		:focus-within{
-			background-color:${props => props.theme.color.text_03};
+		&:focus-within {
+			background-color: ${(props) => props.theme.color.text_03};
 			outline: none;
-			border-color: ${props => props.theme.color.brand_02};
-			box-shadow: 0 0 3px ${props => props.theme.color.brand_02};
-
+			border-color: ${(props) => props.theme.color.brand_02};
+			box-shadow: 0 0 3px ${(props) => props.theme.color.brand_02};
 		}
-
 	}
 	.error {
-		color: red;
-		font-size: 1.3rem;
+		color: #b40001;
 		padding-top: 2px;
 	}
-	.MuiOutlinedInput-notchedOutline{
+	.MuiOutlinedInput-notchedOutline {
 		border: none;
 	}
-	.MuiOutlinedInput-inputAdornedEnd{
-		font-family: Sofia;
+	.MuiOutlinedInput-inputAdornedEnd {
 		font-weight: 300;
 		font-size: 1.4rem;
-		line-height: 2.0rem;
-		letter-spacing: 0.2px;
-		color: ${props => props.theme.color.text_06};
+		color: ${(props) => props.theme.color.text_06};
 	}
-	`;
+`;
 
 
 
@@ -93,8 +86,8 @@ DateInput.propTypes = {
 	error: PropTypes.string,
 	placeholder: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
-	value: PropTypes.any.isRequired,
+	value: PropTypes.any,
 };
 
 
-export {DateInput};
+export { DateInput };

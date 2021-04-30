@@ -1,7 +1,7 @@
+import Pagination from '@material-ui/lab/Pagination';
 import React from 'react';
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
-import Pagination from '@material-ui/lab/Pagination';
 import { Filter } from '../common/inputs';
 
 const Wrapper = styled.div`
@@ -29,7 +29,6 @@ margin-top: -2rem;
       transform: matrix(1, 0, 0, -1, 0, 0);    }
    }
    .MuiPaginationItem-rounded{
-    font-size: 1.4rem;
     line-height: 2.4rem;
      text-align: center;
     letter-spacing: 0.1px;
@@ -37,7 +36,6 @@ margin-top: -2rem;
         @media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
           margin: 0;
           padding: 0;
-          font-size: 1.2rem;
         }
         @media screen and ( max-width: ${props => props.theme.breakpoint.sm}) {
           min-width: 29px;

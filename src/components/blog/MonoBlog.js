@@ -1,10 +1,9 @@
 // modules
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@material-ui/core';
 import PropTypes from 'prop-types';
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
 	/* blog css styling goes here */
@@ -13,14 +12,18 @@ const Wrapper = styled.div`
 		max-width: 30rem;
 		min-height: 300px;
 		border: 1px solid ${(props) => props.theme.color.ui_text_09};
-		&:hover{
-			box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12);
-			transition : .3s;
+		&:hover {
+			box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+				0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+				0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+			transition: 0.3s;
 		}
 	}
 	.img_div {
+		display: relative;
 		width: 100%;
-		max-height: 21rem;
+		height: 20.1rem;
+		border-bottom: 1px solid #646060;
 	}
 	.blog_img {
 		width: 100%;
@@ -30,21 +33,22 @@ const Wrapper = styled.div`
 		height: 100%;
 	}
 	.blog-tag {
-		position: absolute;
-		top: 20px;
-		right: 10px;
+		position: relative;
+		top: 110px;
+		right: -235px;
+		z-index: 50;
 	}
 	#yellow {
 		background-color: rgba(247, 194, 54, 0.8);
 	}
-	#blue{
-		background-color: rgba(46,196,182, 0.8);
+	#blue {
+		background-color: rgba(46, 196, 182, 0.8);
 	}
-	#green{
-		background-color: rgba(141,184,56, 0.8);
+	#green {
+		background-color: rgba(141, 184, 56, 0.8);
 	}
-	#orange{
-		background-color: rgba(244,120,3, 0.8);
+	#orange {
+		background-color: rgba(244, 120, 3, 0.8);
 	}
 	.blog-title {
 		color: ${(props) => props.theme.color.text_13};
@@ -55,11 +59,11 @@ const Wrapper = styled.div`
 		width: 100%;
 		text-align: center;
 		color: #1d1d1d;
+		text-transform: uppercase;
 	}
-	.light {
-		font-size: 1.3rem;
+	h2 {
+		font-size: 1.2rem;
 		font-weight: 100;
-		line-height: 1.3rem;
 		color: ${(props) => props.theme.color.text_12};
 	}
 	.card_info {
@@ -68,19 +72,25 @@ const Wrapper = styled.div`
 		padding-top: 1rem;
 	}
 `;
-
-const MonoBlog = ({ author, to, title, tag, createdAt, src, alt, tagColor }) => {
-
+const MonoBlog = ({
+	author,
+	to,
+	title,
+	tag,
+	createdAt,
+	src,
+	alt,
+	tagColor,
+}) => {
 	return (
 		<Wrapper>
-
-			<Link class='mono-blog-link' to={to}>
+			<Link class="mono-blog-link" to={to}>
 				<Card className="blog_card" elevation={0}>
 					<div className="img_div">
 						<img src={src} alt={alt} className="blog_img" />
-						<p className="tag blog-tag" id={`${tagColor}`}>
+						<h2 className="tag blog-tag" id={`${tagColor}`}>
 							{tag}
-						</p>
+						</h2>
 					</div>
 					<CardContent className="card_content">
 						<p className="blog-title">{title}</p>
@@ -107,7 +117,4 @@ MonoBlog.propTypes = {
 	createdAt: PropTypes.string.isRequired,
 };
 
-
 export default MonoBlog;
-
-

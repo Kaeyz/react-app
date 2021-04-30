@@ -1,49 +1,46 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Container from '../../common/Container';
-import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-  height: -webkit-fill-available;
-  margin-top: 3rem;
-  .paper {
-    padding: 8rem;
-    width: 55rem;
-    height: auto;
-    position: relative;
-    box-shadow: none;
-    .auth_title {
-      text-align: center;
-      font-size: 3.2rem;
-      line-height: 3.1rem;
-      font-weight: bold;
-      color: ${(props) => props.theme.color.ui_05};
-      padding-bottom: 1rem;
-    }
-    .auth_text {
-      text-align: center;
-      font-size: 1.6rem;
-      line-height: 1.5rem;
-      color: ${(props) => props.theme.color.text_06};
-      padding-bottom: 6rem;
-    }
-  }
-  .submit {
-    margin-top: 2.6rem;
-    height: 4.8rem;
-    Button {
-      height: 4.8rem;
-    }
-  }
+	height: -webkit-fill-available;
+	margin-top: 3rem;
+	.paper {
+		padding: 8rem;
+		width: 55rem;
+		height: auto;
+		position: relative;
+		box-shadow: none;
+		.auth_title {
+			text-align: center;
+			font-weight: bold;
+			color: ${(props) => props.theme.color.ui_05};
+			padding-bottom: 1rem;
+		}
+		.auth_text {
+			text-align: center;
+			line-height: 1.5rem;
+			color: ${(props) => props.theme.color.text_06};
+			padding-bottom: 6rem;
+		}
+	}
+	.submit {
+		margin-top: 2.6rem;
+		height: 4.8rem;
+		Button {
+			height: 4.8rem;
+		}
+	}
 
-  .img {
-    padding-bottom: 4rem;
-    img {
-      width: 40px;
-    }
-  }
+	.img {
+		padding-bottom: 4rem;
+		img {
+			width: 40px;
+		}
+	}
 `;
 function CommonAuthPaperPage({ children, img, alt, title, detail }) {
 	return (

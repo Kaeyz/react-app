@@ -1,12 +1,11 @@
-import React, {useEffect} from 'react';
-import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
-import { getMealPlan } from '../../store/actions/mealActions';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import NewMealPlan from '../../components/dashboard/meals/NewMealPlan';
 import ViewMealPlan from '../../components/dashboard/meals/ViewMealPlan';
-
+import { getMealPlan } from '../../store/actions/mealActions';
 
 const Wrapper = styled(Paper)`
 	.withNull {
@@ -21,7 +20,6 @@ const Wrapper = styled(Paper)`
 		h1 {
 			padding-right: 2rem;
 			font-weight: normal;
-			font-size: 1.6rem;
 			line-height: 1.5rem;
 			letter-spacing: -0.2px;
 			color: ${(props) => props.theme.color.ui_06};
@@ -35,19 +33,18 @@ const Wrapper = styled(Paper)`
 	}
 `;
 
-const Meal = ({mealPlan, isLoading, getMealPlan}) => {
-
+const Meal = ({ mealPlan, isLoading, getMealPlan }) => {
 	useEffect(() => {
 		getMealPlan();
 	}, [getMealPlan]);
 
 	return (
 		<Wrapper>
-			{
-				!isLoading && mealPlan ?
-					<ViewMealPlan mealPlan={mealPlan} /> :
-					<NewMealPlan />
-			}
+			{!isLoading && mealPlan ? (
+				<ViewMealPlan mealPlan={mealPlan} />
+			) : (
+				<NewMealPlan /> || <p>loading...</p>
+			)}
 		</Wrapper>
 	);
 };
@@ -58,10 +55,9 @@ Meal.propTypes = {
 	getMealPlan: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	const { mealPlan, isLoading } = state.meal;
 	return { mealPlan, isLoading };
 };
 
-
-export default connect(mapStateToProps, {getMealPlan})(Meal);
+export default connect(mapStateToProps, { getMealPlan })(Meal);

@@ -92,6 +92,22 @@ userQueries.resetPassword = (data) => {
 	});
 };
 
+userQueries.resendResetPasswordMail = (data) => {
+	const query = `
+	mutation RESET_PASSWORD ($email: String){
+		resendResetPasswordRequestMail(email: $email){
+			message
+		}
+	}
+	`;
+	const variables = { email: data };
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
 
 userQueries.getCurrentUser = () => {
 	const query = `
@@ -116,6 +132,10 @@ userQueries.getCurrentUser = () => {
 			companySize
 			companyUrl
 			companyName
+			employeeLimit
+			representativeEmail
+			branch
+			department
 		}
 	}
 	`;

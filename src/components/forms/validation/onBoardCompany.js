@@ -49,6 +49,17 @@ module.exports = function onBoardCompanyValidator(data) {
 		errors.jobTitle = 'Job title is required';
 	}
 
+	// https://stackoverflow.com/questions/14850553/javascript-regex-for-password-containing-at-least-8-characters-1-number-1-uppe
+	// if (!validator.matches(data.password, /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/g)) {
+	if (
+		!validator.matches(
+			data.password,
+			/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$&()\\-`.+,/"\]*$]{8,}$/,
+		)
+	) {
+		errors.password = 'At least 1 uppercase, lowercase, number or special character';
+	}
+
 	if (!validator.isLength(data.password, { min: 8 })) {
 		errors.password = 'Password must be at least 8';
 	}

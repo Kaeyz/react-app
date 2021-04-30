@@ -1,12 +1,11 @@
-/*eslint-disable*/
-import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import Pagination from 'react-js-pagination';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import MonoBlog from '../../components/blog/MonoBlog';
-import PropTypes from 'prop-types';
-import { convertDate, capitalizeFirstLetter } from '../../utils/helper';
 import { getBlogs } from '../../store/actions/blogActions';
-import { connect } from 'react-redux';
+import { capitalizeFirstLetter, convertDate } from '../../utils/helper';
 
 const Wrapper = styled.div`
 	.grid-container {
@@ -30,11 +29,9 @@ const Wrapper = styled.div`
 	}
 	.pagination li {
 		list-style-type: none;
-		padding: 15px 25px;
-		font-family: Segoe UI;
+		padding: 15px 20px;
 		font-weight: normal;
-		font-size: 1.7rem;
-		line-height: 2.3rem;
+		font-size: 1.3rem;
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
 			padding: 5px 15px;
 		}
@@ -46,7 +43,6 @@ const Wrapper = styled.div`
 	}
 	.pagination li:nth-child(2),
 	.pagination li:nth-child(6) {
-		font-size: 1.3rem;
 	}
 	.pagination li a {
 		color: ${(props) => props.theme.color.text_15};
@@ -74,16 +70,25 @@ const PaginatedContent = ({ blogs, isLoading, getBlogs }) => {
 			<MonoBlog
 				key={index}
 				to={`/blog/${blog.id}`}
-				src={blog.asset !== null ? blog.asset.url : "https://res.cloudinary.com/dsqnyciqg/image/upload/v1607309862/chooseLife/girlRunning_mwel4s.png"}
+				src={
+					blog.asset !== null
+						? blog.asset.url
+						: 'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto/v1607309862/chooseLife/girlRunning_mwel4s.png'
+				}
 				title={blog.title}
 				author={blog.author}
 				createdAt={convertDate(blog.createdAt)}
 				tag={capitalizeFirstLetter(blog.tags)}
 				tagColor={
-					blog.tags === 'fitness' ? 'yellow' :
-						blog.tags === 'nutrition' ? 'blue' :
-							blog.tags === 'lifestyle' ? 'orange' :
-								blog.tags === 'health' ? 'green' : ''
+					blog.tags === 'fitness' || blog.tags === 'Fitness'
+						? 'yellow'
+						: blog.tags === 'nutrition' || blog.tags === 'Nutrition'
+							? 'blue'
+							: blog.tags === 'lifestyle' || blog.tags === 'Lifestyle'
+								? 'orange'
+								: blog.tags === 'health' || blog.tags === 'Health'
+									? 'green'
+									: ''
 				}
 			/>
 		));
@@ -99,8 +104,8 @@ const PaginatedContent = ({ blogs, isLoading, getBlogs }) => {
 		<Wrapper>
 			<div className="result grid-container">
 				{isLoading ? <div>Loading...</div> :
-					blogs.content ? renderBlogContent() :
-						<div>No Blog Found</div>
+					blogs && blogs.content ? renderBlogContent() :
+						<div>loading...</div>
 				}
 			</div>
 			<div className="pagination">

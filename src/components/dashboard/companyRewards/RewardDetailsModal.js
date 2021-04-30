@@ -1,20 +1,20 @@
-import React from 'react';
+import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
-import { closeReward } from '../../../store/actions/rewardActions';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Modal from '../../dashboard/common/Modal';
-import Grid from '@material-ui/core/Grid';
-import Button from '../../../components/common/Button';
-import pinkIcon from '../../../assets/pinkIcon.svg';
-import AppointReward from '../../../components/common/AppointReward';
-import EditRewardModal from './EditRewardModal';
-import { convertDate } from '../../../utils/helper';
 import blueIcon from '../../../assets/blueIcon.svg';
-import orangeIcon from '../../../assets/orangeIcon.svg';
 import greenIcon from '../../../assets/greenIcon.svg';
+import orangeIcon from '../../../assets/orangeIcon.svg';
+import pinkIcon from '../../../assets/pinkIcon.svg';
 import purpleIcon from '../../../assets/purpleIcon.svg';
+import AppointReward from '../../../components/common/AppointReward';
+import Button from '../../../components/common/Button';
+import { closeReward } from '../../../store/actions/rewardActions';
+import { convertDate } from '../../../utils/helper';
+import Modal from '../../dashboard/common/Modal';
+import EditRewardModal from './EditRewardModal';
 
 const Wrapper = styled.div`
   .body {
@@ -24,8 +24,6 @@ const Wrapper = styled.div`
       grid-template-columns: 1fr 1fr;
       .text {
         font-weight: 300;
-        font-size: 1.4rem;
-        line-height: 2.2rem;
         color: ${props => props.theme.color.ui_05};
       }
       .bolder {
@@ -79,19 +77,24 @@ const RewardDetailsModal = ({ theme, reward, closeReward }) => {
 				info={reward && reward.description}
 				heading={
 					<span>
-						<img src={icon[theme]} alt="icon" />
+						<img src={icon[theme]} alt="icon" />{' '}
 						{reward && reward.title}
+						{reward && reward.isClosed && `${' (closed)'}`}
 					</span>
 				}
 			>
 				<div className="body">
 					<div className="detail grid">
 						<p className="text">Start Date</p>
-						<h1 className="bolder text">{reward && convertDate(reward.startDate) }</h1>
+						<h1 className="bolder text">
+							{reward && convertDate(reward.startDate)}
+						</h1>
 					</div>
 					<div className="detail grid">
 						<p className="text">End Date</p>
-						<h1 className="bolder text">{reward && convertDate(reward.endDate) }</h1>
+						<h1 className="bolder text">
+							{reward && convertDate(reward.endDate)}
+						</h1>
 					</div>
 				</div>
 
@@ -102,23 +105,31 @@ const RewardDetailsModal = ({ theme, reward, closeReward }) => {
 					</Link>
 				</div>
 
-				{!reward.isClosed &&
-
-				<div className="bottom">
-					<EditRewardModal reward={reward} />
-					<Grid item xs={12} >
-						<Button theme="pinkBtn" text="Close Reward" onClick={() => closeReward(reward._id)} />
-					</Grid>
-				</div>
-				}
-
+				{!reward.isClosed && (
+					<div className="bottom">
+						<EditRewardModal reward={reward} />
+						<Grid item xs={12}>
+							<Button
+								theme="pinkBtn"
+								text="Close Reward"
+								onClick={() => closeReward(reward._id)}
+							/>
+						</Grid>
+					</div>
+				)}
 			</Modal>
 
 			<div onClick={showModal}>
 				<AppointReward
 					cardTheme={theme}
 					icon={icon[theme]}
-					info={reward && reward.description}
+					info={
+						reward && reward.description
+							? reward.description.length > 40
+								? reward.description.substring(0, 42) + '...'
+								: reward.description
+							: 'no description'
+					}
 					title={reward && reward.title}
 					leftB={reward && convertDate(reward.startDate)}
 					rightB={reward && convertDate(reward.endDate)}

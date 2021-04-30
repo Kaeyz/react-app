@@ -1,4 +1,4 @@
-import React from 'react';
+import Paper from '@material-ui/core/Paper';
 // import PropTypes from 'prop-types'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -6,11 +6,11 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-margin-bottom: 6rem;
+margin-bottom: 3rem;
 .MuiPaper-rounded{
   border-radius:0;
 }
@@ -32,7 +32,6 @@ margin-bottom: 6rem;
   }
     h1 {
 		margin-bottom:3rem;
-      font-size: 20px;
       line-height: 25px;
       letter-spacing: 0.2px;
       color: #000b0a;
@@ -46,7 +45,6 @@ margin-bottom: 6rem;
       text-align: center;
     }
     .MuiTableCell-head {
-      font-size: 16px;
       line-height: 15px;
       font-family: Matteo;
       letter-spacing: 0.2px;
@@ -69,7 +67,7 @@ margin-bottom: 6rem;
       padding: 0;
     }
     .MuiTableCell-body {
-      font-size: 2rem;
+       font-size: 2rem;
       line-height: 25px;
       letter-spacing: 0.2px;
       color: #0a2523;
@@ -86,22 +84,28 @@ const rows = [
 		'+0 - 5.8yrs',
 		'+0 - 2.1yrs',
 		'+0 - 0.6yrs',
-		'+0 - 1.2yrs'
+		'+0 - 1.2yrs',
 	),
 ];
 
 function TableReport() {
 	return (
 		<Wrapper>
-			<TableContainer component={Paper} className='table-section'>
+			<TableContainer component={Paper} className="table-section">
 				<Table aria-label="customized table">
 					<TableHead>
 						<TableRow className="head-row">
 							<TableCell>Quit Cigarettes</TableCell>
 							<TableCell align="right">Increase DHL</TableCell>
-							<TableCell align="right">Lower Total Cholesterol</TableCell>
-							<TableCell align="right">Lower Blood Pressure</TableCell>
-							<TableCell align="right">Quit Driving Distracted</TableCell>
+							<TableCell align="right">
+								Lower Total Cholesterol
+							</TableCell>
+							<TableCell align="right">
+								Lower Blood Pressure
+							</TableCell>
+							<TableCell align="right">
+								Quit Driving Distracted
+							</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
@@ -110,16 +114,19 @@ function TableReport() {
 								<TableCell component="th" scope="row">
 									{row.name}
 								</TableCell>
-								<TableCell align="right">{row.calories}</TableCell>
+								<TableCell align="right">
+									{row.calories}
+								</TableCell>
 								<TableCell align="right">{row.fat}</TableCell>
 								<TableCell align="right">{row.carbs}</TableCell>
-								<TableCell align="right">{row.protein}</TableCell>
+								<TableCell align="right">
+									{row.protein}
+								</TableCell>
 							</TableRow>
 						))}
 					</TableBody>
 				</Table>
 			</TableContainer>
-
 		</Wrapper>
 	);
 }
@@ -129,4 +136,3 @@ function TableReport() {
 // }
 
 export default TableReport;
-

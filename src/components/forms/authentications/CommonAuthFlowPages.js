@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../../common/Button';
 import Container from '../../common/Container';
-import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   .content {
@@ -26,19 +26,18 @@ const Wrapper = styled.div`
 		}
 		}
 	}
-	
+
 	.pd{
 		padding: 5rem 0  3rem 0;
 		font-weight: 600;
-font-size: 3rem;
-line-height: 3.2rem;
-text-align: center;
-color: ${(props) => props.theme.color.text_01};
-width: 52%;
-@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-width:100% ;
-font-size: 2rem;
-}
+		font-size: 3rem;
+		line-height: 3.2rem;
+		text-align: center;
+		color: ${(props) => props.theme.color.text_01};
+		width: 52%;
+		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
+			width:100% ;
+		}
 
 	}
     p{
@@ -50,7 +49,15 @@ font-size: 2rem;
     margin-top: 2.7rem;
   }
 `;
-function CommonAuthFlowPage({ absImg, link, title, detail, buttonText, img }) {
+function CommonAuthFlowPage({
+	absImg,
+	link,
+	title,
+	detail,
+	buttonText,
+	img,
+	onClick,
+}) {
 	return (
 		<Wrapper>
 			<Container flexy="centered">
@@ -62,11 +69,24 @@ function CommonAuthFlowPage({ absImg, link, title, detail, buttonText, img }) {
 					<h1 className="pd">{title}</h1>
 					<p>{detail} </p>
 					<div className="submit">
-						<Link to={link}>
-							<Button theme="darkGreen" style={{ width: '100%' }}>
+						{title === 'Reset Link Sent!' ? (
+							<Button
+								theme="darkGreen"
+								style={{ width: '100%' }}
+								onClick={onClick}
+							>
 								{buttonText}
 							</Button>
-						</Link>
+						) : (
+							<Link to={link}>
+								<Button
+									theme="darkGreen"
+									style={{ width: '100%' }}
+								>
+									{buttonText}
+								</Button>
+							</Link>
+						)}
 					</div>
 				</div>
 			</Container>
@@ -81,6 +101,7 @@ CommonAuthFlowPage.propTypes = {
 	detail: PropTypes.string,
 	link: PropTypes.string,
 	buttonText: PropTypes.string,
+	onClick: PropTypes.func,
 };
 
 export default CommonAuthFlowPage;

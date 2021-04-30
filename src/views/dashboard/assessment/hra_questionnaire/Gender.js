@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getQuestions } from '../../../../store/actions/hraActions';
+import React from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import GenderForm from '../../../../components/dashboard/assessment/hra_questionnaire/GenderForm';
 import DashboardLayout from '../../../../components/layouts/dashboardLayout/DashboardLayout';
 import QuestionnaireLayout from '../../../../components/layouts/questionnaireLayout/Questionnaire';
-import GenderForm from '../../../../components/dashboard/assessment/hra_questionnaire/GenderForm';
+import { getQuestions } from '../../../../store/actions/hraActions';
 
 
 const Wrapper = styled.div`
@@ -28,8 +28,9 @@ function Gender({ getQuestions, questions }) {
 					<QuestionnaireLayout
 						whatQuestion="Gender Specific Risk"
 						heading="Health Risk Assessment"
-						detail={questions.prompt || ''}
-
+						detail={
+							'THIS PAGE IS TARGETED AT SPECIFIC GENDER APPLICANTS, PLEASE SKIP QUESTIONS NOT RELATED TO YOUR GENDER. '
+						}
 					>
 						<GenderForm questions={questions.q || []} />
 					</QuestionnaireLayout>
@@ -41,7 +42,7 @@ function Gender({ getQuestions, questions }) {
 
 Gender.propTypes = {
 	getQuestions: PropTypes.func.isRequired,
-	questions: PropTypes.object.isRequired,
+	questions: PropTypes.any.isRequired,
 };
 
 const mapStateToProps = (state) => {

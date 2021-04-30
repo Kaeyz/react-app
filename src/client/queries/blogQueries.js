@@ -18,6 +18,8 @@ blogQueries.getBlogs = (skip, limit) => {
 				feature
 				author
 				authorRole
+				imageCaption
+				imageCredit
 				asset {
 					name
 					url
@@ -43,18 +45,20 @@ blogQueries.getFeaturedBlogs = () => {
 				 skip
 				 limit
 				 content {
-							id
-							title
-							body
-							createdAt
-							tags
-							author
-							authorRole
-							asset {
-									 name
-									 url
-							}
-							feature
+						id
+						title
+						body
+						createdAt
+						tags
+						author
+						authorRole
+						imageCaption
+						imageCredit
+						asset {
+									name
+									url
+						}
+						feature
 				 }
 		}
 }
@@ -67,7 +71,6 @@ blogQueries.getFeaturedBlogs = () => {
 	});
 };
 
-
 blogQueries.getSingleBlog = (id) => {
 	const query = `
 	query mutation_LOGIN_MUTAT2790($id: String) {
@@ -79,6 +82,8 @@ blogQueries.getSingleBlog = (id) => {
 			tags
 			author
 			authorRole
+			imageCaption
+			imageCredit
 			asset {
 				name
 				url
@@ -95,8 +100,5 @@ blogQueries.getSingleBlog = (id) => {
 			.catch((err) => reject(err));
 	});
 };
-
-
-
 
 export default Object.freeze(blogQueries);

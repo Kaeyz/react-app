@@ -1,19 +1,15 @@
-/*eslint-disable */
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import fly from "../../assets/fly.png";
-import firstBank from "../../assets/firstBank.png";
-import paystack from "../../assets/paystack.png";
-import flutter from "../../assets/flutter.png";
-import gtb from "../../assets/gtb.png";
-import amazon from "../../assets/amazon.png";
-import kuda from "../../assets/kuda.png";
-import hp from "../../assets/hp.png";
-import interswitch from "../../assets/interswitch.png";
-import flower1 from "../../assets/img/flower_1.png";
-import flower2 from "../../assets/img/flower_2.png";
-import Container from "../common/Container";
+import React from 'react';
+import styled from 'styled-components';
+import corona from '../../assets/clients/corona.png';
+import streamsower from '../../assets/clients/streamsowers-kohn-nigeria.jpg';
+import flower1 from '../../assets/img/flower_1.png';
+import flower2 from '../../assets/img/flower_2.png';
+import fbnInsurance from '../../assets/testimony1.png';
+import enyo from '../../assets/testimony2.png';
+import unicane from '../../assets/testimony4.jpg';
+import nepal from '../../assets/testimony5.jpg';
+import unikem from '../../assets/testimony7.jpg';
+import Container from '../common/Container';
 
 const Wrapper = styled.div`
   position: relative;
@@ -39,19 +35,16 @@ const Wrapper = styled.div`
     justify-content: center;
   }
   .lhs h1 {
-    font-size: 35px;
     margin-bottom: 10px;
-    font-weight: 400;
-    line-height: 30px;
+    font-weight: 500;
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
-      font-size: 3rem;
     }
   }
   .lhs .info {
     margin-bottom: 80px;
   }
   .big {
-    width: 130px;
+    width: 170px;
   }
   .small {
     width: 85px;
@@ -66,9 +59,9 @@ const Wrapper = styled.div`
     border-radius: 50%;
     width: 100%;
     text-align: center;
-    background: white;
+    /* background: white; */
     img {
-      width: 75%;
+      max-width: 100%;
     }
   }
   .rhs,
@@ -117,7 +110,10 @@ const Wrapper = styled.div`
   }
   .kuda {
     top: 35%;
-    right: 20%;
+    right: -10%;
+    img {
+      width: 50%;
+    }
   }
   .inter {
     top: 87%;
@@ -133,6 +129,9 @@ const Wrapper = styled.div`
   .paystack {
     top: 147%;
     left: 0;
+    img {
+      width: 75%
+    }
   }
   .flutter {
     right: 45%;
@@ -149,6 +148,9 @@ const Wrapper = styled.div`
     position: absolute;
     right: 0;
     top: 100%;
+    img {
+      width: 150px;
+    }
     @media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
       display: none;
     }
@@ -177,63 +179,79 @@ const Wrapper = styled.div`
     bottom: -50px;
   }
 `;
-function OurClients(props) {
-  return (
-    <Wrapper>
-      <img className="flower flower1" src={flower1} alt="flower1" />
-      <img className="flower flower2" src={flower2} alt="flower2" />
-      <Container>
-        <div className="content">
-          <div className="lhs">
-            <h1>Some of our Clients</h1>
-            <p className="info">
-              At Choose Life, we understand that what goes into your body Is the
-              most important part of your health. This is why we offer support
-              through personalized nutrition plans and recipe on how to make
-              healthier versions of the Foods you already love.
-            </p>
+function OurClients() {
+	return (
+		<Wrapper>
+			<img className="flower flower1" src={flower1} alt="flower1" />
+			<img className="flower flower2" src={flower2} alt="flower2" />
+			<Container>
+				<div className="content">
+					<div className="lhs">
+						<h1>Some of our Clients</h1>
+						<p className="info">
+							At Choose Life, we understand that what goes into
+							your body Is the most important part of your health.
+							This is why we offer support through personalized
+							nutrition plans and recipe on how to make healthier
+							versions of the Foods you already love.
+						</p>
 
-            <div className="rand-img flex big hp">
-              <div className="circle flex hp">
-                {" "}
-                <img src={hp} alt="hp" />
-              </div>
-            </div>
-          </div>
-          <div className="rhs">
-            <div className="rand-img flex small amazon">
-              <div className="circle flex ">
-                {" "}
-                <img src={amazon} alt="amazon" />
-              </div>
-            </div>
-            <div className="rand-img flex small firstBank">
-              <div className="circle flex ">
-                {" "}
-                <img src={firstBank} alt="firstBank" />
-              </div>
-            </div>
-            <div className="rand-img flex small kuda">
-              <div className="circle flex ">
-                <img src={kuda} alt="kuda" />
-              </div>
-            </div>
-            <div className="rand-img flex small inter">
-              <div className="circle  flex">
-                <img src={interswitch} alt="interswitch" />
-              </div>
-            </div>
-            <div className="rand-img flex big gtb">
-              <div className="circle flex ">
-                <img src={gtb} alt="gtb" />
-              </div>
-            </div>
-            <div className="rand-img flex big paystack">
-              <div className="circle flex paystack">
-                {" "}
-                <img src={paystack} alt="paystack" />
-              </div>
-            </div>
+						<div className="rand-img flex big hp">
+							<div className="circle flex hp">
+								{' '}
+								<img src={streamsower} alt="streamsower" />
+							</div>
+						</div>
+					</div>
+					<div className="rhs">
+						<div className="rand-img flex small amazon">
+							<div className="circle flex ">
+								{' '}
+								<img src={corona} alt="amazon" />
+							</div>
+						</div>
+
+						<div className="rand-img flex small firstBank">
+							<div className="circle flex " title="FBN Insurance">
+								{' '}
+								<img src={fbnInsurance} alt="fbn insurance" />
+							</div>
+						</div>
+						<div className="rand-img flex kuda">
+							<div
+								className="circle flex "
+								title="Unikem industries "
+							>
+								<img src={unikem} alt="Unikem industries " />
+							</div>
+						</div>
+
+						<div className="rand-img flex small inter">
+							<div
+								className="circle  flex"
+								title="Enyo Retail and Supply "
+							>
+								<img src={enyo} alt="Enyo Retail and Supply " />
+							</div>
+						</div>
+						<div className="rand-img flex big gtb">
+							<div
+								className="circle flex "
+								title="Unicane industries"
+							>
+								<img src={unicane} alt="Unicane industries" />
+							</div>
+						</div>
+						<div className="rand-img flex big paystack">
+							<div
+								className="circle flex paystack"
+								title="Nepal Oil and Gas"
+							>
+								{' '}
+								<img src={nepal} alt="Nepal Oil and Gas" />
+							</div>
+						</div>
+						{/*
             <div className="rand-img flex small flutter">
               <div className="circle flex flutter">
                 <img src={flutter} alt="flutter" />
@@ -244,18 +262,14 @@ function OurClients(props) {
                 <img src={fly} alt="" />
               </div>
             </div>
-            {/* <div className="rand-img flex big hp-mobile">
-              <div className="circle flex hp-mobile">hp</div>
-            </div>
-             */}
             <div className="rand-img flex big hp hp-mobile">
               <div className="circle flex hp "><img src={hp} alt="hp" /></div>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </Wrapper>
-  );
+            </div> */}
+					</div>
+				</div>
+			</Container>
+		</Wrapper>
+	);
 }
 
 OurClients.propTypes = {};

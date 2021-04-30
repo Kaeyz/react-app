@@ -184,6 +184,25 @@ employeeQueries.unSuspendEmployee = (id) => {
 	});
 };
 
+employeeQueries.resendEmployeeInvite = (id) => {
+	const query = `
+	mutation RESEND_EMPLOYEE_INVITE($id: String!) {
+		resendCompanyAddEmployeeEmail(id: $id) {
+			message
+		}
+	}
+	`;
+
+	const variables = {
+		id
+	};
+	return new Promise((resolve, reject) => {
+		client(query, variables)
+			.then(res => resolve(res))
+			.catch(err => reject(err));
+	});
+};
+
 employeeQueries.removeEmployee = (id) => {
 	const query = `
 	mutation REMOVE_EMPLOYEE_BY_ID($id: String!) {

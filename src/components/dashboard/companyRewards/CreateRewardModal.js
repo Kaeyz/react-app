@@ -1,15 +1,19 @@
+import { Grid, Paper } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNewReward } from '../../../store/actions/rewardActions';
-import PropTypes from 'prop-types';
-import { rewardInputValidator } from '../../forms/validation';
 import styled from 'styled-components';
-import Modal from '../../dashboard/common/Modal';
-import Button from '../../../components/common/Button';
-import { TextInput, DateInput, TextArea } from '../../../components/common/inputs';
-import pinkIcon from '../../../assets/pinkIcon.svg';
 import add from '../../../assets/Add.svg';
-import { Paper, Grid } from '@material-ui/core';
+import pinkIcon from '../../../assets/pinkIcon.svg';
+import Button from '../../../components/common/Button';
+import {
+	DateInput,
+	TextArea,
+	TextInput
+} from '../../../components/common/inputs';
+import { addNewReward } from '../../../store/actions/rewardActions';
+import Modal from '../../dashboard/common/Modal';
+import { rewardInputValidator } from '../../forms/validation';
 
 const Wrapper = styled.div`
 	#mb {
@@ -19,16 +23,15 @@ const Wrapper = styled.div`
 	}
 `;
 
-const CreateRewardModal = ({addNewReward}) => {
+const CreateRewardModal = ({ addNewReward }) => {
 	const [show, setShow] = React.useState(false);
 	const [title, setTitle] = React.useState('');
 	const [description, setDescription] = React.useState('');
-	const [startDate, setStartDate] = React.useState(new Date());
-	const [endDate, setEndDate] = React.useState(new Date());
+	const [startDate, setStartDate] = React.useState(new Date().toDateString());
+	const [endDate, setEndDate] = React.useState(new Date().toDateString());
 	const [errors, setErrors] = React.useState({});
 
-
-	const	showModal = () => {
+	const showModal = () => {
 		setShow(true);
 	};
 
@@ -40,6 +43,8 @@ const CreateRewardModal = ({addNewReward}) => {
 		event.preventDefault();
 		setErrors({});
 		const data = { title, description, startDate, endDate };
+
+		// check if the startDate is greater than the end date
 
 		const { errors, isValid } = rewardInputValidator(data);
 		if (!isValid) {
@@ -54,7 +59,29 @@ const CreateRewardModal = ({addNewReward}) => {
 		<Wrapper>
 			<Modal
 				show={show}
-				info="One of the great power that this platform offers is the creation of rewards to motivate employees of a company to stay focused on the four pillars of choose life (health, nutrition, lifestyle and fitness. The rewards offer a mechanism to rate individual progress with a feature named leaderboard(link to the leaderboard should be added). Our goal is to give you and your employees all the tools to monitor and improve your general wellbeing."
+				info={
+					<>
+						<p>
+							One of the great powers that this platform offers is
+							the creation of rewards to motivate your employees
+							to stay focused on the four pillars of the Choose
+							Life Model (health, nutrition, lifestyle and
+							fitness).
+						</p>
+
+						<p>
+							The rewards offer a mechanism to rate individual
+							progress with our &quot;Leaderboard&quot; feature.
+						</p>
+
+						<p>
+							Our goal is to give you and your employees all the
+							tools to monitor and improve your general wellbeing
+							while encouraging healthy competition among
+							employees to get and stay healthy and fit.
+						</p>
+					</>
+				}
 				handleClose={hideModal}
 				position="modal-right"
 				heading={
@@ -75,7 +102,7 @@ const CreateRewardModal = ({addNewReward}) => {
 					<Grid item xs={12}>
 						<TextArea
 							label="Description"
-							placeholder='Type here ...'
+							placeholder="Type here ..."
 							value={description}
 							onChange={setDescription}
 							error={errors.description}
@@ -86,7 +113,7 @@ const CreateRewardModal = ({addNewReward}) => {
 							label="Start Date"
 							value={startDate}
 							onChange={setStartDate}
-							errors={errors.startDate}
+							error={errors.startDate}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
@@ -94,7 +121,7 @@ const CreateRewardModal = ({addNewReward}) => {
 							label="End Date"
 							value={endDate}
 							onChange={setEndDate}
-							errors={errors.endDate}
+							error={errors.endDate}
 						/>
 					</Grid>
 					<Grid item xs={12} id="mb">
@@ -110,7 +137,7 @@ const CreateRewardModal = ({addNewReward}) => {
 			<div onClick={showModal}>
 				<Paper className="add">
 					<img src={add} alt="add" />
-					<h1>CREATE NEW REWARD</h1>
+					<h2>CREATE NEW REWARD</h2>
 				</Paper>
 			</div>
 		</Wrapper>
@@ -118,7 +145,7 @@ const CreateRewardModal = ({addNewReward}) => {
 };
 
 CreateRewardModal.propTypes = {
-	addNewReward: PropTypes.func.isRequired
+	addNewReward: PropTypes.func.isRequired,
 };
 
-export default connect(null, {addNewReward})(CreateRewardModal);
+export default connect(null, { addNewReward })(CreateRewardModal);

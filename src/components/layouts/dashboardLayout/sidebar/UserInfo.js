@@ -1,10 +1,8 @@
-/*eslint-disable */
-
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { Avatar } from "@material-ui/core";
-import dp from "../../../../assets/dp.svg";
+import { Avatar } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
+import dp from '../../../../assets/dp.svg';
 
 const Wrapper = styled.div`
   margin-top: 3.45rem;
@@ -30,41 +28,40 @@ const Wrapper = styled.div`
     line-height: 1.4rem;
   }
   .main {
-    font-size: 1.4rem;
     font-weight: bold;
     color: #000000;
     letter-spacing: -0.4px;
     margin-bottom: 5px;
   }
   .sub {
-    font-size: 1.3rem;
     color: #828282;
     line-height: 12px;
   }
 `;
 
 function UserInfo({ name, type, companyName }) {
-  return (
-    <Wrapper>
-      <div className="user_details">
-        <Avatar alt="users name" src={dp} className="avatar" />
-        <div className="details">
-          <p className="details_text main">
-            {" "}
-            {type === "COMPANY" ? companyName : name}
-          </p>
+	return (
+		<Wrapper>
+			<div className="user_details">
+				{/* implement the image upload */}
+				<Avatar alt="users name" src={dp} className="avatar" />
+				<div className="details">
+					<p className="details_text main">
+						{' '}
+						{type === 'COMPANY' ? (companyName?.length > 10 ? `${companyName?.substring(0, 10)}...` : companyName) : (name?.length > 10 ? `${name?.substring(0, 10)}...` : name)}
+					</p>
 
-          <p className="details_text sub">{String(type).toLowerCase()}</p>
-        </div>
-      </div>
-    </Wrapper>
-  );
+					<p className="details_text sub">{String(type).toLowerCase()}</p>
+				</div>
+			</div>
+		</Wrapper>
+	);
 }
 
 UserInfo.propTypes = {
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  companyName: PropTypes.string,
+	name: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired,
+	companyName: PropTypes.string,
 };
 
 export default UserInfo;

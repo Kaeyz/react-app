@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 
 const Wrapper = styled.div`
@@ -9,36 +9,34 @@ const Wrapper = styled.div`
 	.input_label {
 		margin-bottom: 1rem;
 		margin-top: 0;
-		font-family:Sofia;
+		font-size: 1.4rem;
 		letter-spacing: 0.1px;
 		font-weight: 600;
-font-size: 1.4rem;
-line-height: 1.4rem;
-color: ${props => props.theme.color.ui_text_05};
+		line-height: 1.4rem;
+		color: ${(props) => props.theme.color.ui_text_05};
 	}
-#text-area{
-    width: 100%;
-    border: 1px solid ${props => props.theme.color.ui_text_06};
-border-radius: 8px;
-padding: 1.5rem;
-&:hover {
-    border: 1px solid ${props => props.theme.color.ui_text_05};
-    transition: .3s;
-}
-&:focus-within{
-    outline: none;
-    border-color: ${props => props.theme.color.brand_02};
-    box-shadow: 0 0 3px ${props => props.theme.color.brand_02};
-}
-}
-.error {
-		color: red;
-		font-size: 1.3rem;
+	#text-area {
+		font-size: 1.4rem;
+		width: 100%;
+		border: 1px solid ${(props) => props.theme.color.ui_text_06};
+		padding: 1.5rem;
+		&:hover {
+			border: 1px solid ${(props) => props.theme.color.ui_text_05};
+			transition: 0.3s;
+		}
+		&:focus-within {
+			outline: none;
+			border-color: ${(props) => props.theme.color.brand_02};
+			box-shadow: 0 0 3px ${(props) => props.theme.color.brand_02};
+		}
+	}
+	.error {
+		color: #b40001;
 		padding-top: 2px;
 	}
 `;
 
-const TextArea = ({ label, placeholder, error, onChange, value  }) => {
+const TextArea = ({ label, placeholder, error, onChange, value }) => {
 
 	const handleChange = (event) => {
 		onChange(event.target.value);

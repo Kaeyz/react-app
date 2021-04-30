@@ -1,14 +1,14 @@
+import { Grid } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateReward } from '../../../store/actions/rewardActions';
-import PropTypes from 'prop-types';
-import { rewardInputValidator } from '../../forms/validation';
 import styled from 'styled-components';
-import Modal from '../common/Modal';
-import Button from '../../common/Button';
-import { TextInput, DateInput, TextArea } from '../../common/inputs';
 import pinkIcon from '../../../assets/pinkIcon.svg';
-import { Grid } from '@material-ui/core';
+import { updateReward } from '../../../store/actions/rewardActions';
+import Button from '../../common/Button';
+import { DateInput, TextArea, TextInput } from '../../common/inputs';
+import { rewardInputValidator } from '../../forms/validation';
+import Modal from '../common/Modal';
 
 const Wrapper = styled.div`
 	#mb {
@@ -95,7 +95,7 @@ const EditRewardModal = ({ updateReward, reward }) => {
 							label="Start Date"
 							value={startDate}
 							onChange={setStartDate}
-							errors={errors.startDate}
+							error={errors.startDate}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
@@ -103,13 +103,13 @@ const EditRewardModal = ({ updateReward, reward }) => {
 							label="End Date"
 							value={endDate}
 							onChange={setEndDate}
-							errors={errors.endDate}
+							error={errors.endDate}
 						/>
 					</Grid>
 					<Grid item xs={12} id="mb">
 						<Button
 							theme="darkGreen"
-							text="Create Reward"
+							text="Edit Reward"
 							onClick={onFormSubmit}
 						/>
 					</Grid>

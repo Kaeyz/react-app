@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import Frame from '../../../assets/Frame.svg';
 // import Header from './header';
 import Container from '../../common/Container';
-import Frame from '../../../assets/Frame.svg';
-import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.brand_05};
@@ -36,8 +36,6 @@ const Wrapper = styled.div`
       }
     }
     p {
-      font-size: 1.6rem;
-      line-height: 2.5rem;
       color: ${(props) => props.theme.color.text_06};
     }
   }

@@ -1,11 +1,11 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import AuthLayout from '../../components/layouts/appLayout/AuthLayout';
+import React from 'react';
 import CompanySignUpForm from '../../components/forms/authentications/CompanySignUpForm';
+import AuthLayout from '../../components/layouts/appLayout/AuthLayout';
 
 const layoutData = {
 	title: 'For Companies',
-	description: 'Turn your organisation into a wellness center with our help. Are you asking:” How do I get my team performing to the best of their ability” You’ve landed on the right page.',
+	description: 'Let\'s help you turn your organization into a wellness center. Are you wondering how to get your team to deliver peak performance? You\'ve landed on the right page.',
 	buttonText: 'Switch to Individual',
 	buttonLink: '/onboarding/individual',
 };

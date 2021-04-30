@@ -1,19 +1,18 @@
-/* eslint-disable no-unused-vars */
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
-
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    margin-bottom: 1rem;
-	.MuiFormLabel-root {
+	margin-bottom: 1rem;
+	h6 {
 		font-size: 1.4rem;
-		line-height: 2.4rem;
+	}
+	.MuiFormLabel-root {
 		font-family: Matteo;
 		color: ${(props) => props.theme.color.text_01};
 	}
@@ -22,21 +21,20 @@ const Wrapper = styled.div`
 	}
 	label + .MuiInput-formControl {
 		margin-left: 1.2rem;
-		width: 15.0rem;
+		width: 15rem;
 		margin-top: 2.3rem;
 	}
 	.MuiInputBase-input {
-		font-size: 1.2rem;
 		width: 20.3rem;
+		font-size: 2rem;
 		line-height: 2.4rem;
 	}
 	.MuiInputBase-input::placeholder {
 		font-family: Matteo;
-		font-size: 1.4rem;
-		line-height: 2.4rem;
 	}
-	.MuiInput-underline:before,.MuiInput-underline:after {
-		border-bottom: .1rem solid #2ec4b6;
+	.MuiInput-underline:before,
+	.MuiInput-underline:after {
+		border-bottom: 0.1rem solid #2ec4b6;
 	}
 	.flex {
 		display: flex;
@@ -52,29 +50,28 @@ const Wrapper = styled.div`
 		width: 11.3rem;
 	}
 	.dropdown {
-		margin-top: -.5rem;
+		margin-top: -0.5rem;
 		.MuiSelect-icon {
 			color: #2ec4b6;
 		}
 		.MuiSelect-select.MuiSelect-select {
-			font-size: 1.4rem;
-			line-height: 1.9rem;
+			/* line-height: 1.9rem; */
 			color: ${(props) => props.theme.color.brand_02};
 			font-family: Matteo;
 		}
 	}
 `;
 
-function TextInput({ label }) {
+function TextInput() {
 	const [value, setValue] = React.useState('');
-	const [weight, setWeight] = React.useState('Kilogram');
+	// const [weight, setWeight] = React.useState('Kilogram');
 
 	const handleChange = (event) => {
 		setValue(event.target.value);
 	};
-	const handleWeight = (event) => {
-		setWeight(event.target.value);
-	};
+	// const handleWeight = (event) => {
+	// 	setWeight(event.target.value);
+	// };
 	return (
 		<Wrapper>
 			<Grid xs={12} sm={6}>
@@ -111,12 +108,15 @@ function TextInput({ label }) {
 								inputProps={{ 'aria-label': 'Without label' }}
 							>
 								<MenuItem value="">Cigarettes per day</MenuItem>
-								<MenuItem value={10}>Cigarettes per week</MenuItem>
-								<MenuItem value={20}>Cigarettes per month</MenuItem>
+								<MenuItem value={10}>
+									Cigarettes per week
+								</MenuItem>
+								<MenuItem value={20}>
+									Cigarettes per month
+								</MenuItem>
 							</Select>
 						</FormControl>
 					</div>
-
 				</div>
 			</Grid>
 		</Wrapper>
@@ -127,7 +127,6 @@ TextInput.propTypes = {
 	SerialNumber: PropTypes.number.isRequired,
 	label: PropTypes.string,
 	placeholder: PropTypes.string,
-
 };
 
 export default TextInput;

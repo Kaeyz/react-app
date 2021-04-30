@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-
+/* eslint-disable */
 class NavLink extends React.Component {
 	render() {
 		const isActive =

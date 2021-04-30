@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { getCompanyLeaderBoard } from '../../../store/actions/rewardActions';
-import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import { getCompanyLeaderBoard } from '../../../store/actions/rewardActions';
 import SmallSpinner from './../../common/spinner/SmallSpinner';
 
 
@@ -22,12 +22,10 @@ width:100%;
 	}
 	.position {
 		font-weight: 300;
-		font-size: 1.3rem;
 		line-height: 1.2rem;
 		letter-spacing: 0.2px;
 		color: ${props => props.theme.color.ui_05};
 		@media screen and (max-width: ${(props) => props.theme.breakpoint.sm}) {
-			font-size: 1.1rem;
 		}
 	}
 	.positionValue {

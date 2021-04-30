@@ -1,33 +1,29 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
-import FilterSearchLayout from '../../components/layouts/FilterSearchLayout';
+import back from '../../assets/greenBackArrow.svg';
 import PaginationTable from '../../components/common/PaginationTable';
 import Table from '../../components/dashboard/common/Table';
 import { tableConstants6 } from '../../components/dashboard/companies/tableConstant6';
-import { Link } from 'react-router-dom';
+import DashboardLayout from '../../components/layouts/dashboardLayout/DashboardLayout';
+import FilterSearchLayout from '../../components/layouts/FilterSearchLayout';
+import { getPendingCompanies } from '../../store/actions/companyActions';
 import { sortTableData } from '../../utils/helper';
 
-import { connect } from 'react-redux';
-import { getPendingCompanies } from '../../store/actions/companyActions';
-import back from '../../assets/greenBackArrow.svg';
-
-
 const Wrapper = styled.div`
-  #back {
-    font-weight: bold;
-    font-size: 1.4rem;
-    line-height: 1.4rem;
-    color: ${(props) => props.theme.color.brand_02};
-    padding-right: 1rem;
-    img {
-      padding-right: 0.5rem;
-    }
-  }`;
+	#back {
+		font-weight: bold;
+		color: ${(props) => props.theme.color.brand_02};
+		padding-right: 1rem;
+		img {
+			padding-right: 0.5rem;
+		}
+	}
+`;
 
 function PendingCompanies({ getPendingCompanies, companies, isLoading }) {
-
 	React.useEffect(() => {
 		getPendingCompanies();
 	}, [getPendingCompanies]);
@@ -42,7 +38,7 @@ function PendingCompanies({ getPendingCompanies, companies, isLoading }) {
 								<p id="back">
 									{' '}
 									<img src={back} alt="go-back" />
-                  Back
+									Back
 								</p>
 							</Link>{' '}
 							<span>Pending Invites</span>
@@ -50,14 +46,14 @@ function PendingCompanies({ getPendingCompanies, companies, isLoading }) {
 					}
 					display="none"
 				>
-					{
-						isLoading ?
-							<div>Loading ...</div> :
-							<React.Fragment>
-								<Table cols={tableConstants6()} data={companies} />
-								<PaginationTable/>
-							</React.Fragment>
-					}
+					{isLoading ? (
+						<div>Loading ...</div>
+					) : (
+						<React.Fragment>
+							<Table cols={tableConstants6()} data={companies} />
+							<PaginationTable />
+						</React.Fragment>
+					)}
 				</FilterSearchLayout>
 			</DashboardLayout>
 		</Wrapper>
@@ -77,10 +73,12 @@ const key = {
 	email: 'EMAIL ADDRESS',
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	const { companies, isLoading } = state.company;
 	const data = sortTableData(companies, key);
 	return { companies: data, isLoading };
 };
 
-export default connect(mapStateToProps, { getPendingCompanies })(PendingCompanies);
+export default connect(mapStateToProps, { getPendingCompanies })(
+	PendingCompanies,
+);

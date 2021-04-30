@@ -1,11 +1,10 @@
-/*eslint-disable */
 
-import React from 'react';
 import PropTypes from 'prop-types';
-import CommonAuthPaperPage from '../../components/forms/authentications/CommonAuthPaperPage';
-import AdminLoginFrom from '../../components/forms/authentications/AdminLoginFrom';
+import React from 'react';
 import styled from 'styled-components';
-import logo from '../../assets/Frame.svg'
+import logo from '../../assets/Frame.svg';
+import AdminLoginFrom from '../../components/forms/authentications/AdminLoginFrom';
+import CommonAuthPaperPage from '../../components/forms/authentications/CommonAuthPaperPage';
 
 const Wrapper = styled.div`
 
