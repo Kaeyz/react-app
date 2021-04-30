@@ -4,7 +4,6 @@ import React from 'react';
 import styled from 'styled-components';
 import close from '../../../assets/close.svg';
 
-
 const Wrapper = styled.div`
 	.modal {
 		position: fixed;
@@ -101,9 +100,14 @@ const Modal = ({
 	children,
 	heading,
 	info,
-	position, align, img, alt
+	position,
+	align,
+	img,
+	alt,
 }) => {
-	const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+	const showHideClassName = show
+		? 'modal display-block'
+		: 'modal display-none';
 
 	return (
 		<Wrapper>
@@ -127,7 +131,7 @@ const Modal = ({
 };
 Modal.defaultProps = {
 	info:
-    'It is a long established fact that a reader will be distracted by the readable content.',
+		'It is a long established fact that a reader will be distracted by the readable content.',
 };
 
 Modal.propTypes = {
@@ -142,7 +146,7 @@ Modal.propTypes = {
 	position: PropTypes.string,
 	shortBtn: PropTypes.string,
 	show: PropTypes.bool.isRequired,
-	textBtn: PropTypes.string
+	textBtn: PropTypes.string,
 };
 
 export default Modal;

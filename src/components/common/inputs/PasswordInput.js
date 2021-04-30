@@ -40,7 +40,6 @@ const Wrapper = styled.div`
 	}
 	.input {
 		font-size: 1.4rem;
-		line-height: 1.4rem;
 		background-color: rgba(255, 255, 255, 0);
 		margin: 0;
 		outline: none;
@@ -49,7 +48,6 @@ const Wrapper = styled.div`
 		width: 100%;
 		padding-left: 1rem;
 		&::placeholder {
-			/* font-family: Sofia; */
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.text_06};
 		}
@@ -58,7 +56,6 @@ const Wrapper = styled.div`
 		}
 	}
 	.adornment {
-		/* width: max-content; */
 		padding-right: 1rem;
 	}
 	.error {

@@ -7,11 +7,9 @@ import icon from '../../../assets/money.svg';
 import Button from '../../../components/common/Button';
 import {
 	DateInput,
-
-	SelectInput, TextArea, TextInput,
-
-
-
+	SelectInput,
+	TextArea,
+	TextInput,
 	TimeInput
 } from '../../../components/common/inputs';
 import { addNewAppointment } from '../../../store/actions/appointmentActions';
@@ -30,42 +28,42 @@ const Wrapper = styled.div`
 			padding: 3rem 0;
 		}
 	}
-	#trigger{
+	#trigger {
 		height: 100%;
-		&:hover{
-			transform: scale(.95);
-			transition: .3s;
+		&:hover {
+			transform: scale(0.95);
+			transition: 0.3s;
 		}
 	}
-.uglyCard{
+	.uglyCard {
 		padding: 2rem;
 		border-radius: 8px;
 		box-shadow: none;
 		min-height: 170px;
 		cursor: pointer;
 		height: 100%;
-}
-.pink{
-		background-color:#fff1ed;
-		border: 1px solid #F37920;
-}
-.green{
-		background-color:#f3f6eb;
-		border: 1px solid #9ECD43;
-}
-.text{
-		h1{
+	}
+	.pink {
+		background-color: #fff1ed;
+		border: 1px solid #f37920;
+	}
+	.green {
+		background-color: #f3f6eb;
+		border: 1px solid #9ecd43;
+	}
+	.text {
+		h1 {
 			/* font-family: Sofia; */
 			font-weight: bold;
 			padding-bottom: 1rem;
 			letter-spacing: -0.2px;
-			color: #000B0A;
+			color: #000b0a;
 		}
 		p {
 			font-weight: 300;
 			line-height: 25px;
 			letter-spacing: 0.2px;
-			color: #0A2523;
+			color: #0a2523;
 		}
 	}
 `;
@@ -90,8 +88,13 @@ const purposeOptions = {
 	],
 };
 
-const CreateAppointmentModal = ({type, title, cardTheme, details, addNewAppointment  }) => {
-
+const CreateAppointmentModal = ({
+	type,
+	title,
+	cardTheme,
+	details,
+	addNewAppointment,
+}) => {
 	const [show, setShow] = useState(false);
 
 	const [formTitle, setTitle] = useState('');
@@ -110,7 +113,13 @@ const CreateAppointmentModal = ({type, title, cardTheme, details, addNewAppointm
 		setErrors({});
 		e.preventDefault();
 		const data = {
-			type, formTitle, purpose, date, professional, time, description
+			type,
+			formTitle,
+			purpose,
+			date,
+			professional,
+			time,
+			description,
 		};
 
 		const { isValid, errors } = createAppointmentValidator(data);
@@ -118,11 +127,18 @@ const CreateAppointmentModal = ({type, title, cardTheme, details, addNewAppointm
 			return setErrors(errors);
 		}
 
-		const dateString = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+		const dateString = `${date.getDate()}/${
+			date.getMonth() + 1
+		}/${date.getFullYear()}`;
 
 		const timeString = `${time.getHours()}:${time.getMinutes()}`;
 		const payload = {
-			title: formTitle, purpose, description, date: dateString, time: timeString, type,
+			title: formTitle,
+			purpose,
+			description,
+			date: dateString,
+			time: timeString,
+			type,
 		};
 
 		if (professional) payload.professional = professional;
@@ -138,8 +154,8 @@ const CreateAppointmentModal = ({type, title, cardTheme, details, addNewAppointm
 				handleClose={toggleModal}
 				position="modal-right"
 				heading={<span> Create Appointment</span>}
-				info='Create an Inbody or a meal planning
-					appointment.'
+				info="Create an Inbody or a meal planning
+					appointment."
 			>
 				<Grid container spacing={3} className="appoint-body">
 					<Grid item xs={12}>
@@ -167,16 +183,17 @@ const CreateAppointmentModal = ({type, title, cardTheme, details, addNewAppointm
 							error={errors.date}
 						/>
 					</Grid>
-					{
-						type === 'PROFESSIONAL' &&
-						<SelectInput
-							label="Select Nutritionist"
-							options={optionNutritionist}
-							value={professional}
-							onChange={setProfessional}
-							error={errors.professional}
-						/>
-					}
+					<Grid item xs={12}>
+						{type === 'PROFESSIONAL' && (
+							<SelectInput
+								label="Select Nutritionist"
+								options={optionNutritionist}
+								value={professional}
+								onChange={setProfessional}
+								error={errors.professional}
+							/>
+						)}
+					</Grid>
 					<Grid item xs={12}>
 						<TimeInput
 							label="Propose a time (the time is subject to review)"
@@ -187,7 +204,8 @@ const CreateAppointmentModal = ({type, title, cardTheme, details, addNewAppointm
 					</Grid>
 					<Grid item xs={12}>
 						<TextArea
-							label="Description" placeholder="Give a short description on what you need..."
+							label="Description"
+							placeholder="Give a short description on what you need..."
 							value={description}
 							onChange={setDescription}
 							error={errors.description}
@@ -207,14 +225,13 @@ const CreateAppointmentModal = ({type, title, cardTheme, details, addNewAppointm
 			</Modal>
 
 			<div onClick={toggleModal} id="trigger">
-				<Paper className={`uglyCard flex ${cardTheme}`} >
+				<Paper className={`uglyCard flex ${cardTheme}`}>
 					<div className="text">
 						<h3 className="title">{title}</h3>
 						<p className="details">{details}</p>
 					</div>
 
 					<img src={icon} alt="icon" />
-
 				</Paper>
 			</div>
 		</Wrapper>
@@ -232,4 +249,4 @@ CreateAppointmentModal.propTypes = {
 	addNewAppointment: PropTypes.func.isRequired,
 };
 
-export default connect(null, {addNewAppointment})(CreateAppointmentModal);
+export default connect(null, { addNewAppointment })(CreateAppointmentModal);

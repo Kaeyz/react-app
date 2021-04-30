@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 		margin-bottom: 0.3rem;
 		margin-top: 0;
 		font-size: 1.4rem;
-		line-height: 1.4rem;
+		/* line-height: 1.4rem; */
 	}
 	.MuiFormControl-marginNormal {
 		width: 100%;

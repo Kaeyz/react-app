@@ -8,19 +8,15 @@ import styled from 'styled-components';
 import datePickerIcon from '../../../assets/datePickerIcon.svg';
 
 const Wrapper = styled.div`
-	margin-top: 1.5rem;
+	margin-top: -1.5rem;
 	width: 100%;
 	.input_label {
-		/* font-family: Matteo; */
 		font-size: 1.4rem;
-		line-height: 1.4rem;
 		margin-bottom: 0.9rem;
 		margin-top: 0;
 	}
 	.input {
 		font-size: 1.4rem;
-		line-height: 1.4rem;
-		/* height: 4rem; */
 		margin: 0;
 		min-width: 100%;
 		max-width: 100%;
@@ -51,11 +47,8 @@ const Wrapper = styled.div`
 		border: none;
 	}
 	.MuiOutlinedInput-inputAdornedEnd {
-		/* font-family: Sofia; */
 		font-weight: 300;
 		font-size: 1.4rem;
-		line-height: 1.4rem;
-		letter-spacing: 0.2px;
 		color: ${(props) => props.theme.color.text_06};
 	}
 `;

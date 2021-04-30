@@ -55,7 +55,7 @@ const Wrapper = styled.div`
 			color: #2ec4b6;
 		}
 		.MuiSelect-select.MuiSelect-select {
-			line-height: 1.9rem;
+			/* line-height: 1.9rem; */
 			color: ${(props) => props.theme.color.brand_02};
 			font-family: Matteo;
 		}

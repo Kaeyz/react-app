@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 		/* font-family: Sofia; */
 		letter-spacing: 0.1px;
 		font-weight: 600;
-		line-height: 1.4rem;
+		/* line-height: 1.4rem; */
 		font-size: 1.4rem;
 		color: ${(props) => props.theme.color.ui_text_05};
 	}
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
 	}
 	.input {
 		font-size: 1.4rem;
-		line-height: 1.4rem;
+		/* line-height: 1.4rem; */
 		margin: 0;
 		outline: none;
 		border: none;

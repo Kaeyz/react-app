@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-	margin-top: 1.5rem;
+	/* margin-top: 1.5rem; */
 	width: 100%;
 	.input_label {
 		margin-bottom: 0.9rem;
@@ -47,25 +47,20 @@ const Wrapper = styled.div`
 		border: none;
 	}
 	.MuiSelect-select {
-		/* font-family: Sofia; */
-		/* line-height: 2rem; */
 		letter-spacing: 0.2px;
 		color: ${(props) => props.theme.color.text_06};
-		/* border: 1px solid red; */
 		transition: 0.3s;
 		display: block;
-		height: 1rem;
 		border-radius: 0px;
 	}
-	.MuiSelect-root {
-		/* height: 4.5rem; */
-	}
+	.MuiSelect-root {}
 	.MuiSelect-select.MuiSelect-select {
 		padding-right: 10px;
 	}
 	.MuiSelect-outlined {
 		outline: 0;
 	}
+	.MuiOutlinedInput-input {}
 `;
 
 const SelectInput = ({ label, onChange, value, options, error }) => {

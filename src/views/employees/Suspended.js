@@ -47,7 +47,7 @@ const Suspended = ({ isLoading, getSuspendedEmployees, employees }) => {
 				>
 					{isLoading ? (
 						<div>Loading ...</div>
-					) : employees.length < 1 ? (
+					) : employees && employees.length < 1 ? (
 						<div>No Suspended Employee</div>
 					) : (
 						<React.Fragment>

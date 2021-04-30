@@ -13,7 +13,6 @@ const Wrapper = styled.div`
 	margin-bottom: 1rem;
 	.input_label {
 		margin-bottom: 0.3rem;
-		line-height: 1.5;
 		font-size: 1.3rem;
 		margin-top: 0;
 		font-weight: normal;
@@ -22,7 +21,7 @@ const Wrapper = styled.div`
 	.MuiFormControl-root {
 		border: 1px solid ${(props) => props.theme.color.ui_03};
 		border-radius: 0px;
-		padding: 1.5rem;
+		padding: 1em;
 		width: 100%;
 		&:hover {
 			border: 1px solid ${(props) => props.theme.color.brand_02};
@@ -30,7 +29,7 @@ const Wrapper = styled.div`
 		}
 	}
 	.MuiInputBase-input {
-		padding: 0;
+		/* padding: 1px; */
 	}
 
 	.dropdown > .MuiInput-root {
@@ -39,6 +38,11 @@ const Wrapper = styled.div`
 			/* font-family: Sofia; */
 			letter-spacing: 0.2px;
 			color: ${(props) => props.theme.color.ui_07};
+			font-size: 1.3rem;
+
+			&:focus {
+				background-color: #fff;
+			}
 		}
 		.MuiSelect-icon {
 			color: ${(props) => props.theme.color.text_05};

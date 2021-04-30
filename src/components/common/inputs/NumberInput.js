@@ -10,14 +10,12 @@ const Wrapper = styled.div`
 	.label {
 		margin-bottom: 1rem;
 		margin-top: 0;
-		/* font-family: Sofia; */
 		letter-spacing: 0.1px;
 		font-weight: 600;
 		color: ${(props) => props.theme.color.ui_text_05};
 	}
 	.input {
 		font-size: 1.4rem;
-		line-height: 1.4rem;
 		background-color: rgba(255, 255, 255, 0);
 		height: 4.8rem;
 		margin: 0;
@@ -25,7 +23,6 @@ const Wrapper = styled.div`
 		max-width: 100%;
 		padding: 1.5rem;
 		border: 1px solid ${(props) => props.theme.color.ui_text_06};
-		/* border-radius: 8px; */
 		:focus {
 			outline: none;
 			border-color: ${(props) => props.theme.color.brand_02};

@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 	.input_label {
 		margin-bottom: 1rem;
 		margin-top: 0;
-		/* font-family: Sofia; */
+		font-size: 1.4rem;
 		letter-spacing: 0.1px;
 		font-weight: 600;
 		line-height: 1.4rem;
@@ -17,10 +17,8 @@ const Wrapper = styled.div`
 	}
 	#text-area {
 		font-size: 1.4rem;
-		line-height: 1.4rem;
 		width: 100%;
 		border: 1px solid ${(props) => props.theme.color.ui_text_06};
-		/* border-radius: 8px; */
 		padding: 1.5rem;
 		&:hover {
 			border: 1px solid ${(props) => props.theme.color.ui_text_05};
@@ -38,7 +36,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const TextArea = ({ label, placeholder, error, onChange, value  }) => {
+const TextArea = ({ label, placeholder, error, onChange, value }) => {
 
 	const handleChange = (event) => {
 		onChange(event.target.value);
