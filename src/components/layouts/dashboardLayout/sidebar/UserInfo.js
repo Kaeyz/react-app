@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import dp from '../../../../assets/dp.svg';
+import { capitalizeFirstLetter } from '../../../../utils/helper';
 
 const Wrapper = styled.div`
   margin-top: 3.45rem;
@@ -48,7 +49,7 @@ function UserInfo({ name, type, companyName }) {
 				<div className="details">
 					<p className="details_text main">
 						{' '}
-						{type === 'COMPANY' ? (companyName?.length > 10 ? `${companyName?.substring(0, 10)}...` : companyName) : (name?.length > 10 ? `${name?.substring(0, 10)}...` : name)}
+						{type === 'COMPANY' ? (companyName?.length > 10 ? `${capitalizeFirstLetter(companyName?.substring(0, 10))}...` : capitalizeFirstLetter(companyName)) : (name?.length > 10 ? `${capitalizeFirstLetter(name?.substring(0, 10))}...` : capitalizeFirstLetter(name))}
 					</p>
 
 					<p className="details_text sub">{String(type).toLowerCase()}</p>
