@@ -47,12 +47,12 @@ function UserInfo({ name, type, companyName }) {
 				{/* implement the image upload */}
 				<Avatar alt="users name" src={dp} className="avatar" />
 				<div className="details">
-					<p className="details_text main">
+					<p title={name} className="details_text main">
 						{' '}
 						{type === 'COMPANY' ? (companyName?.length > 10 ? `${capitalizeFirstLetter(companyName?.substring(0, 10))}...` : capitalizeFirstLetter(companyName)) : (name?.length > 10 ? `${capitalizeFirstLetter(name?.substring(0, 10))}...` : capitalizeFirstLetter(name))}
 					</p>
 
-					<p className="details_text sub">{String(type).toLowerCase()}</p>
+					<p title={type} className="details_text sub">{String(type).toLowerCase()}</p>
 				</div>
 			</div>
 		</Wrapper>

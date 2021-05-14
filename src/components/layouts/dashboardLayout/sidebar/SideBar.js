@@ -9,26 +9,24 @@ import NavSection from './NavSection';
 import sideBarData from './sideBarData';
 import UserInfo from './UserInfo';
 
-
-
 const Wrapper = styled(Paper)`
 	border-radius: 1.3rem;
 	max-height: 94vh;
 	position: sticky;
-	top: 2.0rem;
+	top: 2rem;
 	left: 1.8rem;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	@media screen and ( max-width: ${props => props.theme.breakpoint.md}) {
-		display:none;
-		}
-		&::-webkit-scrollbar {
+	@media screen and (max-width: ${(props) => props.theme.breakpoint.md}) {
+		display: none;
+	}
+	&::-webkit-scrollbar {
 		width: 0.3em;
 	}
 
 	&::-webkit-scrollbar-thumb {
 		background-color: #2ec4b6;
-		outline: .1rem solid #fff;
+		outline: 0.1rem solid #fff;
 		border-radius: 0.5rem;
 	}
 	.sidebar {
@@ -39,7 +37,7 @@ const Wrapper = styled(Paper)`
 		min-height: 92vh;
 	}
 	.top {
-		.MuiDivider-middle{
+		.MuiDivider-middle {
 			background-color: #a6a6a6;
 			width: 19rem;
 			height: 0.5px;
@@ -74,7 +72,6 @@ const Wrapper = styled(Paper)`
 `;
 
 function SideBar({ logoutUser, user, type }) {
-
 	const [isLoading, setIsLoading] = React.useState(true);
 	const [navItems, setNavItem] = React.useState({});
 
@@ -91,25 +88,46 @@ function SideBar({ logoutUser, user, type }) {
 
 	return (
 		<React.Fragment>
-			{!isLoading &&
-		<Wrapper elevation={2}>
-			<div className="sidebar">
-				<div className="top">
-					<div className='top_section'>
-						<img src={toggleLogo} alt="toggle" className="logo" />
-						<h3>{navItems.navTitle}</h3>
+			{!isLoading && (
+				<Wrapper elevation={2}>
+					<div className="sidebar">
+						<div className="top">
+							<div className="top_section">
+								<img
+									src={toggleLogo}
+									alt="toggle"
+									className="logo"
+								/>
+								<h3>{navItems.navTitle}</h3>
+							</div>
+							<Divider variant="middle" />
+							<div className="nav">
+								{user && (
+									<UserInfo
+										name={user.name}
+										type={type}
+										companyName={user.companyName}
+									/>
+								)}
+								{type && (
+									<NavSection
+										title={type}
+										items={navItems.topSection}
+									/>
+								)}
+								<Divider variant="middle" />
+								<NavSection
+									title="OTHER"
+									items={[
+										...navItems.otherSection,
+										logoutItem,
+									]}
+								/>
+							</div>
+						</div>
 					</div>
-					<Divider variant="middle" />
-					<div className="nav">
-						<UserInfo name={user.name} type={type} companyName={user.companyName} />
-						<NavSection title={type} items={navItems.topSection} />
-						<Divider variant="middle" />
-						<NavSection title="OTHER" items={[...navItems.otherSection, logoutItem]} />
-					</div>
-				</div>
-			</div>
-		</Wrapper>
-			}
+				</Wrapper>
+			)}
 		</React.Fragment>
 	);
 }
@@ -121,10 +139,10 @@ SideBar.propTypes = {
 	// companyName: PropTypes.string
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	const { name, type, companyName } = state.user.user;
-	const user = { name, type,companyName };
-	return { user, type,companyName };
+	const user = { name, type, companyName };
+	return { user, type, companyName };
 };
 
 export default connect(mapStateToProps, { logoutUser })(SideBar);
