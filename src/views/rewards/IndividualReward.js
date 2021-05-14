@@ -152,7 +152,7 @@ function IndividualRewards({ getRewards, reward, isLoading }) {
 
 IndividualRewards.propTypes = {
 	isLoading: PropTypes.bool.isRequired,
-	reward: PropTypes.array.isRequired,
+	reward: PropTypes.any,
 	getRewards: PropTypes.func.isRequired,
 };
 

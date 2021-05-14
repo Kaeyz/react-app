@@ -107,6 +107,12 @@ function HealthReport({
 					) : (
 						<div className="flex analysis-card">
 							<AnalysisCard
+								cardTheme="green"
+								cardHeading="Current Age"
+								cardInfo="This is your real or current age as entered on the platform"
+								cardValue={reportData?.actual_age || 'No Value'}
+							/>
+							<AnalysisCard
 								cardTheme="blue"
 								cardHeading="Your Target Age"
 								cardInfo="Your target age is what you ideally want your risk age to be, achievable if you made changes to your lifestyle."
@@ -129,12 +135,6 @@ function HealthReport({
 										)) ||
 									'No Value'
 								}
-							/>
-							<AnalysisCard
-								cardTheme="green"
-								cardHeading="Current Age"
-								cardInfo="This is your real or current age as entered on the platform"
-								cardValue={reportData?.actual_age || 'No Value'}
 							/>
 						</div>
 					)}
