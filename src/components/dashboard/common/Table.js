@@ -42,8 +42,9 @@ const Wrapper = styled.div`
   .thead {
     letter-spacing: 0.2px;
     color: ${(props) => props.theme.color.ui_05};
-    padding: 2rem 0;
+    padding: 1rem 0;
     font-weight: normal;
+    font-size: 1.5rem;
   }
   .content {
     padding: 1rem 0.5rem;

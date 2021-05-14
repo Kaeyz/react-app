@@ -7,6 +7,7 @@ import CompanyHome from './CompanyHome';
 import IndividualHome from './IndividualHome';
 
 const Dashboard = ({userType}) => {
+	if (userType === undefined || userType === null) return null;
 	return (
 		<DashboardLayout whatPage="Dashboard">
 

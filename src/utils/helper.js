@@ -19,7 +19,9 @@ export const convertDate = (date) => {
 };
 
 export const capitalizeFirstLetter = (string) => {
-	return string.charAt(0).toUpperCase() + string.slice(1);
+	if (string !== undefined) {
+		return string?.charAt(0).toUpperCase() + string?.slice(1);
+	}
 };
 
 export const sortTableData = (tableData, dataKey, callback) => {
