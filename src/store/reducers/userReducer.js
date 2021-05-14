@@ -2,7 +2,7 @@ import { SET_AUTH, SET_USER } from '../types';
 
 const initialState = {
 	isAuthenticated: false,
-	user: null
+	user: {}
 };
 
 export default function (state = initialState, action) {
