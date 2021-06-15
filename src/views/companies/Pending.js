@@ -34,7 +34,7 @@ function PendingCompanies({ getPendingCompanies, companies, isLoading }) {
 				<FilterSearchLayout
 					text={
 						<>
-							<Link to="/employees">
+							<Link to="/companies">
 								<p id="back">
 									{' '}
 									<img src={back} alt="go-back" />
