@@ -159,6 +159,7 @@ export default function Footer({
 							/>
 						</h5>
 						<div className="info">
+							<h1>We are just a step away</h1>
 							<p className="info-top">
 								At Choose Life, we understand that what goes
 								into your body Is the most important part of

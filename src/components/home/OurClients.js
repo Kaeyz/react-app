@@ -187,7 +187,7 @@ function OurClients() {
 			<Container>
 				<div className="content">
 					<div className="lhs">
-						<h1>Some of our Clients</h1>
+						<h1>Our Work Speak For Itself</h1>
 						<p className="info">
 							At Choose Life, we understand that what goes into
 							your body Is the most important part of your health.

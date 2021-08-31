@@ -60,7 +60,7 @@ function index({ children, nullText }) {
 				<WelcomeBanner
 					emoji="🍲"
 					heading="Meal Plans"
-					detail="A balanced diet is essential to a healthy life and meal planning is the easiest way to ensure you eat healthy."
+					detail="A balanced diet is essential for a healthy life, and meal planning is the easiest way to achieve it."
 				/>
 				<div className="withNull">
 					<h1>{nullText}</h1>
@@ -71,11 +71,7 @@ function index({ children, nullText }) {
 					<h1>
 						{' '}
 						<span>
-							<img
-								src={Disclaimer}
-								alt="Disclaimer"
-								id="disclaimer"
-							/>
+							<img src={Disclaimer} alt="Disclaimer" id="disclaimer" />
 						</span>
 						Disclaimer
 					</h1>
@@ -83,11 +79,10 @@ function index({ children, nullText }) {
 				</div>
 				<div className="text">
 					<p>
-						Any information is confidential to you and Choose Life.
-						Choose Life does not share this information with your
-						employer. This information is strictly to give you an
-						assessment of where your health is, and we use this
-						information in recommending active lifestyle choices.
+						This information is strictly to give you an assessment of where your
+						health is, and make recommendations of active lifestyle choices
+						perfect for you. Please note that Choose Life does not share this
+						information with your employer as every information is confidential.
 					</p>
 				</div>
 			</DashboardLayout>

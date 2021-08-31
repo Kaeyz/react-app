@@ -92,11 +92,7 @@ const Home = () => {
 					/>
 				}
 				colorHead="orange"
-				detail1="As Children, we played around running, swinging and jumping. As teenagers, our level of physical activity began to drop
-drastically while the amount of food we ate increased.
-As adults, our level of activity hits a very low point as a result of
-being seated at a desk, eight hours of the day while asleep
-Another eight hours"
+				detail1="As Children, we played around; running, swinging, and jumping. As teenagers, our level of physical activity dropped drastically while the amount of food we ate increased. Now, as adults, our level of activity hits a very low point because of being stuck at a desk eight hours of the day and asleep for yet another eight hours at night."
 			/>
 			<SimilarCard
 				id="fitness"
@@ -110,18 +106,14 @@ Another eight hours"
 				colorSubHead="yellow"
 				flowerLeft={flower1}
 				smallsubhead="Fitness Plans"
-				detail2="Using all your date, we create recommended fitness plans
-				to ensure you meet your physical and health goals."
+				detail2="Using your data, we create and recommend fitness plans so that you can meet your physical and health goals."
 				whichImg={
 					<Wrapper>
 						<div className="fit-bg"></div>
 					</Wrapper>
 				}
 				colorHead="yellow"
-				detail1="Out technology allows unto accurately evaluate your fitness
-		Score, Metabolic Rate, Hydration Levels, Body Fat, Water
-		Retention & Muscle Mass.
-		This gives us clear insight into how your body is performing"
+				detail1="Our InBody technology allows us to evaluate your Fitness score, Metabolic Rate, Hydration Levels, Body Fat, Water Retention & Muscle Mass. This gives us logical insights into how your body is performing."
 			/>
 
 			<SimilarCard
@@ -132,22 +124,11 @@ Another eight hours"
 				colorSubHead="green"
 				subhead="Nutrition"
 				smallsubhead="Recipes you know & love"
-				detail2="We also offer healthy recipes for yourself or your chef to follow easily.
-		Choose Life outlines the amount of nutrients you need daily and offers
-		Recommendations on foods that are rich in those
-		"
-				detail3="We have reimagined how we can use our existing local recipes
-		and prepare them in a way that is healthier and not harmful to
-		your body"
-				whichImg={
-					<SquareImg bg="img3" border1="lightgray" border2="green" />
-				}
+				detail2="We also offer healthy recipes for you or your chef to follow easily. Choose Life outlines the number of nutrients you need daily and offers recommendations on foods that are rich in those."
+				detail3="We have reimagined how we can use our existing local recipes and prepare them in a way that is healthier and not harmful to your body."
+				whichImg={<SquareImg bg="img3" border1="lightgray" border2="green" />}
 				colorHead="green"
-				detail1="At Choose Life, we understand that what goes into your body
-		Is the most important part of your health.
-		This is why we offer support through personalized nutrition
-		plans and recipe on how to make healthier versions of the
-		Foods you already love. "
+				detail1="At Choose Life, we understand that what goes into your body is the most important part of your health. That’s why we offer support through personalized nutrition plans and recipes on how to make healthier versions of meals you relish."
 			/>
 			<OurClients />
 			<Testimonials />

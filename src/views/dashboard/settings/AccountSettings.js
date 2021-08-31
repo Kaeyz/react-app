@@ -67,10 +67,7 @@ const AccountSettings = ({ user, updateUser }) => {
 			<>
 				<div className="settings-body-main">
 					<h2 className="text">Company Information</h2>
-					<p>
-						This section contains general information about the
-						company.
-					</p>
+					<p>This section contains information about you.</p>
 				</div>
 				<form noValidate autoComplete="off">
 					<Grid container spacing={3}>
@@ -185,10 +182,7 @@ const AccountSettings = ({ user, updateUser }) => {
 					style={{ paddingTop: user.type === 'COMPANY' ? '40px' : '0px' }}
 				>
 					<h2 className="text">General Information</h2>
-					<p>
-						This section contains general information about
-						yourself.
-					</p>
+					<p>This section contains information about you.</p>
 				</div>
 				<form noValidate autoComplete="off">
 					<Grid container spacing={3}>

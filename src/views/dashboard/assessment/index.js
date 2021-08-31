@@ -136,32 +136,25 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 						<Paper className="paper">
 							<h1>Assessment</h1>
 							<p>
-								More and more people are struggling with
-								obstacles that keep them from eating better,
-								moving around more and making healthy lifestyle
-								choices. We find both younger and older people
-								coming down with serious non communicable
-								diseases due to personal and workplace related
-								reasons. They are also unable to adopt the
-								healthy lifestyle needed to fend off preventable
-								diseases..
+								Most people struggle with eating healthily, moving around often,
+								and making healthy lifestyle choices. Because of this, more
+								people are coming down with serious non-communicable diseases
+								largely due to personal and work-related issues. Unfortunately,
+								poor lifestyle choices can hinder them from fending off
+								preventable diseases.
 							</p>
 							<br />
 							<p>
-								Choose life provides you with assessments to
-								help you understand your body, identify
-								potential risks as well as make better decisions
-								on your Health, Fitness, Lifestyle and
-								Nutrition.
+								Choose Life provides you with the tools you need to understand
+								your body, identify potential risks and make better decisions on
+								your Health, Fitness, Nutrition, and Lifestyle.
 							</p>
 						</Paper>
 					</div>
 
 					<div className="sub-heading flex">
 						<img src={smallImg} alt="adornment" />
-						<h3>
-							Steps to Understanding your Health with Choose life
-						</h3>
+						<h3>Steps to Understanding your Health with Choose life</h3>
 					</div>
 
 					<div className="lower">
@@ -173,7 +166,7 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 								backgroundColor="orange"
 								where={'/assessment/health'}
 								image={pinkFlower}
-								details="Take a health risk assessment, understand the risks to yourself and how your lifestyle can be improved."
+								details="Take a Health Risk Assessment, understand the risks, and how your lifestyle can improve."
 							/>
 
 							<PreliminaryCard
@@ -182,7 +175,7 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 								image={greenFlower}
 								btnTheme="purpleBtn"
 								backgroundColor="green"
-								details="Inbody check will help you understand your body's composition which is valuable for self improvement."
+								details="InBody Analysis will provide accurate information on your body's composition which is valuable to track your wellness journey,"
 							/>
 
 							<PreliminaryCard
@@ -192,7 +185,7 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 								where={'/meals'}
 								btnTheme="yellowBtn"
 								backgroundColor="yellow"
-								details="Explore fitness routines to keep your body in shape or create a meal plan to keep you eating healthy."
+								details="Explore fitness routines to keep your body in great shape or create a meal plan to keep you eating healthily."
 							/>
 						</div>
 
@@ -206,13 +199,10 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 							{type === 'EMPLOYEE' && (
 								<div className="flex withPicture">
 									<p>
-										Others have completed this assessment.
-										Fill and get ahead of your colleagues!
+										Others have completed this assessment. Fill and get ahead of
+										your colleagues!
 									</p>
-									<Link
-										className="linked-btn"
-										to="/rewards/leaderboard"
-									>
+									<Link className="linked-btn" to="/rewards/leaderboard">
 										<Button
 											value="View Leaderboard"
 											theme="darkGreenBtn"
@@ -229,18 +219,12 @@ const DashboardAssessment = ({ fetchHraResponse, type, companySize }) => {
 							{type === 'COMPANY' && (
 								<div className="flex withPicture">
 									<p>
-										<span>
-											{companySize > 1 ? companySize : 2}
-										</span>{' '}
-										Others have completed this assessment.
-										Fill and qualify for the Wellness
+										<span>{companySize > 1 ? companySize : 2}</span> Others have
+										completed this assessment. Fill and qualify for the Wellness
 										reward!
 									</p>
 
-									<Link
-										className="linked-btn"
-										to="/rewards/leaderboard"
-									>
+									<Link className="linked-btn" to="/rewards/leaderboard">
 										<Button
 											value="View Leaderboard"
 											theme="darkGreenBtn"

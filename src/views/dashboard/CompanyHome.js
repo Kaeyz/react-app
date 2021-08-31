@@ -50,12 +50,12 @@ const DashboardHome = ({ companySize }) => {
 
 					<PreliminaryCard
 						btnValue="View Rewards"
-						cardInfo="Create Rewards"
+						cardInfo="Rewards"
 						image={greenFlower}
 						where={'/rewards'}
 						btnTheme="purpleBtn"
 						backgroundColor="green"
-						details="Empowering you with the knowledge and opportunity to live the best life possible."
+						details="Gain points and more when you complete activities or top the leaderboard."
 					/>
 
 					<PreliminaryCard
@@ -65,7 +65,7 @@ const DashboardHome = ({ companySize }) => {
 						where={'/reports'}
 						btnTheme="yellowBtn"
 						backgroundColor="yellow"
-						details="Empowering you with the knowledge and opportunity to live the best life possible.."
+						details="Get access to intelligent verifiable analytics and progress reports on your wellness performance."
 					/>
 				</div>
 			</main>

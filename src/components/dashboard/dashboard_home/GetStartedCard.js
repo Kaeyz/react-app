@@ -45,16 +45,15 @@ function GetStartedCard() {
 			</div>
 			<div className="bg"></div>
 			<p className="read-more">
-				More and more people are struggling with obstacles that keep
-				them from eating better, moving around more and making healthy
-				lifestyle choices. We find both younger and older people coming
-				down with serious non communicable diseases like Hypertension,
-				Diabetes, Obesity and Cancer due to personal and workplace
-				related reasons.{' '}
+				Most people struggle with eating healthily, moving around often, and
+				making healthy lifestyle choices. Because of this, more people are
+				coming down with serious non-communicable diseases largely due to
+				personal and work-related issues. Unfortunately, poor lifestyle choices
+				can hinder them from fending off preventable diseases.{' '}
 				<span style={{ color: '#2EC4B6' }}>View more</span>
 			</p>
 			<Link to="/dashboard_home2">
-				<Button value="Get started" theme="green">
+				<Button value="Get Started" theme="green">
 					Get started
 				</Button>
 			</Link>

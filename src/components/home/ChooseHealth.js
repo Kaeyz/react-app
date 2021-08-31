@@ -112,32 +112,29 @@ function ChooseHealth({ id }) {
 					<Grid item xs={12} sm={4} className="mb-15sm">
 						<h3 className="heading">We assess your health</h3>
 						<p className="detail">
-							We conduct preliminary test using your Body Mass
-							Index as starting point. We then build a wholistic
-							profile of your health and identify any pre-existing
-							conditions or hereditary conditions like Diabetes or
-							others
+							We conduct personalized assessments using your Health Risk
+							Assessment as a starting point. We then build a holistic profile
+							of your health and identify any pre-existing or hereditary
+							conditions like diabetes or others.
 						</p>
 					</Grid>
 					<Grid item xs={12} sm={4} className="mb-15sm">
 						<h3 className="heading">We analyze</h3>
 						<p className="detail">
-							A general assessment of your Blood Pressure,
-							Cholesterol level, Family history to check your
-							Predisposition to hereditary illnesses, and any
-							Existing conditions. Answers to health questions are
-							analyzed and compiled into an individual wellness
-							report which scores and ranks the Employee’s current
-							good habit as well as their Health risks.
+							Using key health numbers like your Blood Pressure, Cholesterol
+							level, and Family history, we check your predisposition to
+							hereditary illnesses and any existing conditions. Answers to
+							health questions are analyzed and compiled into an individual
+							wellness report which scores and ranks the employees’ current good
+							habit and their health risks.
 						</p>
 					</Grid>
 					<Grid item xs={12} sm={4} className="last-child mb-15sm">
 						<h3 className="heading">We recommend & track</h3>
 						<p className="detail">
-							Having identified the pre-existing conditions and
-							possible physical and mental risks, we make
-							recommendations and help you create health goals on
-							what can be done to improve your health.
+							Having identified the pre-existing conditions and physical and
+							mental risks, we make recommendations and help you create health
+							goals on what can be done to improve your health.
 						</p>
 					</Grid>
 				</Grid>

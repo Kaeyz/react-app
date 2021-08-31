@@ -171,17 +171,16 @@ function AboutUs({ id }) {
 					<Grid item xs={12} sm={6}>
 						<h1>About Us</h1>
 						<p>
-							Choose Life is a digital wellness platform
-							empowering both individuals and organizations with
-							the data, tools and guides, to improve their
-							physical and mental wellbeing. Using innovative
-							technology Choose Life gives intelligent verifiable
-							analytics and progress on wellness performance
+							Choose Life is a digital wellness platform that empowers
+							individuals and organizations with the data, tools, and guides to
+							improve their physical and mental well-being. Using innovative
+							technology, Choose Life provides intelligent and verifiable
+							analytics and progress reports on wellness performance.
 						</p>
 						<br />
 						<p>
-							Choose Life is driving Wellness into corporate
-							culture and individuals lifestyles
+							Choose Life is driving Wellness into corporate culture and
+							personal lifestyle.
 						</p>
 					</Grid>
 					<Grid item xs={12} sm={6} className="grid-right">

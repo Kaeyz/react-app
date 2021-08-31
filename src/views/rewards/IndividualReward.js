@@ -89,18 +89,18 @@ function IndividualRewards({ getRewards, reward, isLoading }) {
 			<DashboardLayout whatPage="Rewards">
 				<WelcomeCard
 					emoji="🎉"
-					detail="Earn set employee rewards from your company when you top the leaderboard at the close of a period."
+					detail="Earn rewards from your company when you top the leaderboard at the close of a period."
 				/>
 				<p className="info mt">
-					Get rewards from your company by engaging activities on
-					Choose Life. You get rewards every time you finish a HRA and
-					other activities
+					Get rewards from your company by engaging in activities on Choose
+					Life. You get rewards every time you finish a Health Risk Assessment
+					and other activities.
 				</p>
 				<p className="sub-heading cap ">Current Rewards</p>
 				{isLoading ? (
 					<div>Loading ...</div>
 				) : Object.keys(reward).length === 0 ? (
-					<p>Your company does not have any current reward.</p>
+					<p>Your company does not have any current rewards.</p>
 				) : (
 					<Grid container>
 						<Grid item xs={9}>
@@ -111,31 +111,18 @@ function IndividualRewards({ getRewards, reward, isLoading }) {
 									</div>
 									<Divider />
 									<div className="detail">
-										<p className="info">
-											{reward.description}
-										</p>
+										<p className="info">{reward.description}</p>
 										<div className="sub-info">
 											<div>
 												<div className="grid">
-													<p className="bold">
-														{' '}
-														Start Date{' '}
-													</p>
+													<p className="bold"> Start Date </p>
 													<p className="date">
-														{convertDate(
-															reward.startDate,
-														)}
+														{convertDate(reward.startDate)}
 													</p>
 												</div>
 												<div className="grid">
-													<p className="bold">
-														End Date
-													</p>
-													<p className="date">
-														{convertDate(
-															reward.endDate,
-														)}
-													</p>
+													<p className="bold">End Date</p>
+													<p className="date">{convertDate(reward.endDate)}</p>
 												</div>
 											</div>
 										</div>

@@ -94,20 +94,17 @@ const Wrapper = styled.div`
 function CarouselHero(props) {
 	const items = [
 		{
-			name:
-				'Wellness is a gift you give yourself. Start your own health and wellness journey on CHOOSELIFE.',
+			name: 'Wellness is the perfect gift you can give yourself. Begin the journey to a healthier YOU today.',
 			bgImg:
 				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto,q_auto,w_auto/v1607309874/chooseLife/shalom-mwenesi_wbmcyn',
 		},
 		{
-			name:
-				'Redesign your life by picking yourself up everyday and choosing life.Start your health & wellness journey here.',
+			name: 'Getting your loved ones started on a wellness journey is the best way to show you care.',
 			bgImg:
 				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto,q_auto,w_auto/v1607309853/chooseLife/FatherSon_aybzjf.png',
 		},
 		{
-			name:
-				'Wellness is not just something you gift yourself, it is a way to show you care for your loved one.Start your health & wellness journey here.',
+			name: 'Say NO to a lifestyle that puts your health at risk and embrace wellness today. Choose Life for a healthier YOU.',
 			bgImg:
 				'https://res.cloudinary.com/dsqnyciqg/image/upload/f_auto,q_auto,w_auto/v1607309873/chooseLife/family_satzio.png',
 		},

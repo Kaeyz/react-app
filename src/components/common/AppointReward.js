@@ -107,7 +107,7 @@ function AppointReward({ cardTheme, icon, title, info, left, leftB, right, right
 
 AppointReward.defaultProps={
 	title:'Reward Title',
-	info:'Empowering you with the knowledge and loren opportunity to live the best life possible.',
+	info:'Empowering you with the knowledge and opportunity to live the best life possible.',
 	left:'Start Date',
 	leftB:'Feb 24, 2019',
 	right:'End Date',
